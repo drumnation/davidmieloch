@@ -1,36 +1,52 @@
 import styled, { css } from 'styled-components';
-import { CardProps, CardVariant } from './Card.types';
+import { StyledCardProps } from './Card.types';
 
 const variantStyles = {
-  default: css`
-    background: white;
-    border: 1px solid #E2E8F0;
-  `,
   gradient: css`
-    background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
-    color: white;
+    background: var(--bg-gradient);
+    color: var(--text-light);
   `,
   accent: css`
-    background: rgba(99, 102, 241, 0.05);
-    border: 1px solid rgba(99, 102, 241, 0.1);
-  `
+    background: var(--bg-light);
+    border: 1px solid var(--primary-blue);
+    color: var(--text-primary);
+  `,
 };
 
-const hoverStyles = css`
+const paddingStyles = {
+  none: css`
+    padding: 0;
+  `,
+  sm: css`
+    padding: 1rem;
+  `,
+  md: css`
+    padding: 1.5rem;
+  `,
+  lg: css`
+    padding: 2rem;
+  `,
+  xl: css`
+    padding: 3rem;
+  `,
+};
+
+export const StyledCard = styled.div<StyledCardProps>`
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+  width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'auto')};
+
+  ${({ $variant }) => variantStyles[$variant]};
+  ${({ $padding }) => paddingStyles[$padding]};
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
-`;
 
-export const StyledCard = styled.div<{ $variant: CardVariant; $hoverable: boolean }>`
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-  ${({ $variant }) => variantStyles[$variant]}
-  ${({ $hoverable }) => $hoverable && hoverStyles}
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 `; 

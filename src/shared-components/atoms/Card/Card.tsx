@@ -4,18 +4,18 @@ import { StyledCard } from './Card.styles';
 
 export const Card: React.FC<CardProps> = ({
   children,
-  variant = 'default',
-  hoverable = false,
+  variant = 'gradient',
+  padding = 'md',
   className,
-  style,
-  onClick
+  onClick,
+  fullWidth = false,
 }) => {
   return (
     <StyledCard
       $variant={variant}
-      $hoverable={hoverable}
+      $padding={padding}
+      $fullWidth={fullWidth}
       className={className}
-      style={style}
       onClick={onClick}
     >
       {children}

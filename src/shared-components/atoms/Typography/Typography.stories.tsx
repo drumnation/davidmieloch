@@ -1,5 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Typography } from './Typography';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
+import { Typography, H1, H2, H3, Body, Caption } from './Typography';
+import { TypographyProps } from './Typography.types';
 import styled from 'styled-components';
 
 const StoryContainer = styled.div`
@@ -10,7 +12,7 @@ const StoryContainer = styled.div`
   padding: 2rem;
 `;
 
-const meta = {
+const meta: Meta<typeof Typography> = {
   title: 'Atoms/Typography',
   component: Typography,
   parameters: {
@@ -25,37 +27,64 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['h1', 'h2', 'h3', 'h4', 'body1', 'body2', 'caption', 'overline'],
-      description: 'The typography variant to use',
-      table: {
-        defaultValue: { summary: 'body1' },
-      },
+      options: ['h1', 'h2', 'h3', 'body', 'caption'],
     },
     weight: {
       control: 'select',
       options: ['regular', 'medium', 'semibold', 'bold'],
-      description: 'The font weight to use',
-      table: {
-        defaultValue: { summary: 'regular' },
-      },
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'accent', 'inherit'],
-      description: 'The text color to use',
-      table: {
-        defaultValue: { summary: 'primary' },
-      },
-    },
-    gradient: {
-      control: 'boolean',
-      description: 'Whether to apply a gradient effect to the text',
+      options: ['primary', 'secondary', 'light', 'gradient'],
     },
   },
-} satisfies Meta<typeof Typography>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Typography>;
+
+// Base Typography Story
+export const Default: Story = {
+  args: {
+    children: 'The quick brown fox jumps over the lazy dog',
+    variant: 'body',
+    weight: 'regular',
+    color: 'primary',
+  },
+};
+
+// All Variants Story
+export const AllVariants = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <H1>Heading 1 - 48px Bold</H1>
+    <H2>Heading 2 - 36px Semibold</H2>
+    <H3>Heading 3 - 30px Medium</H3>
+    <Body>Body Text - 18px Regular</Body>
+    <Caption>Caption Text - 14px Regular</Caption>
+  </div>
+);
+
+// Colors Story
+export const Colors = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <H2 color="primary">Primary Text Color</H2>
+    <H2 color="secondary">Secondary Text Color</H2>
+    <div style={{ background: '#1A202C', padding: '1rem' }}>
+      <H2 color="light">Light Text Color</H2>
+    </div>
+    <H2 color="gradient">Gradient Text Color</H2>
+  </div>
+);
+
+// Weights Story
+export const Weights = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Body weight="regular">Regular Weight - 400</Body>
+    <Body weight="medium">Medium Weight - 500</Body>
+    <Body weight="semibold">Semibold Weight - 600</Body>
+    <Body weight="bold">Bold Weight - 700</Body>
+  </div>
+);
 
 // Individual variant stories
 export const Heading1: Story = {

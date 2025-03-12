@@ -459,6 +459,13 @@ export const scrollToSection = (sectionId: string) => {
 };
 ```
 
+### NavigationCard Component
+- [x] Create NavigationCard component
+  - [x] Implement gradient and accent style variants
+  - [x] Add hover animations and transitions
+  - [x] Support icons and call-to-action buttons
+  - [x] Create Storybook stories with examples
+
 ## Storybook Setup
 
 ### Basic Setup

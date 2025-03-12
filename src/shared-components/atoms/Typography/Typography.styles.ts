@@ -1,85 +1,26 @@
 import styled, { css } from 'styled-components';
-import { TypographyVariant, TypographyWeight, TypographyColor } from './Typography.types';
-import { media } from '../../styles/responsive';
+import { StyledTypographyProps } from './Typography.types';
 
 const variantStyles = {
   h1: css`
-    font-size: 2rem; // Mobile first
+    font-size: 3rem;
     line-height: 1.2;
-    
-    ${media.up('md')} {
-      font-size: 2.5rem;
-    }
-    
-    ${media.up('lg')} {
-      font-size: 3rem;
-    }
   `,
   h2: css`
-    font-size: 1.75rem;
+    font-size: 2.25rem;
     line-height: 1.3;
-    
-    ${media.up('md')} {
-      font-size: 2rem;
-    }
-    
-    ${media.up('lg')} {
-      font-size: 2.25rem;
-    }
   `,
   h3: css`
-    font-size: 1.5rem;
+    font-size: 1.875rem;
     line-height: 1.4;
-    
-    ${media.up('md')} {
-      font-size: 1.75rem;
-    }
-    
-    ${media.up('lg')} {
-      font-size: 1.875rem;
-    }
   `,
-  h4: css`
-    font-size: 1.25rem;
-    line-height: 1.4;
-    
-    ${media.up('md')} {
-      font-size: 1.375rem;
-    }
-    
-    ${media.up('lg')} {
-      font-size: 1.5rem;
-    }
-  `,
-  body1: css`
-    font-size: 1rem;
+  body: css`
+    font-size: 1.125rem;
     line-height: 1.6;
-    
-    ${media.up('md')} {
-      font-size: 1.125rem;
-    }
-  `,
-  body2: css`
-    font-size: 0.875rem;
-    line-height: 1.6;
-    
-    ${media.up('md')} {
-      font-size: 1rem;
-    }
   `,
   caption: css`
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     line-height: 1.5;
-    
-    ${media.up('md')} {
-      font-size: 0.875rem;
-    }
-  `,
-  overline: css`
-    font-size: 0.75rem;
-    line-height: 1.5;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
   `,
 };
 
@@ -100,28 +41,26 @@ const weightStyles = {
 
 const colorStyles = {
   primary: css`
-    color: ${({ theme }) => theme.colors?.text?.primary || '#1A202C'};
+    color: var(--text-primary);
   `,
   secondary: css`
-    color: ${({ theme }) => theme.colors?.text?.secondary || '#4A5568'};
+    color: var(--text-secondary);
   `,
-  accent: css`
-    color: ${({ theme }) => theme.colors?.accent?.main || '#6366F1'};
+  light: css`
+    color: var(--text-light);
   `,
-  inherit: css`
-    color: inherit;
+  gradient: css`
+    background: var(--bg-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   `,
 };
 
-interface StyledTypographyProps {
-  $variant: TypographyVariant;
-  $weight: TypographyWeight;
-  $color: TypographyColor;
-}
-
 export const StyledTypography = styled.span<StyledTypographyProps>`
+  font-family: 'Inter', sans-serif;
   margin: 0;
-  ${({ $variant }) => variantStyles[$variant]}
-  ${({ $weight }) => weightStyles[$weight]}
-  ${({ $color }) => colorStyles[$color]}
+  ${({ $variant }) => variantStyles[$variant]};
+  ${({ $weight }) => weightStyles[$weight]};
+  ${({ $color }) => colorStyles[$color]};
 `; 

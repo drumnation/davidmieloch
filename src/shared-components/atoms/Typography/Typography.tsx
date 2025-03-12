@@ -2,41 +2,53 @@ import React from 'react';
 import { TypographyProps } from './Typography.types';
 import { StyledTypography } from './Typography.styles';
 
-const defaultElementMap = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  h4: 'h4',
-  body1: 'p',
-  body2: 'p',
-  caption: 'span',
-  overline: 'span',
-} as const;
-
-export const Typography = React.forwardRef<HTMLElement, TypographyProps>(({
+export const Typography: React.FC<TypographyProps> = ({
   children,
-  variant = 'body1',
+  variant = 'body',
   weight = 'regular',
   color = 'primary',
   className,
   as,
-  ...props
-}, ref) => {
-  const element = as || defaultElementMap[variant];
+}) => {
+  // Default HTML element based on variant
+  const defaultElement = {
+    h1: 'h1',
+    h2: 'h2',
+    h3: 'h3',
+    body: 'p',
+    caption: 'span',
+  }[variant] as keyof JSX.IntrinsicElements;
 
   return (
     <StyledTypography
-      ref={ref}
-      as={element}
+      as={as || defaultElement}
       $variant={variant}
       $weight={weight}
       $color={color}
       className={className}
-      {...props}
     >
       {children}
     </StyledTypography>
   );
-});
+};
 
-Typography.displayName = 'Typography'; 
+// Convenience components
+export const H1: React.FC<Omit<TypographyProps, 'variant'>> = (props) => (
+  <Typography {...props} variant="h1" weight={props.weight || 'bold'} />
+);
+
+export const H2: React.FC<Omit<TypographyProps, 'variant'>> = (props) => (
+  <Typography {...props} variant="h2" weight={props.weight || 'semibold'} />
+);
+
+export const H3: React.FC<Omit<TypographyProps, 'variant'>> = (props) => (
+  <Typography {...props} variant="h3" weight={props.weight || 'medium'} />
+);
+
+export const Body: React.FC<Omit<TypographyProps, 'variant'>> = (props) => (
+  <Typography {...props} variant="body" />
+);
+
+export const Caption: React.FC<Omit<TypographyProps, 'variant'>> = (props) => (
+  <Typography {...props} variant="caption" />
+); 

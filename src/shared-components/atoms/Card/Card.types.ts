@@ -1,12 +1,19 @@
 import { ReactNode } from 'react';
 
-export type CardVariant = 'default' | 'gradient' | 'accent';
+export type CardVariant = 'gradient' | 'accent';
+export type CardPadding = 'none' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface CardProps {
   children: ReactNode;
   variant?: CardVariant;
-  hoverable?: boolean;
+  padding?: CardPadding;
   className?: string;
-  style?: React.CSSProperties;
   onClick?: () => void;
+  fullWidth?: boolean;
+}
+
+export interface StyledCardProps {
+  $variant: CardVariant;
+  $padding: CardPadding;
+  $fullWidth: boolean;
 } 
