@@ -10,18 +10,21 @@ export interface AiSkepticToExpertProps {
 
   /**
    * Props for the Hero component
+   * Optional since default values are provided in the component
    */
-  heroProps: HeroProps;
+  heroProps?: HeroProps;
 
   /**
    * Props for the QuoteGrid component
+   * Optional since default values are provided in the component
    */
-  quotesProps: QuoteGridProps;
+  quotesProps?: QuoteGridProps;
 
   /**
    * Props for the ProblemSolutionCards
+   * Optional since default values are provided in the component
    */
-  problemSolutionCardsProps: {
+  problemSolutionCardsProps?: {
     cards: Array<ProblemSolutionCardProps>;
   };
 } 

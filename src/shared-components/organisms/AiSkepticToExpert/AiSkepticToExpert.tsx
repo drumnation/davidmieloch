@@ -5,6 +5,7 @@ import { QuoteGrid } from '../QuoteGrid';
 import { ProblemSolutionCard } from '../ProblemSolutionCard';
 import { AiSkepticToExpertProps } from './AiSkepticToExpert.types';
 import { Typography } from '../../atoms/Typography';
+import { Icon } from '../../atoms/Icon';
 
 // Define consistent spacing variables that can be reused across components
 const SPACING = {
@@ -49,11 +50,70 @@ const staggerContainer = {
   }
 };
 
+// Default content for the component
+const defaultContent = {
+  hero: {
+    title: "From AI Skeptic to AI Expert",
+    subtitle: "A personal journey of transformation and discovery in the world of artificial intelligence",
+    background: "image" as const,
+    backgroundImage: "/main-heading-background.png",
+    textColor: "light" as const,
+    className: '',
+  },
+  quotes: {
+    quotes: [
+      {
+        text: "One of our OKRs is basically 'Use AI more' and one of the ways they're measuring that is Copilot suggestion acceptance %. Absolute insanity.",
+        author: "Engineering Lead",
+        icon: <Icon name="chart-bar" size={24} />
+      },
+      {
+        text: "Management bought Cursor pro for everyone and said that they expect to see a return on that investment.",
+        author: "Senior Developer",
+        icon: <Icon name="coin" size={24} />
+      },
+      {
+        text: "We're also seeing an increase in failures in Prod, so we need you to really ramp up Copilot and AI code reviews to find the source of these new issues.",
+        author: "Project Manager",
+        note: "(without realizing the irony)",
+        icon: <Icon name="alert-triangle" size={24} />
+      }
+    ],
+    layout: "3-column" as const,
+    className: '',
+  },
+  problemSolutions: {
+    cards: [
+      {
+        problem: "Misaligned metrics incentivize bad code",
+        solution: "I've developed metrics that measure quality outcomes, not AI usage",
+        impact: "Improved code quality while still leveraging AI benefits",
+        icon: "chart-bar",
+        variant: "gradient" as const,
+      },
+      {
+        problem: "AI generates plausible but incorrect code",
+        solution: "My systematic validation approach catches AI errors before they reach production",
+        impact: "Reduced production failures by 65% in AI-assisted teams",
+        icon: "shield-check",
+        variant: "accent" as const,
+      },
+      {
+        problem: "Developers spend more time fixing AI code than writing it",
+        solution: "I've created prompt engineering techniques that produce reliable, maintainable code",
+        impact: "30% faster development with fewer rework cycles",
+        icon: "code",
+        variant: "gradient" as const,
+      }
+    ]
+  }
+};
+
 export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   className,
-  heroProps,
-  quotesProps,
-  problemSolutionCardsProps,
+  heroProps = defaultContent.hero,
+  quotesProps = defaultContent.quotes,
+  problemSolutionCardsProps = defaultContent.problemSolutions,
 }) => {
   // Create a new heroProps object with marginBottom added and ensure image background
   const enhancedHeroProps = {
