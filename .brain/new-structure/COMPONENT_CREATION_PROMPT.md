@@ -431,33 +431,16 @@ export interface MetricsGridProps {
 
 ## Navigation Components
 
-### Side Navigation
-- [ ] Create side navigation component:
-```typescript
-// components/navigation/SideNav.tsx
-export interface SideNavProps {
-  sections: Array<{
-    id: string;
-    title: string;
-    subsections?: Array<{
-      id: string;
-      title: string;
-    }>;
-  }>;
-}
-```
-
-### Scroll Behavior
-- [ ] Implement smooth scroll functionality:
-```typescript
-// utils/scroll.ts
-export const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-```
+### NavigationMenu Component
+- [x] Create NavigationMenu component
+  - [x] Implement sticky sidebar navigation
+  - [x] Add smooth scroll functionality
+  - [x] Support nested menu items
+  - [x] Create Storybook stories
+  - [x] Add mobile-responsive drawer mode
+  - [x] Support light/dark themes
+  - [x] Add hover and active states
+  - [x] Implement keyboard navigation
 
 ### NavigationCard Component
 - [x] Create NavigationCard component
