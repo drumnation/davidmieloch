@@ -38,40 +38,40 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    problem: 'AI Integration Complexity',
-    solution: 'Simplified AI Workflow System',
-    impact: 'Reduced integration time by 75%',
-    icon: 'robot',
+    problem: 'Misaligned metrics incentivize bad code',
+    solution: 'Quality-focused measurement approach',
+    impact: 'Improved code quality with AI assistance',
+    icon: 'chart-bar',
     variant: 'gradient',
   },
 };
 
 export const WithLongContent: Story = {
   args: {
-    problem: 'Complex AI systems require extensive training and expertise to implement effectively',
-    solution: 'Our automated workflow system handles the complexity, allowing teams to focus on their core tasks',
-    impact: 'Teams can start using AI tools within days instead of months, with 90% less training time',
-    icon: 'brain',
+    problem: 'Developers spend more time fixing AI-generated code than writing it from scratch',
+    solution: "I've developed prompt engineering techniques that produce reliable, maintainable code",
+    impact: '30% faster development with fewer rework cycles',
+    icon: 'code',
     variant: 'accent',
   },
 };
 
 export const MultipleCards: Story = {
   args: {
-    problem: 'AI Integration Complexity',
-    solution: 'Simplified AI Workflow',
-    impact: '75% faster integration',
-    icon: 'robot',
+    problem: 'Misaligned metrics incentivize bad code',
+    solution: 'Quality-focused measurement approach',
+    impact: 'Improved code quality with AI assistance',
+    icon: 'chart-bar',
     variant: 'gradient',
   },
   render: (args) => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', maxWidth: '800px' }}>
       <ProblemSolutionCard {...args} />
       <ProblemSolutionCard
-        problem="Training Overhead"
-        solution="Automated Learning System"
-        impact="90% less training time"
-        icon="brain"
+        problem="AI generates plausible but incorrect code"
+        solution="Systematic validation approach"
+        impact="65% fewer production failures"
+        icon="shield-check"
         variant="accent"
       />
     </div>

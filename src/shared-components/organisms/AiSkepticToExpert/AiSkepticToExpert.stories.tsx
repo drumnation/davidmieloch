@@ -50,24 +50,24 @@ export const Default: Story = {
     problemSolutionCardsProps: {
       cards: [
         {
-          problem: "Complex AI systems require deep technical expertise",
-          solution: "Our automated workflow system handles the complexity",
-          impact: "90% reduction in required AI expertise",
-          icon: "brain",
+          problem: "Misaligned metrics incentivize bad code",
+          solution: "I've developed metrics that measure quality outcomes, not AI usage",
+          impact: "Improved code quality while still leveraging AI benefits",
+          icon: "chart-bar",
           variant: "gradient"
         },
         {
-          problem: "Integration with existing workflows is challenging",
-          solution: "Seamless integration with your current development process",
-          impact: "75% faster integration time",
-          icon: "git-merge",
+          problem: "AI generates plausible but incorrect code",
+          solution: "My systematic validation approach catches AI errors before they reach production",
+          impact: "Reduced production failures by 65% in AI-assisted teams",
+          icon: "shield-check",
           variant: "accent"
         },
         {
-          problem: "AI maintenance overhead is high",
-          solution: "Self-maintaining AI systems with automated updates",
-          impact: "85% reduction in maintenance time",
-          icon: "robot",
+          problem: "Developers spend more time fixing AI code than writing it",
+          solution: "I've created prompt engineering techniques that produce reliable, maintainable code",
+          impact: "30% faster development with fewer rework cycles",
+          icon: "code",
           variant: "gradient"
         }
       ]
@@ -110,24 +110,24 @@ export const WithGradientBackground: Story = {
     problemSolutionCardsProps: {
       cards: [
         {
-          problem: "Complex AI systems require deep technical expertise",
-          solution: "Our automated workflow system handles the complexity",
-          impact: "90% reduction in required AI expertise",
-          icon: "brain",
+          problem: "Misaligned metrics incentivize bad code",
+          solution: "I've developed metrics that measure quality outcomes, not AI usage",
+          impact: "Improved code quality while still leveraging AI benefits",
+          icon: "chart-bar",
           variant: "gradient"
         },
         {
-          problem: "Integration with existing workflows is challenging",
-          solution: "Seamless integration with your current development process",
-          impact: "75% faster integration time",
-          icon: "git-merge",
+          problem: "AI generates plausible but incorrect code",
+          solution: "My systematic validation approach catches AI errors before they reach production",
+          impact: "Reduced production failures by 65% in AI-assisted teams",
+          icon: "shield-check",
           variant: "accent"
         },
         {
-          problem: "AI maintenance overhead is high",
-          solution: "Self-maintaining AI systems with automated updates",
-          impact: "85% reduction in maintenance time",
-          icon: "robot",
+          problem: "Developers spend more time fixing AI code than writing it",
+          solution: "I've created prompt engineering techniques that produce reliable, maintainable code",
+          impact: "30% faster development with fewer rework cycles",
+          icon: "code",
           variant: "gradient"
         }
       ]
@@ -172,24 +172,24 @@ export const WithImageBackground: Story = {
     problemSolutionCardsProps: {
       cards: [
         {
-          problem: "Complex AI systems require deep technical expertise",
-          solution: "Our automated workflow system handles the complexity",
-          impact: "90% reduction in required AI expertise",
-          icon: "brain",
+          problem: "Misaligned metrics incentivize bad code",
+          solution: "I've developed metrics that measure quality outcomes, not AI usage",
+          impact: "Improved code quality while still leveraging AI benefits",
+          icon: "chart-bar",
           variant: "gradient"
         },
         {
-          problem: "Integration with existing workflows is challenging",
-          solution: "Seamless integration with your current development process",
-          impact: "75% faster integration time",
-          icon: "git-merge",
+          problem: "AI generates plausible but incorrect code",
+          solution: "My systematic validation approach catches AI errors before they reach production",
+          impact: "Reduced production failures by 65% in AI-assisted teams",
+          icon: "shield-check",
           variant: "accent"
         },
         {
-          problem: "AI maintenance overhead is high",
-          solution: "Self-maintaining AI systems with automated updates",
-          impact: "85% reduction in maintenance time",
-          icon: "robot",
+          problem: "Developers spend more time fixing AI code than writing it",
+          solution: "I've created prompt engineering techniques that produce reliable, maintainable code",
+          impact: "30% faster development with fewer rework cycles",
+          icon: "code",
           variant: "gradient"
         }
       ]
