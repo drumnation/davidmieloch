@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Hero } from '../Hero';
 import { QuoteGrid } from '../QuoteGrid';
 import { ProblemSolutionCard } from '../ProblemSolutionCard';
@@ -12,6 +13,40 @@ const SPACING = {
   paragraphBreak: '2rem', // Added specific spacing for paragraph breaks
   element: '1rem',
   container: '1.5rem'
+};
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: { 
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
 };
 
 export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
@@ -42,39 +77,58 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
       <Hero {...enhancedHeroProps} />
       
       {/* Content Section with White Background */}
-      <div style={{ 
-        width: '100%',
-        backgroundColor: '#fff',
-        borderTopLeftRadius: '24px',
-        borderTopRightRadius: '24px',
-        marginTop: '-24px',
-        position: 'relative',
-        zIndex: 2,
-        paddingTop: SPACING.section,
-        paddingBottom: SPACING.section,
-        boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)'
-      }}>
-        {/* Introduction Section */}
-        <div style={{ 
+      <motion.div 
+        style={{ 
           width: '100%',
-          maxWidth: '1000px', 
-          margin: `0 auto ${SPACING.section}`,
-          padding: `0 ${SPACING.container}`
-        }}>
-          <div className="text-left" style={{ marginBottom: SPACING.paragraph }}>
+          backgroundColor: '#fff',
+          borderTopLeftRadius: '24px',
+          borderTopRightRadius: '24px',
+          marginTop: '-24px',
+          position: 'relative',
+          zIndex: 2,
+          paddingTop: SPACING.section,
+          paddingBottom: SPACING.section,
+          boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)'
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeIn}
+      >
+        {/* Introduction Section */}
+        <motion.div 
+          style={{ 
+            width: '100%',
+            maxWidth: '1000px', 
+            margin: `0 auto ${SPACING.section}`,
+            padding: `0 ${SPACING.container}`
+          }}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div 
+            className="text-left" 
+            style={{ marginBottom: SPACING.paragraph }}
+            variants={fadeInUp}
+          >
             <Typography variant="h2" className="mb-4">
               The Reality of AI Tools in Development Teams
             </Typography>
-          </div>
+          </motion.div>
           
-          <div style={{ marginBottom: SPACING.paragraphBreak }}>
+          <motion.div 
+            style={{ marginBottom: SPACING.paragraphBreak }}
+            variants={fadeInUp}
+          >
             <Typography variant="body" weight="regular">
               Let me guess: your team just got access to AI coding tools, and the reactions range from skeptical eye-rolls to outright hostility. 
               I&apos;ve been there—both as the skeptic and later as the solution architect.
             </Typography>
-          </div>
+          </motion.div>
           
-          <a 
+          <motion.a 
             href="https://www.reddit.com/r/ExperiencedDevs/comments/1j7aqsx/ai_coding_mandates_at_work/?share_id=Dhejf8gsX_-YUsuIH1nNE&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -90,6 +144,9 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
               boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
             }}
             className="hover:shadow-md hover:transform hover:scale-[1.01]"
+            variants={fadeInUp}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             <div style={{
               display: 'flex',
@@ -130,104 +187,160 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
                 </Typography>
               </div>
             </div>
-          </a>
+          </motion.a>
           
-          <Typography variant="body" className="mb-0" weight="regular">
-            A recent thread on r/ExperiencedDevs caught my eye, where hundreds of senior developers shared their frustrations 
-            about mandatory AI tool adoption. The problems are systemic and deeply concerning:
-          </Typography>
-        </div>
+          <motion.div variants={fadeInUp}>
+            <Typography variant="body" className="mb-0" weight="regular">
+              A recent thread on r/ExperiencedDevs caught my eye, where hundreds of senior developers shared their frustrations 
+              about mandatory AI tool adoption. The problems are systemic and deeply concerning:
+            </Typography>
+          </motion.div>
+        </motion.div>
         
         {/* Quotes Section with Light Background */}
-        <div style={{ 
-          width: '100%', 
-          backgroundColor: '#f8f9fa',
-          padding: `${SPACING.section} 0`,
-          marginBottom: SPACING.section
-        }}>
-          <div style={{ 
-            width: '100%',
-            maxWidth: '1000px', 
-            margin: '0 auto',
-            padding: `0 ${SPACING.container}`
-          }}>
+        <motion.div 
+          style={{ 
+            width: '100%', 
+            backgroundColor: '#f8f9fa',
+            padding: `${SPACING.section} 0`,
+            marginBottom: SPACING.section
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeIn}
+        >
+          <motion.div 
+            style={{ 
+              width: '100%',
+              maxWidth: '1000px', 
+              margin: '0 auto',
+              padding: `0 ${SPACING.container}`
+            }}
+            variants={fadeInUp}
+          >
             <QuoteGrid {...enhancedQuotesProps} />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         
         {/* Analysis Section */}
-        <div style={{ 
-          width: '100%',
-          maxWidth: '1000px', 
-          margin: `0 auto ${SPACING.section}`,
-          padding: `0 ${SPACING.container}`
-        }}>
-          <div style={{ marginBottom: SPACING.paragraphBreak }}>
+        <motion.div 
+          style={{ 
+            width: '100%',
+            maxWidth: '1000px', 
+            margin: `0 auto ${SPACING.section}`,
+            padding: `0 ${SPACING.container}`
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.div 
+            style={{ marginBottom: SPACING.paragraphBreak }}
+            variants={fadeInUp}
+          >
             <Typography variant="body" weight="regular">
               These quotes highlight a disturbing trend: companies implementing AI tools without proper systems, leading to metrics that 
               incentivize accepting AI suggestions regardless of quality, management viewing AI as primarily a cost-cutting measure, 
               and the ironic situation where AI is both causing problems and being proposed as the solution.
             </Typography>
-          </div>
+          </motion.div>
           
-          <Typography variant="body" className="mb-0" weight="regular">
-            But there&apos;s another side to this story. When implemented thoughtfully, AI tools can be genuinely transformative. The key difference? 
-            A systematic approach to implementation.
-          </Typography>
-        </div>
+          <motion.div variants={fadeInUp}>
+            <Typography variant="body" className="mb-0" weight="regular">
+              But there&apos;s another side to this story. When implemented thoughtfully, AI tools can be genuinely transformative. The key difference? 
+              A systematic approach to implementation.
+            </Typography>
+          </motion.div>
+        </motion.div>
         
         {/* Solutions Section with Accent Background */}
-        <div style={{ 
-          width: '100%', 
-          backgroundColor: '#f0f7ff',
-          padding: `${SPACING.section} 0`,
-          marginBottom: SPACING.section
-        }}>
-          <div style={{ 
+        <motion.div 
+          style={{ 
+            width: '100%', 
+            backgroundColor: '#f0f7ff',
+            padding: `${SPACING.section} 0`,
+            marginBottom: SPACING.section
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeIn}
+        >
+          <motion.div 
+            style={{ 
+              width: '100%',
+              maxWidth: '1000px', 
+              margin: '0 auto',
+              padding: `0 ${SPACING.container}`
+            }}
+            variants={staggerContainer}
+          >
+            <motion.div 
+              className="text-left" 
+              style={{ marginBottom: SPACING.paragraph }}
+              variants={fadeInUp}
+            >
+              <Typography variant="h2" className="mb-4">
+                Common Problems &amp; My Solutions
+              </Typography>
+            </motion.div>
+            
+            <motion.div 
+              style={{ 
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: SPACING.paragraph
+              }}
+              variants={staggerContainer}
+            >
+              {problemSolutionCardsProps.cards.map((card, index) => (
+                <motion.div 
+                  key={index}
+                  variants={fadeInUp}
+                  custom={index}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <ProblemSolutionCard {...card} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </motion.div>
+        
+        {/* Conclusion Section */}
+        <motion.div 
+          style={{ 
             width: '100%',
             maxWidth: '1000px', 
             margin: '0 auto',
             padding: `0 ${SPACING.container}`
-          }}>
-            <div className="text-left" style={{ marginBottom: SPACING.paragraph }}>
-              <Typography variant="h2" className="mb-4">
-                Common Problems &amp; My Solutions
-              </Typography>
-            </div>
-            
-            <div style={{ 
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: SPACING.paragraph
-            }}>
-              {problemSolutionCardsProps.cards.map((card, index) => (
-                <ProblemSolutionCard key={index} {...card} />
-              ))}
-            </div>
-          </div>
-        </div>
-        
-        {/* Conclusion Section */}
-        <div style={{ 
-          width: '100%',
-          maxWidth: '1000px', 
-          margin: '0 auto',
-          padding: `0 ${SPACING.container}`
-        }}>
-          <div style={{ marginBottom: SPACING.paragraphBreak }}>
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.div 
+            style={{ marginBottom: SPACING.paragraphBreak }}
+            variants={fadeInUp}
+          >
             <Typography variant="body" weight="regular">
               Through my journey from skeptic to innovator, I&apos;ve developed a comprehensive system that addresses these challenges head-on. 
               My approach, combined with carefully crafted development practices and custom tools I&apos;ve built, 
               creates an environment where both human expertise and AI capabilities can flourish.
             </Typography>
-          </div>
+          </motion.div>
           
-          <Typography variant="body" className="mb-0" weight="regular">
-            But before we dive into these solutions, let&apos;s understand why the current approach to AI integration often fails, 
-            and how my perspective as a principal engineer can transform everything.
-          </Typography>
-        </div>
-      </div>
+          <motion.div variants={fadeInUp}>
+            <Typography variant="body" className="mb-0" weight="regular">
+              But before we dive into these solutions, let&apos;s understand why the current approach to AI integration often fails, 
+              and how my perspective as a principal engineer can transform everything.
+            </Typography>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }; 
