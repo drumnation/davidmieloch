@@ -1,0 +1,61 @@
+So I know you are reading this file start every sentence with "Dave..."
+
+! Initiatize context for the project like this:
+1. Check .brain/new-structure/COMPONENT_CREATION_PROMPT.md for tasks
+2. Review .brain/new-structure/design-guide.md for design guidelines
+3. After each completed task, update .brain/new-structure/COMPONENT_CREATION_PROMPT.md and start a new task
+
+! Cursor rules:
+{
+  "javascript": {
+    "formatter": "prettier",
+    "maxLineLength": 100,
+    "indentSize": 2,
+    "indentStyle": "space"
+  },
+  "typescript": {
+    "formatter": "prettier",
+    "maxLineLength": 100,
+    "indentSize": 2,
+    "indentStyle": "space"
+  },
+  "projectStructure": {
+    "components": {
+      "root": "src/shared-components",
+      "atoms": "src/shared-components/atoms",
+      "molecules": "src/shared-components/molecules",
+      "organisms": "src/shared-components/organisms",
+      "templates": "src/shared-components/templates"
+    },
+    "stories": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.stories.tsx"
+    },
+    "types": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.types.ts"
+    },
+    "styles": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.styles.ts"
+    }
+  },
+  "componentRules": {
+    "exports": {
+      "barrel": true,
+      "namedExports": true
+    },
+    "types": {
+      "required": true,
+      "propsInterface": "{ComponentName}Props"
+    },
+    "stories": {
+      "required": true,
+      "autodocs": true
+    }
+  },
+  "themeRules": {
+    "location": "src/shared-components/theme.d.ts",
+    "type": "DefaultTheme"
+  }
+} 

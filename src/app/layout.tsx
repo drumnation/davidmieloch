@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Provider as ReduxProvider } from 'react-redux'
+import { ThemeProvider } from '@/providers/ThemeProvider'
+import { store } from '@/store'
+import StyledComponentsRegistry from './registry'
+import { lexend, inter, manrope, workSans, ibmPlex } from '@/styles/fonts';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,14 +24,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html lang="en" className={`${lexend.variable} ${inter.variable} ${manrope.variable} ${workSans.variable} ${ibmPlex.variable} ${geistSans.variable} ${geistMono.variable}`}>
+      <body>
+        <ReduxProvider store={store}>
+          <StyledComponentsRegistry>
+            <ThemeProvider>{children}</ThemeProvider>
+          </StyledComponentsRegistry>
+        </ReduxProvider>
       </body>
     </html>
-  );
+  )
 }

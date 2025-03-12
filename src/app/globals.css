@@ -1,6 +1,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-lexend: 'Lexend', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,9 +20,14 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lexend), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Default all text elements to Lexend */
+body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span {
+  font-family: var(--font-lexend), Arial, Helvetica, sans-serif;
 }
 
 * {
