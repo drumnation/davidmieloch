@@ -1,0 +1,298 @@
+# Feature Task: Architect & Plan Generator
+
+**Purpose:** To equip the Agent with a detailed, actionable plan for the next high-priority feature, ensuring a deep understanding of the codebase, architectural considerations, and a clear path for implementation with a focus on MECE breakdown and prioritized TDD. The agent will track its progress in the plan, marking tasks as complete, in progress, or blocked.
+
+## Instructions to the Agent:
+
+**DO NOT START WRITING THE PLAN YET.**
+
+First, read this entire template and understand your process. Then, execute each step in order. Your goal is to fill in each section of the plan template below using the instructions provided in each step.
+
+---
+
+## Step 1: Determine the Next Feature and Task
+
+1.  **Identify the next high-priority feature:** Consult the main project task list: `@.brain/project-plan.md`.
+2.  **Select the next task:** Choose the most important uncompleted task within that feature.
+3.  **Create feature folder:** 
+    * Scan `@.brain/2-custom-agent/b-features/` for the highest numbered plan
+    * Create a new folder with an incremented number and the feature name
+    * Example: `@.brain/2-custom-agent/b-features/05-feature-name/05-feature-name.md`
+4. **Create a domain knowledge template file that:**
+    * Location: Same folder as the feature plan
+    * Filename format: `{incremented-number}-{feature-name}-domain-knowledge.md`
+    * Example: `05-feature-name-domain-knowledge.md`
+    * Contains section headers for capturing knowledge during/after implementation
+    * Includes placeholder text explaining what should go in each section
+    * Uses <TO_FILL> or similar markers for sections to be completed later
+    * Adds helpful prompts/questions to guide documentation after the feature is built    
+        
+5.  **Populate the following in the plan template:**
+    *   `## Feature:` \[Feature Name]
+    *   `## Task:` \[Task Name]
+    *   `## Status:` ⭕ Planning
+    *   `## Last Updated:` [YYYY-MM-DD]
+
+## Step 2: Deep Codebase Analysis
+
+1.  **Immerse yourself in the relevant code:**
+    *   Start with the feature's entry point (if known).
+    *   Trace code execution paths related to the task.
+    *   Identify key files, classes, functions, and modules.
+2.  **Analyze dependencies:**
+    *   Identify internal and external dependencies.
+    *   Note library versions and potential compatibility issues.
+    *   Refer to `package.json`, `requirements.txt`, or similar for dependency information.
+3.  **Populate the following in the plan template:**
+    *   `## 2. Codebase Analysis`
+    *   `### 2.1. Key Files & Modules`
+        *   `[File/Module Path]:` \[Brief description of its role]
+    *   `### 2.2. Dependencies`
+        *   `[Library/Module Name]:` \[Version, purpose, and any known issues]
+    *   `### 2.3. Potential Concerns`
+        *   \[Any areas of the code that appear complex, fragile, or require special attention]
+        *   \[ ] Mark as addressed
+
+## Step 3: Architectural Exploration and Decision
+
+1.  **Review software architecture paradigms:**
+    *   Consider options like MVC, MVP, MVVM, Microservices, Event-Driven, etc.
+    *   Refer to knowledge resources for guidance: `@.brain/knowledge/`
+
+    *   **IF** the feature involves significant UI changes, **THEN** review `@..brain/prompts/style-debug.md` for guidance on UI/UX best practices and debugging strategies.
+2.  **Explore relevant design patterns:**
+    *   Consider patterns like Singleton, Factory, Observer, Decorator, Strategy, etc.
+    *   Refer to knowledge resources: `@.brain/knowledge/`
+3.  **Document and analyze options:**
+    *   Document at least 3 different architectural and design pattern combinations that could be used to implement the feature
+    *   Analyze the pros and cons of each option, considering factors like:
+        *   Scalability
+        *   Maintainability
+        *   Testability
+        *   Complexity
+        *   Team expertise
+4.  **Engage in a discussion with the user (me) to select the best option:**
+    *   Present a summary of your findings, highlighting the recommended option and the rationale behind it.
+    *   Answer any questions I have and incorporate feedback.
+5.  **Populate the following in the plan template:**
+    *   `## 3. Architectural Considerations`
+    *   `### 3.1. Selected Paradigm`
+        *   \[Paradigm] - \[Brief description and rationale]
+        *   \[ ] Confirmed with the user
+    *   `### 3.2. Selected Design Patterns`
+        *   \[Pattern 1] - \[Brief description and rationale]
+        *   \[ ] Confirmed with the user
+        *   \[Pattern 2] - \[Brief description and rationale]
+        *   \[ ] Confirmed with the user
+    *   `### 3.3. Architectural Considerations & Rationale`
+        *   \[Detailed explanation of the chosen architecture and design patterns, including pros and cons considered. Address any trade-offs made.]
+        *   \[ ] Confirmed with the user
+
+## Step 4: Project Task List Foresight
+
+1.  **Review the entire project task list:** `[Link to the project task list]`
+2.  **Identify potential downstream impacts:**
+    *   Analyze how decisions made for this task might affect future tasks.
+    *   Consider dependencies, data structures, and architectural choices.
+3.  **Populate the following in the plan template:**
+    *   `## 4. Project Task List Foresight`
+    *   `### 4.1. Downstream Impacts`
+        *   \[How this task might affect other tasks in the project plan]
+        *   \[ ] Reviewed and confirmed no negative impacts
+    *   `### 4.2. Future-Proofing Considerations`
+        *   \[Recommendations to mitigate negative impacts or leverage synergies]
+        *   \[ ] Discussed with the user and incorporated feedback
+
+## Step 5: Determine Available Testing Options
+
+1.  **Analyze the `apps` directory:**
+    *   Read `@.brain/directory-structure.md` to understand the project's testing setup.
+    *   Examine the `apps` directory to identify available testing libraries and frameworks.
+2.  **Identify applicable testing types:**
+    *   Based on your analysis, determine which of the following testing types are relevant and available:
+        *   **Unit Tests:** For testing individual functions or modules (business logic, NOT component rendering).
+        *   **Integration Tests:** For testing interactions between different parts of the system (e.g., services, databases, APIs).
+        *   **End-to-End (E2E) Tests:** For testing the application flow from the user's perspective (UI interactions).
+        *   **Visual Regression Tests (Storybook):** For detecting visual changes in UI components using snapshots.
+        *   **Storybook Interaction Tests:** For writing test cases within Storybook components.
+3.  **Populate the following in the plan template:**
+    *   `## 5. Testing Strategy`
+    *   `### 5.1. Available Testing Options`
+        *   `[ ] Unit Tests`
+            *   Location: `[Path to unit test directory]`
+            *   Command to run all tests: `[Command]`
+            *   Command to run a single test: `[Command]`
+            *   Relevant Knowledge: `Read @.brain/knowledge/unit-testing-guide` (if applicable)
+        *   `[ ] Integration Tests`
+            *   Location: `[Path to integration test directory]`
+            *   Command to run all tests: `[Command]`
+            *   Command to run a single test: `[Command]`
+            *   Relevant Knowledge: `Read @.brain/knowledge/integration-testing-guide` (if applicable)
+        *   `[ ] End-to-End (E2E) Tests`
+            *   Location: `[Path to E2E test directory]`
+            *   Command to run all tests: `[Command]`
+            *   Command to run a single test: `[Command]`
+            *   Relevant Knowledge: `Read @.brain/knowledge/e2e-testing-guide` (if applicable)
+        *   `[ ] Visual Regression Tests (Storybook)`
+            *   Location: `[Path to Storybook stories]`
+            *   Command to run tests: `[Command]`
+            *   Relevant Knowledge: `Read @.brain/knowledge/storybook-visual-testing-guide` (if applicable)
+        *   `[ ] Storybook Interaction Tests`
+            *   Location: `[Path to Storybook stories]`
+            *   Command to run tests: `[Command]`
+            *   Relevant Knowledge: `Read @.brain/knowledge/storybook-interaction-testing-guide` (if applicable)
+
+    *   `### 5.2. Selected Testing Approach`
+        *   \[Clearly state which testing types will be used for this feature and why. Explain how the chosen testing strategy ensures comprehensive coverage.]
+        *   \[ ] Confirmed testing approach aligns with project standards.
+
+## Step 6: MECE Task Breakdown & Knowledge Integration
+
+1.  **Apply MECE (Mutually Exclusive, Collectively Exhaustive) principles:**
+    *   Decompose the task into smaller, distinct subtasks.
+    *   Ensure no overlap between subtasks (Mutually Exclusive).
+    *   Ensure all subtasks together cover the entire scope of the main task (Collectively Exhaustive).
+    *   Determine a logical order of operations that prioritizes writing tests before code, following a TDD approach.
+2.  **Integrate knowledge resources:**
+    *   For each subtask, identify relevant guides, best practices, or documentation from `@.brain/knowledge/index.md`.
+    *   Provide direct links using the `@` notation: `Read @.brain/knowledge/path-to-guide`
+3. **Integrate Testing Tasks**
+    * For each subtask, integrate the testing strategy determined in Step 5.
+    *   Clearly define which type of testing will be applied (unit, integration, E2E, visual, or Storybook interaction).
+    *   Write specific test cases for each subtask, following the guidelines from `validate-test-suite.md`
+4.  **Populate the following in the plan template:**
+    *   `## 6. MECE Task Breakdown & TDD Plan`
+        *   `### 6.1. Subtask 1: [Task Description]`
+            *   `[ ]` \[ ] Task completed.
+            *   `[ ]` \[Specific test cases to be written, referencing the selected testing type from Step 5]
+            *   `[ ]` \[ ] Test cases reviewed and approved.
+            *   Relevant Knowledge: `Read @.brain/knowledge/relevant-guide`
+            *   Testing Type: \[Unit/Integration/E2E/Visual/Storybook Interaction]
+        *   `### 6.2. Subtask 2: [Task Description]`
+            *   `[ ]` \[ ] Task completed.
+            *   `[ ]` \[Specific test cases to be written, referencing the selected testing type from Step 5]
+            *   `[ ]` \[ ] Test cases reviewed and approved.
+            *   Relevant Knowledge: `Read @.brain/knowledge/another-guide`
+            *   Testing Type: \[Unit/Integration/E2E/Visual/Storybook Interaction]
+        *   `### 6.3. Subtask 3: [Continue adding subtasks in a similar manner]`
+            *   `[ ]` \[ ] Task completed
+            *   `[ ]` \[Follow the testing, building, and test execution process for the whole task, ensuring tests are written before code]
+
+    *   **IF** a subtask involves updating existing code, **THEN** execute the `code-review.md` process as part of the subtask.
+    *   **IF** a subtask involves a handoff to another agent, **THEN** execute the `context-handoff.md` process as part of the subtask.
+
+---
+
+## Plan Template:
+
+```markdown
+# Feature Task Plan
+
+## Feature: [Feature Name]
+
+## Task: [Task Name]
+
+## Status: ⭕ Planning
+
+## Last Updated: [YYYY-MM-DD]
+
+## 1. Overview
+
+[Brief description of the task and its goals]
+
+## 2. Codebase Analysis
+
+### 2.1. Key Files & Modules
+
+*   [File/Module Path]: [Brief description of its role]
+
+### 2.2. Dependencies
+
+*   [Library/Module Name]: [Version, purpose, and any known issues]
+
+### 2.3. Potential Concerns
+
+*   [Any areas of the code that appear complex, fragile, or require special attention]
+*   [ ] Mark as addressed
+
+## 3. Architectural Considerations
+
+### 3.1. Selected Paradigm
+
+*   [Paradigm] - [Brief description and rationale]
+*   [ ] Confirmed with the user
+
+### 3.2. Selected Design Patterns
+
+*   [Pattern 1] - [Brief description and rationale]
+*   [ ] Confirmed with the user
+*   [Pattern 2] - [Brief description and rationale]
+*   [ ] Confirmed with the user
+
+### 3.3. Architectural Considerations & Rationale
+
+*   [Detailed explanation of the chosen architecture and design patterns, including pros and cons considered. Address any trade-offs made.]
+*   [ ] Confirmed with the user
+
+## 4. Project Task List Foresight
+
+### 4.1. Downstream Impacts
+
+*   [How this task might affect other tasks in the project plan]
+*   [ ] Reviewed and confirmed no negative impacts
+
+### 4.2. Future-Proofing Considerations
+
+*   [Recommendations to mitigate negative impacts or leverage synergies]
+*   [ ] Discussed with the user and incorporated feedback
+
+## 5. Testing Strategy
+
+### 5.1. Available Testing Options
+
+*   `[ ] Unit Tests`
+    *   Location: `[Path to unit test directory]`
+    *   Command to run all tests: `[Command]`
+    *   Command to run a single test: `[Command]`
+    *   Relevant Knowledge: `Read @.brain/knowledge/unit-testing-guide` (if applicable)
+*   `[ ] Integration Tests`
+    *   Location: `[Path to integration test directory]`
+    *   Command to run all tests: `[Command]`
+    *   Command to run a single test: `[Command]`
+    *   Relevant Knowledge: `Read @.brain/knowledge/integration-testing-guide` (if applicable)
+*   `[ ] End-to-End (E2E) Tests`
+    *   Location: `[Path to E2E test directory]`
+    *   Command to run all tests: `[Command]`
+    *   Command to run a single test: `[Command]`
+    *   Relevant Knowledge: `Read @.brain/knowledge/e2e-testing-guide` (if applicable)
+*   `[ ] Visual Regression Tests (Storybook)`
+    *   Location: `[Path to Storybook stories]`
+    *   Command to run tests: `[Command]`
+    *   Relevant Knowledge: `Read @.brain/knowledge/storybook-visual-testing-guide` (if applicable)
+*   `[ ] Storybook Interaction Tests`
+    *   Location: `[Path to Storybook stories]`
+    *   Command to run tests: `[Command]`
+    *   Relevant Knowledge: `Read @.brain/knowledge/storybook-interaction-testing-guide` (if applicable)
+
+### 5.2. Selected Testing Approach
+
+*   [Clearly state which testing types will be used for this feature and why. Explain how the chosen testing strategy ensures comprehensive coverage.]
+*   [ ] Confirmed testing approach aligns with project standards.
+
+## 6. MECE Task Breakdown & TDD Plan
+
+*   ### 6.1. Subtask 1: [Task Description]
+    *   `[ ]` \[ ] Task completed.
+    *   `[ ]` \[Specific test cases to be written, referencing the selected testing type from Step 5]
+    *   `[ ]` \[ ] Test cases reviewed and approved.
+    *   Relevant Knowledge: `Read @.brain/knowledge/relevant-guide`
+    *   Testing Type: \[Unit/Integration/E2E/Visual/Storybook Interaction]
+*   ### 6.2. Subtask 2: [Task Description]`
+    *   `[ ]` \[ ] Task completed.
+    *   `[ ]` \[Specific test cases to be written, referencing the selected testing type from Step 5]
+    *   `[ ]` \[ ] Test cases reviewed and approved.
+    *   Relevant Knowledge: `Read @.brain/knowledge/another-guide`
+    *   Testing Type: \[Unit/Integration/E2E/Visual/Storybook Interaction]
+*   ### 6.3. Subtask 3: [Continue adding subtasks in a similar manner]`
+    *   `[ ]` \[ ] Task completed
+    *   `[ ]` \[Follow the testing, building, and test execution process for the whole task, ensuring tests are written before code]

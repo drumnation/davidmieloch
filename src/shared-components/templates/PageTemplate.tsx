@@ -5,7 +5,7 @@ import Footer from '../organisms/Footer';
 import { Typography } from '../atoms/Typography';
 
 type PageTemplateProps = {
-  title: string;
+  title?: string;
   description?: string;
   children: React.ReactNode;
 };
@@ -27,16 +27,18 @@ export const PageTemplate = ({ title, description, children }: PageTemplateProps
     
     <AppShell.Main pt={60} pb={160}>
       <Container size="lg" py="xl">
-        <Stack align="center" mb={description ? 40 : 24}>
-          <Typography variant="h1">{title}</Typography>
-          {description && (
-            <Box maw={800} ta="center">
-              <Typography variant="body" color="secondary">
-                {description}
-              </Typography>
-            </Box>
-          )}
-        </Stack>
+        {title && (
+          <Stack align="center" mb={description ? 40 : 24}>
+            <Typography variant="h1">{title}</Typography>
+            {description && (
+              <Box maw={800} ta="center">
+                <Typography variant="body" color="secondary">
+                  {description}
+                </Typography>
+              </Box>
+            )}
+          </Stack>
+        )}
         
         <MotionDiv
           initial="initial"

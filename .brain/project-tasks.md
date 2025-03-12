@@ -1,969 +1,412 @@
-# Brain Garden Sales Pitch Component Creation Guide
+# AI Transformation Expert Portfolio Site
 
 ## Table of Contents
 - [Overview](#overview)
-- [Project Structure](#project-structure)
-- [Atomic Design System](#atomic-design-system)
-- [Component Library Setup](#component-library-setup)
-- [Base Components](#base-components)
-- [Card Components](#card-components)
-- [Layout Components](#layout-components)
-- [Data Display Components](#data-display-components)
-- [Navigation Components](#navigation-components)
-- [Animation System](#animation-system)
-- [Storybook Setup](#storybook-setup)
-- [Integration Stories](#integration-stories)
-- [Page Assembly](#page-assembly)
-- [Storybook Driven Development](#storybook-driven-development)
+- [Project Phases](#project-phases)
+- [Phase 1: Whitepaper Site (MVP)](#phase-1-whitepaper-site-mvp)
+- [Phase 2: Enhanced Portfolio Features](#phase-2-enhanced-portfolio-features)
+- [Phase 3: Code Demonstrations and Blog](#phase-3-code-demonstrations-and-blog)
+- [Component Development](#component-development)
+- [Whitepaper Content Components](#whitepaper-content-components)
+- [Development Workflow](#development-workflow)
  
 ## Overview
 
-This document serves as a comprehensive guide for creating the React component library for the Brain Garden sales pitch. Follow these tasks in order, checking them off as you complete them.
+This document outlines the development plan for a personal portfolio site showcasing AI transformation expertise for development teams. The site will initially focus on a comprehensive whitepaper presentation with minimal navigation, later expanding to include additional portfolio elements.
 
-### Content Sources
-All component specifications can be found in these files:
-- [Enterprise Journey](sections/05-real-world-impact/enterprise-journey/index.md)
-- [Core Problems](sections/05-real-world-impact/core-problems/index.md)
-- [Solutions Impact](sections/05-real-world-impact/solutions-impact/index.md)
+## Project Phases
 
-## High Priority: AI Team Content Components
+### Phase 1: Whitepaper Site (MVP)
+**Deadline: End of Day**
 
-⚡ These components need to be created first, as they form the core content of the application:
+#### Priority 1: Core Structure and First Content Section
+- [x] Set up project structure and base components
+- [x] Implement first whitepaper section (01-ai-skeptic-to-expert)
+- [x] Create minimal top navigation bar
+  - [x] Name/logo on left
+  - [x] Resume PDF download button on right
+  - [x] Optional: Contact information in nav bar
 
-### Journey and Introduction Components
+#### Priority 2: Navigation and Layout
+- [x] Implement left-side section navigation
+  - [x] Auto-highlighting current section
+  - [x] Smooth scroll to section functionality
+- [ ] Create simple footer
+  - [ ] Contact information
+  - [ ] Social media links
+  - [ ] Copyright information
+
+#### Priority 3: Remaining Whitepaper Sections
+- [ ] Implement remaining whitepaper sections in order:
+  1. [ ] 02-ai-autopilot-analogy
+  2. [ ] 03-brain-garden-overview
+  3. [ ] 03.1-core-teams
+  4. [ ] 03.2-doc-force-multiplier
+  5. [ ] 03.3-git-force-multiplier
+  6. [ ] 03.4-knowledge-management
+  7. [ ] 03.5-parallel-development
+  8. [ ] 03.6-team-customization
+  9. [ ] 03.7-test-force-multiplier
+  10. [ ] 04.1-agent-system
+  11. [ ] 04.2-integration-system
+  12. [ ] 04.3-knowledge-system
+  13. [ ] 05.1-core-problems
+  14. [ ] 05.2-enterprise-journey
+  15. [ ] 05.3-solutions-impact
+
+#### Priority 4: Responsive Design and Deployment
+- [ ] Implement responsive design
+  - [ ] Mobile-friendly navigation
+  - [ ] Responsive content layout
+- [ ] Deploy MVP version
+
+### Phase 2: Enhanced Portfolio Features
+**Timeline: Post-Interview**
+
+- [ ] Add dedicated contact form page
+  - [ ] Form validation
+  - [ ] Submission handling
+  - [ ] Success/error messaging
+- [ ] Create professional resume page
+  - [ ] Interactive/graphic resume layout
+  - [ ] Skills visualization
+  - [ ] Experience timeline
+  - [ ] PDF download option
+- [ ] Improve site navigation
+  - [ ] Enhanced menu system
+  - [ ] Page transitions
+- [ ] Add testimonials section
+- [ ] Implement dark/light mode toggle
+
+### Phase 3: Code Demonstrations and Blog
+**Timeline: Future Enhancement**
+
+- [ ] Create code demonstration page
+  - [ ] GitHub repository showcase
+  - [ ] Code snippet highlights
+  - [ ] Project descriptions
+  - [ ] Live demo links
+- [ ] Add case studies section
+  - [ ] Problem/solution format
+  - [ ] Results metrics
+  - [ ] Visual aids
+- [ ] Implement blog and video content section
+  - [ ] Article listing page
+  - [ ] Video embedding capabilities
+  - [ ] Code walkthrough formatting
+  - [ ] Syntax highlighting for code snippets
+  - [ ] Categories and tags system
+  - [ ] Search functionality
+  - [ ] Comment system (optional)
+  - [ ] Related content suggestions
+
+## Development Workflow
+
+### Storybook-Driven Development Approach
+For each component in the application:
+
+1. [ ] Create the component with its content embedded (not injected via Storybook)
+2. [ ] Develop the component's Storybook story simultaneously
+3. [ ] Ensure the Storybook story mirrors the actual app implementation
+4. [ ] Test the component in isolation via Storybook
+5. [ ] Integrate the component into the main application
+6. [ ] Verify the component behaves identically in both environments
+
+### Component Development Pattern
+For each component:
+
+```
+src/components/[section]/[ComponentName]/
+  ├── index.ts                    # Export the component
+  ├── [ComponentName].tsx         # Component implementation with embedded content
+  ├── [ComponentName].styles.ts   # Styled components
+  ├── [ComponentName].types.ts    # TypeScript interfaces
+  └── [ComponentName].stories.tsx # Storybook story
+```
+
+### Storybook Story Requirements
+Each component story should:
+
+- [ ] Show the component exactly as it will appear in the app
+- [ ] Include the actual content (not placeholder content)
+- [ ] Demonstrate responsive behavior
+- [ ] Include dark/light theme variations
+- [ ] Document props and usage
+- [ ] NOT define any important functionality that isn't in the main app
+- [ ] Share all setup with the main app
+
+## Component Development
+
+### Core Site Components
+- [x] Header/Navigation
+  - [x] Logo/Name component
+  - [x] Navigation links
+  - [x] Mobile menu
+  - [x] Corresponding Storybook stories
+- [ ] Footer
+  - [ ] Contact information
+  - [ ] Social links
+  - [ ] Copyright notice
+  - [ ] Corresponding Storybook stories
+- [x] SideNavigation
+  - [x] Section links
+  - [x] Active section highlighting
+  - [x] Scroll position tracking
+  - [x] Corresponding Storybook stories
+- [ ] Layout
+  - [ ] Page container
+  - [ ] Content wrapper
+  - [ ] Responsive grid system
+  - [ ] Corresponding Storybook stories
+
+### Whitepaper Content Components (In Priority Order)
 - [x] 01-ai-skeptic-to-expert
   - [x] Hero section with personal journey narrative
   - [x] Quote grid for team reactions
   - [x] Problem-solution cards
-  - [ ] Featured discussion component
+  - [x] Featured discussion component
+  - [x] Corresponding Storybook stories
 
 - [ ] 02-ai-autopilot-analogy
-  - Comparison table component
-  - Reality vs Hollywood grid
-  - Process flow diagram
-  - Strategic focus area cards
+  - [ ] Comparison table component
+  - [ ] Reality vs Hollywood grid
+  - [ ] Process flow diagram
+  - [ ] Strategic focus area cards
+  - [ ] Corresponding Storybook stories
 
-### Brain Garden System Components
 - [ ] 03-brain-garden-overview
-  - System overview hero
-  - Core components grid
-  - Force multipliers grid
-  - System architecture diagram
+  - [ ] System overview hero
+  - [ ] Core components grid
+  - [ ] Force multipliers grid
+  - [ ] System architecture diagram
+  - [ ] Corresponding Storybook stories
 
 - [ ] 03.1-core-teams
-  - Team structure visualization
-  - Role cards
-  - Responsibility matrix
-  - Team interaction flow
+  - [ ] Team structure visualization
+  - [ ] Role cards
+  - [ ] Responsibility matrix
+  - [ ] Team interaction flow
+  - [ ] Corresponding Storybook stories
 
 - [ ] 03.2-doc-force-multiplier
-  - Documentation impact cards
-  - Process improvement visualization
-  - Metrics display
-  - Before/after comparison
+  - [ ] Documentation impact cards
+  - [ ] Process improvement visualization
+  - [ ] Metrics display
+  - [ ] Before/after comparison
+  - [ ] Corresponding Storybook stories
 
 - [ ] 03.3-git-force-multiplier
-  - Git workflow diagram
-  - Integration cards
-  - Automation visualization
-  - Metrics grid
+  - [ ] Git workflow diagram
+  - [ ] Integration cards
+  - [ ] Automation visualization
+  - [ ] Metrics grid
+  - [ ] Corresponding Storybook stories
 
 - [ ] 03.4-knowledge-management
-  - Knowledge system diagram
-  - Information flow visualization
-  - Benefits cards
-  - Implementation steps
+  - [ ] Knowledge system diagram
+  - [ ] Information flow visualization
+  - [ ] Benefits cards
+  - [ ] Implementation steps
+  - [ ] Corresponding Storybook stories
 
 - [ ] 03.5-parallel-development
-  - Parallel workflow diagram
-  - Team coordination cards
-  - Efficiency metrics
-  - Case study display
+  - [ ] Parallel workflow diagram
+  - [ ] Team coordination cards
+  - [ ] Efficiency metrics
+  - [ ] Case study display
+  - [ ] Corresponding Storybook stories
 
 - [ ] 03.6-team-customization
-  - Customization options grid
-  - Configuration wizard
-  - Template showcase
-  - Implementation guide
+  - [ ] Customization options grid
+  - [ ] Configuration wizard
+  - [ ] Template showcase
+  - [ ] Implementation guide
+  - [ ] Corresponding Storybook stories
 
 - [ ] 03.7-test-force-multiplier
-  - Testing strategy cards
-  - Coverage visualization
-  - Metrics dashboard
-  - ROI calculator
+  - [ ] Testing strategy cards
+  - [ ] Coverage visualization
+  - [ ] Metrics dashboard
+  - [ ] ROI calculator
+  - [ ] Corresponding Storybook stories
 
-### Technical Implementation Components
 - [ ] 04.1-agent-system
-  - Agent interaction diagram
-  - System architecture visualization
-  - Component relationship map
-  - Configuration interface
+  - [ ] Agent interaction diagram
+  - [ ] System architecture visualization
+  - [ ] Component relationship map
+  - [ ] Configuration interface
+  - [ ] Corresponding Storybook stories
 
 - [ ] 04.2-integration-system
-  - Integration flow diagram
-  - Connection cards
-  - Setup wizard
-  - Status dashboard
+  - [ ] Integration flow diagram
+  - [ ] Connection cards
+  - [ ] Setup wizard
+  - [ ] Status dashboard
+  - [ ] Corresponding Storybook stories
 
 - [ ] 04.3-knowledge-system
-  - Knowledge graph visualization
-  - Data flow diagram
-  - System components
-  - Management interface
+  - [ ] Knowledge graph visualization
+  - [ ] Data flow diagram
+  - [ ] System components
+  - [ ] Management interface
+  - [ ] Corresponding Storybook stories
 
-### Impact and Solutions Components
 - [ ] 05.1-core-problems
-  - Problem statement cards
-  - Impact visualization
-  - Cost analysis
-  - Solution preview
+  - [ ] Problem statement cards
+  - [ ] Impact visualization
+  - [ ] Cost analysis
+  - [ ] Solution preview
+  - [ ] Corresponding Storybook stories
 
 - [ ] 05.2-enterprise-journey
-  - Journey timeline
-  - Milestone cards
-  - Success metrics
-  - Case study showcase
+  - [ ] Journey timeline
+  - [ ] Milestone cards
+  - [ ] Success metrics
+  - [ ] Case study showcase
+  - [ ] Corresponding Storybook stories
 
 - [ ] 05.3-solutions-impact
-  - Impact metrics grid
-  - ROI calculator
-  - Success stories
-  - Implementation roadmap
-
-## Storybook Driven Development
-
-⚡ Each component should follow this story-first development approach:
-
-### Story Types for Each Component
-1. [x] Individual Elements Story
-   - [x] Isolated components in various states
-   - [x] All prop variations
-   - [x] Interactive controls
-   - [x] Mobile/desktop views
-   - [x] Dark/light theme
-
-2. [x] Component Group Story
-   - [x] Related components together
-   - [x] Common use cases
-   - [x] Layout variations
-   - [x] Responsive behavior
-
-3. [x] Section Story
-   - [x] Full section layout
-   - [x] Navigation integration
-   - [x] Animation sequences
-   - [x] Data flow examples
-
-4. [ ] Full Page Story
-   - Complete page integration
-   - Side navigation
-   - Scroll behavior
-   - Performance monitoring
-
-### Story Requirements by Section
-
-#### Journey and Introduction Stories
-- [ ] 01-ai-skeptic-to-expert.stories.tsx
-  - [ ] HeroSection.stories.tsx
-  - [ ] QuoteGrid.stories.tsx
-  - [ ] ProblemSolutionCards.stories.tsx
-  - [ ] FeaturedDiscussion.stories.tsx
-  - [ ] FullJourneySection.stories.tsx
-
-- [ ] 02-ai-autopilot-analogy.stories.tsx
-  - [ ] ComparisonTable.stories.tsx
-  - [ ] RealityVsHollywood.stories.tsx
-  - [ ] ProcessFlow.stories.tsx
-  - [ ] StrategicFocusCards.stories.tsx
-  - [ ] FullAnalogySection.stories.tsx
-
-#### Brain Garden System Stories
-- [ ] 03-brain-garden-overview.stories.tsx
-  - [ ] SystemOverviewHero.stories.tsx
-  - [ ] ComponentsGrid.stories.tsx
-  - [ ] ForceMultipliersGrid.stories.tsx
-  - [ ] SystemArchitecture.stories.tsx
-  - [ ] FullOverviewSection.stories.tsx
-
-- [ ] 03.1-core-teams.stories.tsx
-  - [ ] TeamStructure.stories.tsx
-  - [ ] RoleCards.stories.tsx
-  - [ ] ResponsibilityMatrix.stories.tsx
-  - [ ] TeamFlow.stories.tsx
-  - [ ] FullTeamsSection.stories.tsx
-
-- [ ] 03.2-doc-force-multiplier.stories.tsx
-  - [ ] ImpactCards.stories.tsx
-  - [ ] ProcessVisualization.stories.tsx
-  - [ ] MetricsDisplay.stories.tsx
-  - [ ] BeforeAfter.stories.tsx
-  - [ ] FullDocSection.stories.tsx
-
-- [ ] 03.3-git-force-multiplier.stories.tsx
-  - [ ] WorkflowDiagram.stories.tsx
-  - [ ] IntegrationCards.stories.tsx
-  - [ ] AutomationViz.stories.tsx
-  - [ ] MetricsGrid.stories.tsx
-  - [ ] FullGitSection.stories.tsx
-
-- [ ] 03.4-knowledge-management.stories.tsx
-  - [ ] SystemDiagram.stories.tsx
-  - [ ] InfoFlow.stories.tsx
-  - [ ] BenefitsCards.stories.tsx
-  - [ ] ImplementationSteps.stories.tsx
-  - [ ] FullKnowledgeSection.stories.tsx
-
-- [ ] 03.5-parallel-development.stories.tsx
-  - [ ] WorkflowDiagram.stories.tsx
-  - [ ] TeamCards.stories.tsx
-  - [ ] EfficiencyMetrics.stories.tsx
-  - [ ] CaseStudy.stories.tsx
-  - [ ] FullParallelSection.stories.tsx
-
-- [ ] 03.6-team-customization.stories.tsx
-  - [ ] OptionsGrid.stories.tsx
-  - [ ] ConfigWizard.stories.tsx
-  - [ ] TemplateShowcase.stories.tsx
-  - [ ] GuideSteps.stories.tsx
-  - [ ] FullCustomizationSection.stories.tsx
-
-- [ ] 03.7-test-force-multiplier.stories.tsx
-  - [ ] StrategyCards.stories.tsx
-  - [ ] CoverageViz.stories.tsx
-  - [ ] MetricsDashboard.stories.tsx
-  - [ ] ROICalculator.stories.tsx
-  - [ ] FullTestingSection.stories.tsx
-
-#### Technical Implementation Stories
-- [ ] 04.1-agent-system.stories.tsx
-  - [ ] InteractionDiagram.stories.tsx
-  - [ ] ArchitectureViz.stories.tsx
-  - [ ] RelationshipMap.stories.tsx
-  - [ ] ConfigInterface.stories.tsx
-  - [ ] FullAgentSection.stories.tsx
-
-- [ ] 04.2-integration-system.stories.tsx
-  - [ ] FlowDiagram.stories.tsx
-  - [ ] ConnectionCards.stories.tsx
-  - [ ] SetupWizard.stories.tsx
-  - [ ] StatusDashboard.stories.tsx
-  - [ ] FullIntegrationSection.stories.tsx
-
-- [ ] 04.3-knowledge-system.stories.tsx
-  - [ ] GraphViz.stories.tsx
-  - [ ] DataFlow.stories.tsx
-  - [ ] SystemComponents.stories.tsx
-  - [ ] ManagementInterface.stories.tsx
-  - [ ] FullKnowledgeSection.stories.tsx
-
-#### Impact and Solutions Stories
-- [ ] 05.1-core-problems.stories.tsx
-  - [ ] ProblemCards.stories.tsx
-  - [ ] ImpactViz.stories.tsx
-  - [ ] CostAnalysis.stories.tsx
-  - [ ] SolutionPreview.stories.tsx
-  - [ ] FullProblemsSection.stories.tsx
-
-- [ ] 05.2-enterprise-journey.stories.tsx
-  - [ ] Timeline.stories.tsx
-  - [ ] MilestoneCards.stories.tsx
-  - [ ] SuccessMetrics.stories.tsx
-  - [ ] CaseStudy.stories.tsx
-  - [ ] FullJourneySection.stories.tsx
-
-- [ ] 05.3-solutions-impact.stories.tsx
-  - [ ] MetricsGrid.stories.tsx
-  - [ ] ROICalculator.stories.tsx
-  - [ ] SuccessStories.stories.tsx
-  - [ ] Roadmap.stories.tsx
-  - [ ] FullImpactSection.stories.tsx
-
-### Full Application Stories
-- [ ] FullApplication.stories.tsx
-  - [ ] Navigation integration
-  - [ ] Complete user flow
-  - [ ] Performance monitoring
-  - [ ] Animation sequences
-  - [ ] Responsive behavior
-  - [ ] Theme switching
-  - [ ] Loading states
-  - [ ] Error states
-
-### Story Development Guidelines
-1. [ ] Create story template files
-2. [ ] Set up story hierarchy
-3. [ ] Add controls for all props
-4. [ ] Include responsive viewports
-5. [ ] Add theme switching
-6. [ ] Document component APIs
-7. [ ] Add interaction tests
-8. [ ] Include accessibility tests
-
-### Story Documentation Requirements
-- [ ] Component description
-- [ ] Props documentation
-- [ ] Usage examples
-- [ ] Best practices
-- [ ] Accessibility notes
-- [ ] Performance considerations
-- [ ] Related components
-- [ ] Design system guidelines
-
-## Project Structure
-
-- [ ] Create the following directory structure:
-```
-src/
-  shared-components/     # Atomic design pattern structure
-    atoms/              # Basic building blocks (wrapped Mantine components)
-    molecules/          # Combinations of atoms
-    organisms/          # Complex components
-    templates/          # Page-level layouts
-    utils/             # Shared utilities and hooks
-  components/          # Project-specific components
-    base/              # Base UI components
-    cards/             # Card-based components
-    layout/            # Layout components
-    data/             # Data display components
-    navigation/        # Navigation components
-  stories/            # Storybook stories
-  styles/             # Global styles and themes
-  types/              # TypeScript interfaces
-  utils/              # Utility functions
-```
-
-## Atomic Design System
-
-### Atoms (Base Components)
-Each atom should wrap a Mantine component and provide our custom styling and props:
-
-```typescript
-// shared-components/atoms/Button/Button.types.ts
-import { ButtonProps as MantineButtonProps } from '@mantine/core';
-
-export interface ButtonProps extends Omit<MantineButtonProps, 'variant'> {
-  variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
-}
-
-// shared-components/atoms/Button/Button.styles.ts
-import styled from 'styled-components';
-import { Button as MantineButton } from '@mantine/core';
-
-export const StyledButton = styled(MantineButton)<ButtonProps>`
-  ${({ variant, theme }) => variantStyles[variant](theme)}
-  ${({ size }) => sizeStyles[size]}
-`;
-
-// shared-components/atoms/Button/Button.tsx
-import { ButtonProps } from './Button.types';
-import * as S from './Button.styles';
-
-export const Button: React.FC<ButtonProps> = (props) => {
-  return <S.StyledButton {...props} />;
-};
-```
-
-### Molecules
-Combine atoms into more complex components:
-
-```typescript
-// shared-components/molecules/CardHeader/CardHeader.tsx
-import { Stack } from '../atoms/Stack';
-import { Typography } from '../atoms/Typography';
-import { Icon } from '../atoms/Icon';
-
-export const CardHeader: React.FC<CardHeaderProps> = ({
-  title,
-  subtitle,
-  icon,
-}) => (
-  <Stack spacing="xs">
-    {icon && <Icon name={icon} size={24} />}
-    <Typography.H3>{title}</Typography.H3>
-    {subtitle && <Typography.Body>{subtitle}</Typography.Body>}
-  </Stack>
-);
-```
-
-### Organisms
-Create complex components from molecules and atoms:
-
-```typescript
-// shared-components/organisms/FeatureCard/FeatureCard.tsx
-import { motion } from 'framer-motion';
-import { CardHeader } from '../../molecules/CardHeader';
-import { Button } from '../../atoms/Button';
-import * as S from './FeatureCard.styles';
-
-export const FeatureCard: React.FC<FeatureCardProps> = ({
-  title,
-  subtitle,
-  icon,
-  features,
-  ctaText,
-  onCtaClick,
-}) => {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    >
-      <S.Card>
-        <CardHeader title={title} subtitle={subtitle} icon={icon} />
-        <S.FeatureList>
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <S.Feature>{feature}</S.Feature>
-            </motion.div>
-          ))}
-        </S.FeatureList>
-        <Button variant="primary" onClick={onCtaClick}>
-          {ctaText}
-        </Button>
-      </S.Card>
-    </motion.div>
-  );
-};
-```
-
-## Component Library Setup
-
-### Initial Setup
-- [ ] Initialize a new React project with TypeScript
-- [ ] Install required dependencies:
-  ```bash
-  # Core dependencies
-  pnpm add styled-components @mantine/core @mantine/hooks framer-motion react-intersection-observer
-
-  # Icon libraries
-  pnpm add @tabler/icons-react phosphor-react lucide-react
-
-  # Development dependencies
-  pnpm add -D @types/styled-components @storybook/react @storybook/addon-essentials @types/react
-  ```
-
-### Mobile-First Design System
-
-#### Responsive Mixins
-```typescript
-// styles/responsive.ts
-export const breakpoints = {
-  xs: '320px',
-  sm: '576px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-};
-
-export const media = {
-  up: (size: keyof typeof breakpoints) => `@media (min-width: ${breakpoints[size]})`,
-  down: (size: keyof typeof breakpoints) => `@media (max-width: ${breakpoints[size]})`,
-};
-
-// Usage in styled components
-const ResponsiveComponent = styled.div`
-  padding: 1rem;  // Mobile first
-  
-  ${media.up('md')} {
-    padding: 2rem;  // Tablet and up
-  }
-  
-  ${media.up('lg')} {
-    padding: 3rem;  // Desktop and up
-  }
-`;
-```
-
-## Animation System
-
-### Framer Motion Patterns
-
-#### Animation Variants
-```typescript
-// utils/animations/variants.ts
-export const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 30
-    }
-  }
-};
-
-export const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-```
-
-#### Animation Hooks
-```typescript
-// utils/animations/hooks.ts
-import { useInView } from 'react-intersection-observer';
-import { useAnimation, AnimationControls } from 'framer-motion';
-
-export const useScrollAnimation = (): [any, AnimationControls] => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    threshold: 0.2,
-    triggerOnce: true
-  });
-
-  React.useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
-  return [ref, controls];
-};
-```
-
-## Base Components
-
-### Shared Styled Components
-- [ ] Create base styled components:
-```typescript
-// components/base/shared.styles.ts
-import styled from 'styled-components';
-import { Container, Text } from '@mantine/core';
-
-export const PageSection = styled(Container)`
-  margin: 2rem 0;
-  width: 100%;
-`;
-
-export const GradientText = styled(Text)`
-  background: ${({ theme }) => theme.colors.gradient.primary};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
-```
-
-### Typography System
-- [ ] Create typography components using Mantine:
-```typescript
-// components/base/Typography/Typography.styles.ts
-import styled from 'styled-components';
-import { Title, Text } from '@mantine/core';
-
-export const H1 = styled(Title)`
-  font-size: 3rem;
-  font-weight: 700;
-  // ... other styles
-`;
-
-export const Body = styled(Text)`
-  line-height: 1.6;
-  // ... other styles
-`;
-
-// components/base/Typography/Typography.tsx
-import * as S from './Typography.styles';
-
-export const Typography = {
-  H1: S.H1,
-  H2: S.H2,
-  H3: S.H3,
-  Body: S.Body,
-  Lead: S.Lead,
-  Quote: S.Quote,
-};
-```
-
-### Animation Hooks
-- [ ] Create reusable animation hooks:
-```typescript
-// utils/animations.ts
-export const useScrollAnimation = () => {
-  // Implementation for scroll-based animations
-};
-```
-
-## Card Components
-
-### Completed Components
-- [x] Hero (with animations and subtitle support)
-- [x] QuoteGrid (with responsive layout, animations, and theme support)
-- [x] ProblemOverview (with metrics display, animations, and responsive layout)
-
-### Next Components to Create
-- [ ] ChallengeBreakdown
-  - Purpose: Display detailed challenge information with key issues and impacts
-  - Features:
-    - Title and description
-    - Key issues list with titles, descriptions, and impacts
-    - Accent or gradient card style
-    - Position variants (left, right, full-width)
-    - Animation on scroll
-
-### Component Types to Create
-Each component should have its own directory with:
-- Component file (TSX)
-- Types file (TS)
-- Styles file (TS)
-- Story file (TSX)
-
-- [ ] Create these card components:
-  - [x] ProblemOverview (Completed)
-  - [ ] ChallengeBreakdown (Next up)
-  - [ ] SolutionBreakdown
-  - [ ] CaseStudy
-  - [ ] FeatureCard
-  - [ ] MetricsCard
-  - [ ] ProcessCard
-  - [ ] ImpactCard
-
-Example structure for ProblemOverview:
-```typescript
-// components/cards/ProblemOverview/types.ts
-export interface ProblemOverviewProps {
-  title: string;
-  description: string;
-  metrics: Array<{
-    number: string;
-    label: string;
-    prefix?: string;
-    suffix?: string;
-    animation?: 'count-up' | 'fade-in';
-  }>;
-  style?: 'gradient-card' | 'accent-card';
-  position?: 'left' | 'right' | 'full-width';
-  animation?: 'fade-up' | 'slide-in' | 'none';
-}
-
-// Suggested folder structure:
-src/shared-components/organisms/ProblemOverview/
-  ├── ProblemOverview.tsx
-  ├── ProblemOverview.types.ts
-  ├── ProblemOverview.styles.ts
-  └── ProblemOverview.stories.tsx
-```
-
-### Implementation Guidelines for ProblemOverview
-1. Use the same theme system as QuoteGrid
-2. Implement responsive design from mobile-first
+  - [ ] Impact metrics grid
+  - [ ] ROI calculator
+  - [ ] Success stories
+  - [ ] Implementation roadmap
+  - [ ] Corresponding Storybook stories
+
+### Blog and Video Content Components (Phase 3)
+- [ ] BlogPostCard
+  - [ ] Featured image
+  - [ ] Title and excerpt
+  - [ ] Date and reading time
+  - [ ] Tags/categories
+  - [ ] Corresponding Storybook stories
+- [ ] VideoEmbed
+  - [ ] Responsive video container
+  - [ ] Video thumbnail
+  - [ ] Play overlay
+  - [ ] Caption support
+  - [ ] Corresponding Storybook stories
+- [ ] CodeBlock
+  - [ ] Syntax highlighting
+  - [ ] Copy button
+  - [ ] Line numbers
+  - [ ] Code folding (optional)
+  - [ ] Corresponding Storybook stories
+- [ ] BlogPostLayout
+  - [ ] Header with metadata
+  - [ ] Table of contents
+  - [ ] Content area
+  - [ ] Author information
+  - [ ] Related posts
+  - [ ] Corresponding Storybook stories
+- [ ] BlogListing
+  - [ ] Filtering options
+  - [ ] Pagination
+  - [ ] Search functionality
+  - [ ] Category/tag filtering
+  - [ ] Corresponding Storybook stories
+
+## Implementation Guidelines
+
+### MVP Priority Focus
+1. Focus on content over fancy features
+2. Ensure whitepaper sections are complete and polished
+3. Keep navigation simple but functional
+4. Ensure mobile responsiveness
+5. Optimize for quick loading
+
+### Whitepaper Implementation Strategy
+1. Start with the top navigation and side navigation structure
+2. Implement each whitepaper section one at a time, in priority order
+3. Test each section on both desktop and mobile before moving to the next
+4. Add the footer after all content sections are complete
+5. Final pass for responsive design and polish
+
+### Storybook Best Practices
+1. Don't define anything important in the Storybook preview.tsx file
+2. Always define functionality in the main app and share to Storybook
+3. Keep Storybook and the main app setup in sync
+4. Use component-driven development (build atoms first, then molecules, etc.)
+5. Test components in isolation before integration
+6. Document component APIs and usage examples
+7. Include responsive viewports in stories
+8. Add theme switching capabilities
+
+### Design Principles
+1. Clean, professional appearance
+2. Focus on readability
+3. Use consistent spacing and typography
+4. Implement subtle animations for engagement
+5. Ensure accessibility compliance
+
+### Technical Approach
+1. Use React with TypeScript
+2. Implement styled-components for styling
 3. Use Framer Motion for animations
-4. Support dark/light mode
-5. Include gradient option
-6. Add metric animations
-7. Ensure accessibility
-8. Add proper TypeScript types
-9. Create comprehensive stories
+4. Ensure responsive design from mobile-first
+5. Optimize images and assets for performance
 
-## Layout Components
+### Content Guidelines
+1. Keep language professional but conversational
+2. Focus on concrete examples and results
+3. Use visual aids to support text content
+4. Break complex topics into digestible sections
+5. Include clear calls-to-action
 
-### Section Components
-- [ ] Create section layout components:
-```typescript
-// components/layout/Section.tsx
-export interface SectionProps {
-  background?: 'gradient' | 'solid';
-  textColor?: 'light' | 'dark';
-  children: React.ReactNode;
-}
-```
+### Blog and Video Content Guidelines (Phase 3)
+1. Focus on practical, hands-on coding demonstrations
+2. Keep videos concise (5-15 minutes ideal)
+3. Provide written summaries alongside videos
+4. Include downloadable code examples
+5. Organize content by skill level and topic
+6. Maintain consistent publishing schedule
+7. Optimize for search discoverability
 
-### Grid System
-- [ ] Create flexible grid components:
-```typescript
-// components/layout/Grid.tsx
-export interface GridProps {
-  columns?: number;
-  gap?: string;
-  children: React.ReactNode;
-}
-```
+## Whitepaper Section Descriptions
 
-## Data Display Components
+### 01-ai-skeptic-to-expert
+Personal journey narrative from AI skeptic to expert, with team reactions and problem-solution examples.
 
-### Chart Components
-- [ ] Create data visualization components:
-  - [ ] MetricsGrid
-  - [ ] ComparisonChart
-  - [ ] Timeline
-  - [ ] ProcessFlow
+### 02-ai-autopilot-analogy
+Explanation of AI capabilities using autopilot analogy, comparing reality vs Hollywood portrayals.
 
-Example implementation:
-```typescript
-// components/data/MetricsGrid/types.ts
-export interface MetricsGridProps {
-  metrics: Array<{
-    number: string;
-    label: string;
-    icon?: string;
-  }>;
-  columns?: 2 | 3 | 4;
-  animation?: 'count-up' | 'fade-in';
-}
-```
+### 03-brain-garden-overview
+Overview of the Brain Garden system architecture and core components.
 
-## Navigation Components
+### 03.1-core-teams
+Description of team structures and roles within the AI transformation framework.
 
-### NavigationMenu Component
-- [x] Create NavigationMenu component
-  - [x] Implement sticky sidebar navigation
-  - [x] Add smooth scroll functionality
-  - [x] Support nested menu items
-  - [x] Create Storybook stories
-  - [x] Add mobile-responsive drawer mode
-  - [x] Support light/dark themes
-  - [x] Add hover and active states
-  - [x] Implement keyboard navigation
+### 03.2-doc-force-multiplier
+How documentation becomes a force multiplier in AI-enhanced development.
 
-### NavigationCard Component
-- [x] Create NavigationCard component
-  - [x] Implement gradient and accent style variants
-  - [x] Add hover animations and transitions
-  - [x] Support icons and call-to-action buttons
-  - [x] Create Storybook stories with examples
+### 03.3-git-force-multiplier
+Git workflow improvements and automation through AI integration.
 
-## Storybook Setup
+### 03.4-knowledge-management
+Knowledge system architecture and information flow in AI-enhanced teams.
 
-### Basic Setup
-- [ ] Initialize Storybook:
-```bash
-pnpm dlx storybook init
-```
+### 03.5-parallel-development
+How AI enables parallel development workflows and team coordination.
 
-### Story Structure
-- [ ] Create story template:
-```typescript
-// .storybook/story-template.tsx
-import type { Meta, StoryObj } from '@storybook/react';
+### 03.6-team-customization
+Customization options for different team structures and needs.
 
-const meta: Meta<typeof Component> = {
-  title: 'Components/Category/ComponentName',
-  component: Component,
-  parameters: {
-    layout: 'centered',
-  },
-  argTypes: {
-    // Define control types
-  },
-};
+### 03.7-test-force-multiplier
+Testing strategies and coverage improvements through AI assistance.
 
-export default meta;
-```
+### 04.1-agent-system
+Technical details of the agent system architecture and interactions.
 
-## Integration Stories
+### 04.2-integration-system
+Integration capabilities with existing tools and workflows.
 
-### Full Page Story
-- [ ] Create a story that shows all components together:
-```typescript
-// stories/pages/FullSalesPitch.stories.tsx
-export const FullPage: Story = {
-  render: () => (
-    <Layout>
-      <SideNav />
-      <MainContent>
-        {/* Include all sections */}
-      </MainContent>
-    </Layout>
-  ),
-};
-```
+### 04.3-knowledge-system
+Technical implementation of the knowledge management system.
 
-### Section Stories
-- [ ] Create individual section stories:
-  - [ ] Enterprise Journey
-  - [ ] Core Problems
-  - [ ] Solutions Impact
+### 05.1-core-problems
+Analysis of core problems in development teams that AI can address.
 
-## Page Assembly
+### 05.2-enterprise-journey
+Timeline and milestones for enterprise AI adoption.
 
-### Content Integration
-- [ ] Create content files for each section:
-```typescript
-// content/enterprise-journey.ts
-export const enterpriseJourneyContent = {
-  title: "Enterprise Journey: From Skepticism to Success",
-  // ... rest of the content
-};
-```
-
-### Page Components
-- [ ] Create page components that use the content:
-```typescript
-// pages/EnterpriseJourney.tsx
-export const EnterpriseJourney = () => {
-  return (
-    <Section>
-      <Typography.H1>{content.title}</Typography.H1>
-      {/* Rest of the components */}
-    </Section>
-  );
-};
-```
-
-## Final Checklist
-
-### Component Implementation
-- [ ] All base components created
-- [ ] All card components created
-- [ ] All layout components created
-- [ ] All data display components created
-- [ ] All navigation components created
-
-### Storybook
-- [ ] Individual component stories
-- [ ] Section stories
-- [ ] Full page story
-- [ ] Documentation added
-- [ ] Controls working
-- [ ] Responsive testing
-
-### Integration
-- [ ] Side navigation working
-- [ ] Smooth scroll implemented
-- [ ] All animations working
-- [ ] Responsive layout working
-- [ ] Performance optimized
-
-### Testing
-- [ ] Component tests written
-- [ ] Integration tests written
-- [ ] Accessibility tests passed
-- [ ] Performance tests passed
-
-## Notes for Implementation
-
-1. Use CSS-in-JS with Emotion for styling
-2. Implement responsive design from the start
-3. Use Framer Motion for animations
-4. Ensure accessibility compliance
-5. Optimize for performance
-6. Follow TypeScript best practices
-7. Document all components thoroughly
-
-## Component Dependencies Map
-
-```mermaid
-graph TD
-    A[Base Components] --> B[Card Components]
-    A --> C[Layout Components]
-    B --> D[Section Components]
-    C --> D
-    D --> E[Page Components]
-    F[Navigation] --> E
-    G[Data Display] --> B
-```
-
-Remember to:
-1. Start with base components
-2. Build up to more complex components
-3. Create stories as you go
-4. Test each component thoroughly
-5. Document everything
-6. Consider edge cases
-7. Optimize performance
-8. Ensure accessibility 
-
-## Additional Notes
-
-### Mobile-First Guidelines
-1. Start with mobile layout first
-2. Use relative units (rem, em) for spacing and typography
-3. Implement touch-friendly interactions (minimum 44x44px touch targets)
-4. Test on various screen sizes and orientations
-5. Optimize performance for mobile devices
-6. Consider network conditions and lazy loading
-7. Use appropriate gesture handling
-8. Ensure text remains readable on small screens
-
-### Animation Best Practices
-1. Use spring animations for natural feel
-2. Implement reduced motion preferences
-3. Avoid heavy animations on mobile
-4. Use stagger effects for lists
-5. Animate on mount and scroll
-6. Keep animations subtle and purposeful
-7. Use consistent timing and easing
-8. Consider performance impact
-
-### Atomic Design Best Practices
-1. Always wrap Mantine components as atoms
-2. Keep atoms pure and simple
-3. Build complexity through composition
-4. Maintain consistent props API
-5. Document component hierarchy
-6. Use TypeScript for better maintainability
-7. Create meaningful interfaces
-8. Follow single responsibility principle
-
-### Mantine Usage Guidelines
-1. Use Mantine components as base building blocks
-2. Extend Mantine components with styled-components when needed
-3. Use Mantine hooks for functionality (useMediaQuery, useViewportSize, etc.)
-4. Use Mantine theme for consistent spacing and breakpoints
-
-### Styled Components Best Practices
-1. Keep styled components in separate .styles.ts files
-2. Use theme values instead of hardcoded values
-3. Use props interface for dynamic styles
-4. Use composition over inheritance
-
-### Component Organization
-```
-src/
-  components/
-    base/
-      shared.styles.ts     # Shared styled components
-      Typography/
-        index.ts
-        Typography.tsx
-        Typography.styles.ts
-        Typography.types.ts
-        Typography.stories.tsx
-    cards/
-      ProblemOverview/
-        index.ts
-        ProblemOverview.tsx
-        ProblemOverview.styles.ts
-        ProblemOverview.types.ts
-        ProblemOverview.stories.tsx
-```
-
-### Image Optimization Guidelines
-1. Use `next-image-export-optimizer` for all images
-2. Implement lazy loading for off-screen images
-3. Provide proper width and height to prevent layout shift
-4. Use blur placeholder for large images
-5. Enable zoom functionality for technical diagrams
-
-### Icon Usage Guidelines
-1. Use Tabler icons as primary icon set
-2. Use Phosphor icons for technical/development concepts
-3. Use Lucide icons for user interface elements
-4. Maintain consistent icon sizes within contexts
-
-### Performance Optimization
-1. Implement code splitting for large components
-2. Lazy load off-screen images and components
-3. Use proper image formats (WebP with fallbacks)
-4. Optimize animation performance
-5. Monitor bundle size
-
-### Accessibility Enhancements
-1. Implement keyboard navigation
-2. Add ARIA labels to interactive elements
-3. Ensure proper color contrast
-4. Provide text alternatives for visual content
-5. Support reduced motion preferences
-
-[Rest of the content remains the same...] 
+### 05.3-solutions-impact
+Measurable impact and ROI of AI transformation solutions. 

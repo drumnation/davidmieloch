@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Typography from '../shared-components/atoms/Typography';
-import Button from '../shared-components/atoms/Button';
-import PageTemplate from '../shared-components/templates/PageTemplate';
+import { Button } from '@mantine/core';
+import { Typography } from '../src/shared-components/atoms/Typography';
+import PageTemplate from '../src/shared-components/templates/PageTemplate';
 
 const BlogGrid = styled.div`
   display: grid;
@@ -73,6 +73,11 @@ const fadeIn = {
   visible: { opacity: 1, y: 0 }
 };
 
+const CenteredText = styled.div`
+  text-align: center;
+  margin-top: 40px;
+`;
+
 // Mock blog data
 const blogPosts = [
   {
@@ -127,15 +132,19 @@ export default function Blog() {
       description="Thoughts, ideas, and insights on development and technology"
     >
       <FilterContainer>
-        <Typography variant="h4">Filter by Category</Typography>
+        <Typography variant="h3">
+          <span>Filter by Category</span>
+        </Typography>
         <FilterButtons>
           {categories.map(category => (
             <Button
               key={category}
-              label={category}
-              primary={filter === category}
+              variant={filter === category ? "filled" : "light"}
+              color="blue"
               onClick={() => setFilter(category)}
-            />
+            >
+              {category}
+            </Button>
           ))}
         </FilterButtons>
       </FilterContainer>
@@ -155,11 +164,11 @@ export default function Blog() {
                 <span>{post.date}</span>
                 <span>{post.category}</span>
               </BlogMeta>
-              <Typography variant="h4" style={{ marginBottom: '8px' }}>
-                {post.title}
+              <Typography variant="h3">
+                <span>{post.title}</span>
               </Typography>
-              <Typography variant="body2">
-                {post.excerpt}
+              <Typography variant="body">
+                <span>{post.excerpt}</span>
               </Typography>
               <TagsContainer>
                 {post.tags.map(tag => (
@@ -172,9 +181,11 @@ export default function Blog() {
       </BlogGrid>
       
       {filteredPosts.length === 0 && (
-        <Typography variant="body1" style={{ textAlign: 'center', marginTop: '40px' }}>
-          No blog posts found in this category.
-        </Typography>
+        <CenteredText>
+          <Typography variant="body">
+            <span>No blog posts found in this category.</span>
+          </Typography>
+        </CenteredText>
       )}
     </PageTemplate>
   );

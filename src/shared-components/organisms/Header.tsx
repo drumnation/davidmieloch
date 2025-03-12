@@ -13,10 +13,12 @@ import {
   useMantineTheme,
   Container,
   ActionIcon,
-  Tooltip
+  Tooltip,
+  Button
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useTheme } from '../../../src/providers/ThemeProvider';
+import { IconFileDownload } from '@tabler/icons-react';
 
 // Simple sun and moon icons for theme toggle
 const SunIcon = () => (
@@ -46,10 +48,9 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'AI Team Development', href: '/sales' },
-  { label: 'Resume', href: '/resume' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
+  // { label: 'Resume', href: '/resume' },
+  // { label: 'Blog', href: '/blog' },
+  // { label: 'Contact', href: '/contact' },
 ];
 
 export function Header() {
@@ -60,6 +61,11 @@ export function Header() {
   const isDark = colorScheme === 'dark';
 
   const isActive = (href: string) => router.pathname === href;
+
+  const handleResumeDownload = () => {
+    // This will need to be updated with the actual resume PDF path
+    window.open('/resume.pdf', '_blank');
+  };
 
   const navItems = navLinks.map((link) => (
     <Link 
@@ -124,6 +130,16 @@ export function Header() {
               {navItems}
             </Group>
             
+            {/* Resume download button */}
+            <Button
+              variant="subtle"
+              leftSection={<IconFileDownload size={16} />}
+              onClick={handleResumeDownload}
+              visibleFrom="sm"
+            >
+              Resume PDF
+            </Button>
+            
             {/* Theme toggle */}
             <Tooltip label={isDark ? 'Light mode' : 'Dark mode'}>
               <ActionIcon 
@@ -170,6 +186,27 @@ export function Header() {
                   </UnstyledButton>
                 </Link>
               ))}
+              
+              {/* Resume download button in mobile menu */}
+              <UnstyledButton
+                onClick={() => {
+                  handleResumeDownload();
+                  close();
+                }}
+                style={{
+                  width: '100%',
+                  padding: rem(12),
+                  borderRadius: theme.radius.sm,
+                  color: theme.colors.blue[6],
+                  backgroundColor: 'transparent',
+                  fontWeight: 500,
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <IconFileDownload size={16} style={{ marginRight: rem(8) }} />
+                Resume PDF
+              </UnstyledButton>
               
               <Group justify="space-between" px="md" py="sm">
                 <Text size="sm">Theme</Text>
