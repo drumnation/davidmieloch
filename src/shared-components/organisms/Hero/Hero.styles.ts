@@ -10,6 +10,9 @@ const backgroundStyles = {
   `,
   dark: css`
     background: var(--bg-dark);
+  `,
+  image: css`
+    background-color: #000;
   `
 };
 
@@ -38,22 +41,40 @@ export const HeroContainer = styled.section<{
   $background: string;
   $textColor: string;
   $pattern: string;
+  $backgroundImage?: string;
+  $backgroundOverlay?: boolean;
+  $overlayOpacity?: number;
 }>`
   position: relative;
   width: 100%;
-  min-height: 80vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   overflow: hidden;
   ${({ $background }) => backgroundStyles[$background as keyof typeof backgroundStyles]}
   ${({ $textColor }) => textColorStyles[$textColor as keyof typeof textColorStyles]}
-  ${({ $pattern }) => patternStyles[$pattern as keyof typeof patternStyles]}
+  ${({ $pattern, $background }) => $background !== 'image' && patternStyles[$pattern as keyof typeof patternStyles]}
+  ${({ $backgroundImage }) => $backgroundImage && css`
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(${$backgroundImage});
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+  `}
 
   ${media.up('md')} {
-    min-height: 90vh;
-    padding: 6rem 3rem;
+    min-height: 70vh;
+    padding: 4rem 3rem;
   }
 `;
 
@@ -62,10 +83,18 @@ export const HeroContent = styled.div`
   margin: 0 auto;
   text-align: center;
   z-index: 1;
+  position: relative;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
 `;
 
 export const Title = styled.div`
   margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 
   ${media.up('md')} {
     margin-bottom: 2rem;
@@ -75,5 +104,6 @@ export const Title = styled.div`
 export const Subtitle = styled.div`
   max-width: 600px;
   margin: 0 auto;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 `; 

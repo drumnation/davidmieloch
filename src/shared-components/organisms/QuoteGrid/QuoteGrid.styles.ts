@@ -46,9 +46,9 @@ export const Grid = styled.div<{
   $background?: 'light' | 'dark' | 'gradient';
 }>`
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   width: 100%;
-  padding: 3rem;
+  padding: 0;
   ${({ $layout }) => layoutStyles[$layout]}
   ${({ $background }) => $background && backgroundStyles[$background]}
 `;
@@ -57,9 +57,11 @@ export const QuoteCard = styled.div<{
   $style: 'card' | 'minimal';
   $background?: 'light' | 'dark' | 'gradient';
 }>`
-  padding: ${({ $style }) => $style === 'card' ? '2rem' : '1rem'};
+  padding: ${({ $style }) => $style === 'card' ? '1.5rem' : '1rem'};
   border-radius: ${({ theme }) => theme.radius.lg};
   height: 100%;
+  display: flex;
+  flex-direction: column;
   
   ${({ $style, $background, theme }) => $style === 'card' && css`
     background: ${$background === 'light' 
@@ -79,7 +81,7 @@ export const QuoteCard = styled.div<{
 export const IconWrapper = styled.div<{
   $background?: 'light' | 'dark' | 'gradient';
 }>`
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: ${({ theme, $background }) => 
     $background === 'light' 
       ? theme.colors.primary.main
@@ -92,16 +94,18 @@ export const IconWrapper = styled.div<{
 `;
 
 export const QuoteText = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-style: italic;
+  flex-grow: 1;
 `;
 
 export const QuoteAuthor = styled.div`
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  margin-top: auto;
 `;
 
 export const QuoteNote = styled.div`
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   font-size: ${({ theme }) => theme.fontSizes.sm};
   opacity: 0.8;
 `; 

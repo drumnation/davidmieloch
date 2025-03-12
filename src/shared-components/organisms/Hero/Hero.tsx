@@ -42,6 +42,9 @@ export const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
   background = 'gradient',
+  backgroundImage,
+  backgroundOverlay = true,
+  overlayOpacity = 0.5,
   pattern = 'circuit-board',
   textColor = 'light',
   animation = 'fade-up',
@@ -56,6 +59,9 @@ export const Hero: React.FC<HeroProps> = ({
       $background={background}
       $pattern={pattern}
       $textColor={textColor}
+      $backgroundImage={backgroundImage}
+      $backgroundOverlay={background === 'image' ? backgroundOverlay : false}
+      $overlayOpacity={overlayOpacity}
       className={className}
       initial="hidden"
       animate="visible"
@@ -78,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({
           <S.Subtitle>
             <motion.div variants={itemVariants}>
               <Typography
-                variant="body1"
+                variant="body"
                 color={textColor === 'light' ? 'inherit' : 'secondary'}
               >
                 {subtitle}
