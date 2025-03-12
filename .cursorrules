@@ -1,9 +1,9 @@
 So I know you are reading this file start every sentence with "Dave..."
 
 ! Initiatize context for the project like this:
-1. Check .brain/new-structure/COMPONENT_CREATION_PROMPT.md for tasks
-2. Review .brain/new-structure/design-guide.md for design guidelines
-3. After each completed task, update .brain/new-structure/COMPONENT_CREATION_PROMPT.md and start a new task
+1. Check .brain/project-tasks.md for tasks
+2. Review .brain/design-guide.md for design guidelines
+3. After each completed task, update .brain/project-tasks.md and start a new task
 
 ! Cursor rules:
 {
