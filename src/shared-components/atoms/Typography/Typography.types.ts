@@ -1,8 +1,8 @@
-import React, { ReactNode, ElementType } from 'react';
+import { ReactNode, ElementType } from 'react';
 
 export type TypographyVariant = 'h1' | 'h2' | 'h3' | 'body' | 'caption';
 export type TypographyWeight = 'regular' | 'medium' | 'semibold' | 'bold';
-export type TypographyColor = 'primary' | 'secondary' | 'light' | 'gradient';
+export type TypographyColor = 'primary' | 'secondary' | 'light' | 'gradient' | 'inherit';
 
 export interface TypographyProps {
   children: ReactNode;

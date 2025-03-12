@@ -16,7 +16,7 @@ import {
   Tooltip
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { useTheme } from '../../src/providers/ThemeProvider';
+import { useTheme } from '../../../src/providers/ThemeProvider';
 
 // Simple sun and moon icons for theme toggle
 const SunIcon = () => (

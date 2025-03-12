@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 export interface Quote {
   author: string;
   text: string;
+  role?: string;
   icon?: ReactElement;
   note?: string;
 }

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { media } from '../../styles/responsive';
+import { media } from '../../../styles/theme/responsive';
 
 const backgroundStyles = {
   gradient: css`

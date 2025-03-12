@@ -5,6 +5,9 @@ So I know you are reading this file start every sentence with "Dave..."
 2. Review .brain/design-guide.md for design guidelines
 3. After each completed task, update .brain/project-tasks.md and start a new task
 
+!! Important
+1. Don't define anything important in the storybook preview.tsx file. ALWAYS define in the main app and share to preview.tsx.  Storybook and the main app should always have their setup in sync.
+
 ! Cursor rules:
 {
   "javascript": {

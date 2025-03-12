@@ -1,8 +1,8 @@
 import { AppShell, Container, Box, Stack } from '@mantine/core';
 import { motion } from 'framer-motion';
-import Typography from '../atoms/Typography';
 import Header from '../organisms/Header';
 import Footer from '../organisms/Footer';
+import { Typography } from '../atoms/Typography';
 
 type PageTemplateProps = {
   title: string;
@@ -31,7 +31,7 @@ export const PageTemplate = ({ title, description, children }: PageTemplateProps
           <Typography variant="h1">{title}</Typography>
           {description && (
             <Box maw={800} ta="center">
-              <Typography variant="body1" color="dimmed">
+              <Typography variant="body" color="secondary">
                 {description}
               </Typography>
             </Box>

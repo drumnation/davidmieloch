@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { media } from '../../styles/responsive';
+import { media } from '../../../styles/theme/responsive';
 
 const layoutStyles = {
   '2-column': css`
@@ -58,7 +58,7 @@ export const QuoteCard = styled.div<{
   $background?: 'light' | 'dark' | 'gradient';
 }>`
   padding: ${({ $style }) => $style === 'card' ? '2rem' : '1rem'};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border-radius: ${({ theme }) => theme.radius.lg};
   height: 100%;
   
   ${({ $style, $background, theme }) => $style === 'card' && css`
@@ -66,7 +66,7 @@ export const QuoteCard = styled.div<{
       ? theme.colors.background.paper
       : 'rgba(255, 255, 255, 0.1)'};
     box-shadow: ${$background === 'light' 
-      ? theme.shadows.card
+      ? theme.shadows.md
       : '0 4px 6px rgba(0, 0, 0, 0.2)'};
     transition: transform 0.2s ease;
     

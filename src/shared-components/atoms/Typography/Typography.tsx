@@ -1,6 +1,14 @@
 import React from 'react';
-import { TypographyProps } from './Typography.types';
+import { TypographyProps, TypographyVariant } from './Typography.types';
 import { StyledTypography } from './Typography.styles';
+
+// Map legacy variants to current ones
+const mapVariant = (variant: string): TypographyVariant => {
+  if (variant === 'body1' || variant === 'body2') {
+    return 'body';
+  }
+  return variant as TypographyVariant;
+};
 
 export const Typography: React.FC<TypographyProps> = ({
   children,
@@ -10,6 +18,9 @@ export const Typography: React.FC<TypographyProps> = ({
   className,
   as,
 }) => {
+  // Map legacy variants to current ones
+  const mappedVariant = mapVariant(variant);
+
   // Default HTML element based on variant
   const defaultElement = {
     h1: 'h1',
@@ -17,12 +28,12 @@ export const Typography: React.FC<TypographyProps> = ({
     h3: 'h3',
     body: 'p',
     caption: 'span',
-  }[variant] as keyof JSX.IntrinsicElements;
+  }[mappedVariant] as keyof JSX.IntrinsicElements;
 
   return (
     <StyledTypography
       as={as || defaultElement}
-      $variant={variant}
+      $variant={mappedVariant}
       $weight={weight}
       $color={color}
       className={className}
