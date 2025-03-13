@@ -1,4 +1,6 @@
-import { useRouter } from 'next/router';
+'use client';
+
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -75,12 +77,12 @@ const ThemeToggle = () => {
 
 export function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const router = useRouter();
+  const pathname = usePathname();
   const theme = useMantineTheme();
   const { colorScheme } = useTheme();
   const isDark = colorScheme === 'dark';
 
-  const isActive = (href: string) => router.pathname === href;
+  const isActive = (href: string) => pathname === href;
 
   const handleResumeDownload = () => {
     // This will need to be updated with the actual resume PDF path
@@ -143,9 +145,7 @@ export function Header() {
                 fw={700} 
                 size="lg" 
                 style={{
-                  background: theme.other.accentGradient,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
+                  color: isDark ? '#ffffff' : '#141517'
                 }}
               >
                 David Mieloch
@@ -196,9 +196,7 @@ export function Header() {
                   fw={700} 
                   size="md" 
                   style={{
-                    background: theme.other.accentGradient,
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
+                    color: isDark ? '#ffffff' : '#141517'
                   }}
                 >
                   David Mieloch
