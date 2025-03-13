@@ -3,7 +3,7 @@ import { AiSkepticToExpert } from './AiSkepticToExpert';
 import { defaultContent } from './AiSkepticToExpert.constants';
 
 const meta = {
-  title: 'Sections/AiSkepticToExpert',
+  title: 'Sections/01-AiSkepticToExpert',
   component: AiSkepticToExpert,
   parameters: {
     layout: 'fullscreen',

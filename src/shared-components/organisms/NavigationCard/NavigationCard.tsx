@@ -14,6 +14,13 @@ const containerVariants = {
       ease: 'easeOut',
     },
   },
+  hover: {
+    y: -8,
+    transition: {
+      duration: 0.2,
+      ease: 'easeOut',
+    }
+  }
 };
 
 const iconVariants = {
@@ -26,11 +33,35 @@ const iconVariants = {
       delay: 0.2,
     },
   },
+  hover: {
+    scale: 1.1,
+    rotate: 5,
+    transition: {
+      duration: 0.2,
+      ease: 'easeOut',
+    }
+  }
+};
+
+const contentVariants = {
+  hover: {
+    y: -5,
+    transition: {
+      duration: 0.2,
+      ease: 'easeOut',
+    }
+  }
 };
 
 const arrowVariants = {
   rest: { x: 0 },
-  hover: { x: 8, transition: { duration: 0.2 } },
+  hover: { 
+    x: 8, 
+    transition: { 
+      duration: 0.2,
+      ease: 'easeOut',
+    } 
+  },
 };
 
 export const NavigationCard: React.FC<NavigationCardProps> = ({
@@ -40,7 +71,6 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
   link,
   icon,
   style = 'accent-card',
-  animation = 'fade-up',
   className,
   onClick,
 }) => {
@@ -58,30 +88,43 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      whileHover="hover"
       className={className}
       onClick={handleClick}
+      style={{ height: '100%', width: '100%', display: 'flex' }}
     >
       <S.StyledNavigationCard
         variant={style === 'gradient-card' ? 'gradient' : 'accent'}
         padding="lg"
       >
         {icon && (
-          <S.IconContainer variants={iconVariants} $style={style}>
+          <S.IconContainer 
+            variants={iconVariants} 
+            $style={style}
+          >
             <span className="icon">{icon}</span>
           </S.IconContainer>
         )}
-        <S.Content>
+        <motion.div 
+          variants={contentVariants} 
+          style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '1rem', 
+            flex: 1 
+          }}
+        >
           <H3 color={style === 'gradient-card' ? 'light' : 'primary'}>{title}</H3>
           <S.Description color={style === 'gradient-card' ? 'light' : 'secondary'}>
             {description}
           </S.Description>
-        </S.Content>
+        </motion.div>
         <S.ActionContainer>
           <Body color={style === 'gradient-card' ? 'light' : 'primary'} weight="medium">
             {action}
           </Body>
-          <motion.div initial="rest" whileHover="hover" animate="rest">
-            <S.Arrow variants={arrowVariants}>→</S.Arrow>
+          <motion.div variants={arrowVariants}>
+            <S.Arrow>→</S.Arrow>
           </motion.div>
         </S.ActionContainer>
       </S.StyledNavigationCard>

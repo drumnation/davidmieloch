@@ -10,6 +10,7 @@ So I know you are reading this file start every sentence with "Hooo Dave..."
 1. Don't define anything important in the storybook preview.tsx file. ALWAYS define in the main app and share to preview.tsx.  Storybook and the main app should always have their setup in sync.
 2. Use `pnpm` as the package manager.
 3. When building or refactoring react components, always split them into multiple files based on concerns and use barrel exports.
+  - WE ARE USING TAILWIND CSS. DO NOT ADD STYLED COMPONENT CLASSES TO THE COMPONENT.
   - Each component should have its own folder
   - Put styles in a Component.styles.ts file
   - Types in their own Component.types.ts file

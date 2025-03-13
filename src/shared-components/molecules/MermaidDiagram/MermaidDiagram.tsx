@@ -4,6 +4,31 @@ import { MermaidDiagramProps } from './MermaidDiagram.types';
 import * as S from './MermaidDiagram.styles';
 import { Typography } from '../../atoms/Typography';
 
+// Helper function to replace CSS variables with actual color values
+const replaceCssVariables = (definition: string): string => {
+  // Define a mapping of CSS variables to actual color values
+  const colorMap: Record<string, string> = {
+    'var(--primary-blue)': '#4a6bff',
+    'var(--primary-purple)': '#9c6ade',
+    'var(--accent-green)': '#47b881',
+    'var(--accent-orange)': '#f7b955',
+    'var(--accent-red)': '#ec4c47',
+    'var(--accent-teal)': '#14b5d0',
+    'var(--text-dark)': '#333333',
+    'var(--text-light)': '#ffffff',
+    'var(--background-light)': '#f9f9fb',
+    'var(--background-dark)': '#1f2937'
+  };
+
+  // Replace all CSS variables with their corresponding color values
+  let processedDefinition = definition;
+  Object.entries(colorMap).forEach(([variable, color]) => {
+    processedDefinition = processedDefinition.replace(new RegExp(variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), color);
+  });
+
+  return processedDefinition;
+};
+
 export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
   definition,
   className,
@@ -37,8 +62,11 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
           mermaidRef.current.innerHTML = '';
         }
         
+        // Process the definition to replace CSS variables with actual color values
+        const processedDefinition = replaceCssVariables(definition);
+        
         // Render the diagram
-        const { svg } = await mermaid.render(uniqueId.current, definition);
+        const { svg } = await mermaid.render(uniqueId.current, processedDefinition);
         setSvg(svg);
         setLoading(false);
       } catch (err) {

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { AiSkepticToExpert } from '../../sections/AiSkepticToExpert';
 import { AiAutopilotAnalogy } from '../../sections/AiAutopilotAnalogy';
+import { BrainGardenOverview } from '../../sections/BrainGardenOverview';
 import { WhitePaperProps } from './WhitePaper.types';
 
 // Animation variants
@@ -34,6 +35,7 @@ export const WhitePaper: React.FC<WhitePaperProps> = ({
     >
       <AiSkepticToExpert />
       <AiAutopilotAnalogy />
+      <BrainGardenOverview />
       {/* Additional sections will be added here as they are developed */}
     </motion.div>
   );

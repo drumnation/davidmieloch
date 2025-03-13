@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Card } from '../../atoms/Card/Card';
 import { Body } from '../../atoms/Typography/Typography';
@@ -10,6 +10,10 @@ export const StyledNavigationCard = styled(Card)`
   gap: 2rem;
   cursor: pointer;
   transition: transform 0.2s ease;
+  height: 100%;
+  width: 100%;
+  min-height: 250px;
+  box-sizing: border-box;
 
   &:hover {
     transform: translateY(-4px);
@@ -20,6 +24,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: 1;
 `;
 
 export const IconContainer = styled(motion.div)<Pick<StyledNavigationCardProps, '$style'>>`
