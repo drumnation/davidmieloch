@@ -14,11 +14,10 @@ export const ProblemSolutionCard: React.FC<ProblemSolutionCardProps> = ({
   solution,
   impact,
   icon,
-  variant = 'blue',
   className,
 }) => {
   return (
-    <S.StyledCard $variant={variant} className={className}>
+    <S.StyledCard $variant="white" className={className}>
       <S.IconHeader>
         <S.HeaderIcon>
           <Icon name={icon || 'chart-bar'} />
@@ -26,7 +25,7 @@ export const ProblemSolutionCard: React.FC<ProblemSolutionCardProps> = ({
         <S.HeaderSlug>{slug}</S.HeaderSlug>
       </S.IconHeader>
 
-      <S.Content $variant={variant}>
+      <S.Content $variant="white">
         <S.Section>
           <S.StatusIcon type="problem">
             <Icon name="x" />

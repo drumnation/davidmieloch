@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   AppShell,
   Burger,
@@ -19,6 +20,7 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import { useTheme } from '../../../src/providers/ThemeProvider';
 import { IconFileDownload } from '@tabler/icons-react';
+import { ClientOnly } from '../../../src/utils';
 
 // Simple sun and moon icons for theme toggle
 const SunIcon = () => (
@@ -53,11 +55,29 @@ const navLinks: NavLink[] = [
   // { label: 'Contact', href: '/contact' },
 ];
 
+// Theme toggle button component that uses ClientOnly to prevent hydration errors
+const ThemeToggle = () => {
+  const { colorScheme, toggleColorScheme } = useTheme();
+  const isDark = colorScheme === 'dark';
+  
+  return (
+    <Tooltip label={isDark ? 'Light mode' : 'Dark mode'}>
+      <ActionIcon 
+        variant="subtle" 
+        onClick={toggleColorScheme} 
+        aria-label="Toggle color scheme"
+      >
+        {isDark ? <SunIcon /> : <MoonIcon />}
+      </ActionIcon>
+    </Tooltip>
+  );
+};
+
 export function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const router = useRouter();
   const theme = useMantineTheme();
-  const { colorScheme, toggleColorScheme } = useTheme();
+  const { colorScheme } = useTheme();
   const isDark = colorScheme === 'dark';
 
   const isActive = (href: string) => router.pathname === href;
@@ -111,17 +131,26 @@ export function Header() {
       <Container size="lg">
         <Group justify="space-between" h="100%">
           <Link href="/" style={{ textDecoration: 'none' }}>
-            <Text 
-              fw={700} 
-              size="lg" 
-              style={{
-                background: theme.other.accentGradient,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}
-            >
-              David Mieloch
-            </Text>
+            <Group gap="xs" align="center">
+              <Image 
+                src="/logo.png" 
+                alt="David Mieloch Logo" 
+                width={32} 
+                height={32} 
+                style={{ borderRadius: '4px' }}
+              />
+              <Text 
+                fw={700} 
+                size="lg" 
+                style={{
+                  background: theme.other.accentGradient,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }}
+              >
+                David Mieloch
+              </Text>
+            </Group>
           </Link>
 
           <Group gap={5}>
@@ -131,25 +160,21 @@ export function Header() {
             </Group>
             
             {/* Resume download button */}
-            <Button
-              variant="subtle"
-              leftSection={<IconFileDownload size={16} />}
-              onClick={handleResumeDownload}
-              visibleFrom="sm"
-            >
-              Resume PDF
-            </Button>
+            <ClientOnly>
+              <Button
+                variant="subtle"
+                leftSection={<IconFileDownload size={16} />}
+                onClick={handleResumeDownload}
+                visibleFrom="sm"
+              >
+                Resume PDF
+              </Button>
+            </ClientOnly>
             
             {/* Theme toggle */}
-            <Tooltip label={isDark ? 'Light mode' : 'Dark mode'}>
-              <ActionIcon 
-                variant="subtle" 
-                onClick={toggleColorScheme} 
-                aria-label="Toggle color scheme"
-              >
-                {isDark ? <SunIcon /> : <MoonIcon />}
-              </ActionIcon>
-            </Tooltip>
+            <ClientOnly>
+              <ThemeToggle />
+            </ClientOnly>
 
             {/* Mobile navigation */}
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />
@@ -158,7 +183,28 @@ export function Header() {
           <Drawer
             opened={opened}
             onClose={close}
-            title="Menu"
+            title={
+              <Group gap="xs" align="center">
+                <Image 
+                  src="/logo.png" 
+                  alt="David Mieloch Logo" 
+                  width={24} 
+                  height={24} 
+                  style={{ borderRadius: '4px' }}
+                />
+                <Text 
+                  fw={700} 
+                  size="md" 
+                  style={{
+                    background: theme.other.accentGradient,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                  }}
+                >
+                  David Mieloch
+                </Text>
+              </Group>
+            }
             position="right"
             size="xs"
             overlayProps={{ opacity: 0.5, blur: 4 }}
@@ -188,35 +234,33 @@ export function Header() {
               ))}
               
               {/* Resume download button in mobile menu */}
-              <UnstyledButton
-                onClick={() => {
-                  handleResumeDownload();
-                  close();
-                }}
-                style={{
-                  width: '100%',
-                  padding: rem(12),
-                  borderRadius: theme.radius.sm,
-                  color: theme.colors.blue[6],
-                  backgroundColor: 'transparent',
-                  fontWeight: 500,
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <IconFileDownload size={16} style={{ marginRight: rem(8) }} />
-                Resume PDF
-              </UnstyledButton>
+              <ClientOnly>
+                <UnstyledButton
+                  onClick={() => {
+                    handleResumeDownload();
+                    close();
+                  }}
+                  style={{
+                    width: '100%',
+                    padding: rem(12),
+                    borderRadius: theme.radius.sm,
+                    color: theme.colors.blue[6],
+                    backgroundColor: 'transparent',
+                    fontWeight: 500,
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <IconFileDownload size={16} style={{ marginRight: rem(8) }} />
+                  Resume PDF
+                </UnstyledButton>
+              </ClientOnly>
               
               <Group justify="space-between" px="md" py="sm">
                 <Text size="sm">Theme</Text>
-                <ActionIcon 
-                  variant="subtle" 
-                  onClick={toggleColorScheme} 
-                  aria-label="Toggle color scheme"
-                >
-                  {isDark ? <SunIcon /> : <MoonIcon />}
-                </ActionIcon>
+                <ClientOnly>
+                  <ThemeToggle />
+                </ClientOnly>
               </Group>
             </Stack>
           </Drawer>

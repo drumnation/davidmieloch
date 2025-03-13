@@ -19,20 +19,21 @@ const ThemeContext = createContext<ThemeContextType>({
 export const useTheme = () => useContext(ThemeContext)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Default to light mode
+  // Default to light mode for server-side rendering
   const [colorScheme, setColorScheme] = useState<'dark' | 'light'>('light')
 
+  // This effect will only run on the client
   useEffect(() => {
-    // Only run on client side
-    if (typeof window !== 'undefined') {
-      // Check if user has a saved preference
-      const savedScheme = localStorage.getItem('color-scheme')
-      if (savedScheme === 'light' || savedScheme === 'dark') {
-        setColorScheme(savedScheme)
-      } else {
-        // If no preference, set light mode as default
-        localStorage.setItem('color-scheme', 'light')
-      }
+    // Check if user has a saved preference
+    const savedScheme = localStorage.getItem('color-scheme')
+    if (savedScheme === 'light' || savedScheme === 'dark') {
+      setColorScheme(savedScheme)
+    } else {
+      // If no preference, check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const systemScheme = prefersDark ? 'dark' : 'light'
+      setColorScheme(systemScheme)
+      localStorage.setItem('color-scheme', systemScheme)
     }
   }, [])
 
@@ -61,8 +62,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     },
   }
 
-  // On the server or during initial client render, use the default theme
-  // This ensures consistent rendering between server and client
   return (
     <ThemeContext.Provider value={{ colorScheme, toggleColorScheme }}>
       <StyledThemeProvider theme={currentStyledTheme}>
