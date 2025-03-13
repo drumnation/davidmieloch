@@ -5,13 +5,13 @@ export interface AiAutopilotAnalogyProps {
   heroProps?: {
     title: string;
     subtitle: string;
-    background: 'image' | 'gradient' | 'color';
+    background?: 'gradient' | 'light' | 'dark' | 'image';
     backgroundImage?: string;
     backgroundOverlay?: boolean;
     overlayOpacity?: number;
-    pattern?: string;
-    textColor: 'light' | 'dark';
-    animation?: string;
+    pattern?: 'circuit-board' | 'dots' | 'none';
+    textColor?: 'light' | 'dark';
+    animation?: 'fade-up' | 'slide-in' | 'none';
     className?: string;
   };
   comparisonTableProps?: {

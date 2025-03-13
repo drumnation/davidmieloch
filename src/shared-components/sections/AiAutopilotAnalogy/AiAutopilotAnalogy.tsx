@@ -59,6 +59,8 @@ const defaultContent = {
     background: "image" as const,
     backgroundImage: "/cockpit3.jpg",
     textColor: "light" as const,
+    pattern: "none" as const,
+    animation: "fade-up" as const,
     className: '',
   },
   comparisonTable: {
@@ -208,7 +210,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
     background: (heroProps.background === 'image' || heroProps.background === 'gradient' || 
                 heroProps.background === 'light' || heroProps.background === 'dark') ? 
                 heroProps.background : 'gradient',
-    textColor: 'light' as const,
+    textColor: 'light' as const
   };
 
   return (
@@ -368,8 +370,11 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                     key={index}
                     style={{
                       display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      textAlign: 'center',
                       gap: '1rem',
-                      padding: '1rem',
+                      padding: '1.5rem',
                       backgroundColor: '#f0f7ff',
                       borderRadius: '8px',
                       boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)'
@@ -381,12 +386,13 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                       display: 'flex', 
                       alignItems: 'center', 
                       justifyContent: 'center',
-                      color: 'var(--primary-blue)'
+                      color: 'var(--primary-blue)',
+                      marginBottom: '0.5rem'
                     }}>
                       {item.icon}
                     </div>
-                    <div>
-                      <Typography variant="body" weight="bold">{item.title}</Typography>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <Typography variant="body" weight="bold" className="mb-2">{item.title}</Typography>
                       <Typography variant="body">{item.description}</Typography>
                     </div>
                   </motion.div>
@@ -405,8 +411,11 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                     key={index}
                     style={{
                       display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      textAlign: 'center',
                       gap: '1rem',
-                      padding: '1rem',
+                      padding: '1.5rem',
                       backgroundColor: '#fff0f0',
                       borderRadius: '8px',
                       boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)'
@@ -418,12 +427,13 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                       display: 'flex', 
                       alignItems: 'center', 
                       justifyContent: 'center',
-                      color: 'var(--accent-red)'
+                      color: 'var(--accent-red)',
+                      marginBottom: '0.5rem'
                     }}>
                       {item.icon}
                     </div>
-                    <div>
-                      <Typography variant="body" weight="bold">{item.title}</Typography>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <Typography variant="body" weight="bold" className="mb-2">{item.title}</Typography>
                       <Typography variant="body">{item.description}</Typography>
                     </div>
                   </motion.div>
@@ -501,12 +511,16 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
             style={{ marginBottom: SPACING.paragraphBreak }}
             variants={fadeInUp}
           >
-            <Typography variant="h2" weight="bold" className="mb-4">
-              {mermaidDiagramProps.title}
-            </Typography>
-            <Typography variant="body" weight="regular">
-              {mermaidDiagramProps.description}
-            </Typography>
+            <div style={{ display: 'block', marginBottom: '1.5rem' }}>
+              <Typography variant="h2" weight="bold">
+                {mermaidDiagramProps.title}
+              </Typography>
+            </div>
+            <div style={{ display: 'block' }}>
+              <Typography variant="body" weight="regular">
+                {mermaidDiagramProps.description}
+              </Typography>
+            </div>
           </motion.div>
           
           <motion.div
@@ -527,7 +541,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
             />
           </motion.div>
           
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUp} style={{ marginBottom: '0' }}>
             <Typography variant="body" weight="regular">
               This process emphasizes the iterative nature of successful AI integration, with continuous feedback loops
               and clear decision points for refining the approach based on real-world results.
@@ -540,7 +554,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
           style={{ 
             width: '100%',
             maxWidth: '1000px', 
-            margin: `${SPACING.section} auto 0`,
+            margin: `1.5rem auto 0`,
             padding: `0 ${SPACING.container}`
           }}
           initial="hidden"
