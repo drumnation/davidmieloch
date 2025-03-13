@@ -45,7 +45,13 @@ export const PageTemplate = ({ title, description, children }: PageTemplateProps
           animate="animate"
           exit="exit"
           variants={pageVariants}
-          style={{ minHeight: '60vh' }}
+          style={{ 
+            minHeight: '60vh',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'stretch'
+          }}
         >
           {children}
         </MotionDiv>

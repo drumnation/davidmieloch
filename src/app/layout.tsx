@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Provider as ReduxProvider } from 'react-redux'
-import { ThemeProvider } from '@/providers/ThemeProvider'
+import { ThemeProvider } from '@/providers'
 import { store } from '@/store'
 import StyledComponentsRegistry from './registry'
 import { lexend, inter, manrope, workSans, ibmPlex } from '@/styles/fonts';

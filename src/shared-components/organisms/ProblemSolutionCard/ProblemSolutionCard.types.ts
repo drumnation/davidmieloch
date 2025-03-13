@@ -1,5 +1,10 @@
 export interface ProblemSolutionCardProps {
   /**
+   * Short category label (e.g. "Metrics", "Accuracy", "Quality")
+   */
+  slug: string;
+
+  /**
    * The problem statement to be displayed
    */
   problem: string;
@@ -8,11 +13,14 @@ export interface ProblemSolutionCardProps {
    * The solution description
    */
   solution: string;
-  
+
   /**
-   * The impact statement showing the solution's effect
+   * The impact metric showing the solution's effect
    */
-  impact: string;
+  impact?: {
+    value: string;
+    label?: string;
+  };
   
   /**
    * Icon name from Tabler icons
@@ -22,7 +30,7 @@ export interface ProblemSolutionCardProps {
   /**
    * Visual style variant of the card
    */
-  variant?: 'gradient' | 'accent';
+  variant?: 'blue' | 'white';
   
   /**
    * Optional className for styling

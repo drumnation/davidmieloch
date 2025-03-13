@@ -1,53 +1,128 @@
 import styled from 'styled-components';
-import { Card } from '../../atoms/Card';
-import { motion } from 'framer-motion';
 
 interface StyledCardProps {
-  variant?: 'gradient' | 'accent';
+  $variant?: 'blue' | 'white';
 }
 
-export const StyledCard = styled(Card)<StyledCardProps>`
-  padding: 2rem;
+export const StyledCard = styled.div<StyledCardProps>`
+  padding: 0;
   height: 100%;
-  background: ${({ variant, theme }) =>
-    variant === 'gradient'
-      ? theme.colors.gradient
-      : theme.colors.accent.main};
-  color: ${({ variant, theme }) =>
-    variant === 'gradient' ? theme.colors.text.light : theme.colors.text.primary};
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  background: ${({ $variant, theme }) =>
+    $variant === 'blue'
+      ? theme.colors.accent.blue
+      : theme.colors.background.paper};
+  color: ${({ $variant, theme }) =>
+    $variant === 'blue'
+      ? theme.colors.text.light
+      : theme.colors.text.primary};
+  box-shadow: ${({ theme }) => theme.shadows.md};
+  transition: ${({ theme }) => theme.transitions.default};
+  overflow: hidden;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
 
-export const ProblemSection = styled.div`
-  margin-bottom: 1.5rem;
+export const HeaderSlug = styled.div`
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  color: ${({ theme }) => theme.colors.text.light};
 `;
 
-export const SolutionSection = styled.div`
-  margin-bottom: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid ${({ theme }) => theme.colors.border.light};
-`;
-
-export const ImpactSection = styled.div`
+export const IconHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid ${({ theme }) => theme.colors.border.light};
+  padding: ${({ theme }) => theme.space.md};
+  background: ${({ theme }) => theme.colors.accent.blue};
+  color: ${({ theme }) => theme.colors.text.light};
 `;
 
-export const IconWrapper = styled.div`
+export const HeaderIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.background.light};
-  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  margin-right: ${({ theme }) => theme.space.sm};
   
   svg {
     width: 1.5rem;
     height: 1.5rem;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors.text.light};
+  }
+`;
+
+export const Content = styled.div<{ $variant?: 'blue' | 'white' }>`
+  padding: ${({ theme }) => theme.space.lg};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.space.lg};
+  flex: 1;
+  background: ${({ $variant, theme }) =>
+    $variant === 'blue'
+      ? theme.colors.accent.blue
+      : theme.colors.background.paper};
+  color: ${({ $variant, theme }) =>
+    $variant === 'blue'
+      ? theme.colors.text.light
+      : theme.colors.text.primary};
+`;
+
+export const Section = styled.div`
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: ${({ theme }) => theme.space.md};
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+`;
+
+export const TextContent = styled.div`
+  flex: 1;
+`;
+
+export const ImpactTextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.space.xs};
+`;
+
+export const StatusIcon = styled.div<{ type: 'problem' | 'solution' | 'impact' }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-right: ${({ theme }) => theme.space.md};
+  margin-top: 0.125rem;
+  background: ${({ type, theme }) => {
+    switch (type) {
+      case 'problem':
+        return theme.colors.accent.red;
+      case 'solution':
+        return theme.colors.accent.green;
+      case 'impact':
+        return theme.colors.accent.blue;
+      default:
+        return theme.colors.accent.blue;
+    }
+  }};
+  
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: ${({ theme }) => theme.colors.text.light};
   }
 `; 

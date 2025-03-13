@@ -3,5 +3,14 @@
         "activityBar.background": "#213309",
         "titleBar.activeBackground": "#2E470D",
         "titleBar.activeForeground": "#F6FCEE"
-    }
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ]
 }

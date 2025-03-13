@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ProblemSolutionCard } from '.';
+import { ProblemSolutionCard } from './ProblemSolutionCard';
 
-const meta = {
+const meta: Meta<typeof ProblemSolutionCard> = {
   title: 'Organisms/ProblemSolutionCard',
   component: ProblemSolutionCard,
   parameters: {
@@ -9,71 +9,62 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    problem: {
-      control: 'text',
-      description: 'The problem statement',
-    },
-    solution: {
-      control: 'text',
-      description: 'The solution description',
-    },
-    impact: {
-      control: 'text',
-      description: 'The impact statement',
+    variant: {
+      control: 'select',
+      options: ['blue', 'white'],
+      defaultValue: 'blue',
     },
     icon: {
       control: 'text',
-      description: 'Icon name from Tabler icons',
     },
-    variant: {
-      control: 'select',
-      options: ['gradient', 'accent'],
-      description: 'Visual style variant',
+    slug: {
+      control: 'text',
+    },
+    problem: {
+      control: 'text',
+    },
+    solution: {
+      control: 'text',
     },
   },
-} satisfies Meta<typeof ProblemSolutionCard>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof ProblemSolutionCard>;
 
-export const Default: Story = {
+export const Metrics: Story = {
   args: {
+    slug: 'Metrics',
+    icon: 'chart-bar',
     problem: 'Misaligned metrics incentivize bad code',
     solution: 'Quality-focused measurement approach',
-    impact: 'Improved code quality with AI assistance',
-    icon: 'chart-bar',
-    variant: 'gradient',
+    variant: 'blue',
   },
 };
 
-export const WithLongContent: Story = {
+export const Accuracy: Story = {
   args: {
-    problem: 'Developers spend more time fixing AI-generated code than writing it from scratch',
-    solution: "I've developed prompt engineering techniques that produce reliable, maintainable code",
-    impact: '30% faster development with fewer rework cycles',
+    slug: 'Accuracy',
+    icon: 'refresh',
+    problem: 'AI generates plausible but incorrect code',
+    solution: 'My systematic validation approach catches AI errors before they reach production',
+    variant: 'blue',
+  },
+};
+
+export const Quality: Story = {
+  args: {
+    slug: 'Quality',
     icon: 'code',
-    variant: 'accent',
+    problem: 'Developers spend more time fixing AI code than writing it',
+    solution: 'I\'ve created prompt engineering techniques that produce reliable, maintainable code',
+    variant: 'blue',
   },
 };
 
-export const MultipleCards: Story = {
+export const WhiteVariant: Story = {
   args: {
-    problem: 'Misaligned metrics incentivize bad code',
-    solution: 'Quality-focused measurement approach',
-    impact: 'Improved code quality with AI assistance',
-    icon: 'chart-bar',
-    variant: 'gradient',
+    ...Metrics.args,
+    variant: 'white',
   },
-  render: (args) => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', maxWidth: '800px' }}>
-      <ProblemSolutionCard {...args} />
-      <ProblemSolutionCard
-        problem="AI generates plausible but incorrect code"
-        solution="Systematic validation approach"
-        impact="65% fewer production failures"
-        icon="shield-check"
-        variant="accent"
-      />
-    </div>
-  ),
 }; 

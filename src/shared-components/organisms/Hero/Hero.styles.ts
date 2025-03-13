@@ -3,13 +3,13 @@ import { media } from '../../../styles/theme/responsive';
 
 const backgroundStyles = {
   gradient: css`
-    background: var(--bg-gradient);
+    background: ${({ theme }) => theme.colors.gradient};
   `,
   light: css`
-    background: var(--bg-light);
+    background: ${({ theme }) => theme.colors.background.light};
   `,
   dark: css`
-    background: var(--bg-dark);
+    background: ${({ theme }) => theme.colors.background.dark};
   `,
   image: css`
     background-color: #000;
@@ -18,10 +18,10 @@ const backgroundStyles = {
 
 const textColorStyles = {
   light: css`
-    color: var(--text-light);
+    color: ${({ theme }) => theme.colors.text.light};
   `,
   dark: css`
-    color: var(--text-primary);
+    color: ${({ theme }) => theme.colors.text.primary};
   `
 };
 
@@ -71,6 +71,10 @@ export const HeroContainer = styled.section<{
       z-index: 0;
     }
   `}
+  
+  /* Ensure full width in all contexts */
+  max-width: 100%;
+  align-self: stretch;
 
   ${media.up('md')} {
     min-height: 70vh;
@@ -106,4 +110,4 @@ export const Subtitle = styled.div`
   margin: 0 auto;
   opacity: 0.95;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-`; 
+`;

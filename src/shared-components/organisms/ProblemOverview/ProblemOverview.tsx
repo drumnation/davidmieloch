@@ -91,7 +91,7 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
       <S.Description>
         <motion.div variants={animationVariant}>
           <Typography
-            variant="body1"
+            variant="body"
             color={background === 'light' ? 'primary' : 'inherit'}
           >
             {description}
@@ -113,7 +113,7 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
               </S.MetricNumber>
               <S.MetricLabel>
                 <Typography
-                  variant="body2"
+                  variant="body"
                   color={background === 'light' ? 'secondary' : 'inherit'}
                 >
                   {metric.label}

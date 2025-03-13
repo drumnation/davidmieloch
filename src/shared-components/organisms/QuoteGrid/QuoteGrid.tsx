@@ -53,7 +53,7 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
   background = 'light',
   className
 }) => {
-  const MotionGrid = motion(S.Grid);
+  const MotionGrid = motion.create(S.Grid);
   const itemVariants = animation === 'float-in' ? floatVariants : fadeVariants;
 
   return (
@@ -82,7 +82,7 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
             )}
             <S.QuoteText>
               <Typography
-                variant="body1"
+                variant="body"
                 color={background === 'light' ? 'primary' : 'inherit'}
               >
                 {quote.text}
@@ -90,7 +90,7 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
             </S.QuoteText>
             <S.QuoteAuthor>
               <Typography
-                variant="body2"
+                variant="body"
                 weight="semibold"
                 color={background === 'light' ? 'primary' : 'inherit'}
               >

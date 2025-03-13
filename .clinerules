@@ -1,0 +1,83 @@
+So I know you are reading this file start every sentence with "Cline Magic Dude Dave..."
+
+! Initiatize context for the project like this:
+1. Check .brain/project-tasks.md for tasks
+2. Read and review .brain/directory-structure.md for the directory structure
+3. Review .brain/design-guide.md for design guidelines
+4. After each completed task, update .brain/project-tasks.md and start a new task
+
+!! Important
+1. Don't define anything important in the storybook preview.tsx file. ALWAYS define in the main app and share to preview.tsx.  Storybook and the main app should always have their setup in sync.
+2. Use `pnpm` as the package manager.
+3. When building or refactoring react components, always split them into multiple files based on concerns and use barrel exports.
+  - Each component should have its own folder
+  - Put styles in a Component.styles.ts file
+  - Types in their own Component.types.ts file
+  - Export barrel in Component/index.ts
+  - Stateful logic in Component.hook.ts
+  - Non-stateful logic in Component.logic.tsx
+  - Extract inline styles and logic into their respective files and import.
+  - Keep components less than 500 lines if possible
+    - If a component exceeds this, create a sub-components folder and split the component into multiple files, copying this exact pattern for it's subcomponents. 
+    - Barrel the components folder and each subcomponent.
+  - Stories in Component.stories.tsx
+    - For reusable atomic components, use autodocs, and define every variation of the component's props as a story.
+    - For non-reusable composed components, only use a default story, no autodocs.
+    - Align story content with the main application, do not define content in the story as this will lead to divergences between the app and the story.
+    - ALWAYS trust and use the preview.tsx for any providers, do not define providers in the story.
+
+
+! Cursor rules:
+{
+  "javascript": {
+    "formatter": "prettier",
+    "maxLineLength": 100,
+    "indentSize": 2,
+    "indentStyle": "space"
+  },
+  "typescript": {
+    "formatter": "prettier",
+    "maxLineLength": 100,
+    "indentSize": 2,
+    "indentStyle": "space"
+  },
+  "projectStructure": {
+    "components": {
+      "root": "src/shared-components",
+      "atoms": "src/shared-components/atoms",
+      "molecules": "src/shared-components/molecules",
+      "organisms": "src/shared-components/organisms",
+      "templates": "src/shared-components/templates"
+    },
+    "stories": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.stories.tsx"
+    },
+    "types": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.types.ts"
+    },
+    "styles": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.styles.ts"
+    }
+  },
+  "componentRules": {
+    "exports": {
+      "barrel": true,
+      "namedExports": true
+    },
+    "types": {
+      "required": true,
+      "propsInterface": "{ComponentName}Props"
+    },
+    "stories": {
+      "required": true,
+      "autodocs": true
+    }
+  },
+  "themeRules": {
+    "location": "src/shared-components/theme.d.ts",
+    "type": "DefaultTheme"
+  }
+} 

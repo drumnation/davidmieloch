@@ -3,13 +3,13 @@ import { StyledCardProps } from './Card.types';
 
 const variantStyles = {
   gradient: css`
-    background: var(--bg-gradient);
-    color: var(--text-light);
+    background: ${({ theme }) => theme.colors.gradient};
+    color: ${({ theme }) => theme.colors.text.light};
   `,
   accent: css`
-    background: var(--bg-light);
-    border: 1px solid var(--primary-blue);
-    color: var(--text-primary);
+    background: ${({ theme }) => theme.colors.background.light};
+    border: 1px solid ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors.text.primary};
   `,
 };
 
@@ -18,23 +18,23 @@ const paddingStyles = {
     padding: 0;
   `,
   sm: css`
-    padding: 1rem;
+    padding: ${({ theme }) => theme.space.sm};
   `,
   md: css`
-    padding: 1.5rem;
+    padding: ${({ theme }) => theme.space.md};
   `,
   lg: css`
-    padding: 2rem;
+    padding: ${({ theme }) => theme.space.lg};
   `,
   xl: css`
-    padding: 3rem;
+    padding: ${({ theme }) => theme.space.xl};
   `,
 };
 
 export const StyledCard = styled.div<StyledCardProps>`
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  box-shadow: ${({ theme }) => theme.shadows.md};
+  transition: ${({ theme }) => theme.transitions.default};
   width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'auto')};
 
   ${({ $variant }) => variantStyles[$variant]};
@@ -42,11 +42,11 @@ export const StyledCard = styled.div<StyledCardProps>`
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: ${({ theme }) => theme.shadows.lg};
   }
 
   &:active {
     transform: translateY(0);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: ${({ theme }) => theme.shadows.md};
   }
 `; 

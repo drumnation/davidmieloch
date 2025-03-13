@@ -1,6 +1,7 @@
 import { MantineProvider as BaseMantineProvider, createTheme } from '@mantine/core';
 import '@mantine/core/styles.css';
 
+// Create a fixed theme object to ensure consistent rendering
 const theme = createTheme({
   primaryColor: 'blue',
   colors: {
@@ -21,10 +22,16 @@ const theme = createTheme({
   defaultRadius: 'md',
 });
 
-export function MantineProvider({ children }: { children: React.ReactNode }) {
+export function MantineProvider({
+  children,
+  colorScheme = 'light'
+}: {
+  children: React.ReactNode;
+  colorScheme?: 'light' | 'dark';
+}) {
   return (
-    <BaseMantineProvider theme={theme} defaultColorScheme="light">
+    <BaseMantineProvider theme={theme} forceColorScheme={colorScheme}>
       {children}
     </BaseMantineProvider>
   );
-} 
+}

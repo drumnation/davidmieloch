@@ -50,8 +50,8 @@ export const Hero: React.FC<HeroProps> = ({
   animation = 'fade-up',
   className
 }) => {
-  const MotionContainer = motion(S.HeroContainer);
-  const MotionContent = motion(S.HeroContent);
+  const MotionContainer = motion.create(S.HeroContainer);
+  const MotionContent = motion.create(S.HeroContent);
   const itemVariants = animation === 'fade-up' ? fadeUpVariants : slideInVariants;
 
   return (

@@ -64,7 +64,7 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
               padding="lg"
             >
               <S.IconWrapper variants={iconVariants}>
-                <span className="icon">{feature.icon}</span>
+                {feature.icon}
               </S.IconWrapper>
               <S.Content>
                 <H3 color={style === 'gradient-cards' ? 'light' : 'primary'}>

@@ -11,10 +11,24 @@ export interface TypographyProps {
   color?: TypographyColor;
   className?: string;
   as?: ElementType;
+  // Margin props
+  mt?: string | number;
+  mb?: string | number;
+  ml?: string | number;
+  mr?: string | number;
+  mx?: string | number;
+  my?: string | number;
 }
 
 export interface StyledTypographyProps {
   $variant: TypographyVariant;
   $weight: TypographyWeight;
   $color: TypographyColor;
+  // Margin props
+  $mt?: string | number;
+  $mb?: string | number;
+  $ml?: string | number;
+  $mr?: string | number;
+  $mx?: string | number;
+  $my?: string | number;
 } 

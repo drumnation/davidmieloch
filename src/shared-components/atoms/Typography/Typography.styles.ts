@@ -26,34 +26,37 @@ const variantStyles = {
 
 const weightStyles = {
   regular: css`
-    font-weight: 400;
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
   `,
   medium: css`
-    font-weight: 500;
+    font-weight: ${({ theme }) => theme.fontWeights.medium};
   `,
   semibold: css`
-    font-weight: 600;
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
   `,
   bold: css`
-    font-weight: 700;
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
   `,
 };
 
 const colorStyles = {
   primary: css`
-    color: var(--text-primary);
+    color: ${({ theme }) => theme.colors.text.primary};
   `,
   secondary: css`
-    color: var(--text-secondary);
+    color: ${({ theme }) => theme.colors.text.secondary};
   `,
   light: css`
-    color: var(--text-light);
+    color: ${({ theme }) => theme.colors.text.light};
   `,
   gradient: css`
-    background: var(--bg-gradient);
+    background: ${({ theme }) => theme.colors.gradient};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  `,
+  inherit: css`
+    color: inherit;
   `,
 };
 
@@ -63,4 +66,18 @@ export const StyledTypography = styled.span<StyledTypographyProps>`
   ${({ $variant }) => variantStyles[$variant]};
   ${({ $weight }) => weightStyles[$weight]};
   ${({ $color }) => colorStyles[$color]};
+  
+  /* Margin styles */
+  ${({ $mt }) => $mt && `margin-top: ${typeof $mt === 'number' ? `${$mt}px` : $mt};`}
+  ${({ $mb }) => $mb && `margin-bottom: ${typeof $mb === 'number' ? `${$mb}px` : $mb};`}
+  ${({ $ml }) => $ml && `margin-left: ${typeof $ml === 'number' ? `${$ml}px` : $ml};`}
+  ${({ $mr }) => $mr && `margin-right: ${typeof $mr === 'number' ? `${$mr}px` : $mr};`}
+  ${({ $mx }) => $mx && `
+    margin-left: ${typeof $mx === 'number' ? `${$mx}px` : $mx};
+    margin-right: ${typeof $mx === 'number' ? `${$mx}px` : $mx};
+  `}
+  ${({ $my }) => $my && `
+    margin-top: ${typeof $my === 'number' ? `${$my}px` : $my};
+    margin-bottom: ${typeof $my === 'number' ? `${$my}px` : $my};
+  `}
 `; 

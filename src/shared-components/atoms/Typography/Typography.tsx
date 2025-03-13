@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ElementType } from 'react';
 import { TypographyProps, TypographyVariant } from './Typography.types';
 import { StyledTypography } from './Typography.styles';
 
@@ -17,6 +17,13 @@ export const Typography: React.FC<TypographyProps> = ({
   color = 'primary',
   className,
   as,
+  // Margin props
+  mt,
+  mb,
+  ml,
+  mr,
+  mx,
+  my,
 }) => {
   // Map legacy variants to current ones
   const mappedVariant = mapVariant(variant);
@@ -28,15 +35,23 @@ export const Typography: React.FC<TypographyProps> = ({
     h3: 'h3',
     body: 'p',
     caption: 'span',
-  }[mappedVariant] as keyof JSX.IntrinsicElements;
+  }[mappedVariant] as ElementType;
 
+  // Create the element with the correct props
   return (
     <StyledTypography
-      as={as || defaultElement}
+      forwardedAs={as || defaultElement}
       $variant={mappedVariant}
       $weight={weight}
       $color={color}
       className={className}
+      // Pass margin props
+      $mt={mt}
+      $mb={mb}
+      $ml={ml}
+      $mr={mr}
+      $mx={mx}
+      $my={my}
     >
       {children}
     </StyledTypography>

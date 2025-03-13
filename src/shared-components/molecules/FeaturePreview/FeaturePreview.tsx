@@ -32,7 +32,7 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
   features,
   style = 'gradient-cards',
   animation = 'stagger-fade',
-  className
+  className,
 }) => {
   const cardVariant = style === 'gradient-cards' ? 'gradient' : 'accent';
   const AnimatedGrid = animation !== 'none' ? motion(S.FeatureGrid) : S.FeatureGrid;
@@ -49,7 +49,6 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
         <AnimatedCard
           key={index}
           variant={cardVariant}
-          hoverable
           variants={animation === 'stagger-fade' ? item : undefined}
           initial={animation === 'slide-in' ? { opacity: 0, x: -30 } : undefined}
           animate={animation === 'slide-in' ? { opacity: 1, x: 0 } : undefined}

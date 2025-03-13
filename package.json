@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "postbuild": "next-styled-components-class-hash",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
@@ -21,6 +22,7 @@
     "dayjs": "^1.11.13",
     "framer-motion": "^12.5.0",
     "lucide-react": "^0.479.0",
+    "mermaid": "^11.4.1",
     "next": "15.2.1",
     "phosphor-react": "^1.4.1",
     "react": "^19.0.0",

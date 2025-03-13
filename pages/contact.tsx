@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Typography from '../shared-components/atoms/Typography';
-import PageTemplate from '../shared-components/templates/PageTemplate';
-import ContactForm from '../shared-components/organisms/ContactForm';
+import { Typography } from '../src/shared-components/atoms/Typography';
+import PageTemplate from '../src/shared-components/templates/PageTemplate';
+import ContactForm from '../src/shared-components/organisms/ContactForm';
 
 const ContactContainer = styled.div`
   display: grid;
@@ -64,29 +64,29 @@ export default function Contact() {
           animate="visible"
           variants={fadeInLeft}
         >
-          <Typography variant="h3" style={{ marginBottom: '24px' }}>
+          <Typography variant="h3" mb="24px">
             Let&apos;s Connect
           </Typography>
           
           <InfoItem>
             <InfoLabel>Email</InfoLabel>
-            <Typography variant="body1">david.mieloch@example.com</Typography>
+            <Typography variant="body">david.mieloch@example.com</Typography>
           </InfoItem>
           
           <InfoItem>
             <InfoLabel>Location</InfoLabel>
-            <Typography variant="body1">San Francisco, CA</Typography>
+            <Typography variant="body">San Francisco, CA</Typography>
           </InfoItem>
           
           <InfoItem>
             <InfoLabel>Availability</InfoLabel>
-            <Typography variant="body1">
+            <Typography variant="body">
               I&apos;m currently available for freelance work and consulting.
               Feel free to reach out with your project details.
             </Typography>
           </InfoItem>
           
-          <Typography variant="h4" style={{ marginTop: '32px', marginBottom: '16px' }}>
+          <Typography variant="h3" mt="32px" mb="16px">
             Follow Me
           </Typography>
           
@@ -108,7 +108,7 @@ export default function Contact() {
           animate="visible"
           variants={fadeInRight}
         >
-          <Typography variant="h3" style={{ marginBottom: '24px' }}>
+          <Typography variant="h3" mb="24px">
             Send Me a Message
           </Typography>
           <ContactForm />

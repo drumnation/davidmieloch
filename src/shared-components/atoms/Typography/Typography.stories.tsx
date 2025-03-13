@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Typography, H1, H2, H3, Body, Caption } from './Typography';
-import { TypographyProps } from './Typography.types';
 import styled from 'styled-components';
 
 const StoryContainer = styled.div`
@@ -105,14 +104,14 @@ export const Heading2: Story = {
 
 export const Body1: Story = {
   args: {
-    variant: 'body1',
+    variant: 'body',
     children: 'Body 1 text with regular weight',
   },
 };
 
 export const Body2Secondary: Story = {
   args: {
-    variant: 'body2',
+    variant: 'body',
     children: 'Body 2 text with secondary color',
     color: 'secondary',
   },
@@ -128,7 +127,7 @@ export const CaptionText: Story = {
 
 export const OverlineText: Story = {
   args: {
-    variant: 'overline',
+    variant: 'caption',
     children: 'OVERLINE TEXT',
     weight: 'medium',
   },
@@ -136,9 +135,9 @@ export const OverlineText: Story = {
 
 export const AccentText: Story = {
   args: {
-    variant: 'body1',
+    variant: 'body',
     children: 'Accent colored text',
-    color: 'accent',
+    color: 'gradient',
   },
 };
 
@@ -152,11 +151,11 @@ export const TypeScale: Story = {
       <Typography variant="h1" weight="bold">Heading 1</Typography>
       <Typography variant="h2" weight="bold">Heading 2</Typography>
       <Typography variant="h3" weight="bold">Heading 3</Typography>
-      <Typography variant="h4" weight="bold">Heading 4</Typography>
-      <Typography variant="body1">Body 1 - Primary text for main content</Typography>
-      <Typography variant="body2">Body 2 - Secondary text for less emphasis</Typography>
+      <Typography variant="h3" weight="bold">Heading 3</Typography>
+      <Typography variant="body">Body - Primary text for main content</Typography>
+      <Typography variant="body">Body - Secondary text for less emphasis</Typography>
       <Typography variant="caption" color="secondary">Caption - Small text for auxiliary information</Typography>
-      <Typography variant="overline" weight="medium">OVERLINE - ALL CAPS LABEL TEXT</Typography>
+      <Typography variant="caption" weight="medium">CAPTION - ALL CAPS LABEL TEXT</Typography>
     </StoryContainer>
   ),
 };
@@ -171,7 +170,7 @@ export const ResponsiveText: Story = {
       <Typography variant="h1" weight="bold">
         Responsive H1 - Resize window to see changes
       </Typography>
-      <Typography variant="body1" color="secondary">
+      <Typography variant="body" color="secondary">
         This text and the heading above will adjust their size based on the viewport width.
         Try resizing your browser window to see the responsive behavior in action.
       </Typography>

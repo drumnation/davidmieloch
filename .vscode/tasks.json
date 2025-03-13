@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Check TypeScript Errors",
+        "type": "shell",
+        "command": "npx tsc --noEmit",
+        "problemMatcher": "$tsc",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+      {
+        "label": "Watch TypeScript Errors",
+        "type": "shell",
+        "command": "npx tsc --noEmit --watch",
+        "problemMatcher": "$tsc-watch",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  

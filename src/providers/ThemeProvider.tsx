@@ -1,10 +1,9 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from 'react'
-import { MantineProvider } from '@mantine/core'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import '@mantine/core/styles.css'
-import { theme as mantineTheme } from '../styles/theme'
+import { MantineProvider } from './MantineProvider'
 import { theme as styledTheme } from '../styles/theme/styled-theme'
 
 type ThemeContextType = {
@@ -13,31 +12,36 @@ type ThemeContextType = {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  colorScheme: 'dark',
+  colorScheme: 'light',
   toggleColorScheme: () => null,
 })
 
 export const useTheme = () => useContext(ThemeContext)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Default to dark mode
-  const [colorScheme, setColorScheme] = useState<'dark' | 'light'>('dark')
+  // Default to light mode
+  const [colorScheme, setColorScheme] = useState<'dark' | 'light'>('light')
 
   useEffect(() => {
-    // Check if user has a saved preference
-    const savedScheme = localStorage.getItem('color-scheme')
-    if (savedScheme === 'light' || savedScheme === 'dark') {
-      setColorScheme(savedScheme)
-    } else {
-      // If no preference, set dark mode as default
-      localStorage.setItem('color-scheme', 'dark')
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      // Check if user has a saved preference
+      const savedScheme = localStorage.getItem('color-scheme')
+      if (savedScheme === 'light' || savedScheme === 'dark') {
+        setColorScheme(savedScheme)
+      } else {
+        // If no preference, set light mode as default
+        localStorage.setItem('color-scheme', 'light')
+      }
     }
   }, [])
 
   const toggleColorScheme = () => {
     const newColorScheme = colorScheme === 'dark' ? 'light' : 'dark'
     setColorScheme(newColorScheme)
-    localStorage.setItem('color-scheme', newColorScheme)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('color-scheme', newColorScheme)
+    }
   }
 
   // Adjust styled-components theme based on color scheme
@@ -57,13 +61,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     },
   }
 
+  // On the server or during initial client render, use the default theme
+  // This ensures consistent rendering between server and client
   return (
     <ThemeContext.Provider value={{ colorScheme, toggleColorScheme }}>
       <StyledThemeProvider theme={currentStyledTheme}>
-        <MantineProvider 
-          theme={mantineTheme} 
-          forceColorScheme={colorScheme}
-        >
+        <MantineProvider colorScheme={colorScheme}>
           {children}
         </MantineProvider>
       </StyledThemeProvider>

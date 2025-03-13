@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider } from '../src/providers/ThemeProvider';
+import { ThemeProvider } from '../src/providers';
 import { inter, manrope, lexend, workSans, ibmPlex } from '../src/styles/fonts';
 import '../src/styles/globals.css'; // Import global CSS
 

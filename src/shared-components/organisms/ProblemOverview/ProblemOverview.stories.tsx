@@ -1,67 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
 import { ProblemOverview } from './ProblemOverview';
-
-const theme = {
-  colors: {
-    background: {
-      light: '#ffffff',
-      dark: '#1a1a1a',
-      paper: '#f5f5f5'
-    },
-    text: {
-      light: '#ffffff',
-      primary: '#1a1a1a',
-      secondary: '#666666'
-    },
-    primary: {
-      main: '#007AFF',
-      light: '#4da2ff',
-      dark: '#0053cc'
-    },
-    secondary: {
-      main: '#5856D6',
-      light: '#8280e0',
-      dark: '#3e3c94'
-    }
-  },
-  space: {
-    xs: '0.5rem',
-    sm: '1rem',
-    md: '1.5rem',
-    lg: '2rem',
-    xl: '3rem',
-    xxl: '4rem'
-  },
-  fontSizes: {
-    xs: '0.75rem',
-    sm: '0.875rem',
-    md: '1rem',
-    lg: '1.25rem',
-    xl: '1.5rem'
-  },
-  fontWeights: {
-    regular: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700
-  },
-  borderRadius: {
-    sm: '0.25rem',
-    md: '0.5rem',
-    lg: '1rem'
-  },
-  shadows: {
-    card: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    elevation1: '0 2px 4px rgba(0, 0, 0, 0.05)',
-    elevation2: '0 8px 16px rgba(0, 0, 0, 0.15)'
-  },
-  transitions: {
-    default: '0.3s ease-in-out',
-    fast: '0.15s ease-in-out',
-    slow: '0.5s ease-in-out'
-  }
-};
 
 const meta = {
   title: 'Organisms/ProblemOverview',
@@ -90,11 +28,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
-        <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
-          <Story />
-        </div>
-      </ThemeProvider>
+      <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <Story />
+      </div>
     ),
   ],
 } satisfies Meta<typeof ProblemOverview>;
