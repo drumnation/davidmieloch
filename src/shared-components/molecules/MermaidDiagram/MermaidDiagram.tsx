@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mermaid from 'mermaid';
-import { MermaidDiagramProps } from './MermaidDiagram.types';
-import * as S from './MermaidDiagram.styles';
+import { MermaidDiagramProps } from './index.d';
 import { Typography } from '../../atoms/Typography';
 
 // Helper function to replace CSS variables with actual color values
@@ -47,7 +46,7 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
     // Initialize mermaid with theme configuration
     mermaid.initialize({
       startOnLoad: true,
-      theme: theme,
+      theme,
       securityLevel: 'loose',
       fontFamily: 'Inter, sans-serif',
     });
@@ -81,30 +80,35 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
 
   if (loading) {
     return (
-      <S.LoadingContainer className={className}>
+      <div className={className} style={{ padding: '1rem' }}>
         <Typography variant="body">Loading diagram...</Typography>
-      </S.LoadingContainer>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <S.ErrorContainer className={className}>
+      <div className={className} style={{ padding: '1rem', color: 'red' }}>
         <Typography variant="body" weight="bold">Error rendering diagram</Typography>
         <pre>{error}</pre>
         <Typography variant="body">Check your Mermaid syntax and try again.</Typography>
-      </S.ErrorContainer>
+      </div>
     );
   }
 
   return (
-    <S.DiagramContainer 
+    <div 
       className={className} 
-      $width={width} 
-      $height={height} 
-      $backgroundColor={backgroundColor}
+      style={{ 
+        width, 
+        height, 
+        backgroundColor,
+        overflow: 'hidden'
+      }}
       ref={mermaidRef}
       dangerouslySetInnerHTML={{ __html: svg }}
     />
   );
 };
+
+export default MermaidDiagram;

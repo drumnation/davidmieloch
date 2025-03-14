@@ -1,9 +1,35 @@
 import { useState } from 'react';
-import { Box, Paper, Alert, Textarea, Stack } from '@mantine/core';
+import { Box, Paper, Alert, Textarea, Stack, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import FormField from '../molecules/FormField';
-import Button from '../atoms/Button';
-import Typography from '../atoms/Typography';
+import { Button } from '../atoms/Button';
+import { Typography } from '../atoms/Typography';
+
+// Simple FormField component since it's missing
+const FormField = ({ label, name, type = 'text', placeholder, required, error, onChange, onBlur, value }: {
+  label: string;
+  name: string;
+  type?: string;
+  placeholder?: string;
+  required?: boolean;
+  error?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  value?: string;
+}) => {
+  return (
+    <TextInput
+      label={label}
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      required={required}
+      error={error}
+      onChange={onChange}
+      onBlur={onBlur}
+      value={value}
+    />
+  );
+};
 
 export const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,7 +75,7 @@ export const ContactForm = () => {
           title="Message sent!" 
           mb="md"
         >
-          <Typography variant="body1">
+          <Typography variant="body">
             Thank you for your message! I&apos;ll get back to you soon.
           </Typography>
         </Alert>
@@ -94,12 +120,13 @@ export const ContactForm = () => {
             
             <Box mt="md">
               <Button
-                label={isSubmitting ? 'Sending...' : 'Send Message'}
-                primary
+                variant="primary"
                 type="submit"
                 disabled={isSubmitting}
                 loading={isSubmitting}
-              />
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </Button>
             </Box>
           </Stack>
         </form>

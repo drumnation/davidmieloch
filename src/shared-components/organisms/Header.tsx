@@ -52,6 +52,7 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
+  { label: 'Bio', href: '/bio' },
   // { label: 'Resume', href: '/resume' },
   // { label: 'Blog', href: '/blog' },
   // { label: 'Contact', href: '/contact' },

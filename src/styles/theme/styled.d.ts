@@ -83,5 +83,12 @@ declare module 'styled-components' {
       fast: string;
       slow: string;
     };
+    breakpoints: {
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
   }
 } 

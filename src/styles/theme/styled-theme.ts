@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+import { breakpoints as responsiveBreakpoints } from './responsive';
 
 export const theme: DefaultTheme = {
   colors: {
@@ -79,5 +80,6 @@ export const theme: DefaultTheme = {
     default: '0.2s ease',
     fast: '0.1s ease',
     slow: '0.3s ease'
-  }
+  },
+  breakpoints: responsiveBreakpoints
 }; 
