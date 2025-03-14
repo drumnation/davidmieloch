@@ -139,11 +139,11 @@ export const defaultContent = {
     features: [
       {
         title: "Dynamic Context Management",
-        description: "Using cursorrules, this system automatically provides the AI with the necessary context for any given task. It loads relevant files, enforces coding standards, and guides AI decisions based on the project's current state, minimizing the \"hallucination\" problem where AI generates code that doesn't fit the project."
+        description: "Using cursorrules, this system automatically provides the AI with the necessary context for any given task. It loads relevant files, enforces coding standards, and guides AI decisions based on the project's current state."
       },
       {
         title: "Intelligent Directory Structure Management",
-        description: "The system continuously monitors the project's directory structure, using AI (specifically, Google's Gemini) to analyze and summarize the purpose and contents of each folder. This creates a \"living map\" of the project that helps maintain consistency and follow established patterns."
+        description: "The system continuously monitors the project's directory structure, using AI to analyze and summarize each folder's purpose. This creates a \"living map\" of the project that helps maintain consistency and follow established patterns."
       },
       {
         title: "Shared Knowledge Repository",
