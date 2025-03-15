@@ -11,6 +11,7 @@ export const FooterContainer = styled.div`
   flex-direction: column;
   width: 100%;
   z-index: 50;
+  background-color: ${({ theme }) => theme.colorScheme === 'dark' ? '#1A1B1E' : '#f8f9fa'};
 `;
 
 export const GradientBorder = styled.div`
@@ -21,16 +22,20 @@ export const GradientBorder = styled.div`
   height: 2px;
 `;
 
-export const SocialLinksContainer = styled.div`
+export const FooterInfo = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: ${({ theme }) => theme.colorScheme === 'dark' ? '#1A1B1E' : '#f8f9fa'};
+  border-top: 1px solid ${({ theme }) => theme.colorScheme === 'dark' ? '#2D3748' : '#E2E8F0'};
+  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#ffffff' : '#141517'};
 `;
 
 export const SocialAnchor = styled.a`
   text-decoration: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
+  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#A6A7AB' : '#5c5f66'};
   
   &:hover {
     transform: translateY(-2px);
@@ -42,7 +47,10 @@ export const MiniPlayerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 `;
 
 export const TrackInfoContainer = styled.div`
@@ -50,12 +58,23 @@ export const TrackInfoContainer = styled.div`
   align-items: center;
 `;
 
+export const TrackTitle = styled.div`
+  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#ffffff' : '#141517'};
+  font-weight: 500;
+  font-size: 0.875rem;
+`;
+
+export const TrackArtist = styled.div`
+  color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(20, 21, 23, 0.7)'};
+  font-size: 0.75rem;
+`;
+
 export const TrackArtwork = styled.img`
-  width: 2rem;
-  height: 2rem;
-  margin-right: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 0.75rem;
+  object-fit: cover;
 `;
 
 export const TrackDetails = styled.div`
@@ -64,34 +83,48 @@ export const TrackDetails = styled.div`
 `;
 
 export const MiniWaveformContainer = styled.div`
-  flex-grow: 1;
+  flex: 1;
   margin: 0 1rem;
-  position: relative;
-  height: 1.5rem;
+  max-width: 50%;
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: block;
+  }
+`;
+
+export const ProgressContainer = styled.div`
+  flex: 1;
+  margin: 0 1rem;
+  max-width: 50%;
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: block;
+  }
 `;
 
 export const ProgressBar = styled.div`
-  position: absolute;
   width: 100%;
   height: 4px;
-  background-color: rgba(100, 100, 100, 0.3);
-  border-radius: 9999px;
-  bottom: 0;
+  background-color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(20, 21, 23, 0.1)'};
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+  position: relative;
 `;
 
-export const ProgressFill = styled.div<{ width: string }>`
+export const ProgressFill = styled.div<{ width?: string }>`
   height: 100%;
-  border-radius: 9999px;
-  width: ${props => props.width};
+  background-color: #4361EE;
+  width: ${props => props.width || '0%'};
 `;
 
 export const TimeDisplay = styled.div`
-  position: absolute;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
-  top: -4px;
+  color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(20, 21, 23, 0.7)'};
 `;
 
 export const ControlsContainer = styled.div`
@@ -110,55 +143,20 @@ export const ControlButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
+  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#ffffff' : '#141517'};
   
   &:hover {
-    background-color: rgba(100, 100, 100, 0.2);
+    background-color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(100, 100, 100, 0.2)' : 'rgba(100, 100, 100, 0.1)'};
   }
   
   &:focus {
     outline: none;
   }
-`;
-
-export const ExpandedPlayerContainer = styled.div`
-  padding: 1rem;
-  border-top-width: 1px;
-  max-height: 24rem;
-  overflow-y: auto;
-`;
-
-export const ActiveTrackContainer = styled.div`
-  margin-bottom: 1.5rem;
-  padding: 0.75rem;
-  border-radius: 0.375rem;
-`;
-
-export const ActiveTrackHeader = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-`;
-
-export const ActiveTrackArtwork = styled.img`
-  width: 4rem;
-  height: 4rem;
-  border-radius: 0.375rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-right: 0.75rem;
-`;
-
-export const WaveformContainer = styled.div`
-  height: 5rem;
-  margin-top: 0.5rem;
-  border-radius: 0.375rem;
-  overflow: hidden;
-`;
-
-export const TrackControlsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 0.5rem;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
 export const VolumeContainer = styled.div`
@@ -167,14 +165,15 @@ export const VolumeContainer = styled.div`
 `;
 
 export const VolumeSlider = styled.input`
-  width: 6rem;
-  height: 0.5rem;
-  border-radius: 9999px;
-  appearance: none;
-  cursor: pointer;
+  width: 80px;
+  height: 4px;
+  -webkit-appearance: none;
+  background: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(20, 21, 23, 0.2)'};
+  border-radius: 2px;
+  outline: none;
   
   &::-webkit-slider-thumb {
-    appearance: none;
+    -webkit-appearance: none;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -192,43 +191,88 @@ export const VolumeSlider = styled.input`
   }
 `;
 
-export const TrackList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+export const ExpandedPlayerContainer = styled.div`
+  padding: 1rem 1.5rem;
+  border-top: 1px solid ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(70, 70, 70, 0.5)' : 'rgba(200, 200, 200, 0.5)'};
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colorScheme === 'dark' ? '#1A1B1E' : '#f8f9fa'};
 `;
 
-export const TrackItem = styled.li<{ isActive: boolean }>`
+export const TrackList = styled.div`
   display: flex;
-  padding: 0.5rem;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  background-color: ${props => props.isActive ? 'rgba(100, 100, 100, 0.2)' : 'transparent'};
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
   
-  &:hover {
-    background-color: rgba(100, 100, 100, 0.2);
+  /* Scrollbar styling */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(0, 0, 0, 0.2)' : 'rgba(200, 200, 200, 0.2)'};
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(100, 100, 100, 0.2)'};
+    border-radius: 4px;
   }
 `;
 
-export const TrackItemContent = styled.div`
-  margin-left: 0.75rem;
-  flex-grow: 1;
+export const TrackItem = styled.div<{ isActive?: boolean }>`
   display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: ${props => props.isActive 
+    ? props.theme.colorScheme === 'dark' 
+      ? 'rgba(67, 97, 238, 0.2)' 
+      : 'rgba(67, 97, 238, 0.1)' 
+    : 'transparent'};
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: ${props => props.isActive 
+      ? props.theme.colorScheme === 'dark' 
+        ? 'rgba(67, 97, 238, 0.3)' 
+        : 'rgba(67, 97, 238, 0.2)' 
+      : props.theme.colorScheme === 'dark' 
+        ? 'rgba(255, 255, 255, 0.05)' 
+        : 'rgba(0, 0, 0, 0.05)'};
+  }
+`;
+
+export const TrackItemTitle = styled.div`
+  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#ffffff' : '#141517'};
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+`;
+
+export const TrackItemArtist = styled.div`
+  color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(20, 21, 23, 0.7)'};
+  font-size: 0.75rem;
+`;
+
+export const TrackItemContent = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-between;
 `;
 
 export const TrackItemControls = styled.div`
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 `;
 
 export const SoundCloudLink = styled.a`
-  margin-left: 0.5rem;
   font-size: 0.75rem;
   text-decoration: none;
   
@@ -237,10 +281,43 @@ export const SoundCloudLink = styled.a`
   }
 `;
 
-export const FooterInfo = styled.div`
-  margin-top: 1rem;
-  padding-top: 0.75rem;
-  border-top-width: 1px;
+export const ActiveTrackContainer = styled.div`
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  overflow: hidden;
+`;
+
+export const ActiveTrackHeader = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+`;
+
+export const ActiveTrackArtwork = styled.img`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 4px;
+  margin-right: 0.75rem;
+  object-fit: cover;
+`;
+
+export const WaveformContainer = styled.div`
+  height: 160px;
+  width: 100%;
+`;
+
+export const TrackControlsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+`;
+
+export const SocialLinksContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-end;
 `;
 
 export const CopyrightSection = styled.div`
