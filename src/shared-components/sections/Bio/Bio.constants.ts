@@ -82,20 +82,38 @@ export const SKILLS = [
 export const MEDIA_ITEMS: MediaItem[] = [
   {
     type: 'youtube',
-    url: 'https://www.youtube.com/embed/EXAMPLE1',
-    title: 'Orchestral Composition',
-    description: 'Award-winning orchestral work showcasing complex musical structures and patterns.'
-  },
-  {
-    type: 'soundcloud',
-    url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/EXAMPLE2',
-    title: 'Electronic Composition',
-    description: 'Blending traditional composition techniques with modern electronic production.'
+    url: 'https://www.youtube.com/embed/PSdwU6fIr_A',
+    title: 'Live Performance with Oneironaught',
+    description: 'Progressive metal instrumental performance featuring David on drums with Brooklyn-based band Oneironaught.'
   },
   {
     type: 'youtube',
-    url: 'https://www.youtube.com/embed/EXAMPLE3',
-    title: 'Tech Talk: Architecture Patterns',
-    description: 'Discussing the parallels between musical composition and software architecture.'
+    url: 'https://www.youtube.com/embed/KQsg_Iz3Ap8',
+    title: 'Volcanas (Allegro)',
+    description: 'Award-winning orchestral composition showcasing David\'s classical music training and orchestration skills.'
+  },
+  {
+    type: 'youtube',
+    url: 'https://www.youtube.com/embed/Az7-sY2zhxU',
+    title: 'Merry Melony Episode 1',
+    description: 'Original score composition for animation, demonstrating David\'s work in video game and film music.'
+  },
+  {
+    type: 'youtube',
+    url: 'https://www.youtube.com/embed/phfBe8sSBBM',
+    title: 'The Animator and the Seat',
+    description: 'Original score for animated short film, highlighting David\'s compositional versatility and storytelling through music.'
+  },
+  {
+    type: 'youtube',
+    url: 'https://www.youtube.com/embed/KSgeRQJn_Tw',
+    title: 'Scarlet Harvest (Contemporary Dance Performance)',
+    description: 'Original composition for contemporary dance, demonstrating David\'s collaborative work across artistic disciplines.'
+  },
+  {
+    type: 'youtube',
+    url: 'https://www.youtube.com/embed/nQZPHdVNiaQ',
+    title: 'Absurdist Revolution - Mark 1',
+    description: 'Theatrical music production at West Chester University, showcasing David\'s creative direction and organization skills.'
   }
 ]; 

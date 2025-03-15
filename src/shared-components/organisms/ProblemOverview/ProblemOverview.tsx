@@ -64,18 +64,17 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
   background = 'light',
   className
 }) => {
-  const MotionContainer = motion(S.Container);
   const animationVariant = getAnimationVariant(animation);
 
   return (
-    <MotionContainer
-      $position={position}
-      $style={style}
-      $background={background}
+    <S.Container
+      as={motion.div}
       className={className}
+      $position={position}
+      $background={background}
       initial="hidden"
       animate="visible"
-      variants={containerVariants}
+      variants={animationVariant}
     >
       <S.Header>
         <motion.div variants={animationVariant}>
@@ -123,6 +122,6 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
           </motion.div>
         ))}
       </S.MetricsGrid>
-    </MotionContainer>
+    </S.Container>
   );
 }; 

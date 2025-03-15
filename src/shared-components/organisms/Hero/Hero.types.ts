@@ -9,4 +9,5 @@ export interface HeroProps {
   textColor?: 'light' | 'dark';
   animation?: 'fade-up' | 'slide-in' | 'none';
   className?: string;
+  initialAnimation?: 'hidden' | 'visible';
 } 

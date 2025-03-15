@@ -4,4 +4,8 @@ export interface ButtonProps extends Omit<MantineButtonProps, 'variant'> {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   type?: 'button' | 'submit' | 'reset';
+  href?: string;
+  target?: string;
+  rel?: string;
+  onClick?: () => void;
 }

@@ -45,54 +45,51 @@ export const Hero: React.FC<HeroProps> = ({
   backgroundImage,
   backgroundOverlay = true,
   overlayOpacity = 0.5,
-  pattern = 'circuit-board',
+  pattern = 'dots',
   textColor = 'light',
   animation = 'fade-up',
-  className
+  className,
+  initialAnimation = 'hidden',
 }) => {
-  const MotionContainer = motion.create(S.HeroContainer);
-  const MotionContent = motion.create(S.HeroContent);
+  // Create motion versions of styled components
+  const MotionHeroContainer = motion(S.HeroContainer);
+  const MotionHeroContent = motion(S.HeroContent);
+  
   const itemVariants = animation === 'fade-up' ? fadeUpVariants : slideInVariants;
 
   return (
-    <MotionContainer
+    <MotionHeroContainer
+      className={`${className || ''} ${pattern ? `pattern-${pattern}` : ''}`}
       $background={background}
-      $pattern={pattern}
-      $textColor={textColor}
       $backgroundImage={backgroundImage}
-      $backgroundOverlay={background === 'image' ? backgroundOverlay : false}
+      $backgroundOverlay={backgroundOverlay}
       $overlayOpacity={overlayOpacity}
-      className={className}
-      initial="hidden"
+      $textColor={textColor}
+      initial={initialAnimation}
       animate="visible"
-      variants={animation === 'none' ? undefined : containerVariants}
+      variants={containerVariants}
     >
-      <MotionContent variants={animation === 'none' ? undefined : {}}>
-        <S.Title>
-          <motion.div variants={itemVariants}>
-            <Typography
-              variant="h1"
-              weight="bold"
-              color={textColor === 'light' ? 'inherit' : 'primary'}
-            >
-              {title}
-            </Typography>
-          </motion.div>
-        </S.Title>
+      <MotionHeroContent initial={initialAnimation} animate="visible" variants={itemVariants}>
+        {title && (
+          <Typography 
+            variant="h1" 
+            color={textColor === 'light' ? 'light' : 'primary'}
+            className="mb-4"
+          >
+            {title}
+          </Typography>
+        )}
         
         {subtitle && (
-          <S.Subtitle>
-            <motion.div variants={itemVariants}>
-              <Typography
-                variant="body"
-                color={textColor === 'light' ? 'inherit' : 'secondary'}
-              >
-                {subtitle}
-              </Typography>
-            </motion.div>
-          </S.Subtitle>
+          <Typography 
+            variant="h3" 
+            weight="regular"
+            color={textColor === 'light' ? 'light' : 'secondary'}
+          >
+            {subtitle}
+          </Typography>
         )}
-      </MotionContent>
-    </MotionContainer>
+      </MotionHeroContent>
+    </MotionHeroContainer>
   );
 }; 

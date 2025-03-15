@@ -24,21 +24,21 @@ export const StyledCard = styled.div<StyledProps>`
       ? theme.colors.text.light
       : theme.colors.text.primary};
   border-radius: ${({ theme }) => theme.radius.lg};
-  padding: ${({ theme }) => theme.spacing.xl} 0;
+  padding: ${({ theme }) => theme.space.xl} 0;
   width: 100%;
 `;
 
 export const ContentWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 ${({ theme }) => theme.spacing.xl};
+  padding: 0 ${({ theme }) => theme.space.xl};
 `;
 
 export const ChallengeGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: ${({ theme }) => theme.spacing.lg};
-  margin-top: ${({ theme }) => theme.spacing.xl};
+  gap: ${({ theme }) => theme.space.lg};
+  margin-top: ${({ theme }) => theme.space.xl};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     grid-template-columns: repeat(2, 1fr);
@@ -46,7 +46,7 @@ export const ChallengeGrid = styled.div`
 `;
 
 export const ChallengeCard = styled(motion.div)`
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: ${({ theme }) => theme.space.xl};
   background: ${({ theme }) => theme.colors.background.light};
   border-radius: ${({ theme }) => theme.radius.lg};
   box-shadow: ${({ theme }) => theme.shadows.sm};
@@ -58,15 +58,15 @@ export const ChallengeCard = styled(motion.div)`
 `;
 
 export const MetricsContainer = styled(Stack)`
-  margin-top: ${({ theme }) => theme.spacing.lg};
-  padding-top: ${({ theme }) => theme.spacing.lg};
+  margin-top: ${({ theme }) => theme.space.lg};
+  padding-top: ${({ theme }) => theme.space.lg};
   border-top: 1px solid ${({ theme }) => theme.colors.border.light};
 `;
 
 export const ImpactText = styled.p`
   color: ${({ theme }) => theme.colors.accent.red};
   font-weight: 600;
-  margin-top: ${({ theme }) => theme.spacing.sm};
+  margin-top: ${({ theme }) => theme.space.sm};
   font-size: ${({ theme }) => theme.fontSizes.sm};
   line-height: 1.5;
 `;

@@ -5,29 +5,6 @@ import { Icon } from '../../atoms/Icon';
 import { FeaturePreviewProps } from './FeaturePreview.types';
 import * as S from './FeaturePreview.styles';
 
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-      damping: 30
-    }
-  }
-};
-
 export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
   features,
   style = 'gradient-cards',
@@ -35,24 +12,47 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
   className,
 }) => {
   const cardVariant = style === 'gradient-cards' ? 'gradient' : 'accent';
-  const AnimatedGrid = animation !== 'none' ? motion(S.FeatureGrid) : S.FeatureGrid;
-  const AnimatedCard = animation !== 'none' ? motion(Card) : Card;
+  
+  // Use the 'as' prop approach for conditional animation
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.5,
+      }
+    }
+  };
 
   return (
-    <AnimatedGrid
+    <S.FeatureGrid
       className={className}
-      variants={animation === 'stagger-fade' ? container : undefined}
-      initial="hidden"
-      animate="visible"
+      {...(animation !== 'none' ? {
+        as: motion.div,
+        initial: "hidden",
+        animate: "visible",
+        variants: containerVariants
+      } : {})}
     >
       {features.map((feature, index) => (
-        <AnimatedCard
+        <Card
           key={index}
           variant={cardVariant}
-          variants={animation === 'stagger-fade' ? item : undefined}
-          initial={animation === 'slide-in' ? { opacity: 0, x: -30 } : undefined}
-          animate={animation === 'slide-in' ? { opacity: 1, x: 0 } : undefined}
-          transition={animation === 'slide-in' ? { duration: 0.6, delay: index * 0.1 } : undefined}
+          {...(animation !== 'none' ? {
+            as: motion.div,
+            variants: cardVariants
+          } : {})}
         >
           <S.FeatureContent>
             <S.IconWrapper>
@@ -61,8 +61,8 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
             <S.Title>{feature.title}</S.Title>
             <S.Description>{feature.description}</S.Description>
           </S.FeatureContent>
-        </AnimatedCard>
+        </Card>
       ))}
-    </AnimatedGrid>
+    </S.FeatureGrid>
   );
 }; 

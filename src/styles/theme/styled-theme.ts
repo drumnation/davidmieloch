@@ -25,16 +25,21 @@ export const theme: DefaultTheme = {
     },
     accent: {
       light: '#EBF8FF',
-      dark: '#2C5282',
+      dark: '#2D3748',
       red: '#E53E3E',
       green: '#38A169',
       blue: '#3182CE',
+      yellow: '#F6E05E',
     },
     border: {
       light: '#E2E8F0',
       dark: '#2D3748',
     },
     gradient: 'linear-gradient(135deg, #2196f3 0%, #00bcd4 100%)',
+    codeBackground: '#f5f5f5',
+    codeBlockBackground: '#2d2d2d',
+    blockquoteBackground: '#f8f9fa',
+    blockquoteText: '#6c757d',
   },
   borderRadius: {
     sm: '4px',
@@ -67,6 +72,9 @@ export const theme: DefaultTheme = {
     md: '1rem',
     lg: '1.125rem',
     xl: '1.25rem'
+  },
+  fonts: {
+    mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
   },
   space: {
     xs: '0.25rem',

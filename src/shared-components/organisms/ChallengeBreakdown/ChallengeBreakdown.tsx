@@ -40,7 +40,7 @@ const itemVariants = {
 export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
   title,
   description,
-  challenges,
+  challenges = [],
   style = 'gradient-card',
   position = 'full-width',
   animation = 'fade-up'
@@ -75,7 +75,7 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
           </MainDescription>
 
           <ChallengeGrid>
-            {challenges.map((challenge, index) => (
+            {challenges && challenges.length > 0 ? challenges.map((challenge, index) => (
               <ChallengeCard
                 key={index}
                 variants={itemVariants}
@@ -112,7 +112,9 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
                   </MetricsContainer>
                 )}
               </ChallengeCard>
-            ))}
+            )) : (
+              <Text>No challenges to display</Text>
+            )}
           </ChallengeGrid>
         </ContentWrapper>
       </StyledCard>

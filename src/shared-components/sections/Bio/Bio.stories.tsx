@@ -3,6 +3,10 @@ import Bio from './Bio';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../styles/theme/styled-theme';
 
+// Add console log to debug
+console.log('Bio.stories.tsx loaded');
+console.log('Theme:', theme);
+
 const meta: Meta<typeof Bio> = {
   title: 'Sections/Bio',
   component: Bio,

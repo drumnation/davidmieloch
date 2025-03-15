@@ -29,12 +29,17 @@ declare module 'styled-components' {
         red: string;
         green: string;
         blue: string;
+        yellow: string;
       };
       border: {
         light: string;
         dark: string;
       };
       gradient: string;
+      codeBackground: string;
+      codeBlockBackground: string;
+      blockquoteBackground: string;
+      blockquoteText: string;
     };
     borderRadius: {
       sm: string;
@@ -68,6 +73,9 @@ declare module 'styled-components' {
       md: string;
       lg: string;
       xl: string;
+    };
+    fonts: {
+      mono: string;
     };
     space: {
       xs: string;

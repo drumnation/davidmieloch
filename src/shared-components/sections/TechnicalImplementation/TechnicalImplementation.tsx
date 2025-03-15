@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Hero } from '../../../shared-components/organisms/Hero';

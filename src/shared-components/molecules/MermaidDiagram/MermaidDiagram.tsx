@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mermaid from 'mermaid';
-import { MermaidDiagramProps } from './index.d';
+import { MermaidDiagramProps } from './MermaidDiagram.types';
 import { Typography } from '../../atoms/Typography';
 
 // Helper function to replace CSS variables with actual color values

@@ -1,67 +1,69 @@
-import { AppShell, Container, Box, Stack } from '@mantine/core';
+"use client";
+
+import { AppShell, Container } from '@mantine/core';
 import { motion } from 'framer-motion';
-import Header from '../organisms/Header';
-import Footer from '../organisms/Footer';
-import { Typography } from '../atoms/Typography';
+import { Header } from '../organisms/Header';
+import { Footer } from '../organisms/Footer/Footer';
+import { PageTemplateProps } from './PageTemplate.types';
 
-type PageTemplateProps = {
-  title?: string;
-  description?: string;
-  children: React.ReactNode;
-};
-
-// Create a motion component with proper typing
 const MotionDiv = motion.div;
 
-const pageVariants = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.3 } }
-};
+export const PageTemplate = ({ 
+  children, 
+  socialLinks,
+  soundCloudTracks,
+  withContainer = true,
+  containerSize = 'xl',
+  withAnimation = true,
+  animationKey,
+}: PageTemplateProps) => {
+  const pageTransition = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+    transition: { duration: 0.3 }
+  };
 
-export const PageTemplate = ({ title, description, children }: PageTemplateProps) => (
-  <AppShell header={{ height: 60 }} footer={{ height: 160 }}>
-    <AppShell.Header>
-      <Header />
-    </AppShell.Header>
-    
-    <AppShell.Main pt={60} pb={160}>
-      <Container size="lg" py="xl">
-        {title && (
-          <Stack align="center" mb={description ? 40 : 24}>
-            <Typography variant="h1">{title}</Typography>
-            {description && (
-              <Box maw={800} ta="center">
-                <Typography variant="body" color="secondary">
-                  {description}
-                </Typography>
-              </Box>
-            )}
-          </Stack>
-        )}
-        
-        <MotionDiv
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={pageVariants}
-          style={{ 
-            minHeight: '60vh',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'stretch'
-          }}
-        >
-          {children}
-        </MotionDiv>
-      </Container>
-    </AppShell.Main>
-    
-    <AppShell.Footer>
-      <Footer />
-    </AppShell.Footer>
-  </AppShell>
-);
+  const content = withContainer ? (
+    <Container size={containerSize} py="xl">
+      {children}
+    </Container>
+  ) : children;
+
+  const animatedContent = withAnimation ? (
+    <MotionDiv
+      key={animationKey || 'page'}
+      initial={pageTransition.initial}
+      animate={pageTransition.animate}
+      exit={pageTransition.exit}
+      transition={pageTransition.transition}
+    >
+      {content}
+    </MotionDiv>
+  ) : content;
+
+  return (
+    <AppShell
+      header={{ height: 60 }}
+      footer={{ height: 'auto' }}
+      padding="md"
+    >
+      <AppShell.Header>
+        <Header />
+      </AppShell.Header>
+
+      <AppShell.Main>
+        {animatedContent}
+      </AppShell.Main>
+
+      <AppShell.Footer>
+        <Footer 
+          socialLinks={socialLinks}
+          soundCloudTracks={soundCloudTracks}
+        />
+      </AppShell.Footer>
+    </AppShell>
+  );
+};
 
 export default PageTemplate; 

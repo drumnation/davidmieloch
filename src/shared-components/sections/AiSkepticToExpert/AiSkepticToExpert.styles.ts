@@ -27,7 +27,7 @@ export const Container = styled.div`
   align-items: stretch;
 `;
 
-export const ContentSection = styled(motion.create("div"))`
+export const ContentSection = styled(motion.div)`
   width: 100%;
   background-color: #fff;
   border-top-left-radius: 24px;
@@ -51,7 +51,7 @@ export const ContentSection = styled(motion.create("div"))`
   }
 `;
 
-export const ContentContainer = styled(motion.create("div"))`
+export const ContentContainer = styled(motion.div)`
   width: 100%;
   max-width: 1000px;
   margin: 0 auto ${SPACING.section};
@@ -63,7 +63,7 @@ export const ContentContainer = styled(motion.create("div"))`
   }
 `;
 
-export const BackgroundSection = styled(motion.create("div"))`
+export const BackgroundSection = styled(motion.div)`
   width: 100%;
   background-color: #f8f9fa;
   padding: ${SPACING.section} 0;
@@ -75,7 +75,7 @@ export const BackgroundSection = styled(motion.create("div"))`
   }
 `;
 
-export const AccentBackgroundSection = styled(motion.create("div"))`
+export const AccentBackgroundSection = styled(motion.div)`
   width: 100%;
   background-color: #f0f7ff;
   padding: ${SPACING.section} 0;
@@ -87,7 +87,7 @@ export const AccentBackgroundSection = styled(motion.create("div"))`
   }
 `;
 
-export const RedditLink = styled(motion.create("a"))`
+export const RedditLink = styled(motion.a)`
   display: block;
   margin-top: ${SPACING.paragraph};
   margin-bottom: ${SPACING.paragraphBreak};
@@ -132,7 +132,7 @@ export const RedditContentColumn = styled.div`
   flex-grow: 1;
 `;
 
-export const CardGrid = styled(motion.create("div"))`
+export const CardGrid = styled(motion.div)`
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;

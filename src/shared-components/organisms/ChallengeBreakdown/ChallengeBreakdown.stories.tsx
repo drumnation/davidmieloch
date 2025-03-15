@@ -8,6 +8,12 @@ const meta = {
     layout: 'padded',
   },
   tags: ['autodocs'],
+  argTypes: {
+    challenges: {
+      description: 'Array of challenge items to display',
+      control: 'object',
+    },
+  },
 } satisfies Meta<typeof ChallengeBreakdown>;
 
 export default meta;
@@ -81,5 +87,16 @@ export const NoAnimation: Story = {
   args: {
     ...Default.args,
     animation: 'none',
+  },
+};
+
+export const NoChallenges: Story = {
+  args: {
+    title: 'No Challenges',
+    description: 'This example shows how the component handles the case when no challenges are provided.',
+    challenges: [],
+    style: 'gradient-card',
+    position: 'full-width',
+    animation: 'fade-up',
   },
 }; 

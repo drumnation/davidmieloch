@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { Hero } from '../../organisms/Hero';
 import { BrainGardenOverviewProps } from './BrainGardenOverview.types';

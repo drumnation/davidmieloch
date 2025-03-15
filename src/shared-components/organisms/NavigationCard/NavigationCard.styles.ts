@@ -1,57 +1,63 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
-import { Card } from '../../atoms/Card/Card';
-import { Body } from '../../atoms/Typography/Typography';
-import { StyledNavigationCardProps } from './NavigationCard.types';
 
-export const StyledNavigationCard = styled(Card)`
+interface CardProps {
+  $style: 'gradient-card' | 'accent-card' | 'default';
+}
+
+export const Container = styled.div`
+  width: 100%;
+  margin: 2rem 0;
+`;
+
+export const Card = styled(motion.div)<CardProps>`
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: ${({ theme }) => theme.shadows.medium};
+  
+  ${({ $style, theme }) => $style === 'gradient-card' && css`
+    background: linear-gradient(135deg, ${theme.colors.primary.main}, ${theme.colors.secondary.main});
+    color: ${theme.colors.background.light};
+  `}
+  
+  ${({ $style, theme }) => $style === 'accent-card' && css`
+    background: ${theme.colors.accent.blue};
+    color: ${theme.colors.background.light};
+  `}
+  
+  ${({ $style, theme }) => $style === 'default' && css`
+    background: ${theme.colors.background.paper};
+    color: ${theme.colors.text.primary};
+    border: 1px solid ${theme.colors.border.light};
+  `}
+`;
+
+export const CardContent = styled.div`
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  height: 100%;
-  width: 100%;
-  min-height: 250px;
-  box-sizing: border-box;
+  gap: 1.5rem;
+`;
 
+export const ActionLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
   &:hover {
-    transform: translateY(-4px);
+    opacity: 0.9;
+    text-decoration: underline;
   }
 `;
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex: 1;
-`;
-
-export const IconContainer = styled(motion.div)<Pick<StyledNavigationCardProps, '$style'>>`
-  width: 48px;
-  height: 48px;
-  display: flex;
+export const IconWrapper = styled.span`
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  background: ${({ $style }) =>
-    $style === 'gradient-card' ? 'rgba(255, 255, 255, 0.1)' : 'var(--bg-light)'};
-  color: ${({ $style }) =>
-    $style === 'gradient-card' ? 'var(--text-light)' : 'var(--primary-blue)'};
-`;
-
-export const ActionContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: auto;
-`;
-
-export const Arrow = styled(motion.span)`
-  font-size: 1.5rem;
-  line-height: 1;
-`;
-
-export const Description = styled(Body)`
-  opacity: 0.8;
 `; 
