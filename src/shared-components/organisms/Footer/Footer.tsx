@@ -30,10 +30,10 @@ import { useTheme } from '../../../providers';
 // Define default colors to use during server-side rendering
 const defaultColors = {
   light: {
-    background: '#f8f9fa',
+    background: '#f0f0f0', // Darker off-white
     text: '#141517',
     textSecondary: '#5c5f66',
-    border: '#E2E8F0',
+    border: '#444444', // Dark gray border
     progressBackground: 'rgba(20, 21, 23, 0.1)',
     textMuted: 'rgba(20, 21, 23, 0.7)',
     hoverBackground: 'rgba(100, 100, 100, 0.1)',
@@ -47,7 +47,7 @@ const defaultColors = {
     background: '#1A1B1E',
     text: '#ffffff',
     textSecondary: '#A6A7AB',
-    border: '#2D3748',
+    border: '#444444', // Dark gray border (same as light mode)
     progressBackground: 'rgba(255, 255, 255, 0.1)',
     textMuted: 'rgba(255, 255, 255, 0.7)',
     hoverBackground: 'rgba(100, 100, 100, 0.2)',

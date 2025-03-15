@@ -2,6 +2,38 @@
 
 import styled from 'styled-components';
 
+// Define default colors to use during server-side rendering
+const defaultColors = {
+  light: {
+    background: '#f0f0f0', // Darker off-white
+    text: '#141517',
+    textSecondary: '#5c5f66',
+    border: '#444444', // Dark gray border
+    progressBackground: 'rgba(20, 21, 23, 0.1)',
+    textMuted: 'rgba(20, 21, 23, 0.7)',
+    hoverBackground: 'rgba(100, 100, 100, 0.1)',
+    scrollTrack: 'rgba(200, 200, 200, 0.2)',
+    scrollThumb: 'rgba(100, 100, 100, 0.2)',
+    activeTrackBackground: 'rgba(67, 97, 238, 0.1)',
+    activeTrackHoverBackground: 'rgba(67, 97, 238, 0.2)',
+    inactiveTrackHoverBackground: 'rgba(0, 0, 0, 0.05)'
+  },
+  dark: {
+    background: '#1A1B1E',
+    text: '#ffffff',
+    textSecondary: '#A6A7AB',
+    border: '#444444', // Dark gray border (same as light mode)
+    progressBackground: 'rgba(255, 255, 255, 0.1)',
+    textMuted: 'rgba(255, 255, 255, 0.7)',
+    hoverBackground: 'rgba(100, 100, 100, 0.2)',
+    scrollTrack: 'rgba(0, 0, 0, 0.2)',
+    scrollThumb: 'rgba(255, 255, 255, 0.2)',
+    activeTrackBackground: 'rgba(67, 97, 238, 0.2)',
+    activeTrackHoverBackground: 'rgba(67, 97, 238, 0.3)',
+    inactiveTrackHoverBackground: 'rgba(255, 255, 255, 0.05)'
+  }
+};
+
 export const FooterContainer = styled.div`
   position: fixed;
   bottom: 0;
@@ -11,7 +43,10 @@ export const FooterContainer = styled.div`
   flex-direction: column;
   width: 100%;
   z-index: 50;
-  background-color: ${({ theme }) => theme.colorScheme === 'dark' ? '#1A1B1E' : '#f8f9fa'};
+  background-color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.background 
+      : defaultColors.light.background};
 `;
 
 export const GradientBorder = styled.div`
@@ -27,15 +62,27 @@ export const FooterInfo = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: ${({ theme }) => theme.colorScheme === 'dark' ? '#1A1B1E' : '#f8f9fa'};
-  border-top: 1px solid ${({ theme }) => theme.colorScheme === 'dark' ? '#2D3748' : '#E2E8F0'};
-  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#ffffff' : '#141517'};
+  background-color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.background 
+      : defaultColors.light.background};
+  border-top: 1px solid ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.border 
+      : defaultColors.light.border};
+  color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.text 
+      : defaultColors.light.text};
 `;
 
 export const SocialAnchor = styled.a`
   text-decoration: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
-  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#A6A7AB' : '#5c5f66'};
+  color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.textSecondary 
+      : defaultColors.light.textSecondary};
   
   &:hover {
     transform: translateY(-2px);
@@ -51,6 +98,10 @@ export const MiniPlayerContainer = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
+  background-color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.background 
+      : defaultColors.light.background};
 `;
 
 export const TrackInfoContainer = styled.div`
@@ -59,13 +110,19 @@ export const TrackInfoContainer = styled.div`
 `;
 
 export const TrackTitle = styled.div`
-  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#ffffff' : '#141517'};
+  color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.text 
+      : defaultColors.light.text};
   font-weight: 500;
   font-size: 0.875rem;
 `;
 
 export const TrackArtist = styled.div`
-  color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(20, 21, 23, 0.7)'};
+  color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.textMuted 
+      : defaultColors.light.textMuted};
   font-size: 0.75rem;
 `;
 
@@ -107,7 +164,10 @@ export const ProgressContainer = styled.div`
 export const ProgressBar = styled.div`
   width: 100%;
   height: 4px;
-  background-color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(20, 21, 23, 0.1)'};
+  background-color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.progressBackground 
+      : defaultColors.light.progressBackground};
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: 0.25rem;
@@ -124,7 +184,10 @@ export const TimeDisplay = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
-  color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(20, 21, 23, 0.7)'};
+  color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.textMuted 
+      : defaultColors.light.textMuted};
 `;
 
 export const ControlsContainer = styled.div`
@@ -143,10 +206,16 @@ export const ControlButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
-  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#ffffff' : '#141517'};
+  color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.text 
+      : defaultColors.light.text};
   
   &:hover {
-    background-color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(100, 100, 100, 0.2)' : 'rgba(100, 100, 100, 0.1)'};
+    background-color: ${({ theme }) => 
+      theme.colorScheme === 'dark' 
+        ? defaultColors.dark.hoverBackground 
+        : defaultColors.light.hoverBackground};
   }
   
   &:focus {
@@ -168,7 +237,10 @@ export const VolumeSlider = styled.input`
   width: 80px;
   height: 4px;
   -webkit-appearance: none;
-  background: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(20, 21, 23, 0.2)'};
+  background: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.progressBackground 
+      : defaultColors.light.progressBackground};
   border-radius: 2px;
   outline: none;
   
@@ -193,11 +265,17 @@ export const VolumeSlider = styled.input`
 
 export const ExpandedPlayerContainer = styled.div`
   padding: 1rem 1.5rem;
-  border-top: 1px solid ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(70, 70, 70, 0.5)' : 'rgba(200, 200, 200, 0.5)'};
+  border-top: 1px solid ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? 'rgba(70, 70, 70, 0.5)' 
+      : 'rgba(100, 100, 100, 0.5)'};
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
-  background-color: ${({ theme }) => theme.colorScheme === 'dark' ? '#1A1B1E' : '#f8f9fa'};
+  background-color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.background 
+      : defaultColors.light.background};
 `;
 
 export const TrackList = styled.div`
@@ -213,12 +291,18 @@ export const TrackList = styled.div`
   }
   
   &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(0, 0, 0, 0.2)' : 'rgba(200, 200, 200, 0.2)'};
+    background: ${({ theme }) => 
+      theme.colorScheme === 'dark' 
+        ? defaultColors.dark.scrollTrack 
+        : defaultColors.light.scrollTrack};
     border-radius: 4px;
   }
   
   &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(100, 100, 100, 0.2)'};
+    background: ${({ theme }) => 
+      theme.colorScheme === 'dark' 
+        ? defaultColors.dark.scrollThumb 
+        : defaultColors.light.scrollThumb};
     border-radius: 4px;
   }
 `;
@@ -231,31 +315,37 @@ export const TrackItem = styled.div<{ isActive?: boolean }>`
   cursor: pointer;
   background-color: ${props => props.isActive 
     ? props.theme.colorScheme === 'dark' 
-      ? 'rgba(67, 97, 238, 0.2)' 
-      : 'rgba(67, 97, 238, 0.1)' 
+      ? defaultColors.dark.activeTrackBackground
+      : defaultColors.light.activeTrackBackground
     : 'transparent'};
   transition: background-color 0.2s;
   
   &:hover {
     background-color: ${props => props.isActive 
       ? props.theme.colorScheme === 'dark' 
-        ? 'rgba(67, 97, 238, 0.3)' 
-        : 'rgba(67, 97, 238, 0.2)' 
+        ? defaultColors.dark.activeTrackHoverBackground
+        : defaultColors.light.activeTrackHoverBackground
       : props.theme.colorScheme === 'dark' 
-        ? 'rgba(255, 255, 255, 0.05)' 
-        : 'rgba(0, 0, 0, 0.05)'};
+        ? defaultColors.dark.inactiveTrackHoverBackground
+        : defaultColors.light.inactiveTrackHoverBackground};
   }
 `;
 
 export const TrackItemTitle = styled.div`
-  color: ${({ theme }) => theme.colorScheme === 'dark' ? '#ffffff' : '#141517'};
+  color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.text 
+      : defaultColors.light.text};
   font-weight: 500;
   font-size: 0.875rem;
   margin-bottom: 0.25rem;
 `;
 
 export const TrackItemArtist = styled.div`
-  color: ${({ theme }) => theme.colorScheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(20, 21, 23, 0.7)'};
+  color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.textMuted 
+      : defaultColors.light.textMuted};
   font-size: 0.75rem;
 `;
 
