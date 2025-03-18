@@ -41,7 +41,7 @@ export const IconWrapper = styled(motion.div)`
   margin-bottom: 1rem;
 `;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

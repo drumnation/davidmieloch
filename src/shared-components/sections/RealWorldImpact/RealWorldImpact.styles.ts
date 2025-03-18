@@ -113,6 +113,18 @@ export const Paragraph = styled.p`
   }
 `;
 
+export const ParagraphList = styled.div`
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: ${SPACING.paragraph};
+  color: ${props => props.theme.colors.text.primary};
+  
+  @media (max-width: 576px) {
+    font-size: 1rem;
+    margin-bottom: ${SPACING.mobile.paragraph};
+  }
+`;
+
 export const ComponentWrapper = styled.div<{ position?: string }>`
   width: 100%;
   margin: ${SPACING.component} 0;

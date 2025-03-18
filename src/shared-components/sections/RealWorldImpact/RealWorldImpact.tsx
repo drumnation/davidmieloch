@@ -286,11 +286,13 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
               <S.Paragraph>
                 These challenges require a fundamental shift in how we approach enterprise development:
               </S.Paragraph>
-              <ul>
-                <li>Systems that reduce cognitive load.</li>
-                <li>Tools that unify and simplify the development process.</li>
-                <li>Approaches that scale effectively with increasing complexity.</li>
-              </ul>
+              <S.ParagraphList>
+                <ul>
+                  <li>Systems that reduce cognitive load.</li>
+                  <li>Tools that unify and simplify the development process.</li>
+                  <li>Approaches that scale effectively with increasing complexity.</li>
+                </ul>
+              </S.ParagraphList>
             </motion.div>
 
             {/* Common Pitfalls Section */}

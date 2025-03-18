@@ -13,6 +13,6 @@ export interface QuoteGridProps {
   layout?: '2-column' | '3-column';
   animation?: 'stagger-fade' | 'float-in' | 'none';
   style?: 'card' | 'minimal';
-  background?: 'light' | 'dark' | 'gradient';
+  background?: 'light' | 'dark' | 'gradient' | 'blue';
   className?: string;
 } 

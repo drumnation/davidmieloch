@@ -20,6 +20,7 @@ import {
   DetailedContentContainer,
   DetailedContentTitle,
   DetailedContentText,
+  DetailedContentList,
   ConclusionContainer,
   ConclusionTitle,
   ConclusionText,
@@ -169,13 +170,13 @@ const DetailedContent = () => {
         enforce best practices, optimize code style, and even catch potential accessibility issues. This includes rules for:
       </DetailedContentText>
       
-      <DetailedContentText>
+      <DetailedContentList>
         <ul>
           <li><strong>Alphabetical Ordering:</strong> Automatically sorts object keys and CSS-in-JS style properties for consistency and readability.</li>
           <li><strong>Import Management:</strong> Optimizes and cleans up import statements, removing unused imports and enforcing a consistent import order.</li>
           <li><strong>Accessibility:</strong> Identifies potential accessibility violations in JSX, helping to ensure inclusive design.</li>
         </ul>
-      </DetailedContentText>
+      </DetailedContentList>
       
       <DetailedContentText>
         Prettier is integrated with ESLint to handle code formatting, eliminating any subjective debates about code style. 
@@ -190,14 +191,14 @@ const DetailedContent = () => {
         iteration and generative AI. My testing strategy encompasses several layers:
       </DetailedContentText>
       
-      <DetailedContentText>
+      <DetailedContentList>
         <ul>
           <li><strong>Unit Tests:</strong> Best suited for pure functions and low-level business logic that can be tested in isolation. I favor Vitest over Jest for its speed, native TypeScript support, and simpler configuration.</li>
           <li><strong>Integration Tests:</strong> Focus on verifying the interactions between different parts of the application (e.g., components and services). Mocking should be used judiciously; excessive mocking often indicates that a unit test might be a better fit.</li>
           <li><strong>End-to-End (E2E) Tests:</strong> Simulate real user interactions with the application, testing the entire flow from the UI to the backend and database. I prefer Playwright for E2E testing due to its robust features, cross-browser support, and excellent developer experience. Even a small number of well-crafted E2E tests can provide significant confidence in the overall stability of the application.</li>
           <li><strong>Visual Regression Tests:</strong> Using Storybook&apos;s snapshot testing capabilities, these tests detect unintended visual changes in UI components. This is particularly important for shared components in a monorepo, where a visual regression can impact multiple applications.</li>
         </ul>
-      </DetailedContentText>
+      </DetailedContentList>
       
       <DetailedContentText>
         I generally avoid fully mounted component tests, as they often require extensive mocking and can be brittle and 
@@ -210,13 +211,13 @@ const DetailedContent = () => {
         Storybook plays a crucial role in my development workflow. It serves as:
       </DetailedContentText>
       
-      <DetailedContentText>
+      <DetailedContentList>
         <ul>
           <li><strong>A Component Development Environment:</strong> Allows for building and testing UI components in isolation, accelerating development and promoting modularity.</li>
           <li><strong>Living Documentation:</strong> Provides a visual catalog of all available components, making it easy for developers (and AI) to discover and understand how to use them.</li>
           <li><strong>A Testing Platform:</strong> Supports interaction testing and visual regression testing, ensuring that components behave and appear as expected.</li>
         </ul>
-      </DetailedContentText>
+      </DetailedContentList>
       
       <DetailedContentText>
         Developing components in Storybook often leads to more testable and well-designed components, as it forces you 
@@ -229,13 +230,13 @@ const DetailedContent = () => {
         using GitHub Actions. This includes:
       </DetailedContentText>
       
-      <DetailedContentText>
+      <DetailedContentList>
         <ul>
           <li><strong>Pre-commit Hooks (using Husky):</strong> Run linting, formatting, and a subset of tests (e.g., unit tests) <em>before</em> allowing a commit. This prevents common errors from ever entering the codebase.</li>
           <li><strong>Automated Builds and Tests on Pull Requests:</strong> When a pull request is created or updated, GitHub Actions automatically builds the application, runs the full test suite (including E2E tests), and reports the results directly in the pull request. This provides rapid feedback and prevents merging code that breaks existing functionality.</li>
           <li><strong>Mandatory Code Reviews and Passing Tests:</strong> GitHub is configured to require code reviews and passing tests before a pull request can be merged, ensuring code quality and preventing accidental regressions.</li>
         </ul>
-      </DetailedContentText>
+      </DetailedContentList>
       
       <DetailedContentTitle>Incremental Adoption</DetailedContentTitle>
       <DetailedContentText>
@@ -243,14 +244,14 @@ const DetailedContent = () => {
         (or even desirable) to try to achieve perfection overnight. A pragmatic approach involves:
       </DetailedContentText>
       
-      <DetailedContentText>
+      <DetailedContentList>
         <ul>
           <li><strong>Prioritizing:</strong> Start with the areas that offer the most immediate value. For example, setting up basic linting and formatting, or writing a few key E2E tests for critical workflows.</li>
           <li><strong>Incremental Improvement:</strong> Gradually expand the test suite, refine linting rules, and adopt more advanced tooling as the project matures.</li>
           <li><strong>&quot;Any&quot; as an Escape Hatch (Temporarily):</strong> When migrating a JavaScript project to TypeScript, using <code>any</code> as a temporary placeholder allows you to get the benefits of TypeScript without having to fix all type errors immediately. Gradually replace <code>any</code> with specific types over time.</li>
           <li><strong>Focusing on &quot;Long Chain&quot; E2E Tests Initially:</strong> While shorter, more isolated E2E tests are ideal, writing a few longer tests that cover a broad range of functionality can provide significant initial coverage.</li>
         </ul>
-      </DetailedContentText>
+      </DetailedContentList>
       
       <DetailedContentText>
         The goal is to continuously improve the development workflow, balancing the need for defensive measures 
@@ -333,7 +334,7 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
     title: "Best Practices",
     subtitle: "Modern Development Approaches",
     background: 'image' as const,
-    backgroundImage: '/machine.jpg',
+    backgroundImage: '/field.jpg',
     pattern: 'none' as const,
     textColor: 'light' as const,
     animation: 'fade-up' as const,

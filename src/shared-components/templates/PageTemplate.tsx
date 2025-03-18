@@ -46,6 +46,7 @@ export const PageTemplate = ({
   return (
     <AppShell
       header={{ height: 60 }}
+      footer={{ height: 80 }}
       padding="md"
     >
       <AppShell.Header>

@@ -103,6 +103,11 @@ export const defaultContent = {
   strategicFocusAreas: {
     features: [
       {
+        title: "Knowledge Integration",
+        description: "Building systems that combine company-specific knowledge with AI capabilities for contextually aware assistance",
+        icon: <Icon name="database" size={24} />
+      },
+      {
         title: "Prompt Engineering",
         description: "Developing systematic approaches to craft effective AI prompts that produce reliable, maintainable code",
         icon: <Icon name="message-circle" size={24} />
@@ -113,24 +118,19 @@ export const defaultContent = {
         icon: <Icon name="shield-check" size={24} />
       },
       {
-        title: "Knowledge Integration",
-        description: "Building systems that combine company-specific knowledge with AI capabilities for contextually aware assistance",
-        icon: <Icon name="database" size={24} />
-      },
-      {
         title: "Workflow Optimization",
         description: "Redesigning development processes to leverage AI strengths while maintaining human oversight",
         icon: <Icon name="git-branch" size={24} />
       },
       {
-        title: "Metrics Redefinition",
-        description: "Establishing quality-focused metrics that measure meaningful outcomes rather than AI usage",
-        icon: <Icon name="chart-bar" size={24} />
-      },
-      {
         title: "Team Adaptation",
         description: "Training teams to effectively collaborate with AI tools while maintaining coding standards",
         icon: <Icon name="users" size={24} />
+      },
+      {
+        title: "Metrics Redefinition",
+        description: "Establishing quality-focused metrics that measure meaningful outcomes rather than AI usage",
+        icon: <Icon name="chart-bar" size={24} />
       }
     ]
   },
@@ -141,15 +141,19 @@ export const defaultContent = {
       graph TD
         A[Assess Current Workflow] --> B[Identify AI Opportunities]
         B --> C[Define Human/AI Roles]
-        C --> D[Implement AI Tools]
-        D --> E[Train Team]
-        E --> F[Measure Results]
-        F --> G{Successful?}
-        G -->|Yes| H[Scale Integration]
-        G -->|No| I[Refine Approach]
-        I --> C
-        H --> J[Continuous Improvement]
-        J --> F
+        C --> D1[Knowledge Integration]
+        D1 --> D2[Implement Prompt Engineering]
+        D2 --> D3[Build Validation Frameworks]
+        D3 --> E[Optimize Development Workflow]
+        E --> F[Train Teams on AI Collaboration]
+        F --> G[Define Quality-Focused Metrics]
+        G --> H[Measure Results]
+        H --> I{Successful?}
+        I -->|Yes| J[Scale Integration]
+        I -->|No| K[Refine Approach]
+        K --> C
+        J --> L[Continuous Improvement]
+        L --> H
     `,
     theme: "default"
   }

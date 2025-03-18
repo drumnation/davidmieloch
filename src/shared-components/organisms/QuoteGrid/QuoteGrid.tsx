@@ -1,62 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Card } from '../../atoms/Card/Card';
-
-export interface QuoteGridProps {
-  quotes: Array<{
-    text: string;
-    author: string;
-  }>;
-  style?: string;
-  position?: string;
-  className?: string;
-}
-
-const QuoteContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-`;
-
-const QuoteCard = styled(Card)`
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: ${({ theme }) => theme.colors.background.light};
-  border-left: 4px solid ${({ theme }) => theme.colors.accent.blue};
-  
-  &.gradient {
-    background: ${({ theme }) => theme.colors.gradient};
-    color: ${({ theme }) => theme.colors.text.light};
-    border-left: none;
-  }
-  
-  &.accent {
-    background-color: ${({ theme }) => theme.colors.background.light};
-    border-left: 4px solid ${({ theme }) => theme.colors.primary.main};
-  }
-`;
-
-const QuoteText = styled.blockquote`
-  font-style: italic;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin: 0 0 1rem 0;
-  padding: 0;
-`;
-
-const QuoteAuthor = styled.div`
-  text-align: right;
-  font-weight: 500;
-  font-size: 0.875rem;
-  opacity: 0.8;
-`;
+import { Quote, QuoteGridProps } from './QuoteGrid.types';
+import { Grid, QuoteCard, QuoteText, QuoteAuthor, QuoteNote, IconWrapper } from './QuoteGrid.styles';
 
 export const QuoteGrid: React.FC<QuoteGridProps> = ({
   quotes,
-  style = 'default',
+  layout = '3-column',
+  animation = 'stagger-fade',
+  style = 'card',
+  background = 'light',
   className,
 }) => {
   const cardVariants = {
@@ -80,30 +32,42 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
     }
   };
 
-  const getCardClassName = () => {
-    if (style === 'gradient-card' || style === 'gradient-cards') return 'gradient';
-    if (style === 'accent-card' || style === 'accent-cards') return 'accent';
-    return '';
-  };
+  const isBlueTheme = background === 'blue';
 
   return (
     <motion.div
       className={className}
-      initial="hidden"
-      whileInView="visible"
+      initial={animation !== 'none' ? "hidden" : undefined}
+      whileInView={animation !== 'none' ? "visible" : undefined}
       viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
+      variants={animation !== 'none' ? containerVariants : undefined}
     >
-      <QuoteContainer>
+      <Grid $layout={layout} $background="light">
         {quotes.map((quote, index) => (
-          <motion.div key={index} variants={cardVariants}>
-            <QuoteCard className={getCardClassName()}>
+          <motion.div 
+            key={index} 
+            variants={animation !== 'none' ? cardVariants : undefined}
+            style={{ height: '100%' }}
+          >
+            <QuoteCard 
+              $style={style} 
+              $background={isBlueTheme ? 'blue' : background}
+            >
+              {quote.icon && (
+                <IconWrapper $background={isBlueTheme ? 'blue' : background}>
+                  {quote.icon}
+                </IconWrapper>
+              )}
               <QuoteText>&ldquo;{quote.text}&rdquo;</QuoteText>
-              <QuoteAuthor>— {quote.author}</QuoteAuthor>
+              <QuoteAuthor>
+                — {quote.author}
+                {quote.role && `, ${quote.role}`}
+              </QuoteAuthor>
+              {quote.note && <QuoteNote>{quote.note}</QuoteNote>}
             </QuoteCard>
           </motion.div>
         ))}
-      </QuoteContainer>
+      </Grid>
     </motion.div>
   );
 };

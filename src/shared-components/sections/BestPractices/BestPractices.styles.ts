@@ -256,6 +256,13 @@ export const DetailedContentText = styled.p`
   color: ${({ theme }) => theme.colors.text.secondary};
 `;
 
+export const DetailedContentList = styled.div`
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: ${({ theme }) => theme.colors.text.secondary};
+`;
+
 export const ConclusionContainer = styled(motion.div)`
   width: 100%;
   margin-top: 3rem;

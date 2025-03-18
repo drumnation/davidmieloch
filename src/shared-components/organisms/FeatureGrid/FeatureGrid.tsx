@@ -9,31 +9,47 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.6,
       ease: 'easeOut',
     },
   },
 };
 
 const iconVariants = {
-  hidden: { scale: 0 },
+  hidden: { scale: 0, rotate: -10 },
   visible: {
     scale: 1,
+    rotate: 0,
     transition: {
       type: 'spring',
-      stiffness: 200,
-      delay: 0.2,
+      stiffness: 260,
+      damping: 20,
+      delay: 0.3,
+    },
+  },
+};
+
+const textVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.4,
     },
   },
 };
@@ -49,7 +65,8 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
     <motion.div
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
       className={className}
     >
       <S.Grid $columns={columns} $style={style}>
@@ -57,16 +74,28 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
           <motion.div
             key={index}
             variants={cardVariants}
-            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            whileHover={{ 
+              y: -8, 
+              scale: 1.03, 
+              boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+              transition: { duration: 0.3 } 
+            }}
           >
             <S.FeatureCard
               variant={style === 'gradient-cards' ? 'gradient' : 'accent'}
               padding="lg"
             >
-              <S.IconWrapper variants={iconVariants}>
+              <S.IconWrapper 
+                variants={iconVariants}
+                whileHover={{ 
+                  scale: 1.15, 
+                  rotate: 5,
+                  transition: { duration: 0.3 } 
+                }}
+              >
                 {feature.icon}
               </S.IconWrapper>
-              <S.Content>
+              <S.Content variants={textVariants}>
                 <H3 color={style === 'gradient-cards' ? 'light' : 'primary'}>
                   {feature.title}
                 </H3>

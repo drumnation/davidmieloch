@@ -178,7 +178,8 @@ export const mermaidContainerStyle: CSSProperties = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  width: '100%'
+  width: '100%',
+  padding: '1.5rem 0'
 };
 
 export const titleBlockStyle: CSSProperties = { 

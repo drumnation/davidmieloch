@@ -50,10 +50,9 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: 'Home', href: '/' },
+  { label: 'Enterprise AI DevFramework', href: '/enterprise-ai-development-framework' },
+  { label: 'Best Practices Integration', href: '/best-practices-integration' },
   { label: 'Bio', href: '/bio' },
-  { label: 'Best Practices', href: '/best-practices' },
-  // { label: 'Resume', href: '/resume' },
   // { label: 'Blog', href: '/blog' },
   // { label: 'Contact', href: '/contact' },
 ];
@@ -202,7 +201,7 @@ export function Header() {
                 onClick={handleResumeDownload}
                 visibleFrom="sm"
               >
-                Resume PDF
+                Resume
               </Button>
             </ClientOnly>
             

@@ -12,15 +12,15 @@ export const Container = styled(motion.div)<{ position?: string }>`
   max-width: 100%;
 `;
 
-export const StyledCard = styled.div<StyledProps>`
-  background: ${({ styleType, theme }) =>
-    styleType === 'gradient-card'
+export const StyledCard = styled.div<{ $styleType?: 'gradient-card' | 'accent-card' }>`
+  background: ${({ $styleType, theme }) =>
+    $styleType === 'gradient-card'
       ? 'linear-gradient(90deg, #0052CC 0%, #3730A3 100%)'
-      : styleType === 'accent-card'
+      : $styleType === 'accent-card'
       ? theme.colors.accent.light
       : theme.colors.background.light};
-  color: ${({ styleType, theme }) =>
-    styleType === 'gradient-card'
+  color: ${({ $styleType, theme }) =>
+    $styleType === 'gradient-card'
       ? theme.colors.text.light
       : theme.colors.text.primary};
   border-radius: ${({ theme }) => theme.radius.lg};

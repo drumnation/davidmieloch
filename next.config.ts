@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
-  // Enable both App Router and Pages Router
-  useFileSystemPublicRoutes: true,
   // Ensure proper handling of images
   images: {
     unoptimized: true,

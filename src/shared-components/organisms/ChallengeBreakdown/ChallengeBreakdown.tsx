@@ -65,7 +65,7 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
       animate={animation === 'none' ? undefined : 'visible'}
       variants={containerVariants}
     >
-      <StyledCard styleType={style}>
+      <StyledCard $styleType={style}>
         <ContentWrapper>
           <MainTitle>
             {title}

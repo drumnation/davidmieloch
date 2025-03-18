@@ -35,7 +35,8 @@ export const enhanceQuotesProps = (quotesProps: AiSkepticToExpertProps['quotesPr
         : quote.icon as ReactElement | undefined
     })) as Quote[],
     layout: quotesProps.layout === 'grid' ? '3-column' : quotesProps.layout,
-    animation: 'stagger-fade'
+    animation: 'stagger-fade',
+    background: 'blue' // Set blue background for the quotes
   };
 };
 

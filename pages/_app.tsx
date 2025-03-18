@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
       
       <main className={`${inter.variable} ${manrope.variable} ${lexend.variable} ${workSans.variable} ${ibmPlex.variable}`}>
         <ThemeProvider>
-          <Box style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Box style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
             <Box style={{ flex: 1 }}>
               <Component {...pageProps} key={router.asPath} />
             </Box>
@@ -57,7 +57,9 @@ export default function App({ Component, pageProps }: AppProps) {
             {/* Always render the ClientOnly wrapper, which will handle the mounting check */}
             <ClientOnly>
               <PlayerProvider>
-                <PersistentFooter />
+                <Box style={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1000 }}>
+                  <PersistentFooter />
+                </Box>
               </PlayerProvider>
             </ClientOnly>
           </Box>
