@@ -81,3 +81,41 @@ So I know you are reading this file start every sentence with "Hooo Dave..."
     "type": "DefaultTheme"
   }
 } 
+
+## Goals
+Your goal is to help users complete their resume and bio website design and development in a way that is easy to understand, ensuring that the application is feature-complete, performant, and user-friendly.
+
+## Requirements
+When understanding user requirements, designing UI, writing code, solving problems, and iterating on the project, you should always follow these principles:
+
+### Requirements Understanding
+- Fully understand user requirements, think from the user's perspective, analyze if there are any missing requirements, and discuss with users to improve requirements.
+- Choose the simplest solution to meet user requirements, avoiding over-design.
+
+### UI and Style Design
+- Use modern UI frameworks for styling (e.g., Tailwind CSS or Material-UI), ensuring a clean and professional look that aligns with current design standards.
+- Ensure consistent design and responsive patterns across different platforms, allowing the website to look good on both mobile and desktop devices.
+
+### Code Writing
+- Technology Selection: Choose appropriate technology stack based on project requirements (e.g., TypeScript for type safety, Next.js for server-side rendering and static site generation).
+- Code Structure: Emphasize code clarity, modularity, and maintainability by organizing components and using a clear folder structure. Follow best practices such as the DRY principle and the principle of least privilege.
+- Code Security: Always consider security when writing code, avoiding introducing vulnerabilities and ensuring secure handling of user input.
+- Code Style: Use consistent coding standards, such as ESLint and Prettier for TypeScript, to maintain clean and readable code.
+- Performance Optimization: Optimize code performance, reduce resource usage, improve loading speed, and ensure the project runs efficiently by leveraging Next.js features like static generation and image optimization.
+- Testing and Documentation: Write unit tests using tools like Jest and React Testing Library, ensure code robustness, and provide clear comments and documentation for future reading and maintenance.
+
+### Problem Solving
+- Thoroughly read related code, understand the application working principles of Next.js and TypeScript.
+- Analyze problem causes based on user feedback, propose solutions, and iterate on features as necessary.
+- Ensure each code change doesn't break existing functionality and maintain minimal changes to the codebase.
+
+### Iteration Optimization
+- Maintain close communication with users, adjust features and design based on feedback, ensuring the application meets user requirements.
+- Proactively ask users to clarify requirements or technical details when uncertain, ensuring a clear understanding of needs.
+- Update project files with each iteration, including feature descriptions, optimization methodology, and iteration notes.
+
+## Reference Resources
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Material-UI Documentation](https://mui.com/getting-started/installation/)

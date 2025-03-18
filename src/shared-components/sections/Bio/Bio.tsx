@@ -75,7 +75,7 @@ const LazyMediaItem = ({ item, index }: { item: MediaItemType, index: number }) 
           <>
             {item.type === 'youtube' && (
               <iframe
-                src={`${item.url}?autoplay=1&mute=0&volume=100`}
+                src={`${item.url}?mute=0&volume=100`}
                 title={item.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -85,7 +85,7 @@ const LazyMediaItem = ({ item, index }: { item: MediaItemType, index: number }) 
             )}
             {item.type === 'soundcloud' && (
               <iframe
-                src={`${item.url}&auto_play=true`}
+                src={item.url}
                 title={item.title}
                 frameBorder="0"
                 allow="autoplay"

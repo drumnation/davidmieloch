@@ -1,6 +1,5 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -21,7 +20,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useTheme } from '../../../src/providers/ThemeProvider';
-import { IconFileDownload } from '@tabler/icons-react';
+import { IconFileDownload, IconBrandGithub, IconBrandLinkedin, IconBrandMedium } from '@tabler/icons-react';
 import { ClientOnly } from '../../../src/utils';
 
 // Simple sun and moon icons for theme toggle
@@ -59,6 +58,13 @@ const navLinks: NavLink[] = [
   // { label: 'Contact', href: '/contact' },
 ];
 
+// Social links data
+const socialLinks = [
+  { name: 'GitHub', icon: IconBrandGithub, url: 'https://github.com/davidmieloch' },
+  { name: 'LinkedIn', icon: IconBrandLinkedin, url: 'https://linkedin.com/in/davidmieloch' },
+  { name: 'Medium', icon: IconBrandMedium, url: 'https://medium.com/@davidmieloch' }
+];
+
 // Theme toggle button component that uses ClientOnly to prevent hydration errors
 const ThemeToggle = () => {
   const { colorScheme, toggleColorScheme } = useTheme();
@@ -79,12 +85,17 @@ const ThemeToggle = () => {
 
 export function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const pathname = usePathname();
   const theme = useMantineTheme();
   const { colorScheme } = useTheme();
   const isDark = colorScheme === 'dark';
 
-  const isActive = (href: string) => pathname === href;
+  // Use a simple approach that works in both routers
+  const isActive = (href: string) => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname === href;
+    }
+    return false;
+  };
 
   const handleResumeDownload = () => {
     // This will need to be updated with the actual resume PDF path
@@ -92,14 +103,13 @@ export function Header() {
   };
 
   const navItems = navLinks.map((link) => (
-    <Link 
-      key={link.label} 
-      href={link.href} 
-      passHref
+    <Link
+      key={link.label}
+      href={link.href}
+      onClick={close}
       style={{ textDecoration: 'none' }}
     >
       <UnstyledButton
-        onClick={close}
         style={{
           position: 'relative',
           color: isActive(link.href) ? theme.colors.blue[6] : theme.colors.gray[isDark ? 3 : 7],
@@ -134,26 +144,49 @@ export function Header() {
     }}>
       <Container size="lg">
         <Group justify="space-between" h="100%">
-          <Link href="/" style={{ textDecoration: 'none' }}>
-            <Group gap="xs" align="center">
-              <Image 
-                src="/logo.png" 
-                alt="David Mieloch Logo" 
-                width={32} 
-                height={32} 
-                style={{ borderRadius: '4px' }}
-              />
-              <Text 
-                fw={700} 
-                size="lg" 
-                style={{
-                  color: isDark ? '#ffffff' : '#141517'
-                }}
-              >
-                David Mieloch
-              </Text>
+          <Group>
+            <Link href="/" style={{ textDecoration: 'none' }}>
+              <UnstyledButton style={{ textDecoration: 'none' }}>
+                <Group gap="xs" align="center">
+                  <Image 
+                    src="/web-app-manifest-192x192.png" 
+                    alt="David Mieloch Logo" 
+                    width={32} 
+                    height={32} 
+                    style={{ borderRadius: '50%' }}
+                  />
+                  <Text 
+                    fw={700} 
+                    size="lg" 
+                    style={{
+                      color: isDark ? '#ffffff' : '#141517'
+                    }}
+                  >
+                    David Mieloch
+                  </Text>
+                </Group>
+              </UnstyledButton>
+            </Link>
+            
+            {/* Social Links */}
+            <Group gap="xs" ml="md">
+              {socialLinks.map((link) => (
+                <Tooltip key={link.name} label={link.name}>
+                  <ActionIcon
+                    component="a"
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="subtle"
+                    color="blue"
+                    size="md"
+                  >
+                    <link.icon size={18} />
+                  </ActionIcon>
+                </Tooltip>
+              ))}
             </Group>
-          </Link>
+          </Group>
 
           <Group gap={5}>
             {/* Desktop navigation */}
@@ -211,14 +244,13 @@ export function Header() {
           >
             <Stack gap="xs">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.label} 
-                  href={link.href} 
-                  passHref
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={close}
                   style={{ textDecoration: 'none' }}
                 >
                   <UnstyledButton
-                    onClick={close}
                     style={{
                       width: '100%',
                       padding: rem(12),
@@ -228,40 +260,10 @@ export function Header() {
                       fontWeight: 500,
                     }}
                   >
-                    {link.label}
+                    <Text>{link.label}</Text>
                   </UnstyledButton>
                 </Link>
               ))}
-              
-              {/* Resume download button in mobile menu */}
-              <ClientOnly>
-                <UnstyledButton
-                  onClick={() => {
-                    handleResumeDownload();
-                    close();
-                  }}
-                  style={{
-                    width: '100%',
-                    padding: rem(12),
-                    borderRadius: theme.radius.sm,
-                    color: theme.colors.blue[6],
-                    backgroundColor: 'transparent',
-                    fontWeight: 500,
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  <IconFileDownload size={16} style={{ marginRight: rem(8) }} />
-                  Resume PDF
-                </UnstyledButton>
-              </ClientOnly>
-              
-              <Group justify="space-between" px="md" py="sm">
-                <Text size="sm">Theme</Text>
-                <ClientOnly>
-                  <ThemeToggle />
-                </ClientOnly>
-              </Group>
             </Stack>
           </Drawer>
         </Group>

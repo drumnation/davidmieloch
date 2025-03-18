@@ -2,21 +2,22 @@
 
 import { AppShell, Container } from '@mantine/core';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { Header } from '../organisms/Header';
-import { Footer } from '../organisms/Footer/Footer';
 import { PageTemplateProps } from './PageTemplate.types';
 
 const MotionDiv = motion.div;
 
 export const PageTemplate = ({ 
   children, 
-  socialLinks,
-  soundCloudTracks,
   withContainer = true,
   containerSize = 'xl',
   withAnimation = true,
   animationKey,
 }: PageTemplateProps) => {
+  // Use App Router hooks if available, otherwise use undefined
+  const pathname = usePathname?.() || '';
+  
   const pageTransition = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -32,7 +33,7 @@ export const PageTemplate = ({
 
   const animatedContent = withAnimation ? (
     <MotionDiv
-      key={animationKey || 'page'}
+      key={animationKey || pathname || 'page'}
       initial={pageTransition.initial}
       animate={pageTransition.animate}
       exit={pageTransition.exit}
@@ -45,7 +46,6 @@ export const PageTemplate = ({
   return (
     <AppShell
       header={{ height: 60 }}
-      footer={{ height: 'auto' }}
       padding="md"
     >
       <AppShell.Header>
@@ -55,13 +55,6 @@ export const PageTemplate = ({
       <AppShell.Main>
         {animatedContent}
       </AppShell.Main>
-
-      <AppShell.Footer>
-        <Footer 
-          socialLinks={socialLinks}
-          soundCloudTracks={soundCloudTracks}
-        />
-      </AppShell.Footer>
     </AppShell>
   );
 };

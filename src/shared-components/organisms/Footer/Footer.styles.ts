@@ -8,7 +8,7 @@ const defaultColors = {
     background: '#f0f0f0', // Darker off-white
     text: '#141517',
     textSecondary: '#5c5f66',
-    border: '#444444', // Dark gray border
+    border: 'rgba(0, 0, 0, 0.1)', // Aligned with Header.tsx
     progressBackground: 'rgba(20, 21, 23, 0.1)',
     textMuted: 'rgba(20, 21, 23, 0.7)',
     hoverBackground: 'rgba(100, 100, 100, 0.1)',
@@ -22,7 +22,7 @@ const defaultColors = {
     background: '#1A1B1E',
     text: '#ffffff',
     textSecondary: '#A6A7AB',
-    border: '#444444', // Dark gray border (same as light mode)
+    border: 'rgba(0, 188, 212, 0.1)', // Aligned with Header.tsx
     progressBackground: 'rgba(255, 255, 255, 0.1)',
     textMuted: 'rgba(255, 255, 255, 0.7)',
     hoverBackground: 'rgba(100, 100, 100, 0.2)',
@@ -54,7 +54,7 @@ export const GradientBorder = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 1px;
 `;
 
 export const FooterInfo = styled.div`
@@ -267,8 +267,8 @@ export const ExpandedPlayerContainer = styled.div`
   padding: 1rem 1.5rem;
   border-top: 1px solid ${({ theme }) => 
     theme.colorScheme === 'dark' 
-      ? 'rgba(70, 70, 70, 0.5)' 
-      : 'rgba(100, 100, 100, 0.5)'};
+      ? defaultColors.dark.border 
+      : defaultColors.light.border};
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
@@ -415,4 +415,4 @@ export const CopyrightSection = styled.div`
   justify-content: center;
   padding: 0.5rem 0;
   width: 100%;
-`; 
+`;

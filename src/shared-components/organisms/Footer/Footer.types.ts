@@ -11,9 +11,11 @@ export interface SoundCloudTrack {
   title: string;
   artist: string;
   url: string;
+  directUrl?: string; // Direct link to SoundCloud track
   waveformUrl?: string;
   artwork: string;
   duration: number; // duration in seconds
+  playCount?: number; // number of plays on SoundCloud
 }
 
 export interface FooterProps {

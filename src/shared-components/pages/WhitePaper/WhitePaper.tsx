@@ -19,11 +19,14 @@ const fadeIn = {
   }
 };
 
+// Create a motion div component
+const MotionDiv = motion.div;
+
 export const WhitePaper: React.FC<WhitePaperProps> = ({
   className,
 }) => {
   return (
-    <motion.div 
+    <MotionDiv 
       className={className}
       initial="hidden"
       animate="visible"
@@ -39,7 +42,7 @@ export const WhitePaper: React.FC<WhitePaperProps> = ({
       <AiAutopilotAnalogy />
       <BrainGardenOverview />
       {/* Additional sections will be added here as they are developed */}
-    </motion.div>
+    </MotionDiv>
   );
 };
 

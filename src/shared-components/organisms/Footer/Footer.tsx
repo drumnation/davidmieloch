@@ -33,7 +33,7 @@ const defaultColors = {
     background: '#f0f0f0', // Darker off-white
     text: '#141517',
     textSecondary: '#5c5f66',
-    border: '#444444', // Dark gray border
+    border: 'rgba(0, 0, 0, 0.1)', // Aligned with Header.tsx
     progressBackground: 'rgba(20, 21, 23, 0.1)',
     textMuted: 'rgba(20, 21, 23, 0.7)',
     hoverBackground: 'rgba(100, 100, 100, 0.1)',
@@ -47,7 +47,7 @@ const defaultColors = {
     background: '#1A1B1E',
     text: '#ffffff',
     textSecondary: '#A6A7AB',
-    border: '#444444', // Dark gray border (same as light mode)
+    border: 'rgba(0, 188, 212, 0.1)', // Aligned with Header.tsx
     progressBackground: 'rgba(255, 255, 255, 0.1)',
     textMuted: 'rgba(255, 255, 255, 0.7)',
     hoverBackground: 'rgba(100, 100, 100, 0.2)',
@@ -128,7 +128,7 @@ export const Footer = ({
       }}
     >
       <FooterContainer>
-        <GradientBorder style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,188,212,0.2) 50%, rgba(0,0,0,0) 100%)' }} />
+        <GradientBorder style={{ background: colors.border }} />
         
         {/* Collapsed Mini Player */}
         <MiniPlayerContainer>
