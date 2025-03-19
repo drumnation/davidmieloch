@@ -27,7 +27,8 @@ import {
   SectionTitle,
   SectionDescription,
   fadeIn,
-  staggerContainer
+  staggerContainer,
+  GlobalStyles
 } from './BestPractices.styles';
 import { BestPracticesProps } from './BestPractices.types';
 import { PRACTICE_CATEGORIES } from './BestPractices.constants';
@@ -340,7 +341,8 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
     animation: 'fade-up' as const,
     className: 'best-practices-hero',
     initialAnimation: 'visible' as 'visible' | 'hidden',
-    overlay: true
+    overlay: true,
+    overlayOpacity: 0.6
   };
 
   const categories = useMemo(() => {
@@ -349,6 +351,8 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
 
   return (
     <Container id={id} className={className}>
+      <GlobalStyles />
+      
       <Hero {...heroProps} />
       
       <ContentSection>

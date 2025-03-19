@@ -1,5 +1,63 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { createGlobalStyle } from 'styled-components';
+
+// Global styles for the BestPractices component
+export const GlobalStyles = createGlobalStyle`
+  .best-practices-hero {
+    min-height: 70vh !important;
+    position: relative !important;
+  }
+
+  .best-practices-hero::before {
+    background-position: center center !important;
+    background-size: cover !important;
+    filter: brightness(0.9) contrast(1.1) saturate(1.1) !important;
+    transform: scale(1.05);
+    transition: transform 0.5s ease-out;
+    animation: subtle-zoom 25s infinite alternate ease-in-out;
+  }
+
+  .best-practices-hero::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.4) 100%) !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
+  .best-practices-hero h1 {
+    font-size: 3.5rem !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+    letter-spacing: -0.5px !important;
+    font-weight: 800 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .best-practices-hero p {
+    font-size: 1.5rem !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    font-weight: 400 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  @keyframes subtle-zoom {
+    0% {
+      transform: scale(1.05) translateY(0);
+    }
+    100% {
+      transform: scale(1.12) translateY(-8px);
+    }
+  }
+`;
 
 // Animation variants
 export const fadeIn = {
@@ -58,13 +116,24 @@ export const BestPracticesContainer = styled.section`
 export const ContentSection = styled(motion.div)`
   width: 100%;
   background-color: #fff;
-  padding: 5rem 0;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin-top: -24px;
+  position: relative;
+  z-index: 2;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   
   @media (max-width: 576px) {
-    padding: 3rem 0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    margin-top: -16px;
   }
 `;
 
