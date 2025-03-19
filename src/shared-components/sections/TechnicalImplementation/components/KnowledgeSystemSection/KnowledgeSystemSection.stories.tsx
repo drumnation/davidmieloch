@@ -3,7 +3,7 @@ import { KnowledgeSystemSection } from './KnowledgeSystemSection';
 import { defaultContent } from '../../TechnicalImplementation.constants';
 
 const meta = {
-  title: 'Sections/04-TechnicalImplementation/02-KnowledgeSystemSection',
+  title: 'Pages/01-WhitePaper/04-TechnicalImplementation/02-KnowledgeSystemSection',
   component: KnowledgeSystemSection,
   parameters: {
     layout: 'fullscreen',

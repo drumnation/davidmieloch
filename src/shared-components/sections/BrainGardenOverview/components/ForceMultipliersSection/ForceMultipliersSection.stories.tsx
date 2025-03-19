@@ -3,7 +3,7 @@ import { ForceMultipliersSection } from './ForceMultipliersSection';
 import { defaultContent } from '../../BrainGardenOverview.constants';
 
 const meta = {
-  title: 'Sections/03-BrainGardenOverview/03-ForceMultipliersSection',
+  title: 'Pages/01-WhitePaper/03-BrainGardenOverview/03-ForceMultipliersSection',
   component: ForceMultipliersSection,
   parameters: {
     layout: 'fullscreen',

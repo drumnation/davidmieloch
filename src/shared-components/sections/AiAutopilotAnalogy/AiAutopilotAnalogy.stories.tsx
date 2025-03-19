@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AiAutopilotAnalogy } from './AiAutopilotAnalogy';
 
 const meta = {
-  title: 'Sections/02-AiAutopilotAnalogy',
+  title: 'Pages/01-WhitePaper/02-AiAutopilotAnalogy',
   component: AiAutopilotAnalogy,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A section component that explains the AI Autopilot Analogy, including comparison tables, reality vs. fiction, and strategic focus areas.'
+        component: 'A section that explains AI using the autopilot analogy, helping users understand how AI can augment human capabilities without replacing them.'
       }
     }
   },

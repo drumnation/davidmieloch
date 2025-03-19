@@ -3,17 +3,16 @@ import { RealWorldImpact } from './RealWorldImpact';
 import { defaultContent } from './RealWorldImpact.constants';
 
 const meta = {
-  title: 'Sections/05-RealWorldImpact',
+  title: 'Pages/01-WhitePaper/05-RealWorldImpact',
   component: RealWorldImpact,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A section showcasing the real-world impact of Brain Garden on enterprise development teams.',
-      },
-    },
+        component: 'A section component that showcases the real-world impact of the Brain Garden system, including problem overviews, challenge breakdowns, process flows, and impact analysis.'
+      }
+    }
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof RealWorldImpact>;
 
 export default meta;

@@ -3,7 +3,7 @@ import { IntegrationSystemSection } from './IntegrationSystemSection';
 import { defaultContent } from '../../TechnicalImplementation.constants';
 
 const meta = {
-  title: 'Sections/04-TechnicalImplementation/04-IntegrationSystemSection',
+  title: 'Pages/01-WhitePaper/04-TechnicalImplementation/04-IntegrationSystemSection',
   component: IntegrationSystemSection,
   parameters: {
     layout: 'fullscreen',

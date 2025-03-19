@@ -8,7 +8,12 @@ const ChallengeBreakdownSection = () => {
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
       <ChallengeBreakdown 
         title={defaultContent.challengeBreakdown.title}
-        key_issues={defaultContent.challengeBreakdown.key_issues}
+        description="Key challenges in enterprise development knowledge management"
+        challenges={defaultContent.challengeBreakdown.key_issues.map(issue => ({
+          title: issue.title,
+          description: issue.description,
+          impact: issue.impact
+        }))}
         style={defaultContent.challengeBreakdown.style}
         position={defaultContent.challengeBreakdown.position}
       />
@@ -17,7 +22,7 @@ const ChallengeBreakdownSection = () => {
 };
 
 const meta = {
-  title: 'Sections/05-RealWorldImpact/02-ChallengeBreakdownSection',
+  title: 'Pages/01-WhitePaper/05-RealWorldImpact/02-ChallengeBreakdownSection',
   component: ChallengeBreakdownSection,
   parameters: {
     layout: 'fullscreen',

@@ -6,24 +6,29 @@ import { Typography } from '../../../../atoms/Typography';
 const ComparisonTableSection = () => {
   const comparisonItems = [
     {
-      left: "Takes a wholistic strategic view",
-      right: "Handles repetitive tasks efficiently"
+      category: "Strategic Thinking",
+      leftContent: "Takes a wholistic strategic view",
+      rightContent: "Handles repetitive tasks efficiently"
     },
     {
-      left: "Adapts to changing conditions",
-      right: "Works best in stable, predictable scenarios"
+      category: "Adaptability",
+      leftContent: "Adapts to changing conditions",
+      rightContent: "Works best in stable, predictable scenarios"
     },
     {
-      left: "Creative problem solving",
-      right: "Pattern recognition"
+      category: "Problem Solving",
+      leftContent: "Creative problem solving",
+      rightContent: "Pattern recognition"
     },
     {
-      left: "Ethical considerations & judgment",
-      right: "Speed and consistency"
+      category: "Decision Making",
+      leftContent: "Ethical considerations & judgment",
+      rightContent: "Speed and consistency"
     },
     {
-      left: "Emotional intelligence & empathy",
-      right: "Large-scale data processing"
+      category: "Interpersonal Skills",
+      leftContent: "Emotional intelligence & empathy",
+      rightContent: "Large-scale data processing"
     }
   ];
 
@@ -43,7 +48,7 @@ const ComparisonTableSection = () => {
 };
 
 const meta = {
-  title: 'Sections/02-AiAutopilotAnalogy/01-ComparisonTableSection',
+  title: 'Pages/01-WhitePaper/02-AiAutopilotAnalogy/01-ComparisonTableSection',
   component: ComparisonTableSection,
   parameters: {
     layout: 'fullscreen',

@@ -3,7 +3,7 @@ import { PerformanceScalabilitySection } from './PerformanceScalabilitySection';
 import { defaultContent } from '../../TechnicalImplementation.constants';
 
 const meta = {
-  title: 'Sections/04-TechnicalImplementation/06-PerformanceScalabilitySection',
+  title: 'Pages/01-WhitePaper/04-TechnicalImplementation/06-PerformanceScalabilitySection',
   component: PerformanceScalabilitySection,
   parameters: {
     layout: 'fullscreen',

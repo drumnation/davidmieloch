@@ -16,7 +16,7 @@ const ProcessFlowSection = () => {
 };
 
 const meta = {
-  title: 'Sections/05-RealWorldImpact/03-ProcessFlowSection',
+  title: 'Pages/01-WhitePaper/05-RealWorldImpact/03-ProcessFlowSection',
   component: ProcessFlowSection,
   parameters: {
     layout: 'fullscreen',

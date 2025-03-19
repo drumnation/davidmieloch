@@ -3,7 +3,7 @@ import { ResultSection } from './ResultSection';
 import { defaultContent } from '../../TechnicalImplementation.constants';
 
 const meta = {
-  title: 'Sections/04-TechnicalImplementation/07-ResultSection',
+  title: 'Pages/01-WhitePaper/04-TechnicalImplementation/07-ResultSection',
   component: ResultSection,
   parameters: {
     layout: 'fullscreen',

@@ -21,16 +21,16 @@ const RedditSection = () => {
       </div>
       <div>
         <div style={{ color: '#000000' }}>
-          <Typography variant="caption" weight="bold" style={{ marginBottom: '4px' }}>
+          <Typography variant="caption" weight="bold" className="mb-1">
             🔥 Trending on r/ExperiencedDevs
           </Typography>
         </div>
         <div style={{ color: '#0066CC' }}>
-          <Typography variant="body" weight="bold" style={{ marginBottom: '4px' }}>
+          <Typography variant="body" weight="bold" className="mb-1">
             &ldquo;AI coding mandates at work?&rdquo;
           </Typography>
         </div>
-        <Typography variant="caption" style={{ color: '#666666' }}>
+        <Typography variant="caption" color="secondary">
           💬 286 comments &nbsp;&nbsp; ⬆️ 283 upvotes
         </Typography>
       </div>
@@ -39,7 +39,7 @@ const RedditSection = () => {
 };
 
 const meta = {
-  title: 'Sections/01-AiSkepticToExpert/01-RedditSection',
+  title: 'Pages/01-WhitePaper/01-AiSkepticToExpert/01-RedditSection',
   component: RedditSection,
   parameters: {
     layout: 'centered',

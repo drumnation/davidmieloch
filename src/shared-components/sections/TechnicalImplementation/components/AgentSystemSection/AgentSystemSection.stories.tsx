@@ -3,7 +3,7 @@ import { AgentSystemSection } from './AgentSystemSection';
 import { defaultContent } from '../../TechnicalImplementation.constants';
 
 const meta = {
-  title: 'Sections/04-TechnicalImplementation/03-AgentSystemSection',
+  title: 'Pages/01-WhitePaper/04-TechnicalImplementation/03-AgentSystemSection',
   component: AgentSystemSection,
   parameters: {
     layout: 'fullscreen',

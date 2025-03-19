@@ -3,17 +3,16 @@ import { AiSkepticToExpert } from './AiSkepticToExpert';
 import { defaultContent } from './AiSkepticToExpert.constants';
 
 const meta = {
-  title: 'Sections/01-AiSkepticToExpert',
+  title: 'Pages/01-WhitePaper/01-AiSkepticToExpert',
   component: AiSkepticToExpert,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A section showcasing the journey from AI skeptic to AI expert with real-world examples and solutions.',
-      },
-    },
+        component: 'A section component that helps AI skeptics become experts, featuring a hero section, quotes from experts, and problem-solution cards.'
+      }
+    }
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof AiSkepticToExpert>;
 
 export default meta;

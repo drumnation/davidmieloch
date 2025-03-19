@@ -19,10 +19,6 @@ const ProblemSolutionSection = () => {
         const formattedImpact = typeof card.impact === 'string' 
           ? { value: card.impact } 
           : card.impact;
-                
-        const cardVariant = card.variant === 'gradient' || card.variant === 'accent' 
-          ? 'blue' 
-          : card.variant;
         
         return (
           <div 
@@ -38,7 +34,7 @@ const ProblemSolutionSection = () => {
               solution={card.solution}
               impact={formattedImpact}
               icon={card.icon}
-              variant={cardVariant as 'blue' | 'white'}
+              variant={'blue'}
             />
           </div>
         );
@@ -48,7 +44,7 @@ const ProblemSolutionSection = () => {
 };
 
 const meta = {
-  title: 'Sections/01-AiSkepticToExpert/03-ProblemSolutionSection',
+  title: 'Pages/01-WhitePaper/01-AiSkepticToExpert/03-ProblemSolutionSection',
   component: ProblemSolutionSection,
   parameters: {
     layout: 'fullscreen',

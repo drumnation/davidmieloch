@@ -26,7 +26,7 @@ const RealityVsHollywoodSection = () => {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
         {/* Reality Column */}
         <div>
-          <Typography variant="h4" weight="bold" color="primary" className="mb-3">
+          <Typography variant="h3" weight="bold" color="primary" className="mb-3">
             Reality: AI Today
           </Typography>
           
@@ -42,7 +42,7 @@ const RealityVsHollywoodSection = () => {
                   borderLeft: '4px solid #4285F4'
                 }}
               >
-                <Typography variant="h5" weight="bold" className="mb-2">
+                <Typography variant="h3" weight="bold" className="mb-2">
                   {item.title}
                 </Typography>
                 <Typography variant="body">
@@ -55,7 +55,7 @@ const RealityVsHollywoodSection = () => {
         
         {/* Hollywood Column */}
         <div>
-          <Typography variant="h4" weight="bold" color="primary" className="mb-3">
+          <Typography variant="h3" weight="bold" color="primary" className="mb-3">
             Hollywood: AI Fiction
           </Typography>
           
@@ -71,7 +71,7 @@ const RealityVsHollywoodSection = () => {
                   borderLeft: '4px solid #DB4437'
                 }}
               >
-                <Typography variant="h5" weight="bold" className="mb-2">
+                <Typography variant="h3" weight="bold" className="mb-2">
                   {item.title}
                 </Typography>
                 <Typography variant="body">
@@ -87,7 +87,7 @@ const RealityVsHollywoodSection = () => {
 };
 
 const meta = {
-  title: 'Sections/02-AiAutopilotAnalogy/02-RealityVsHollywoodSection',
+  title: 'Pages/01-WhitePaper/02-AiAutopilotAnalogy/02-RealityVsHollywoodSection',
   component: RealityVsHollywoodSection,
   parameters: {
     layout: 'fullscreen',

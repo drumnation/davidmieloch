@@ -3,7 +3,7 @@ import { BrainGardenOverview } from './BrainGardenOverview';
 import { defaultContent } from './BrainGardenOverview.constants';
 
 const meta = {
-  title: 'Sections/03-BrainGardenOverview',
+  title: 'Pages/01-WhitePaper/03-BrainGardenOverview',
   component: BrainGardenOverview,
   parameters: {
     layout: 'fullscreen',

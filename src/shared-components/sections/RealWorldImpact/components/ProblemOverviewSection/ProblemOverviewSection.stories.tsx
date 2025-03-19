@@ -20,7 +20,7 @@ const ProblemOverviewSection = () => {
 };
 
 const meta = {
-  title: 'Sections/05-RealWorldImpact/01-ProblemOverviewSection',
+  title: 'Pages/01-WhitePaper/05-RealWorldImpact/01-ProblemOverviewSection',
   component: ProblemOverviewSection,
   parameters: {
     layout: 'fullscreen',

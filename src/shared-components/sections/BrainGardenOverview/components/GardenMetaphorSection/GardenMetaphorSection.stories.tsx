@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { GardenMetaphorSection } from './GardenMetaphorSection';
 
 const meta = {
-  title: 'Sections/03-BrainGardenOverview/04-GardenMetaphorSection',
+  title: 'Pages/01-WhitePaper/03-BrainGardenOverview/04-GardenMetaphorSection',
   component: GardenMetaphorSection,
   parameters: {
     layout: 'fullscreen',

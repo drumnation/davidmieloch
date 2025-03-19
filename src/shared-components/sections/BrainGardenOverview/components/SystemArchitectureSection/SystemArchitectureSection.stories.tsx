@@ -3,7 +3,7 @@ import { SystemArchitectureSection } from './SystemArchitectureSection';
 import { defaultContent } from '../../BrainGardenOverview.constants';
 
 const meta = {
-  title: 'Sections/03-BrainGardenOverview/05-SystemArchitectureSection',
+  title: 'Pages/01-WhitePaper/03-BrainGardenOverview/05-SystemArchitectureSection',
   component: SystemArchitectureSection,
   parameters: {
     layout: 'fullscreen',

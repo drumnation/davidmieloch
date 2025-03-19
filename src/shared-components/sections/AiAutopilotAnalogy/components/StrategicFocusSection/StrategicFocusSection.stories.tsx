@@ -54,7 +54,7 @@ const StrategicFocusSection = () => {
 };
 
 const meta = {
-  title: 'Sections/02-AiAutopilotAnalogy/03-StrategicFocusSection',
+  title: 'Pages/01-WhitePaper/02-AiAutopilotAnalogy/03-StrategicFocusSection',
   component: StrategicFocusSection,
   parameters: {
     layout: 'fullscreen',
