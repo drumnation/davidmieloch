@@ -11,8 +11,7 @@ import {
   SectionSubtitle
 } from '../../BrainGardenOverview.styles';
 import {
-  SectionTitleComponent,
-  CTAButtonWithIcon
+  SectionTitleComponent
 } from '../../BrainGardenOverview.logic';
 
 export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
@@ -34,10 +33,10 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
       end
       
       subgraph Future["Next Evolution"]
-        AI[Advanced AI Integration]
-        KGE[Knowledge Graph Expansion]
-        PAI[Prompt Automation]
-        ADA[Auto-Documentation Analysis]
+        MCP[Advanced MCP Server]
+        LA[Lead & Subordinate Agents]
+        AWI[Advanced Workflow Integration]
+        VSCE[VSCode Extension]
       end
       
       subgraph Advanced["Advanced Features"]
@@ -52,7 +51,7 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
       Future --> Advanced
       
       class BG,Current,SK,SJ,PS,MECE current;
-      class Future,AI,KGE,PAI,ADA future;
+      class Future,MCP,LA,AWI,VSCE future;
       class Advanced,CA,ML,RT,PC advanced;
   `;
 
@@ -70,7 +69,7 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
         <div style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
           <SectionSubtitle style={{ marginBottom: '1.5rem' }}>Evolving Prompt and Knowledge Systems</SectionSubtitle>
           <Typography variant="body" mb="1.5rem">
-            The Brain Garden system is continuously evolving to enhance AI assistance capabilities. Our roadmap focuses on advancing both the Prompt System for more automated workflows and the Knowledge System for deeper, more interconnected expertise:
+            The Brain Garden system is continuously evolving to enhance AI assistance capabilities. Our roadmap focuses on advancing both the Prompt System for more automated workflows and the Knowledge System for deeper, more interconnected expertise.
           </Typography>
         </div>
         
@@ -94,46 +93,36 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
         }}>
           <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
             <div>
-              <Typography variant="h3" mb="1rem">Knowledge Graph Integration</Typography>
+              <Typography variant="h3" mb="1rem">Advanced MCP Server</Typography>
             </div>
             <div>
               <Typography variant="body">
-                Connecting Skill-Jacks through semantic relationships will create a comprehensive knowledge 
-                network that AI can traverse to provide deeper, more contextually relevant assistance.
+                Enhanced MCP server providing more brain-garden specific tools to the agent, including skill-jacks via MCP and meta MCP server allowing dynamically created skilljacks to become dynamically chosen agent tools.
               </Typography>
             </div>
           </div>
           
           <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
             <div>
-              <Typography variant="h3" mb="1rem">Prompt Automation</Typography>
+              <Typography variant="h3" mb="1rem">Lead & Subordinate Agents</Typography>
             </div>
             <div>
               <Typography variant="body">
-                Future enhancements will allow the system to automatically select and chain together optimal prompts
-                based on the current development context, further reducing manual prompt selection.
+                Lead agent delegates tasks to specialized subordinate agents, such as an architect agent for planning, tester agent for feedback, and multiple agents working in parallel on debugging errors.
               </Typography>
             </div>
           </div>
           
           <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
             <div>
-              <Typography variant="h3" mb="1rem">Auto-Documentation Analysis</Typography>
+              <Typography variant="h3" mb="1rem">Advanced Workflow Integration</Typography>
             </div>
             <div>
               <Typography variant="body">
-                Advanced prompts will automatically analyze project files to generate structured documentation,
-                identify missing information, and maintain complete MECE coverage with minimal developer effort.
+                Enhanced agile workflow with GitHub Projects integration, VSCode extensions providing GUI for CLI functionality, and continuous iterative improvements to leverage new technologies as they emerge.
               </Typography>
             </div>
           </div>
-        </div>
-        <div style={{ textAlign: 'right', marginTop: '1rem' }}>
-          <CTAButtonWithIcon 
-            text="Explore the Prompt System Library" 
-            link="./knowledge-management" 
-            icon="arrow-right" 
-          />
         </div>
       </motion.div>
     </ContentContainer>
