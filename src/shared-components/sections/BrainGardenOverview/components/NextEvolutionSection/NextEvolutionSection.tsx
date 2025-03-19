@@ -18,6 +18,44 @@ import {
 export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
   className
 }) => {
+  const mermaidDefinition = `
+    graph TB
+      classDef current fill:#6A0DAD,color:white,stroke:#333,stroke-width:1px;
+      classDef future fill:#4CAF50,color:white,stroke:#333,stroke-width:1px;
+      classDef advanced fill:#2196F3,color:white,stroke:#333,stroke-width:1px;
+      
+      BG[Brain Garden System]
+      
+      subgraph Current["Current Capabilities"]
+        SK[Knowledge System]
+        SJ[Skill-Jacks]
+        PS[Prompt System]
+        MECE[MECE Documentation]
+      end
+      
+      subgraph Future["Next Evolution"]
+        AI[Advanced AI Integration]
+        KGE[Knowledge Graph Expansion]
+        PAI[Prompt Automation]
+        ADA[Auto-Documentation Analysis]
+      end
+      
+      subgraph Advanced["Advanced Features"]
+        CA[Contextual Awareness]
+        ML[Machine Learning Models]
+        RT[Real-time Adaptation]
+        PC[Prompt Chaining]
+      end
+      
+      BG --> Current
+      Current --> Future
+      Future --> Advanced
+      
+      class BG,Current,SK,SJ,PS,MECE current;
+      class Future,AI,KGE,PAI,ADA future;
+      class Advanced,CA,ML,RT,PC advanced;
+  `;
+
   return (
     <ContentContainer
       className={className}
@@ -27,41 +65,19 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
       variants={staggerContainer}
     >
       <motion.div variants={fadeInUp}>
-        <SectionTitleComponent title="The Next Evolution: Sub-Agent Teams" />
+        <SectionTitleComponent title="The Next Evolution of Brain Garden" />
         
         <div style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
-          <SectionSubtitle style={{ marginBottom: '1.5rem' }}>Specialized Sub-Agent Teams</SectionSubtitle>
+          <SectionSubtitle style={{ marginBottom: '1.5rem' }}>Evolving Prompt and Knowledge Systems</SectionSubtitle>
           <Typography variant="body" mb="1.5rem">
-            Taking parallel development even further, each lead agent can manage their own team of specialized sub-agents:
+            The Brain Garden system is continuously evolving to enhance AI assistance capabilities. Our roadmap focuses on advancing both the Prompt System for more automated workflows and the Knowledge System for deeper, more interconnected expertise:
           </Typography>
         </div>
         
         <div style={{ backgroundColor: '#f5f0ff', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>
           <MermaidContainer variants={fadeInUp}>
             <MermaidDiagram
-              definition={`
-                graph TD
-                  LA[Lead Analytics Agent] --> B[Data Pipeline Architect]
-                  LA --> C[ML Model Specialist]
-                  LA --> D[Visualization Expert]
-                  LA --> E[Performance Optimizer]
-                  B --> F[ETL Designer]
-                  B --> G[Data Quality Engineer]
-                  C --> H[Model Trainer]
-                  C --> I[Feature Engineer]
-                  D --> J[Dashboard Designer]
-                  D --> K[UX Specialist]
-                  E --> L[Query Optimizer]
-                  E --> M[Cache Strategist]
-                  
-                  classDef lead fill:#4a6bff,stroke:#333
-                  classDef team fill:#9c6ade,stroke:#333
-                  classDef sub fill:#47b881,stroke:#333
-                  
-                  class LA lead
-                  class B,C,D,E team
-                  class F,G,H,I,J,K,L,M sub
-              `}
+              definition={mermaidDefinition}
               theme="default"
               width="100%"
               height="auto"
@@ -76,46 +92,46 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
           gap: '1.5rem', 
           marginBottom: '2rem' 
         }}>
-          <div style={{ backgroundColor: '#f8f9fa', padding: '1.5rem', borderRadius: '0.5rem' }}>
+          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
             <div>
-              <Typography variant="h3" mb="1rem">Team Delegation</Typography>
+              <Typography variant="h3" mb="1rem">Knowledge Graph Integration</Typography>
             </div>
             <div>
               <Typography variant="body">
-                Lead agents assign tasks to sub-agents, multiple sub-agents work in parallel, 
-                lead agents review and coordinate output, and continuous progress across all areas.
+                Connecting Skill-Jacks through semantic relationships will create a comprehensive knowledge 
+                network that AI can traverse to provide deeper, more contextually relevant assistance.
               </Typography>
             </div>
           </div>
           
-          <div style={{ backgroundColor: '#f8f9fa', padding: '1.5rem', borderRadius: '0.5rem' }}>
+          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
             <div>
-              <Typography variant="h3" mb="1rem">Hierarchical Organization</Typography>
+              <Typography variant="h3" mb="1rem">Prompt Automation</Typography>
             </div>
             <div>
               <Typography variant="body">
-                Human director manages lead agents, lead agents manage sub-agent teams, 
-                sub-agents focus on specific tasks, and exponential productivity scaling.
+                Future enhancements will allow the system to automatically select and chain together optimal prompts
+                based on the current development context, further reducing manual prompt selection.
               </Typography>
             </div>
           </div>
           
-          <div style={{ backgroundColor: '#f8f9fa', padding: '1.5rem', borderRadius: '0.5rem' }}>
+          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
             <div>
-              <Typography variant="h3" mb="1rem">Quality Control</Typography>
+              <Typography variant="h3" mb="1rem">Auto-Documentation Analysis</Typography>
             </div>
             <div>
               <Typography variant="body">
-                Lead agents ensure sub-agent work meets standards, multiple levels of review and validation, 
-                consistent patterns across all teams, and comprehensive testing and documentation.
+                Advanced prompts will automatically analyze project files to generate structured documentation,
+                identify missing information, and maintain complete MECE coverage with minimal developer effort.
               </Typography>
             </div>
           </div>
         </div>
         <div style={{ textAlign: 'right', marginTop: '1rem' }}>
           <CTAButtonWithIcon 
-            text="Learn More About Sub-Agent Teams" 
-            link="./team-customization" 
+            text="Explore the Prompt System Library" 
+            link="./knowledge-management" 
             icon="arrow-right" 
           />
         </div>

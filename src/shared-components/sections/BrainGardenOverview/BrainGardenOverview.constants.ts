@@ -13,27 +13,27 @@ export const defaultContent = {
     className: 'custom-hero-bg',
   },
   intro: {
-    text: "Through years of working with React and Node.js teams, I've developed a sophisticated system called 'AI Brain Garden' that transforms how teams interact with AI tools. This isn't just another set of guidelines—it's a living, evolving ecosystem that grows with your project and enables true parallel development at scale.",
+    text: "Expanding on the autopilot analogy, the AI Brain Garden isn't a magical solution—it's a practical, evolving system of documentation techniques and structural approaches I've developed to enhance AI's capabilities in development workflows. Through years of working with React and Node.js teams, I've created a framework that provides structure, focus, and contextual knowledge that makes AI agents smarter and more effective. Unlike using raw AI without structure, this system reduces cognitive load by providing systematic approaches to common development challenges, allowing you to leverage AI more effectively while maintaining control of architecture and quality.",
     icon: "brain-garden"
   },
   coreComponents: {
     features: [
       {
         title: "Knowledge System",
-        description: "Living documentation that evolves with your project",
+        description: "Living documentation with Skill-Jacks that prime agents with specialized expertise",
         icon: "brain",
         link: "./knowledge-management"
       },
       {
-        title: "Agent Teams",
-        description: "Specialized AI teams for different aspects of development",
-        icon: "users",
+        title: "Prompt System",
+        description: "Optimized action prompts that guide agents through complex workflows",
+        icon: "message-square",
         link: "./core-teams"
       },
       {
-        title: "Parallel Development",
-        description: "True multi-team development with AI assistance",
-        icon: "git-branch",
+        title: "Structured Documentation",
+        description: "MECE-organized project artifacts with clear boundaries and complete coverage",
+        icon: "file-text",
         link: "./parallel-development"
       }
     ]
@@ -48,13 +48,13 @@ export const defaultContent = {
       },
       {
         title: "Testing",
-        description: "Leverage AI for comprehensive test coverage",
+        description: "Unlock rapid feedback loops and superhuman iteration speed",
         icon: "shield-check",
         link: "./test-force-multiplier"
       },
       {
         title: "Git Integration",
-        description: "Enhanced version control and collaboration",
+        description: "Turn version control into a knowledge system and collaboration amplifier",
         icon: "git-branch",
         link: "./git-force-multiplier"
       }
@@ -64,29 +64,39 @@ export const defaultContent = {
     title: "System Architecture",
     definition: `
       graph TD
-        BG[Brain Garden System] --> KS[Knowledge System]
-        BG --> AS[Agent System]
-        BG --> IS[Integration System]
+        subgraph "CLI Tools"
+          CLI["brain-garden CLI"]
+          CLI --> INIT["init - Create Structure"]
+          CLI --> GEN["generate - Create Files"]
+          CLI --> SYNC["sync - Update from GitHub"]
+        end
         
-        KS --> KR[Knowledge Repository]
-        KS --> KI[Knowledge Indexer]
-        KS --> KQ[Query Engine]
+        subgraph "Project Structure"
+          DOC[".brain Directory"]
+          DOC --> PROJ["project-info/"]
+          DOC --> REQ["requirements/"]
+          DOC --> ARCH["architecture/"]
+          DOC --> COMP["components/"]
+          DOC --> PROM["prompts/"]
+        end
         
-        AS --> AM[Agent Manager]
-        AS --> AC[Agent Coordinator]
-        AS --> AT[Agent Templates]
+        subgraph "External Integration"
+          GIT["GitHub"]
+          GIT --> ISSUES["Issues"]
+          GIT --> PRs["Pull Requests"]
+          GIT --> ACTIONS["GitHub Actions"]
+        end
         
-        IS --> GI[Git Integration]
-        IS --> CI[CI/CD Integration]
-        IS --> IDE[IDE Integration]
+        CLI --> DOC
+        DOC --> GIT
         
-        classDef system fill:#4a6bff,stroke:#333
-        classDef component fill:#9c6ade,stroke:#333
-        classDef integration fill:#47b881,stroke:#333
+        classDef tools fill:#4a6bff,stroke:#333,color:white
+        classDef structure fill:#9c6ade,stroke:#333,color:white
+        classDef external fill:#47b881,stroke:#333,color:white
         
-        class BG system
-        class KS,AS,IS component
-        class KR,KI,KQ,AM,AC,AT,GI,CI,IDE integration
+        class CLI,INIT,GEN,SYNC tools
+        class DOC,PROJ,REQ,ARCH,COMP,PROM structure
+        class GIT,ISSUES,PRs,ACTIONS external
     `,
     theme: "default" as const
   },

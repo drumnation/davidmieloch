@@ -37,18 +37,22 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
         variants={containerVariants}
       >
         <S.CardContent>
-          <Typography variant="h3" className="mb-3">
+          <S.IconWrapper>
+            {icon && <Icon name={icon} size={24} />}
+          </S.IconWrapper>
+          
+          <Typography variant="h3" className="mb-3" color="light">
             {text}
           </Typography>
           
-          <S.ActionLink href={link}>
-            {action}
-            {icon && (
-              <S.IconWrapper>
-                <Icon name={icon} size={20} />
+          {action && link && (
+            <S.ActionLink href={link}>
+              {action}
+              <S.IconWrapper style={{ marginLeft: '0.5rem' }}>
+                <Icon name="arrow-right" size={18} />
               </S.IconWrapper>
-            )}
-          </S.ActionLink>
+            </S.ActionLink>
+          )}
         </S.CardContent>
       </S.Card>
     </S.Container>

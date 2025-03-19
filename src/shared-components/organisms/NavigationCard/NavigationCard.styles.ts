@@ -7,12 +7,14 @@ interface CardProps {
 
 export const Container = styled.div`
   width: 100%;
-  margin: 2rem 0;
+  height: 100%;
+  margin: 0;
 `;
 
 export const Card = styled(motion.div)<CardProps>`
   width: 100%;
-  border-radius: 8px;
+  height: 100%;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.medium};
   
@@ -37,7 +39,28 @@ export const CardContent = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+  height: 100%;
+`;
+
+export const IconWrapper = styled.div`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  margin-bottom: 1rem;
+  
+  &:last-child {
+    width: auto;
+    height: auto;
+    background: transparent;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
 `;
 
 export const ActionLink = styled.a`
@@ -46,18 +69,13 @@ export const ActionLink = styled.a`
   gap: 0.5rem;
   font-weight: 600;
   font-size: 1.1rem;
-  color: inherit;
+  color: white;
   text-decoration: none;
+  margin-top: auto;
   transition: all 0.2s ease;
   
   &:hover {
     opacity: 0.9;
     text-decoration: underline;
   }
-`;
-
-export const IconWrapper = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 `; 

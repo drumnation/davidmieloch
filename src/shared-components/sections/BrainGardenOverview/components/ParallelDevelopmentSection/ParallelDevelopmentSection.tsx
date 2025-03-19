@@ -26,6 +26,7 @@ export const ParallelDevelopmentSection: React.FC<ParallelDevelopmentSectionProp
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeIn}
+      id="parallel-development-section"
     >
       <ContentContainerNoMargin>
         <motion.div variants={fadeInUp}>
@@ -42,32 +43,44 @@ export const ParallelDevelopmentSection: React.FC<ParallelDevelopmentSectionProp
             <MermaidContainer variants={fadeInUp}>
               <MermaidDiagram
                 definition={`
-                  graph TD
-                    F[Feature Request] --> PA[Planning & Architecture]
-                    PA --> D1[Development Stream 1]
-                    PA --> D2[Development Stream 2]
-                    PA --> D3[Development Stream 3]
+                  graph LR
+                    %% Main project repo with two developers working on different features
+                    subgraph "Developer 1 - Auth Feature"
+                      D1[".brain Directory"] --> D1A["auth/"]
+                      D1A --> D1R["requirements.md"]
+                      D1A --> D1C["components.md"]
+                    end
                     
-                    D1 --> UI[UI Components]
-                    D2 --> BE[Backend Services]
-                    D3 --> ML[ML Pipeline]
+                    subgraph "Developer 2 - Profile Feature"
+                      D2[".brain Directory"] --> D2P["profile/"]
+                      D2P --> D2R["requirements.md"]
+                      D2P --> D2C["components.md"]
+                    end
                     
-                    UI --> INT[Integration]
-                    BE --> INT
-                    ML --> INT
+                    %% Shared knowledge base through git
+                    subgraph "Shared Project Repository"
+                      REPO["Git Repository"]
+                      REPO --> BP[".brain Directory (Main)"]
+                      BP --> AUTH["auth/"]
+                      BP --> PROF["profile/"]
+                      BP --> SHARED["shared/"]
+                    end
                     
-                    INT --> QA[Quality Assurance]
-                    QA --> DEP[Deployment]
+                    %% The connections show how work flows
+                    D1 -->|"git push"| REPO
+                    D2 -->|"git push"| REPO
+                    REPO -->|"git pull"| D1
+                    REPO -->|"git pull"| D2
                     
-                    classDef start fill:#4a6bff,stroke:#333
-                    classDef stream fill:#9c6ade,stroke:#333
-                    classDef component fill:#47b881,stroke:#333
-                    classDef final fill:#f7b955,stroke:#333
+                    classDef dev fill:#4a6bff,stroke:#333,color:white
+                    classDef repo fill:#9c6ade,stroke:#333,color:white
+                    classDef folder fill:#47b881,stroke:#333,color:white
+                    classDef file fill:#68d391,stroke:#333,color:white
                     
-                    class F,PA start
-                    class D1,D2,D3 stream
-                    class UI,BE,ML component
-                    class INT,QA,DEP final
+                    class D1,D2 dev
+                    class REPO repo
+                    class BP,D1A,D2P,AUTH,PROF,SHARED folder
+                    class D1R,D1C,D2R,D2C file
                 `}
                 theme="default"
                 width="100%"
@@ -75,6 +88,12 @@ export const ParallelDevelopmentSection: React.FC<ParallelDevelopmentSectionProp
                 backgroundColor="transparent"
               />
             </MermaidContainer>
+            
+            <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+              <Typography variant="body" color="secondary">
+                The .brain directory's MECE organization allows multiple developers to work concurrently on separate features with minimal merge conflicts
+              </Typography>
+            </div>
           </div>
           
           <div style={{ 
@@ -118,13 +137,6 @@ export const ParallelDevelopmentSection: React.FC<ParallelDevelopmentSectionProp
                 </Typography>
               </div>
             </div>
-          </div>
-          <div style={{ textAlign: 'right', marginTop: '1rem' }}>
-            <CTAButtonWithIcon 
-              text="Learn More About Parallel Development" 
-              link="./parallel-development" 
-              icon="arrow-right" 
-            />
           </div>
         </motion.div>
       </ContentContainerNoMargin>

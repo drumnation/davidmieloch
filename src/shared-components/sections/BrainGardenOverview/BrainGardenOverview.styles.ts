@@ -221,7 +221,7 @@ export const IntroText = styled.p`
 
 export const NavigationGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   width: 100%;
   
@@ -234,6 +234,10 @@ export const NavigationGrid = styled(motion.div)`
     flex: 1;
     height: 100%;
     width: 100%;
+  }
+  
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   @media (max-width: 576px) {
@@ -330,7 +334,39 @@ export const CTAButton = styled.a`
 
 export const MermaidContainer = styled(motion.div)`
   width: 100%;
-  margin: ${SPACING.paragraph} 0;
+  max-width: 800px;
+  margin: ${SPACING.paragraph} auto;
+  padding: 1.5rem;
   display: flex;
   justify-content: center;
+  overflow-x: auto;
+  
+  /* Enhance text size for better readability */
+  svg {
+    font-size: 14px;
+    max-width: 100%;
+    height: auto !important;
+    
+    /* Make node text more readable */
+    .nodeLabel {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    /* Adjust relationship lines */
+    .edgePath {
+      stroke-width: 2px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.75rem;
+    
+    svg {
+      font-size: 12px;
+      .nodeLabel {
+        font-size: 14px;
+      }
+    }
+  }
 `;

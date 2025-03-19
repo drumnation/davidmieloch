@@ -11,7 +11,6 @@ import {
 } from '../../BrainGardenOverview.styles';
 import {
   SectionTitleComponent,
-  CTAButtonWithIcon,
   SectionSubtitleComponent
 } from '../../BrainGardenOverview.logic';
 
@@ -108,6 +107,7 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={staggerContainer}
+      id="team-customization-section"
     >
       <motion.div variants={fadeInUp}>
         <SectionTitleComponent title="Customizing Your Team" />
@@ -168,22 +168,48 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
           <MermaidContainer variants={fadeInUp}>
             <MermaidDiagram
               definition={`
-                graph TD
-                  A[Project Requirements] --> B[Problem Space]
-                  B --> C[Mutually Exclusive Components]
-                  B --> D[Collectively Exhaustive Coverage]
-                  C --> E[No Overlap Between Tasks]
-                  D --> F[Complete Problem Coverage]
-                  E --> G[Efficient Development]
-                  F --> G
-                  
-                  classDef req fill:#4a6bff,stroke:#333
-                  classDef concept fill:#9c6ade,stroke:#333
-                  classDef benefit fill:#47b881,stroke:#333
-                  
-                  class A,B req
-                  class C,D,E,F concept
-                  class G benefit
+                flowchart LR
+                    classDef root fill:#2D3748,stroke:none,color:white,font-weight:bold,padding:10px
+                    classDef domain fill:#5A67D8,stroke:none,color:white,font-weight:bold,padding:10px
+                    classDef file fill:#38A169,stroke:none,color:white,padding:8px
+                    classDef benefit fill:#ED8936,stroke:none,color:white,font-weight:bold,padding:10px
+                    classDef docs fill:#4A5568,stroke:none,color:white,font-weight:bold,padding:8px
+                    
+                    %% Main Directory with domains as a vertical column
+                    BrainDir[".brain Directory"]:::root
+                    
+                    %% Domains as a vertical stack
+                    BrainDir --> Auth["Authentication"]:::domain
+                    BrainDir --> Profile["User Profile"]:::domain
+                    BrainDir --> Payment["Payment System"]:::domain
+                    BrainDir --> Benefits["Key Benefits"]:::root
+                    
+                    %% Files for Authentication
+                    Auth --> AuthFiles["Documentation"]:::docs
+                    AuthFiles --> AuthReq["requirements.md"]:::file
+                    AuthFiles --> AuthArch["architecture.md"]:::file
+                    AuthFiles --> AuthAPI["api.md"]:::file
+                    AuthFiles --> AuthComp["components.md"]:::file
+                    
+                    %% Files for User Profile
+                    Profile --> ProfileFiles["Documentation"]:::docs
+                    ProfileFiles --> ProfileReq["requirements.md"]:::file
+                    ProfileFiles --> ProfileArch["architecture.md"]:::file
+                    ProfileFiles --> ProfileAPI["api.md"]:::file
+                    ProfileFiles --> ProfileComp["components.md"]:::file
+                    
+                    %% Files for Payment System
+                    Payment --> PayFiles["Documentation"]:::docs
+                    PayFiles --> PayReq["requirements.md"]:::file
+                    PayFiles --> PayArch["architecture.md"]:::file
+                    PayFiles --> PayAPI["api.md"]:::file
+                    PayFiles --> PayComp["components.md"]:::file
+                    
+                    %% Benefits arranged vertically
+                    Benefits --> B1["No Overlapping Responsibilities"]:::benefit
+                    Benefits --> B2["Complete Project Coverage"]:::benefit
+                    Benefits --> B3["Prevents Merge Conflicts"]:::benefit
+                    Benefits --> B4["Easier Context Management"]:::benefit
               `}
               theme="default"
               width="100%"
@@ -191,6 +217,11 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
               backgroundColor="transparent"
             />
           </MermaidContainer>
+          <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+            <Typography variant="body" color="secondary">
+              MECE organization divides projects into distinct domains with consistent documentation structure, preventing conflicts while ensuring complete coverage
+            </Typography>
+          </div>
         </motion.div>
         
         <motion.div 
@@ -225,9 +256,9 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
               title: "Agent Design",
               items: [
                 "Create agent personas based on skill requirements",
-                "Define agent specialties and focus areas",
-                "Generate skill-jacks (specialized knowledge bases)",
-                "Establish collaboration protocols"
+                "Define specialized prompt libraries for each agent role",
+                "Generate skill-jacks (specialized knowledge packages)",
+                "Setup context handoff protocols for efficient agent session management"
               ]
             },
             {
@@ -273,19 +304,6 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
               </motion.ul>
             </motion.div>
           ))}
-        </motion.div>
-        
-        <motion.div 
-          style={{ textAlign: 'right' }}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-        >
-          <CTAButtonWithIcon 
-            text="Learn More About Team Customization" 
-            link="./team-customization" 
-            icon="arrow-right" 
-          />
         </motion.div>
       </motion.div>
     </ContentContainer>

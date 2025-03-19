@@ -26,6 +26,7 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeIn}
+      id="garden-metaphor-section"
     >
       <ContentContainerNoMargin>
         <motion.div variants={fadeInUp}>
@@ -42,31 +43,44 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
             <MermaidContainer variants={fadeInUp}>
               <MermaidDiagram
                 definition={`
-                  graph TD
-                    KS[Knowledge Sources] --> P[Processors]
-                    P --> I[Indexers]
-                    I --> S[Storage]
+                  graph LR
+                    %% Project lifecycle stages as garden phases
+                    subgraph "Planting (Initial Setup)"
+                      S1["Seed"]
+                      S1 --> DS[".brain Structure"]
+                      S1 --> TB["Tech Stack Selection"]
+                      S1 --> IA["Initial Architecture"]
+                    end
                     
-                    S --> Q[Query Engine]
-                    S --> A[Analysis Engine]
-                    S --> R[Recommendation Engine]
+                    subgraph "Growth (Development)"
+                      S2["Sprout"]
+                      S2 --> RQ["Requirements Grow"]
+                      S2 --> KW["Knowledge Expands"]
+                      S2 --> CM["Components Multiply"]
+                    end
+                      
+                    subgraph "Harvest (Delivery)"
+                      S3["Mature"]
+                      S3 --> DC["Documentation Complete"]
+                      S3 --> FN["Features Finished"]
+                      S3 --> NX["Next Iterations Planned"]
+                    end
                     
-                    Q --> U[User Interface]
-                    A --> U
-                    R --> U
+                    %% How the knowledge flows between stages
+                    DS --> RQ
+                    TB --> KW
+                    IA --> CM
                     
-                    U --> F[Feedback Loop]
-                    F --> KS
+                    RQ --> DC
+                    KW --> FN
+                    CM --> NX
                     
-                    classDef source fill:#4a6bff,stroke:#333
-                    classDef process fill:#9c6ade,stroke:#333
-                    classDef engine fill:#47b881,stroke:#333
-                    classDef ui fill:#f7b955,stroke:#333
+                    classDef phase fill:#4a6bff,stroke:#333,color:white
+                    classDef stage fill:#9c6ade,stroke:#333,color:white
+                    classDef element fill:#47b881,stroke:#333,color:white
                     
-                    class KS,F source
-                    class P,I,S process
-                    class Q,A,R engine
-                    class U ui
+                    class S1,S2,S3 phase
+                    class DS,TB,IA,RQ,KW,CM,DC,FN,NX element
                 `}
                 theme="default"
                 width="100%"
@@ -74,6 +88,12 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
                 backgroundColor="transparent"
               />
             </MermaidContainer>
+            
+            <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+              <Typography variant="body" color="secondary">
+                Like a garden, projects grow from initial seeds to mature systems, with knowledge and documentation evolving at each stage
+              </Typography>
+            </div>
           </div>
           
           <div style={{ 
@@ -129,13 +149,6 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
                 </Typography>
               </div>
             </div>
-          </div>
-          <div style={{ textAlign: 'right', marginTop: '1rem' }}>
-            <CTAButtonWithIcon 
-              text="Learn More About Knowledge Management" 
-              link="./knowledge-management" 
-              icon="arrow-right" 
-            />
           </div>
         </motion.div>
       </ContentContainerNoMargin>
