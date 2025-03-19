@@ -472,6 +472,9 @@ Measurable impact and ROI of AI transformation solutions.
   - [x] Fix type comparisons in ProblemSolutionSection
   - [x] Fix QuoteGrid props in QuotesSection
   - [x] Remove non-existent FeatureSection story
+- [x] Replace placeholder components with actual implementations
+  - [x] Update BestPractices story to use the real BestPractices component
+  - [x] Update Bio story to use the real Bio component
 
 ## Current Tasks
 - [ ] Create the Future Production Roadmap section
