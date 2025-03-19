@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SystemOverview from './SystemOverview';
 
 const meta: Meta<typeof SystemOverview> = {
-  title: 'Sections/TechnicalImplementation/SystemOverview',
+  title: 'Sections/04-TechnicalImplementation/01-SystemOverview',
   component: SystemOverview,
   tags: ['autodocs'],
   parameters: {

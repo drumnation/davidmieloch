@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FeatureSection } from './FeatureSection';
 
 const meta = {
-  title: 'Sections/BrainGardenOverview/FeatureSection',
+  title: 'Sections/03-BrainGardenOverview/01-FeatureSection',
   component: FeatureSection,
   parameters: {
     layout: 'fullscreen',
