@@ -1,7 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BioContent, fadeInUp } from '../../Bio.styles';
-import { BioIntroProps } from './BioIntro.types';
+
+// Define the props interface directly in this file since there seems to be an issue with importing it
+interface BioIntroProps {
+  className?: string;
+}
 
 export const BioIntro: React.FC<BioIntroProps> = ({ className }) => {
   return (
