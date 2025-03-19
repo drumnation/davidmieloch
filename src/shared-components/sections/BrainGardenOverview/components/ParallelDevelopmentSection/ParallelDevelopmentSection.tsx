@@ -30,93 +30,58 @@ export const ParallelDevelopmentSection: React.FC<ParallelDevelopmentSectionProp
     >
       <ContentContainerNoMargin>
         <motion.div variants={fadeInUp}>
-          <SectionTitleComponent title="True Parallel Development" />
+          <SectionTitleComponent title="Maintaining Development Velocity" />
           
           <div style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
-            <SectionSubtitle style={{ marginBottom: '1.5rem' }}>Genuine Parallel Development</SectionSubtitle>
+            <SectionSubtitle style={{ marginBottom: '1.5rem' }}>Eliminate Crippling Merge Conflicts</SectionSubtitle>
             <Typography variant="body" mb="1.5rem">
               Just like a real development team, AI Brain Garden enables genuine parallel development across multiple features and branches:
             </Typography>
           </div>
           
-          <div style={{ backgroundColor: '#f8f9fa', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>
+          <div style={{ backgroundColor: '#f8f9fa', padding: '2rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>
             <MermaidContainer variants={fadeInUp}>
               <MermaidDiagram
                 definition={`
                   flowchart TB
-                    %% Main repository at the top
-                    REPO["Git Repository"]
+                    PROBLEM["🚫 AI Agents Generate\nMassive File Changes"]
+                    PROBLEM --> RISK["❌ Risk: Crippling\nMerge Conflicts"]
+                    RISK --> SLOWDOWN["🐢 Development\nVelocity Slows"]
                     
-                    %% Branches coming down from repo
-                    REPO --> MainBranch["main branch"]
-                    REPO --> AuthBranch["auth-feature branch"]
-                    REPO --> ProfileBranch["profile-feature branch"]
+                    SOLUTION["Brain Garden AI\nAgent Architecture"]
+                    SOLUTION --> FEATURES["✅ Agent-Per-Feature\nIsolation"]
+                    FEATURES --> BENEFIT["⚡ Parallel Development\nWithout Conflicts"]
                     
-                    %% Main branch structure flowing down
-                    MainBranch --> MainBrain[".brain/"]
-                    MainBrain --> MainShared["Shared project files"]
-                    MainBrain --> MainAgents["Agent folders (empty)"]
+                    BENEFIT --> ROI["💰 Sustained\nDevelopment ROI"]
+                    SLOWDOWN --> COST["💸 Wasted\nEngineer Hours"]
                     
-                    %% Auth branch flowing down
-                    AuthBranch --> AuthBrain[".brain/"]
-                    AuthBrain --> AuthShared["Shared project<br>files (unchanged)"]
-                    AuthBrain --> AuthSmith["1-agent-smith/<br>(Active)"]
-                    AuthBrain --> AuthOthers["Other agents<br>(untouched)"]
+                    classDef problem fill:#ff6b6b,stroke:#333,stroke-width:2px,color:white,font-size:18px,font-weight:bold,padding:15px
+                    classDef risk fill:#f06595,stroke:#333,stroke-width:1px,color:white,font-size:16px,padding:12px
+                    classDef impact fill:#cc5de8,stroke:#333,stroke-width:1px,color:white,font-size:16px,padding:12px
+                    classDef solution fill:#4dabf7,stroke:#333,stroke-width:2px,color:white,font-size:18px,font-weight:bold,padding:15px
+                    classDef feature fill:#4c6ef5,stroke:#333,stroke-width:1px,color:white,font-size:16px,padding:12px
+                    classDef benefit fill:#37b24d,stroke:#333,stroke-width:1px,color:white,font-size:16px,padding:12px
+                    classDef roi fill:#2b8a3e,stroke:#333,stroke-width:2px,color:white,font-size:18px,font-weight:bold,padding:15px
+                    classDef cost fill:#c92a2a,stroke:#333,stroke-width:2px,color:white,font-size:18px,font-weight:bold,padding:15px
                     
-                    %% Auth agent work
-                    AuthSmith --> AuthWork["Permission Builder<br>Feature Work"]
-                    
-                    %% Profile branch flowing down
-                    ProfileBranch --> ProfileBrain[".brain/"]
-                    ProfileBrain --> ProfileShared["Shared project<br>files (unchanged)"]
-                    ProfileBrain --> ProfileKeen["2-agent-keen/<br>(Active)"]
-                    ProfileBrain --> ProfileOthers["Other agents<br>(untouched)"]
-                    
-                    %% Profile agent work
-                    ProfileKeen --> ProfileWork["Profile UI<br>Feature Work"]
-                    
-                    %% Merge flows coming back up to main
-                    AuthWork --> AuthMerge["Clean PR merge<br>(only agent-smith changes)"]
-                    ProfileWork --> ProfileMerge["Clean PR merge<br>(only agent-keen changes)"]
-                    
-                    AuthMerge --> NoConflict1["No merge conflicts"]
-                    ProfileMerge --> NoConflict2["No merge conflicts"]
-                    
-                    NoConflict1 --> MainBranch
-                    NoConflict2 --> MainBranch
-                    
-                    %% Core concept
-                    AuthSmith -.-> CONCEPT["One agent per feature<br>prevents merge conflicts"]
-                    ProfileKeen -.-> CONCEPT
-                    
-                    classDef repo fill:#6366F1,stroke:#333,stroke-width:2px,color:white,font-size:18px,font-weight:bold,padding:15px
-                    classDef branch fill:#10B981,stroke:#333,stroke-width:2px,color:white,font-size:16px,font-weight:bold,padding:12px
-                    classDef brain fill:#4a6bff,stroke:#333,stroke-width:2px,color:white,font-size:16px,font-weight:bold,padding:12px
-                    classDef active fill:#34D399,stroke:#333,stroke-width:2px,color:white,font-size:16px,font-weight:bold,padding:12px
-                    classDef files fill:#A5B4FC,stroke:#333,stroke-width:1px,color:white,font-size:15px,padding:10px
-                    classDef work fill:#60A5FA,stroke:#333,stroke-width:1px,color:white,font-size:15px,padding:10px
-                    classDef merge fill:#F97316,stroke:#333,stroke-width:1px,color:white,font-size:15px,padding:10px
-                    classDef concept fill:#8B5CF6,stroke:#333,stroke-width:2px,color:white,font-size:17px,font-weight:bold,padding:12px
-                    
-                    class REPO repo
-                    class MainBranch,AuthBranch,ProfileBranch branch
-                    class MainBrain,AuthBrain,ProfileBrain brain
-                    class AuthSmith,ProfileKeen active
-                    class MainShared,AuthShared,ProfileShared,MainAgents,AuthOthers,ProfileOthers files
-                    class AuthWork,ProfileWork work
-                    class AuthMerge,ProfileMerge,NoConflict1,NoConflict2 merge
-                    class CONCEPT concept
+                    class PROBLEM,SOLUTION problem
+                    class RISK risk
+                    class SLOWDOWN,COST impact
+                    class FEATURES feature
+                    class BENEFIT benefit
+                    class ROI roi
+                    class COST cost
                 `}
                 theme="default"
                 width="100%"
-                height="700px"
+                height="400px"
                 backgroundColor="transparent"
               />
             </MermaidContainer>
             
             <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
               <Typography variant="body" color="secondary">
-                The .brain directory's agent specialization model allows teams to work on multiple features in parallel without merge conflicts
+                Brain Garden's intelligent architecture prevents the merge conflicts that typically slow teams down when using AI tools
               </Typography>
             </div>
           </div>
@@ -129,36 +94,36 @@ export const ParallelDevelopmentSection: React.FC<ParallelDevelopmentSectionProp
           }}>
             <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
               <div>
-                <Typography variant="h3" mb="1rem">Multiple Workspaces</Typography>
+                <Typography variant="h3" mb="1rem">The Problem</Typography>
               </div>
               <div>
                 <Typography variant="body">
-                  Open different branches in separate Cursor windows, with each window having a different agent activated. 
-                  This allows work to continue in parallel across features.
+                  AI agents can modify dozens or hundreds of files simultaneously, creating complex merge scenarios 
+                  that can take hours or days to resolve, eliminating productivity gains.
                 </Typography>
               </div>
             </div>
             
             <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
               <div>
-                <Typography variant="h3" mb="1rem">Continuous Progress</Typography>
+                <Typography variant="h3" mb="1rem">The Solution</Typography>
               </div>
               <div>
                 <Typography variant="body">
-                  While Team Architect refactors the authentication system, Team Frontend implements new UI components, 
-                  and Team AI/ML optimizes existing integrations.
+                  Brain Garden's agent isolation system ensures each feature development path remains 
+                  separate, preventing the merge conflicts that typically slow teams down.
                 </Typography>
               </div>
             </div>
             
             <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
               <div>
-                <Typography variant="h3" mb="1rem">Efficient Review Cycles</Typography>
+                <Typography variant="h3" mb="1rem">The Impact</Typography>
               </div>
               <div>
                 <Typography variant="body">
-                  Review one team&apos;s work while others continue, provide feedback and direction as needed, 
-                  and keep all features moving forward.
+                  Teams maintain their velocity even with AI tools touching hundreds of files, 
+                  keeping your engineering investment productive rather than bogged down in merge conflict resolution.
                 </Typography>
               </div>
             </div>

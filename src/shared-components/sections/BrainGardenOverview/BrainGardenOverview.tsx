@@ -16,7 +16,6 @@ import {
 import { SystemOverviewSection } from './components/SystemOverviewSection';
 import { CoreComponentsSection } from './components/CoreComponentsSection';
 import { TeamCustomizationSection } from './components/TeamCustomizationSection';
-import { ParallelDevelopmentSection } from './components/ParallelDevelopmentSection';
 import { ForceMultipliersSection } from './components/ForceMultipliersSection';
 import { GardenMetaphorSection } from './components/GardenMetaphorSection';
 import { SystemArchitectureSection } from './components/SystemArchitectureSection';
@@ -125,11 +124,6 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
           {/* Team Customization Section */}
           <motion.div variants={sectionVariants}>
             <TeamCustomizationSection />
-          </motion.div>
-          
-          {/* Parallel Development Section */}
-          <motion.div variants={sectionVariants}>
-            <ParallelDevelopmentSection />
           </motion.div>
           
           {/* Force Multipliers Section */}
