@@ -12,6 +12,12 @@ import { viewports } from '../src/styles/theme/viewports'
 import './storybook.css'
 import '../src/styles/globals.css'
 
+// Helper function to parse numeric prefixes
+const getNumericPrefix = (title: string): number => {
+  const match = title.match(/^(\d+)-/)
+  return match ? parseInt(match[1], 10) : 999
+}
+
 // Add CSS variables for the Hero component
 const GlobalStyles = () => (
   <style>
@@ -45,11 +51,13 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-    // Add storySort parameter to sort stories numerically
-    storySort: {
-      method: 'numeric',
-      order: ['Sections', ['01-*', '02-*', '03-*', '04-*', '05-*', '06-*', '07-*', '08-*', '09-*', '10-*', '*'], '*'],
-      locales: 'en-US',
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: ['01-', '02-', '03-', '04-', '05-', '*'],
+        includeNames: true,
+        locales: 'en-US',
+      },
     },
   },
   decorators: [
