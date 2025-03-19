@@ -10,3 +10,4 @@ export * from './NavigationSection';
 export * from './HumanAdvantageSection';
 export * from './KeyBenefitsSection';
 export * from './CTASection';
+export * from './TransitionSection';

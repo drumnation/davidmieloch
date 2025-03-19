@@ -18,6 +18,7 @@ export const useBrainGardenOverview = (props: BrainGardenOverviewProps) => {
     navigationProps = defaultContent.navigation,
     keyBenefitsProps = defaultContent.keyBenefits,
     ctaProps = defaultContent.cta,
+    transitionProps = defaultContent.transition,
   } = props;
 
   // Enhance hero props with defaults and consistent styling
@@ -63,6 +64,7 @@ export const useBrainGardenOverview = (props: BrainGardenOverviewProps) => {
     systemArchitectureProps,
     processedNavigation,
     processedKeyBenefits,
-    processedCTA
+    processedCTA,
+    transitionProps
   };
 };

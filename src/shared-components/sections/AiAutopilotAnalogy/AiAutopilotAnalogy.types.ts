@@ -48,4 +48,25 @@ export interface AiAutopilotAnalogyProps {
     definition: string;
     theme?: 'default' | 'dark' | 'forest' | 'neutral';
   };
+  leadershipBlueprintProps?: {
+    title: string;
+    subtitle: string;
+    warningTransition: {
+      title: string;
+      description: string;
+    };
+    narrative: {
+      introduction: string;
+      quotes: Array<string>;
+      conclusion: string;
+    };
+    blueprint: Array<{
+      title: string;
+      items: Array<{
+        name: string;
+        description: string;
+      }>;
+    }>;
+    bottomLine: string;
+  };
 }

@@ -62,4 +62,7 @@ export interface BrainGardenOverviewProps {
     link: string;
     icon?: string | ReactElement;
   };
+  transitionProps?: {
+    description?: string;
+  };
 }

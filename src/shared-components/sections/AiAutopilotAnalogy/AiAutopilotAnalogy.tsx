@@ -28,7 +28,8 @@ import {
   fadeIn,
   fadeInUp,
   staggerContainer,
-  paragraphContainerTopMarginStyle
+  paragraphContainerTopMarginStyle,
+  SPACING
 } from './AiAutopilotAnalogy.styles';
 import {
   RealityItem,
@@ -45,7 +46,8 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
     comparisonTableProps,
     realityVsHollywoodProps,
     strategicFocusAreasProps,
-    mermaidDiagramProps
+    mermaidDiagramProps,
+    leadershipBlueprintProps
   } = useAiAutopilotAnalogy(props);
 
   return (
@@ -285,6 +287,332 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
             <SectionParagraph>
               By focusing on these strategic areas, organizations can create a balanced approach that leverages AI&apos;s strengths 
               while maintaining the critical human elements of software development.
+            </SectionParagraph>
+          </motion.div>
+        </motion.div>
+
+        {/* Critical Warning Transition */}
+        <motion.div 
+          style={{
+            width: '100%',
+            padding: '2rem',
+            marginTop: '3rem',
+            backgroundColor: '#ffebee',
+            borderLeft: '4px solid #f44336'
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeIn}
+        >
+          <motion.div 
+            style={{ 
+              width: '100%',
+              maxWidth: '1000px', 
+              margin: '0 auto'
+            }}
+            variants={fadeInUp}
+          >
+            <Typography variant="h3" weight="bold" className="mb-3">
+              {leadershipBlueprintProps.warningTransition.title}
+            </Typography>
+            <Typography variant="body" weight="regular">
+              {leadershipBlueprintProps.warningTransition.description}
+            </Typography>
+          </motion.div>
+        </motion.div>
+        
+        {/* Leadership Blueprint Section */}
+        <motion.div 
+          style={sectionContainerTopMarginStyle}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.div 
+            className="text-left" 
+            style={titleContainerStyle}
+            variants={fadeInUp}
+          >
+            <SectionTitle title={leadershipBlueprintProps.title} />
+          </motion.div>
+          
+          <motion.div 
+            style={paragraphContainerStyle}
+            variants={fadeInUp}
+          >
+            <SectionParagraph>
+              {leadershipBlueprintProps.narrative.introduction}
+            </SectionParagraph>
+          </motion.div>
+          
+          {/* First Quote with Context */}
+          <motion.div 
+            style={paragraphContainerStyle}
+            variants={fadeInUp}
+          >
+            <motion.div 
+              style={{
+                backgroundColor: '#f9f9f9',
+                borderRadius: '8px',
+                padding: '1.5rem',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                borderLeft: '4px solid var(--primary-blue)',
+                position: 'relative',
+                margin: '1rem 0 1.5rem'
+              }}
+              whileHover={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)' }}
+              transition={{ duration: 0.3 }}
+            >
+              <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', top: '0.75rem', left: '0.75rem' }}>
+                <span style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
+              </div>
+              <div style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
+                <SectionParagraph>
+                  {leadershipBlueprintProps.narrative.quotes[0]}
+                </SectionParagraph>
+              </div>
+              <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', bottom: '0.75rem', right: '0.75rem' }}>
+                <span style={{ fontFamily: 'Georgia, serif' }}>&rdquo;</span>
+              </div>
+              <div style={{ 
+                marginTop: '1rem', 
+                padding: '0.75rem', 
+                backgroundColor: '#e6f7ff', 
+                borderRadius: '4px',
+                fontSize: '0.9rem'
+              }}>
+                <strong>Context: </strong> 
+                AI proponents create unrealistic deadlines, then disappear when the tools aren't available.
+              </div>
+            </motion.div>
+          </motion.div>
+          
+          {/* Narrative between quotes */}
+          <motion.div 
+            style={paragraphContainerStyle}
+            variants={fadeInUp}
+          >
+            <SectionParagraph>
+              Such overreach disrupts a key balance: developers—who understand software complexity—lose influence over timelines and 
+              design decisions, while managers set aggressive deadlines based on AI's partial outputs. Another quote underscores how 
+              deadlines ignore real effort:
+            </SectionParagraph>
+          </motion.div>
+          
+          {/* Second Quote with Impact */}
+          <motion.div 
+            style={paragraphContainerStyle}
+            variants={fadeInUp}
+          >
+            <motion.div 
+              style={{
+                backgroundColor: '#f9f9f9',
+                borderRadius: '8px',
+                padding: '1.5rem',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                borderLeft: '4px solid var(--primary-blue)',
+                position: 'relative',
+                margin: '1rem 0 1.5rem'
+              }}
+              whileHover={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)' }}
+              transition={{ duration: 0.3 }}
+            >
+              <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', top: '0.75rem', left: '0.75rem' }}>
+                <span style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
+              </div>
+              <div style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
+                <SectionParagraph>
+                  {leadershipBlueprintProps.narrative.quotes[1]}
+                </SectionParagraph>
+              </div>
+              <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', bottom: '0.75rem', right: '0.75rem' }}>
+                <span style={{ fontFamily: 'Georgia, serif' }}>&rdquo;</span>
+              </div>
+              <div style={{ 
+                marginTop: '1rem', 
+                padding: '0.75rem', 
+                backgroundColor: '#e6f7ff', 
+                borderRadius: '4px',
+                fontSize: '0.9rem'
+              }}>
+                <strong>Impact: </strong> 
+                Developers are left to fix AI-generated code with the same unrealistic timelines.
+              </div>
+            </motion.div>
+          </motion.div>
+          
+          {/* Narrative between quotes */}
+          <motion.div 
+            style={paragraphContainerStyle}
+            variants={fadeInUp}
+          >
+            <SectionParagraph>
+              This dynamic drains the joy from engineering. Developers end up debugging and polishing code they didn't fully create, 
+              yet remain fully accountable for production-readiness:
+            </SectionParagraph>
+          </motion.div>
+          
+          {/* Third Quote with Result */}
+          <motion.div 
+            style={paragraphContainerStyle}
+            variants={fadeInUp}
+          >
+            <motion.div 
+              style={{
+                backgroundColor: '#f9f9f9',
+                borderRadius: '8px',
+                padding: '1.5rem',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                borderLeft: '4px solid var(--primary-blue)',
+                position: 'relative',
+                margin: '1rem 0 1.5rem'
+              }}
+              whileHover={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)' }}
+              transition={{ duration: 0.3 }}
+            >
+              <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', top: '0.75rem', left: '0.75rem' }}>
+                <span style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
+              </div>
+              <div style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
+                <SectionParagraph>
+                  {leadershipBlueprintProps.narrative.quotes[2]}
+                </SectionParagraph>
+              </div>
+              <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', bottom: '0.75rem', right: '0.75rem' }}>
+                <span style={{ fontFamily: 'Georgia, serif' }}>&rdquo;</span>
+              </div>
+              <div style={{ 
+                marginTop: '1rem', 
+                padding: '0.75rem', 
+                backgroundColor: '#e6f7ff', 
+                borderRadius: '4px',
+                fontSize: '0.9rem'
+              }}>
+                <strong>Result: </strong> 
+                Developers lose ownership while retaining all responsibility for outcomes.
+              </div>
+            </motion.div>
+          </motion.div>
+          
+          {/* Autopilot Explanation */}
+          <motion.div 
+            style={{
+              marginBottom: SPACING.paragraphBreak,
+              padding: '0',
+              marginTop: '1rem'
+            }}
+            variants={fadeInUp}
+          >
+            <SectionParagraph>
+              <strong>The Autopilot Connection:</strong> Just like autopilot in aviation, AI tools can greatly reduce the repetitive "flying" (writing boilerplate code) so the 
+              pilot (developer) can focus on higher-level tasks—planning architecture, anticipating future issues, and ensuring 
+              reliability. But if someone mistakes an AI or an autopilot for a "set-it-and-forget-it" tool, they risk both safety 
+              and quality. As with flying, the pilot must train, monitor, and correct for any deviation, because autopilot doesn't 
+              replace the pilot—it only assists.
+            </SectionParagraph>
+          </motion.div>
+          
+          <motion.div 
+            style={paragraphContainerStyle}
+            variants={fadeInUp}
+          >
+            <SectionParagraph>
+              {leadershipBlueprintProps.narrative.conclusion}
+            </SectionParagraph>
+          </motion.div>
+          
+          <motion.div 
+            className="text-left" 
+            style={{...titleContainerStyle, marginTop: '2rem'}}
+            variants={fadeInUp}
+          >
+            <SectionSubtitle title={leadershipBlueprintProps.subtitle} />
+          </motion.div>
+          
+          {/* Blueprint Cards - Vertical Layout */}
+          <motion.div 
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.5rem',
+              width: '100%',
+              margin: '2rem 0 3rem'
+            }}
+            variants={staggerContainer}
+          >
+            {leadershipBlueprintProps.blueprint.map((section, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                custom={index}
+                transition={{ 
+                  delay: index * 0.15,
+                  duration: 0.5,
+                  ease: 'easeOut'
+                }}
+                style={{
+                  backgroundColor: 'white',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+                whileHover={{ 
+                  y: -5, 
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
+                  backgroundColor: '#fcfcfc'
+                }}
+              >
+                <div style={{
+                  padding: '1.25rem',
+                  backgroundColor: 'var(--primary-blue)',
+                  color: 'white'
+                }}>
+                  <Typography variant="h3" className="mb-0" color="light">
+                    {section.title}
+                  </Typography>
+                </div>
+                <div style={{ padding: '1.5rem' }}>
+                  {section.items.map((item, itemIndex) => (
+                    <div 
+                      key={itemIndex}
+                      style={{
+                        marginBottom: itemIndex < section.items.length - 1 ? '1.5rem' : 0
+                      }}
+                    >
+                      <Typography variant="body" weight="bold" className="mb-2">
+                        {item.name}
+                      </Typography>
+                      <Typography variant="body">
+                        {item.description}
+                      </Typography>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          {/* Bottom Line Box */}
+          <motion.div 
+            style={{
+              marginTop: SPACING.paragraphBreak,
+              padding: '1.5rem',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '8px',
+              borderLeft: '4px solid var(--accent-green)',
+              borderBottom: '1px solid #e0e0e0'
+            }}
+            variants={fadeInUp}
+          >
+            <Typography variant="h3" weight="bold" className="mb-3">
+              Bottom Line
+            </Typography>
+            <SectionParagraph>
+              {leadershipBlueprintProps.bottomLine}
             </SectionParagraph>
           </motion.div>
         </motion.div>

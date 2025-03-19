@@ -19,40 +19,43 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
 }) => {
   const mermaidDefinition = `
     graph TB
-      classDef current fill:#6A0DAD,color:white,stroke:#333,stroke-width:1px;
-      classDef future fill:#4CAF50,color:white,stroke:#333,stroke-width:1px;
-      classDef advanced fill:#2196F3,color:white,stroke:#333,stroke-width:1px;
-      
-      BG[Brain Garden System]
-      
-      subgraph Current["Current Capabilities"]
-        SK[Knowledge System]
+    classDef current fill:#6A0DAD,color:white,stroke:none;
+    classDef next fill:#4CAF50,color:white,stroke:none;
+    classDef future fill:#2196F3,color:white,stroke:none;
+    
+    BG[Brain Garden System]
+    
+    subgraph Current["Current Capabilities"]
+        KS[Knowledge System]
         SJ[Skill-Jacks]
         PS[Prompt System]
         MECE[MECE Documentation]
-      end
-      
-      subgraph Future["Next Evolution"]
+    end
+    
+    subgraph Next["Next Evolution"]
         MCP[Advanced MCP Server]
+        SJM[Skill-Jacks via MCP]
+        META[Meta MCP Server]
+        AUTO[CLI Automation via MCP]
+    end
+    
+    subgraph Future["Future Roadmap"]
         LA[Lead & Subordinate Agents]
-        AWI[Advanced Workflow Integration]
+        ARCH[Architect Subordinate]
+        TEST[Tester Subordinate]
+        PARA[Parallel Task Processing]
+        AWI[Advanced GitHub Workflow]
         VSCE[VSCode Extension]
-      end
-      
-      subgraph Advanced["Advanced Features"]
-        CA[Contextual Awareness]
-        ML[Machine Learning Models]
-        RT[Real-time Adaptation]
-        PC[Prompt Chaining]
-      end
-      
-      BG --> Current
-      Current --> Future
-      Future --> Advanced
-      
-      class BG,Current,SK,SJ,PS,MECE current;
-      class Future,MCP,LA,AWI,VSCE future;
-      class Advanced,CA,ML,RT,PC advanced;
+        ITER[Iterative System Improvements]
+    end
+    
+    BG --> Current
+    Current --> Next
+    Next --> Future
+    
+    class BG,Current,KS,SJ,PS,MECE current;
+    class Next,MCP,SJM,META,AUTO next;
+    class Future,LA,ARCH,TEST,PARA,AWI,VSCE,ITER future;
   `;
 
   return (

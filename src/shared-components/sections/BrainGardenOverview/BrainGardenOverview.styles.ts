@@ -351,11 +351,36 @@ export const MermaidContainer = styled(motion.div)`
     .nodeLabel {
       font-size: 16px;
       font-weight: 500;
+      white-space: nowrap; /* Prevent label text wrapping */
     }
     
     /* Adjust relationship lines */
     .edgePath {
       stroke-width: 2px;
+    }
+    
+    /* Prevent labels from being cut off */
+    .node rect, .node polygon, .node circle, .node ellipse {
+      rx: 5;
+      ry: 5;
+      padding: 10px;
+    }
+    
+    /* Improve spacing between nodes */
+    .nodes {
+      margin: 10px;
+    }
+    
+    /* Ensure subgraph labels don't get cut off */
+    .cluster .cluster-label {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    .cluster rect {
+      rx: 5;
+      ry: 5;
+      padding: 8px;
     }
   }
   

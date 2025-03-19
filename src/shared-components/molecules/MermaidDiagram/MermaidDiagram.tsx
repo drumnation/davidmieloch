@@ -49,6 +49,18 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
       theme,
       securityLevel: 'loose',
       fontFamily: 'Inter, sans-serif',
+      flowchart: {
+        htmlLabels: true,
+        curve: 'basis',
+        nodeSpacing: 60,
+        rankSpacing: 80,
+        padding: 15
+      },
+      themeVariables: {
+        nodeBorder: '0',
+        clusterBkg: 'transparent',
+        clusterBorder: 'rgba(0,0,0,0.1)'
+      }
     });
 
     const renderDiagram = async () => {
@@ -103,7 +115,10 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
         width, 
         height, 
         backgroundColor,
-        overflow: 'hidden'
+        overflow: 'auto',
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '10px'
       }}
       ref={mermaidRef}
       dangerouslySetInnerHTML={{ __html: svg }}

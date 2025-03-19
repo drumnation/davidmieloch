@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Hero } from '../../organisms/Hero';
 import { BrainGardenOverviewProps } from './BrainGardenOverview.types';
 import { useBrainGardenOverview } from './BrainGardenOverview.hook';
@@ -20,10 +21,7 @@ import { ForceMultipliersSection } from './components/ForceMultipliersSection';
 import { GardenMetaphorSection } from './components/GardenMetaphorSection';
 import { SystemArchitectureSection } from './components/SystemArchitectureSection';
 import { NextEvolutionSection } from './components/NextEvolutionSection';
-import { NavigationSection } from './components/NavigationSection';
-import { HumanAdvantageSection } from './components/HumanAdvantageSection';
-import { KeyBenefitsSection } from './components/KeyBenefitsSection';
-import { CTASection } from './components/CTASection';
+import { TransitionSection } from './components/TransitionSection';
 
 export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) => {
   const {
@@ -35,7 +33,8 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
     systemArchitectureProps,
     processedNavigation,
     processedKeyBenefits,
-    processedCTA
+    processedCTA,
+    transitionProps
   } = useBrainGardenOverview(props);
 
   // Process the data to ensure all icons are properly handled
@@ -66,56 +65,103 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
     }
   };
 
+  // Enhanced animation variants
+  const pageVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        when: "beforeChildren", 
+        staggerChildren: 0.2,
+        duration: 0.6 
+      }
+    }
+  };
+
+  const sectionVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 30
+    },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <Container className={className}>
-      <GlobalStyles />
-      
-      {/* Hero Section */}
-      <Hero {...enhancedHeroProps} />
-      
-      {/* Content Section with White Background */}
-      <ContentSection
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeIn}
-      >
-        {/* Introduction Section */}
-        <SystemOverviewSection introProps={introProps} />
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={pageVariants}
+    >
+      <Container className={className}>
+        <GlobalStyles />
         
-        {/* Core Components Section */}
-        <CoreComponentsSection coreComponentsProps={safeData.coreComponents} />
+        {/* Hero Section */}
+        <Hero {...enhancedHeroProps} />
         
-        {/* Team Customization Section */}
-        <TeamCustomizationSection />
+        {/* Content Section with White Background */}
+        <ContentSection
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeIn}
+        >
+          {/* Introduction Section */}
+          <motion.div variants={sectionVariants}>
+            <SystemOverviewSection introProps={introProps} />
+          </motion.div>
+          
+          {/* Core Components Section */}
+          <motion.div variants={sectionVariants}>
+            <CoreComponentsSection coreComponentsProps={safeData.coreComponents} />
+          </motion.div>
+          
+          {/* Team Customization Section */}
+          <motion.div variants={sectionVariants}>
+            <TeamCustomizationSection />
+          </motion.div>
+          
+          {/* Parallel Development Section */}
+          <motion.div variants={sectionVariants}>
+            <ParallelDevelopmentSection />
+          </motion.div>
+          
+          {/* Force Multipliers Section */}
+          <motion.div variants={sectionVariants}>
+            <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
+          </motion.div>
+          
+          {/* The Garden Metaphor Section */}
+          <motion.div variants={sectionVariants}>
+            <GardenMetaphorSection />
+          </motion.div>
+          
+          {/* System Architecture Section */}
+          <motion.div variants={sectionVariants}>
+            <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
+          </motion.div>
+          
+          {/* The Next Evolution Section */}
+          <motion.div variants={sectionVariants}>
+            <NextEvolutionSection />
+          </motion.div>
+          
+          {/* Transition to Technical Implementation Section */}
+          <motion.div 
+            variants={sectionVariants}
+            transition={{ delay: 0.2 }}
+          >
+            <TransitionSection {...transitionProps} />
+          </motion.div>
         
-        {/* Parallel Development Section */}
-        <ParallelDevelopmentSection />
-        
-        {/* Force Multipliers Section */}
-        <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
-        
-        {/* The Garden Metaphor Section */}
-        <GardenMetaphorSection />
-        
-        {/* System Architecture Section */}
-        <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
-        
-        {/* The Next Evolution Section */}
-        <NextEvolutionSection />
-        
-        {/* Navigation Section */}
-        <NavigationSection navigationProps={safeData.navigation} />
-        
-        {/* The Human Advantage Section */}
-        <HumanAdvantageSection />
-        
-        {/* Key Benefits Section */}
-        <KeyBenefitsSection keyBenefitsProps={safeData.keyBenefits} />
-        
-        {/* CTA Section */}
-        <CTASection ctaProps={processedCTA} />
-      </ContentSection>
-    </Container>
+        </ContentSection>
+      </Container>
+    </motion.div>
   );
 };

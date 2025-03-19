@@ -8,6 +8,7 @@ export const useAiAutopilotAnalogy = (props: AiAutopilotAnalogyProps) => {
     comparisonTableProps = defaultContent.comparisonTable,
     realityVsHollywoodProps = defaultContent.realityVsHollywood,
     strategicFocusAreasProps = defaultContent.strategicFocusAreas,
+    leadershipBlueprintProps = defaultContent.leadershipBlueprint,
     mermaidDiagramProps = defaultContent.mermaidDiagram,
   } = props;
 
@@ -20,6 +21,7 @@ export const useAiAutopilotAnalogy = (props: AiAutopilotAnalogyProps) => {
     comparisonTableProps,
     realityVsHollywoodProps,
     strategicFocusAreasProps,
+    leadershipBlueprintProps,
     mermaidDiagramProps
   };
 };

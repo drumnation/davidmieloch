@@ -194,5 +194,8 @@ export const defaultContent = {
     action: "Explore Core Teams",
     link: "./core-teams",
     icon: "arrow-right"
+  },
+  transition: {
+    description: "Now that we've explored the conceptual framework of the Brain Garden system, let's examine how these ideas come to life through technical implementation. The architecture we're about to explore translates these concepts into practical tools and structures that developers can immediately apply to their daily workflows."
   }
 };
