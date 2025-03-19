@@ -1,62 +1,146 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Typography } from '../../../../atoms/Typography';
-import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
 import { NextEvolutionSectionProps } from './NextEvolutionSection.types';
 import {
   ContentContainer,
-  MermaidContainer,
   fadeInUp,
-  staggerContainer,
-  SectionSubtitle
+  staggerContainer
 } from '../../BrainGardenOverview.styles';
 import {
   SectionTitleComponent
 } from '../../BrainGardenOverview.logic';
+import {
+  TimelineContainer,
+  TimelineMainLine,
+  PhaseContainer,
+  PhaseTitle,
+  PhaseContent,
+  PhaseItemsList,
+  PhaseItem,
+  PhaseItemDot,
+  PhaseItemContent,
+  CapabilityCardsGrid,
+  CapabilityCard,
+  ResearchAreaContainer,
+  ResearchGridContainer,
+  ResearchAreaCard,
+  slideInRight,
+  slideInLeft,
+  fadeInScale,
+  cardStaggerContainer,
+  phaseStaggerContainer
+} from './NextEvolutionSection.styles';
 
 export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
   className
 }) => {
-  const mermaidDefinition = `
-    graph TB
-    classDef current fill:#6A0DAD,color:white,stroke:none;
-    classDef next fill:#4CAF50,color:white,stroke:none;
-    classDef future fill:#2196F3,color:white,stroke:none;
-    
-    BG[Brain Garden System]
-    
-    subgraph Current["Current Capabilities"]
-        KS[Knowledge System]
-        SJ[Skill-Jacks]
-        PS[Prompt System]
-        MECE[MECE Documentation]
-    end
-    
-    subgraph Next["Next Evolution"]
-        MCP[Advanced MCP Server]
-        SJM[Skill-Jacks via MCP]
-        META[Meta MCP Server]
-        AUTO[CLI Automation via MCP]
-    end
-    
-    subgraph Future["Future Roadmap"]
-        LA[Lead & Subordinate Agents]
-        ARCH[Architect Subordinate]
-        TEST[Tester Subordinate]
-        PARA[Parallel Task Processing]
-        AWI[Advanced GitHub Workflow]
-        VSCE[VSCode Extension]
-        ITER[Iterative System Improvements]
-    end
-    
-    BG --> Current
-    Current --> Next
-    Next --> Future
-    
-    class BG,Current,KS,SJ,PS,MECE current;
-    class Next,MCP,SJM,META,AUTO next;
-    class Future,LA,ARCH,TEST,PARA,AWI,VSCE,ITER future;
-  `;
+  // Timeline data
+  const timelineData = {
+    current: {
+      title: "Current Capabilities",
+      color: "#6A0DAD", // purple-700
+      items: [
+        "Knowledge System - Structured information repository",
+        "Skill-Jacks - Modular capability extensions",
+        "Prompt System - Advanced interaction framework",
+        "MECE Documentation - Comprehensive knowledge capture"
+      ]
+    },
+    next: {
+      title: "Next Evolution",
+      color: "#4CAF50", // green-500
+      items: [
+        "Advanced MCP Server - Enhanced processing capabilities",
+        "Skill-Jacks via MCP - Dynamic tool integration",
+        "Meta MCP Server - Self-modifying architecture",
+        "CLI Automation via MCP - Streamlined workflows"
+      ]
+    },
+    future: {
+      title: "Future Roadmap",
+      color: "#2196F3", // blue-500
+      items: [
+        "Lead & Subordinate Agents - Hierarchical task delegation",
+        "Architect & Tester Subordinates - Specialized roles",
+        "Parallel Task Processing - Multi-agent coordination",
+        "Advanced GitHub Workflow - Enhanced integration",
+        "VSCode Extension - Seamless developer experience",
+        "Iterative System Improvements - Continuous enhancement"
+      ]
+    }
+  };
+
+  // R&D focus areas data
+  const researchAreas = [
+    {
+      title: "Agent Orchestration",
+      description: "Developing frameworks for multi-agent collaboration, task delegation, and resource optimization"
+    },
+    {
+      title: "Dynamic Skill Acquisition",
+      description: "Creating systems for on-demand capability extension and knowledge integration"
+    },
+    {
+      title: "Workflow Automation",
+      description: "Building seamless interfaces between Brain Garden and development environments"
+    },
+    {
+      title: "Self-Improvement Mechanisms",
+      description: "Implementing feedback loops for continuous system enhancement and refinement"
+    }
+  ];
+
+  // Animation variants for staggered list items
+  const itemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.4 } 
+    }
+  };
+
+  // Component for each timeline phase
+  const TimelinePhase = ({ title, color, items }: { title: string; color: string; items: string[] }) => {
+    return (
+      <PhaseContainer variants={fadeInUp}>
+        {/* Phase title */}
+        <PhaseTitle 
+          style={{ backgroundColor: color }}
+          variants={fadeInScale}
+        >
+          <Typography variant="h3" weight="bold" color="light">{title}</Typography>
+        </PhaseTitle>
+        
+        {/* Phase content */}
+        <PhaseContent variants={slideInRight}>
+          <PhaseItemsList>
+            {items.map((item, index) => {
+              const [feature, description] = item.split(" - ");
+              return (
+                <PhaseItem 
+                  key={index}
+                  variants={itemVariants}
+                >
+                  <PhaseItemDot 
+                    style={{ backgroundColor: color }}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2 + (index * 0.1), duration: 0.3 }}
+                  />
+                  <PhaseItemContent>
+                    <Typography variant="body" as="span" weight="bold">{feature}</Typography>
+                    {description && <Typography variant="body" as="span" color="secondary"> - {description}</Typography>}
+                  </PhaseItemContent>
+                </PhaseItem>
+              );
+            })}
+          </PhaseItemsList>
+        </PhaseContent>
+      </PhaseContainer>
+    );
+  };
 
   return (
     <ContentContainer
@@ -69,64 +153,124 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
       <motion.div variants={fadeInUp}>
         <SectionTitleComponent title="The Next Evolution of Brain Garden" />
         
-        <div style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
-          <SectionSubtitle style={{ marginBottom: '1.5rem' }}>Evolving Prompt and Knowledge Systems</SectionSubtitle>
+        <Typography variant="h3" mb="1.5rem">Evolving Prompt and Knowledge Systems</Typography>
+        
+        <Typography variant="body" mb="2rem">
+          The Brain Garden system is continuously evolving to enhance AI assistance capabilities. 
+          Our roadmap focuses on advancing both the Prompt System for more automated workflows and 
+          the Knowledge System for deeper, more interconnected expertise.
+        </Typography>
+        
+        {/* Interactive Evolution Timeline */}
+        <TimelineContainer
+          variants={phaseStaggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-150px" }}
+        >
+          <TimelineMainLine 
+            initial={{ height: 0 }}
+            animate={{ height: '100%' }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          />
+          
+          <TimelinePhase 
+            title={timelineData.current.title} 
+            color={timelineData.current.color}
+            items={timelineData.current.items}
+          />
+          
+          <TimelinePhase 
+            title={timelineData.next.title} 
+            color={timelineData.next.color}
+            items={timelineData.next.items}
+          />
+          
+          <TimelinePhase 
+            title={timelineData.future.title} 
+            color={timelineData.future.color}
+            items={timelineData.future.items}
+          />
+        </TimelineContainer>
+        
+        {/* Focus Areas Grid */}
+        <motion.div variants={fadeInUp}>
+          <Typography variant="h3" mt="3rem" mb="1.5rem">Key Research & Development Focus Areas</Typography>
+        </motion.div>
+        
+        <CapabilityCardsGrid
+          variants={cardStaggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <CapabilityCard 
+            style={{ backgroundColor: "#6A0DAD" }}
+            whileHover={{ y: -5 }}
+            variants={slideInLeft}
+          >
+            <Typography variant="h3" color="light" mb="0.75rem">Advanced MCP Server</Typography>
+            <Typography variant="body" color="light">
+              Enhanced MCP server providing brain-garden specific tools to the agent, including skill-jacks via MCP and dynamic tool creation capabilities.
+            </Typography>
+          </CapabilityCard>
+          
+          <CapabilityCard 
+            style={{ backgroundColor: "#4CAF50" }}
+            whileHover={{ y: -5 }}
+            variants={slideInRight}
+          >
+            <Typography variant="h3" color="light" mb="0.75rem">Lead & Subordinate Agents</Typography>
+            <Typography variant="body" color="light">
+              Lead agent delegates tasks to specialized subordinate agents, such as architect agents for planning and tester agents for automated quality assurance.
+            </Typography>
+          </CapabilityCard>
+          
+          <CapabilityCard 
+            style={{ backgroundColor: "#2196F3" }}
+            whileHover={{ y: -5 }}
+            variants={slideInLeft}
+          >
+            <Typography variant="h3" color="light" mb="0.75rem">Advanced Workflow Integration</Typography>
+            <Typography variant="body" color="light">
+              Enhanced agile workflow with GitHub Projects integration, VSCode extensions, and continuous iterative improvements to leverage new technologies.
+            </Typography>
+          </CapabilityCard>
+        </CapabilityCardsGrid>
+        
+        {/* Research Focus */}
+        <ResearchAreaContainer 
+          variants={fadeInScale}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <Typography variant="h3" mb="1rem">Research Investment Areas</Typography>
           <Typography variant="body" mb="1.5rem">
-            The Brain Garden system is continuously evolving to enhance AI assistance capabilities. Our roadmap focuses on advancing both the Prompt System for more automated workflows and the Knowledge System for deeper, more interconnected expertise.
+            Our R&D resources are strategically invested in these transformative capabilities to 
+            create an increasingly autonomous and powerful Brain Garden ecosystem:
           </Typography>
-        </div>
-        
-        <div style={{ backgroundColor: '#f5f0ff', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>
-          <MermaidContainer variants={fadeInUp}>
-            <MermaidDiagram
-              definition={mermaidDefinition}
-              theme="default"
-              width="100%"
-              height="auto"
-              backgroundColor="transparent"
-            />
-          </MermaidContainer>
-        </div>
-        
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '1.5rem', 
-          marginBottom: '2rem' 
-        }}>
-          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-            <div>
-              <Typography variant="h3" mb="1rem">Advanced MCP Server</Typography>
-            </div>
-            <div>
-              <Typography variant="body">
-                Enhanced MCP server providing more brain-garden specific tools to the agent, including skill-jacks via MCP and meta MCP server allowing dynamically created skilljacks to become dynamically chosen agent tools.
-              </Typography>
-            </div>
-          </div>
-          
-          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-            <div>
-              <Typography variant="h3" mb="1rem">Lead & Subordinate Agents</Typography>
-            </div>
-            <div>
-              <Typography variant="body">
-                Lead agent delegates tasks to specialized subordinate agents, such as an architect agent for planning, tester agent for feedback, and multiple agents working in parallel on debugging errors.
-              </Typography>
-            </div>
-          </div>
-          
-          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-            <div>
-              <Typography variant="h3" mb="1rem">Advanced Workflow Integration</Typography>
-            </div>
-            <div>
-              <Typography variant="body">
-                Enhanced agile workflow with GitHub Projects integration, VSCode extensions providing GUI for CLI functionality, and continuous iterative improvements to leverage new technologies as they emerge.
-              </Typography>
-            </div>
-          </div>
-        </div>
+          <ResearchGridContainer
+            variants={cardStaggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {researchAreas.map((area, index) => (
+              <ResearchAreaCard 
+                key={index}
+                variants={index % 2 === 0 ? slideInLeft : slideInRight}
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                <Typography variant="h3" mb="0.5rem">{area.title}</Typography>
+                <Typography variant="body">{area.description}</Typography>
+              </ResearchAreaCard>
+            ))}
+          </ResearchGridContainer>
+        </ResearchAreaContainer>
       </motion.div>
     </ContentContainer>
   );
