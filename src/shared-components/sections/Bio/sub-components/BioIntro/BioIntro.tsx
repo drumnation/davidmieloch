@@ -1,6 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BioContent, fadeInUp } from '../../Bio.styles';
+import { HeadingWrapper } from './BioIntro.styles';
+import {
+  IconCode,
+  IconBuildingBridge,
+  IconMusicCode,
+  IconSchool,
+  IconPuzzle,
+  IconRocket,
+  IconBrain,
+  IconChartArcs,
+  IconAward,
+  IconBulb
+} from '@tabler/icons-react';
 
 // Define the props interface directly in this file since there seems to be an issue with importing it
 interface BioIntroProps {
@@ -10,32 +23,92 @@ interface BioIntroProps {
 export const BioIntro: React.FC<BioIntroProps> = ({ className }) => {
   return (
     <BioContent className={className} id="bio-intro">
+      <HeadingWrapper variants={fadeInUp}>
+        <IconCode />
+        <motion.h3>The Composer Who Codes</motion.h3>
+      </HeadingWrapper>
       <motion.p variants={fadeInUp}>
-        David Mieloch isn&apos;t your typical software architect. He&apos;s a full-stack developer and team lead with a secret weapon: a lifelong immersion in the world of music. From a childhood surrounded by professional musicians (his father, a Settlement Music School and Temple University-trained percussionist, even studied with the legendary Allan Abel) to his own award-winning compositions, David&apos;s journey has been one of intricate structures and creative expression – a journey that led him naturally to the world of software architecture.
+        David Mieloch brings a rare combination of disciplines to software architecture: the precision of a percussionist, the creativity of a composer, the strategic thinking of a marketer, and the customer-focused mindset of a sales professional. His journey began in the 90s, where a unique blend of musical heritage and technological curiosity set the foundation for his multifaceted career.
       </motion.p>
       
+      <HeadingWrapper variants={fadeInUp}>
+        <IconBuildingBridge />
+        <motion.h3>Early Foundations</motion.h3>
+      </HeadingWrapper>
       <motion.p variants={fadeInUp}>
-        At West Chester University, David didn&apos;t just earn a degree in Music Theory and Composition (2003-2008); he honed his ability to deconstruct complex systems, recognize patterns, and create elegant solutions. He mastered classical percussion and jazz drumset, developing the discipline, precision, and improvisational skills that are equally valuable in a coding environment. His secondary instruments? Piano, guitar, tabla – and, significantly, computer. This early exploration of music technology foreshadowed his future career, blending artistic creativity with technical prowess.
+        Born into a family where technology and music intertwined naturally, David's father—an electrical engineer specializing in piezoelectric film technology used in early Gibson guitars—showed him how engineering and music could harmoniously coexist. While his parents ran a successful wedding band for 16 years (his father on drums, mother as lead vocalist), young David was already exploring the intersection of technology and creativity, building computers from scratch and mastering DOS troubleshooting by age 13.
       </motion.p>
-      
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconMusicCode />
+        <motion.h3>Digital Beginnings</motion.h3>
+      </HeadingWrapper>
       <motion.p variants={fadeInUp}>
-        David&apos;s compositions weren&apos;t just academic exercises. He won multiple awards for his orchestral works, demonstrating a knack for crafting intricate, layered systems – a skill that translates directly to designing robust and scalable software architectures. He studied composition with Rick Hall, a connection fostered by Philadelphia tabla legend Lenny Seidman, further deepening his understanding of musical structure and form. He didn&apos;t just practice music; he created at a higher level.
+        His early technical journey began with HTML coding at age 13, building websites for an insurance company with knowledge gleaned from company-provided books. Simultaneously, he explored early computer-based music composition through Mode Edit, a tracker software where he learned to compose using octave notation on a 16-note grid—an early glimpse into how technology could enhance musical creation. This hands-on experience with both hardware and software—from configuring jumpers and installing memory to crafting digital compositions—laid the groundwork for his future in software architecture.
       </motion.p>
-      
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconSchool />
+        <motion.h3>Musical Journey</motion.h3>
+      </HeadingWrapper>
       <motion.p variants={fadeInUp}>
-        This creative drive extended beyond the concert hall. David founded, and handled, a music organization called &quot;The Absurdist Revolution&quot; at West Chester, designing and presenting large scale, theatrical productions.
+        David's musical path was equally diverse and formative. From playing drums in a hardcore metal band to performing in his high school jazz ensemble, singing in choir, and marching with the drumline, he developed a deep understanding of different musical structures and collaborative dynamics. These varied musical experiences, combined with his early exposure to computer-generated music, gave him a unique perspective on how different systems could work together harmoniously—a principle that would later become central to his approach to software architecture.
       </motion.p>
-      
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconPuzzle />
+        <motion.h3>Academic Evolution</motion.h3>
+      </HeadingWrapper>
       <motion.p variants={fadeInUp}>
-        While his father pursued Electrical Engineering at Drexel, solidifying the family&apos;s connection to both artistic and technical excellence, David found his own technical calling in software development. He channeled his passion for structure and problem-solving into mastering technologies like React.js, React Native, Node.js, and a wide range of other tools (as evidenced by his extensive skillset, from GraphQL to cloud platforms). He&apos;s not just a coder; he&apos;s a builder, a leader, and a mentor, spearheading technology adoption strategies and fostering a culture of technical excellence.
+        At West Chester University (2003-2008), David earned his degree in Music Theory and Composition, where analyzing complex musical scores taught him to deconstruct intricate systems and identify patterns—skills that directly translate to software architecture. His composition studies went far beyond just writing music; they demanded mastery of a sophisticated communication system that parallels modern software development. Just as developers must write code that both computers and humans can understand, David learned to create orchestral scores that could effectively communicate with up to 80 different instrumental parts simultaneously, each requiring instrument-specific notation and considerations.
       </motion.p>
-      
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconRocket />
+        <motion.h3>Professional Synthesis</motion.h3>
+      </HeadingWrapper>
       <motion.p variants={fadeInUp}>
-        David&apos;s experience isn&apos;t limited to theory. He&apos;s led the development of complex web and mobile applications at Scala, Inc., leveraging his architectural expertise to create solutions for projects like a Photoshop-like design tool for digital signage (Scala Cloud Platform) and an AI-powered audiobook creator (StoryTime). He&apos;s contributed to open-source projects and even built tools to enhance developer workflows (AI Context Generator, Code Companion). His resume shows all the projects he has contributed too, including We Learn Music Together: Mobile Game + Saas Platform, which highlights his passions. He brings the same meticulous attention to detail, iterative refinement, and collaborative spirit to software architecture that he honed through years of musical practice and performance. He understands that a well-designed system, like a well-composed symphony, is a harmonious blend of independent parts working together to achieve a powerful and unified whole.
+        This experience in orchestral composition developed his expertise in managing complex, interconnected systems. Like a well-architected codebase, each orchestral score required careful consideration of individual components (instruments) while maintaining overall system coherence. He learned to write "code" that respected each instrument's capabilities and conventions—similar to how software architects must consider platform-specific constraints and best practices. The success of his compositions relied not just on creative vision, but on his ability to communicate effectively through musical notation, ensuring each performer could interpret and execute their part within the larger system—a skill that directly parallels writing maintainable, well-documented code for development teams.
       </motion.p>
-      
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconAward />
+        <motion.h3>Drive and Achievement</motion.h3>
+      </HeadingWrapper>
       <motion.p variants={fadeInUp}>
-        David&apos;s background isn&apos;t just a collection of skills; it&apos;s a unique perspective. He sees the parallels between orchestrating a musical performance and architecting a complex software system. He understands the importance of both the big picture and the smallest detail, the creative spark and the rigorous execution. If you&apos;re looking for a software architect who can bring both artistry and technical mastery to your project, let&apos;s connect.
+        David's exceptional work ethic and ability to deliver under pressure became evident during his college years. Faced with multiple opportunities—a brass quintet competition, a prestigious Orchestra 2001 competition at Swarthmore, and a crucial Counterpoint class assignment—he demonstrated remarkable focus and efficiency. In a single intensive weekend, he composed a sophisticated sonata for string orchestra that he then skillfully adapted for brass quintet. The results were extraordinary: his work earned him an A in his course, won the brass quintet competition securing a professional ensemble performance, and claimed victory in the Orchestra 2001 competition, leading to a performance and recording by a 50-100 piece string orchestra. This ability to work efficiently under pressure while maintaining exceptional quality now defines his approach to complex software architecture challenges.
+      </motion.p>
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconBrain />
+        <motion.h3>Technical Renaissance</motion.h3>
+      </HeadingWrapper>
+      <motion.p variants={fadeInUp}>
+        Following his marketing success, David deepened his technical expertise through intensive study at the Flatiron School, mastering React, Redux, and Ruby on Rails. At Gramercy Tech, he single-handedly developed an award-winning React Native platform that earned "Best of NYC Toy Fair" from Parents' Magazine and "Activity Toy of the Year" at the Swedish Toy Awards. His innovative work extended to creating interactive applications for high-profile clients like TD/Ameritrade and Novartis Pharma, while also contributing to the open-source community with his react-native-cross-platform-dimensions package.
+      </motion.p>
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconChartArcs />
+        <motion.h3>Architectural Leadership</motion.h3>
+      </HeadingWrapper>
+      <motion.p variants={fadeInUp}>
+        For the past five years at Scala, David has exemplified technical leadership while spearheading the re-architecture of their flagship Designer product and Scala Cloud Platform. Leading a team of five developers, he's driven the adoption of modern React patterns, TypeScript, and Atomic Design principles through regular code reviews and one-on-ones. His comprehensive approach to documentation, including detailed JIRA tickets with user stories and technical specifications, has established clear communication channels across the organization.
+      </motion.p>
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconBulb />
+        <motion.h3>Impact & Innovation</motion.h3>
+      </HeadingWrapper>
+      <motion.p variants={fadeInUp}>
+        Under his guidance, the team has successfully delivered critical features including a template builder tool, device monitoring module, Node.js microservices, and a 24-hour scheduled projects player. His focus on mentorship and code quality has been instrumental in scaling the codebase for sustainable growth, while his expertise in React, TypeScript, and test-driven development has elevated the team's technical capabilities. This combination of technical excellence and leadership has been crucial in maintaining Scala's position as a global leader in stable, secure network deployment at scale.
+      </motion.p>
+
+      <HeadingWrapper variants={fadeInUp}>
+        <IconBulb />
+        <motion.h3>The Value Proposition</motion.h3>
+      </HeadingWrapper>
+      <motion.p variants={fadeInUp}>
+        For organizations seeking more than just technical expertise, David offers a transformative approach to software architecture. He brings the ear of a musician—attentive to the smallest details while never losing sight of the overall composition. He applies the discipline of a percussionist—maintaining precise timing and coordination across components. He leverages the customer focus of a sales professional—ensuring solutions address genuine user needs. And he utilizes the strategic thinking of a marketer—aligning technical decisions with business objectives. When deadlines tighten and requirements shift, the improvisational skills from his jazz background enable rapid adaptation without sacrificing quality.
       </motion.p>
     </BioContent>
   );

@@ -223,11 +223,15 @@ export const BioSubtitle = styled(motion.h2)`
 export const BioContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   font-size: 1.125rem;
   line-height: 1.8;
   color: ${({ theme }) => theme.colors.text.primary};
   margin-bottom: ${SPACING.section};
+  
+  h3 {
+    margin-top: 1rem;
+  }
   
   p {
     margin-bottom: ${SPACING.paragraph};
