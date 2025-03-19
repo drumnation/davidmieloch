@@ -61,22 +61,68 @@ export const TIMELINE_ITEMS = [
   }
 ];
 
-export const SKILLS = [
-  'React.js',
-  'React Native',
-  'Node.js',
-  'TypeScript',
-  'GraphQL',
-  'AWS',
-  'Azure',
-  'System Architecture',
-  'Team Leadership',
-  'UI/UX Design',
-  'Agile Methodologies',
-  'CI/CD',
-  'Performance Optimization',
-  'Scalable Systems',
-  'AI Integration'
+export interface SkillCategory {
+  name: string;
+  skills: string[];
+}
+
+export const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    name: "Core Technologies",
+    skills: ["TypeScript", "JavaScript", "HTML", "CSS3"]
+  },
+  {
+    name: "Frontend Development",
+    skills: ["React.js", "Next.js", "Angular.js"]
+  },
+  {
+    name: "Mobile Development",
+    skills: ["React Native", "Expo", "Android", "iOS"]
+  },
+  {
+    name: "UI & Styling",
+    skills: ["Ant Design", "Material UI", "Mantine", "Styled Components", "CSS Modules", "Sass"]
+  },
+  {
+    name: "Backend & APIs",
+    skills: ["Node.js", "Express", "Firebase", "GraphQL", "RESTful APIs"]
+  },
+  {
+    name: "State Management",
+    skills: ["Redux Toolkit", "React Context", "React Hooks"]
+  },
+  {
+    name: "Architecture",
+    skills: ["Atomic Design", "Clean Code"]
+  },
+  {
+    name: "Databases",
+    skills: ["MongoDB Atlas", "PostgreSQL", "Redis"]
+  },
+  {
+    name: "Development Tools",
+    skills: ["Webpack", "Vite", "Parcel", "Babel", "ESLint", "Prettier", "Husky"]
+  },
+  {
+    name: "Testing",
+    skills: ["Jest", "Playwright", "Puppeteer", "Storybook", "Detox"]
+  },
+  {
+    name: "DevOps & Deployment",
+    skills: ["GitHub Actions", "Docker", "AWS", "Vercel", "Supabase"]
+  },
+  {
+    name: "Extension Development",
+    skills: ["Chrome Extensions", "VS Code Extensions"]
+  },
+  {
+    name: "Monorepo Management",
+    skills: ["NX", "Turbo Repo", "PNPM + Yarn Workspaces"]
+  },
+  {
+    name: "AI Integration",
+    skills: ["OpenAI API", "Claude API", "Vector Databases"]
+  }
 ];
 
 export const MEDIA_ITEMS: MediaItem[] = [
@@ -91,6 +137,18 @@ export const MEDIA_ITEMS: MediaItem[] = [
     url: 'https://www.youtube.com/embed/KQsg_Iz3Ap8',
     title: 'Volcanas (Allegro)',
     description: 'Award-winning orchestral composition showcasing David\'s classical music training and orchestration skills.'
+  },
+  {
+    type: 'youtube',
+    url: 'https://www.youtube.com/embed/_-F-JsjnOL4',
+    title: 'Sonata No.1 (Adagio)',
+    description: 'A contemplative movement from David\'s first sonata, demonstrating his approach to form and emotional expression in classical composition.'
+  },
+  {
+    type: 'youtube',
+    url: 'https://www.youtube.com/embed/SL0jAk_a7mY',
+    title: 'Sonata No.1 (Mysterioso)',
+    description: 'The mysterious and evocative movement from David\'s first sonata, showcasing his ability to create compelling musical narratives.'
   },
   {
     type: 'youtube',
@@ -126,11 +184,6 @@ export const BIO_SECTIONS = [
     icon: null,
   },
   {
-    id: 'professional-journey',
-    title: 'Professional Journey',
-    icon: null,
-  },
-  {
     id: 'technical-expertise',
     title: 'Technical Expertise',
     icon: null,
@@ -139,5 +192,5 @@ export const BIO_SECTIONS = [
     id: 'featured-media',
     title: 'Featured Media',
     icon: null,
-  },
+  }
 ]; 

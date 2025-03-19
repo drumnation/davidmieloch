@@ -181,9 +181,9 @@ export const ContentSection = styled(motion.div)`
 
 export const ContentContainer = styled(motion.div)`
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto ${SPACING.section};
-  padding: 0 ${SPACING.container};
+  padding: 0 ${SPACING.section};
   
   @media (max-width: 576px) {
     margin-bottom: calc(${SPACING.section} * 0.75);
