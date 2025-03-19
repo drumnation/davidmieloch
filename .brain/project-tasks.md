@@ -440,3 +440,12 @@ Measurable impact and ROI of AI transformation solutions.
   - [x] Improved detail cards with centered headings and dark text for better visibility on white background
   - [x] Enhanced MECE diagram in Team Customization section with clearer LR flowchart layout and improved color coding
   - [x] Improved contrast in MECE diagram by using darker gray for Documentation nodes
+  - [x] Upgraded Parallel Development diagram with detailed branch structure, agent specialization, and merge conflict prevention visualization
+  - [x] Simplified Parallel Development diagram to a cleaner top-down flowchart with improved visual clarity and focus on agent-to-feature relationships
+  - [x] Increased size of Parallel Development diagram with larger text and padding for better readability
+  - [x] Adjusted height of Parallel Development diagram to ensure all content is fully visible without cutoff
+  - [x] Redesigned Garden Metaphor diagram with white backgrounds, improved text formatting, and special node styles to prevent text cutoff
+  - [x] Restored Garden Metaphor diagram to a column-based (LR) layout while maintaining white backgrounds and ensuring proper text display
+  - [x] Increased Garden Metaphor diagram height to ensure all elements are fully visible
+  - [x] Further increased Garden Metaphor diagram height to 1000px for complete visibility with ample spacing
+  - [x] Fine-tuned Garden Metaphor diagram height to 980px for optimal display balance

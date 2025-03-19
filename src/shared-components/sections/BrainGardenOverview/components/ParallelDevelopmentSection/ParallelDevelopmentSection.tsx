@@ -43,55 +43,80 @@ export const ParallelDevelopmentSection: React.FC<ParallelDevelopmentSectionProp
             <MermaidContainer variants={fadeInUp}>
               <MermaidDiagram
                 definition={`
-                  graph LR
-                    %% Main project repo with two developers working on different features
-                    subgraph "Developer 1 - Auth Feature"
-                      D1[".brain Directory"] --> D1A["auth/"]
-                      D1A --> D1R["requirements.md"]
-                      D1A --> D1C["components.md"]
-                    end
+                  flowchart TB
+                    %% Main repository at the top
+                    REPO["Git Repository"]
                     
-                    subgraph "Developer 2 - Profile Feature"
-                      D2[".brain Directory"] --> D2P["profile/"]
-                      D2P --> D2R["requirements.md"]
-                      D2P --> D2C["components.md"]
-                    end
+                    %% Branches coming down from repo
+                    REPO --> MainBranch["main branch"]
+                    REPO --> AuthBranch["auth-feature branch"]
+                    REPO --> ProfileBranch["profile-feature branch"]
                     
-                    %% Shared knowledge base through git
-                    subgraph "Shared Project Repository"
-                      REPO["Git Repository"]
-                      REPO --> BP[".brain Directory (Main)"]
-                      BP --> AUTH["auth/"]
-                      BP --> PROF["profile/"]
-                      BP --> SHARED["shared/"]
-                    end
+                    %% Main branch structure flowing down
+                    MainBranch --> MainBrain[".brain/"]
+                    MainBrain --> MainShared["Shared project files"]
+                    MainBrain --> MainAgents["Agent folders (empty)"]
                     
-                    %% The connections show how work flows
-                    D1 -->|"git push"| REPO
-                    D2 -->|"git push"| REPO
-                    REPO -->|"git pull"| D1
-                    REPO -->|"git pull"| D2
+                    %% Auth branch flowing down
+                    AuthBranch --> AuthBrain[".brain/"]
+                    AuthBrain --> AuthShared["Shared project<br>files (unchanged)"]
+                    AuthBrain --> AuthSmith["1-agent-smith/<br>(Active)"]
+                    AuthBrain --> AuthOthers["Other agents<br>(untouched)"]
                     
-                    classDef dev fill:#4a6bff,stroke:#333,color:white
-                    classDef repo fill:#9c6ade,stroke:#333,color:white
-                    classDef folder fill:#47b881,stroke:#333,color:white
-                    classDef file fill:#68d391,stroke:#333,color:white
+                    %% Auth agent work
+                    AuthSmith --> AuthWork["Permission Builder<br>Feature Work"]
                     
-                    class D1,D2 dev
+                    %% Profile branch flowing down
+                    ProfileBranch --> ProfileBrain[".brain/"]
+                    ProfileBrain --> ProfileShared["Shared project<br>files (unchanged)"]
+                    ProfileBrain --> ProfileKeen["2-agent-keen/<br>(Active)"]
+                    ProfileBrain --> ProfileOthers["Other agents<br>(untouched)"]
+                    
+                    %% Profile agent work
+                    ProfileKeen --> ProfileWork["Profile UI<br>Feature Work"]
+                    
+                    %% Merge flows coming back up to main
+                    AuthWork --> AuthMerge["Clean PR merge<br>(only agent-smith changes)"]
+                    ProfileWork --> ProfileMerge["Clean PR merge<br>(only agent-keen changes)"]
+                    
+                    AuthMerge --> NoConflict1["No merge conflicts"]
+                    ProfileMerge --> NoConflict2["No merge conflicts"]
+                    
+                    NoConflict1 --> MainBranch
+                    NoConflict2 --> MainBranch
+                    
+                    %% Core concept
+                    AuthSmith -.-> CONCEPT["One agent per feature<br>prevents merge conflicts"]
+                    ProfileKeen -.-> CONCEPT
+                    
+                    classDef repo fill:#6366F1,stroke:#333,stroke-width:2px,color:white,font-size:18px,font-weight:bold,padding:15px
+                    classDef branch fill:#10B981,stroke:#333,stroke-width:2px,color:white,font-size:16px,font-weight:bold,padding:12px
+                    classDef brain fill:#4a6bff,stroke:#333,stroke-width:2px,color:white,font-size:16px,font-weight:bold,padding:12px
+                    classDef active fill:#34D399,stroke:#333,stroke-width:2px,color:white,font-size:16px,font-weight:bold,padding:12px
+                    classDef files fill:#A5B4FC,stroke:#333,stroke-width:1px,color:white,font-size:15px,padding:10px
+                    classDef work fill:#60A5FA,stroke:#333,stroke-width:1px,color:white,font-size:15px,padding:10px
+                    classDef merge fill:#F97316,stroke:#333,stroke-width:1px,color:white,font-size:15px,padding:10px
+                    classDef concept fill:#8B5CF6,stroke:#333,stroke-width:2px,color:white,font-size:17px,font-weight:bold,padding:12px
+                    
                     class REPO repo
-                    class BP,D1A,D2P,AUTH,PROF,SHARED folder
-                    class D1R,D1C,D2R,D2C file
+                    class MainBranch,AuthBranch,ProfileBranch branch
+                    class MainBrain,AuthBrain,ProfileBrain brain
+                    class AuthSmith,ProfileKeen active
+                    class MainShared,AuthShared,ProfileShared,MainAgents,AuthOthers,ProfileOthers files
+                    class AuthWork,ProfileWork work
+                    class AuthMerge,ProfileMerge,NoConflict1,NoConflict2 merge
+                    class CONCEPT concept
                 `}
                 theme="default"
                 width="100%"
-                height="auto"
+                height="700px"
                 backgroundColor="transparent"
               />
             </MermaidContainer>
             
             <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
               <Typography variant="body" color="secondary">
-                The .brain directory's MECE organization allows multiple developers to work concurrently on separate features with minimal merge conflicts
+                The .brain directory's agent specialization model allows teams to work on multiple features in parallel without merge conflicts
               </Typography>
             </div>
           </div>

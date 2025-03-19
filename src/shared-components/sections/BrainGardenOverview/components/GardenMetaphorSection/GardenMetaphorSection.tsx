@@ -43,48 +43,74 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
             <MermaidContainer variants={fadeInUp}>
               <MermaidDiagram
                 definition={`
-                  graph LR
-                    %% Project lifecycle stages as garden phases
-                    subgraph "Planting (Initial Setup)"
-                      S1["Seed"]
-                      S1 --> DS[".brain Structure"]
-                      S1 --> TB["Tech Stack Selection"]
-                      S1 --> IA["Initial Architecture"]
+                  %%{init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#4a6bff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#333', 'lineColor': '#666', 'secondaryColor': '#47b881', 'tertiaryColor': '#fff', 'clusterBkg': '#ffffff', 'clusterBorder': '#cccccc' } } }%%
+                  flowchart LR
+                    %% Define the three main phases with their icons
+                    Seed[/"Seed"/]
+                    Sprout[/"Sprout"/]
+                    Mature[/"Mature"/]
+                    
+                    %% Group the planting phase
+                    subgraph Plant["Planting (Initial Setup)"]
+                      Seed
+                      BrainDir[".brain Structure"]
+                      TechStack["Tech Stack Selection"]
+                      InitArch["Initial Architecture"]
                     end
                     
-                    subgraph "Growth (Development)"
-                      S2["Sprout"]
-                      S2 --> RQ["Requirements Grow"]
-                      S2 --> KW["Knowledge Expands"]
-                      S2 --> CM["Components Multiply"]
-                    end
-                      
-                    subgraph "Harvest (Delivery)"
-                      S3["Mature"]
-                      S3 --> DC["Documentation Complete"]
-                      S3 --> FN["Features Finished"]
-                      S3 --> NX["Next Iterations Planned"]
+                    %% Group the growth phase
+                    subgraph Grow["Growth (Development)"]
+                      Sprout
+                      ReqGrow["Requirements Grow"]
+                      KnowExpand["Knowledge Expands"]
+                      CompMultiply["Components Multiply"]
                     end
                     
-                    %% How the knowledge flows between stages
-                    DS --> RQ
-                    TB --> KW
-                    IA --> CM
+                    %% Group the harvest phase
+                    subgraph Harvest["Harvest (Delivery)"]
+                      Mature
+                      DocComplete["Documentation Complete"]
+                      FeatFinish["Features Finished"]
+                      NextIter["Next Iterations Planned"]
+                    end
                     
-                    RQ --> DC
-                    KW --> FN
-                    CM --> NX
+                    %% Connect seed to outcomes in planting phase
+                    Seed --> BrainDir
+                    Seed --> TechStack
+                    Seed --> InitArch
                     
-                    classDef phase fill:#4a6bff,stroke:#333,color:white
-                    classDef stage fill:#9c6ade,stroke:#333,color:white
-                    classDef element fill:#47b881,stroke:#333,color:white
+                    %% Connect sprout to outcomes in growth phase
+                    Sprout --> ReqGrow
+                    Sprout --> KnowExpand
+                    Sprout --> CompMultiply
                     
-                    class S1,S2,S3 phase
-                    class DS,TB,IA,RQ,KW,CM,DC,FN,NX element
+                    %% Connect mature to outcomes in harvest phase
+                    Mature --> DocComplete
+                    Mature --> FeatFinish
+                    Mature --> NextIter
+                    
+                    %% Connect between phases to show knowledge flow
+                    BrainDir --> ReqGrow
+                    TechStack --> KnowExpand
+                    InitArch --> CompMultiply
+                    
+                    ReqGrow --> DocComplete
+                    KnowExpand --> FeatFinish
+                    CompMultiply --> NextIter
+                    
+                    %% Style definitions
+                    classDef phaseNode fill:#4a6bff,stroke:#333,color:white,font-weight:bold,padding:10px
+                    classDef actionNode fill:#47b881,stroke:#333,color:white,padding:10px,font-size:14px
+                    classDef clusterLabel font-weight:bold,font-size:16px,fill:none,stroke:none
+                    
+                    %% Apply styles
+                    class Seed,Sprout,Mature phaseNode
+                    class BrainDir,TechStack,InitArch,ReqGrow,KnowExpand,CompMultiply,DocComplete,FeatFinish,NextIter actionNode
+                    class Plant,Grow,Harvest clusterLabel
                 `}
                 theme="default"
                 width="100%"
-                height="auto"
+                height="980px"
                 backgroundColor="transparent"
               />
             </MermaidContainer>
