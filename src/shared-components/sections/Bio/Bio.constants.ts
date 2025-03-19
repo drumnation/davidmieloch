@@ -116,4 +116,28 @@ export const MEDIA_ITEMS: MediaItem[] = [
     title: 'Absurdist Revolution - Mark 1',
     description: 'Theatrical music production at West Chester University, showcasing David\'s creative direction and organization skills.'
   }
+];
+
+// Define the sections for the Bio page
+export const BIO_SECTIONS = [
+  {
+    id: 'bio-intro',
+    title: 'Introduction',
+    icon: null,
+  },
+  {
+    id: 'professional-journey',
+    title: 'Professional Journey',
+    icon: null,
+  },
+  {
+    id: 'technical-expertise',
+    title: 'Technical Expertise',
+    icon: null,
+  },
+  {
+    id: 'featured-media',
+    title: 'Featured Media',
+    icon: null,
+  },
 ]; 
