@@ -7,7 +7,6 @@ import { AiAutopilotAnalogy } from '../../sections/AiAutopilotAnalogy';
 import { BrainGardenOverview } from '../../sections/BrainGardenOverview';
 import { WhitePaperProps } from './WhitePaper.types';
 import { RealWorldImpact } from '@/shared-components/sections/RealWorldImpact';
-import TechnicalImplementation from '@/shared-components/sections/TechnicalImplementation';
 
 // Animation variants
 const fadeIn = {
@@ -44,7 +43,6 @@ export const WhitePaper: React.FC<WhitePaperProps> = ({
       <AiAutopilotAnalogy />
       <BrainGardenOverview />
       <RealWorldImpact />
-      <TechnicalImplementation />
       {/* Additional sections will be added here as they are developed */}
     </MotionDiv>
   );

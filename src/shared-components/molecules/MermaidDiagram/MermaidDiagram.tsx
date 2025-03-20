@@ -35,31 +35,67 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
   width = '100%',
   height = 'auto',
   backgroundColor,
+  responsive = true,
+  showZoomControls = false,
+  accessibilityDescription = '',
 }) => {
   const [svg, setSvg] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [zoomLevel, setZoomLevel] = useState<number>(1);
   const mermaidRef = useRef<HTMLDivElement>(null);
   const uniqueId = useRef(`mermaid-${Math.random().toString(36).substring(2, 11)}`);
+
+  // Add hover effect styles
+  const hoverStyles = `
+    .${uniqueId.current} g.node:hover {
+      filter: brightness(1.1);
+      cursor: pointer;
+      transform: scale(1.05);
+      transition: all 0.2s ease-in-out;
+    }
+    .${uniqueId.current} g.cluster:hover {
+      filter: brightness(1.05);
+      transition: all 0.2s ease-in-out;
+    }
+    .${uniqueId.current} .edgePath:hover {
+      stroke-width: 2.5px;
+      transition: all 0.2s ease-in-out;
+    }
+  `;
 
   useEffect(() => {
     // Initialize mermaid with theme configuration
     mermaid.initialize({
       startOnLoad: true,
-      theme,
-      securityLevel: 'loose',
+      theme: theme as any,
+      securityLevel: 'loose' as any,
       fontFamily: 'Inter, sans-serif',
+      fontSize: 16,
       flowchart: {
         htmlLabels: true,
-        curve: 'basis',
-        nodeSpacing: 60,
-        rankSpacing: 80,
-        padding: 15
+        curve: 'basis' as any,
+        nodeSpacing: 80,
+        rankSpacing: 100,
+        padding: 20,
+        useMaxWidth: true
       },
       themeVariables: {
-        nodeBorder: '0',
-        clusterBkg: 'transparent',
-        clusterBorder: 'rgba(0,0,0,0.1)'
+        nodeBorder: '2px',
+        fontSize: '16px',
+        fontFamily: 'Inter, sans-serif',
+        mainBkg: '#4a6bff',
+        secondaryBkg: '#9c6ade',
+        tertiaryBkg: '#f4f4f4',
+        primaryTextColor: '#ffffff',
+        secondaryTextColor: '#333333',
+        lineColor: '#666666',
+        clusterBkg: '#f8f9fa',
+        clusterBorder: 'rgba(0,0,0,0.2)',
+        labelBackground: '#ffffff',
+        labelBorder: '#e9ecef',
+        edgeLabelBackground: '#ffffff',
+        nodeTextColor: '#ffffff'
       }
     });
 
@@ -78,7 +114,11 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
         
         // Render the diagram
         const { svg } = await mermaid.render(uniqueId.current, processedDefinition);
-        setSvg(svg);
+        
+        // Add hover effects to the SVG
+        const enhancedSvg = svg.replace('<style>', `<style>${hoverStyles}`);
+        
+        setSvg(enhancedSvg);
         setLoading(false);
       } catch (err) {
         console.error('Mermaid rendering error:', err);
@@ -89,6 +129,19 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
 
     renderDiagram();
   }, [definition, theme]);
+
+  // Handle zoom controls
+  const handleZoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.1, 2));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.1, 0.5));
+  };
+
+  const handleResetZoom = () => {
+    setZoomLevel(1);
+  };
 
   if (loading) {
     return (
@@ -109,20 +162,86 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
   }
 
   return (
-    <div 
-      className={className} 
-      style={{ 
-        width, 
-        height, 
-        backgroundColor,
-        overflow: 'auto',
-        display: 'flex',
-        justifyContent: 'center',
-        padding: '10px'
-      }}
-      ref={mermaidRef}
-      dangerouslySetInnerHTML={{ __html: svg }}
-    />
+    <div style={{ width, overflow: 'hidden' }}>
+      {/* Screen reader accessibility description */}
+      {accessibilityDescription && (
+        <div className="sr-only" role="note" aria-label="Diagram description">
+          {accessibilityDescription}
+        </div>
+      )}
+      
+      {/* Zoom controls */}
+      {showZoomControls && (
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'flex-end', 
+          marginBottom: '10px',
+          gap: '5px'
+        }}>
+          <button 
+            onClick={handleZoomOut}
+            aria-label="Zoom out"
+            style={{ 
+              padding: '5px 10px',
+              border: '1px solid #ddd',
+              borderRadius: '4px',
+              background: 'white',
+              cursor: 'pointer'
+            }}
+          >
+            -
+          </button>
+          <button 
+            onClick={handleResetZoom}
+            aria-label="Reset zoom"
+            style={{ 
+              padding: '5px 10px',
+              border: '1px solid #ddd',
+              borderRadius: '4px',
+              background: 'white',
+              cursor: 'pointer'
+            }}
+          >
+            Reset
+          </button>
+          <button 
+            onClick={handleZoomIn}
+            aria-label="Zoom in"
+            style={{ 
+              padding: '5px 10px',
+              border: '1px solid #ddd',
+              borderRadius: '4px',
+              background: 'white',
+              cursor: 'pointer'
+            }}
+          >
+            +
+          </button>
+        </div>
+      )}
+      
+      {/* Diagram container */}
+      <div 
+        className={`${className} ${uniqueId.current}`}
+        style={{ 
+          width: '100%', 
+          height, 
+          backgroundColor,
+          overflow: 'auto',
+          display: 'flex',
+          justifyContent: 'center',
+          padding: '10px',
+          transform: `scale(${zoomLevel})`,
+          transformOrigin: 'center top',
+          transition: 'transform 0.2s ease-in-out'
+        }}
+        ref={mermaidRef}
+        dangerouslySetInnerHTML={{ __html: svg }}
+        role="img"
+        aria-label={accessibilityDescription || "System diagram visualization"}
+        tabIndex={0}
+      />
+    </div>
   );
 };
 

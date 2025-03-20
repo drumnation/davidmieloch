@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Typography } from '../../atoms/Typography';
 import { HeroProps } from './Hero.types';
@@ -56,6 +56,18 @@ export const Hero: React.FC<HeroProps> = ({
   const MotionHeroContent = motion(S.HeroContent);
   
   const itemVariants = animation === 'fade-up' ? fadeUpVariants : slideInVariants;
+  
+  // Log detailed information for debugging
+  useEffect(() => {
+    console.log('Hero props:', { 
+      background, 
+      backgroundImage, 
+      backgroundOverlay,
+      overlayOpacity,
+      textColor,
+      pattern
+    });
+  }, [background, backgroundImage, backgroundOverlay, overlayOpacity, textColor, pattern]);
 
   return (
     <MotionHeroContainer
@@ -71,23 +83,26 @@ export const Hero: React.FC<HeroProps> = ({
     >
       <MotionHeroContent initial={initialAnimation} animate="visible" variants={itemVariants}>
         {title && (
-          <Typography 
-            variant="h1" 
-            color={textColor === 'light' ? 'light' : 'primary'}
-            className="mb-4"
-          >
-            {title}
-          </Typography>
+          <S.Title>
+            <Typography 
+              variant="h1" 
+              color={textColor === 'light' ? 'light' : 'primary'}
+            >
+              {title}
+            </Typography>
+          </S.Title>
         )}
         
         {subtitle && (
-          <Typography 
-            variant="h3" 
-            weight="regular"
-            color={textColor === 'light' ? 'light' : 'secondary'}
-          >
-            {subtitle}
-          </Typography>
+          <S.Subtitle>
+            <Typography 
+              variant="h3" 
+              weight="regular"
+              color={textColor === 'light' ? 'light' : 'secondary'}
+            >
+              {subtitle}
+            </Typography>
+          </S.Subtitle>
         )}
       </MotionHeroContent>
     </MotionHeroContainer>

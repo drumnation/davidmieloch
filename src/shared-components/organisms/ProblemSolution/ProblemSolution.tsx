@@ -36,31 +36,33 @@ export const ProblemSolution: React.FC<ProblemSolutionProps> = ({
   className,
 }) => {
   return (
-    <S.Container className={className} $position={position}>
+    <S.Container className={`problem-solution-container ${className || ''}`} $position={position}>
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
+        className="problem-solution-motion-container"
+        style={{ width: '100%' }}
       >
-        <S.Card $style={style}>
-          <S.ProblemSection>
-            <Typography variant="subtitle1" className="mb-2">
+        <S.Card $style={style} className="problem-solution-card">
+          <S.ProblemSection className="problem-section">
+            <Typography variant="h3" weight="bold" mb="0.5rem">
               Problem
             </Typography>
             <S.ProblemText>{problem}</S.ProblemText>
           </S.ProblemSection>
           
-          <S.ConsequenceSection>
-            <Typography variant="subtitle1" className="mb-2">
+          <S.ConsequenceSection className="consequence-section">
+            <S.ConsequenceTitle>
               Consequence
-            </Typography>
+            </S.ConsequenceTitle>
             <S.ConsequenceText>{consequence}</S.ConsequenceText>
             
             {metrics && metrics.length > 0 && (
-              <S.MetricsList>
+              <S.MetricsList className="metrics-list">
                 {metrics.map((metric, index) => (
-                  <S.MetricItem key={index} variants={itemVariants}>
+                  <S.MetricItem key={index} variants={itemVariants} className="metric-item">
                     {metric}
                   </S.MetricItem>
                 ))}

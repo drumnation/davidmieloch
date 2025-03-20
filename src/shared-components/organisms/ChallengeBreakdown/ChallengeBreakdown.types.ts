@@ -15,9 +15,11 @@ export interface Challenge {
 export interface ChallengeBreakdownProps {
   title: string;
   description: string;
-  challenges: Challenge[];
-  style?: 'gradient-card' | 'accent-card';
-  position?: 'left' | 'right' | 'full-width';
+  challenges?: Challenge[];
+  key_issues?: Challenge[];
+  style?: 'gradient-card' | 'accent-card' | 'challenge-cards';
+  position?: 'left' | 'right' | 'center' | 'full-width';
   animation?: 'fade-up' | 'slide-in' | 'none';
   theme?: DefaultTheme;
+  className?: string;
 } 

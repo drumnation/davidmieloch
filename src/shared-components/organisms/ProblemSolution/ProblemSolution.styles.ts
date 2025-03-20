@@ -22,6 +22,11 @@ export const Container = styled.div<ContainerProps>`
       default: return 'flex-start';
     }
   }};
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    justify-content: center;
+    padding: 0 1rem;
+  }
 `;
 
 export const Card = styled.div<CardProps>`
@@ -35,6 +40,8 @@ export const Card = styled.div<CardProps>`
   
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: column;
+    max-width: 100%;
+    border-radius: 8px;
   }
   
   ${({ $style, theme }) => $style === 'default' && css`
@@ -47,8 +54,21 @@ export const Card = styled.div<CardProps>`
 export const ProblemSection = styled.div`
   padding: 1.5rem;
   flex: 1;
-  background: ${({ theme }) => theme.colors.primary.main};
-  color: ${({ theme }) => theme.colors.background.light};
+  background: ${({ theme }) => theme.colors.accent.red};
+  color: white;
+  
+  h1, h2, h3, h4, h5, h6, p {
+    color: white;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 1.25rem;
+    
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+  }
 `;
 
 export const ConsequenceSection = styled.div`
@@ -56,16 +76,57 @@ export const ConsequenceSection = styled.div`
   flex: 1;
   background: ${({ theme }) => theme.colors.background.paper};
   color: ${({ theme }) => theme.colors.text.primary};
+  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  border-left: none;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: ${({ theme }) => theme.colors.accent.red};
+    font-weight: 700;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    border-left: 1px solid ${({ theme }) => theme.colors.border.light};
+    border-top: none;
+    padding: 1.25rem;
+    
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+`;
+
+export const ConsequenceTitle = styled.h3`
+  color: ${({ theme }) => theme.colors.accent.red};
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const ProblemText = styled.p`
   font-size: 1.1rem;
   margin-bottom: 1rem;
+  color: white;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const ConsequenceText = styled.p`
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
+  color: ${({ theme }) => theme.colors.text.primary};
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 export const MetricsList = styled.ul`
@@ -77,15 +138,21 @@ export const MetricsList = styled.ul`
 export const MetricItem = styled(motion.li)`
   padding: 0.5rem 0;
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors.text.primary};
   font-weight: 500;
   
   &:before {
     content: '• ';
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors.accent.red};
     font-weight: bold;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
   }
-`; 
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 0.35rem 0;
+    font-size: 0.85rem;
+    margin-left: 1em;
+  }
+`;

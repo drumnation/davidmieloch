@@ -83,6 +83,12 @@ export const CardHeader = styled.div`
     color: white;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const CardBody = styled.div`

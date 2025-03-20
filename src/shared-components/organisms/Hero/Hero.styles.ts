@@ -12,7 +12,7 @@ const backgroundStyles = {
     background: ${({ theme }) => theme.colors.background.dark};
   `,
   image: css`
-    background-color: #000;
+    background-color: #000; /* Black background as fallback */
   `
 };
 
@@ -56,7 +56,8 @@ export const HeroContainer = styled.section<{
   ${({ $background }) => backgroundStyles[$background as keyof typeof backgroundStyles]}
   ${({ $textColor }) => textColorStyles[$textColor as keyof typeof textColorStyles]}
   ${({ $pattern, $background }) => $background !== 'image' && patternStyles[$pattern as keyof typeof patternStyles]}
-  ${({ $backgroundImage }) => $backgroundImage && css`
+  
+  ${({ $backgroundImage, $backgroundOverlay, $overlayOpacity }) => $backgroundImage && css`
     &::before {
       content: '';
       position: absolute;
@@ -70,6 +71,20 @@ export const HeroContainer = styled.section<{
       background-repeat: no-repeat;
       z-index: 0;
     }
+    
+    /* Add overlay when backgroundOverlay is true */
+    ${$backgroundOverlay && css`
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, ${$overlayOpacity || 0.5});
+        z-index: 0;
+      }
+    `}
   `}
   
   /* Ensure full width in all contexts */

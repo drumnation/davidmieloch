@@ -49,9 +49,7 @@ export const StatsComparison: React.FC<StatsComparisonProps> = ({
               variants={itemVariants}
             >
               <S.CardHeader>
-                <Typography variant="subtitle1" className="mb-1">
-                  {comparison.metric}
-                </Typography>
+                <p>{comparison.metric}</p>
               </S.CardHeader>
               <S.CardBody>
                 <S.CurrentValue>

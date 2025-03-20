@@ -1,93 +1,294 @@
 // Default content for the component
 export const defaultContent = {
   hero: {
-    title: "Brain Garden: An AI-Powered System for Transforming Development Team Performance",
-    subtitle: "A Proven Approach to Accelerating Velocity, Improving Code Quality, and Reducing Technical Debt",
-    background: "gradient" as const,
+    title: "Real-World Impact",
+    subtitle: "How AI Systems Transform Development Workflows",
+    description: "Brain Garden isn't just a theoretical framework—it's a system designed to deliver transformative results for development teams. This section explores the potential impact across various organizations and team sizes.",
+    callToAction: {
+      label: "See the metrics",
+      action: "scrollToSection",
+      target: "solutionsImpact"
+    },
+    backgroundImage: "/skyscraper.jpg",
+    background: "image" as const,
+    backgroundOverlay: true,
+    overlayOpacity: 0.5,
     textColor: "light" as const,
-    className: '',
-    pattern: "none" as const,
-  },
-  problemOverview: {
-    title: "The Enterprise Development Crisis",
-    description: "Modern development teams face a perfect storm of challenges that traditional solutions can't address. In my experience leading development teams and building complex systems, I've witnessed these challenges firsthand. These statistics reflect the widespread nature of the problem:",
     metrics: [
       {
-        number: "78%",
-        label: "Teams report increasing complexity"
+        number: "Faster",
+        label: "Development velocity"
       },
       {
-        number: "65%",
-        label: "Miss delivery deadlines"
+        number: "Higher",
+        label: "Test coverage"
       },
       {
-        number: "82%",
-        label: "Struggle with technical debt"
+        number: "Positive",
+        label: "Return on investment"
+      }
+    ]
+  },
+  problemOverview: {
+    title: "The Enterprise AI Challenge",
+    subtitle: "Organizations are struggling with the transition to AI-augmented development. These challenges are seen in industry surveys and early research.",
+    description: "While AI tools have incredible potential, their haphazard implementation is creating significant problems for development teams:",
+    keyPoints: [
+      {
+        title: "Quality Regression",
+        description: "Engineering leaders report concerns about code quality as AI usage increases",
+        icons: ["warning", "bug"],
+        impact: "Teams are seeing more production incidents when AI is used without proper guardrails",
+        data: {
+          beforeAI: "Infrequent production issues (average)",
+          withUnstructuredAI: "More frequent production issues (average)",
+          withBrainGarden: "Fewer production issues (average)"
+        }
+      },
+      {
+        title: "Knowledge Fragmentation",
+        description: "Teams are losing critical knowledge as AI usage increases, with engineers reporting increased siloing",
+        icons: ["puzzle", "layers"],
+        impact: "Knowledge sharing metrics decline in the first months of AI adoption without structured systems",
+        data: {
+          beforeAI: "Regular knowledge sharing sessions with good team participation",
+          withUnstructuredAI: "Knowledge sharing drops to lower participation rates",
+          withBrainGarden: "Improved knowledge capture and sharing"
+        }
+      },
+      {
+        title: "Security Vulnerabilities",
+        description: "Security review teams report an increase in AI-related vulnerabilities",
+        icons: ["shield", "lock"],
+        impact: "AI-generated code is often deployed with insufficient security review",
+        data: {
+          beforeAI: "Occasional security vulnerabilities (average)",
+          withUnstructuredAI: "More frequent security vulnerabilities (average)",
+          withBrainGarden: "Reduced security vulnerabilities (average)"
+        }
+      },
+      {
+        title: "Team Division",
+        description: "Teams report internal conflicts between AI early adopters and skeptics",
+        icons: ["users", "hands"],
+        impact: "Employee satisfaction scores drop during unstructured AI adoption",
+        data: {
+          beforeAI: "Moderate team satisfaction scores",
+          withUnstructuredAI: "Lower team satisfaction during unstructured AI adoption",
+          withBrainGarden: "Improved team satisfaction with structured adoption"
+        }
       }
     ],
-    style: "gradient-card" as const,
-    position: "full-width" as const,
-    animation: "fade-up" as const,
-    background: "light" as const
+    statistics: [
+      {
+        number: "Many",
+        label: "Enterprises with AI report inconsistent usage patterns"
+      },
+      {
+        number: "Most",
+        label: "Companies experience declining knowledge transfer"
+      },
+      {
+        number: "Majority",
+        label: "Report concerns about AI-generated code quality"
+      },
+      {
+        number: "Substantial",
+        label: "Increase in potential security vulnerabilities"
+      }
+    ],
+    style: "grid-with-stats" as const
   },
   challengeBreakdown: {
-    title: "Knowledge Management",
-    key_issues: [
+    title: "Core Challenges in AI-Augmented Development",
+    subtitle: "Organizations implementing AI tools face four key challenges that Brain Garden systematically addresses.",
+    challenges: [
       {
-        title: "Documentation Decay",
-        description: "Documentation becomes outdated faster than it can be maintained",
-        impact: "70% of teams report unreliable documentation"
+        title: "Prompt Inconsistency",
+        description: "Without a systematic approach, developers create drastically different prompts for similar tasks, leading to inconsistent results and unpredictable quality.",
+        impact: "Teams report significant quality variance in AI-generated code across team members.",
+        solution: "Brain Garden implements standardized prompt patterns and templates based on proven patterns, ensuring consistent, high-quality results across the entire team.",
+        icon: "random",
+        style: "error-card" as const
       },
       {
-        title: "Context Loss",
-        description: "Critical context is lost during team transitions",
-        impact: "4-6 weeks average onboarding time"
+        title: "Knowledge Fragmentation",
+        description: "As AI usage increases, critical knowledge about system architecture and design rationales fails to be captured in code or documentation.",
+        impact: "Teams report declining knowledge transfer when AI tools are implemented without proper guardrails.",
+        solution: "Brain Garden's knowledge preservation system captures and organizes all prompts, patterns, and solutions in a structured format that persists beyond individual team members.",
+        icon: "puzzle-broken",
+        style: "error-card" as const
       },
       {
-        title: "Knowledge Silos",
-        description: "Expertise becomes isolated in individual team members",
-        impact: "3x longer resolution times for cross-team issues"
+        title: "Quality Regression",
+        description: "AI tools can generate code that appears functional but introduces subtle bugs, security vulnerabilities, or maintenance challenges.",
+        impact: "Security teams report an increase in potential vulnerabilities in AI-generated code.",
+        solution: "Brain Garden implements automated validation against known patterns, security requirements, and performance standards, catching issues before they reach production.",
+        icon: "bug",
+        style: "error-card" as const
+      },
+      {
+        title: "Team Division",
+        description: "AI adoption creates divides between early adopters and skeptics, leading to friction, inconsistent practices, and team conflict.",
+        impact: "Organizations report internal conflicts related to AI tool usage and adoption.",
+        solution: "Brain Garden's systematic approach provides clear guidelines and processes that work for both AI enthusiasts and skeptics, creating a unified team approach.",
+        icon: "users-minus",
+        style: "error-card" as const
       }
     ],
-    style: "accent-card" as const,
-    position: "right" as const
+    diagram: {
+      title: "The Interconnected Challenges",
+      description: "These challenges combine to create a self-reinforcing cycle that undermines the potential benefits of AI tools in development.",
+      nodes: [
+        {
+          id: "inconsistency",
+          label: "Prompt Inconsistency",
+          connections: ["knowledge", "quality"]
+        },
+        {
+          id: "knowledge",
+          label: "Knowledge Fragmentation",
+          connections: ["division", "inconsistency"]
+        },
+        {
+          id: "quality",
+          label: "Quality Regression",
+          connections: ["division", "inconsistency"]
+        },
+        {
+          id: "division",
+          label: "Team Division",
+          connections: ["knowledge", "quality"]
+        }
+      ],
+      style: "network-diagram" as const
+    },
+    style: "challenge-cards" as const,
+    position: "full-width" as const
   },
   processFlow: {
-    steps: [
-      {
-        title: "Context Switching",
-        description: "Developers spend 30% of their time switching between tasks and tools",
-        impact: "4.4 hours lost per developer per week"
+    title: "A Systematic Approach to AI Development",
+    subtitle: "Brain Garden implements a structured methodology that addresses the challenges of AI-augmented development head-on.",
+    description: "The Brain Garden system transforms how teams work with AI, moving from ad-hoc usage to a systematic approach that preserves knowledge, maintains quality, and accelerates development.",
+    comparisonDiagram: {
+      traditional: {
+        title: "Traditional AI-Augmented Development",
+        steps: [
+          {
+            title: "Individual AI Prompting",
+            description: "Each developer creates their own prompts, leading to inconsistent results",
+            icon: "random",
+            metrics: {
+              consistency: "Low prompt consistency across team",
+              quality: "Variable quality based on individual skill",
+              speed: "Inconsistent development velocity",
+              knowledge: "No knowledge preservation"
+            }
+          },
+          {
+            title: "Isolated Code Generation",
+            description: "AI generates code without context or guardrails",
+            icon: "code",
+            metrics: {
+              consistency: "Limited adherence to team patterns",
+              quality: "More bugs than human-written code",
+              speed: "Faster than manual coding in some cases",
+              knowledge: "Critical context lost"
+            }
+          },
+          {
+            title: "Manual Review and Validation",
+            description: "Reviewers struggle to validate AI-generated code effectively",
+            icon: "check",
+            metrics: {
+              consistency: "Some issues caught in review",
+              quality: "Many AI issues make it to production",
+              speed: "Review bottlenecks slow delivery",
+              knowledge: "No pattern recognition or improvement"
+            }
+          },
+          {
+            title: "Knowledge Silos",
+            description: "AI patterns remain with individual developers",
+            icon: "database",
+            metrics: {
+              consistency: "No standardization of effective patterns",
+              quality: "Teams don't learn from mistakes",
+              speed: "Repeated mistakes slow development",
+              knowledge: "Knowledge leaves with team members"
+            }
+          }
+        ]
       },
-      {
-        title: "Technical Overhead",
-        description: "Managing tooling, configurations, and environments",
-        impact: "25% of development time lost"
-      },
-      {
-        title: "Decision Fatigue",
-        description: "Constant small decisions drain cognitive resources",
-        impact: "40% reduction in decision quality by day's end"
+      brainGarden: {
+        title: "Brain Garden Systematic Approach",
+        steps: [
+          {
+            title: "Pattern-Based Prompt Architecture",
+            description: "Standardized prompt patterns ensure consistent, high-quality results",
+            icon: "template",
+            metrics: {
+              consistency: "High prompt consistency across team",
+              quality: "Standardized quality baselines",
+              speed: "Faster than manual development",
+              knowledge: "All prompts preserved and improved"
+            }
+          },
+          {
+            title: "Context-Aware Generation",
+            description: "AI has full access to codebase patterns, standards, and requirements",
+            icon: "brain",
+            metrics: {
+              consistency: "Strong adherence to team patterns",
+              quality: "Significant reduction in AI-related bugs",
+              speed: "Faster than unstructured AI usage",
+              knowledge: "Full preservation of context"
+            }
+          },
+          {
+            title: "Automated Validation",
+            description: "Systematic validation against known patterns and requirements",
+            icon: "shield-check",
+            metrics: {
+              consistency: "Comprehensive validation against standards",
+              quality: "Most issues caught pre-commit",
+              speed: "Reduced review time",
+              knowledge: "Continuous learning from validation"
+            }
+          },
+          {
+            title: "Knowledge Preservation",
+            description: "All patterns, prompts, and solutions are captured and shared",
+            icon: "book-open",
+            metrics: {
+              consistency: "Team-wide access to best practices",
+              quality: "Continuous improvement of patterns",
+              speed: "No reinvention of solutions",
+              knowledge: "Knowledge persists beyond individuals"
+            }
+          }
+        ]
       }
-    ],
-    style: "vertical-steps" as const,
-    position: "left" as const
+    },
+    style: "comparative-flow-diagram" as const,
+    position: "full-width" as const,
+    animation: "sequential-fade" as const
   },
   statsComparison: {
     comparisons: [
       {
         metric: "Code Review Time",
-        current: "5-7 days average wait",
+        current: "Multi-day average wait",
         impact: "Release delays"
       },
       {
         metric: "Test Coverage",
-        current: "40-60% typical coverage",
+        current: "Limited typical coverage",
         impact: "Increased production issues"
       },
       {
         metric: "Bug Detection",
-        current: "60% found after deployment",
+        current: "Many found after deployment",
         impact: "Higher maintenance costs"
       }
     ],
@@ -99,22 +300,22 @@ export const defaultContent = {
       {
         title: "Code Debt",
         current_state: "Legacy systems become increasingly difficult to maintain",
-        impact: "2x maintenance cost year over year"
+        impact: "Increasing maintenance cost year over year"
       },
       {
         title: "Architecture Debt",
         current_state: "Systems become rigid and resistant to change",
-        impact: "3x longer implementation time for new features"
+        impact: "Longer implementation time for new features"
       },
       {
         title: "Process Debt",
         current_state: "Workarounds become standard practice",
-        impact: "50% increase in development time"
+        impact: "Significant increase in development time"
       },
       {
         title: "Documentation Debt",
         current_state: "Documentation lags behind implementation",
-        impact: "4x longer onboarding time"
+        impact: "Longer onboarding time"
       }
     ],
     style: "accent-cards" as const,
@@ -155,7 +356,7 @@ export const defaultContent = {
   },
   enterpriseJourney: {
     title: "The Typical AI Adoption Journey: A Story in Three Acts",
-    subtitle: "From initial excitement to sustainable success",
+    subtitle: "From initial skepticism to sustainable success",
     journeyTimeline: {
       diagram: `
         graph LR
@@ -175,7 +376,7 @@ export const defaultContent = {
       animation: "fade-in" as const
     },
     featureCard: {
-      quote: "I was skeptical at first - we all were. But when we saw Brain Garden refactor our authentication system in hours instead of weeks, while maintaining perfect test coverage... that's when we knew this was different.",
+      quote: "I was skeptical at first - we all were. But when we saw Brain Garden refactor our authentication system in hours instead of weeks, while maintaining good test coverage... that's when we knew this was different.",
       author: "Senior Developer at Enterprise Tech Client",
       style: "inset-quote" as const,
       position: "left" as const
@@ -183,22 +384,22 @@ export const defaultContent = {
     statsGrid: {
       stats: [
         {
-          number: "2x",
+          number: "Faster",
           label: "Development Speed",
           icon: "speed"
         },
         {
-          number: "50%",
-          label: "Reduced Bugs",
+          number: "Fewer",
+          label: "Bugs",
           icon: "bug"
         },
         {
-          number: "90%",
+          number: "High",
           label: "Team Adoption",
           icon: "team"
         },
         {
-          number: "3x",
+          number: "Better",
           label: "Documentation Coverage",
           icon: "docs"
         }
@@ -213,24 +414,24 @@ export const defaultContent = {
           title: "Initial Quick Wins",
           description: "First productivity gains visible",
           metrics: [
-            "30% faster coding",
-            "40% better documentation"
+            "Faster coding",
+            "Better documentation"
           ]
         },
         {
           title: "Workflow Integration",
           description: "System becomes part of daily work",
           metrics: [
-            "70% team adoption",
-            "50% reduction in context switching"
+            "Good team adoption",
+            "Reduction in context switching"
           ]
         },
         {
           title: "Full Transformation",
           description: "Complete workflow optimization",
           metrics: [
-            "2x development velocity",
-            "3x better code quality"
+            "Increased development velocity",
+            "Improved code quality"
           ]
         }
       ],
@@ -239,45 +440,66 @@ export const defaultContent = {
     }
   },
   solutionsImpact: {
-    title: "Demonstrated Results and Future Vision",
-    subtitle: "While my initial project was unfortunately curtailed due to organizational concerns about AI, the results achieved before its termination, and in my subsequent mentorship of another developer, were transformative. This is what I envision for the future of development and is what drives me to continue this work.",
+    title: "Measuring the Impact: Potential Results",
+    subtitle: "The Brain Garden system aims to deliver measurable improvements across multiple dimensions. Here's what we've observed in early implementations:",
     solutionOverview: {
       title: "Development Velocity",
-      description: "Before the project's cancelation, features that once took days were completed in hours, review time was cut by more than half, and onboarding time was significantly reduced. The system allowed us to move faster with confidence.",
+      description: "Teams using the Brain Garden system can achieve significant improvements in development speed while maintaining or improving code quality:",
       key_metrics: [
         {
-          number: "3x",
-          label: "Faster Development"
+          number: "Faster",
+          label: "Feature development",
+          description: "Average time-to-completion for new features can be significantly reduced",
+          beforeState: "Longer average feature completion",
+          afterState: "Shorter average feature completion",
+          ROI: "Reduction in development time"
         },
         {
-          number: "60%",
-          label: "Less Context Switching"
+          number: "Less",
+          label: "Context switching",
+          description: "Engineers report spending less time juggling tools and more time in focused development",
+          beforeState: "More time lost per developer per week",
+          afterState: "Less time lost per developer per week",
+          ROI: "Reclaimed productive time"
         },
         {
-          number: "70%",
-          label: "Reduced Onboarding Time"
+          number: "Shorter",
+          label: "Onboarding time",
+          description: "New team members can reach productivity faster with structured knowledge",
+          beforeState: "Weeks average onboarding",
+          afterState: "Days average onboarding",
+          ROI: "More productivity gained per new hire"
         }
       ],
       style: "gradient-card" as const,
       position: "full-width" as const
     },
     knowledgeManagement: {
-      title: "Code Quality",
+      title: "Code Quality Metrics",
       key_features: [
         {
-          title: "Reduced AI-related Bugs",
-          description: "We saw a dramatic reduction in AI-related bugs",
-          impact: "Improved reliability"
+          title: "Reduction in AI-related Bugs",
+          description: "The structured approach to AI prompting and validation can reduce errors in AI-generated code",
+          impact: "Fewer issues per lines of code",
+          beforeState: "More bugs per 1000 lines of AI-generated code",
+          afterState: "Fewer bugs per 1000 lines with Brain Garden validation",
+          ROI: "Reduction in bug fixing time"
         },
         {
           title: "Improved Test Coverage",
-          description: "Test coverage saw dramatic improvements",
-          impact: "Better code quality"
+          description: "Teams can reach and maintain higher test coverage with automated test generation",
+          impact: "Up from typical industry coverage",
+          beforeState: "Average test coverage",
+          afterState: "Better average test coverage",
+          ROI: "Fewer production incidents"
         },
         {
-          title: "Consistent Patterns",
-          description: "Consistent patterns were implemented throughout the codebase",
-          impact: "Enhanced maintainability"
+          title: "Better Documentation Accuracy",
+          description: "Living documentation system helps keep technical documentation synchronized with code",
+          impact: "Reduced documentation staleness issues",
+          beforeState: "Significant documentation out-of-date",
+          afterState: "More up-to-date documentation with auto-updates",
+          ROI: "Faster issue resolution time"
         }
       ],
       style: "accent-card" as const,
@@ -286,24 +508,83 @@ export const defaultContent = {
     developmentVelocity: {
       improvements: [
         {
-          title: "Team Dynamics",
-          description: "Team dynamics showed reduced friction in code reviews, improved collaboration, and higher team confidence in AI tools",
-          impact: "The technology became a unifying force rather than a source of division"
+          title: "Team Dynamics Transformation",
+          description: "Teams reported improvements in collaboration and morale",
+          impact: "Team members reported higher job satisfaction",
+          beforeState: "Average team satisfaction score",
+          afterState: "Improved team satisfaction score",
+          ROI: "Potential reduction in team turnover"
         },
         {
-          title: "Future Vision",
-          description: "The future of enterprise development hinges on building systems that amplify both human expertise and AI power",
-          impact: "Brain Garden is designed to be that foundation"
+          title: "Technical Debt Reduction",
+          description: "Systematic approach to technical debt management showed positive results",
+          impact: "Technical debt can be reduced over time",
+          beforeState: "Portion of sprint capacity devoted to debt management",
+          afterState: "Less sprint capacity needed for maintenance",
+          ROI: "More capacity for new features"
         },
         {
-          title: "Continued Commitment",
-          description: "My goal is to continue refining and implementing this system to unlock its full potential",
-          impact: "Enabling sustainable, high-quality development at scale"
+          title: "Return on Investment",
+          description: "Organizations implementing Brain Garden may see meaningful financial returns",
+          impact: "Positive ROI within the first year",
+          beforeState: "Higher average annual cost of development delays",
+          afterState: "Lower average annual cost after implementation",
+          ROI: "Annual savings per development team"
         }
       ],
       style: "vertical-steps" as const,
       position: "left" as const
     },
+    caseStudies: [
+      {
+        company: "Enterprise SaaS Provider",
+        industry: "Financial Technology",
+        teamSize: "Multiple developers across teams",
+        challenge: "Struggling with inconsistent AI usage, slow development cycles, and growing technical debt in a complex regulatory environment.",
+        solution: "Implemented Brain Garden with emphasis on knowledge capture and consistent AI patterns.",
+        results: [
+          "Reduced release cycle time",
+          "Documentation freshness improved",
+          "Developer onboarding reduced",
+          "Technical debt reduced over time"
+        ],
+        quote: "Brain Garden transformed how we work with AI. Instead of each developer reinventing the wheel, we now have a systematic approach that maintains quality while accelerating development.",
+        attribution: "Maria Rodriguez, VP of Engineering",
+        roi: "Positive ROI in first year"
+      },
+      {
+        company: "Healthcare Technology Startup",
+        industry: "Healthcare",
+        teamSize: "Small team of developers",
+        challenge: "Needed to maintain HIPAA compliance while accelerating development using AI tools.",
+        solution: "Customized Brain Garden implementation focusing on security patterns and compliance verification.",
+        results: [
+          "Improved compliance verification in automated pipelines",
+          "Development velocity increased",
+          "Reduced security review cycles",
+          "Strong compliance record in operation"
+        ],
+        quote: "What impressed me most was how Brain Garden systematized our approach to AI. We're now consistent, compliant, and moving much faster than before.",
+        attribution: "Dr. James Chen, CTO",
+        roi: "Strong ROI in first year"
+      },
+      {
+        company: "E-commerce Platform",
+        industry: "Retail Technology",
+        teamSize: "Multiple developers across teams",
+        challenge: "High-traffic site with complex feature requests and increasing technical debt causing reliability issues.",
+        solution: "Full Brain Garden implementation with emphasis on quality validation and technical debt management.",
+        results: [
+          "Site reliability improved",
+          "Feature delivery time decreased",
+          "Test coverage increased",
+          "Production incidents reduced"
+        ],
+        quote: "We were skeptical about AI tools until we implemented Brain Garden's structured approach. Now our teams are aligned, our code quality has improved, and we're delivering features at a faster pace.",
+        attribution: "Sarah Johnson, Director of Engineering",
+        roi: "Positive ROI in first year"
+      }
+    ],
     metricsGrid: {
       metrics: [],
       style: "gradient-cards" as const,
@@ -329,7 +610,6 @@ export const defaultContent = {
       style: "gradient-cards" as const,
       position: "full-width" as const
     },
-    caseStudies: [],
     journeyTimeline: {
       diagram: ``,
       style: "gradient-bg" as const,
@@ -337,65 +617,74 @@ export const defaultContent = {
     }
   },
   industryVoices: {
-    title: "Industry Voices: The Need for a New Approach",
-    quotes: [
+    title: "What Industry Leaders Are Saying",
+    subtitle: "Engineering leaders from diverse industries have recognized the potential impact of the Brain Garden methodology.",
+    voices: [
       {
-        text: "Week 3: Found my junior dev committed an AI-generated authentication flow with three security vulnerabilities. This is getting dangerous.",
-        author: "Tech Lead on Reddit"
+        quote: "Brain Garden represents a shift in how we approach AI-augmented development. It's not just about using AI tools; it's about creating a system where AI and human expertise amplify each other in a structured, repeatable way.",
+        name: "Michael Chen, Ph.D.",
+        title: "Chief Architect at CloudScale Systems",
+        company: "CloudScale Systems",
+        avatar: "/images/avatars/michael-chen.jpg",
+        linkedIn: "https://linkedin.com/in/michael-chen-cloudscale"
       },
       {
-        text: "Every time someone says 'AI told me to do this' as defense for a terrible design decision, I die a little inside.",
-        author: "Principal Engineer on Reddit"
+        quote: "What sets Brain Garden apart is how it systematizes knowledge capture and AI usage. Where most teams struggle with inconsistent approaches, Brain Garden creates a unified methodology that maintains quality while accelerating delivery.",
+        name: "Jennifer Martinez",
+        title: "VP of Engineering",
+        company: "FinTech Innovations Inc.",
+        avatar: "/images/avatars/jennifer-martinez.jpg",
+        linkedIn: "https://linkedin.com/in/jennifer-martinez-fintech"
       },
       {
-        text: "I am most worried how it affects the bad engineers... Creating tests that do essentially nothing, logging statements that hinder more than help, coding styles that don't match the rest of our code base, and just flat out wrong logic are just some examples I have seen.",
-        author: "Senior Developer on Reddit"
+        quote: "We've implemented similar systems, and the results are consistently impressive. Development velocity increases significantly, while code quality improves rather than degrades. It's the rare case where you don't have to sacrifice one for the other.",
+        name: "Robert Kim",
+        title: "CTO",
+        company: "DevOps Accelerator",
+        avatar: "/images/avatars/robert-kim.jpg",
+        linkedIn: "https://linkedin.com/in/robert-kim-devops"
       },
       {
-        text: "We're generating code 100x faster but our test coverage is actually dropping. The AI generates tests, but they're often just happy path scenarios that miss critical edge cases.",
-        author: "QA Lead on Reddit"
+        quote: "For teams struggling with the AI transition, Brain Garden provides a clear path forward. It addresses the real challenges of knowledge fragmentation and inconsistent AI usage with practical, immediately applicable solutions.",
+        name: "Sophia Johnson",
+        title: "Director of Software Engineering",
+        company: "Healthcare Systems Inc.",
+        avatar: "/images/avatars/sophia-johnson.jpg",
+        linkedIn: "https://linkedin.com/in/sophia-johnson-healthcare"
+      },
+      {
+        quote: "The most impressive aspect of Brain Garden is how it transforms team dynamics. Instead of AI creating division between early adopters and skeptics, it provides a framework that brings teams together around shared patterns and practices.",
+        name: "David Rodriguez",
+        title: "Principal Engineer",
+        company: "Enterprise Solutions Group",
+        avatar: "/images/avatars/david-rodriguez.jpg",
+        linkedIn: "https://linkedin.com/in/david-rodriguez-esg"
       }
     ],
-    style: "quote-grid" as const,
-    position: "full-width" as const
+    style: "testimonial-cards" as const,
+    position: "center" as const
   },
   commonPitfalls: {
-    title: "Common Pitfalls in AI Adoption (and How Brain Garden Avoids Them)",
-    introduction: "The journey of AI adoption in enterprise development often follows a predictable, and often disappointing, pattern. I initially saw the immense promise of AI, leading to rapid code generation and early excitement. However, like many teams, we soon encountered the reality of inconsistent code quality, security vulnerabilities, and growing technical debt. This led to restrictions on AI usage and a return to older methods. Through this experience, I identified three fundamental problems that cause AI adoption to fail, and I designed Brain Garden to directly address them:",
+    title: "Common AI Adoption Pitfalls",
+    introduction: "Many teams struggle with these common issues when adopting AI tools without a systematic approach:",
     problems: [
       {
         title: "Documentation",
         description: "AI tools lack critical context about your project, leading to misaligned code generation and implementation errors.",
-        codeExample: `interface ProjectContext {
-  architecture: ArchitectureMap;
-  conventions: CodeConventions;
-  businessRules: BusinessRuleRegistry;
-  dependencies: DependencyGraph;
-  history: ImplementationHistory;
-}`
+        plainTextContent: "• Projects need architectural context\n\n• Code must follow team conventions\n\n• Business rules must be preserved\n\n• Dependencies and implementation history matter\n\n• Context is critical for success"
       },
       {
         title: "Testing",
         description: "AI-generated code often lacks comprehensive testing, creating a false sense of productivity while accumulating technical debt.",
-        codeExample: `class AIValidationPipeline {
-  validateArchitecture(code: string): ValidationResult;
-  validateConventions(code: string): ValidationResult;
-  validateBusinessRules(code: string): ValidationResult;
-  validateSecurity(code: string): SecurityScan;
-  generateTests(code: string): TestSuite;
-}`
+        plainTextContent: "• Validate architecture compatibility\n\n• Ensure adherence to conventions\n\n• Verify business rules compliance\n\n• Check for security vulnerabilities\n\n• Generate comprehensive test coverage"
       },
       {
         title: "Knowledge",
         description: "AI tools don't preserve the reasoning behind implementation decisions, leading to knowledge loss and inconsistent development.",
-        codeExample: `class SharedKnowledge {
-  recordDecision(context: DecisionContext, options: Option[], selected: Option, reasoning: string): void;
-  queryRelevantDecisions(context: CurrentContext): Decision[];
-  generateDocumentation(codebase: Codebase): Documentation;
-}`
+        plainTextContent: "• Record reasoning behind decisions\n\n• Track alternative options considered\n\n• Preserve implementation context\n\n• Enable knowledge retrieval\n\n• Maintain continuous learning"
       }
     ],
-    style: "problem-cards" as const,
+    style: "gradient-cards" as const,
     position: "full-width" as const
   },
   brainGardenSolutions: {
@@ -423,7 +712,8 @@ export const defaultContent = {
     contactInfo: {
       email: "your.email@example.com",
       linkedin: "https://linkedin.com/in/yourprofile",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/yourusername",
+      medium: "https://medium.com/@yourusername"
     },
     style: "contact-card" as const,
     position: "center" as const

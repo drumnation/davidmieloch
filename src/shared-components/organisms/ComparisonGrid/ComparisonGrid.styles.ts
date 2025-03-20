@@ -39,29 +39,34 @@ export const Card = styled(motion.div)<{ styleType?: string }>`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  background-color: ${props => props.theme.colors.accent.blue};
+  color: white;
   
   ${props => props.styleType === 'accent-cards' && `
-    background-color: #fff;
-    border-top: 4px solid ${props.theme.colors.primary.main};
+    border-top: 4px solid rgba(255, 255, 255, 0.3);
   `}
   
   ${props => props.styleType === 'gradient-cards' && `
-    background: linear-gradient(135deg, ${props.theme.colors.primary.main}, ${props.theme.colors.secondary.main});
-    color: #fff;
+    background: ${props.theme.colors.accent.blue};
   `}
   
   ${props => props.styleType === 'default' && `
-    background-color: #fff;
+    background-color: ${props.theme.colors.accent.blue};
   `}
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
 `;
 
 export const AspectTitle = styled.h3`
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: white;
 `;
 
 export const ComparisonContainer = styled.div`
@@ -76,7 +81,7 @@ export const ComparisonItem = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   
   &:last-child {
     border-bottom: none;
@@ -87,11 +92,13 @@ export const Label = styled.span`
   font-weight: 500;
   font-size: 0.875rem;
   text-transform: uppercase;
-  opacity: 0.7;
+  opacity: 0.8;
+  color: white;
 `;
 
 export const Value = styled.span`
   font-size: 1rem;
+  color: white;
 `;
 
 export const IconWrapper = styled.div`
@@ -101,8 +108,8 @@ export const IconWrapper = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: ${props => props.theme.colors.primary.light};
-  color: ${props => props.theme.colors.primary.main};
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
   margin-right: 0.5rem;
 `;
 

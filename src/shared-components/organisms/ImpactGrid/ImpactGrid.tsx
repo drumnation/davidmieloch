@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { Typography } from '../../atoms/Typography/Typography';
 import { ImpactGridProps, ImpactCategory } from './ImpactGrid.types';
 import * as S from './ImpactGrid.styles';
+import { 
+  FaCheckCircle, 
+  FaArrowUp, 
+  FaChartLine, 
+  FaRocket,
+  FaThumbsUp
+} from 'react-icons/fa';
+import styled from 'styled-components';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +35,22 @@ const itemVariants = {
   },
 };
 
+const CategoryTitle = styled.div`
+  margin-bottom: 0.25rem;
+`;
+
+// Function to get a random icon for each metric
+const getMetricIcon = (index: number) => {
+  const icons = [
+    <FaCheckCircle key="check" style={{ color: '#4CAF50' }} />,
+    <FaArrowUp key="arrow" style={{ color: '#2196F3' }} />,
+    <FaChartLine key="chart" style={{ color: '#9C27B0' }} />,
+    <FaRocket key="rocket" style={{ color: '#FF9800' }} />,
+    <FaThumbsUp key="thumbs" style={{ color: '#3F51B5' }} />
+  ];
+  return icons[index % icons.length];
+};
+
 export const ImpactGrid: React.FC<ImpactGridProps> = ({
   impacts,
   style = 'gradient-cards',
@@ -49,14 +73,19 @@ export const ImpactGrid: React.FC<ImpactGridProps> = ({
               variants={itemVariants}
             >
               <S.CardHeader>
-                <Typography variant="subtitle1" className="mb-1">
-                  {impact.category}
-                </Typography>
+                <CategoryTitle>
+                  <Typography variant="h3">
+                    {impact.category}
+                  </Typography>
+                </CategoryTitle>
               </S.CardHeader>
               <S.CardBody>
                 <S.MetricsList>
                   {impact.metrics.map((metric: string, metricIndex: number) => (
                     <S.MetricItem key={metricIndex}>
+                      <span style={{ marginRight: '8px', display: 'inline-flex', alignItems: 'center' }}>
+                        {getMetricIcon(metricIndex)}
+                      </span>
                       {metric}
                     </S.MetricItem>
                   ))}

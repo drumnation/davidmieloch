@@ -26,6 +26,7 @@ const TechnicalImplementation: FC<TechnicalImplementationProps> = (props) => {
     integrationSystemDiagram,
     knowledgeFlowDiagram,
     performanceScalabilityDiagram,
+    systemOverview,
     knowledgeSystem,
     agentSystem,
     integrationSystem,
@@ -63,7 +64,13 @@ const TechnicalImplementation: FC<TechnicalImplementationProps> = (props) => {
           viewport={{ once: true }}
         >
           <motion.div variants={S.fadeInUp}>
-            <SystemOverview diagram={systemOverviewDiagram} />
+            <SystemOverview 
+              diagram={systemOverviewDiagram} 
+              introduction={systemOverview?.introduction}
+              promptExample={systemOverview?.promptExample}
+              taskExample={systemOverview?.taskExample}
+              githubExample={systemOverview?.githubExample}
+            />
           </motion.div>
 
           <motion.div variants={S.fadeInUp}>

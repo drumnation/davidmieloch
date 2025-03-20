@@ -3,45 +3,130 @@ export interface RealWorldImpactProps {
   heroProps?: {
     title: string;
     subtitle: string;
+    
+    // Legacy properties
     background?: 'image' | 'gradient' | 'dark' | 'light';
     backgroundImage?: string;
     backgroundOverlay?: boolean;
     overlayOpacity?: number;
     pattern?: string;
-    textColor: 'light' | 'dark';
+    textColor?: 'light' | 'dark';
     animation?: string;
     className?: string;
-  };
-  problemOverviewProps?: {
-    title: string;
-    description: string;
-    metrics: Array<{
+    
+    // New properties
+    description?: string;
+    callToAction?: {
+      label: string;
+      action: string;
+      target: string;
+    };
+    backgroundImageUrl?: string;
+    style?: 'gradient-overlay' | string;
+    metrics?: Array<{
       number: string;
       label: string;
     }>;
-    style?: 'gradient-card' | 'accent-card' | 'default';
+  };
+  problemOverviewProps?: {
+    title: string;
+    subtitle?: string;
+    description: string;
+    metrics?: Array<{
+      number: string;
+      label: string;
+    }>;
+    keyPoints?: Array<{
+      title: string;
+      description: string;
+      icons: string[];
+      impact: string;
+      data: {
+        beforeAI: string;
+        withUnstructuredAI: string;
+        withBrainGarden: string;
+      };
+    }>;
+    statistics?: Array<{
+      number: string;
+      label: string;
+    }>;
+    style?: 'gradient-card' | 'accent-card' | 'default' | 'grid-with-stats';
     position?: 'full-width' | 'left' | 'right' | 'center';
     animation?: 'fade-up' | 'slide-in' | 'none';
     background?: 'light' | 'dark' | 'gradient';
   };
   challengeBreakdownProps?: {
-    title: string;
-    key_issues: Array<{
+    title?: string;
+    description?: string;
+    key_issues?: Array<{
       title: string;
       description: string;
       impact: string;
     }>;
-    style?: 'accent-card' | 'gradient-card' | 'default';
-    position?: 'right' | 'left' | 'center' | 'full-width';
+    challenges?: Array<{
+      title: string;
+      description: string;
+      impact: string;
+      solution?: string;
+      icon?: string;
+      style?: string;
+    }>;
+    diagram?: {
+      title: string;
+      description: string;
+      nodes: Array<{
+        id: string;
+        label: string;
+        description?: string;
+        connections?: string[];
+      }>;
+      style: string;
+    };
+    style?: 'accent-card' | 'gradient-card' | 'challenge-cards' | 'default';
+    position?: 'left' | 'center' | 'right' | 'full-width';
   };
   processFlowProps?: {
-    steps: Array<{
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    steps?: Array<{
       title: string;
       description: string;
       impact: string;
     }>;
-    style?: 'vertical-steps' | 'horizontal-steps';
-    position?: 'left' | 'right' | 'center' | 'full-width';
+    comparisonDiagram?: {
+      traditional: {
+        title: string;
+        steps: Array<{
+          title: string;
+          description: string;
+          icon: string;
+          metrics: {
+            consistency: string;
+            quality: string;
+            speed: string;
+            knowledge: string;
+          };
+        }>;
+      };
+      brainGarden: {
+        title: string;
+        steps: Array<{
+          title: string;
+          description: string;
+          icon: string;
+          metrics: {
+            consistency: string;
+            quality: string;
+            speed: string;
+            knowledge: string;
+          };
+        }>;
+      };
+    };
+    style?: 'horizontal-steps' | 'vertical-steps' | 'comparative-flow-diagram';
+    position?: 'left' | 'center' | 'right' | 'full-width';
   };
   statsComparisonProps?: {
     comparisons: Array<{
@@ -222,9 +307,19 @@ export interface RealWorldImpactProps {
   };
   industryVoicesProps?: {
     title: string;
-    quotes: Array<{
+    subtitle?: string;
+    quotes?: Array<{
       text: string;
       author: string;
+      role?: string;
+    }>;
+    voices?: Array<{
+      quote: string;
+      name: string;
+      title: string;
+      company: string;
+      avatar?: string;
+      linkedIn?: string;
     }>;
     style: string;
     position: string;

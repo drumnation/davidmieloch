@@ -22,6 +22,16 @@ export interface ProcessFlowStep {
 
 export interface ProcessFlowProps {
   /**
+   * Title of the process flow section
+   */
+  title?: string;
+  
+  /**
+   * Subtitle of the process flow section
+   */
+  subtitle?: string;
+  
+  /**
    * Array of steps to display in the process flow
    */
   steps: ProcessFlowStep[];
