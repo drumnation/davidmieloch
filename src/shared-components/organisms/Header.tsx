@@ -22,6 +22,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { useTheme } from '../../../src/providers/ThemeProvider';
 import { IconFileDownload, IconBrandGithub, IconBrandLinkedin, IconBrandMedium } from '@tabler/icons-react';
 import { ClientOnly } from '../../../src/utils';
+import { usePathname } from 'next/navigation';
 
 // Simple sun and moon icons for theme toggle
 const SunIcon = () => (
@@ -53,6 +54,7 @@ const navLinks: NavLink[] = [
   { label: 'Enterprise AI DevFramework', href: '/enterprise-ai-development-framework' },
   { label: 'Best Practices Integration', href: '/best-practices-integration' },
   { label: 'Bio', href: '/bio' },
+  { label: 'Code Examples', href: '/code-examples' },
   // { label: 'Blog', href: '/blog' },
   // { label: 'Contact', href: '/contact' },
 ];
@@ -64,36 +66,17 @@ const socialLinks = [
   { name: 'Medium', icon: IconBrandMedium, url: 'https://medium.com/@davidmieloch' }
 ];
 
-// Theme toggle button component that uses ClientOnly to prevent hydration errors
-const ThemeToggle = () => {
-  const { colorScheme, toggleColorScheme } = useTheme();
-  const isDark = colorScheme === 'dark';
-  
-  return (
-    <Tooltip label={isDark ? 'Light mode' : 'Dark mode'}>
-      <ActionIcon 
-        variant="subtle" 
-        onClick={toggleColorScheme} 
-        aria-label="Toggle color scheme"
-      >
-        {isDark ? <SunIcon /> : <MoonIcon />}
-      </ActionIcon>
-    </Tooltip>
-  );
-};
-
 export function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const theme = useMantineTheme();
-  const { colorScheme } = useTheme();
-  const isDark = colorScheme === 'dark';
+  // Force light mode
+  const isDark = false;
+  // Use Next.js pathname hook instead of window check
+  const pathname = usePathname();
 
-  // Use a simple approach that works in both routers
+  // Determine if a link is active based on the current pathname
   const isActive = (href: string) => {
-    if (typeof window !== 'undefined') {
-      return window.location.pathname === href;
-    }
-    return false;
+    return pathname === href;
   };
 
   const handleResumeDownload = () => {
@@ -111,13 +94,14 @@ export function Header() {
       <UnstyledButton
         style={{
           position: 'relative',
-          color: isActive(link.href) ? theme.colors.blue[6] : theme.colors.gray[isDark ? 3 : 7],
+          color: isActive(link.href) ? theme.colors.blue[6] : theme.colors.gray[7],
           fontWeight: 500,
           padding: `${rem(8)} ${rem(12)}`,
           borderRadius: theme.radius.sm,
+          whiteSpace: 'nowrap',
         }}
       >
-        <Text>{link.label}</Text>
+        <Text size="sm">{link.label}</Text>
         {isActive(link.href) && (
           <Box
             style={{
@@ -136,136 +120,141 @@ export function Header() {
   ));
 
   return (
-    <AppShell.Header p="md" style={{ 
-      backdropFilter: 'blur(10px)',
-      backgroundColor: isDark ? 'rgba(26, 27, 30, 0.8)' : 'rgba(255, 255, 255, 0.8)',
-      borderBottom: `1px solid ${isDark ? 'rgba(0, 188, 212, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
-    }}>
-      <Container size="lg">
-        <Group justify="space-between" h="100%">
-          <Group>
-            <Link href="/" style={{ textDecoration: 'none' }}>
-              <UnstyledButton style={{ textDecoration: 'none' }}>
-                <Group gap="xs" align="center">
-                  <Image 
-                    src="/web-app-manifest-192x192.png" 
-                    alt="David Mieloch Logo" 
-                    width={32} 
-                    height={32} 
-                    style={{ borderRadius: '50%' }}
-                  />
-                  <Text 
-                    fw={700} 
-                    size="lg" 
-                    style={{
-                      color: isDark ? '#ffffff' : '#141517'
-                    }}
-                  >
-                    David Mieloch
-                  </Text>
-                </Group>
-              </UnstyledButton>
-            </Link>
-            
-            {/* Social Links */}
-            <Group gap="xs" ml="md">
-              {socialLinks.map((link) => (
-                <Tooltip key={link.name} label={link.name}>
-                  <ActionIcon
-                    component="a"
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="subtle"
-                    color="blue"
-                    size="md"
-                  >
-                    <link.icon size={18} />
-                  </ActionIcon>
-                </Tooltip>
-              ))}
-            </Group>
-          </Group>
-
-          <Group gap={5}>
-            {/* Desktop navigation */}
-            <Group gap={5} visibleFrom="sm">
-              {navItems}
-            </Group>
-            
-            {/* Resume download button */}
-            <ClientOnly>
-              <Button
-                variant="subtle"
-                leftSection={<IconFileDownload size={16} />}
-                onClick={handleResumeDownload}
-                visibleFrom="sm"
-              >
-                Resume
-              </Button>
-            </ClientOnly>
-            
-            {/* Theme toggle */}
-            <ClientOnly>
-              <ThemeToggle />
-            </ClientOnly>
-
-            {/* Mobile navigation */}
-            <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />
-          </Group>
-          
-          <Drawer
-            opened={opened}
-            onClose={close}
-            title={
-              <Group gap="xs" align="center">
+    <AppShell.Header 
+      p="md" 
+      style={{ 
+        backdropFilter: 'blur(10px)',
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+        position: 'fixed',
+        top: 0,
+        width: '100%',
+        zIndex: 1000,
+        height: '60px', // Fixed height
+        overflow: 'visible', // Allow dropdowns to be visible
+      }}
+    >
+      <Container size="lg" h="100%" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Group wrap="nowrap" style={{ flex: '0 0 auto' }}>
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <UnstyledButton style={{ textDecoration: 'none' }}>
+              <Group gap="xs" align="center" wrap="nowrap">
                 <Image 
-                  src="/logo.png" 
+                  src="/web-app-manifest-192x192.png" 
                   alt="David Mieloch Logo" 
-                  width={24} 
-                  height={24} 
-                  style={{ borderRadius: '4px' }}
+                  width={32} 
+                  height={32} 
+                  style={{ borderRadius: '50%' }}
                 />
                 <Text 
                   fw={700} 
-                  size="md" 
+                  size="lg" 
                   style={{
-                    color: isDark ? '#ffffff' : '#141517'
+                    color: '#141517'
                   }}
                 >
                   David Mieloch
                 </Text>
               </Group>
-            }
-            position="right"
-            size="xs"
-            overlayProps={{ opacity: 0.5, blur: 4 }}
-          >
-            <Stack gap="xs">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={close}
-                  style={{ textDecoration: 'none' }}
+            </UnstyledButton>
+          </Link>
+          
+          {/* Social Links */}
+          <Group gap="xs" ml="md" wrap="nowrap">
+            {socialLinks.map((link) => (
+              <Tooltip key={link.name} label={link.name}>
+                <ActionIcon
+                  component="a"
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="subtle"
+                  color="blue"
+                  size="md"
                 >
-                  <UnstyledButton
-                    style={{
-                      width: '100%',
-                      padding: rem(12),
-                      borderRadius: theme.radius.sm,
-                      color: isActive(link.href) ? theme.colors.blue[6] : theme.colors.gray[isDark ? 3 : 7],
-                      backgroundColor: isActive(link.href) ? (isDark ? 'rgba(0, 188, 212, 0.15)' : theme.colors.blue[0]) : 'transparent',
-                      fontWeight: 500,
-                    }}
-                  >
-                    <Text>{link.label}</Text>
-                  </UnstyledButton>
-                </Link>
-              ))}
-            </Stack>
-          </Drawer>
+                  <link.icon size={18} />
+                </ActionIcon>
+              </Tooltip>
+            ))}
+          </Group>
         </Group>
+
+        <Group gap={5} wrap="nowrap" style={{ flex: '0 0 auto', overflow: 'hidden' }}>
+          {/* Desktop navigation */}
+          <Group gap={5} visibleFrom="sm" wrap="nowrap" style={{ overflow: 'hidden', maxWidth: 'calc(100vw - 400px)' }}>
+            <div style={{ display: 'flex', overflow: 'auto', msOverflowStyle: 'none', scrollbarWidth: 'none' }}>
+              {navItems}
+            </div>
+          </Group>
+          
+          {/* Resume download button */}
+          <ClientOnly>
+            <Button
+              variant="subtle"
+              leftSection={<IconFileDownload size={16} />}
+              onClick={handleResumeDownload}
+              visibleFrom="sm"
+              style={{ whiteSpace: 'nowrap', flex: '0 0 auto' }}
+            >
+              Resume
+            </Button>
+          </ClientOnly>
+          
+          {/* Mobile navigation */}
+          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />
+        </Group>
+        
+        <Drawer
+          opened={opened}
+          onClose={close}
+          title={
+            <Group gap="xs" align="center">
+              <Image 
+                src="/logo.png" 
+                alt="David Mieloch Logo" 
+                width={24} 
+                height={24} 
+                style={{ borderRadius: '4px' }}
+              />
+              <Text 
+                fw={700} 
+                size="md" 
+                style={{
+                  color: '#141517'
+                }}
+              >
+                David Mieloch
+              </Text>
+            </Group>
+          }
+          position="right"
+          size="xs"
+          overlayProps={{ opacity: 0.5, blur: 4 }}
+        >
+          <Stack gap="xs">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={close}
+                style={{ textDecoration: 'none' }}
+              >
+                <UnstyledButton
+                  style={{
+                    width: '100%',
+                    padding: rem(12),
+                    borderRadius: theme.radius.sm,
+                    color: isActive(link.href) ? theme.colors.blue[6] : theme.colors.gray[7],
+                    backgroundColor: isActive(link.href) ? theme.colors.blue[0] : 'transparent',
+                    fontWeight: 500,
+                  }}
+                >
+                  <Text>{link.label}</Text>
+                </UnstyledButton>
+              </Link>
+            ))}
+          </Stack>
+        </Drawer>
       </Container>
     </AppShell.Header>
   );

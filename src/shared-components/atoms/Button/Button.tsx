@@ -1,7 +1,20 @@
 import React from 'react';
 import { ButtonProps } from './Button.types';
-import { StyledButton } from './Button.styles';
+import { StyledButton, IconWrapper } from './Button.styles';
 
-export const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
-  return <StyledButton {...props}>{children}</StyledButton>;
+export const Button: React.FC<ButtonProps> = ({ 
+  children, 
+  icon, 
+  iconPosition = 'left',
+  ...props 
+}) => {
+  const content = (
+    <>
+      {icon && iconPosition === 'left' && <IconWrapper position="left">{icon}</IconWrapper>}
+      {children}
+      {icon && iconPosition === 'right' && <IconWrapper position="right">{icon}</IconWrapper>}
+    </>
+  );
+
+  return <StyledButton {...props}>{content}</StyledButton>;
 }; 

@@ -25,7 +25,7 @@ import {
 import { FooterProps } from './Footer.types';
 import { useFooter } from './Footer.hook';
 import { usePlayer } from '../../../providers/PlayerProvider';
-import { useTheme } from '../../../providers';
+import { useTheme } from '../../../contexts/ThemeContext';
 
 // Define default colors to use during server-side rendering
 const defaultColors = {

@@ -1,7 +1,9 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
+import { FiGithub, FiExternalLink, FiStar } from 'react-icons/fi';
 
-const meta = {
+const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
   component: Button,
   parameters: {
@@ -11,7 +13,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'ghost'],
+      options: ['primary', 'secondary', 'ghost', 'repo-action', 'repo-link'],
     },
     size: {
       control: 'select',
@@ -72,5 +74,35 @@ export const Disabled: Story = {
     variant: 'primary',
     size: 'md',
     disabled: true,
+  },
+};
+
+export const RepoAction: Story = {
+  args: {
+    children: 'Star',
+    variant: 'repo-action',
+    icon: <FiStar size={16} />,
+    iconPosition: 'left',
+  },
+};
+
+export const RepoLink: Story = {
+  args: {
+    children: 'View on GitHub',
+    variant: 'repo-link',
+    icon: <FiGithub size={16} />,
+    iconPosition: 'left',
+    href: 'https://github.com',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+};
+
+export const WithRightIcon: Story = {
+  args: {
+    children: 'External Link',
+    variant: 'primary',
+    icon: <FiExternalLink size={16} />,
+    iconPosition: 'right',
   },
 }; 

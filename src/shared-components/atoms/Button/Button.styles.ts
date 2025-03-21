@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Button as MantineButton } from '@mantine/core';
 import { ButtonProps } from './Button.types';
 
@@ -24,6 +24,25 @@ const variantStyles = {
     &:hover {
       background: #F3F4F6;
     }
+  `,
+  'repo-action': () => `
+    background: #F3F4F6;
+    color: #374151;
+    border: 1px solid #E5E7EB;
+    &:hover {
+      background: #E5E7EB;
+      border-color: #D1D5DB;
+    }
+  `,
+  'repo-link': () => `
+    background: transparent;
+    color: #4F46E5;
+    padding: 0;
+    height: auto;
+    &:hover {
+      text-decoration: underline;
+      background: transparent;
+    }
   `
 };
 
@@ -45,11 +64,20 @@ const sizeStyles = {
   `
 };
 
+export const IconWrapper = styled.span<{ position: 'left' | 'right' }>`
+  display: inline-flex;
+  align-items: center;
+  ${({ position }) => position === 'left' ? 'margin-right: 8px;' : 'margin-left: 8px;'}
+`;
+
 export const StyledButton = styled(MantineButton)<ButtonProps>`
   border-radius: 8px;
   font-weight: 500;
   transition: all 0.2s ease;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   
   ${({ variant = 'primary' }) => variantStyles[variant]}
   ${({ size = 'md' }) => sizeStyles[size]}

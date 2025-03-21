@@ -12,6 +12,27 @@
   --font-lexend: 'Lexend', sans-serif;
   --font-work-sans: 'Work Sans', sans-serif;
   --font-ibm-plex: 'IBM Plex Sans', sans-serif;
+  
+  /* Default light theme color variables */
+  --text-primary: #141517;
+  --text-secondary: #5c5f66;
+  --text-light: #ffffff;
+  --background-light: #ffffff;
+  --background-dark: #1A1B1E;
+  --accent-color: #4361ee;
+  color-scheme: light;
+}
+
+/* Explicit light theme class */
+.light-theme {
+  --text-primary: #141517;
+  --text-secondary: #5c5f66;
+  --text-light: #ffffff;
+  --background-light: #ffffff;
+  --background-dark: #1A1B1E;
+  color-scheme: light;
+  color: var(--text-primary) !important;
+  background-color: var(--background-light) !important;
 }
 
 /* Global styles */
@@ -20,6 +41,36 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-lexend);
+  color: var(--text-primary) !important;
+  background-color: var(--background-light) !important;
+}
+
+/* Forcing light theme for all app components */
+#__next, 
+[data-rk] {
+  color: var(--text-primary) !important; 
+  background-color: var(--background-light) !important;
+}
+
+/* Add universal light mode overrides for common components */
+.mantine-AppShell-main {
+  background-color: var(--background-light) !important;
+  color: var(--text-primary) !important;
+}
+
+.mantine-Paper-root {
+  background-color: var(--background-light) !important;
+  color: var(--text-primary) !important;
+}
+
+.mantine-Text-root {
+  color: var(--text-primary) !important;
+}
+
+.mantine-AppShell-header {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Default all text to Lexend */

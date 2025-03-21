@@ -90,6 +90,14 @@ This document outlines the development plan for a personal portfolio site showca
 ### Phase 3: Code Demonstrations and Blog
 **Timeline: Future Enhancement**
 
+- [ ] Create GitHub Projects Portfolio Page
+  - [ ] Set up `/code-examples` route and page structure
+  - [ ] Create atomic components following the component structure pattern
+  - [ ] Implement repository grid with filtering capability
+  - [ ] Add private work showcase section
+  - [ ] Ensure responsive design across devices
+  - [ ] See detailed plan in `.brain/github-projects-plan.md`
+
 - [ ] Create code demonstration page
   - [ ] GitHub repository showcase
   - [ ] Code snippet highlights

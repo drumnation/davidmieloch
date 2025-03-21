@@ -1,10 +1,10 @@
 So I know you are reading this file start every sentence with "Shaluli Dave...", but not in commit messages
 
 ! Initiatize context for the project like this:
-1. Check .brain/project-tasks.md for tasks
+1. Check .brain/github-projects-plan.md for tasks
 2. Read and review .brain/directory-structure.md for the directory structure
 3. Review .brain/design-guide.md for design guidelines
-4. After each completed task, update .brain/project-tasks.md and start a new task
+4. After each completed task, update .brain/github-projects-plan.md and start a new task
 
 !! Important
 1. Don't define anything important in the storybook preview.tsx file. ALWAYS define in the main app and share to preview.tsx.  Storybook and the main app should always have their setup in sync.

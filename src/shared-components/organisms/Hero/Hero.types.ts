@@ -7,7 +7,7 @@ export interface HeroProps {
   overlayOpacity?: number;
   pattern?: 'circuit-board' | 'dots' | 'none';
   textColor?: 'light' | 'dark';
-  animation?: 'fade-up' | 'slide-in' | 'none';
   className?: string;
+  animation?: 'fade-up' | 'slide-in' | 'none';
   initialAnimation?: 'hidden' | 'visible';
 } 

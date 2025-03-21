@@ -1,17 +1,18 @@
 import { DefaultTheme } from 'styled-components';
 import { breakpoints as responsiveBreakpoints } from './responsive';
 
+// Create a light mode theme for styled-components
 export const theme: DefaultTheme = {
   colors: {
     text: {
-      primary: '#141517',
+      primary: '#141517', // Dark text for light mode
       secondary: '#5c5f66',
       light: '#ffffff'
     },
     background: {
       light: '#ffffff',
       dark: '#1A1B1E',
-      paper: '#ffffff'
+      paper: '#ffffff' // Light background for light mode
     },
     primary: {
       main: '#2196f3',
