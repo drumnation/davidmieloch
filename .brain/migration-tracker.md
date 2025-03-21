@@ -24,6 +24,7 @@ This file tracks the progress of migrating components from Framer Motion to Reac
 #### Organisms
 - [x] Hero - Migrated to use React Spring animations
 - [x] ProcessFlow - Migrated to use React Spring animations
+- [x] FeatureGrid - Migrated to use React Spring with useTrail for staggered animations
 - [ ] Navbar
 - [ ] Footer
 - [ ] SideNavigation
@@ -56,4 +57,5 @@ This file tracks the progress of migrating components from Framer Motion to Reac
 ## Testing Results
 - ✅ All components migrated so far have been verified to work correctly in Storybook
 - ✅ Button hover animations working properly with React Spring
-- ✅ Bio section components (BioIntro, FeaturedMedia, TechnicalExpertise) rendering correctly with animations 
+- ✅ Bio section components (BioIntro, FeaturedMedia, TechnicalExpertise) rendering correctly with animations
+- ✅ FeatureGrid using React Spring's useTrail for staggered card animations 

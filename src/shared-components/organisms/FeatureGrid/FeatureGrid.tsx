@@ -1,57 +1,16 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, useTrail, SpringValue, Interpolation } from '@react-spring/web';
 import { FeatureGridProps } from './FeatureGrid.types';
 import { H3, Body } from '../../atoms/Typography/Typography';
 import * as S from './FeatureGrid.styles';
+import { springPresets } from '../../../utils/animations';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  },
-};
-
-const iconVariants = {
-  hidden: { scale: 0, rotate: -10 },
-  visible: {
-    scale: 1,
-    rotate: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 260,
-      damping: 20,
-      delay: 0.3,
-    },
-  },
-};
-
-const textVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      delay: 0.4,
-    },
-  },
+// Type definition for react-spring animations
+type AnimatedStyles = {
+  opacity: SpringValue<number>;
+  y: SpringValue<number>;
+  scale: SpringValue<number>;
 };
 
 export const FeatureGrid: React.FC<FeatureGridProps> = ({
@@ -61,52 +20,72 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
   animation = 'stagger-fade',
   className,
 }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
+  // Animation for the container
+  const containerSpring = useSpring({
+    opacity: inView ? 1 : 0,
+    config: springPresets.default,
+  });
+
+  // Staggered animations for each feature card
+  const trail = useTrail(features.length, {
+    opacity: inView ? 1 : 0,
+    y: inView ? 0 : 30,
+    scale: inView ? 1 : 0.95,
+    config: {
+      mass: 1,
+      tension: 280,
+      friction: 60,
+    },
+    delay: 200,
+  });
+
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+    <S.AnimatedDiv
+      ref={ref}
+      style={containerSpring}
       className={className}
     >
       <S.Grid $columns={columns} $style={style}>
-        {features.map((feature, index) => (
-          <motion.div
+        {trail.map((props: AnimatedStyles, index) => (
+          <S.AnimatedDiv
             key={index}
-            variants={cardVariants}
-            whileHover={{ 
-              y: -8, 
-              scale: 1.03, 
-              boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-              transition: { duration: 0.3 } 
+            style={{
+              opacity: props.opacity,
+              transform: props.y.to(
+                (y, s = props.scale.get()) => `translateY(${y}px) scale(${s})`
+              ),
             }}
           >
             <S.FeatureCard
               variant={style === 'gradient-cards' ? 'gradient' : 'accent'}
               padding="lg"
             >
-              <S.IconWrapper 
-                variants={iconVariants}
-                whileHover={{ 
-                  scale: 1.15, 
-                  rotate: 5,
-                  transition: { duration: 0.3 } 
+              <S.AnimatedDiv 
+                style={{
+                  transform: props.scale.to(s => `scale(${s})`),
                 }}
               >
-                {feature.icon}
-              </S.IconWrapper>
-              <S.Content variants={textVariants}>
+                <S.IconWrapper>
+                  {features[index].icon}
+                </S.IconWrapper>
+              </S.AnimatedDiv>
+              <S.Content>
                 <H3 color={style === 'gradient-cards' ? 'light' : 'primary'}>
-                  {feature.title}
+                  {features[index].title}
                 </H3>
                 <Body color={style === 'gradient-cards' ? 'light' : 'secondary'}>
-                  {feature.description}
+                  {features[index].description}
                 </Body>
               </S.Content>
             </S.FeatureCard>
-          </motion.div>
+          </S.AnimatedDiv>
         ))}
       </S.Grid>
-    </motion.div>
+    </S.AnimatedDiv>
   );
 }; 

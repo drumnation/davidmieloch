@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated, SpringValue, Interpolation } from '@react-spring/web';
 import { Card } from '../../atoms/Card/Card';
 import { StyledFeatureGridProps } from './FeatureGrid.types';
+import { PropsWithChildren } from 'react';
 
 export const Grid = styled.div<StyledFeatureGridProps>`
   display: grid;
@@ -29,7 +30,7 @@ export const FeatureCard = styled(Card)`
   gap: 1rem;
 `;
 
-export const IconWrapper = styled(motion.div)`
+export const IconWrapper = styled.div`
   width: 48px;
   height: 48px;
   display: flex;
@@ -41,9 +42,24 @@ export const IconWrapper = styled(motion.div)`
   margin-bottom: 1rem;
 `;
 
-export const Content = styled(motion.div)`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   flex: 1;
-`; 
+`;
+
+// Define properly typed animated components
+interface AnimatedProps {
+  style?: {
+    opacity?: SpringValue<number> | number;
+    transform?: string | SpringValue<string> | Interpolation<number, string>;
+    [key: string]: any;
+  };
+  className?: string;
+  ref?: React.RefObject<any> | ((node: any) => void);
+}
+
+// Create properly typed animated components that can accept children
+export const AnimatedDiv = animated.div as React.FC<PropsWithChildren<AnimatedProps>>;
+export const AnimatedContent = animated(Content) as React.FC<PropsWithChildren<AnimatedProps>>; 
