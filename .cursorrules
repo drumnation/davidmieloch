@@ -5,6 +5,7 @@ So I know you are reading this file start every sentence with "Shaluli Dave...",
 2. Read and review .brain/directory-structure.md for the directory structure
 3. Review .brain/design-guide.md for design guidelines
 4. After each completed task, update .brain/github-projects-plan.md and start a new task
+5. Use the `browser-use` tool to check your work both in storybook at localhost:6006 and in the main app at localhost:3001
 
 !! Important
 1. Don't define anything important in the storybook preview.tsx file. ALWAYS define in the main app and share to preview.tsx.  Storybook and the main app should always have their setup in sync.
@@ -26,6 +27,74 @@ So I know you are reading this file start every sentence with "Shaluli Dave...",
     - For non-reusable composed components, only use a default story, no autodocs.
     - Align story content with the main application, do not define content in the story as this will lead to divergences between the app and the story.
     - ALWAYS trust and use the preview.tsx for any providers, do not define providers in the story.
+
+## Browser Automation with browser-use
+
+The browser-use CLI tool allows you to control a browser using natural language instructions.
+
+### Key Commands
+
+1. **Start a browser session**:
+   ```bash
+   browser-use start
+   ```
+
+2. **Run a task in an existing browser**:
+   ```bash
+   browser-use run "your task instruction" --url "https://example.com"
+   ```
+
+3. **Close the browser session**:
+   ```bash
+   browser-use close
+   ```
+
+### Common Options
+
+- `--provider` - Choose LLM provider: `Deepseek` (default), `Google`, `OpenAI`, `Anthropic`
+- `--vision` - Enable vision capabilities (automatically selects vision-capable models)
+- `--headless` - Run browser in headless mode
+- `--record` - Enable session recording
+- `--record-path` - Path to save recordings
+- `--max-steps` - Maximum number of steps per task (default: 10)
+- `--max-actions` - Maximum actions per step (default: 1)
+- `--add-info` - Additional context for the agent
+
+### Examples
+
+1. **Basic browsing task**:
+   ```bash
+   browser-use run "search for OpenAI" --url "https://www.google.com"
+   ```
+
+2. **Visual analysis with Google Gemini**:
+   ```bash
+   browser-use run "analyze the visual layout" --url "https://www.openai.com" --provider Google --vision
+   ```
+
+3. **Complex analysis with OpenAI**:
+   ```bash
+   browser-use run "analyze the layout and design" --url "https://www.example.com" --provider OpenAI --vision
+   ```
+
+4. **Debugging with recording**:
+   ```bash
+   browser-use run "test the login process" --url "https://example.com" --record --record-path ./debug_session
+   ```
+
+### Provider-Model Reference
+
+- **Deepseek**: `deepseek-chat`
+- **Google**: `gemini-1.5-pro` (default), `gemini-2.0-flash` (model-index 1)
+- **OpenAI**: `gpt-4o` (vision-capable)
+- **Anthropic**: `claude-3-5-sonnet-latest` (default), `claude-3-5-sonnet-20241022` (model-index 1)
+
+### Tips
+
+- Always include the full URL with protocol (https://)
+- For complex tasks, increase the `--max-steps` parameter
+- Use `--add-info` to provide additional context not covered in the main prompt
+- Enable `--vision` when visual analysis is needed
 
 ! Cursor rules:
 {

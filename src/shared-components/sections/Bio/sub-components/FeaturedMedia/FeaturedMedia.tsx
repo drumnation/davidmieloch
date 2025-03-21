@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
+import { useSpring, useInView, animated } from '@react-spring/web';
 import { 
   BioSection, 
   BioSectionTitle, 
@@ -7,87 +7,89 @@ import {
   MediaItem,
   MediaTitle,
   MediaDescription,
-  EmbedContainer,
-  fadeIn,
-  scaleIn
+  EmbedContainer
 } from '../../Bio.styles';
 import { MEDIA_ITEMS } from '../../Bio.constants';
 import { FeaturedMediaProps } from './FeaturedMedia.types';
 import { MediaItem as MediaItemType } from '../../Bio.types';
 
+const AnimatedMediaItem = animated(MediaItem);
+
 // Separate component for media item to reduce serialization overhead
 const LazyMediaItem = ({ item, index }: { item: MediaItemType, index: number }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const itemRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!itemRef.current) return;
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px', threshold: 0.1 }
-    );
-
-    observer.observe(itemRef.current);
-    
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  // Use React Spring's useInView hook for intersection observation
+  const [ref, inView] = useInView({
+    once: true,
+    rootMargin: '0px 0px 100px 0px'
+  });
+  
+  // Define animations
+  const animations = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0.95)',
+    config: { tension: 280, friction: 60 },
+    delay: index * 150
+  });
 
   return (
-    <MediaItem 
-      key={`media-${index}`}
-      as={motion.div}
-      variants={scaleIn}
-      whileHover={{ y: -10, transition: { duration: 0.3 } }}
-      ref={itemRef}
+    <AnimatedMediaItem 
+      ref={ref} 
+      style={animations}
     >
+      <MediaTitle>{item.title}</MediaTitle>
+      <MediaDescription>
+        {item.description}
+      </MediaDescription>
       <EmbedContainer>
-        {isVisible && (
-          <>
-            {item.type === 'youtube' && (
-              <iframe
-                src={`${item.url}?mute=0&volume=100`}
-                title={item.title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              />
-            )}
-            {item.type === 'soundcloud' && (
-              <iframe
-                src={item.url}
-                title={item.title}
-                frameBorder="0"
-                allow="autoplay"
-                loading="lazy"
-              />
-            )}
-          </>
+        {item.type === 'youtube' && (
+          <iframe
+            width="100%"
+            height="200"
+            src={item.url}
+            title={item.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        )}
+        {item.type === 'soundcloud' && (
+          <iframe
+            width="100%"
+            height="200"
+            scrolling="no"
+            frameBorder="no"
+            allow="autoplay"
+            src={item.url}
+          />
         )}
       </EmbedContainer>
-      <MediaTitle>{item.title}</MediaTitle>
-      {item.description && (
-        <MediaDescription>{item.description}</MediaDescription>
-      )}
-    </MediaItem>
+    </AnimatedMediaItem>
   );
 };
 
 export const FeaturedMedia: React.FC<FeaturedMediaProps> = ({ className }) => {
+  // Heading animation
+  const [headingRef, headingInView] = useInView({
+    once: true,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  const headingAnimation = useSpring({
+    opacity: headingInView ? 1 : 0,
+    transform: headingInView ? 'translateY(0)' : 'translateY(20px)',
+    config: { tension: 280, friction: 60 }
+  });
+
+  const AnimatedBioSectionTitle = animated(BioSectionTitle);
+
   return (
     <BioSection className={className} id="featured-media">
-      <BioSectionTitle variants={fadeIn}>Featured Media</BioSectionTitle>
+      <AnimatedBioSectionTitle ref={headingRef} style={headingAnimation}>
+        Featured Media
+      </AnimatedBioSectionTitle>
       <MediaContainer>
         {MEDIA_ITEMS.map((item, index) => (
-          <LazyMediaItem key={index} item={item} index={index} />
+          <LazyMediaItem key={`media-${index}`} item={item} index={index} />
         ))}
       </MediaContainer>
     </BioSection>

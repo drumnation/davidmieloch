@@ -8,6 +8,7 @@ import '@mantine/core/styles.css'
 import { theme as styledTheme } from '../src/styles/theme/styled-theme'
 import { theme as mantineTheme } from '../src/styles/theme'
 import { viewports } from '../src/styles/theme/viewports'
+import { withSpringAnimations } from './utils/spring-decorator'
 
 // Add global styles for fonts
 import './storybook.css'
@@ -33,6 +34,24 @@ const GlobalStyles = () => (
         --accent-blue: ${styledTheme.colors.accent.blue};
         --accent-red: ${styledTheme.colors.accent.red};
         --accent-green: ${styledTheme.colors.accent.green};
+      }
+      
+      /* Add some basic styles for React Spring animations during development */
+      .animated-component {
+        will-change: transform, opacity;
+        transform-origin: center center;
+      }
+      
+      /* Fix for Safari not rendering some animations correctly */
+      @media not all and (min-resolution:.001dpcm) { 
+        @supports (-webkit-appearance:none) {
+          .animated-component {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+          }
+        }
       }
     `}
   </style>
@@ -101,13 +120,21 @@ const preview: Preview = {
         locales: 'en-US',
       },
     },
+    // Add React Spring-specific options for Storybook
+    reactSpring: {
+      disableSsr: true, // Disable SSR for springs
+    },
   },
   decorators: [
+    // Apply the Spring animations decorator to ensure proper client-side mounting
+    withSpringAnimations,
+    // Main theme decorator
     (Story) => (
       <StyledThemeProvider theme={styledTheme}>
         <MantineProvider theme={mantineTheme}>
           <MermaidInitializer>
             <GlobalStyles />
+            {/* Wrap stories in a client-side only wrapper for React Spring */}
             <div className="storybook-container" style={{ minHeight: '100vh', width: '100%' }}>
               <Container size="lg" py="xl">
                 <Story />

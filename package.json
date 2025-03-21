@@ -16,6 +16,7 @@
     "@mantine/dates": "^7.17.1",
     "@mantine/form": "^7.17.1",
     "@mantine/hooks": "^7.17.1",
+    "@react-spring/web": "^9.7.5",
     "@reduxjs/toolkit": "^2.6.1",
     "@tabler/icons-react": "^3.31.0",
     "@types/react-syntax-highlighter": "^15.5.13",

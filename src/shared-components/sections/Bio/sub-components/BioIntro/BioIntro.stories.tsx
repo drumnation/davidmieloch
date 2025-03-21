@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { BioIntro } from './BioIntro';
 
@@ -7,6 +8,7 @@ const meta = {
   parameters: {
     layout: 'padded',
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof BioIntro>;
 
 export default meta;
