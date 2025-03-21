@@ -31,4 +31,22 @@ export interface MermaidDiagramProps {
    * Optional background color for the diagram container
    */
   backgroundColor?: string;
+
+  /**
+   * Whether the diagram should be responsive
+   * @default true
+   */
+  responsive?: boolean;
+
+  /**
+   * Whether to show zoom controls
+   * @default false
+   */
+  showZoomControls?: boolean;
+
+  /**
+   * Description for screen readers to describe the diagram
+   * @default ''
+   */
+  accessibilityDescription?: string;
 }

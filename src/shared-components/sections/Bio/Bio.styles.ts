@@ -181,9 +181,9 @@ export const ContentSection = styled(motion.div)`
 
 export const ContentContainer = styled(motion.div)`
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto ${SPACING.section};
-  padding: 0 ${SPACING.container};
+  padding: 0 ${SPACING.section};
   
   @media (max-width: 576px) {
     margin-bottom: calc(${SPACING.section} * 0.75);
@@ -223,11 +223,15 @@ export const BioSubtitle = styled(motion.h2)`
 export const BioContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   font-size: 1.125rem;
   line-height: 1.8;
   color: ${({ theme }) => theme.colors.text.primary};
   margin-bottom: ${SPACING.section};
+  
+  h3 {
+    margin-top: 1rem;
+  }
   
   p {
     margin-bottom: ${SPACING.paragraph};

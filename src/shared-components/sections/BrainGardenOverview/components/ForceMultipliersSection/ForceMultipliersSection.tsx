@@ -120,12 +120,12 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
             </div>
             <div>
               <Typography variant="body" mb="1rem">
-                With 10-100x development speed, automated testing becomes critical:
+                With significantly increased development speed, automated testing becomes critical:
               </Typography>
               <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', marginBottom: '1rem' }}>
                 <li>
                   <Typography variant="body" mb="0.5rem">
-                    <strong>Rapid feedback loops:</strong> AI can attempt multiple solutions in the time it would take a developer to manually test once, dramatically accelerating problem-solving by running tests, observing errors, adjusting code, and repeating
+                    <strong>Rapid feedback loops:</strong> AI can attempt multiple solutions in the time it would take a developer to manually test once, accelerating problem-solving by running tests, observing errors, adjusting code, and repeating
                   </Typography>
                 </li>
                 <li>

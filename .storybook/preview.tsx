@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { Preview } from '@storybook/react'
 import { MantineProvider } from '@mantine/core'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { Container } from '@mantine/core'
+import mermaid from 'mermaid'
 import '@mantine/core/styles.css'
 import { theme as styledTheme } from '../src/styles/theme/styled-theme'
 import { theme as mantineTheme } from '../src/styles/theme'
@@ -37,6 +38,47 @@ const GlobalStyles = () => (
   </style>
 )
 
+// Mermaid configuration for better readability
+const mermaidConfig = {
+  startOnLoad: true,
+  theme: 'default' as const,
+  securityLevel: 'loose' as const,
+  fontSize: 16,
+  fontFamily: 'Inter, sans-serif',
+  flowchart: {
+    htmlLabels: true,
+    curve: 'basis' as const,
+    nodeSpacing: 80,
+    rankSpacing: 100,
+    padding: 20,
+    useMaxWidth: true
+  },
+  themeVariables: {
+    nodeBorder: '2px',
+    fontSize: '16px',
+    fontFamily: 'Inter, sans-serif',
+    mainBkg: '#4a6bff',
+    secondaryBkg: '#9c6ade',
+    tertiaryBkg: '#f4f4f4',
+    primaryTextColor: '#ffffff',
+    secondaryTextColor: '#333333',
+    lineColor: '#666666',
+    clusterBkg: '#f8f9fa',
+    clusterBorder: 'rgba(0,0,0,0.2)',
+    labelBackground: '#ffffff',
+    labelBorder: '#e9ecef',
+    edgeLabelBackground: '#ffffff'
+  }
+} as const;
+
+const MermaidInitializer = ({ children }: { children: React.ReactNode }) => {
+  useEffect(() => {
+    mermaid.initialize(mermaidConfig);
+  }, []);
+
+  return <>{children}</>;
+};
+
 // Create a context-aware decorator that ensures consistent styling
 const preview: Preview = {
   parameters: {
@@ -64,12 +106,14 @@ const preview: Preview = {
     (Story) => (
       <StyledThemeProvider theme={styledTheme}>
         <MantineProvider theme={mantineTheme}>
-          <GlobalStyles />
-          <div className="storybook-container" style={{ minHeight: '100vh', width: '100%' }}>
-            <Container size="lg" py="xl">
-              <Story />
-            </Container>
-          </div>
+          <MermaidInitializer>
+            <GlobalStyles />
+            <div className="storybook-container" style={{ minHeight: '100vh', width: '100%' }}>
+              <Container size="lg" py="xl">
+                <Story />
+              </Container>
+            </div>
+          </MermaidInitializer>
         </MantineProvider>
       </StyledThemeProvider>
     ),

@@ -30,26 +30,32 @@ const itemVariants = {
 
 export const ProcessFlow: React.FC<ProcessFlowProps> = ({
   steps,
+  title,
+  subtitle,
   style = 'vertical-steps',
   position = 'left',
   className,
 }) => {
-  const isVertical = style === 'vertical-steps';
-
   return (
     <S.Container className={className} $position={position}>
+      {(title || subtitle) && (
+        <S.HeaderContainer>
+          {title && <Typography variant="h2">{title}</Typography>}
+          {subtitle && <Typography variant="body" color="secondary">{subtitle}</Typography>}
+        </S.HeaderContainer>
+      )}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
       >
-        <S.StepsContainer $isVertical={isVertical} $style={style}>
-          {steps.map((step: ProcessFlowStep, index: number) => (
+        <S.StepsContainer $style={style} $isVertical={true}>
+          {steps.map((step, index) => (
             <S.Step 
               key={index} 
-              $isVertical={isVertical} 
-              $style={style}
+              $style={style} 
+              $isVertical={true}
               variants={itemVariants}
             >
               <S.StepNumber $style={style}>
@@ -60,9 +66,7 @@ export const ProcessFlow: React.FC<ProcessFlowProps> = ({
                 )}
               </S.StepNumber>
               <S.StepContent>
-                <Typography variant="subtitle1" className="mb-2">
-                  {step.title}
-                </Typography>
+                <Typography variant="h3">{step.title}</Typography>
                 <S.StepDescription>
                   {step.description}
                 </S.StepDescription>

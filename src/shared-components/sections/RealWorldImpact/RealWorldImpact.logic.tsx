@@ -14,14 +14,32 @@ import { NavigationCardProps } from '../../organisms/NavigationCard/NavigationCa
  * Enhances the hero props with consistent styling and defaults
  */
 export const enhanceHeroProps = (heroProps: RealWorldImpactProps['heroProps'] = defaultContent.hero): HeroProps => {
+  // Handling both legacy and new hero props
+  const backgroundImage = heroProps.backgroundImageUrl || heroProps.backgroundImage;
+  const backgroundOverlay = heroProps.backgroundOverlay !== undefined ? heroProps.backgroundOverlay : true;
+  const textColor = heroProps.textColor || 'light';
+  const pattern = (heroProps.pattern === 'circuit-board' || heroProps.pattern === 'dots' || heroProps.pattern === 'none') 
+    ? heroProps.pattern 
+    : 'none';
+  
+  console.log('Enhanced Hero Props:', { 
+    backgroundImage, 
+    backgroundOverlay, 
+    textColor, 
+    pattern,
+    originalProps: heroProps
+  });
+  
   return {
-    ...heroProps,
-    className: `${heroProps.className || ''} mb-0`,
+    title: heroProps.title || '',
+    subtitle: heroProps.subtitle || '',
+    className: heroProps.className || '',
     background: 'image',
-    backgroundImage: '/skyscraper.jpg',
-    backgroundOverlay: heroProps.backgroundOverlay !== undefined ? heroProps.backgroundOverlay : true,
-    textColor: heroProps.textColor || 'light',
-    pattern: 'none',
+    backgroundImage,
+    backgroundOverlay,
+    overlayOpacity: 0.6,
+    textColor,
+    pattern,
     animation: (heroProps.animation as "fade-up" | "slide-in" | "none") || 'fade-up',
   };
 };
@@ -38,20 +56,44 @@ export const enhanceProblemOverviewProps = (
     number: string;
     label: string;
   }>;
-  style: 'gradient-card' | 'accent-card' | 'default';
-  position: 'full-width' | 'left' | 'right' | 'center';
+  style: 'gradient-card' | 'accent-card';
+  position: 'full-width' | 'left' | 'right';
   animation?: 'fade-up' | 'slide-in' | 'none';
   background?: 'light' | 'dark' | 'gradient';
 } => {
+  let metrics: Array<{ number: string; label: string }> = [];
+  
+  // Handle both the old and new data structures
+  if (problemOverviewProps?.metrics) {
+    // Old structure with metrics directly
+    metrics = problemOverviewProps.metrics.map(metric => ({
+      number: metric.number || '',
+      label: metric.label || '',
+    }));
+  } else if (problemOverviewProps?.statistics) {
+    // New structure with statistics array
+    metrics = problemOverviewProps.statistics.map(stat => ({
+      number: stat.number || '',
+      label: stat.label || '',
+    }));
+  }
+
+  // Handle position - convert 'center' to 'full-width' to match ProblemOverviewProps
+  let position: 'full-width' | 'left' | 'right' = 'full-width';
+  if (problemOverviewProps?.position === 'left') {
+    position = 'left';
+  } else if (problemOverviewProps?.position === 'right') {
+    position = 'right';
+  }
+
   return {
     title: problemOverviewProps?.title || '',
     description: problemOverviewProps?.description || '',
-    metrics: problemOverviewProps?.metrics?.map(metric => ({
-      number: metric.number || '',
-      label: metric.label || '',
-    })) || [],
-    style: problemOverviewProps?.style || 'gradient-card',
-    position: problemOverviewProps?.position || 'full-width',
+    metrics: metrics,
+    style: problemOverviewProps?.style === 'grid-with-stats' || problemOverviewProps?.style === 'default' 
+      ? 'gradient-card' 
+      : (problemOverviewProps?.style as 'gradient-card' | 'accent-card') || 'gradient-card',
+    position,
     animation: problemOverviewProps?.animation || 'fade-up',
     background: problemOverviewProps?.background || 'light',
   };
@@ -63,15 +105,36 @@ export const enhanceProblemOverviewProps = (
 export const enhanceChallengeBreakdownProps = (
   challengeBreakdownProps: RealWorldImpactProps['challengeBreakdownProps'] = defaultContent.challengeBreakdown
 ): ChallengeBreakdownProps => {
-  return {
-    title: challengeBreakdownProps?.title || '',
-    description: "The most pressing challenge in enterprise development isn't technical—it's cognitive.",
-    challenges: challengeBreakdownProps?.key_issues?.map(issue => ({
+  let key_issues: Array<{
+    title: string;
+    description: string;
+    impact: string;
+  }> = [];
+  
+  // Handle both old and new data structures
+  if (challengeBreakdownProps?.key_issues) {
+    // Old structure with key_issues directly
+    key_issues = challengeBreakdownProps.key_issues.map(issue => ({
       title: issue.title || '',
       description: issue.description || '',
       impact: issue.impact || '',
-    })) || [],
-    style: (challengeBreakdownProps?.style === 'default' ? 'accent-card' : challengeBreakdownProps?.style) || 'accent-card',
+    }));
+  } else if (challengeBreakdownProps?.challenges) {
+    // New structure with challenges
+    key_issues = challengeBreakdownProps.challenges.map(challenge => ({
+      title: challenge.title || '',
+      description: challenge.description || '',
+      impact: challenge.impact || '',
+    }));
+  }
+  
+  return {
+    title: challengeBreakdownProps?.title || '',
+    description: "The most pressing challenge in enterprise development isn't technical—it's cognitive.",
+    challenges: key_issues,
+    style: (challengeBreakdownProps?.style === 'default' || challengeBreakdownProps?.style === 'challenge-cards') 
+      ? 'accent-card' 
+      : (challengeBreakdownProps?.style as 'accent-card' | 'gradient-card') || 'accent-card',
     position: (challengeBreakdownProps?.position === 'center' ? 'right' : challengeBreakdownProps?.position) || 'right',
     animation: 'fade-up',
   };
@@ -83,15 +146,37 @@ export const enhanceChallengeBreakdownProps = (
 export const enhanceProcessFlowProps = (
   processFlowProps: RealWorldImpactProps['processFlowProps'] = defaultContent.processFlow
 ): ProcessFlowProps => {
-  return {
-    ...processFlowProps,
-    steps: processFlowProps?.steps?.map(step => ({
+  let steps: Array<{
+    title: string;
+    description: string;
+    impact: string;
+  }> = [];
+  
+  // Handle both old and new data structures
+  if (processFlowProps?.steps) {
+    // Old structure with steps directly
+    steps = processFlowProps.steps.map(step => ({
       title: step.title || '',
       description: step.description || '',
       impact: step.impact || '',
-    })) || [],
-    style: processFlowProps?.style || 'vertical-steps',
-    position: processFlowProps?.position || 'left',
+    }));
+  } else if (processFlowProps?.comparisonDiagram?.brainGarden?.steps) {
+    // New structure with comparisonDiagram
+    steps = processFlowProps.comparisonDiagram.brainGarden.steps.map(step => ({
+      title: step.title || '',
+      description: step.description || '',
+      impact: step.metrics ? Object.values(step.metrics).join(", ") : '',
+    }));
+  }
+  
+  return {
+    title: processFlowProps?.title || '',
+    subtitle: processFlowProps?.subtitle || '',
+    steps: steps,
+    style: processFlowProps?.style === 'comparative-flow-diagram' 
+      ? 'horizontal-steps' 
+      : (processFlowProps?.style as 'horizontal-steps' | 'vertical-steps') || 'horizontal-steps',
+    position: processFlowProps?.position || 'full-width',
   };
 };
 
@@ -382,6 +467,31 @@ export const enhanceSolutionsImpactProps = (
     position: string;
   };
 } => {
+  // Convert case studies to the expected format
+  let formattedCaseStudies: Array<{
+    title: string;
+    challenge: string;
+    solution: string;
+    results: Array<string>;
+    quote: string;
+    style: string;
+    position: string;
+  }> = [];
+  
+  // Check if we have case studies
+  if (solutionsImpactProps?.caseStudies && solutionsImpactProps.caseStudies.length > 0) {
+    // Process each case study
+    formattedCaseStudies = solutionsImpactProps.caseStudies.map((study: any) => ({
+      title: study.title || study.company || '',
+      challenge: study.challenge || '',
+      solution: study.solution || '',
+      results: Array.isArray(study.results) ? study.results : [],
+      quote: study.quote || '',
+      style: study.style || 'accent-card',
+      position: study.position || 'full-width'
+    }));
+  }
+
   return {
     title: solutionsImpactProps?.title || '',
     subtitle: solutionsImpactProps?.subtitle || '',
@@ -428,12 +538,49 @@ export const enhanceSolutionsImpactProps = (
       style: solutionsImpactProps?.transformationMetrics?.style || 'gradient-cards',
       position: solutionsImpactProps?.transformationMetrics?.position || 'full-width',
     },
-    caseStudies: solutionsImpactProps?.caseStudies || [],
+    caseStudies: formattedCaseStudies,
     journeyTimeline: {
       diagram: solutionsImpactProps?.journeyTimeline?.diagram || '',
       style: solutionsImpactProps?.journeyTimeline?.style || 'gradient-bg',
       position: solutionsImpactProps?.journeyTimeline?.position || 'center',
     }
+  };
+};
+
+/**
+ * Enhances the industry voices props with consistent styling and defaults
+ * Handles both the original quotes format and the new voices format
+ */
+export const enhanceIndustryVoicesProps = (
+  industryVoicesProps: RealWorldImpactProps['industryVoicesProps'] = defaultContent.industryVoices
+): {
+  title: string;
+  subtitle?: string;
+  quotes: Array<{
+    text: string;
+    author: string;
+    role?: string;
+  }>;
+  style: string;
+  position: string;
+} => {
+  // Convert voices array to quotes format if it exists
+  let quotes = industryVoicesProps?.quotes || [];
+  
+  if (industryVoicesProps?.voices && industryVoicesProps.voices.length > 0) {
+    quotes = industryVoicesProps.voices.map(voice => ({
+      text: voice.quote,
+      author: voice.name,
+      role: `${voice.title}, ${voice.company}`
+    }));
+  }
+
+  return {
+    title: industryVoicesProps?.title || 'Industry Voices',
+    subtitle: industryVoicesProps?.subtitle,
+    quotes,
+    style: industryVoicesProps?.style || 'quote-grid',
+    position: industryVoicesProps?.position || 'full-width'
   };
 };
 

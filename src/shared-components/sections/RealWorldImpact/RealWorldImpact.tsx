@@ -2,7 +2,38 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaLightbulb, FaExclamationTriangle, FaCode } from 'react-icons/fa';
+import { 
+  FaLightbulb, 
+  FaExclamationTriangle, 
+  FaCode, 
+  FaBrain, 
+  FaRocket, 
+  FaChartLine, 
+  FaClock, 
+  FaUserCog, 
+  FaBug, 
+  FaTools, 
+  FaCogs, 
+  FaUsers,
+  FaBuilding,
+  FaTrophy,
+  FaDatabase,
+  FaClipboardCheck,
+  FaFileAlt,
+  FaNetworkWired,
+  FaSyncAlt,
+  FaProjectDiagram,
+  FaArrowAltCircleUp,
+  FaHandshake,
+  FaChartBar,
+  FaCheckCircle,
+  FaSearch,
+  FaCubes,
+  FaComments,
+  FaTasks,
+  FaThumbsUp,
+  FaStar
+} from 'react-icons/fa';
 import { Hero } from '../../organisms/Hero/Hero';
 import { ProblemOverview } from '../../organisms/ProblemOverview/ProblemOverview';
 import { ChallengeBreakdown } from '../../organisms/ChallengeBreakdown/ChallengeBreakdown';
@@ -23,7 +54,7 @@ import {
   enhanceImpactGridProps,
   enhanceNavigationCardProps,
   enhanceEnterpriseJourneyProps,
-  enhanceSolutionsImpactProps
+  enhanceSolutionsImpactProps,
 } from './RealWorldImpact.logic';
 import { ProcessFlow } from '../../organisms/ProcessFlow/ProcessFlow';
 import { StatsComparison } from '../../organisms/StatsComparison/StatsComparison';
@@ -41,6 +72,34 @@ import { ProblemCards } from '../../organisms/ProblemCards';
 import { SolutionCards } from '../../organisms/SolutionCards';
 import { ContactCard } from '../../organisms/ContactCard';
 
+// Transform function near the top of the component to convert case studies to the expected format
+const adaptCaseStudies = (caseStudies: any[] = []) => {
+  if (!caseStudies || caseStudies.length === 0) return [];
+  
+  return caseStudies.map(study => ({
+    title: study.company || study.title || '',
+    challenge: study.challenge || '',
+    solution: study.solution || '',
+    results: study.results || [],
+    quote: study.quote || '',
+    style: 'gradient-card',
+    position: 'center'
+  }));
+};
+
+// Transform function to adapt metrics to the expected format
+const adaptMetrics = (metrics: any[] = []) => {
+  if (!metrics || metrics.length === 0) return [];
+  
+  return metrics.map(metric => ({
+    number: metric.number || '',
+    label: metric.label || '',
+    prefix: metric.prefix,
+    suffix: metric.suffix,
+    animation: metric.animation
+  }));
+};
+
 export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
   className,
   heroProps = defaultContent.hero,
@@ -55,7 +114,6 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
   navigationCardProps = defaultContent.navigationCard,
   enterpriseJourneyProps = defaultContent.enterpriseJourney,
   solutionsImpactProps = defaultContent.solutionsImpact,
-  industryVoicesProps = defaultContent.industryVoices,
   commonPitfallsProps = defaultContent.commonPitfalls,
   brainGardenSolutionsProps = defaultContent.brainGardenSolutions,
   conclusionProps = defaultContent.conclusion,
@@ -72,7 +130,11 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
   const enhancedImpactGridProps = enhanceImpactGridProps(impactGridProps);
   const enhancedNavigationCardProps = enhanceNavigationCardProps(navigationCardProps);
   const enhancedEnterpriseJourneyProps = enhanceEnterpriseJourneyProps(enterpriseJourneyProps);
-  const enhancedSolutionsImpactProps = enhanceSolutionsImpactProps(solutionsImpactProps);
+  
+  // For solutions impact props
+  const enhancedSolutionsImpactProps = solutionsImpactProps ? {
+    ...enhanceSolutionsImpactProps(solutionsImpactProps)
+  } : undefined;
 
   return (
     <AnimatePresence mode="wait">
@@ -110,7 +172,7 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
               variants={fadeInUp}
             >
               <Typography variant="h2" className="mb-4">
-                The Modern Development Paradox
+                <FaBrain style={{ marginRight: '10px' }} /> The Modern Development Paradox
               </Typography>
               <S.Paragraph>
                 In today&apos;s enterprise development landscape, we face a striking paradox: despite having more tools and technologies at our disposal than ever before, development teams are struggling with increasing complexity, slower delivery times, and mounting technical debt. This isn&apos;t just a matter of tools or processes—it&apos;s a fundamental crisis in how we approach software development at scale and where AI can be the key to the solution.
@@ -124,7 +186,7 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h2" className="mb-4">
-                The Four Critical Challenges
+                <FaExclamationTriangle style={{ marginRight: '10px' }} /> The Four Critical Challenges
               </Typography>
               <S.Paragraph>
                 Enterprise development teams face four interconnected challenges that create a cycle of diminishing returns. Understanding these challenges is crucial to appreciating why traditional solutions fall short and why a fundamentally new approach is needed.
@@ -133,7 +195,7 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h3" className="mb-3">
-                1. Knowledge Management Crisis
+                <FaDatabase style={{ marginRight: '10px' }} /> 1. Knowledge Management Crisis
               </Typography>
               <S.Paragraph>
                 The most pressing challenge in enterprise development isn&apos;t technical—it&apos;s cognitive. As systems grow in complexity, the knowledge required to maintain and evolve them grows exponentially. This creates several critical issues:
@@ -147,13 +209,14 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <S.Paragraph>
+                <FaClock style={{ marginRight: '10px', float: 'left', fontSize: '1.5rem' }} />
                 The real cost isn&apos;t just in delayed development—it&apos;s in the constant drain on team resources as developers repeatedly solve the same problems, navigate outdated documentation, and struggle to maintain context across complex systems.
               </S.Paragraph>
             </motion.div>
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h3" className="mb-3">
-                2. Development Velocity Crisis
+                <FaRocket style={{ marginRight: '10px' }} /> 2. Development Velocity Crisis
               </Typography>
               <S.Paragraph>
                 While tools promise to accelerate development, the reality is that enterprise teams are moving slower than ever. This isn&apos;t due to a lack of effort or skill, but rather a combination of factors that create overwhelming cognitive load:
@@ -167,7 +230,7 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h3" className="mb-3">
-                3. Quality Assurance Crisis
+                <FaClipboardCheck style={{ marginRight: '10px' }} /> 3. Quality Assurance Crisis
               </Typography>
               <S.Paragraph>
                 The pressure to deliver faster collides with the need to maintain quality, creating an impossible situation for many teams:
@@ -181,13 +244,14 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <S.Paragraph>
+                <FaBug style={{ marginRight: '10px', float: 'left', fontSize: '1.5rem' }} />
                 This isn&apos;t just about finding bugs—it&apos;s about the entire quality assurance process becoming a bottleneck that teams can&apos;t afford but also can&apos;t ignore.
               </S.Paragraph>
             </motion.div>
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h3" className="mb-3">
-                4. Technical Debt Accumulation
+                <FaTools style={{ marginRight: '10px' }} /> 4. Technical Debt Accumulation
               </Typography>
               <S.Paragraph>
                 Perhaps the most insidious challenge is the accelerating accumulation of technical debt. This manifests in several ways:
@@ -201,7 +265,7 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h2" className="mb-4">
-                The Compounding Effect
+                <FaCogs style={{ marginRight: '10px' }} /> The Compounding Effect
               </Typography>
               <S.Paragraph>
                 These challenges don&apos;t exist in isolation—they form a self-reinforcing cycle that becomes increasingly difficult to break:
@@ -221,7 +285,7 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h2" className="mb-4">
-                Traditional Solutions Fall Short
+                <FaLightbulb style={{ marginRight: '10px' }} /> Traditional Solutions Fall Short
               </Typography>
               <S.Paragraph>
                 The typical enterprise responses to these challenges often make matters worse:
@@ -230,7 +294,7 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h3" className="mb-3">
-                Adding More Tools
+                <FaUserCog style={{ marginRight: '10px' }} /> Adding More Tools
               </Typography>
             </motion.div>
 
@@ -247,7 +311,7 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h3" className="mb-3">
-                Hiring More Developers
+                <FaUsers style={{ marginRight: '10px' }} /> Hiring More Developers
               </Typography>
             </motion.div>
 
@@ -264,9 +328,9 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h3" className="mb-3">
-                Implementing More Processes
+                <FaSyncAlt style={{ marginRight: '10px' }} /> Implementing More Processes
               </Typography>
-            </motion.div>
+              </motion.div>
 
             {/* Problem Solution Component - Processes */}
             <S.ComponentWrapper position="right">
@@ -281,16 +345,16 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
 
             <motion.div variants={fadeInUp}>
               <Typography variant="h2" className="mb-4">
-                The Need for a New Approach
+                <FaArrowAltCircleUp style={{ marginRight: '10px' }} /> The Need for a New Approach
               </Typography>
               <S.Paragraph>
                 These challenges require a fundamental shift in how we approach enterprise development:
               </S.Paragraph>
               <S.ParagraphList>
-                <ul>
-                  <li>Systems that reduce cognitive load.</li>
-                  <li>Tools that unify and simplify the development process.</li>
-                  <li>Approaches that scale effectively with increasing complexity.</li>
+                <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
+                  <li><FaBrain style={{ marginRight: '8px' }} /> Systems that reduce cognitive load.</li>
+                  <li><FaTools style={{ marginRight: '8px' }} /> Tools that unify and simplify the development process.</li>
+                  <li><FaProjectDiagram style={{ marginRight: '8px' }} /> Approaches that scale effectively with increasing complexity.</li>
                 </ul>
               </S.ParagraphList>
             </motion.div>
@@ -298,46 +362,49 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
             {/* Common Pitfalls Section */}
             <motion.div variants={fadeInUp}>
               <Typography variant="h2" className="mb-4">
-                {commonPitfallsProps.title}
+                <FaExclamationTriangle style={{ marginRight: '10px' }} /> {commonPitfallsProps.title}
               </Typography>
               <S.Paragraph>
                 {commonPitfallsProps.introduction}
               </S.Paragraph>
             </motion.div>
 
-            {/* Problem Cards Component */}
-            <S.ComponentWrapper position={commonPitfallsProps.position}>
-              <ProblemCards problems={commonPitfallsProps.problems} style={commonPitfallsProps.style} />
-            </S.ComponentWrapper>
-
-            {/* Industry Voices Section */}
-            <motion.div variants={fadeInUp}>
-              <Typography variant="h2" className="mb-4">
-                {industryVoicesProps.title}
-              </Typography>
-            </motion.div>
-
-            {/* Quote Grid Component */}
-            <S.ComponentWrapper position={industryVoicesProps.position}>
-              <QuoteGrid quotes={industryVoicesProps.quotes} style={industryVoicesProps.style} />
-            </S.ComponentWrapper>
-
             {/* Brain Garden Solutions Section */}
             <motion.div variants={fadeInUp}>
-              <Typography variant="h2" className="mb-4">
-                {brainGardenSolutionsProps.title}
+              <Typography variant="h2" className="mb-4 mt-8">
+                <FaLightbulb style={{ marginRight: '10px' }} /> {brainGardenSolutionsProps.title}
               </Typography>
             </motion.div>
 
-            {/* Solution Cards Component */}
-            <S.ComponentWrapper position={brainGardenSolutionsProps.position}>
-              <SolutionCards solutions={brainGardenSolutionsProps.solutions} style={brainGardenSolutionsProps.style} />
-            </S.ComponentWrapper>
+            {/* Combined grid for Problems and Solutions ensures balanced layout */}
+            <S.GridContainer style={{ margin: '2rem 0' }}>
+              {/* Problem Cards */}
+              {commonPitfallsProps.problems.map((problem, index) => (
+                <S.GridItem key={`problem-${index}`}>
+                  <ProblemCards 
+                    problems={[problem]} 
+                    style={commonPitfallsProps.style}
+                    className="h-100"
+                  />
+                </S.GridItem>
+              ))}
+              
+              {/* Solution Cards */}
+              {brainGardenSolutionsProps.solutions.map((solution, index) => (
+                <S.GridItem key={`solution-${index}`}>
+                  <SolutionCards 
+                    solutions={[solution]} 
+                    style={brainGardenSolutionsProps.style}
+                    className="h-100"
+                  />
+                </S.GridItem>
+              ))}
+            </S.GridContainer>
 
             {/* Results and Vision Section */}
             <motion.div variants={fadeInUp}>
               <Typography variant="h2" className="mb-4">
-                {solutionsImpactProps.title}
+                <FaChartBar style={{ marginRight: '10px' }} /> {solutionsImpactProps.title}
               </Typography>
               <S.Paragraph>
                 {solutionsImpactProps.subtitle}
@@ -349,9 +416,15 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
               <ProblemOverview 
                 title={solutionsImpactProps.solutionOverview.title}
                 description={solutionsImpactProps.solutionOverview.description}
-                metrics={solutionsImpactProps.solutionOverview.key_metrics}
-                style={solutionsImpactProps.solutionOverview.style}
-                position={solutionsImpactProps.solutionOverview.position}
+                metrics={adaptMetrics(solutionsImpactProps.solutionOverview.key_metrics)}
+                style={'gradient-card'}
+                position={(solutionsImpactProps.solutionOverview.position === 'center' 
+                  ? 'full-width' 
+                  : solutionsImpactProps.solutionOverview.position === 'full-width' || 
+                    solutionsImpactProps.solutionOverview.position === 'left' || 
+                    solutionsImpactProps.solutionOverview.position === 'right'
+                      ? solutionsImpactProps.solutionOverview.position
+                      : 'full-width')}
                 animation="fade-up"
                 background="light"
               />
@@ -362,8 +435,9 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
               <ChallengeBreakdown 
                 title={solutionsImpactProps.knowledgeManagement.title}
                 key_issues={solutionsImpactProps.knowledgeManagement.key_features}
-                style={solutionsImpactProps.knowledgeManagement.style}
-                position={solutionsImpactProps.knowledgeManagement.position}
+                style={solutionsImpactProps.knowledgeManagement.style as any}
+                position={solutionsImpactProps.knowledgeManagement.position as any}
+                description=""
               />
             </S.ComponentWrapper>
 
@@ -371,15 +445,15 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
             <S.ComponentWrapper position={solutionsImpactProps.developmentVelocity.position}>
               <ProcessFlow 
                 steps={solutionsImpactProps.developmentVelocity.improvements}
-                style={solutionsImpactProps.developmentVelocity.style}
-                position={solutionsImpactProps.developmentVelocity.position}
+                style={solutionsImpactProps.developmentVelocity.style as any}
+                position={solutionsImpactProps.developmentVelocity.position as any}
               />
             </S.ComponentWrapper>
 
             {/* Conclusion Section */}
             <motion.div variants={fadeInUp}>
               <Typography variant="h2" className="mb-4">
-                {conclusionProps.title}
+                <FaHandshake style={{ marginRight: '10px' }} /> {conclusionProps.title}
               </Typography>
               <S.Paragraph>
                 {conclusionProps.content}
@@ -389,7 +463,10 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
             {/* Contact Card Component */}
             <S.ComponentWrapper position={conclusionProps.position}>
               <ContactCard 
-                contactInfo={conclusionProps.contactInfo}
+                contactInfo={{
+                  ...conclusionProps.contactInfo,
+                  medium: ""
+                }}
                 style={conclusionProps.style}
               />
             </S.ComponentWrapper>

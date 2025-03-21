@@ -16,9 +16,11 @@ interface StepNumberProps {
 
 export const Container = styled.div<ContainerProps>`
   width: 100%;
-  margin: 2rem 0;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: ${({ $position }) => {
+  flex-direction: column;
+  align-items: ${({ $position }) => {
     switch ($position) {
       case 'left': return 'flex-start';
       case 'right': return 'flex-end';
@@ -27,18 +29,20 @@ export const Container = styled.div<ContainerProps>`
       default: return 'flex-start';
     }
   }};
+  overflow: visible;
 `;
 
 export const StepsContainer = styled.div<StepProps>`
   display: flex;
-  flex-direction: ${({ $isVertical }) => $isVertical ? 'column' : 'row'};
-  gap: ${({ $isVertical }) => $isVertical ? '2rem' : '1.5rem'};
-  width: ${({ $isVertical }) => $isVertical ? '100%' : 'auto'};
-  max-width: ${({ $isVertical }) => $isVertical ? '100%' : '100vw'};
-  overflow-x: ${({ $isVertical }) => $isVertical ? 'visible' : 'auto'};
-  padding: ${({ $isVertical }) => $isVertical ? '0' : '1rem 0.5rem'};
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
+  max-width: 800px;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
   
-  ${({ $style, theme }) => $style === 'vertical-steps' && css`
+  ${({ $style, theme }) => css`
     position: relative;
     
     &::before {
@@ -53,55 +57,16 @@ export const StepsContainer = styled.div<StepProps>`
       z-index: 0;
     }
   `}
-  
-  ${({ $style, theme }) => $style === 'horizontal-steps' && css`
-    position: relative;
-    align-items: flex-start;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 24px;
-      height: 2px;
-      background: ${theme.colors.primary.light};
-      z-index: 0;
-    }
-    
-    @media (max-width: ${theme.breakpoints.md}) {
-      flex-direction: column;
-      
-      &::before {
-        left: 24px;
-        right: auto;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        height: auto;
-      }
-    }
-  `}
 `;
 
 export const Step = styled(motion.div)<StepProps>`
   display: flex;
-  flex-direction: ${({ $isVertical }) => $isVertical ? 'row' : 'column'};
-  align-items: ${({ $isVertical }) => $isVertical ? 'flex-start' : 'center'};
-  gap: 1rem;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
   position: relative;
   z-index: 1;
-  
-  ${({ $isVertical }) => !$isVertical && css`
-    flex: 1;
-    min-width: 200px;
-    text-align: center;
-    
-    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-      flex-direction: row;
-      text-align: left;
-    }
-  `}
+  width: 100%;
 `;
 
 export const StepNumber = styled.div<StepNumberProps>`
@@ -119,31 +84,52 @@ export const StepNumber = styled.div<StepNumberProps>`
   position: relative;
   z-index: 2;
   box-shadow: ${({ theme }) => theme.shadows.medium};
-  
-  ${({ $style }) => $style === 'horizontal-steps' && css`
-    margin-bottom: 1rem;
-    
-    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-      margin-bottom: 0;
-    }
-  `}
 `;
 
 export const StepContent = styled.div`
   flex: 1;
+  padding-left: 0.5rem;
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    color: ${({ theme }) => theme.colors.text.primary};
+  }
 `;
 
 export const StepDescription = styled.p`
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: ${({ theme }) => theme.colors.text.secondary};
+  font-size: 1.05rem;
+  line-height: 1.6;
 `;
 
 export const StepImpact = styled.p`
   color: ${({ theme }) => theme.colors.primary.main};
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(0, 120, 255, 0.08);
+  border-radius: 6px;
+  line-height: 1.5;
   
   strong {
     font-weight: 600;
+    margin-right: 0.5rem;
+  }
+`;
+
+export const HeaderContainer = styled.div`
+  margin-bottom: 2.5rem;
+  text-align: left;
+  width: 100%;
+  max-width: 800px;
+  
+  h2 {
+    margin-bottom: 0.75rem;
+    font-size: 2rem;
+    line-height: 1.2;
   }
 `; 
