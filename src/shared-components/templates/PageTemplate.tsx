@@ -1,29 +1,57 @@
 "use client";
 
+import React, { PropsWithChildren } from 'react';
 import { AppShell, Container } from '@mantine/core';
-import { motion } from 'framer-motion';
+import { animated, SpringValue, useSpring, to, Interpolation } from '@react-spring/web';
 import { usePathname } from 'next/navigation';
 import { Header } from '../organisms/Header';
-import { PageTemplateProps } from './PageTemplate.types';
+import { useInView } from 'react-intersection-observer';
 
-const MotionDiv = motion.div;
+// Define properly typed animated div that handles spring values correctly
+type AnimatedDivProps = PropsWithChildren<{
+  style?: {
+    opacity?: SpringValue<number>;
+    transform?: string | SpringValue<string> | Interpolation<number, string>;
+  };
+}>;
 
-export const PageTemplate = ({ 
-  children, 
+// Create a properly typed AnimatedDiv component that works with React Spring
+const AnimatedDiv = animated.div as React.FC<AnimatedDivProps>;
+
+export interface PageTemplateProps {
+  children: React.ReactNode;
+  withContainer?: boolean;
+  containerSize?: string;
+  withAnimation?: boolean;
+  animationKey?: string;
+  className?: string;
+}
+
+export const PageTemplate: React.FC<PageTemplateProps> = ({
+  children,
   withContainer = true,
   containerSize = 'xl',
   withAnimation = true,
   animationKey,
-}: PageTemplateProps) => {
+  className = '',
+}) => {
   // Use App Router hooks if available, otherwise use undefined
   const pathname = usePathname?.() || '';
   
-  const pageTransition = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 },
-    transition: { duration: 0.3 }
-  };
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const springs = useSpring({
+    opacity: inView ? 1 : 0,
+    y: inView ? 0 : 30,
+    config: {
+      mass: 1,
+      tension: 180,
+      friction: 24,
+    },
+  });
 
   const content = withContainer ? (
     <Container size={containerSize} py="xl">
@@ -31,32 +59,33 @@ export const PageTemplate = ({
     </Container>
   ) : children;
 
-  const animatedContent = withAnimation ? (
-    <MotionDiv
-      key={animationKey || pathname || 'page'}
-      initial={pageTransition.initial}
-      animate={pageTransition.animate}
-      exit={pageTransition.exit}
-      transition={pageTransition.transition}
-    >
-      {content}
-    </MotionDiv>
-  ) : content;
-
   return (
-    <AppShell
-      header={{ height: 60 }}
-      footer={{ height: 80 }}
-      padding="md"
-    >
-      <AppShell.Header>
-        <Header />
-      </AppShell.Header>
+    <div className={className} ref={ref}>
+      <AppShell
+        header={{ height: 60 }}
+        footer={{ height: 80 }}
+        padding="md"
+      >
+        <AppShell.Header>
+          <Header />
+        </AppShell.Header>
 
-      <AppShell.Main>
-        {animatedContent}
-      </AppShell.Main>
-    </AppShell>
+        <AppShell.Main>
+          {withAnimation ? (
+            <AnimatedDiv
+              style={{
+                opacity: springs.opacity,
+                transform: springs.y.to(y => `translateY(${y}px)`),
+              }}
+            >
+              {content}
+            </AnimatedDiv>
+          ) : (
+            content
+          )}
+        </AppShell.Main>
+      </AppShell>
+    </div>
   );
 };
 
