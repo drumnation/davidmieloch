@@ -1,14 +1,42 @@
-'use client';
-
-import React from 'react';
-import { useSpring, animated, config } from '@react-spring/web';
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Typography } from '../../atoms/Typography';
 import { HeroProps } from './Hero.types';
 import * as S from './Hero.styles';
 
-// Create animated versions of styled components
-const AnimatedHeroContainer = animated(S.HeroContainer);
-const AnimatedDiv = animated('div');
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+};
+
+const slideInVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+};
 
 export const Hero: React.FC<HeroProps> = ({
   title,
@@ -19,70 +47,64 @@ export const Hero: React.FC<HeroProps> = ({
   overlayOpacity = 0.5,
   pattern = 'dots',
   textColor = 'light',
+  animation = 'fade-up',
   className,
+  initialAnimation = 'hidden',
 }) => {
-  // Container animation
-  const containerAnimation = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    config: { duration: 500 },
-    delay: 100
-  });
-
-  // Title animation with delay
-  const titleAnimation = useSpring({
-    from: { opacity: 0, transform: 'translateY(20px)' },
-    to: { opacity: 1, transform: 'translateY(0px)' },
-    config: { ...config.gentle },
-    delay: 300
-  });
+  // Create motion versions of styled components
+  const MotionHeroContainer = motion(S.HeroContainer);
+  const MotionHeroContent = motion(S.HeroContent);
   
-  // Subtitle animation with delay
-  const subtitleAnimation = useSpring({
-    from: { opacity: 0, transform: 'translateY(20px)' },
-    to: { opacity: 1, transform: 'translateY(0px)' },
-    config: { ...config.gentle },
-    delay: 500
-  });
+  const itemVariants = animation === 'fade-up' ? fadeUpVariants : slideInVariants;
+  
+  // Log detailed information for debugging
+  useEffect(() => {
+    console.log('Hero props:', { 
+      background, 
+      backgroundImage, 
+      backgroundOverlay,
+      overlayOpacity,
+      textColor,
+      pattern
+    });
+  }, [background, backgroundImage, backgroundOverlay, overlayOpacity, textColor, pattern]);
 
   return (
-    <div className={className}>
-      <AnimatedHeroContainer
-        style={containerAnimation}
-        $background={background}
-        $backgroundImage={backgroundImage}
-        $backgroundOverlay={backgroundOverlay}
-        $overlayOpacity={overlayOpacity}
-        $textColor={textColor}
-        $pattern={pattern}
-        className={pattern ? `pattern-${pattern}` : ''}
-      >
-        <S.HeroContent>
-          {title && (
-            <AnimatedDiv style={titleAnimation}>
-              <Typography 
-                variant="h1" 
-                color={textColor === 'light' ? 'light' : 'primary'}
-                className="mb-4"
-              >
-                {title}
-              </Typography>
-            </AnimatedDiv>
-          )}
-          
-          {subtitle && (
-            <AnimatedDiv style={subtitleAnimation}>
-              <Typography 
-                variant="h3" 
-                weight="regular"
-                color={textColor === 'light' ? 'light' : 'secondary'}
-              >
-                {subtitle}
-              </Typography>
-            </AnimatedDiv>
-          )}
-        </S.HeroContent>
-      </AnimatedHeroContainer>
-    </div>
+    <MotionHeroContainer
+      className={`${className || ''} ${pattern ? `pattern-${pattern}` : ''}`}
+      $background={background}
+      $backgroundImage={backgroundImage}
+      $backgroundOverlay={backgroundOverlay}
+      $overlayOpacity={overlayOpacity}
+      $textColor={textColor}
+      initial={initialAnimation}
+      animate="visible"
+      variants={containerVariants}
+    >
+      <MotionHeroContent initial={initialAnimation} animate="visible" variants={itemVariants}>
+        {title && (
+          <S.Title>
+            <Typography 
+              variant="h1" 
+              color={textColor === 'light' ? 'light' : 'primary'}
+            >
+              {title}
+            </Typography>
+          </S.Title>
+        )}
+        
+        {subtitle && (
+          <S.Subtitle>
+            <Typography 
+              variant="h3" 
+              weight="regular"
+              color={textColor === 'light' ? 'light' : 'secondary'}
+            >
+              {subtitle}
+            </Typography>
+          </S.Subtitle>
+        )}
+      </MotionHeroContent>
+    </MotionHeroContainer>
   );
 }; 

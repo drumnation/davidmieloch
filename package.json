@@ -1,6 +1,6 @@
 {
   "name": "github-projects",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "private": true,
   "scripts": {
     "dev": "next dev -p 4000",
@@ -28,6 +28,7 @@
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/recharts": "^1.8.29",
     "dayjs": "^1.11.13",
+    "framer-motion": "10.18.0",
     "lucide-react": "^0.479.0",
     "mermaid": "^11.4.1",
     "next": "15.2.1",
