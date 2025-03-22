@@ -18,14 +18,15 @@ export const enhanceHeroProps = (heroProps: RealWorldImpactProps['heroProps'] = 
   const backgroundImage = heroProps.backgroundImageUrl || heroProps.backgroundImage;
   const backgroundOverlay = heroProps.backgroundOverlay !== undefined ? heroProps.backgroundOverlay : true;
   const textColor = heroProps.textColor || 'light';
-  const pattern = (heroProps.pattern === 'circuit-board' || heroProps.pattern === 'dots' || heroProps.pattern === 'none') 
+  const pattern = (heroProps.pattern === 'circuit-board' || heroProps.pattern === 'dots' || heroProps.pattern === 'none')
     ? heroProps.pattern 
-    : 'none';
+    : 'dots';
   
-  console.log('Enhanced Hero Props:', { 
-    backgroundImage, 
-    backgroundOverlay, 
-    textColor, 
+  // Enable logging for debugging
+  console.log('Enhanced Hero Props:', {
+    backgroundImage,
+    backgroundOverlay,
+    textColor,
     pattern,
     originalProps: heroProps
   });
@@ -35,12 +36,13 @@ export const enhanceHeroProps = (heroProps: RealWorldImpactProps['heroProps'] = 
     subtitle: heroProps.subtitle || '',
     className: heroProps.className || '',
     background: 'image',
-    backgroundImage,
-    backgroundOverlay,
-    overlayOpacity: 0.6,
-    textColor,
-    pattern,
+    backgroundImage: backgroundImage,
+    backgroundOverlay: backgroundOverlay,
+    overlayOpacity: 0.5,
+    textColor: textColor,
+    pattern: pattern,
     animation: (heroProps.animation as "fade-up" | "slide-in" | "none") || 'fade-up',
+    initialAnimation: 'hidden'
   };
 };
 

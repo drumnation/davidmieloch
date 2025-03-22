@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [0.4.0] - 2024-03-22
+
+#### Changed
+- Downgraded from React 19 to React 18.2.0 for better stability and compatibility
+- Updated framer-motion to version 10.18.0 (compatible with React 18)
+- Simplified animation implementation to avoid React 19-specific features
+
 ### [0.3.3] - 2024-03-26
 
 #### Fixed

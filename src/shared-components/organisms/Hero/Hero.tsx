@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Typography } from '../../atoms/Typography';
@@ -77,24 +79,26 @@ export const Hero: React.FC<HeroProps> = ({
       $backgroundOverlay={backgroundOverlay}
       $overlayOpacity={overlayOpacity}
       $textColor={textColor}
+      $pattern={pattern}
       initial={initialAnimation}
       animate="visible"
       variants={containerVariants}
     >
-      <MotionHeroContent initial={initialAnimation} animate="visible" variants={itemVariants}>
+      <S.HeroContent>
         {title && (
-          <S.Title>
+          <motion.div initial={initialAnimation} animate="visible" variants={itemVariants}>
             <Typography 
               variant="h1" 
               color={textColor === 'light' ? 'light' : 'primary'}
+              className="mb-4"
             >
               {title}
             </Typography>
-          </S.Title>
+          </motion.div>
         )}
         
         {subtitle && (
-          <S.Subtitle>
+          <motion.div initial={initialAnimation} animate="visible" variants={itemVariants}>
             <Typography 
               variant="h3" 
               weight="regular"
@@ -102,9 +106,9 @@ export const Hero: React.FC<HeroProps> = ({
             >
               {subtitle}
             </Typography>
-          </S.Subtitle>
+          </motion.div>
         )}
-      </MotionHeroContent>
+      </S.HeroContent>
     </MotionHeroContainer>
   );
 }; 
