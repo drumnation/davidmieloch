@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   CategoryCardContainer,
   CategoryTitle,
@@ -19,14 +19,34 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   description,
   items
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { rootMargin: "-50px", threshold: 0.1 }
+    );
+    
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+    
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   return (
     <CategoryCardContainer
-      initial="visible"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 }
-      }}
+      ref={cardRef}
+      className={isVisible ? 'visible' : 'hidden'}
     >
       <CategoryTitle>{title}</CategoryTitle>
       <CategoryDescription>{description}</CategoryDescription>

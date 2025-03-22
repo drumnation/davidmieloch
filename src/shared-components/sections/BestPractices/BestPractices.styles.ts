@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { createGlobalStyle } from 'styled-components';
+import { AnimationVariants } from '../../../utils/animations/migration-helpers';
 
 // Global styles for the BestPractices component
 export const GlobalStyles = createGlobalStyle`
@@ -57,55 +57,75 @@ export const GlobalStyles = createGlobalStyle`
       transform: scale(1.12) translateY(-8px);
     }
   }
+  
+  .best-practices-content-section {
+    width: 100%;
+    background-color: #fff;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    margin-top: -24px;
+    position: relative;
+    z-index: 2;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @media (max-width: 576px) {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      margin-top: -16px;
+    }
+  }
+  
+  .best-practices-content-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+    @media (max-width: 576px) {
+      padding: 0 1.25rem;
+    }
+  }
 `;
 
 // Animation variants
-export const fadeIn = {
+export const fadeIn: AnimationVariants = {
   hidden: { opacity: 0 },
   visible: { 
-    opacity: 1,
-    transition: { 
-      duration: 0.8,
-      ease: "easeOut"
-    }
+    opacity: 1
   }
 };
 
-export const fadeInUp = {
+export const fadeInUp: AnimationVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
-    y: 0,
-    transition: { 
-      duration: 0.6,
-      ease: "easeOut"
-    }
+    y: 0
   }
 };
 
-export const staggerContainer = {
+export const staggerContainer: AnimationVariants = {
   hidden: { opacity: 0 },
   visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
+    opacity: 1
   }
 };
 
-export const scaleIn = {
+export const scaleIn: AnimationVariants = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: { 
     opacity: 1, 
-    scale: 1,
-    transition: { 
-      duration: 0.5,
-      ease: "easeOut"
-    }
+    scale: 1
   }
 };
 
-export const BestPracticesContainer = styled.section`
+export const Container = styled.section`
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -113,7 +133,7 @@ export const BestPracticesContainer = styled.section`
   align-items: stretch;
 `;
 
-export const ContentSection = styled(motion.div)`
+export const ContentSection = styled.div`
   width: 100%;
   background-color: #fff;
   border-top-left-radius: 24px;
@@ -127,6 +147,14 @@ export const ContentSection = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
   @media (max-width: 576px) {
     padding-top: 3rem;
@@ -137,7 +165,7 @@ export const ContentSection = styled(motion.div)`
   }
 `;
 
-export const ContentContainer = styled(motion.div)`
+export const ContentContainer = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -148,7 +176,7 @@ export const ContentContainer = styled(motion.div)`
   }
 `;
 
-export const SectionTitle = styled(motion.h1)`
+export const SectionTitle = styled.h1`
   font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
@@ -161,7 +189,7 @@ export const SectionTitle = styled(motion.h1)`
   }
 `;
 
-export const SectionDescription = styled(motion.p)`
+export const SectionDescription = styled.p`
   font-size: 1.25rem;
   text-align: center;
   max-width: 800px;
@@ -175,7 +203,7 @@ export const SectionDescription = styled(motion.p)`
   }
 `;
 
-export const CategoriesContainer = styled(motion.div)`
+export const CategoriesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
@@ -188,7 +216,7 @@ export const CategoriesContainer = styled(motion.div)`
   }
 `;
 
-export const CategoryCard = styled(motion.div)`
+export const CategoryCard = styled.div`
   background-color: ${({ theme }) => theme.colors.background.paper};
   border-radius: 8px;
   padding: 24px;
@@ -264,7 +292,7 @@ export const PracticesList = styled.ul`
   gap: 1rem;
 `;
 
-export const PracticeItem = styled(motion.li)`
+export const PracticeItem = styled.li`
   display: flex;
   align-items: flex-start;
   gap: 1rem;
@@ -307,7 +335,7 @@ export const PracticeDescription = styled.p`
   line-height: 1.5;
 `;
 
-export const DetailedContentContainer = styled(motion.div)`
+export const DetailedContentContainer = styled.div`
   width: 100%;
   margin: 2rem 0 4rem;
 `;
@@ -332,7 +360,7 @@ export const DetailedContentList = styled.div`
   color: ${({ theme }) => theme.colors.text.secondary};
 `;
 
-export const ConclusionContainer = styled(motion.div)`
+export const ConclusionContainer = styled.div`
   width: 100%;
   margin-top: 3rem;
 `;
@@ -348,12 +376,4 @@ export const ConclusionText = styled.p`
   line-height: 1.6;
   margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.colors.text.secondary};
-`;
-
-export const Container = styled.section`
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
 `;

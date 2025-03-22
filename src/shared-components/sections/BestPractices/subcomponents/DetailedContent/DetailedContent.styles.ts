@@ -1,9 +1,16 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
-export const DetailedContentContainer = styled(motion.div)`
+export const DetailedContentContainer = styled.div`
   width: 100%;
   margin: 2rem 0 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
 export const DetailedContentTitle = styled.h2`

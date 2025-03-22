@@ -1,12 +1,11 @@
 import React, { ReactElement } from 'react';
-import { motion } from 'framer-motion';
 import { HeroProps } from '../../organisms/Hero/Hero.types';
 import { BrainGardenOverviewProps } from './BrainGardenOverview.types';
 import { defaultContent } from './BrainGardenOverview.constants';
 import { Icon } from '../../atoms/Icon';
 import { Typography } from '../../atoms/Typography';
 import {
-  StatCard,
+  StatCard as StatCardStyled,
   StatNumber,
   StatLabel,
   IconContainer,
@@ -47,29 +46,13 @@ export const StatCardComponent: React.FC<{
     : (stat.icon || <Icon name="star" size={32} />);
 
   return (
-    <StatCard
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { 
-          opacity: 1, 
-          y: 0,
-          transition: { 
-            delay: index * 0.1,
-            duration: 0.5
-          }
-        }
-      }}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-    >
+    <StatCardStyled style={{ opacity: 1 }}>
       <IconContainer>
         {iconElement}
       </IconContainer>
       <StatNumber>{stat.number}</StatNumber>
       <StatLabel>{stat.label}</StatLabel>
-    </StatCard>
+    </StatCardStyled>
   );
 };
 
@@ -85,65 +68,17 @@ export const CTAButtonWithIcon: React.FC<{
     ? <Icon name={icon as string} size={16} style={{ marginLeft: '0.5rem' }} /> 
     : icon;
 
-  const buttonVariants = {
-    initial: { opacity: 0, y: 10 },
-    animate: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.3,
-        ease: 'easeOut'
-      }
-    },
-    hover: { 
-      y: -3,
-      boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
-      transition: { 
-        duration: 0.2,
-        ease: 'easeOut'
-      }
-    },
-    tap: { 
-      scale: 0.98,
-      transition: { 
-        duration: 0.1,
-        ease: 'easeOut'
-      }
-    }
-  };
-
-  const iconMotionVariants = {
-    initial: { x: 0 },
-    hover: { 
-      x: 5,
-      transition: { 
-        duration: 0.2,
-        ease: 'easeOut'
-      }
-    }
-  };
-
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
-      whileTap="tap"
-      variants={buttonVariants}
-      style={{ display: 'inline-block' }}
-    >
+    <div style={{ display: 'inline-block' }}>
       <CTAButton href={link}>
         {text}
         {iconElement && (
-          <motion.span 
-            style={{ marginLeft: '0.5rem', display: 'inline-flex' }}
-            variants={iconMotionVariants}
-          >
+          <span style={{ marginLeft: '0.5rem', display: 'inline-flex' }}>
             {iconElement}
-          </motion.span>
+          </span>
         )}
       </CTAButton>
-    </motion.div>
+    </div>
   );
 };
 
@@ -154,28 +89,12 @@ export const SectionTitleComponent: React.FC<{
   title: string;
   className?: string;
 }> = ({ title, className }) => {
-  const titleVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={titleVariants}
-    >
+    <div>
       <Typography variant="h2" mb="1.5rem" className={className}>
         {title}
       </Typography>
-    </motion.div>
+    </div>
   );
 };
 
@@ -186,29 +105,12 @@ export const SectionSubtitleComponent: React.FC<{
   title: string;
   className?: string;
 }> = ({ title, className }) => {
-  const subtitleVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.5,
-        ease: "easeOut",
-        delay: 0.1
-      }
-    }
-  };
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={subtitleVariants}
-    >
+    <div>
       <Typography variant="h3" mb="1.25rem" className={className}>
         {title}
       </Typography>
-    </motion.div>
+    </div>
   );
 };
 
@@ -219,28 +121,12 @@ export const IntroTextComponent: React.FC<{
   text: string;
   className?: string;
 }> = ({ text, className }) => {
-  const textVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        duration: 0.8,
-        ease: "easeOut",
-        delay: 0.2
-      }
-    }
-  };
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={textVariants}
-    >
+    <div>
       <IntroText className={className}>
         {text}
       </IntroText>
-    </motion.div>
+    </div>
   );
 };
 
@@ -253,64 +139,27 @@ export const NarrativeSectionComponent: React.FC<{
   className?: string;
 }> = ({ title, content, className }) => {
   const divStyle = {
-    marginTop: '2rem',
-    marginBottom: '2rem'
+    maxWidth: '720px',
+    margin: '0 auto',
+    padding: '1.5rem 0'
   };
-  
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-  
-  const titleVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-  
-  const contentVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.6,
-        ease: "easeOut",
-        delay: 0.1
-      }
-    }
-  };
-  
+
   return (
-    <motion.div 
+    <div 
       style={divStyle} 
       className={className}
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
     >
-      <motion.div variants={titleVariants}>
+      <div>
         <Typography variant="h3" mb="1.25rem">
           {title}
         </Typography>
-      </motion.div>
-      <motion.div variants={contentVariants}>
+      </div>
+      <div>
         <Typography variant="body" mb="1.5rem">
           {content}
         </Typography>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 

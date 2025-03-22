@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { Typography } from '../../atoms/Typography/Typography';
 import { Card } from '../../atoms/Card/Card';
 import { FaLinkedin, FaGithub, FaMedium, FaEnvelope, FaUser, FaComments, FaArrowRight } from 'react-icons/fa';
+import { TransitionDiv } from '../../../utils/animations/migration-helpers';
 
 export interface ContactCardProps {
   contactInfo: {
@@ -15,6 +15,19 @@ export interface ContactCardProps {
   position?: string;
   className?: string;
 }
+
+const ContactCardWrapper = styled.div`
+  &.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  &.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const StyledCard = styled(Card)`
   padding: 2rem;
@@ -92,13 +105,33 @@ export const ContactCard: React.FC<ContactCardProps> = ({
   style = 'default',
   className,
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { rootMargin: "-100px" }
+    );
+    
+    const currentElement = document.querySelector('.contact-card-container');
+    if (currentElement) {
+      observer.observe(currentElement);
+    }
+    
+    return () => {
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
+    };
+  }, []);
+
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5 }}
+    <ContactCardWrapper 
+      className={`contact-card-container fade-in ${isVisible ? 'visible' : ''} ${className || ''}`}
     >
       <StyledCard>
         <HeaderSection>
@@ -143,6 +176,6 @@ export const ContactCard: React.FC<ContactCardProps> = ({
           </ContactItem>
         </ContactList>
       </StyledCard>
-    </motion.div>
+    </ContactCardWrapper>
   );
 };

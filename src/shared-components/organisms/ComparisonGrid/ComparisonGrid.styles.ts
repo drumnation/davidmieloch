@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated } from '@react-spring/web';
 
 export const Container = styled.div<{ position?: string }>`
   width: 100%;
@@ -33,7 +33,9 @@ export const Grid = styled.div`
   }
 `;
 
-export const Card = styled(motion.div)<{ styleType?: string }>`
+export const AnimatedGrid = animated(Grid);
+
+export const Card = styled.div<{ styleType?: string }>`
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -58,6 +60,8 @@ export const Card = styled(motion.div)<{ styleType?: string }>`
     color: white;
   }
 `;
+
+export const AnimatedCard = animated(Card);
 
 export const AspectTitle = styled.h3`
   font-size: 1.25rem;
@@ -111,26 +115,4 @@ export const IconWrapper = styled.div`
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   margin-right: 0.5rem;
-`;
-
-export const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut"
-    }
-  }
-};
-
-export const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-}; 
+`; 

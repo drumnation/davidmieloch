@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Typography } from '../../../../atoms/Typography';
 import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
 import { TeamCustomizationSectionProps } from './TeamCustomizationSection.types';
@@ -17,155 +16,59 @@ import {
 export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> = ({
   className
 }) => {
-  // Animation variants for staggered grid animations
-  const gridContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const gridItemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const paragraphVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const listContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const listItemVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const cardListItemVariants = {
-    hidden: { opacity: 0, x: -5 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const diagramContainerVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <ContentContainer
+    <div
       className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={staggerContainer}
       id="team-customization-section"
     >
-      <motion.div variants={fadeInUp}>
+      <div>
         <SectionTitleComponent title="Customizing Your Team" />
         
-        <motion.div 
+        <div 
           style={{ marginTop: '1rem', marginBottom: '1.5rem' }}
-          variants={paragraphVariants}
         >
           <SectionSubtitleComponent title="The Brain Garden System" />
-          <motion.div variants={paragraphVariants}>
+          <div>
             <Typography variant="body" mb="1.5rem">
               Through years of working with React and Node.js teams, I developed the AI Brain Garden system to transform how teams interact with AI tools. This isn&apos;t just another set of guidelines—it&apos;s a living, evolving ecosystem that grows with your project and enables true parallel development at scale.
             </Typography>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
         
-        <motion.div 
+        <div 
           style={{ marginBottom: '1.5rem' }}
-          variants={paragraphVariants}
         >
           <SectionSubtitleComponent title="From Individual to Team Director" />
-          <motion.div variants={paragraphVariants}>
+          <div>
             <Typography variant="body" mb="1.5rem">
               Traditional AI coding assistants are like having a single junior developer who can help with individual tasks. AI Brain Garden transforms you into a technical director managing multiple specialized teams, each with their own expertise and focus. While we provide default agent personas as examples, the real power lies in its ability to adapt to your project&apos;s specific needs through a systematic MECE (Mutually Exclusive, Collectively Exhaustive) approach.
             </Typography>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div variants={paragraphVariants}>
+        <div>
           <Typography variant="body" mb="0.5rem">
             For example, in one project I worked on, we needed to build a real-time data visualization platform. Using the MECE approach, we created specialized teams for:
           </Typography>
-          <motion.ul 
+          <ul 
             style={{ listStyleType: 'disc', paddingLeft: '1.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}
-            variants={listContainerVariants}
           >
-            <motion.li variants={listItemVariants} style={{ marginBottom: '0.3rem' }}>Data Pipeline Architecture</motion.li>
-            <motion.li variants={listItemVariants} style={{ marginBottom: '0.3rem' }}>Visualization Design</motion.li>
-            <motion.li variants={listItemVariants} style={{ marginBottom: '0.3rem' }}>Performance Optimization</motion.li>
-            <motion.li variants={listItemVariants} style={{ marginBottom: '0.3rem' }}>UX Flow Engineering</motion.li>
-          </motion.ul>
-          <motion.div variants={paragraphVariants}>
+            <li style={{ marginBottom: '0.3rem' }}>Data Pipeline Architecture</li>
+            <li style={{ marginBottom: '0.3rem' }}>Visualization Design</li>
+            <li style={{ marginBottom: '0.3rem' }}>Performance Optimization</li>
+            <li style={{ marginBottom: '0.3rem' }}>UX Flow Engineering</li>
+          </ul>
+          <div>
             <Typography variant="body" mb="1.5rem">
               This structure allowed us to tackle complex challenges in parallel while maintaining clear boundaries between responsibilities.
             </Typography>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
         
-        <motion.div 
+        <div 
           style={{ backgroundColor: '#ebf5ff', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
-          variants={diagramContainerVariants}
-          whileHover={{ 
-            boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
-            y: -3,
-            transition: { duration: 0.3 } 
-          }}
         >
-          <MermaidContainer variants={fadeInUp}>
+          <div>
             <MermaidDiagram
               definition={`
                 flowchart LR
@@ -216,22 +119,21 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
               height="auto"
               backgroundColor="transparent"
             />
-          </MermaidContainer>
+          </div>
           <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
             <Typography variant="body" color="secondary">
               MECE organization divides projects into distinct domains with consistent documentation structure, preventing conflicts while ensuring complete coverage
             </Typography>
           </div>
-        </motion.div>
+        </div>
         
-        <motion.div 
+        <div 
           style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
             gap: '1.5rem', 
             marginBottom: '2rem' 
           }}
-          variants={gridContainerVariants}
         >
           {[
             {
@@ -248,64 +150,48 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
               items: [
                 "Determine required expertise for each domain",
                 "Identify overlapping skill requirements",
-                "Define specialized knowledge needs",
-                "Map out collaboration points"
-              ]
-            },
-            {
-              title: "Agent Design",
-              items: [
-                "Create agent personas based on skill requirements",
-                "Define specialized prompt libraries for each agent role",
-                "Generate skill-jacks (specialized knowledge packages)",
-                "Setup context handoff protocols for efficient agent session management"
-              ]
-            },
-            {
-              title: "Team Optimization",
-              items: [
-                "Ensure no gaps in coverage",
-                "Eliminate redundant responsibilities",
-                "Balance workload distribution",
-                "Define clear handoff points"
+                "Define communication protocols",
+                "Create specialized agent profiles"
               ]
             }
           ].map((card, index) => (
-            <motion.div 
+            <div 
               key={index}
-              style={{ backgroundColor: '#f8f9fa', padding: '1.5rem', borderRadius: '0.5rem' }}
-              variants={gridItemVariants}
-              whileHover={{ 
-                y: -5, 
-                boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-                transition: { duration: 0.2 } 
+              style={{
+                padding: '1.5rem',
+                backgroundColor: '#f7fafc',
+                borderRadius: '0.5rem',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
               }}
             >
-              <motion.div
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index, duration: 0.4 }}
-              >
-                <Typography variant="h3" mb="1rem">{card.title}</Typography>
-              </motion.div>
-              <motion.ul 
-                style={{ listStyleType: 'disc', paddingLeft: '1.5rem', marginTop: '0.25rem' }}
-                variants={listContainerVariants}
-              >
+              <Typography variant="h3" mb="1rem">{card.title}</Typography>
+              <ul style={{ listStyleType: 'none', padding: 0 }}>
                 {card.items.map((item, i) => (
-                  <motion.li 
-                    key={i}
-                    variants={cardListItemVariants}
-                    custom={i}
+                  <li 
+                    key={i} 
+                    style={{
+                      marginBottom: '0.75rem',
+                      paddingLeft: '1.5rem',
+                      position: 'relative'
+                    }}
                   >
-                    {item}
-                  </motion.li>
+                    <span style={{
+                      position: 'absolute',
+                      left: 0,
+                      top: '0.4rem',
+                      width: '0.5rem',
+                      height: '0.5rem',
+                      backgroundColor: '#4C51BF',
+                      borderRadius: '50%'
+                    }}></span>
+                    <Typography variant="body">{item}</Typography>
+                  </li>
                 ))}
-              </motion.ul>
-            </motion.div>
+              </ul>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
-    </ContentContainer>
+        </div>
+      </div>
+    </div>
   );
 };

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 // Define consistent spacing variables that can be reused across components
 export const SPACING = {
@@ -19,70 +18,12 @@ export const SPACING = {
   }
 };
 
-// Animation variants
-export const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { 
-      duration: 0.6,
-      ease: "easeOut"
-    }
-  }
-};
-
-export const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1,
-    transition: { 
-      duration: 0.8,
-      ease: "easeOut"
-    }
-  }
-};
-
-export const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
 export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-`;
-
-export const ContentSection = styled(motion.div)`
-  width: 100%;
-  background-color: #fff;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  margin-top: -24px;
-  position: relative;
-  z-index: 2;
-  padding-top: ${SPACING.section};
-  padding-bottom: ${SPACING.section};
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  
-  @media (max-width: 576px) {
-    padding-top: calc(${SPACING.section} * 0.75);
-    padding-bottom: calc(${SPACING.section} * 0.75);
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    margin-top: -16px;
-  }
 `;
 
 export const SectionContainer = styled.section`
@@ -97,7 +38,7 @@ export const SectionHeader = styled.div`
   margin-bottom: 3rem;
 `;
 
-export const SectionContent = styled(motion.div)`
+export const SectionContent = styled.div`
   width: 100%;
   max-width: 1000px;
   margin: 0 auto ${SPACING.section};

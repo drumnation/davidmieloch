@@ -1,60 +1,21 @@
-import { Variants } from 'framer-motion';
+import { animations } from '../../../utils/animations/react-spring-animations';
 
-export const fadeIn: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { 
-      duration: 0.6,
-      ease: 'easeOut'
-    }
-  }
+// Replaces Framer Motion's fadeIn variant with React Spring config
+export const fadeIn = animations.fadeUp;
+
+// Stagger container is handled differently in React Spring
+// This will be used as a base config that can be modified for staggered children
+export const staggerContainer = {
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+  config: { duration: 300 }
 };
 
-export const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-};
+// Replaces Framer Motion's scaleIn variant with React Spring config
+export const scaleIn = animations.zoomIn;
 
-export const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    transition: { 
-      duration: 0.5,
-      ease: 'easeOut'
-    }
-  }
-};
+// Replaces Framer Motion's slideInLeft variant with React Spring config
+export const slideInLeft = animations.slideRight;
 
-export const slideInLeft: Variants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    transition: { 
-      duration: 0.6,
-      ease: 'easeOut'
-    }
-  }
-};
-
-export const slideInRight: Variants = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    transition: { 
-      duration: 0.6,
-      ease: 'easeOut'
-    }
-  }
-}; 
+// Replaces Framer Motion's slideInRight variant with React Spring config
+export const slideInRight = animations.slideLeft; 

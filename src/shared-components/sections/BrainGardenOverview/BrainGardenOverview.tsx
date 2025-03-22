@@ -1,16 +1,14 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useSpring, useTrail } from '@react-spring/web';
 import { Hero } from '../../organisms/Hero';
-import { BrainGardenOverviewProps } from './BrainGardenOverview.types';
 import { useBrainGardenOverview } from './BrainGardenOverview.hook';
 import {
   Container,
   ContentSection,
-  fadeIn,
-  GlobalStyles
 } from './BrainGardenOverview.styles';
+import { useInView } from 'react-intersection-observer';
 
 // Import all the section components
 import { SystemOverviewSection } from './components/SystemOverviewSection';
@@ -22,7 +20,7 @@ import { SystemArchitectureSection } from './components/SystemArchitectureSectio
 import { NextEvolutionSection } from './components/NextEvolutionSection';
 import { TransitionSection } from './components/TransitionSection';
 
-export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) => {
+export const BrainGardenOverview = () => {
   const {
     className,
     enhancedHeroProps,
@@ -34,7 +32,7 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
     processedKeyBenefits,
     processedCTA,
     transitionProps
-  } = useBrainGardenOverview(props);
+  } = useBrainGardenOverview({});
 
   // Process the data to ensure all icons are properly handled
   const safeData = {
@@ -64,98 +62,60 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
     }
   };
 
-  // Enhanced animation variants
-  const pageVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        when: "beforeChildren", 
-        staggerChildren: 0.2,
-        duration: 0.6 
-      }
-    }
-  };
-
-  const sectionVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 30
-    },
-    visible: { 
-      opacity: 1,
-      y: 0,
-      transition: { 
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={pageVariants}
-    >
+    <div>
       <Container className={className}>
-        <GlobalStyles />
-        
         {/* Hero Section */}
         <Hero {...enhancedHeroProps} />
         
         {/* Content Section with White Background */}
-        <ContentSection
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={fadeIn}
-        >
+        <ContentSection ref={ref}>
           {/* Introduction Section */}
-          <motion.div variants={sectionVariants}>
+          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
             <SystemOverviewSection introProps={introProps} />
-          </motion.div>
+          </div>
           
           {/* Core Components Section */}
-          <motion.div variants={sectionVariants}>
+          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
             <CoreComponentsSection coreComponentsProps={safeData.coreComponents} />
-          </motion.div>
+          </div>
           
           {/* Team Customization Section */}
-          <motion.div variants={sectionVariants}>
+          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
             <TeamCustomizationSection />
-          </motion.div>
+          </div>
           
           {/* Force Multipliers Section */}
-          <motion.div variants={sectionVariants}>
+          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
             <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
-          </motion.div>
+          </div>
           
           {/* The Garden Metaphor Section */}
-          <motion.div variants={sectionVariants}>
+          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
             <GardenMetaphorSection />
-          </motion.div>
+          </div>
           
           {/* System Architecture Section */}
-          <motion.div variants={sectionVariants}>
+          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
             <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
-          </motion.div>
+          </div>
           
           {/* The Next Evolution Section */}
-          <motion.div variants={sectionVariants}>
+          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
             <NextEvolutionSection />
-          </motion.div>
+          </div>
           
           {/* Transition to Technical Implementation Section */}
-          <motion.div 
-            variants={sectionVariants}
-            transition={{ delay: 0.2 }}
-          >
+          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s', transitionDelay: '0.2s' }}>
             <TransitionSection {...transitionProps} />
-          </motion.div>
-        
+          </div>
         </ContentSection>
       </Container>
-    </motion.div>
+    </div>
   );
 };

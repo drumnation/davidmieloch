@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { AnimationVariants } from '../../../../../utils/animations/migration-helpers';
 
-export const CategoryCardContainer = styled(motion.div)`
+export const CategoryCardContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.background.paper};
   border-radius: 8px;
   padding: 24px;
@@ -9,6 +9,17 @@ export const CategoryCardContainer = styled(motion.div)`
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  
+  &.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
 export const CategoryTitle = styled.h3`
@@ -69,14 +80,7 @@ export const ItemDescription = styled.p`
 `;
 
 // Animation variants
-export const scaleIn = {
+export const scaleIn: AnimationVariants = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    transition: { 
-      duration: 0.5,
-      ease: "easeOut"
-    }
-  }
+  visible: { opacity: 1, scale: 1 }
 }; 

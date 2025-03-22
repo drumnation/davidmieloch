@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Typography } from '../../../../atoms/Typography';
 import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
 import { GardenMetaphorSectionProps } from './GardenMetaphorSection.types';
@@ -7,8 +6,6 @@ import {
   BackgroundSection,
   ContentContainerNoMargin,
   MermaidContainer,
-  fadeIn,
-  fadeInUp,
   SectionSubtitle
 } from '../../BrainGardenOverview.styles';
 import {
@@ -16,20 +13,49 @@ import {
   CTAButtonWithIcon
 } from '../../BrainGardenOverview.logic';
 
+// Default diagram definition
+const GARDEN_METAPHOR_DIAGRAM = `
+  %%{init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#4a6bff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#333', 'lineColor': '#666', 'secondaryColor': '#47b881', 'tertiaryColor': '#fff', 'clusterBkg': '#ffffff', 'clusterBorder': '#cccccc' } } }%%
+  flowchart LR
+    %% Define the three main phases with their icons
+    Seed[/"Seed"/]
+    Sprout[/"Sprout"/]
+    Mature[/"Mature"/]
+    
+    %% Main flow
+    Seed --> Sprout --> Mature
+    
+    %% Branch out the key aspects from each phase
+    Seed --> S1["Initial Setup"]
+    Seed --> S2["Knowledge Structure"]
+    Seed --> S3["Core Prompts"]
+    
+    Sprout --> SP1["Cultivating Patterns"]
+    Sprout --> SP2["Testing & Refining"]
+    Sprout --> SP3["Expanding Capabilities"]
+    
+    Mature --> M1["Self-Improving"]
+    Mature --> M2["Context-Aware"]
+    Mature --> M3["Continuously Adapting"]
+    
+    %% Styling
+    classDef phase fill:#4a6bff,stroke:#333,color:white,stroke-width:2px,rx:10,ry:10
+    classDef aspect fill:#47b881,stroke:#333,color:white
+    
+    class Seed,Sprout,Mature phase
+    class S1,S2,S3,SP1,SP2,SP3,M1,M2,M3 aspect
+`;
+
 export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
   className
 }) => {
   return (
     <BackgroundSection
       className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={fadeIn}
       id="garden-metaphor-section"
     >
       <ContentContainerNoMargin>
-        <motion.div variants={fadeInUp}>
+        <div>
           <SectionTitleComponent title="The Garden Metaphor: Growing Your Project" />
           
           <div style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
@@ -40,143 +66,89 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
           </div>
           
           <div style={{ backgroundColor: '#f0fff4', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>
-            <MermaidContainer variants={fadeInUp}>
+            <MermaidContainer>
               <MermaidDiagram
-                definition={`
-                  %%{init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#4a6bff', 'primaryTextColor': '#fff', 'primaryBorderColor': '#333', 'lineColor': '#666', 'secondaryColor': '#47b881', 'tertiaryColor': '#fff', 'clusterBkg': '#ffffff', 'clusterBorder': '#cccccc' } } }%%
-                  flowchart LR
-                    %% Define the three main phases with their icons
-                    Seed[/"Seed"/]
-                    Sprout[/"Sprout"/]
-                    Mature[/"Mature"/]
-                    
-                    %% Group the planting phase
-                    subgraph Plant["Planting (Initial Setup)"]
-                      Seed
-                      BrainDir[".brain Structure"]
-                      TechStack["Tech Stack Selection"]
-                      InitArch["Initial Architecture"]
-                    end
-                    
-                    %% Group the growth phase
-                    subgraph Grow["Growth (Development)"]
-                      Sprout
-                      ReqGrow["Requirements Grow"]
-                      KnowExpand["Knowledge Expands"]
-                      CompMultiply["Components Multiply"]
-                    end
-                    
-                    %% Group the harvest phase
-                    subgraph Harvest["Harvest (Delivery)"]
-                      Mature
-                      DocComplete["Documentation Complete"]
-                      FeatFinish["Features Finished"]
-                      NextIter["Next Iterations Planned"]
-                    end
-                    
-                    %% Connect seed to outcomes in planting phase
-                    Seed --> BrainDir
-                    Seed --> TechStack
-                    Seed --> InitArch
-                    
-                    %% Connect sprout to outcomes in growth phase
-                    Sprout --> ReqGrow
-                    Sprout --> KnowExpand
-                    Sprout --> CompMultiply
-                    
-                    %% Connect mature to outcomes in harvest phase
-                    Mature --> DocComplete
-                    Mature --> FeatFinish
-                    Mature --> NextIter
-                    
-                    %% Connect between phases to show knowledge flow
-                    BrainDir --> ReqGrow
-                    TechStack --> KnowExpand
-                    InitArch --> CompMultiply
-                    
-                    ReqGrow --> DocComplete
-                    KnowExpand --> FeatFinish
-                    CompMultiply --> NextIter
-                    
-                    %% Style definitions
-                    classDef phaseNode fill:#4a6bff,stroke:#333,color:white,font-weight:bold,padding:10px
-                    classDef actionNode fill:#47b881,stroke:#333,color:white,padding:10px,font-size:14px
-                    classDef clusterLabel font-weight:bold,font-size:16px,fill:none,stroke:none
-                    
-                    %% Apply styles
-                    class Seed,Sprout,Mature phaseNode
-                    class BrainDir,TechStack,InitArch,ReqGrow,KnowExpand,CompMultiply,DocComplete,FeatFinish,NextIter actionNode
-                    class Plant,Grow,Harvest clusterLabel
-                `}
+                definition={GARDEN_METAPHOR_DIAGRAM}
                 theme="default"
                 width="100%"
-                height="980px"
+                height="auto"
                 backgroundColor="transparent"
               />
             </MermaidContainer>
             
             <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
               <Typography variant="body" color="secondary">
-                Like a garden, projects grow from initial seeds to mature systems, with knowledge and documentation evolving at each stage
+                The three phases of a Brain Garden project's growth - from initial setup to self-improving system
               </Typography>
             </div>
           </div>
           
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-            gap: '1.5rem', 
-            marginBottom: '2rem' 
-          }}>
-            <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-              <div>
-                <Typography variant="h3" mb="1rem">The Brain Directory (.brain)</Typography>
-              </div>
-              <div>
-                <Typography variant="body">
-                  Your garden&apos;s plot, carefully structured for growth. Each team has their own dedicated workspace, 
-                  shared knowledge grows and evolves naturally, and templates and patterns ensure consistent growth.
-                </Typography>
-              </div>
+          <div style={{ marginTop: '2rem', marginBottom: '1.5rem' }}>
+            <SectionSubtitle style={{ marginBottom: '1.5rem' }}>Growing Your AI System Over Time</SectionSubtitle>
+            <Typography variant="body" mb="1.5rem">
+              Like a garden, the AI Brain Garden becomes more valuable and productive over time. The initial structure provides a foundation, but the true value emerges as your team contributes knowledge, refines processes, and establishes clear patterns.
+            </Typography>
+            
+            <Typography variant="body" mb="1.5rem">
+              This natural growth cycle helps teams overcome the learning curve that typically accompanies AI adoption. Instead of trying to implement a perfect system from day one, you start with simple structures that grow organically with your team's experience.
+            </Typography>
+          </div>
+          
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', marginBottom: '2rem' }}>
+            <div style={{ flex: '1 1 300px', margin: '1rem', padding: '1.5rem', backgroundColor: '#f8f9fa', borderRadius: '0.5rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+              <Typography 
+                variant="h3" 
+                color="primary"
+                mb="1rem"
+                as="h3"
+                className="phase-title"
+              >
+                <span style={{ marginRight: '0.5rem' }}>🌱</span> Seed Phase
+              </Typography>
+              <Typography variant="body" mb="1rem">
+                Begin with the essential structure—the .brain directory—containing basic knowledge organization, core prompts, and initial documentation templates. This foundational structure is lightweight but provides immediate value.
+              </Typography>
             </div>
             
-            <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-              <div>
-                <Typography variant="h3" mb="1rem">Knowledge Management</Typography>
-              </div>
-              <div>
-                <Typography variant="body">
-                  Living documentation that evolves with your project. Each team maintains their specialized knowledge, 
-                  shared patterns and best practices, and automatic knowledge capture and organization.
-                </Typography>
-              </div>
+            <div style={{ flex: '1 1 300px', margin: '1rem', padding: '1.5rem', backgroundColor: '#f8f9fa', borderRadius: '0.5rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+              <Typography 
+                variant="h3" 
+                color="primary"
+                mb="1rem"
+                as="h3"
+                className="phase-title"
+              >
+                <span style={{ marginRight: '0.5rem' }}>🌿</span> Sprout Phase
+              </Typography>
+              <Typography variant="body" mb="1rem">
+                As your team works with the system, it naturally expands. Knowledge becomes richer, prompts are refined based on experience, and workflows become smoother. This phase is about cultivating patterns and adapting to your team's specific needs.
+              </Typography>
             </div>
             
-            <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-              <div>
-                <Typography variant="h3" mb="1rem">Feature Development Lifecycle</Typography>
-              </div>
-              <div>
-                <Typography variant="body">
-                  From seed (concept) to harvest (deployment), natural progression through development stages, 
-                  multiple features growing simultaneously, and continuous knowledge enrichment.
-                </Typography>
-              </div>
-            </div>
-            
-            <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-              <div>
-                <Typography variant="h3" mb="1rem">The MECE Approach</Typography>
-              </div>
-              <div>
-                <Typography variant="body">
-                  Mutually Exclusive, Collectively Exhaustive principle ensures each agent has clearly defined 
-                  responsibilities with no overlap in task ownership, while providing complete coverage of project needs.
-                </Typography>
-              </div>
+            <div style={{ flex: '1 1 300px', margin: '1rem', padding: '1.5rem', backgroundColor: '#f8f9fa', borderRadius: '0.5rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+              <Typography 
+                variant="h3" 
+                color="primary"
+                mb="1rem"
+                as="h3"
+                className="phase-title"
+              >
+                <span style={{ marginRight: '0.5rem' }}>🌳</span> Mature Phase
+              </Typography>
+              <Typography variant="body" mb="1rem">
+                The system becomes robust and self-improving. AI agents understand context deeply, can handle complex tasks with minimal guidance, and adapt to new challenges efficiently. The system doesn't just help with individual tasks but enhances the entire development ecosystem.
+              </Typography>
             </div>
           </div>
-        </motion.div>
+          
+          <div style={{ textAlign: 'center', margin: '2rem 0' }}>
+            <CTAButtonWithIcon 
+              text="Explore the Core Components" 
+              icon="arrow-right" 
+              link="#core-components"
+            />
+          </div>
+        </div>
       </ContentContainerNoMargin>
     </BackgroundSection>
   );

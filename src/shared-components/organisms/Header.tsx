@@ -51,12 +51,11 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
+  { label: 'Home', href: '/' },
   { label: 'Enterprise AI DevFramework', href: '/enterprise-ai-development-framework' },
   { label: 'Best Practices Integration', href: '/best-practices-integration' },
   { label: 'Bio', href: '/bio' },
   { label: 'Code Examples', href: '/code-examples' },
-  // { label: 'Blog', href: '/blog' },
-  // { label: 'Contact', href: '/contact' },
 ];
 
 // Social links data
@@ -76,7 +75,16 @@ export function Header() {
 
   // Determine if a link is active based on the current pathname
   const isActive = (href: string) => {
-    return pathname === href;
+    if (!pathname) return false;
+    if (href === '/' && pathname === '/') return true;
+    if (href !== '/' && pathname.startsWith(href)) {
+      // Check if it's an exact match or followed by a slash to avoid partial matches
+      // e.g. /bio should not match /biography
+      if (pathname === href) return true;
+      if (pathname.startsWith(`${href}/`)) return true;
+      return false;
+    }
+    return false;
   };
 
   const handleResumeDownload = () => {
@@ -210,7 +218,7 @@ export function Header() {
           title={
             <Group gap="xs" align="center">
               <Image 
-                src="/logo.png" 
+                src="/web-app-manifest-192x192.png" 
                 alt="David Mieloch Logo" 
                 width={24} 
                 height={24} 

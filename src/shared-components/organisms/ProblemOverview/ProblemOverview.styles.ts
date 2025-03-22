@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { animated } from '@react-spring/web';
 import { media } from '../../../styles/theme/responsive';
 
 const positionStyles = {
@@ -16,7 +17,7 @@ const positionStyles = {
 export const Container = styled.div<{
   $position: 'left' | 'right' | 'full-width';
   $background?: 'light' | 'dark' | 'gradient';
-  $style: 'gradient-card' | 'accent-card';
+  $style?: 'gradient-card' | 'accent-card';
 }>`
   max-width: ${({ $position }) => $position === 'full-width' ? '100%' : '600px'};
   width: 100%;
@@ -70,13 +71,19 @@ export const Container = styled.div<{
   }}
 `;
 
+export const AnimatedContainer = animated(Container);
+
 export const Header = styled.div`
   margin-bottom: ${({ theme }) => theme.space.lg};
 `;
 
+export const AnimatedHeader = animated(Header);
+
 export const Description = styled.div`
   margin-bottom: ${({ theme }) => theme.space.xl};
 `;
+
+export const AnimatedDescription = animated(Description);
 
 export const MetricsGrid = styled.div`
   display: grid;
@@ -95,6 +102,8 @@ export const MetricsGrid = styled.div`
 export const MetricCard = styled.div`
   text-align: center;
 `;
+
+export const AnimatedMetricCard = animated(MetricCard);
 
 export const MetricNumber = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.xl};

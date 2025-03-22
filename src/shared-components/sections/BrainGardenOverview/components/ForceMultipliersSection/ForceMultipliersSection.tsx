@@ -1,12 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Typography } from '../../../../atoms/Typography';
 import { FeatureGrid } from '../../../../organisms/FeatureGrid/FeatureGrid';
 import { ForceMultipliersSectionProps } from './ForceMultipliersSection.types';
 import {
   ContentContainer,
-  fadeInUp,
-  staggerContainer,
   SectionSubtitle
 } from '../../BrainGardenOverview.styles';
 import {
@@ -21,13 +18,9 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
   return (
     <ContentContainer
       className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={staggerContainer}
       id="force-multipliers-section"
     >
-      <motion.div variants={fadeInUp}>
+      <div>
         <SectionTitleComponent title="Force Multipliers" />
         
         {/* Force Multipliers Introduction */}
@@ -210,7 +203,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
             Together, these systems transform AI from a helpful assistant into a development force multiplier that can dramatically accelerate your team's capabilities while maintaining or improving quality standards.
           </Typography>
         </div>
-      </motion.div>
+      </div>
     </ContentContainer>
   );
 };

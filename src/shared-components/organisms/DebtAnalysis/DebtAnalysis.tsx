@@ -1,38 +1,16 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useSpring, useTrail } from '@react-spring/web';
 import { Typography } from '../../atoms/Typography/Typography';
 import { DebtAnalysisProps, DebtCategory } from './DebtAnalysis.types';
 import * as S from './DebtAnalysis.styles';
 import styled from 'styled-components';
+import { springToCss } from '../../../utils/animations/typed-components';
 
 const TitleContainer = styled.div`
   width: 100%;
   text-align: center;
   margin-bottom: 2rem;
 `;
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
 
 export const DebtAnalysis: React.FC<DebtAnalysisProps> = ({
   title,
@@ -41,6 +19,21 @@ export const DebtAnalysis: React.FC<DebtAnalysisProps> = ({
   position = 'full-width',
   className,
 }) => {
+  // Container animation
+  const containerSpring = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 800 }
+  });
+
+  // Card animations with trail effect
+  const cardsTrail = useTrail(categories.length, {
+    from: { opacity: 0, y: 30 },
+    to: { opacity: 1, y: 0 },
+    config: { mass: 1, tension: 280, friction: 60 },
+    delay: 100
+  });
+
   return (
     <S.Container className={className} $position={position}>
       {title && (
@@ -50,19 +43,18 @@ export const DebtAnalysis: React.FC<DebtAnalysisProps> = ({
           </Typography>
         </TitleContainer>
       )}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-        style={{ width: '100%' }}
+      <div
+        style={{ 
+          ...springToCss(containerSpring as any), 
+          width: '100%' 
+        }}
       >
         <S.CardsContainer>
           {categories.map((category: DebtCategory, index: number) => (
             <S.Card 
               key={index} 
               $style={style}
-              variants={itemVariants}
+              style={springToCss(cardsTrail[index] as any)}
             >
               <S.CardHeader>
                 <Typography variant="h3">
@@ -80,7 +72,7 @@ export const DebtAnalysis: React.FC<DebtAnalysisProps> = ({
             </S.Card>
           ))}
         </S.CardsContainer>
-      </motion.div>
+      </div>
     </S.Container>
   );
 }; 

@@ -1,25 +1,7 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated } from '@react-spring/web';
 import { Card } from '../../atoms/Card/Card';
-
-// Define consistent spacing variables that can be reused across components
-export const SPACING = {
-  section: '5rem',
-  paragraph: '2rem',
-  paragraphBreak: '2rem',
-  element: '1rem',
-  container: '1.5rem',
-  component: '3rem',
-  
-  // Responsive spacing for mobile
-  mobile: {
-    section: '2.5rem',
-    paragraph: '1.25rem',
-    paragraphBreak: '1.5rem',
-    element: '0.75rem',
-    container: '1rem'
-  }
-};
+import { SPACING } from '../BrainGardenOverview/BrainGardenOverview.styles';
 
 export const Container = styled.div`
   width: 100%;
@@ -29,7 +11,7 @@ export const Container = styled.div`
   align-items: stretch;
 `;
 
-export const ContentSection = styled(motion.div)`
+export const ContentSection = styled(animated.div)`
   width: 100%;
   background-color: #fff;
   border-top-left-radius: 24px;
@@ -53,7 +35,7 @@ export const ContentSection = styled(motion.div)`
   }
 `;
 
-export const ContentContainer = styled(motion.div)`
+export const ContentContainer = styled.div`
   width: 100%;
   max-width: 1000px;
   margin: 0 auto ${SPACING.section};
@@ -66,14 +48,236 @@ export const ContentContainer = styled(motion.div)`
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: ${props => props.theme.colors.text.primary};
+  margin-bottom: ${SPACING.paragraph};
+  color: inherit;
+  text-align: center;
   
   @media (max-width: 576px) {
-    font-size: 2rem;
-    margin-bottom: ${SPACING.mobile.paragraph};
+    font-size: 1.75rem;
+  }
+`;
+
+export const SectionDescription = styled.p`
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: ${SPACING.paragraphBreak};
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const CaseStudiesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-top: ${SPACING.paragraph};
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const CaseStudyCard = styled.div`
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+`;
+
+export const CaseStudyImageContainer = styled.div`
+  height: 180px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0;
+`;
+
+export const CaseStudyContent = styled.div`
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const CaseStudyTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+`;
+
+export const CaseStudyDescription = styled.p`
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  flex: 1;
+`;
+
+export const CaseStudyTags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+`;
+
+export const CaseStudyTag = styled.span`
+  background-color: #f0f7ff;
+  color: var(--primary-blue);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+`;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+`;
+
+export const ModalContainer = styled.div`
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ModalHeader = styled.div`
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 1.5rem 1.5rem 1rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  z-index: 10;
+`;
+
+export const ModalTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  padding-right: 40px;
+`;
+
+export const ModalContent = styled.div`
+  padding: 0 1.5rem 1.5rem;
+  flex: 1;
+`;
+
+export const ModalDescription = styled.p`
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+`;
+
+export const ModalSection = styled.div`
+  margin-bottom: 1.5rem;
+`;
+
+export const ModalSectionTitle = styled.h4`
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+`;
+
+export const ModalCloseButton = styled.button`
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
+export const ModalImageContainer = styled.div`
+  width: 100%;
+  height: 300px;
+  position: relative;
+  margin-bottom: 1.5rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+`;
+
+export const ResultList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+`;
+
+export const ResultItem = styled.li`
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  
+  &:before {
+    content: "•";
+    color: var(--primary-blue);
+    font-weight: bold;
+    margin-right: 0.75rem;
+  }
+`;
+
+export const ModalFooter = styled.div`
+  padding: 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const ModalButton = styled.button`
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: var(--primary-purple);
   }
 `;
 
@@ -395,5 +599,17 @@ export const CtaButton = styled.button`
   &:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+`;
+
+export const BackgroundSection = styled.div`
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: ${SPACING.section} 0;
+  margin-bottom: ${SPACING.section};
+  
+  @media (max-width: 576px) {
+    padding: calc(${SPACING.section} * 0.75) 0;
+    margin-bottom: calc(${SPACING.section} * 0.75);
   }
 `; 

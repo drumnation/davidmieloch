@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useSpring, useTrail } from '@react-spring/web';
 import { Card } from '../../atoms/Card';
 import { Icon } from '../../atoms/Icon';
 import { FeaturePreviewProps } from './FeaturePreview.types';
@@ -13,56 +13,64 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
 }) => {
   const cardVariant = style === 'gradient-cards' ? 'gradient' : 'accent';
   
-  // Use the 'as' prop approach for conditional animation
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
+  // Container animation
+  const containerProps = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 800 }
+  });
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.5,
-      }
+  // Feature card animation with trail effect
+  const featureTrail = useTrail(features.length, {
+    from: { opacity: 0, y: 20 },
+    to: { opacity: 1, y: 0 },
+    config: { mass: 1, tension: 280, friction: 60 },
+    delay: 100
+  });
+  
+  // Helper function to convert spring values to regular CSS
+  const springToCss = (springObj: any) => {
+    if (!animation || animation === 'none') return {};
+    
+    const result: Record<string, string | number> = {};
+    
+    // Handle opacity
+    if (springObj.opacity !== undefined) {
+      result.opacity = springObj.opacity.get();
     }
+    
+    // Handle transform values
+    if (springObj.y !== undefined) {
+      result.transform = `translateY(${springObj.y.get()}px)`;
+    }
+    
+    return result;
   };
 
   return (
     <S.FeatureGrid
       className={className}
-      {...(animation !== 'none' ? {
-        as: motion.div,
-        initial: "hidden",
-        animate: "visible",
-        variants: containerVariants
-      } : {})}
+      style={animation !== 'none' ? springToCss(containerProps) : undefined}
     >
-      {features.map((feature, index) => (
-        <Card
-          key={index}
-          variant={cardVariant}
-          {...(animation !== 'none' ? {
-            as: motion.div,
-            variants: cardVariants
-          } : {})}
-        >
-          <S.FeatureContent>
-            <S.IconWrapper>
-              <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
-            </S.IconWrapper>
-            <S.Title>{feature.title}</S.Title>
-            <S.Description>{feature.description}</S.Description>
-          </S.FeatureContent>
-        </Card>
-      ))}
+      {features.map((feature, index) => {
+        const cardStyle = animation !== 'none' ? springToCss(featureTrail[index]) : undefined;
+        
+        return (
+          <div key={index} style={cardStyle}>
+            <Card
+              variant={cardVariant}
+            >
+              <S.FeatureContent>
+                <S.IconWrapper>
+                  <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
+                </S.IconWrapper>
+                <S.Title>{feature.title}</S.Title>
+                <S.Description>{feature.description}</S.Description>
+              </S.FeatureContent>
+            </Card>
+          </div>
+        );
+      })}
     </S.FeatureGrid>
   );
 }; 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated } from '@react-spring/web';
 import { createGlobalStyle } from 'styled-components';
 
 // Define consistent spacing variables that can be reused across components
@@ -109,7 +109,7 @@ export const Container = styled.div`
   align-items: stretch;
 `;
 
-export const ContentSection = styled(motion.div)`
+export const ContentSection = styled.div`
   width: 100%;
   background-color: #fff;
   border-top-left-radius: 24px;
@@ -133,7 +133,7 @@ export const ContentSection = styled(motion.div)`
   }
 `;
 
-export const ContentContainer = styled(motion.div)`
+export const ContentContainer = styled.div`
   width: 100%;
   max-width: 1000px;
   margin: 0 auto ${SPACING.section};
@@ -145,14 +145,14 @@ export const ContentContainer = styled(motion.div)`
   }
 `;
 
-export const ContentContainerNoMargin = styled(motion.div)`
+export const ContentContainerNoMargin = styled.div`
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 ${SPACING.container};
 `;
 
-export const BackgroundSection = styled(motion.div)`
+export const BackgroundSection = styled.div`
   width: 100%;
   background-color: #f8f9fa;
   padding: ${SPACING.section} 0;
@@ -164,7 +164,7 @@ export const BackgroundSection = styled(motion.div)`
   }
 `;
 
-export const AccentBackgroundSection = styled(motion.div)`
+export const AccentBackgroundSection = styled.div`
   width: 100%;
   background-color: #f0f7ff;
   padding: ${SPACING.section} 0;
@@ -176,7 +176,7 @@ export const AccentBackgroundSection = styled(motion.div)`
   }
 `;
 
-export const GradientBackgroundSection = styled(motion.div)`
+export const GradientBackgroundSection = styled.div`
   width: 100%;
   background: linear-gradient(135deg, #6772e5 0%, #4ca5ff 100%);
   padding: ${SPACING.section} 0;
@@ -211,7 +211,7 @@ export const SectionSubtitle = styled.h3`
   }
 `;
 
-export const IntroBlock = styled(motion.div)`
+export const IntroBlock = styled.div`
   background: linear-gradient(135deg, #6772e5 0%, #4ca5ff 100%);
   border-radius: 12px;
   padding: ${SPACING.container};
@@ -226,7 +226,7 @@ export const IntroText = styled.p`
   margin: 0;
 `;
 
-export const NavigationGrid = styled(motion.div)`
+export const NavigationGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
@@ -252,7 +252,7 @@ export const NavigationGrid = styled(motion.div)`
   }
 `;
 
-export const StatsGrid = styled(motion.div)`
+export const StatsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
@@ -267,7 +267,7 @@ export const StatsGrid = styled(motion.div)`
   }
 `;
 
-export const StatCard = styled(motion.div)`
+export const StatCard = styled.div`
   background: white;
   border-radius: 12px;
   padding: ${SPACING.container};
@@ -299,7 +299,7 @@ export const IconContainer = styled.div`
   justify-content: center;
 `;
 
-export const CTABlock = styled(motion.div)`
+export const CTABlock = styled.div`
   background: linear-gradient(135deg, #6772e5 0%, #4ca5ff 100%);
   border-radius: 12px;
   padding: ${SPACING.container};
@@ -339,7 +339,7 @@ export const CTAButton = styled.a`
   }
 `;
 
-export const MermaidContainer = styled(motion.div)`
+export const MermaidContainer = styled.div`
   width: 100%;
   max-width: 800px;
   margin: ${SPACING.paragraph} auto;

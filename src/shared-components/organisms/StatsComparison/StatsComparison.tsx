@@ -1,31 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { Typography } from '../../atoms/Typography/Typography';
 import { StatsComparisonProps } from './StatsComparison.types';
 import * as S from './StatsComparison.styles';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
 
 export const StatsComparison: React.FC<StatsComparisonProps> = ({
   comparisons,
@@ -33,36 +10,46 @@ export const StatsComparison: React.FC<StatsComparisonProps> = ({
   position = 'right',
   className,
 }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '-100px',
+  });
+  
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
+
   return (
     <S.Container className={className} $position={position}>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
+      <div ref={ref}>
         <S.CardsContainer>
           {comparisons.map((comparison, index) => (
-            <S.Card 
-              key={index} 
-              $style={style}
-              variants={itemVariants}
+            <S.CardWrapper 
+              key={index}
+              className={isVisible ? 'visible' : ''}
+              style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <S.CardHeader>
-                <p>{comparison.metric}</p>
-              </S.CardHeader>
-              <S.CardBody>
-                <S.CurrentValue>
-                  {comparison.current}
-                </S.CurrentValue>
-                <S.Impact>
-                  {comparison.impact}
-                </S.Impact>
-              </S.CardBody>
-            </S.Card>
+              <S.Card $style={style}>
+                <S.CardHeader>
+                  <p>{comparison.metric}</p>
+                </S.CardHeader>
+                <S.CardBody>
+                  <S.CurrentValue>
+                    {comparison.current}
+                  </S.CurrentValue>
+                  <S.Impact>
+                    {comparison.impact}
+                  </S.Impact>
+                </S.CardBody>
+              </S.Card>
+            </S.CardWrapper>
           ))}
         </S.CardsContainer>
-      </motion.div>
+      </div>
     </S.Container>
   );
 }; 

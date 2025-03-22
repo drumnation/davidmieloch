@@ -1,17 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ProblemOverview } from '../../../../organisms/ProblemOverview/ProblemOverview';
 import { defaultContent } from '../../RealWorldImpact.constants';
+import { enhanceProblemOverviewProps } from '../../RealWorldImpact.logic';
 
 // Create a component to display the Problem Overview
 const ProblemOverviewSection = () => {
+  // Use the enhancer function to ensure proper types and structure
+  const enhancedProps = enhanceProblemOverviewProps(defaultContent.problemOverview);
+  
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
       <ProblemOverview 
-        title={defaultContent.problemOverview.title}
-        description={defaultContent.problemOverview.description}
-        metrics={defaultContent.problemOverview.metrics}
-        style={defaultContent.problemOverview.style} 
-        position={defaultContent.problemOverview.position}
+        title={enhancedProps.title}
+        description={enhancedProps.description}
+        metrics={enhancedProps.metrics}
+        style={enhancedProps.style}
+        position={enhancedProps.position}
         animation="fade-up"
         background="light"
       />

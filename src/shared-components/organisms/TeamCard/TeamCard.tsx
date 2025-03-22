@@ -1,54 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useSpring, useTrail } from '@react-spring/web';
 import { TeamCardProps } from './TeamCard.types';
 import { H2, H3, Body } from '../../atoms/Typography/Typography';
 import * as S from './TeamCard.styles';
-
-const containerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  },
-};
-
-const listVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.3,
-      ease: 'easeOut',
-    },
-  },
-};
-
-const skillVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.3,
-      ease: 'easeOut',
-    },
-  },
-};
+import { AnimatedDiv } from '../../../utils/animations/typed-components';
+import { frameFadeInToSpring, frameFadeUpToSpring } from '../../../utils/animations/typed-components';
 
 export const TeamCard: React.FC<TeamCardProps> = ({
   name,
@@ -58,20 +14,60 @@ export const TeamCard: React.FC<TeamCardProps> = ({
   skills,
   className,
 }) => {
+  // Container animation
+  const containerSpring = useSpring({
+    ...frameFadeUpToSpring(0),
+    from: { opacity: 0, transform: 'translateY(20px)' },
+    to: { opacity: 1, transform: 'translateY(0px)' },
+    config: { tension: 280, friction: 60 }
+  });
+
+  // Hover animation
+  const [hoverProps, setHover] = useSpring(() => ({
+    transform: 'translateY(0px)',
+    config: { tension: 300, friction: 20 }
+  }));
+
+  // Icon animation
+  const iconSpring = useSpring({
+    from: { scale: 0 },
+    to: { scale: 1 },
+    delay: 200,
+    config: { tension: 200, friction: 12 }
+  });
+
+  // Responsibilities list animation
+  const responsibilitiesTrail = useTrail(responsibilities.length, {
+    from: { opacity: 0, x: -20 },
+    to: { opacity: 1, x: 0 },
+    config: { tension: 280, friction: 60 },
+    delay: 200
+  });
+
+  // Skills animation
+  const skillsTrail = useTrail(skills.length, {
+    from: { opacity: 0, scale: 0.8 },
+    to: { opacity: 1, scale: 1 },
+    config: { tension: 280, friction: 60 },
+    delay: 300
+  });
+
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      whileHover={{ y: -4 }}
+    <AnimatedDiv
+      style={{
+        ...containerSpring,
+        ...hoverProps
+      }}
+      onMouseEnter={() => setHover({ transform: 'translateY(-4px)' })}
+      onMouseLeave={() => setHover({ transform: 'translateY(0px)' })}
     >
       <S.StyledTeamCard variant="accent" padding="lg" className={className}>
         <S.Header $hasIcon={Boolean(icon)}>
           {icon && (
             <S.IconWrapper
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+              style={{ 
+                transform: iconSpring.scale.to(s => `scale(${s})`) 
+              }}
             >
               <span className="icon">{icon}</span>
             </S.IconWrapper>
@@ -85,10 +81,10 @@ export const TeamCard: React.FC<TeamCardProps> = ({
         <S.Content>
           <div>
             <H3>Responsibilities</H3>
-            <S.List variants={listVariants} initial="hidden" animate="visible">
-              {responsibilities.map((responsibility, index) => (
-                <S.ListItem key={index} variants={itemVariants}>
-                  <Body>{responsibility}</Body>
+            <S.List>
+              {responsibilitiesTrail.map((styles, index) => (
+                <S.ListItem key={index} style={styles}>
+                  <Body>{responsibilities[index]}</Body>
                 </S.ListItem>
               ))}
             </S.List>
@@ -97,21 +93,18 @@ export const TeamCard: React.FC<TeamCardProps> = ({
           <div>
             <H3>Skills</H3>
             <S.SkillsContainer>
-              {skills.map((skill, index) => (
+              {skillsTrail.map((styles, index) => (
                 <S.Skill
                   key={index}
-                  variants={skillVariants}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delay: index * 0.05 }}
+                  style={styles}
                 >
-                  {skill}
+                  {skills[index]}
                 </S.Skill>
               ))}
             </S.SkillsContainer>
           </div>
         </S.Content>
       </S.StyledTeamCard>
-    </motion.div>
+    </AnimatedDiv>
   );
 }; 

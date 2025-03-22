@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated } from '@react-spring/web';
 import { Stack } from '@mantine/core';
 import { Text, Title } from '@mantine/core';
 
@@ -7,7 +7,7 @@ interface StyledProps {
   styleType?: 'gradient-card' | 'accent-card' | 'challenge-cards';
 }
 
-export const Container = styled(motion.div)<{ position?: string }>`
+export const Container = styled(animated.div)<{ position?: string }>`
   width: 100%;
   max-width: 100%;
 `;
@@ -66,7 +66,7 @@ export const ChallengeGrid = styled.div`
   }
 `;
 
-export const ChallengeCard = styled(motion.div)`
+export const ChallengeCard = styled(animated.div)`
   padding: ${({ theme }) => theme.space.xl};
   background: ${({ theme }) => theme.colors.background.light};
   border-radius: ${({ theme }) => theme.radius.lg};

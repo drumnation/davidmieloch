@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';
-import { motion } from 'framer-motion';
+import { useSpring, animated } from '@react-spring/web';
 import { Typography } from '../../atoms/Typography';
 import { Icon } from '../../atoms/Icon';
 import {
@@ -260,43 +260,63 @@ export const enhanceHeroProps = (heroProps: AiAutopilotAnalogyProps['heroProps']
 export const RealityItem: React.FC<{
   item: { title: string; description: string; icon: React.ReactNode };
   index: number;
-}> = ({ item, index }) => (
-  <motion.div 
-    key={index}
-    style={realityItemStyle}
-    whileHover={{ y: -4 }}
-    transition={{ duration: 0.2 }}
-  >
-    <div style={iconContainerRealityStyle}>
-      {item.icon}
+}> = ({ item, index }) => {
+  const [props, api] = useSpring(() => ({
+    y: 0,
+    config: { duration: 300 }
+  }));
+
+  return (
+    <div key={index} style={realityItemStyle}>
+      <animated.div 
+        style={{
+          transform: props.y.to(y => `translateY(${y}px)`)
+        }}
+        onMouseEnter={() => api.start({ y: -4 })}
+        onMouseLeave={() => api.start({ y: 0 })}
+      >
+        <div style={iconContainerRealityStyle}>
+          {item.icon}
+        </div>
+        <div style={itemContentStyle}>
+          <Typography variant="body" weight="bold" className="mb-2">{item.title}</Typography>
+          <Typography variant="body">{item.description}</Typography>
+        </div>
+      </animated.div>
     </div>
-    <div style={itemContentStyle}>
-      <Typography variant="body" weight="bold" className="mb-2">{item.title}</Typography>
-      <Typography variant="body">{item.description}</Typography>
-    </div>
-  </motion.div>
-);
+  );
+};
 
 // Hollywood item component
 export const HollywoodItem: React.FC<{
   item: { title: string; description: string; icon: React.ReactNode };
   index: number;
-}> = ({ item, index }) => (
-  <motion.div 
-    key={index}
-    style={hollywoodItemStyle}
-    whileHover={{ y: -4 }}
-    transition={{ duration: 0.2 }}
-  >
-    <div style={iconContainerHollywoodStyle}>
-      {item.icon}
+}> = ({ item, index }) => {
+  const [props, api] = useSpring(() => ({
+    y: 0,
+    config: { duration: 300 }
+  }));
+
+  return (
+    <div key={index} style={hollywoodItemStyle}>
+      <animated.div 
+        style={{
+          transform: props.y.to(y => `translateY(${y}px)`)
+        }}
+        onMouseEnter={() => api.start({ y: -4 })}
+        onMouseLeave={() => api.start({ y: 0 })}
+      >
+        <div style={iconContainerHollywoodStyle}>
+          {item.icon}
+        </div>
+        <div style={itemContentStyle}>
+          <Typography variant="body" weight="bold" className="mb-2">{item.title}</Typography>
+          <Typography variant="body">{item.description}</Typography>
+        </div>
+      </animated.div>
     </div>
-    <div style={itemContentStyle}>
-      <Typography variant="body" weight="bold" className="mb-2">{item.title}</Typography>
-      <Typography variant="body">{item.description}</Typography>
-    </div>
-  </motion.div>
-);
+  );
+};
 
 // Section title component
 export const SectionTitle: React.FC<{

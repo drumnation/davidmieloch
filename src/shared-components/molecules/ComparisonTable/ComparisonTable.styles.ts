@@ -17,6 +17,12 @@ export const Table = styled.table<StyledTableProps>`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.medium};
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  
+  &.visible {
+    opacity: 1;
+  }
 `;
 
 export const TableHead = styled.thead<StyledTableProps>`
@@ -34,6 +40,16 @@ export const TableBody = styled.tbody`
 `;
 
 export const TableRow = styled.tr`
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: calc(var(--item-index, 0) * 0.1s);
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   &:nth-child(even) {
     background: ${({ theme }) => theme.colors.background.paper};
   }

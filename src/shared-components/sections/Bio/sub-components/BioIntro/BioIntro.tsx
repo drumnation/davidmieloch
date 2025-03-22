@@ -53,7 +53,7 @@ export const BioIntro: React.FC<BioIntroProps> = ({ className }) => {
         <HeadingWrapper>
           <h2>Introduction</h2>
           <h3>A passionate technical leader with a history of building impactful solutions</h3>
-        </HeadingWrapper>
+      </HeadingWrapper>
         <p>
           With over a decade of experience in software development and technical leadership, I've
           had the privilege of working across a diverse range of projects and domains, from

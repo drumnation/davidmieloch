@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useSpring, useTrail, animated, config } from '@react-spring/web';
 import { Hero } from '../../organisms/Hero';
 import { FeatureGrid } from '../../organisms/FeatureGrid/FeatureGrid';
 import { ComparisonTable } from '../../molecules/ComparisonTable';
@@ -25,9 +25,6 @@ import {
   mermaidContainerStyle,
   titleBlockStyle,
   descriptionBlockStyle,
-  fadeIn,
-  fadeInUp,
-  staggerContainer,
   paragraphContainerTopMarginStyle,
   SPACING
 } from './AiAutopilotAnalogy.styles';
@@ -38,6 +35,9 @@ import {
   SectionSubtitle,
   SectionParagraph
 } from './AiAutopilotAnalogy.logic';
+
+// Create animated components
+const AnimatedDiv = animated('div');
 
 export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => {
   const {
@@ -50,47 +50,66 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
     leadershipBlueprintProps
   } = useAiAutopilotAnalogy(props);
 
+  // Animation for container
+  const containerAnimation = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 800 }
+  });
+
+  // Animation for content
+  const contentAnimation = useSpring({
+    from: { opacity: 0, transform: 'translateY(20px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: { duration: 600 }
+  });
+
+  // Animation for principles cards
+  const cardTrail = useTrail(strategicFocusAreasProps.features.length, {
+    from: { opacity: 0, transform: 'translateY(20px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: { mass: 1, tension: 180, friction: 24 },
+    delay: 300
+  });
+
+  // Animation for quote boxes
+  const quoteHoverProps = useSpring({
+    from: { boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)' },
+    config: { tension: 300, friction: 20 }
+  });
+
+  // Animation for blueprint cards
+  const blueprintHoverProps = useSpring({
+    from: { y: 0, boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)', backgroundColor: 'white' },
+    config: { tension: 300, friction: 20 }
+  });
+
   return (
     <div className={className} style={containerStyle}>
       {/* Hero Section */}
-      <Hero {...enhancedHeroProps} />
+      <AnimatedDiv style={containerAnimation}>
+        <Hero {...enhancedHeroProps} />
+      </AnimatedDiv>
       
       {/* Content Section with White Background */}
-      <motion.div 
-        style={contentSectionStyle}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeIn}
-      >
+      <AnimatedDiv style={contentSectionStyle}>
         {/* Introduction Section */}
-        <motion.div 
-          style={sectionContainerStyle}
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.div 
+        <AnimatedDiv style={sectionContainerStyle}>
+          <AnimatedDiv 
             className="text-left" 
             style={titleContainerStyle}
-            variants={fadeInUp}
           >
             <SectionTitle title="Reframing AI: The Autopilot Analogy" />
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               As one experienced developer in the Reddit thread eloquently explained:
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
+          <AnimatedDiv 
             style={{...paragraphContainerStyle, marginLeft: '1.5rem', borderLeft: '3px solid #e0e0e0', paddingLeft: '1.5rem'}}
-            variants={fadeInUp}
           >
             <SectionParagraph>
               &quot;There&apos;s a &apos;Hollywood view&apos; of autopilot where it&apos;s a magical tool that the pilot just flicks on after takeoff, then they sit back and let it fly them to their destination. This view bleeds into other domains such as self-driving cars and AI programming tools.
@@ -113,29 +132,19 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
                 The autopilot may do the stick, rudder, and throttle work, but it does nothing that isn&apos;t actively monitored by the pilot as part of their higher-level duties.&quot;
               </SectionParagraph>
             </div>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               This analogy perfectly captures how we should view AI in software development - not as a replacement for human developers, but as a tool that reduces cognitive load so developers can focus on more strategic concerns.
             </SectionParagraph>
-          </motion.div>
-        </motion.div>
+          </AnimatedDiv>
+        </AnimatedDiv>
         
         {/* Comparison Table Section */}
-        <motion.div 
-          style={comparisonSectionStyle}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeIn}
-        >
-          <motion.div 
+        <AnimatedDiv style={comparisonSectionStyle}>
+          <AnimatedDiv 
             style={sectionContainerWithoutMarginStyle}
-            variants={fadeInUp}
           >
             <SectionSubtitle title="Human Pilot vs. AI Autopilot" />
             <ComparisonTable 
@@ -144,101 +153,74 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
               items={comparisonTableProps.items}
               variant="accent"
             />
-          </motion.div>
-        </motion.div>
+          </AnimatedDiv>
+        </AnimatedDiv>
         
         {/* Reality vs Hollywood Section */}
-        <motion.div 
-          style={sectionContainerStyle}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div 
+        <AnimatedDiv style={sectionContainerStyle}>
+          <AnimatedDiv 
             className="text-left" 
             style={titleContainerStyle}
-            variants={fadeInUp}
           >
             <SectionTitle title="AI Reality vs. Hollywood Fiction" />
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               Many misconceptions about AI stem from science fiction portrayals that bear little resemblance to today&apos;s reality. 
               Understanding these differences is crucial for setting realistic expectations and implementing effective AI strategies.
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
-            style={realityVsHollywoodContainerStyle}
-            variants={staggerContainer}
-          >
+          <AnimatedDiv style={realityVsHollywoodContainerStyle}>
             {/* Reality Column */}
-            <motion.div variants={fadeInUp}>
+            <AnimatedDiv>
               <SectionSubtitle title="Reality: AI Today" color="primary" />
               <div style={itemsContainerStyle}>
                 {realityVsHollywoodProps.realityItems.map((item, index) => (
                   <RealityItem key={index} item={item} index={index} />
                 ))}
               </div>
-            </motion.div>
+            </AnimatedDiv>
             
             {/* Hollywood Column */}
-            <motion.div variants={fadeInUp}>
+            <AnimatedDiv>
               <SectionSubtitle title="Hollywood: AI Fiction" color="primary" />
               <div style={itemsContainerStyle}>
                 {realityVsHollywoodProps.hollywoodItems.map((item, index) => (
                   <HollywoodItem key={index} item={item} index={index} />
                 ))}
               </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </AnimatedDiv>
+          </AnimatedDiv>
+        </AnimatedDiv>
         
         {/* Strategic Focus Areas Section */}
-        <motion.div 
-          style={sectionContainerWithoutMarginStyle}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div 
+        <AnimatedDiv style={sectionContainerWithoutMarginStyle}>
+          <AnimatedDiv 
             className="text-left" 
             style={titleContainerStyle}
-            variants={fadeInUp}
           >
             <SectionTitle title="Strategic Focus Areas for AI Integration" />
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               Based on my experience implementing AI systems across multiple development teams, 
               I&apos;ve identified six key focus areas that determine the success of AI integration:
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
 
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               Before diving into these focus areas, it&apos;s worth emphasizing that AI integration requires a strong foundation of engineering excellence. 
               The rise of AI tools doesn&apos;t diminish the importance of best practices—it magnifies it. 
               This perspective was powerfully articulated by another voice in the discussion:
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
 
-          <motion.div 
+          <AnimatedDiv 
             style={{...paragraphContainerStyle, marginLeft: '1.5rem', borderLeft: '3px solid #e0e0e0', paddingLeft: '1.5rem', marginBottom: '2rem'}}
-            variants={fadeInUp}
           >
             <SectionParagraph>
               <strong>As a software architect with 15 years of experience emphasized in the same thread:</strong>
@@ -261,17 +243,14 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
                 Companies that understand and respect good engineering quality and culture will excel while companies that think this allows them to skimp on engineering and give the reigns to hacks and inexperienced juniors are doomed to ruin themselves under unmaintainable spaghetti code AI slop.&quot;
               </SectionParagraph>
             </div>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               This architect&apos;s insights align perfectly with what I&apos;ve observed in successful AI implementations. 
               With this foundation in mind, let&apos;s explore the six strategic focus areas that can transform how teams integrate AI tools, starting with establishing a knowledge foundation and progressing through implementation, people, and measurement:
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
           <FeatureGrid 
             features={strategicFocusAreasProps.features}
@@ -280,19 +259,16 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
             animation="stagger-fade"
           />
           
-          <motion.div 
-            style={paragraphContainerTopMarginStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerTopMarginStyle}>
             <SectionParagraph>
               By focusing on these strategic areas, organizations can create a balanced approach that leverages AI&apos;s strengths 
               while maintaining the critical human elements of software development.
             </SectionParagraph>
-          </motion.div>
-        </motion.div>
+          </AnimatedDiv>
+        </AnimatedDiv>
 
         {/* Critical Warning Transition */}
-        <motion.div 
+        <AnimatedDiv 
           style={{
             width: '100%',
             padding: '2rem',
@@ -300,18 +276,13 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
             backgroundColor: '#ffebee',
             borderLeft: '4px solid #f44336'
           }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeIn}
         >
-          <motion.div 
+          <AnimatedDiv 
             style={{ 
               width: '100%',
               maxWidth: '1000px', 
               margin: '0 auto'
             }}
-            variants={fadeInUp}
           >
             <Typography variant="h3" weight="bold" className="mb-3">
               {leadershipBlueprintProps.warningTransition.title}
@@ -319,51 +290,36 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
             <Typography variant="body" weight="regular">
               {leadershipBlueprintProps.warningTransition.description}
             </Typography>
-          </motion.div>
-        </motion.div>
+          </AnimatedDiv>
+        </AnimatedDiv>
         
         {/* Leadership Blueprint Section */}
-        <motion.div 
-          style={sectionContainerTopMarginStyle}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div 
+        <AnimatedDiv style={sectionContainerTopMarginStyle}>
+          <AnimatedDiv 
             className="text-left" 
             style={titleContainerStyle}
-            variants={fadeInUp}
           >
             <SectionTitle title={leadershipBlueprintProps.title} />
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               {leadershipBlueprintProps.narrative.introduction}
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
           {/* First Quote with Context */}
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
-            <motion.div 
+          <AnimatedDiv style={paragraphContainerStyle}>
+            <AnimatedDiv 
               style={{
+                ...quoteHoverProps,
                 backgroundColor: '#f9f9f9',
                 borderRadius: '8px',
                 padding: '1.5rem',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
                 borderLeft: '4px solid var(--primary-blue)',
                 position: 'relative',
                 margin: '1rem 0 1.5rem'
               }}
-              whileHover={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)' }}
-              transition={{ duration: 0.3 }}
             >
               <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', top: '0.75rem', left: '0.75rem' }}>
                 <span style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
@@ -386,38 +342,30 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
                 <strong>Context: </strong> 
                 AI proponents create unrealistic deadlines, then disappear when the tools aren't available.
               </div>
-            </motion.div>
-          </motion.div>
+            </AnimatedDiv>
+          </AnimatedDiv>
           
           {/* Narrative between quotes */}
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               Such overreach disrupts a key balance: developers—who understand software complexity—lose influence over timelines and 
               design decisions, while managers set aggressive deadlines based on AI's partial outputs. Another quote underscores how 
               deadlines ignore real effort:
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
           {/* Second Quote with Impact */}
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
-            <motion.div 
+          <AnimatedDiv style={paragraphContainerStyle}>
+            <AnimatedDiv 
               style={{
+                ...quoteHoverProps,
                 backgroundColor: '#f9f9f9',
                 borderRadius: '8px',
                 padding: '1.5rem',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
                 borderLeft: '4px solid var(--primary-blue)',
                 position: 'relative',
                 margin: '1rem 0 1.5rem'
               }}
-              whileHover={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)' }}
-              transition={{ duration: 0.3 }}
             >
               <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', top: '0.75rem', left: '0.75rem' }}>
                 <span style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
@@ -440,37 +388,29 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
                 <strong>Impact: </strong> 
                 Developers are left to fix AI-generated code with the same unrealistic timelines.
               </div>
-            </motion.div>
-          </motion.div>
+            </AnimatedDiv>
+          </AnimatedDiv>
           
           {/* Narrative between quotes */}
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               This dynamic drains the joy from engineering. Developers end up debugging and polishing code they didn't fully create, 
               yet remain fully accountable for production-readiness:
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
           {/* Third Quote with Result */}
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
-            <motion.div 
+          <AnimatedDiv style={paragraphContainerStyle}>
+            <AnimatedDiv 
               style={{
+                ...quoteHoverProps,
                 backgroundColor: '#f9f9f9',
                 borderRadius: '8px',
                 padding: '1.5rem',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
                 borderLeft: '4px solid var(--primary-blue)',
                 position: 'relative',
                 margin: '1rem 0 1.5rem'
               }}
-              whileHover={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)' }}
-              transition={{ duration: 0.3 }}
             >
               <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', top: '0.75rem', left: '0.75rem' }}>
                 <span style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
@@ -493,17 +433,16 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
                 <strong>Result: </strong> 
                 Developers lose ownership while retaining all responsibility for outcomes.
               </div>
-            </motion.div>
-          </motion.div>
+            </AnimatedDiv>
+          </AnimatedDiv>
           
           {/* Autopilot Explanation */}
-          <motion.div 
+          <AnimatedDiv 
             style={{
               marginBottom: SPACING.paragraphBreak,
               padding: '0',
               marginTop: '1rem'
             }}
-            variants={fadeInUp}
           >
             <SectionParagraph>
               <strong>The Autopilot Connection:</strong> Just like autopilot in aviation, AI tools can greatly reduce the repetitive "flying" (writing boilerplate code) so the 
@@ -512,27 +451,23 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
               and quality. As with flying, the pilot must train, monitor, and correct for any deviation, because autopilot doesn't 
               replace the pilot—it only assists.
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               {leadershipBlueprintProps.narrative.conclusion}
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div 
+          <AnimatedDiv 
             className="text-left" 
             style={{...titleContainerStyle, marginTop: '2rem'}}
-            variants={fadeInUp}
           >
             <SectionSubtitle title={leadershipBlueprintProps.subtitle} />
-          </motion.div>
+          </AnimatedDiv>
           
           {/* Blueprint Cards - Vertical Layout */}
-          <motion.div 
+          <AnimatedDiv 
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -540,30 +475,17 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
               width: '100%',
               margin: '2rem 0 3rem'
             }}
-            variants={staggerContainer}
           >
             {leadershipBlueprintProps.blueprint.map((section, index) => (
-              <motion.div
+              <AnimatedDiv
                 key={index}
-                variants={fadeInUp}
-                custom={index}
-                transition={{ 
-                  delay: index * 0.15,
-                  duration: 0.5,
-                  ease: 'easeOut'
-                }}
                 style={{
+                  ...blueprintHoverProps,
                   backgroundColor: 'white',
                   borderRadius: '10px',
-                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column'
-                }}
-                whileHover={{ 
-                  y: -5, 
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
-                  backgroundColor: '#fcfcfc'
                 }}
               >
                 <div style={{
@@ -592,12 +514,12 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </AnimatedDiv>
             ))}
-          </motion.div>
+          </AnimatedDiv>
           
           {/* Bottom Line Box */}
-          <motion.div 
+          <AnimatedDiv 
             style={{
               marginTop: SPACING.paragraphBreak,
               padding: '1.5rem',
@@ -606,7 +528,6 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
               borderLeft: '4px solid var(--accent-green)',
               borderBottom: '1px solid #e0e0e0'
             }}
-            variants={fadeInUp}
           >
             <Typography variant="h3" weight="bold" className="mb-3">
               Bottom Line
@@ -614,21 +535,12 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
             <SectionParagraph>
               {leadershipBlueprintProps.bottomLine}
             </SectionParagraph>
-          </motion.div>
-        </motion.div>
+          </AnimatedDiv>
+        </AnimatedDiv>
         
         {/* Process Flow Diagram Section */}
-        <motion.div 
-          style={sectionContainerTopMarginStyle}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+        <AnimatedDiv style={sectionContainerTopMarginStyle}>
+          <AnimatedDiv style={paragraphContainerStyle}>
             <div style={titleBlockStyle}>
               <Typography variant="h2" weight="bold">
                 {mermaidDiagramProps.title}
@@ -639,10 +551,9 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
                 {mermaidDiagramProps.description}
               </Typography>
             </div>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div
-            variants={fadeInUp}
+          <AnimatedDiv
             style={{
               ...mermaidContainerStyle,
               textAlign: 'center',
@@ -663,43 +574,34 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = (props) => 
                 className="centered-diagram"
               />
             </div>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div variants={fadeInUp} style={paragraphContainerNoMarginStyle}>
+          <AnimatedDiv style={paragraphContainerNoMarginStyle}>
             <SectionParagraph>
               This process flow directly aligns with our six strategic focus areas, showing how they integrate into a practical implementation plan.
               Starting with knowledge integration as the foundation, the flow incorporates each focus area in a logical sequence.
               Note the iterative nature with continuous feedback loops and clear decision points for refinement based on real-world results.
               This approach ensures AI integration remains human-directed, balancing engineering excellence with practical implementation.
             </SectionParagraph>
-          </motion.div>
-        </motion.div>
+          </AnimatedDiv>
+        </AnimatedDiv>
         
         {/* Conclusion Section */}
-        <motion.div 
-          style={sectionContainerSmallTopMarginStyle}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div 
-            style={paragraphContainerStyle}
-            variants={fadeInUp}
-          >
+        <AnimatedDiv style={sectionContainerSmallTopMarginStyle}>
+          <AnimatedDiv style={paragraphContainerStyle}>
             <SectionParagraph>
               The autopilot analogy provides a powerful framework for understanding AI&apos;s role in development. 
               Just as pilots remain essential despite advanced autopilot systems, developers remain the creative and strategic core of software development.
             </SectionParagraph>
-          </motion.div>
+          </AnimatedDiv>
           
-          <motion.div variants={fadeInUp}>
+          <AnimatedDiv>
             <SectionParagraph>
               In the next section, we&apos;ll explore how these principles are implemented in my comprehensive AI integration system: The Brain Garden.
             </SectionParagraph>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </AnimatedDiv>
+        </AnimatedDiv>
+      </AnimatedDiv>
     </div>
   );
 };

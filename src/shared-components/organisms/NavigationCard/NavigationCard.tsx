@@ -1,24 +1,15 @@
 import React from 'react';
+import { useSpring, config } from '@react-spring/web';
+import { useInView } from 'react-intersection-observer';
 import { Typography } from '../../atoms/Typography/Typography';
 import { Icon } from '../../atoms/Icon';
 import { NavigationCardProps } from './NavigationCard.types';
 import * as S from './NavigationCard.styles';
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
 export const NavigationCard: React.FC<NavigationCardProps> = ({
   content,
   style = 'gradient-card',
+  animation = 'fade-up',
   className,
 }) => {
   if (!content) {
@@ -26,15 +17,28 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
   }
 
   const { text = '', action = '', link = '#', icon = '' } = content;
+  
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+    rootMargin: '-100px 0px',
+  });
+  
+  const springProps = useSpring({
+    opacity: inView ? 1 : 0,
+    y: inView ? 0 : 20,
+    config: config.gentle,
+    delay: 100,
+  });
 
   return (
-    <S.Container className={className}>
-      <S.Card 
+    <S.Container className={className} ref={ref}>
+      <S.AnimatedCard 
         $style={style}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
+        style={{
+          opacity: springProps.opacity,
+          transform: springProps.y.to(y => `translateY(${y}px)`)
+        }}
       >
         <S.CardContent>
           <S.IconWrapper>
@@ -54,7 +58,7 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
             </S.ActionLink>
           )}
         </S.CardContent>
-      </S.Card>
+      </S.AnimatedCard>
     </S.Container>
   );
 }; 

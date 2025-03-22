@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Typography } from '../../../../atoms/Typography';
 import { NextEvolutionSectionProps } from './NextEvolutionSection.types';
 import {
@@ -91,44 +90,23 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
     }
   ];
 
-  // Animation variants for staggered list items
-  const itemVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 0.4 } 
-    }
-  };
-
   // Component for each timeline phase
   const TimelinePhase = ({ title, color, items }: { title: string; color: string; items: string[] }) => {
     return (
-      <PhaseContainer variants={fadeInUp}>
+      <PhaseContainer>
         {/* Phase title */}
-        <PhaseTitle 
-          style={{ backgroundColor: color }}
-          variants={fadeInScale}
-        >
+        <PhaseTitle style={{ backgroundColor: color }}>
           <Typography variant="h3" weight="bold" color="light">{title}</Typography>
         </PhaseTitle>
         
         {/* Phase content */}
-        <PhaseContent variants={slideInRight}>
+        <PhaseContent>
           <PhaseItemsList>
             {items.map((item, index) => {
               const [feature, description] = item.split(" - ");
               return (
-                <PhaseItem 
-                  key={index}
-                  variants={itemVariants}
-                >
-                  <PhaseItemDot 
-                    style={{ backgroundColor: color }}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.2 + (index * 0.1), duration: 0.3 }}
-                  />
+                <PhaseItem key={index}>
+                  <PhaseItemDot style={{ backgroundColor: color }} />
                   <PhaseItemContent>
                     <Typography variant="body" as="span" weight="bold">{feature}</Typography>
                     {description && <Typography variant="body" as="span" color="secondary"> - {description}</Typography>}
@@ -143,14 +121,8 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
   };
 
   return (
-    <ContentContainer
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={staggerContainer}
-    >
-      <motion.div variants={fadeInUp}>
+    <ContentContainer className={className}>
+      <div>
         <SectionTitleComponent title="The Next Evolution of Brain Garden" />
         
         <Typography variant="h3" mb="1.5rem">Evolving Prompt and Knowledge Systems</Typography>
@@ -162,17 +134,8 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
         </Typography>
         
         {/* Interactive Evolution Timeline */}
-        <TimelineContainer
-          variants={phaseStaggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-150px" }}
-        >
-          <TimelineMainLine 
-            initial={{ height: 0 }}
-            animate={{ height: '100%' }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
+        <TimelineContainer>
+          <TimelineMainLine />
           
           <TimelinePhase 
             title={timelineData.current.title} 
@@ -194,43 +157,26 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
         </TimelineContainer>
         
         {/* Focus Areas Grid */}
-        <motion.div variants={fadeInUp}>
+        <div>
           <Typography variant="h3" mt="3rem" mb="1.5rem">Key Research & Development Focus Areas</Typography>
-        </motion.div>
+        </div>
         
-        <CapabilityCardsGrid
-          variants={cardStaggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <CapabilityCard 
-            style={{ backgroundColor: "#6A0DAD" }}
-            whileHover={{ y: -5 }}
-            variants={slideInLeft}
-          >
+        <CapabilityCardsGrid>
+          <CapabilityCard style={{ backgroundColor: "#6A0DAD" }}>
             <Typography variant="h3" color="light" mb="0.75rem">Advanced MCP Server</Typography>
             <Typography variant="body" color="light">
               Enhanced MCP server providing brain-garden specific tools to the agent, including skill-jacks via MCP and dynamic tool creation capabilities.
             </Typography>
           </CapabilityCard>
           
-          <CapabilityCard 
-            style={{ backgroundColor: "#4CAF50" }}
-            whileHover={{ y: -5 }}
-            variants={slideInRight}
-          >
+          <CapabilityCard style={{ backgroundColor: "#4CAF50" }}>
             <Typography variant="h3" color="light" mb="0.75rem">Lead & Subordinate Agents</Typography>
             <Typography variant="body" color="light">
               Lead agent delegates tasks to specialized subordinate agents, such as architect agents for planning and tester agents for automated quality assurance.
             </Typography>
           </CapabilityCard>
           
-          <CapabilityCard 
-            style={{ backgroundColor: "#2196F3" }}
-            whileHover={{ y: -5 }}
-            variants={slideInLeft}
-          >
+          <CapabilityCard style={{ backgroundColor: "#2196F3" }}>
             <Typography variant="h3" color="light" mb="0.75rem">Advanced Workflow Integration</Typography>
             <Typography variant="body" color="light">
               Enhanced agile workflow with GitHub Projects integration, VSCode extensions, and continuous iterative improvements to leverage new technologies.
@@ -239,39 +185,33 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
         </CapabilityCardsGrid>
         
         {/* Research Focus */}
-        <ResearchAreaContainer 
-          variants={fadeInScale}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <ResearchAreaContainer>
           <Typography variant="h3" mb="1rem">Research Investment Areas</Typography>
           <Typography variant="body" mb="1.5rem">
             Our R&D resources are strategically invested in these transformative capabilities to 
             create an increasingly autonomous and powerful Brain Garden ecosystem:
           </Typography>
-          <ResearchGridContainer
-            variants={cardStaggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          
+          <ResearchGridContainer>
             {researchAreas.map((area, index) => (
-              <ResearchAreaCard 
-                key={index}
-                variants={index % 2 === 0 ? slideInLeft : slideInRight}
-                whileHover={{ 
-                  scale: 1.02,
-                  transition: { duration: 0.2 }
-                }}
-              >
-                <Typography variant="h3" mb="0.5rem">{area.title}</Typography>
+              <ResearchAreaCard key={index}>
+                <Typography variant="h4" mb="0.5rem">{area.title}</Typography>
                 <Typography variant="body">{area.description}</Typography>
               </ResearchAreaCard>
             ))}
           </ResearchGridContainer>
         </ResearchAreaContainer>
-      </motion.div>
+        
+        <Typography variant="body" mt="2rem" mb="1rem">
+          Now that we've explored the conceptual framework of the Brain Garden system, 
+          let's examine how these ideas come to life through technical implementation.
+        </Typography>
+        
+        <Typography variant="body">
+          The architecture we're about to explore translates these concepts into practical 
+          tools and structures that developers can immediately apply to their daily workflows.
+        </Typography>
+      </div>
     </ContentContainer>
   );
 };

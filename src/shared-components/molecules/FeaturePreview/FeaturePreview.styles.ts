@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animated } from '@react-spring/web';
 
 export const FeatureGrid = styled.div`
   display: grid;
@@ -35,4 +36,11 @@ export const Description = styled.p`
       ? textColor.secondary
       : '#4A5568';
   }};
-`; 
+`;
+
+// Animated versions
+export const AnimatedFeatureGrid = animated(FeatureGrid);
+export const AnimatedFeatureContent = animated(FeatureContent);
+export const AnimatedIconWrapper = animated(IconWrapper);
+export const AnimatedTitle = animated(Title);
+export const AnimatedDescription = animated(Description); 

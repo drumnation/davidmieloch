@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated } from '@react-spring/web';
 import { StyledNavigationItemProps, StyledSideNavigationProps } from './SideNavigation.types';
 
 export const StyledSideNavigation = styled.nav<StyledSideNavigationProps>`
@@ -140,7 +140,7 @@ export const MenuItemButton = styled.button<StyledNavigationItemProps>`
   }
 `;
 
-export const SubsectionIndicator = styled(motion.span)<{ $style: 'light' | 'dark' }>`
+export const SubsectionIndicator = styled.span<{ $style: 'light' | 'dark' }>`
   margin-left: auto;
   font-size: 0.75rem;
   color: ${({ theme, $style }) => 

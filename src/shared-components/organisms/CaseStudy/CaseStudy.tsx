@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CaseStudyProps } from './CaseStudy.types';
 import * as S from './CaseStudy.styles';
 
@@ -12,14 +12,36 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({
   position = 'right',
   className,
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { rootMargin: "-100px" }
+    );
+    
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+    
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   return (
     <S.Container position={position} className={className}>
       <S.Card
+        ref={cardRef}
         styleType={style}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={S.fadeIn}
+        className={isVisible ? 'visible' : 'hidden'}
       >
         <S.Title>{title}</S.Title>
         

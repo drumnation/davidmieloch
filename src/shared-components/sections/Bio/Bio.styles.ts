@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { createGlobalStyle } from 'styled-components';
+import { AnimationVariants } from '../../../utils/animations/migration-helpers';
 
 // Global styles for the Bio component
 export const GlobalStyles = createGlobalStyle`
@@ -57,6 +57,43 @@ export const GlobalStyles = createGlobalStyle`
       transform: scale(1.12) translateY(-8px);
     }
   }
+  
+  // Add CSS classes for transitions
+  .bio-content-section {
+    width: 100%;
+    background-color: #fff;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    margin-top: -24px;
+    position: relative;
+    z-index: 2;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
+    @media (max-width: 576px) {
+      padding-top: 3.75rem;
+      padding-bottom: 3.75rem;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      margin-top: -16px;
+    }
+  }
+  
+  .bio-content-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 5rem;
+    
+    @media (max-width: 576px) {
+      margin-bottom: 3.75rem;
+      padding: 0 2rem;
+    }
+  }
 `;
 
 // Define consistent spacing variables that can be reused across components
@@ -78,7 +115,7 @@ export const SPACING = {
 };
 
 // Animation variants
-export const fadeInUp = {
+export const fadeInUp: AnimationVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
@@ -90,7 +127,7 @@ export const fadeInUp = {
   }
 };
 
-export const fadeIn = {
+export const fadeIn: AnimationVariants = {
   hidden: { opacity: 0 },
   visible: { 
     opacity: 1,
@@ -101,7 +138,7 @@ export const fadeIn = {
   }
 };
 
-export const staggerContainer = {
+export const staggerContainer: AnimationVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -111,7 +148,7 @@ export const staggerContainer = {
   }
 };
 
-export const slideInLeft = {
+export const slideInLeft: AnimationVariants = {
   hidden: { opacity: 0, x: -50 },
   visible: { 
     opacity: 1, 
@@ -123,7 +160,7 @@ export const slideInLeft = {
   }
 };
 
-export const slideInRight = {
+export const slideInRight: AnimationVariants = {
   hidden: { opacity: 0, x: 50 },
   visible: { 
     opacity: 1, 
@@ -135,7 +172,7 @@ export const slideInRight = {
   }
 };
 
-export const scaleIn = {
+export const scaleIn: AnimationVariants = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: { 
     opacity: 1, 
@@ -155,7 +192,7 @@ export const BioContainer = styled.section`
   align-items: stretch;
 `;
 
-export const ContentSection = styled(motion.div)`
+export const ContentSection = styled.div`
   width: 100%;
   background-color: #fff;
   border-top-left-radius: 24px;
@@ -179,7 +216,7 @@ export const ContentSection = styled(motion.div)`
   }
 `;
 
-export const ContentContainer = styled(motion.div)`
+export const ContentContainer = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto ${SPACING.section};
@@ -196,7 +233,7 @@ export const BioHeader = styled.div`
   margin-bottom: ${SPACING.section};
 `;
 
-export const BioTitle = styled(motion.h1)`
+export const BioTitle = styled.h1`
   font-size: 3rem;
   background: ${({ theme }) => theme.colors.gradient};
   -webkit-background-clip: text;
@@ -209,7 +246,7 @@ export const BioTitle = styled(motion.h1)`
   }
 `;
 
-export const BioSubtitle = styled(motion.h2)`
+export const BioSubtitle = styled.h2`
   font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.text.secondary};
   font-weight: 500;
@@ -220,7 +257,7 @@ export const BioSubtitle = styled(motion.h2)`
   }
 `;
 
-export const BioContent = styled(motion.div)`
+export const BioContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -247,12 +284,12 @@ export const BioContent = styled(motion.div)`
   }
 `;
 
-export const BioSection = styled(motion.div)`
+export const BioSection = styled.div`
   margin: ${SPACING.section} 0;
   width: 100%;
 `;
 
-export const BioSectionTitle = styled(motion.h3)`
+export const BioSectionTitle = styled.h3`
   font-size: 1.75rem;
   color: ${({ theme }) => theme.colors.primary.main};
   margin-bottom: ${SPACING.paragraph};
@@ -264,7 +301,7 @@ export const BioSectionTitle = styled(motion.h3)`
   }
 `;
 
-export const MediaContainer = styled(motion.div)`
+export const MediaContainer = styled.div`
   margin: 2rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -275,7 +312,7 @@ export const MediaContainer = styled(motion.div)`
   }
 `;
 
-export const MediaItem = styled(motion.div)`
+export const MediaItem = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.md};
@@ -355,7 +392,7 @@ export const TimelineContainer = styled.div`
   }
 `;
 
-export const TimelineItem = styled(motion.div)<{ itemIndex: number }>`
+export const TimelineItem = styled.div<{ itemIndex: number }>`
   display: flex;
   margin-bottom: 3rem;
   position: relative;

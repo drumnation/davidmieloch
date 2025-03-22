@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useSpring, useTrail } from '@react-spring/web';
 import { Typography } from '../../atoms/Typography/Typography';
 import { ImpactGridProps, ImpactCategory } from './ImpactGrid.types';
 import * as S from './ImpactGrid.styles';
@@ -11,29 +11,7 @@ import {
   FaThumbsUp
 } from 'react-icons/fa';
 import styled from 'styled-components';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+import { springToCss } from '../../../utils/animations/typed-components';
 
 const CategoryTitle = styled.div`
   margin-bottom: 0.25rem;
@@ -57,20 +35,32 @@ export const ImpactGrid: React.FC<ImpactGridProps> = ({
   position = 'full-width',
   className,
 }) => {
+  // Container animation
+  const containerSpring = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 800 }
+  });
+
+  // Card animations with trail effect
+  const cardsTrail = useTrail(impacts.length, {
+    from: { opacity: 0, y: 20 },
+    to: { opacity: 1, y: 0 },
+    config: { mass: 1, tension: 280, friction: 60 },
+    delay: 200
+  });
+
   return (
     <S.Container className={className} $position={position}>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
+      <div
+        style={springToCss(containerSpring as any)}
       >
         <S.GridContainer>
           {impacts.map((impact: ImpactCategory, index: number) => (
             <S.Card 
               key={index} 
               $style={style}
-              variants={itemVariants}
+              style={springToCss(cardsTrail[index] as any)}
             >
               <S.CardHeader>
                 <CategoryTitle>
@@ -94,7 +84,7 @@ export const ImpactGrid: React.FC<ImpactGridProps> = ({
             </S.Card>
           ))}
         </S.GridContainer>
-      </motion.div>
+      </div>
     </S.Container>
   );
 }; 

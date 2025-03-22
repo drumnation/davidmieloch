@@ -1,32 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { ComparisonTableProps } from './ComparisonTable.types';
 import * as S from './ComparisonTable.styles';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const rowVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
-
+// Replace framer-motion with CSS transitions
 export const ComparisonTable: React.FC<ComparisonTableProps> = ({
   leftTitle,
   rightTitle,
@@ -34,37 +11,44 @@ export const ComparisonTable: React.FC<ComparisonTableProps> = ({
   variant = 'default',
   className,
 }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: "-100px",
+    threshold: 0.1
+  });
+
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
+
   return (
-    <S.Container className={className}>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
-        <S.Table $variant={variant}>
-          <S.TableHead $variant={variant}>
-            <tr>
-              <S.TableHeaderCell>Category</S.TableHeaderCell>
-              <S.TableHeaderCell>{leftTitle}</S.TableHeaderCell>
-              <S.TableHeaderCell>{rightTitle}</S.TableHeaderCell>
-            </tr>
-          </S.TableHead>
-          <S.TableBody>
-            {items.map((item, index) => (
-              <motion.tr
-                key={index}
-                custom={index}
-                variants={rowVariants}
-              >
-                <S.CategoryCell>{item.category}</S.CategoryCell>
-                <S.TableCell>{item.leftContent}</S.TableCell>
-                <S.TableCell>{item.rightContent}</S.TableCell>
-              </motion.tr>
-            ))}
-          </S.TableBody>
-        </S.Table>
-      </motion.div>
+    <S.Container className={className} ref={ref}>
+      <S.Table $variant={variant} className={isVisible ? 'visible' : ''}>
+        <S.TableHead $variant={variant}>
+          <tr>
+            <S.TableHeaderCell>Category</S.TableHeaderCell>
+            <S.TableHeaderCell>{leftTitle}</S.TableHeaderCell>
+            <S.TableHeaderCell>{rightTitle}</S.TableHeaderCell>
+          </tr>
+        </S.TableHead>
+        <S.TableBody>
+          {items.map((item, index) => (
+            <S.TableRow
+              key={index}
+              className={isVisible ? 'visible' : ''}
+              style={{ '--item-index': index } as React.CSSProperties}
+            >
+              <S.CategoryCell>{item.category}</S.CategoryCell>
+              <S.TableCell>{item.leftContent}</S.TableCell>
+              <S.TableCell>{item.rightContent}</S.TableCell>
+            </S.TableRow>
+          ))}
+        </S.TableBody>
+      </S.Table>
     </S.Container>
   );
 };

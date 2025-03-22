@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated } from '@react-spring/web';
 
 interface ContainerProps {
   $position: 'full-width' | 'left' | 'right' | 'center';
@@ -43,7 +43,7 @@ export const GridContainer = styled.div`
   }
 `;
 
-export const Card = styled(motion.div)<CardProps>`
+export const Card = styled.div<CardProps>`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.medium};
@@ -97,4 +97,13 @@ export const MetricItem = styled.li`
     color: inherit;
     opacity: 0.8;
   }
-`; 
+`;
+
+// Animated versions
+export const AnimatedContainer = animated(Container);
+export const AnimatedGridContainer = animated(GridContainer);
+export const AnimatedCard = animated(Card);
+export const AnimatedCardHeader = animated(CardHeader);
+export const AnimatedCardBody = animated(CardBody);
+export const AnimatedMetricsList = animated(MetricsList);
+export const AnimatedMetricItem = animated(MetricItem); 

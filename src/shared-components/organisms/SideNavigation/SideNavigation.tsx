@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { SideNavigationProps, SideNavigationItem } from './SideNavigation.types';
 import * as S from './SideNavigation.styles';
 
@@ -27,6 +26,20 @@ const NavigationItemComponent: React.FC<{
     }
   }, [item, onClick]);
 
+  // Use CSS for animations instead of React Spring
+  const indicatorStyle = {
+    transform: `rotate(${isExpanded ? '180deg' : '0deg'})`,
+    transition: 'transform 0.2s ease',
+    display: 'inline-block'
+  };
+
+  const subsectionsStyle = {
+    height: isExpanded ? 'auto' : '0',
+    opacity: isExpanded ? 1 : 0,
+    overflow: 'hidden',
+    transition: 'opacity 0.2s ease'
+  };
+
   return (
     <S.MenuItem
       $isActive={isActive}
@@ -44,40 +57,28 @@ const NavigationItemComponent: React.FC<{
         {item.icon && <span className="icon">{item.icon}</span>}
         {item.title}
         {item.subsections?.length && (
-          <S.SubsectionIndicator
-            $style={style}
-            animate={{ rotate: isExpanded ? 180 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            ▾
+          <S.SubsectionIndicator $style={style}>
+            <span style={indicatorStyle}>▾</span>
           </S.SubsectionIndicator>
         )}
       </S.MenuItemButton>
 
-      <AnimatePresence>
-        {isExpanded && item.subsections && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            style={{ overflow: 'hidden' }}
-          >
-            <S.SubMenuList>
-              {item.subsections.map((subsection) => (
-                <NavigationItemComponent
-                  key={subsection.id}
-                  item={subsection}
-                  isActive={isActive}
-                  style={style}
-                  isSubItem
-                  onClick={onClick}
-                />
-              ))}
-            </S.SubMenuList>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {item.subsections && (
+        <div style={subsectionsStyle}>
+          <S.SubMenuList>
+            {item.subsections.map((subsection) => (
+              <NavigationItemComponent
+                key={subsection.id}
+                item={subsection}
+                isActive={isActive}
+                style={style}
+                isSubItem
+                onClick={onClick}
+              />
+            ))}
+          </S.SubMenuList>
+        </div>
+      )}
     </S.MenuItem>
   );
 };

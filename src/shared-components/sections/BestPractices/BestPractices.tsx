@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { Hero } from '../../organisms/Hero';
 import { 
   ContentSection,
@@ -18,6 +18,30 @@ import {
 } from './subcomponents';
 
 export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practices', className }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { rootMargin: "-100px", threshold: 0.1 }
+    );
+    
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+    
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+    };
+  }, []);
+  
   // Hero props
   const heroProps = {
     title: "Best Practices",
@@ -43,8 +67,11 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
       
       <Hero {...heroProps} />
       
-      <ContentSection>
-        <ContentContainer>
+      <ContentSection 
+        ref={contentRef}
+        className={`best-practices-content-section ${isVisible ? 'visible' : ''}`}
+      >
+        <ContentContainer className="best-practices-content-container">
           <DetailedContent />
           <Categories categories={categories} />
           <Conclusion />

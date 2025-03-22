@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
 import { StyledNavigationMenuProps, StyledNavigationItemProps } from './NavigationMenu.types';
 
 export const StyledNavigationMenu = styled.nav<StyledNavigationMenuProps>`
@@ -67,7 +66,7 @@ export const SubMenuList = styled(MenuList)`
   padding-left: 1.5rem;
 `;
 
-export const MenuItem = styled(motion.li)<StyledNavigationItemProps>`
+export const MenuItem = styled.li<StyledNavigationItemProps>`
   position: relative;
 `;
 
@@ -108,7 +107,7 @@ export const MenuItemButton = styled.button<StyledNavigationItemProps>`
   }
 `;
 
-export const SubsectionIndicator = styled(motion.span)<Pick<StyledNavigationItemProps, '$style'>>`
+export const SubsectionIndicator = styled.span<Pick<StyledNavigationItemProps, '$style'>>`
   position: absolute;
   right: 0.75rem;
   top: 50%;

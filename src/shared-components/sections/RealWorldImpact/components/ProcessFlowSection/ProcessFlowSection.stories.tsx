@@ -1,15 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ProcessFlow } from '../../../../organisms/ProcessFlow/ProcessFlow';
 import { defaultContent } from '../../RealWorldImpact.constants';
+import { enhanceProcessFlowProps } from '../../RealWorldImpact.logic';
 
 // Create a component to display the Process Flow
 const ProcessFlowSection = () => {
+  // Use the enhancer function to ensure proper types and structure
+  const enhancedProps = enhanceProcessFlowProps(defaultContent.processFlow);
+  
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
       <ProcessFlow 
-        steps={defaultContent.processFlow.steps}
-        style={defaultContent.processFlow.style}
-        position={defaultContent.processFlow.position}
+        title={enhancedProps.title}
+        subtitle={enhancedProps.subtitle}
+        steps={enhancedProps.steps}
+        style={enhancedProps.style}
+        position={enhancedProps.position}
       />
     </div>
   );

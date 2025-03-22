@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   DetailedContentContainer,
   DetailedContentTitle,
@@ -10,15 +10,34 @@ import {
 import { DetailedContentProps } from './DetailedContent.types';
 
 export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { rootMargin: "-100px", threshold: 0.1 }
+    );
+    
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+    
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+    };
+  }, []);
+
   return (
     <DetailedContentContainer
-      className={className}
-      initial="visible"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 }
-      }}
+      ref={contentRef}
+      className={`${className} ${isVisible ? 'visible' : ''}`}
     >
       <DetailedContentTitle>Modern Development Best Practices</DetailedContentTitle>
       <DetailedContentText>

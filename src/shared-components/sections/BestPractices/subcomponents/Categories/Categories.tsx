@@ -1,11 +1,11 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   CategoriesContainer,
   SectionTitle,
   SectionDescription,
+  CategoriesWrapper,
   fadeIn,
   staggerContainer
 } from './Categories.styles';
@@ -16,21 +16,39 @@ export const Categories: React.FC<CategoriesProps> = ({
   className,
   categories 
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { rootMargin: "-100px", threshold: 0.1 }
+    );
+    
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <motion.div
-      className={className}
-      initial="visible"
-      animate="visible"
-      variants={staggerContainer}
+    <CategoriesWrapper 
+      className={`${className} fade-in ${isVisible ? 'visible' : ''}`}
+      ref={containerRef}
     >
-      <SectionTitle
-        variants={fadeIn}
-      >
+      <SectionTitle className={isVisible ? 'visible' : ''}>
         Key Development Practices
       </SectionTitle>
-      <SectionDescription
-        variants={fadeIn}
-      >
+      <SectionDescription className={isVisible ? 'visible' : ''}>
         A comprehensive approach to modern software development
       </SectionDescription>
       
@@ -44,6 +62,6 @@ export const Categories: React.FC<CategoriesProps> = ({
           />
         ))}
       </CategoriesContainer>
-    </motion.div>
+    </CategoriesWrapper>
   );
 }; 

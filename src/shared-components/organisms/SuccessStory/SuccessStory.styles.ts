@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { AnimationVariants } from '../../../utils/animations/migration-helpers';
 
 export const Container = styled.div<{ position?: string }>`
   width: 100%;
@@ -23,10 +23,21 @@ export const Container = styled.div<{ position?: string }>`
   }
 `;
 
-export const Card = styled(motion.div)<{ styleType?: string }>`
+export const Card = styled.div<{ styleType?: string }>`
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  
+  &.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
   ${props => props.styleType === 'accent-card' && `
     background-color: #fff;
@@ -80,14 +91,10 @@ export const Quote = styled.blockquote`
   color: ${props => props.theme.colors.text.secondary};
 `;
 
-export const fadeIn = {
+export const fadeIn: AnimationVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut"
-    }
+    y: 0
   }
 }; 

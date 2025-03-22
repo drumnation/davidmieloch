@@ -1,212 +1,188 @@
-# GitHub Projects Portfolio Plan
+# GitHub Projects Development Plan
 
-## Overview
-This document outlines the development plan for the GitHub projects portfolio page, which will showcase repositories and code examples in an organized, filterable interface. The page will display both public repositories and information about private work in a visually appealing manner.
+## HIGHEST PRIORITY: Critical Fixes
 
-## Task List
+### Routing System
+- [ ] Fix the routing system to avoid port conflicts and "address already in use" errors
+  - [x] Updated dev script to use port 4000 instead of 3001
+  - [x] Updated storybook to use port 7000 instead of 6006
+  - [x] Added killports script to package.json
+- [ ] Ensure consistent redirects from the root path to `/enterprise-ai-development-framework`
+- [ ] Fix broken navigation links
+- [ ] Verify all routes render properly without errors
 
-### 1. Project Setup & Infrastructure
+### Animation Library Migration
 
-- [x] Create new route `/code-examples` for GitHub projects
-  - [x] Add page file in pages directory
-  - [x] Configure navigation to include new route
-  - [x] Set up basic page template with header and footer
+The goal is to use only CSS transitions (for simple animations) and React Spring (for more complex ones). 
 
-- [x] Create initial Storybook setup for GitHub components
-  - [x] Set up Storybook category for GitHub projects components
-  - [x] Configure shared theme and styling for GitHub components stories
-  - [x] Ensure stories and main app use identical providers and setup
+Completed:
+- [x] Bio - migrated to CSS transitions and React Spring
+  - [x] Fixed Bio.animations.ts to use React Spring instead of Framer Motion
+  - [x] Sub-components were already using React Spring
+- [x] BestPractices - migrated to CSS transitions
+  - [x] DetailedContent subcomponent - migrated to CSS transitions
+  - [x] Conclusion subcomponent - migrated to CSS transitions
+  - [x] Categories subcomponent - was already using CSS transitions
+  - [x] CategoryCard subcomponent - was already using CSS transitions
+- [x] TeamCard - migrated to React Spring
+- [x] QuoteGrid - migrated to React Spring
+- [x] ProjectShowcase - migrated to React Spring
+- [x] FeatureHighlight - migrated to React Spring
+- [x] SkillsShowcase - migrated to React Spring
+- [x] Carousel - migrated to React Spring
+- [x] TimelineSection - migrated to React Spring
+- [x] StatsComparison - migrated to CSS transitions
+- [x] ComparisonTable - migrated to CSS transitions
+- [x] AiSkepticToExpert - migrated to CSS transitions
+- [x] RealWorldImpact - removed Framer Motion animations completely
 
-### 2. Atomic Components Development
+Still Using Framer Motion:
+- [ ] ProcessFlow - complex animation, planned for React Spring
+- [ ] ContactForm - simple animation, planned for CSS transitions
+- [ ] NavigationMenu - simple animation, planned for CSS transitions
+- [ ] BrainGardenOverview - complex animation, planned for React Spring
 
-#### Atoms
-- [x] Create `Tag` component
-  - [x] Component implementation (Tag.tsx)
-  - [x] Styling (Tag.styles.ts)
-  - [x] Types (Tag.types.ts)
-  - [x] Stories (Tag.stories.tsx)
-  - [x] Barrel export (index.ts)
+Progress:
+- Created utility functions to convert Framer Motion animations to React Spring and CSS transitions
+- Developed a migration strategy for complex components like RealWorldImpact
+- Established patterns for implementing intersection observers for CSS-based animations
+- Standardized approach for transitioning from inline styles to class-based animations
+- Completed migration of multiple components from Framer Motion to both CSS transitions and React Spring
+- Downgraded framer-motion from 12.5.0 to 10.18.0 to resolve compatibility issues with React 19
+- Completely removed Framer Motion from RealWorldImpact component
+- Fixed Bio.animations.ts to use React Spring instead of Framer Motion references
 
-- [x] Create `Badge` component for stars, forks, etc.
-  - [x] Component implementation (Badge.tsx)
-  - [x] Styling (Badge.styles.ts)
-  - [x] Types (Badge.types.ts)
-  - [x] Stories (Badge.stories.tsx)
-  - [x] Barrel export (index.ts)
+### TypeScript Error Resolution
+- [ ] Fix TypeScript errors throughout the codebase
+  - [ ] Address type mismatches in components like WhitePaper
+  - [ ] Fix component prop type errors
+  - [ ] Resolve missing property errors
 
-- [x] Create `LanguageDot` component for language indicators
-  - [x] Component implementation (LanguageDot.tsx)
-  - [x] Styling (LanguageDot.styles.ts)
-  - [x] Types (LanguageDot.types.ts)
-  - [x] Stories (LanguageDot.stories.tsx)
-  - [x] Barrel export (index.ts)
+## Phase 1: Core Components and Layout
 
-- [ ] Create `Button` component for repository actions
-  - [ ] Component implementation (Button.tsx)
-  - [ ] Styling (Button.styles.ts)
-  - [ ] Types (Button.types.ts)
-  - [ ] Stories (Button.stories.tsx)
-  - [ ] Barrel export (index.ts)
+### Atomic Components
+- [x] Button Component
+  - [x] Base component implementation
+  - [x] Styling with styled-components
+  - [x] Types and props interface
+  - [x] Storybook stories
+  - [x] Barrel export
 
-#### Molecules
-- [x] Create `RepoCard` component for displaying single repository
-  - [x] Component implementation (RepoCard.tsx)
-  - [x] Styling (RepoCard.styles.ts)
-  - [x] Types (RepoCard.types.ts)
-  - [x] Logic (RepoCard.logic.ts)
-  - [x] Stories (RepoCard.stories.tsx)
-  - [x] Barrel export (index.ts)
+- [ ] Card Component
+  - [ ] Base component implementation
+  - [ ] Styling with styled-components
+  - [ ] Types and props interface
+  - [ ] Storybook stories
+  - [ ] Barrel export
 
-- [x] Create `FilterItem` component for individual filter options
-  - [x] Component implementation (FilterItem.tsx)
-  - [x] Styling (FilterItem.styles.ts)
-  - [x] Types (FilterItem.types.ts)
-  - [x] Stories (FilterItem.stories.tsx)
-  - [x] Barrel export (index.ts)
+- [ ] Typography Component
+  - [ ] Base component implementation
+  - [ ] Styling with styled-components
+  - [ ] Types and props interface
+  - [ ] Storybook stories
+  - [ ] Barrel export
 
-- [x] Create `SearchInput` component for repository search
-  - [x] Component implementation (SearchInput.tsx)
-  - [x] Styling (SearchInput.styles.ts)
-  - [x] Types (SearchInput.types.ts)
-  - [x] Hook (SearchInput.hook.ts)
-  - [x] Stories (SearchInput.stories.tsx)
-  - [x] Barrel export (index.ts)
-
-- [x] Create `PrivateWorkCard` component for showcasing closed-source work
-  - [x] Component implementation (PrivateWorkCard.tsx)
-  - [x] Styling (PrivateWorkCard.styles.ts)
-  - [x] Types (PrivateWorkCard.types.ts)
-  - [x] Stories (PrivateWorkCard.stories.tsx)
-  - [x] Barrel export (index.ts)
-
-#### Organisms
-- [x] Create `RepoGrid` component for repository layout
-  - [x] Component implementation (RepoGrid.tsx)
-  - [x] Styling (RepoGrid.styles.ts)
-  - [x] Types (RepoGrid.types.ts)
-  - [x] Logic (RepoGrid.logic.ts)
-  - [x] Hook (RepoGrid.hook.ts)
-  - [x] Stories (RepoGrid.stories.tsx)
-  - [x] Barrel export (index.ts)
-
-- [x] Create `FilterBar` component for repository filtering
-  - [x] Component implementation (FilterBar.tsx)
-  - [x] Styling (FilterBar.styles.ts)
-  - [x] Types (FilterBar.types.ts)
-  - [x] Logic (FilterBar.logic.ts)
-  - [x] Hook (FilterBar.hook.ts)
-  - [x] Stories (FilterBar.stories.tsx)
-  - [x] Barrel export (index.ts)
-
-- [x] Create `PrivateWorkSection` component for closed-source projects
-  - [x] Component implementation (PrivateWorkSection.tsx)
-  - [x] Styling (PrivateWorkSection.styles.ts)
-  - [x] Types (PrivateWorkSection.types.ts)
-  - [x] Stories (PrivateWorkSection.stories.tsx)
-  - [x] Barrel export (index.ts)
-
-- [x] Create `StatsOverview` component for repository statistics
-  - [x] Component implementation (StatsOverview.tsx)
-  - [x] Styling (StatsOverview.styles.ts)
-  - [x] Types (StatsOverview.types.ts)
-  - [x] Logic (StatsOverview.logic.ts)
-  - [x] Stories (StatsOverview.stories.tsx)
-  - [x] Barrel export (index.ts)
-
-#### Templates
-- [x] Create `GitHubPortfolioTemplate` for page layout
-  - [x] Component implementation (GitHubPortfolioTemplate.tsx)
-  - [x] Styling (GitHubPortfolioTemplate.styles.ts)
-  - [x] Types (GitHubPortfolioTemplate.types.ts)
-  - [x] Stories (GitHubPortfolioTemplate.stories.tsx)
-  - [x] Barrel export (index.ts)
-
-### 3. Data Structure & Integration
-
+### Data Structure & Integration
 - [ ] Create data model for repositories
   - [ ] Define Repository interface and types
-  - [ ] Create mock data for initial development
-  - [ ] Implement data fetching logic for GitHub API
+  - [ ] Implement mock data for development
+  - [ ] Create data fetching utility for GitHub API
 
-- [ ] Create data model for private work
-  - [ ] Define PrivateWork interface and types
-  - [ ] Create sample private work content
+- [ ] Implement repository filtering
+  - [ ] Filter by language
+  - [ ] Filter by stars
+  - [ ] Filter by date updated
+  - [ ] Search by name/description
 
-- [ ] Create data model for filters
-  - [ ] Define Filter interface and types
-  - [ ] Implement filter generation from repository data
+### Layout Components
+- [ ] Header Component
+  - [ ] Responsive design
+  - [ ] Navigation links
+  - [ ] Theme toggle
 
-### 4. Feature Implementation
+- [ ] Footer Component
+  - [ ] Social links
+  - [ ] Copyright info
+  - [ ] Additional navigation
 
-- [ ] Implement repository grid with responsive layout
-  - [ ] Display 3-5 initial repositories
-  - [ ] Implement responsive grid for different screen sizes
-  - [ ] Add loading states and error handling
+## Phase 2: Feature Components
 
-- [ ] Implement filtering and search functionality
-  - [ ] Create filter by language
-  - [ ] Create filter by project type
-  - [ ] Create text search functionality
-  - [ ] Implement filter state management
+### Repository Display
+- [ ] RepoCard Component
+  - [ ] Repository info display
+  - [ ] Star/fork/issue counts
+  - [ ] Language indicator
+  - [ ] Updated date
 
-- [ ] Implement repository detail expansion
-  - [ ] Create expandable repository cards
-  - [ ] Add additional repository details in expanded view
-  - [ ] Add smooth animations for expansion/collapse
+- [ ] RepoGrid Component
+  - [ ] Grid layout for repositories
+  - [ ] Pagination or infinite scroll
+  - [ ] Empty state
+  - [ ] Loading state
 
-- [ ] Implement private work showcase
-  - [ ] Create engaging description of private work
-  - [ ] Add details about technologies and achievements
-  - [ ] Design visual elements to highlight skills
+### User Profile
+- [ ] ProfileHeader Component
+  - [ ] Avatar
+  - [ ] Bio
+  - [ ] Statistics
 
-### 5. Testing & Refinement
+- [ ] ActivityTimeline Component
+  - [ ] Recent activity visualization
+  - [ ] Contribution graph
 
-- [ ] Test components in isolation via Storybook
-  - [ ] Test all components across different viewport sizes
-  - [ ] Verify component behavior with different data inputs
-  - [ ] Test edge cases (empty repos, long descriptions, etc.)
+## Phase 3: Pages and Integration
 
-- [ ] Test integrated page
-  - [ ] Verify all components work together correctly
-  - [ ] Test filtering and search functionality
-  - [ ] Test responsive behavior
-  - [ ] Test accessibility features
+### Pages
+- [ ] Home Page
+  - [ ] Hero section
+  - [ ] Featured repositories
+  - [ ] User profile summary
 
-- [ ] Optimize performance
-  - [ ] Implement code splitting where appropriate
-  - [ ] Optimize image loading and rendering
-  - [ ] Add lazy loading for repository data
+- [ ] Repository Details Page
+  - [ ] Extended repository info
+  - [ ] README display
+  - [ ] Contributors list
+  - [ ] Commit history
 
-### 6. Documentation & Deployment
+### Integration
+- [ ] GitHub API Integration
+  - [ ] Authentication
+  - [ ] Rate limiting handling
+  - [ ] Error handling
 
-- [ ] Document components and their usage
-  - [ ] Create comprehensive Storybook documentation
-  - [ ] Add code comments where necessary
+- [ ] State Management
+  - [ ] Setup state management (Redux or Context)
+  - [ ] Repository data caching
+  - [ ] User preferences persistence
 
-- [ ] Deploy and integrate with main site
-  - [ ] Verify navigation works correctly
-  - [ ] Test page load performance
-  - [ ] Add analytics tracking if applicable
+## Phase 4: Performance & Polish
 
-## Implementation Approach
+### Performance
+- [ ] Lazy loading for components
+- [ ] Image optimization
+- [ ] Bundle size optimization
 
-1. **Start with MVP (Minimum Viable Portfolio)**
-   - Begin with a simple structure and 3-5 representative repositories
-   - Implement basic filtering functionality
-   - Create a placeholder for private work section
+### Accessibility
+- [ ] Keyboard navigation
+- [ ] Screen reader compatibility
+- [ ] Focus management
 
-2. **Iterative Enhancement**
-   - Add more repositories as needed
-   - Enhance UI with more sophisticated visualizations
-   - Refine filtering categories based on the full repository set
-   - Test with users and refine based on feedback
+### User Experience
+- [ ] Loading skeletons
+- [ ] Animations and transitions
+- [ ] Error states and recovery
 
-3. **Testing & Optimization**
-   - Test component integration
-   - Verify responsive behavior
-   - Optimize performance
-   - Ensure accessibility compliance
+## Phase 5: Testing & Deployment
 
+### Testing
+- [ ] Unit tests for components
+- [ ] Integration tests for pages
+- [ ] End-to-end tests for critical flows
+
+### Deployment
+- [ ] CI/CD pipeline setup
+- [ ] Environment configuration
+- [ ] Analytics integration
 
 # Links to repos
 
@@ -265,3 +241,56 @@ https://github.com/drumnation/javascript-es6-design-patterns
 ai-code-helper
 experimental tool for automatically generating unit tests for functions.
 https://github.com/drumnation/ai-code-helper
+
+### Completed Tasks
+
+1. ✅ Set up Next.js project with TypeScript
+2. ✅ Configure styled-components with SSR support
+3. ✅ Create basic page layout and header components
+4. ✅ Implement routing with Next.js App Router
+5. ✅ Add Storybook for component development
+6. ✅ Set up project organization structure
+7. ✅ Create first version of Repo Card component
+8. ✅ Add basic grid layout for repository display
+9. ✅ Set up Header navigation with active state highlighting
+10. ✅ Fixed animation issues in the WhitePaper component using styled-components instead of react-spring
+
+### Current Task
+
+- Implement Repo Details page with tabbed interface
+
+### Upcoming Tasks
+
+1. Create GitHub API integration for fetching repository data
+2. Implement search functionality for repositories
+3. Add filtering options for repository list
+4. Create user profile page showing contribution statistics
+5. Add dark mode toggle and styling
+6. Implement responsive design improvements
+7. Add pagination for repository listings
+8. Create dashboard view with repository statistics
+9. Add authentication with GitHub OAuth
+10. Implement project preview for repositories with README parsing
+11. Add repository starring/bookmarking functionality
+12. Create notification system for repository updates
+13. Implement repository comparison feature
+14. Add CI/CD integration status display
+15. Create contribution graph visualization
+16. Implement repository dependency visualization
+17. Add collaborative features for team repositories
+18. Create export functionality for repository data
+19. Implement analytics dashboard for repository insights
+20. Add integration with project management tools
+
+### Next Steps
+
+1. Complete the Repo Details page implementation
+2. Begin API integration work
+3. Enhance styling and responsiveness
+
+### Technical Debt
+
+1. Improve error handling in components
+2. Refactor animation utilities to use styled-components for better consistency
+3. Fix webpack configuration issues to improve build times
+4. Review and optimize bundle sizes

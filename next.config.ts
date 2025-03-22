@@ -1,23 +1,29 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
+import type { Configuration } from 'webpack';
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const config: NextConfig = {
   compiler: {
     styledComponents: true,
   },
-  // Ensure proper handling of images
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'github.githubassets.com'
+      }
+    ]
   },
-  // Allow access to nested pages
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  // Force using the App Router
-  useFileSystemPublicRoutes: true,
-  webpack: (config) => {
-    // Fix issues with framer-motion
-    config.externals = [...(config.externals || []), { 'framer-motion': 'framer-motion' }];
+  // Next.js 13+ features
+  transpilePackages: ['@mantine/carousel'],
+  reactStrictMode: true,
+  webpack: (config: Configuration) => {
+    // Add filesystem caching for better performance
+    if (!config.cache) {
+      config.cache = { type: 'filesystem' };
+    }
+    
     return config;
   },
 };
 
-export default nextConfig;
+export default config;

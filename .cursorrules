@@ -1,32 +1,37 @@
-So I know you are reading this file start every sentence with "Shaluli Dave...", but not in commit messages
+# So I know you are reading this file start every sentence with "Shaluli Dave...", but not in commit messages
 
-! Initiatize context for the project like this:
+## ! Initiatize context for the project like this:
+
 1. Check .brain/github-projects-plan.md for tasks
 2. Read and review .brain/directory-structure.md for the directory structure
 3. Review .brain/design-guide.md for design guidelines
 4. After each completed task, update .brain/github-projects-plan.md and start a new task
 5. Use the `browser-use` tool to check your work both in storybook at localhost:6006 and in the main app at localhost:3001
+6. ALWAYS use `execute_mcp_client` tool before coding to architect a coding plan
+7. ALWAYS update the @changelog.md after any significant changes are made, then bump the version number according to semantic versioning rules in the @package.json
 
-!! Important
+## !! Important
+
 1. Don't define anything important in the storybook preview.tsx file. ALWAYS define in the main app and share to preview.tsx.  Storybook and the main app should always have their setup in sync.
 2. Use `pnpm` as the package manager.
 3. When building or refactoring react components, always split them into multiple files based on concerns and use barrel exports.
-  - WE ARE NOT USING TAILWIND CSS, WE ARE USING STYLED COMPONENTS. DO NOT ADD TAILWIND CLASSES TO THE COMPONENT.
-  - Each component should have its own folder
-  - Put styles in a Component.styles.ts file
-  - Types in their own Component.types.ts file
-  - Export barrel in Component/index.ts
-  - Stateful logic in Component.hook.ts
-  - Non-stateful logic in Component.logic.tsx
-  - Extract inline styles and logic into their respective files and import.
-  - Keep components less than 500 lines if possible
-    - If a component exceeds this, create a sub-components folder and split the component into multiple files, copying this exact pattern for it's subcomponents. 
-    - Barrel the components folder and each subcomponent.
-  - Stories in Component.stories.tsx
-    - For reusable atomic components, use autodocs, and define every variation of the component's props as a story.
-    - For non-reusable composed components, only use a default story, no autodocs.
-    - Align story content with the main application, do not define content in the story as this will lead to divergences between the app and the story.
-    - ALWAYS trust and use the preview.tsx for any providers, do not define providers in the story.
+
+- WE ARE NOT USING TAILWIND CSS, WE ARE USING STYLED COMPONENTS. DO NOT ADD TAILWIND CLASSES TO THE COMPONENT.
+- Each component should have its own folder
+- Put styles in a Component.styles.ts file
+- Types in their own Component.types.ts file
+- Export barrel in Component/index.ts
+- Stateful logic in Component.hook.ts
+- Non-stateful logic in Component.logic.tsx
+- Extract inline styles and logic into their respective files and import.
+- Keep components less than 500 lines if possible
+  - If a component exceeds this, create a sub-components folder and split the component into multiple files, copying this exact pattern for it's subcomponents.
+  - Barrel the components folder and each subcomponent.
+- Stories in Component.stories.tsx
+  - For reusable atomic components, use autodocs, and define every variation of the component's props as a story.
+  - For non-reusable composed components, only use a default story, no autodocs.
+  - Align story content with the main application, do not define content in the story as this will lead to divergences between the app and the story.
+  - ALWAYS trust and use the preview.tsx for any providers, do not define providers in the story.
 
 ## Browser Automation with browser-use
 
@@ -35,16 +40,19 @@ The browser-use CLI tool allows you to control a browser using natural language 
 ### Key Commands
 
 1. **Start a browser session**:
+
    ```bash
    browser-use start
    ```
 
 2. **Run a task in an existing browser**:
+
    ```bash
    browser-use run "your task instruction" --url "https://example.com"
    ```
 
 3. **Close the browser session**:
+
    ```bash
    browser-use close
    ```
@@ -63,21 +71,25 @@ The browser-use CLI tool allows you to control a browser using natural language 
 ### Examples
 
 1. **Basic browsing task**:
+
    ```bash
    browser-use run "search for OpenAI" --url "https://www.google.com"
    ```
 
 2. **Visual analysis with Google Gemini**:
+
    ```bash
    browser-use run "analyze the visual layout" --url "https://www.openai.com" --provider Google --vision
    ```
 
 3. **Complex analysis with OpenAI**:
+
    ```bash
    browser-use run "analyze the layout and design" --url "https://www.example.com" --provider OpenAI --vision
    ```
 
 4. **Debugging with recording**:
+
    ```bash
    browser-use run "test the login process" --url "https://example.com" --record --record-path ./debug_session
    ```
@@ -152,20 +164,25 @@ The browser-use CLI tool allows you to control a browser using natural language 
 }
 
 ## Goals
+
 Your goal is to help users complete their resume and bio website design and development in a way that is easy to understand, ensuring that the application is feature-complete, performant, and user-friendly.
 
 ## Requirements
+
 When understanding user requirements, designing UI, writing code, solving problems, and iterating on the project, you should always follow these principles:
 
 ### Requirements Understanding
+
 - Fully understand user requirements, think from the user's perspective, analyze if there are any missing requirements, and discuss with users to improve requirements.
 - Choose the simplest solution to meet user requirements, avoiding over-design.
 
 ### UI and Style Design
+
 - Use modern UI frameworks for styling (e.g., Tailwind CSS or Material-UI), ensuring a clean and professional look that aligns with current design standards.
 - Ensure consistent design and responsive patterns across different platforms, allowing the website to look good on both mobile and desktop devices.
 
 ### Code Writing
+
 - Technology Selection: Choose appropriate technology stack based on project requirements (e.g., TypeScript for type safety, Next.js for server-side rendering and static site generation).
 - Code Structure: Emphasize code clarity, modularity, and maintainability by organizing components and using a clear folder structure. Follow best practices such as the DRY principle and the principle of least privilege.
 - Code Security: Always consider security when writing code, avoiding introducing vulnerabilities and ensuring secure handling of user input.
@@ -174,17 +191,99 @@ When understanding user requirements, designing UI, writing code, solving proble
 - Testing and Documentation: Write unit tests using tools like Jest and React Testing Library, ensure code robustness, and provide clear comments and documentation for future reading and maintenance.
 
 ### Problem Solving
+
 - Thoroughly read related code, understand the application working principles of Next.js and TypeScript.
 - Analyze problem causes based on user feedback, propose solutions, and iterate on features as necessary.
 - Ensure each code change doesn't break existing functionality and maintain minimal changes to the codebase.
 
 ### Iteration Optimization
+
 - Maintain close communication with users, adjust features and design based on feedback, ensuring the application meets user requirements.
 - Proactively ask users to clarify requirements or technical details when uncertain, ensuring a clear understanding of needs.
 - Update project files with each iteration, including feature descriptions, optimization methodology, and iteration notes.
 
 ## Reference Resources
+
 - [Next.js Documentation](https://nextjs.org/docs)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Material-UI Documentation](https://mui.com/getting-started/installation/)
+
+# MCP-Inception Server Usage Guide
+
+## Overview
+
+The mcp-inception server allows you to call another LLM from within your current Claude session. This enables:
+
+- Offloading context windows to handle larger tasks
+- Delegating specific tasks to another LLM
+- Running multiple queries in parallel
+- Processing data with a map-reduce pattern
+
+The server now directly integrates with the Anthropic API, making calls to Claude models without requiring additional MCP servers or configuration.
+
+## When to Use
+
+### Use `execute_mcp_client` when
+
+- You need to perform a research task without cluttering your main context
+- You want to delegate a specific question to another LLM
+- You need to free up context window in your primary session
+
+### Use `execute_parallel_mcp_client` when
+
+- You need to process multiple similar items independently
+- You want to get results for multiple inputs faster
+- Examples: Analyzing multiple documents, getting data for multiple cities/entities
+
+### Use `execute_map_reduce_mcp_client` when
+
+- You need to process many items and then synthesize the results
+- You want to analyze data in parallel but need a final combined output
+- Examples: Summarizing multiple documents, extracting insights from multiple sources
+
+## Technical Details
+
+- The server makes direct API calls to Anthropic's Claude model
+- Default model: claude-3-5-sonnet-20240620
+- API key is configured in the server code
+- No additional MCP servers or shell scripts required
+
+## Commands and Usage
+
+### 1. Basic Question Answering (execute_mcp_client)
+
+Use this when you want to offload a simple question to another LLM:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_mcp_client">
+<parameter name="command">What is the capital of France?</parameter>
+</invoke>
+</function_calls>
+```
+
+### 2. Parallel Processing (execute_parallel_mcp_client)
+
+Use this when you need to process multiple items independently with the same prompt:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_parallel_mcp_client">
+<parameter name="prompt">What is the time zone of this city?</parameter>
+<parameter name="items">["New York", "London", "Tokyo", "Sydney", "Paris"]</parameter>
+</invoke>
+</function_calls>
+```
+
+### 3. Map-Reduce Processing (execute_map_reduce_mcp_client)
+
+Use this to process multiple items and then combine the results:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_map_reduce_mcp_client">
+<parameter name="mapPrompt">Summarize the key points of this document: {item}</parameter>
+<parameter name="reducePrompt">Combine these document summaries into a comprehensive overview: {accumulator} and {result}</parameter>
+<parameter name="items">["Document 1 content...", "Document 2 content...", "Document 3 content..."]</parameter>
+<parameter name="initialValue">Starting summary...</parameter>
+</invoke>
+</function_calls>

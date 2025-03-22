@@ -1,7 +1,6 @@
 "use client";
 
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
 import { Hero } from '../../organisms/Hero';
 import { QuoteGrid } from '../../organisms/QuoteGrid';
 import ProblemSolutionCard from '../../organisms/ProblemSolutionCard';
@@ -21,55 +20,82 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   // Enhance props with consistent styling and defaults
   const enhancedHeroProps = enhanceHeroProps(heroProps);
   const enhancedQuotesProps = enhanceQuotesProps(quotesProps);
+  
+  // State for visibility animations
+  const [isVisible, setIsVisible] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
+  const [cardAnimations, setCardAnimations] = useState<boolean[]>(Array(problemSolutionCardsProps.cards.length).fill(false));
+  
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  // Intersection observer for main section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Stagger content visibility after section becomes visible
+          setTimeout(() => {
+            setContentVisible(true);
+          }, 300);
+          
+          // Stagger card animations
+          problemSolutionCardsProps.cards.forEach((_, index) => {
+            setTimeout(() => {
+              setCardAnimations(prev => {
+                const newAnimations = [...prev];
+                newAnimations[index] = true;
+                return newAnimations;
+              });
+            }, 500 + (index * 200));
+          });
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [problemSolutionCardsProps.cards.length]);
 
   return (
-    <AnimatePresence mode="wait">
-      <S.Container className={className} key="ai-skeptic-content">
-        {/* Hero Section */}
-        <Hero {...enhancedHeroProps} />
-      
+    <S.Container className={className} key="ai-skeptic-content">
+      <S.GlobalStyles />
+      {/* Hero Section */}
+      <Hero {...enhancedHeroProps} />
+    
       {/* Content Section with White Background */}
-      <S.ContentSection
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeIn}
+      <S.ContentSection 
+        ref={sectionRef}
+        className={isVisible ? 'visible ai-skeptic-content-section' : 'hidden ai-skeptic-content-section'}
       >
         {/* Introduction Section */}
-        <S.ContentContainer
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.div
-            className="text-left"
-            style={{ marginBottom: S.SPACING.paragraph }}
-            variants={fadeInUp}
-          >
+        <S.ContentContainer className={contentVisible ? 'visible ai-skeptic-content-container' : 'hidden ai-skeptic-content-container'}>
+          <div className="text-left" style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="h2" className="mb-4">
               The Reality of AI Tools in Development Teams
             </Typography>
-          </motion.div>
+          </div>
           
-          <motion.div
-            style={{ marginBottom: S.SPACING.paragraph }}
-            variants={fadeInUp}
-          >
+          <div style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="body" weight="regular">
               Let me guess: your team just got access to AI coding tools, and the reactions range from skeptical eye-rolls to outright hostility.
               I&apos;ve been there—both as the skeptic and later as the solution architect.
             </Typography>
-          </motion.div>
+          </div>
           
           <S.RedditLink 
             href="https://www.reddit.com/r/ExperiencedDevs/comments/1j7aqsx/ai_coding_mandates_at_work/?share_id=Dhejf8gsX_-YUsuIH1nNE&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="hover:shadow-md hover:transform hover:scale-[1.01]"
-            variants={fadeInUp}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className={contentVisible ? 'visible' : 'hidden'}
           >
             <S.RedditLinkContent>
               {/* Reddit Icon Column */}
@@ -96,87 +122,68 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
             </S.RedditLinkContent>
           </S.RedditLink>
           
-          <motion.div variants={fadeInUp}>
+          <div>
             <Typography variant="body" className="mb-0" weight="regular">
               A recent thread on r/ExperiencedDevs caught my eye, where hundreds of senior developers shared their frustrations 
               about mandatory AI tool adoption. The problems are systemic and deeply concerning:
             </Typography>
-          </motion.div>
+          </div>
         </S.ContentContainer>
         
         {/* Quotes Section with Light Background */}
-        <S.BackgroundSection
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeIn}
-        >
-          <motion.div 
+        <S.BackgroundSection className={isVisible ? 'visible' : 'hidden'}>
+          <div 
             style={{ 
               width: '100%',
               maxWidth: '1000px', 
               margin: '0 auto',
               padding: `0 ${S.SPACING.container}`
             }}
-            variants={fadeInUp}
+            className={contentVisible ? 'visible' : 'hidden'}
           >
             <QuoteGrid {...enhancedQuotesProps} />
-          </motion.div>
+          </div>
         </S.BackgroundSection>
         
         {/* Analysis Section */}
-        <S.ContentContainer
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div
-            style={{ marginBottom: S.SPACING.paragraph }}
-            variants={fadeInUp}
-          >
+        <S.ContentContainer className={contentVisible ? 'visible ai-skeptic-content-container' : 'hidden ai-skeptic-content-container'}>
+          <div style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="body" weight="regular">
               These quotes highlight a disturbing trend: companies implementing AI tools without proper systems, leading to metrics that
               incentivize accepting AI suggestions regardless of quality, management viewing AI as primarily a cost-cutting measure,
               and the ironic situation where AI is both causing problems and being proposed as the solution.
             </Typography>
-          </motion.div>
+          </div>
           
-          <motion.div variants={fadeInUp}>
+          <div>
             <Typography variant="body" className="mb-0" weight="regular">
               But there&apos;s another side to this story. When implemented thoughtfully, AI tools can be genuinely transformative. The key difference?
               A systematic approach to implementation.
             </Typography>
-          </motion.div>
+          </div>
         </S.ContentContainer>
         
         {/* Solutions Section with Accent Background */}
-        <S.AccentBackgroundSection
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeIn}
-        >
-          <motion.div 
+        <S.AccentBackgroundSection className={isVisible ? 'visible' : 'hidden'}>
+          <div 
             style={{ 
               width: '100%',
               maxWidth: '1000px', 
               margin: '0 auto',
               padding: `0 ${S.SPACING.container}`
             }}
-            variants={staggerContainer}
+            className={contentVisible ? 'visible' : 'hidden'}
           >
-            <motion.div 
-              className="text-left" 
+            <div 
               style={{ marginBottom: S.SPACING.paragraph }}
-              variants={fadeInUp}
+              className="text-left" 
             >
               <Typography variant="h2" className="mb-4">
                 Common Problems &amp; My Solutions
               </Typography>
-            </motion.div>
+            </div>
             
-            <S.CardGrid variants={staggerContainer}>
+            <S.CardGrid className={contentVisible ? 'visible' : 'hidden'}>
               {problemSolutionCardsProps.cards.map((card, index) => {
                 // Convert string impact to object format if needed
                 const formattedImpact = typeof card.impact === 'string' 
@@ -189,18 +196,15 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
                   : card.variant;
                 
                 return (
-                  <motion.div 
+                  <div 
                     key={index}
-                    variants={fadeInUp}
-                    custom={index}
-                    transition={{ 
-                      delay: index * 0.2,
-                      duration: 0.6,
-                      ease: 'easeOut'
-                    }}
                     style={{
                       height: '100%',
-                      display: 'flex'
+                      display: 'flex',
+                      opacity: cardAnimations[index] ? 1 : 0,
+                      transform: cardAnimations[index] ? 'translateY(0)' : 'translateY(20px)',
+                      transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
+                      transitionDelay: `${index * 0.2}s`
                     }}
                   >
                     <ProblemSolutionCard 
@@ -211,40 +215,31 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
                       icon={card.icon}
                       variant={cardVariant as 'blue' | 'white'}
                     />
-                  </motion.div>
+                  </div>
                 );
               })}
             </S.CardGrid>
-          </motion.div>
+          </div>
         </S.AccentBackgroundSection>
         
         {/* Conclusion Section */}
-        <S.ContentContainer
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div
-            style={{ marginBottom: S.SPACING.paragraph }}
-            variants={fadeInUp}
-          >
+        <S.ContentContainer className={contentVisible ? 'visible ai-skeptic-content-container' : 'hidden ai-skeptic-content-container'}>
+          <div style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="body" weight="regular">
               Through my journey from skeptic to innovator, I&apos;ve developed a comprehensive system that addresses these challenges head-on.
               My approach, combined with carefully crafted development practices and custom tools I&apos;ve built,
               creates an environment where both human expertise and AI capabilities can flourish.
             </Typography>
-          </motion.div>
+          </div>
           
-          <motion.div variants={fadeInUp}>
+          <div>
             <Typography variant="body" className="mb-0" weight="regular">
               But before we dive into these solutions, let&apos;s understand why the current approach to AI integration often fails,
               and how my perspective as a principal engineer can transform everything.
             </Typography>
-          </motion.div>
+          </div>
         </S.ContentContainer>
       </S.ContentSection>
-      </S.Container>
-    </AnimatePresence>
+    </S.Container>
   );
 };

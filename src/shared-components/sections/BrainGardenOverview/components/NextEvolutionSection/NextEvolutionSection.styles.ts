@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { SPACING } from '../../BrainGardenOverview.styles';
 
-// Animation variants
+// Animation variants (keeping these for reference but they won't be used anymore)
 export const slideInRight = {
   hidden: { opacity: 0, x: 50 },
   visible: { 
@@ -61,14 +60,14 @@ export const phaseStaggerContainer = {
 };
 
 // Timeline styles
-export const TimelineContainer = styled(motion.div)`
+export const TimelineContainer = styled.div`
   position: relative;
   margin-top: 2rem;
   margin-bottom: 3rem;
   padding-bottom: 2rem;
 `;
 
-export const TimelineMainLine = styled(motion.div)`
+export const TimelineMainLine = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -81,7 +80,7 @@ export const TimelineMainLine = styled(motion.div)`
   }
 `;
 
-export const PhaseContainer = styled(motion.div)`
+export const PhaseContainer = styled.div`
   position: relative;
   margin-bottom: 4rem;
   display: flex;
@@ -94,7 +93,7 @@ export const PhaseContainer = styled(motion.div)`
   }
 `;
 
-export const PhaseTitle = styled(motion.div)`
+export const PhaseTitle = styled.div`
   background-color: #6A0DAD;
   color: white;
   padding: 0.75rem 1.5rem;
@@ -109,7 +108,7 @@ export const PhaseTitle = styled(motion.div)`
   }
 `;
 
-export const PhaseContent = styled(motion.div)`
+export const PhaseContent = styled.div`
   background-color: white;
   padding: 1.5rem;
   border-radius: 0.5rem;
@@ -127,13 +126,13 @@ export const PhaseItemsList = styled.ul`
   gap: 0.75rem;
 `;
 
-export const PhaseItem = styled(motion.li)`
+export const PhaseItem = styled.li`
   display: flex;
   align-items: flex-start;
   gap: 1rem;
 `;
 
-export const PhaseItemDot = styled(motion.div)`
+export const PhaseItemDot = styled.div`
   height: 1.5rem;
   width: 1.5rem;
   border-radius: 50%;
@@ -146,14 +145,14 @@ export const PhaseItemContent = styled.div`
 `;
 
 // Capability cards styles
-export const CapabilityCardsGrid = styled(motion.div)`
+export const CapabilityCardsGrid = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 3rem;
 `;
 
-export const CapabilityCard = styled(motion.div)`
+export const CapabilityCard = styled.div`
   padding: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -166,20 +165,20 @@ export const CapabilityCard = styled(motion.div)`
 `;
 
 // Research area styles
-export const ResearchAreaContainer = styled(motion.div)`
+export const ResearchAreaContainer = styled.div`
   background-color: #f5f5f5;
   padding: 2rem;
   border-radius: 0.5rem;
   margin-bottom: 3rem;
 `;
 
-export const ResearchGridContainer = styled(motion.div)`
+export const ResearchGridContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 `;
 
-export const ResearchAreaCard = styled(motion.div)`
+export const ResearchAreaCard = styled.div`
   background-color: white;
   padding: 1.5rem;
   border-radius: 0.5rem;

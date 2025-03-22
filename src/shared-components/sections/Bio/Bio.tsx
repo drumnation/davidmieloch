@@ -1,7 +1,6 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 import { Hero } from '../../organisms/Hero';
 import { 
   BioContainer, 
@@ -12,13 +11,21 @@ import {
   GlobalStyles
 } from './Bio.styles';
 import { BioProps } from './Bio.types';
+import { TransitionDiv, TransitionContainer } from '../../../utils/animations/migration-helpers';
 
 // Import sub-components
-import { BioIntro } from './sub-components/BioIntro';
-import { TechnicalExpertise } from './sub-components/TechnicalExpertise';
-import { FeaturedMedia } from './sub-components/FeaturedMedia';
+import BioIntro from './sub-components/BioIntro';
+import TechnicalExpertise from './sub-components/TechnicalExpertise';
+import FeaturedMedia from './sub-components/FeaturedMedia';
 
 export const Bio: React.FC<BioProps> = ({ id = 'bio', className }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  // Use useEffect to trigger animations after mount
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   // Hero props
   const heroProps = {
     title: "David Mieloch",
@@ -41,20 +48,19 @@ export const Bio: React.FC<BioProps> = ({ id = 'bio', className }) => {
       <Hero {...heroProps} />
       
       {/* Content Section with White Background */}
-      <ContentSection
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+      <TransitionDiv
         variants={fadeIn}
+        animate={isVisible ? 'visible' : 'hidden'}
+        className="bio-content-section"
       >
-        <ContentContainer
-          variants={staggerContainer}
+        <TransitionContainer
+          className="bio-content-container"
         >
           <BioIntro />
           <TechnicalExpertise />
           <FeaturedMedia />
-        </ContentContainer>
-      </ContentSection>
+        </TransitionContainer>
+      </TransitionDiv>
     </BioContainer>
   );
 };

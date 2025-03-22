@@ -1,16 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Typography } from '../../../../atoms/Typography';
 import { SystemArchitectureSectionProps } from './SystemArchitectureSection.types';
-import {
-  ContentContainer,
-  fadeInUp,
-  staggerContainer
-} from '../../BrainGardenOverview.styles';
-import {
-  SectionTitleComponent,
-  CTAButtonWithIcon
-} from '../../BrainGardenOverview.logic';
+import { ContentContainer } from '../../BrainGardenOverview.styles';
+import { SectionTitleComponent, CTAButtonWithIcon } from '../../BrainGardenOverview.logic';
 
 export const SystemArchitectureSection: React.FC<SystemArchitectureSectionProps> = ({
   className,
@@ -19,10 +11,6 @@ export const SystemArchitectureSection: React.FC<SystemArchitectureSectionProps>
   return (
     <ContentContainer
       className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={staggerContainer}
       id="system-architecture-section"
       style={{ 
         backgroundColor: '#4a6bff', 
@@ -31,7 +19,7 @@ export const SystemArchitectureSection: React.FC<SystemArchitectureSectionProps>
         borderRadius: '0.5rem' 
       }}
     >
-      <motion.div variants={fadeInUp}>
+      <div>
         <h1 style={{ color: 'white', fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>System Architecture</h1>
         
         <Typography variant="h2" mb="1.5rem" color="light">
@@ -186,7 +174,15 @@ export const SystemArchitectureSection: React.FC<SystemArchitectureSectionProps>
             The Brain Garden system consists of two essential components: CLI tools for project setup and management, and the .brain directory for structured documentation and knowledge. GitHub integration is available as an optional component that provides visibility and management tools primarily for non-technical stakeholders.
           </Typography>
         </div>
-      </motion.div>
+      </div>
+      
+      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <CTAButtonWithIcon
+          text="Explore Knowledge System"
+          icon="arrow-right"
+          link="#knowledge-system"
+        />
+      </div>
     </ContentContainer>
   );
 };

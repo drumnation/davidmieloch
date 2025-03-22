@@ -1,33 +1,17 @@
+import { AnimationVariants } from '../../../utils/animations/migration-helpers';
+
 // Animation variants
-export const fadeInUp = {
+export const fadeInUp: AnimationVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { 
-      duration: 0.6,
-      ease: "easeOut"
-    }
-  }
+  visible: { opacity: 1, y: 0 }
 };
 
-export const fadeIn = {
+export const fadeIn: AnimationVariants = {
   hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1,
-    transition: { 
-      duration: 0.8,
-      ease: "easeOut"
-    }
-  }
+  visible: { opacity: 1 }
 };
 
-export const staggerContainer = {
+export const staggerContainer: AnimationVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
+  visible: { opacity: 1 }
 }; 

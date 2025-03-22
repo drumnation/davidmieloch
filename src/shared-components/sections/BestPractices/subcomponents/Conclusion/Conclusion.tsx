@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ConclusionContainer,
   ConclusionTitle,
@@ -9,15 +9,34 @@ import {
 import { ConclusionProps } from './Conclusion.types';
 
 export const Conclusion: React.FC<ConclusionProps> = ({ className }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const conclusionRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { rootMargin: "-100px", threshold: 0.1 }
+    );
+    
+    if (conclusionRef.current) {
+      observer.observe(conclusionRef.current);
+    }
+    
+    return () => {
+      if (conclusionRef.current) {
+        observer.unobserve(conclusionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <ConclusionContainer
-      className={className}
-      initial="visible"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 }
-      }}
+      ref={conclusionRef}
+      className={`${className} ${isVisible ? 'visible' : ''}`}
     >
       <ConclusionTitle>The Synergy of AI and Modern Development Practices</ConclusionTitle>
       <ConclusionText>

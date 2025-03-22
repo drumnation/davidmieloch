@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated } from '@react-spring/web';
 
 interface ContainerProps {
   $position: 'right' | 'left' | 'center' | 'full-width';
@@ -135,7 +135,7 @@ export const MetricsList = styled.ul`
   margin: 0;
 `;
 
-export const MetricItem = styled(motion.li)`
+export const MetricItem = styled.li`
   padding: 0.5rem 0;
   font-size: 0.9rem;
   color: ${({ theme }) => theme.colors.text.primary};
@@ -156,3 +156,11 @@ export const MetricItem = styled(motion.li)`
     margin-left: 1em;
   }
 `;
+
+// Animated versions
+export const AnimatedContainer = animated(Container);
+export const AnimatedCard = animated(Card);
+export const AnimatedProblemSection = animated(ProblemSection);
+export const AnimatedConsequenceSection = animated(ConsequenceSection);
+export const AnimatedMetricsList = animated(MetricsList);
+export const AnimatedMetricItem = animated(MetricItem);

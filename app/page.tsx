@@ -1,9 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Hero } from '../src/shared-components/organisms/Hero';
 
 export default function HomePage() {
+  const router = useRouter();
+  
+  useEffect(() => {
+    router.replace('/enterprise-ai-development-framework');
+  }, [router]);
+
+  // We'll still return the Hero component as a fallback while redirecting
   const heroProps = {
     title: "David Mieloch",
     subtitle: "Software Architect & Developer",

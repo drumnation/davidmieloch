@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
 
 interface ContainerProps {
   $position: 'right' | 'left' | 'center' | 'full-width';
@@ -36,7 +35,18 @@ export const CardsContainer = styled.div`
   }
 `;
 
-export const Card = styled(motion.div)<CardProps>`
+export const CardWrapper = styled.div`
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+export const Card = styled.div<CardProps>`
   flex: 1;
   min-width: 250px;
   border-radius: 8px;
