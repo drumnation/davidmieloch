@@ -18,11 +18,10 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   problemSolutionCardsProps = defaultContent.problemSolutions,
 }) => {
   // Enhance props with consistent styling and defaults
-  const enhancedHeroProps = enhanceHeroProps(heroProps);
-  const enhancedQuotesProps = enhanceQuotesProps(quotesProps);
+  const enhancedHeroProps = React.useMemo(() => enhanceHeroProps(heroProps), [heroProps]);
+  const enhancedQuotesProps = React.useMemo(() => enhanceQuotesProps(quotesProps), [quotesProps]);
   
   // State for visibility animations
-  const [isVisible, setIsVisible] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
   const [cardAnimations, setCardAnimations] = useState<boolean[]>(Array(problemSolutionCardsProps.cards.length).fill(false));
   
@@ -33,11 +32,8 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
           // Stagger content visibility after section becomes visible
-          setTimeout(() => {
-            setContentVisible(true);
-          }, 300);
+          setContentVisible(true);
           
           // Stagger card animations
           problemSolutionCardsProps.cards.forEach((_, index) => {
@@ -65,16 +61,20 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
     };
   }, [problemSolutionCardsProps.cards.length]);
 
+  const heroComponent = React.useMemo(() => (
+    <Hero {...enhancedHeroProps} />
+  ), [enhancedHeroProps]);
+
   return (
     <S.Container className={className} key="ai-skeptic-content">
       <S.GlobalStyles />
       {/* Hero Section */}
-      <Hero {...enhancedHeroProps} />
+      {heroComponent}
     
       {/* Content Section with White Background */}
       <S.ContentSection 
         ref={sectionRef}
-        className={isVisible ? 'visible ai-skeptic-content-section' : 'hidden ai-skeptic-content-section'}
+        className={contentVisible ? 'visible ai-skeptic-content-section' : 'hidden ai-skeptic-content-section'}
       >
         {/* Introduction Section */}
         <S.ContentContainer className={contentVisible ? 'visible ai-skeptic-content-container' : 'hidden ai-skeptic-content-container'}>
@@ -131,7 +131,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
         </S.ContentContainer>
         
         {/* Quotes Section with Light Background */}
-        <S.BackgroundSection className={isVisible ? 'visible' : 'hidden'}>
+        <S.BackgroundSection className={contentVisible ? 'visible' : 'hidden'}>
           <div 
             style={{ 
               width: '100%',
@@ -164,7 +164,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
         </S.ContentContainer>
         
         {/* Solutions Section with Accent Background */}
-        <S.AccentBackgroundSection className={isVisible ? 'visible' : 'hidden'}>
+        <S.AccentBackgroundSection className={contentVisible ? 'visible' : 'hidden'}>
           <div 
             style={{ 
               width: '100%',

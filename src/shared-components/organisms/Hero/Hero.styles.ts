@@ -55,6 +55,10 @@ export const HeroContainer = styled.section<{
   justify-content: center;
   padding: 3rem 2rem;
   overflow: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
   ${({ $background }) => backgroundStyles[$background as keyof typeof backgroundStyles]}
   ${({ $textColor }) => textColorStyles[$textColor as keyof typeof textColorStyles]}
   ${({ $pattern, $background }) => $background !== 'image' && patternStyles[$pattern as keyof typeof patternStyles]}
@@ -72,6 +76,8 @@ export const HeroContainer = styled.section<{
       background-position: center;
       background-repeat: no-repeat;
       z-index: 0;
+      will-change: transform;
+      transform: translateZ(0);
     }
     
     /* Add overlay when backgroundOverlay is true */
@@ -101,9 +107,10 @@ export const HeroContainer = styled.section<{
 
 export const HeroContent = styled.div`
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
   position: relative;
   padding: 2rem;
   border-radius: 8px;
@@ -111,6 +118,14 @@ export const HeroContent = styled.div`
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   color: #ffffff;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  
+  ${media.up('md')} {
+    padding: 3rem;
+  }
 `;
 
 export const Title = styled.div`
