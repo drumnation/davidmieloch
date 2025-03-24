@@ -114,9 +114,9 @@ export const HeroContent = styled.div`
   position: relative;
   padding: 2rem;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   color: #ffffff;
   will-change: transform, opacity;
   transform: translateZ(0);
@@ -130,7 +130,7 @@ export const HeroContent = styled.div`
 
 export const Title = styled.div`
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
   ${media.up('md')} {
     margin-bottom: 2rem;
@@ -140,6 +140,6 @@ export const Title = styled.div`
 export const Subtitle = styled.div`
   max-width: 600px;
   margin: 0 auto;
-  opacity: 0.95;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 `;

@@ -62,10 +62,15 @@ export const BrainGardenOverview = () => {
     }
   };
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
+  // Create individual refs for each section
+  const [introRef, introInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [coreRef, coreInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [teamRef, teamInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [forceRef, forceInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [gardenRef, gardenInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [archRef, archInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [nextRef, nextInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [transRef, transInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div>
@@ -74,44 +79,100 @@ export const BrainGardenOverview = () => {
         <Hero {...enhancedHeroProps} />
         
         {/* Content Section with White Background */}
-        <ContentSection ref={ref}>
+        <ContentSection>
           {/* Introduction Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div 
+            ref={introRef}
+            style={{ 
+              opacity: introInView ? 1 : 0, 
+              transform: `translateY(${introInView ? 0 : 30}px)`, 
+              transition: 'opacity 0.6s, transform 0.8s'
+            }}
+          >
             <SystemOverviewSection introProps={introProps} />
           </div>
           
           {/* Core Components Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div 
+            ref={coreRef}
+            style={{ 
+              opacity: coreInView ? 1 : 0, 
+              transform: `translateY(${coreInView ? 0 : 30}px)`, 
+              transition: 'opacity 0.6s, transform 0.8s'
+            }}
+          >
             <CoreComponentsSection coreComponentsProps={safeData.coreComponents} />
           </div>
           
           {/* Team Customization Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div 
+            ref={teamRef}
+            style={{ 
+              opacity: teamInView ? 1 : 0, 
+              transform: `translateY(${teamInView ? 0 : 30}px)`, 
+              transition: 'opacity 0.6s, transform 0.8s'
+            }}
+          >
             <TeamCustomizationSection />
           </div>
           
           {/* Force Multipliers Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div 
+            ref={forceRef}
+            style={{ 
+              opacity: forceInView ? 1 : 0, 
+              transform: `translateY(${forceInView ? 0 : 30}px)`, 
+              transition: 'opacity 0.6s, transform 0.8s'
+            }}
+          >
             <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
           </div>
           
           {/* The Garden Metaphor Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div 
+            ref={gardenRef}
+            style={{ 
+              opacity: gardenInView ? 1 : 0, 
+              transform: `translateY(${gardenInView ? 0 : 30}px)`, 
+              transition: 'opacity 0.6s, transform 0.8s'
+            }}
+          >
             <GardenMetaphorSection />
           </div>
           
           {/* System Architecture Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div 
+            ref={archRef}
+            style={{ 
+              opacity: archInView ? 1 : 0, 
+              transform: `translateY(${archInView ? 0 : 30}px)`, 
+              transition: 'opacity 0.6s, transform 0.8s'
+            }}
+          >
             <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
           </div>
           
           {/* The Next Evolution Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div 
+            ref={nextRef}
+            style={{ 
+              opacity: nextInView ? 1 : 0, 
+              transform: `translateY(${nextInView ? 0 : 30}px)`, 
+              transition: 'opacity 0.6s, transform 0.8s'
+            }}
+          >
             <NextEvolutionSection />
           </div>
           
           {/* Transition to Technical Implementation Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s', transitionDelay: '0.2s' }}>
+          <div 
+            ref={transRef}
+            style={{ 
+              opacity: transInView ? 1 : 0, 
+              transform: `translateY(${transInView ? 0 : 30}px)`, 
+              transition: 'opacity 0.6s, transform 0.8s'
+            }}
+          >
             <TransitionSection {...transitionProps} />
           </div>
         </ContentSection>

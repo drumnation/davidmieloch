@@ -4,7 +4,7 @@ import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
 import { TeamCustomizationSectionProps } from './TeamCustomizationSection.types';
 import {
   ContentContainer,
-  MermaidContainer,
+  SPACING,
   fadeInUp,
   staggerContainer
 } from '../../BrainGardenOverview.styles';
@@ -17,124 +17,115 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
   className
 }) => {
   return (
-    <div
+    <ContentContainer
       className={className}
       id="team-customization-section"
     >
       <div>
         <SectionTitleComponent title="Customizing Your Team" />
         
-        <div 
-          style={{ marginTop: '1rem', marginBottom: '1.5rem' }}
-        >
+        <div style={{ marginBottom: SPACING.paragraphBreak }}>
           <SectionSubtitleComponent title="The Brain Garden System" />
-          <div>
-            <Typography variant="body" mb="1.5rem">
-              Through years of working with React and Node.js teams, I developed the AI Brain Garden system to transform how teams interact with AI tools. This isn&apos;t just another set of guidelines—it&apos;s a living, evolving ecosystem that grows with your project and enables true parallel development at scale.
-            </Typography>
-          </div>
+          <Typography variant="body" mb={SPACING.paragraph}>
+            Through years of working with React and Node.js teams, I developed the AI Brain Garden system to transform how teams interact with AI tools. This isn&apos;t just another set of guidelines—it&apos;s a living, evolving ecosystem that grows with your project and enables true parallel development at scale.
+          </Typography>
         </div>
         
-        <div 
-          style={{ marginBottom: '1.5rem' }}
-        >
+        <div style={{ marginBottom: SPACING.paragraphBreak }}>
           <SectionSubtitleComponent title="From Individual to Team Director" />
-          <div>
-            <Typography variant="body" mb="1.5rem">
-              Traditional AI coding assistants are like having a single junior developer who can help with individual tasks. AI Brain Garden transforms you into a technical director managing multiple specialized teams, each with their own expertise and focus. While we provide default agent personas as examples, the real power lies in its ability to adapt to your project&apos;s specific needs through a systematic MECE (Mutually Exclusive, Collectively Exhaustive) approach.
-            </Typography>
-          </div>
+          <Typography variant="body" mb={SPACING.paragraph}>
+            Traditional AI coding assistants are like having a single junior developer who can help with individual tasks. AI Brain Garden transforms you into a technical director managing multiple specialized teams, each with their own expertise and focus. While we provide default agent personas as examples, the real power lies in its ability to adapt to your project&apos;s specific needs through a systematic MECE (Mutually Exclusive, Collectively Exhaustive) approach.
+          </Typography>
         </div>
 
-        <div>
-          <Typography variant="body" mb="0.5rem">
+        <div style={{ marginBottom: SPACING.paragraphBreak }}>
+          <Typography variant="body" mb={SPACING.element}>
             For example, in one project I worked on, we needed to build a real-time data visualization platform. Using the MECE approach, we created specialized teams for:
           </Typography>
-          <ul 
-            style={{ listStyleType: 'disc', paddingLeft: '1.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}
-          >
-            <li style={{ marginBottom: '0.3rem' }}>Data Pipeline Architecture</li>
-            <li style={{ marginBottom: '0.3rem' }}>Visualization Design</li>
-            <li style={{ marginBottom: '0.3rem' }}>Performance Optimization</li>
-            <li style={{ marginBottom: '0.3rem' }}>UX Flow Engineering</li>
+          <ul style={{ 
+            listStyleType: 'disc', 
+            paddingLeft: SPACING.container, 
+            marginBottom: SPACING.element 
+          }}>
+            <li style={{ marginBottom: '0.5rem' }}>Data Pipeline Architecture</li>
+            <li style={{ marginBottom: '0.5rem' }}>Visualization Design</li>
+            <li style={{ marginBottom: '0.5rem' }}>Performance Optimization</li>
+            <li style={{ marginBottom: '0.5rem' }}>UX Flow Engineering</li>
           </ul>
-          <div>
-            <Typography variant="body" mb="1.5rem">
-              This structure allowed us to tackle complex challenges in parallel while maintaining clear boundaries between responsibilities.
-            </Typography>
-          </div>
+          <Typography variant="body" mb={SPACING.paragraph}>
+            This structure allowed us to tackle complex challenges in parallel while maintaining clear boundaries between responsibilities.
+          </Typography>
         </div>
         
-        <div 
-          style={{ backgroundColor: '#ebf5ff', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
-        >
-          <div>
-            <MermaidDiagram
-              definition={`
-                flowchart LR
-                    classDef root fill:#2D3748,stroke:none,color:white,font-weight:bold,padding:10px
-                    classDef domain fill:#5A67D8,stroke:none,color:white,font-weight:bold,padding:10px
-                    classDef file fill:#38A169,stroke:none,color:white,padding:8px
-                    classDef benefit fill:#ED8936,stroke:none,color:white,font-weight:bold,padding:10px
-                    classDef docs fill:#4A5568,stroke:none,color:white,font-weight:bold,padding:8px
-                    
-                    %% Main Directory with domains as a vertical column
-                    BrainDir[".brain Directory"]:::root
-                    
-                    %% Domains as a vertical stack
-                    BrainDir --> Auth["Authentication"]:::domain
-                    BrainDir --> Profile["User Profile"]:::domain
-                    BrainDir --> Payment["Payment System"]:::domain
-                    BrainDir --> Benefits["Key Benefits"]:::root
-                    
-                    %% Files for Authentication
-                    Auth --> AuthFiles["Documentation"]:::docs
-                    AuthFiles --> AuthReq["requirements.md"]:::file
-                    AuthFiles --> AuthArch["architecture.md"]:::file
-                    AuthFiles --> AuthAPI["api.md"]:::file
-                    AuthFiles --> AuthComp["components.md"]:::file
-                    
-                    %% Files for User Profile
-                    Profile --> ProfileFiles["Documentation"]:::docs
-                    ProfileFiles --> ProfileReq["requirements.md"]:::file
-                    ProfileFiles --> ProfileArch["architecture.md"]:::file
-                    ProfileFiles --> ProfileAPI["api.md"]:::file
-                    ProfileFiles --> ProfileComp["components.md"]:::file
-                    
-                    %% Files for Payment System
-                    Payment --> PayFiles["Documentation"]:::docs
-                    PayFiles --> PayReq["requirements.md"]:::file
-                    PayFiles --> PayArch["architecture.md"]:::file
-                    PayFiles --> PayAPI["api.md"]:::file
-                    PayFiles --> PayComp["components.md"]:::file
-                    
-                    %% Benefits arranged vertically
-                    Benefits --> B1["No Overlapping Responsibilities"]:::benefit
-                    Benefits --> B2["Complete Project Coverage"]:::benefit
-                    Benefits --> B3["Prevents Merge Conflicts"]:::benefit
-                    Benefits --> B4["Easier Context Management"]:::benefit
-              `}
-              theme="default"
-              width="100%"
-              height="auto"
-              backgroundColor="transparent"
-            />
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+        <div style={{ 
+          backgroundColor: '#ebf5ff', 
+          padding: SPACING.container,
+          borderRadius: '0.5rem', 
+          marginBottom: SPACING.paragraphBreak 
+        }}>
+          <MermaidDiagram
+            definition={`
+              flowchart LR
+                  classDef root fill:#2D3748,stroke:none,color:white,font-weight:bold,padding:10px
+                  classDef domain fill:#5A67D8,stroke:none,color:white,font-weight:bold,padding:10px
+                  classDef file fill:#38A169,stroke:none,color:white,padding:8px
+                  classDef benefit fill:#ED8936,stroke:none,color:white,font-weight:bold,padding:10px
+                  classDef docs fill:#4A5568,stroke:none,color:white,font-weight:bold,padding:8px
+                  
+                  %% Main Directory with domains as a vertical column
+                  BrainDir[".brain Directory"]:::root
+                  
+                  %% Domains as a vertical stack
+                  BrainDir --> Auth["Authentication"]:::domain
+                  BrainDir --> Profile["User Profile"]:::domain
+                  BrainDir --> Payment["Payment System"]:::domain
+                  BrainDir --> Benefits["Key Benefits"]:::root
+                  
+                  %% Files for Authentication
+                  Auth --> AuthFiles["Documentation"]:::docs
+                  AuthFiles --> AuthReq["requirements.md"]:::file
+                  AuthFiles --> AuthArch["architecture.md"]:::file
+                  AuthFiles --> AuthAPI["api.md"]:::file
+                  AuthFiles --> AuthComp["components.md"]:::file
+                  
+                  %% Files for User Profile
+                  Profile --> ProfileFiles["Documentation"]:::docs
+                  ProfileFiles --> ProfileReq["requirements.md"]:::file
+                  ProfileFiles --> ProfileArch["architecture.md"]:::file
+                  ProfileFiles --> ProfileAPI["api.md"]:::file
+                  ProfileFiles --> ProfileComp["components.md"]:::file
+                  
+                  %% Files for Payment System
+                  Payment --> PayFiles["Documentation"]:::docs
+                  PayFiles --> PayReq["requirements.md"]:::file
+                  PayFiles --> PayArch["architecture.md"]:::file
+                  PayFiles --> PayAPI["api.md"]:::file
+                  PayFiles --> PayComp["components.md"]:::file
+                  
+                  %% Benefits arranged vertically
+                  Benefits --> B1["No Overlapping Responsibilities"]:::benefit
+                  Benefits --> B2["Complete Project Coverage"]:::benefit
+                  Benefits --> B3["Prevents Merge Conflicts"]:::benefit
+                  Benefits --> B4["Easier Context Management"]:::benefit
+            `}
+            theme="default"
+            width="100%"
+            height="auto"
+            backgroundColor="transparent"
+          />
+          <div style={{ textAlign: 'center', marginTop: SPACING.element }}>
             <Typography variant="body" color="secondary">
               MECE organization divides projects into distinct domains with consistent documentation structure, preventing conflicts while ensuring complete coverage
             </Typography>
           </div>
         </div>
         
-        <div 
-          style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-            gap: '1.5rem', 
-            marginBottom: '2rem' 
-          }}
-        >
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          gap: SPACING.element,
+          marginBottom: SPACING.section
+        }}>
           {[
             {
               title: "Project Analysis",
@@ -192,6 +183,6 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
           ))}
         </div>
       </div>
-    </div>
+    </ContentContainer>
   );
 };

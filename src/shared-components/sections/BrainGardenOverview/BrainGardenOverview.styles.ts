@@ -23,8 +23,9 @@ export const SPACING = {
 // Custom styles for the component
 export const GlobalStyles = createGlobalStyle`
   .custom-hero-bg::before {
-    background-position: center top !important;
-    background-position-y: -115px !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
   }
 `;
 

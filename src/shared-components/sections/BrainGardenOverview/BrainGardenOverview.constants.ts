@@ -6,7 +6,7 @@ export const defaultContent = {
     background: "image" as const,
     backgroundImage: "/brain-garden.png",
     backgroundOverlay: true,
-    overlayOpacity: 0.7,
+    overlayOpacity: 0,
     pattern: "dots" as const,
     textColor: "light" as const,
     animation: "fade-up" as const,
