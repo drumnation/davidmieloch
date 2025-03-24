@@ -8,6 +8,4 @@ export interface HeroProps {
   pattern?: 'circuit-board' | 'dots' | 'none';
   textColor?: 'light' | 'dark';
   className?: string;
-  animation?: 'fade-up' | 'slide-in' | 'none';
-  initialAnimation?: 'hidden' | 'visible';
 } 
