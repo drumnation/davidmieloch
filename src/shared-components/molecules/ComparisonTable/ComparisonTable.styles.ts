@@ -55,7 +55,7 @@ export const TableRow = styled.tr`
   }
   
   &:hover {
-    background: ${({ theme }) => theme.colors.background.dark};
+    background: rgba(0, 0, 0, 0.05);
   }
 `;
 

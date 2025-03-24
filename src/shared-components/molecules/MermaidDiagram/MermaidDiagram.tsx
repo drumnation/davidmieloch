@@ -49,18 +49,17 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
   // Add hover effect styles
   const hoverStyles = `
     .${uniqueId.current} g.node:hover {
-      filter: brightness(1.1);
+      filter: brightness(1.05);
       cursor: pointer;
-      transform: scale(1.05);
-      transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease;
     }
     .${uniqueId.current} g.cluster:hover {
-      filter: brightness(1.05);
-      transition: all 0.2s ease-in-out;
+      filter: brightness(1.02);
+      transition: all 0.2s ease;
     }
     .${uniqueId.current} .edgePath:hover {
-      stroke-width: 2.5px;
-      transition: all 0.2s ease-in-out;
+      stroke-width: 2px;
+      transition: all 0.2s ease;
     }
   `;
 
