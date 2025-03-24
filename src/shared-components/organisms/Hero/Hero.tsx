@@ -85,7 +85,8 @@ export const Hero: React.FC<HeroProps> = ({
               <Typography 
                 variant="h3" 
                 weight="regular"
-                color={textColor === 'light' ? 'light' : 'secondary'}
+                color="secondary"
+                className="subtitle"
               >
                 {subtitle}
               </Typography>
