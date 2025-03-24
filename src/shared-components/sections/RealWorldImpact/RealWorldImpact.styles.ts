@@ -1,7 +1,24 @@
 import styled from 'styled-components';
 import { animated } from '@react-spring/web';
-import { Card } from '../../atoms/Card/Card';
 import { SPACING } from '../BrainGardenOverview/BrainGardenOverview.styles';
+
+export const Card = styled.div`
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: ${SPACING.element};
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+`;
 
 export const Container = styled.div`
   width: 100%;
@@ -81,21 +98,8 @@ export const CaseStudiesGrid = styled.div`
   }
 `;
 
-export const CaseStudyCard = styled.div`
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
+export const CaseStudyCard = styled(Card)`
+  // Additional case study specific styles can go here
 `;
 
 export const CaseStudyImageContainer = styled.div`
@@ -331,7 +335,7 @@ export const ParagraphList = styled.div`
 
 export const ComponentWrapper = styled.div<{ position?: string }>`
   width: 100%;
-  margin: ${SPACING.component} 0;
+  margin: ${SPACING.element} 0;
   
   ${props => props.position === 'left' && `
     align-self: flex-start;
@@ -394,7 +398,7 @@ export const StatsGridContainer = styled.div`
   }
 `;
 
-export const AccentCard = styled(Card)`
+export const AccentCard = styled.div`
   background: ${({ theme }) => theme.colors.gradient};
   color: ${({ theme }) => theme.colors.text.light};
   padding: 2rem;
@@ -417,7 +421,7 @@ export const AccentCard = styled(Card)`
   }
 `;
 
-export const GradientCard = styled(Card)`
+export const GradientCard = styled.div`
   background: ${({ theme }) => theme.colors.gradient};
   color: ${({ theme }) => theme.colors.text.light};
   padding: 2rem;
@@ -611,5 +615,28 @@ export const BackgroundSection = styled.div`
   @media (max-width: 576px) {
     padding: calc(${SPACING.section} * 0.75) 0;
     margin-bottom: calc(${SPACING.section} * 0.75);
+  }
+`;
+
+export const Section = styled.section`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: ${SPACING.section} ${SPACING.container};
+  
+  @media (max-width: 576px) {
+    padding: calc(${SPACING.section} * 0.75) ${SPACING.container};
+  }
+`;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-top: ${SPACING.paragraph};
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 `; 

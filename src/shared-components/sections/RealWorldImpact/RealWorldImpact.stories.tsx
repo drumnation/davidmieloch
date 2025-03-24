@@ -24,6 +24,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
+    // Core content
     heroProps: defaultContent.hero,
     problemOverviewProps: defaultContent.problemOverview,
     challengeBreakdownProps: defaultContent.challengeBreakdown,
@@ -31,8 +32,17 @@ export const Default: Story = {
     statsComparisonProps: defaultContent.statsComparison,
     debtAnalysisProps: defaultContent.debtAnalysis,
     cycleDiagramProps: defaultContent.cycleDiagram,
+    
+    // Solutions and impact content
     problemSolutionProps: defaultContent.problemSolution,
     impactGridProps: defaultContent.impactGrid,
     navigationCardProps: defaultContent.navigationCard,
+    enterpriseJourneyProps: defaultContent.enterpriseJourney,
+    solutionsImpactProps: defaultContent.solutionsImpact,
+    
+    // Additional insights
+    commonPitfallsProps: defaultContent.commonPitfalls,
+    brainGardenSolutionsProps: defaultContent.brainGardenSolutions,
+    conclusionProps: defaultContent.conclusion,
   },
 }; 

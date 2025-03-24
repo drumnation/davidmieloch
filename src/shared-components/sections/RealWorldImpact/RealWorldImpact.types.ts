@@ -1,33 +1,6 @@
 export interface RealWorldImpactProps {
   className?: string;
-  heroProps?: {
-    title: string;
-    subtitle: string;
-    
-    // Legacy properties
-    background?: 'image' | 'gradient' | 'dark' | 'light';
-    backgroundImage?: string;
-    backgroundOverlay?: boolean;
-    overlayOpacity?: number;
-    pattern?: string;
-    textColor?: 'light' | 'dark';
-    animation?: string;
-    className?: string;
-    
-    // New properties
-    description?: string;
-    callToAction?: {
-      label: string;
-      action: string;
-      target: string;
-    };
-    backgroundImageUrl?: string;
-    style?: 'gradient-overlay' | string;
-    metrics?: Array<{
-      number: string;
-      label: string;
-    }>;
-  };
+  heroProps?: HeroProps;
   problemOverviewProps?: {
     title: string;
     subtitle?: string;
@@ -220,10 +193,25 @@ export interface RealWorldImpactProps {
       key_metrics: Array<{
         number: string;
         label: string;
+        description?: string;
+        beforeState?: string;
+        afterState?: string;
+        ROI?: string;
       }>;
       style: string;
       position: string;
     };
+    caseStudies: Array<{
+      company: string;
+      industry: string;
+      teamSize: string;
+      challenge: string;
+      solution: string;
+      results: string[];
+      quote: string;
+      attribution: string;
+      roi: string;
+    }>;
     knowledgeManagement: {
       title: string;
       key_features: Array<{
@@ -248,59 +236,6 @@ export interface RealWorldImpactProps {
         category: string;
         stats: Array<string>;
       }>;
-      style: string;
-      position: string;
-    };
-    qualityAssurance: {
-      features: Array<{
-        title: string;
-        description: string;
-        benefits: Array<string>;
-      }>;
-      style: string;
-      position: string;
-    };
-    statsComparison: {
-      comparisons: Array<{
-        metric: string;
-        before: string;
-        after: string;
-        impact: string;
-      }>;
-      style: string;
-      position: string;
-    };
-    technicalDebt: {
-      strategies: Array<{
-        title: string;
-        description: string;
-        impact: string;
-      }>;
-      style: string;
-      position: string;
-    };
-    transformationMetrics: {
-      categories: Array<{
-        title: string;
-        metrics: Array<{
-          label: string;
-          improvement: string;
-        }>;
-      }>;
-      style: string;
-      position: string;
-    };
-    caseStudies: Array<{
-      title: string;
-      challenge: string;
-      solution: string;
-      results: Array<string>;
-      quote: string;
-      style: string;
-      position: string;
-    }>;
-    journeyTimeline: {
-      diagram: string;
       style: string;
       position: string;
     };
@@ -330,13 +265,14 @@ export interface RealWorldImpactProps {
     problems: Array<{
       title: string;
       description: string;
-      codeExample: string;
+      plainTextContent: string;
     }>;
     style: string;
     position: string;
   };
   brainGardenSolutionsProps?: {
     title: string;
+    subtitle: string;
     solutions: Array<{
       title: string;
       description: string;
@@ -344,15 +280,81 @@ export interface RealWorldImpactProps {
     style: string;
     position: string;
   };
-  conclusionProps?: {
+  conclusionProps?: ConclusionProps;
+}
+
+export interface HeroProps {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  background?: 'image' | 'gradient';
+  backgroundImage?: string;
+  backgroundOverlay?: boolean;
+  overlayOpacity?: number;
+  textColor?: 'light' | 'dark';
+  callToAction?: {
+    label: string;
+    action: string;
+    target: string;
+  };
+  metrics?: Array<{
+    number: string;
+    label: string;
+  }>;
+}
+
+export interface ConclusionProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  content: ConclusionContent;
+  style: 'gradient-sections';
+  position: 'full-width';
+  animation: 'sequential-fade';
+}
+
+export interface ConclusionContent {
+  journeyInsights: {
     title: string;
-    content: string;
-    contactInfo: {
-      email: string;
-      linkedin: string;
-      github: string;
-    };
-    style: string;
-    position: string;
+    description: string;
+    insights: Array<{
+      title: string;
+      description: string;
+      icon: string;
+      metrics: {
+        before: string;
+        after: string;
+        impact: string;
+      };
+    }>;
+  };
+  framework: {
+    title: string;
+    description: string;
+    components: Array<{
+      title: string;
+      features: string[];
+      icon: string;
+    }>;
+  };
+  currentState: {
+    title: string;
+    description: string;
+    sections: Array<{
+      title: string;
+      points: string[];
+      icon: string;
+    }>;
+  };
+  callToAction: {
+    title: string;
+    description: string;
+    actions: Array<{
+      label: string;
+      description: string;
+      icon: string;
+      link: string;
+    }>;
+    closing: string;
   };
 } 
