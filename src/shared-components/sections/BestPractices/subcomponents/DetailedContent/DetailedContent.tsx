@@ -255,9 +255,8 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           </ul>
         </DetailedContentList>
         
-        <DetailedContentText>
-          <pre>
-          {`// Monorepo structure with Turborepo
+        <CodeBlock>
+        {`// Monorepo structure with Turborepo
 monorepo/
 ├── apps/
 │   ├── web/
@@ -268,8 +267,7 @@ monorepo/
 │   └── config/
 ├── package.json
 └── turbo.json`}
-          </pre>
-        </DetailedContentText>
+        </CodeBlock>
       </section>
 
       <section>
@@ -330,9 +328,8 @@ monorepo/
           </ul>
         </DetailedContentList>
         
-        <DetailedContentText>
-          <pre>
-          {`// VSCode settings.json
+        <CodeBlock>
+        {`// VSCode settings.json
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -340,8 +337,7 @@ monorepo/
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode"
 }`}
-          </pre>
-        </DetailedContentText>
+        </CodeBlock>
       </section>
 
       <section>
@@ -369,9 +365,8 @@ monorepo/
           </ul>
         </DetailedContentList>
         
-        <DetailedContentText>
-          <pre>
-          {`// Code splitting with React.lazy
+        <CodeBlock>
+        {`// Code splitting with React.lazy
 import React, { lazy, Suspense } from 'react';
 
 const HeavyComponent = lazy(() => import('./HeavyComponent'));
@@ -383,8 +378,7 @@ function App() {
     </Suspense>
   );
 }`}
-          </pre>
-        </DetailedContentText>
+        </CodeBlock>
       </section>
 
       <section>
@@ -412,15 +406,13 @@ function App() {
           </ul>
         </DetailedContentList>
         
-        <DetailedContentText>
-          <pre>
-          {`// Using npm-check-updates to find outdated packages
+        <CodeBlock>
+        {`// Using npm-check-updates to find outdated packages
 $ npx npm-check-updates
 
 # Analyzing bundle size with webpack-bundle-analyzer
 $ npx webpack-bundle-analyzer ./stats.json`}
-          </pre>
-        </DetailedContentText>
+        </CodeBlock>
       </section>
     </DetailedContentContainer>
   );
