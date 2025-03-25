@@ -17,6 +17,7 @@ import { TransitionDiv, TransitionContainer } from '../../../utils/animations/mi
 import BioIntro from './sub-components/BioIntro';
 import TechnicalExpertise from './sub-components/TechnicalExpertise';
 import FeaturedMedia from './sub-components/FeaturedMedia';
+import Testimonials from './sub-components/Testimonials';
 
 export const Bio: React.FC<BioProps> = ({ id = 'bio', className }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -60,8 +61,9 @@ export const Bio: React.FC<BioProps> = ({ id = 'bio', className }) => {
           style={{ opacity: 1 }}
         >
           <BioIntro />
-          <TechnicalExpertise />
           <FeaturedMedia />
+          <Testimonials />
+          <TechnicalExpertise />
         </TransitionContainer>
       </TransitionDiv>
     </BioContainer>

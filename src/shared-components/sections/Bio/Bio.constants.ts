@@ -28,12 +28,6 @@ export const SKILL_ICONS: SkillIcon[] = [
 // Closing paragraphs that appear after the icon grid
 export const CLOSING_PARAGRAPHS: ReactNode = React.createElement(
   React.Fragment,
-  null,
-  React.createElement(
-    'p',
-    null,
-    "Beyond my technical skills, I place a high value on collaboration, clear communication, and mentorship. I've found that the most successful projects are those where technical expertise is paired with strong interpersonal skills and a genuine commitment to team growth."
-  )
 );
 
 // Main bio content with detailed story
@@ -180,7 +174,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const MEDIA_ITEMS: MediaItem[] = [
   {
     type: 'youtube',
-    url: 'https://www.youtube.com/embed/PSdwU6fIr_A',
+    url: 'https://www.youtube.com/embed/PFdR2orY3g4',
     title: 'Live Performance with Oneironaught',
     description: 'Progressive metal instrumental performance featuring David on drums with Brooklyn-based band Oneironaught.'
   },
@@ -229,20 +223,20 @@ export const MEDIA_ITEMS: MediaItem[] = [
 ];
 
 // Define the sections for the Bio page
-export const BIO_SECTIONS = [
+export const SECTIONS = [
   {
-    id: 'bio-intro',
+    id: 'introduction',
     title: 'Introduction',
-    icon: null,
-  },
-  {
-    id: 'technical-expertise',
-    title: 'Technical Expertise',
     icon: null,
   },
   {
     id: 'featured-media',
     title: 'Featured Media',
+    icon: null,
+  },
+  {
+    id: 'technical-expertise',
+    title: 'Technical Expertise',
     icon: null,
   }
 ]; 
