@@ -18,7 +18,7 @@ import {
 } from './subcomponents';
 
 export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practices', className }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -45,7 +45,7 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
   // Hero props
   const heroProps = {
     title: "Best Practices",
-    subtitle: "Modern Approaches for Enterprise React and React Native Applications",
+    subtitle: "Modern Enterprise Approaches for Fullstack React and React Native Development",
     background: 'image' as const,
     backgroundImage: '/monitors.jpg',
     pattern: 'none' as const,
@@ -69,12 +69,7 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
       
       <ContentSection 
         ref={contentRef}
-        className="best-practices-content-section visible"
-        style={{
-          opacity: 1,
-          transform: 'translateY(0)',
-          visibility: 'visible'
-        }}
+        className={`best-practices-content-section ${isVisible ? 'visible' : ''}`}
       >
         <ContentContainer className="best-practices-content-container">
           <DetailedContent />

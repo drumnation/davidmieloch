@@ -66,7 +66,6 @@ const LoaderContainer = styled.div<{ $fullPage?: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
   
   ${props => props.$fullPage && `
     position: fixed;
@@ -78,6 +77,13 @@ const LoaderContainer = styled.div<{ $fullPage?: boolean }>`
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 9999;
+  `}
+
+  /* For non-fullPage loaders inside content, center them properly */
+  ${props => !props.$fullPage && `
+    width: 100%;
+    min-height: 150px;
+    padding: 2rem;
   `}
 `;
 

@@ -15,7 +15,7 @@ const BestPractices = dynamic(
         color="#2196f3"
         size={60}
         fullPage={true}
-        text="Loading FullStack React Best Practices..."
+        text="Loading Best Practices Integration..."
       />
     )
   }

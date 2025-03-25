@@ -4,16 +4,16 @@ import React, { Suspense, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { LoadingPortal } from '../../src/components';
 
-// Dynamically import the Bio component with no SSR to prevent hydration issues
-const Bio = dynamic(
-  () => import('../../src/shared-components/sections/Bio/Bio').then(mod => mod.default), 
+// Dynamically import the BestPractices component with no SSR to prevent hydration issues
+const BestPractices = dynamic(
+  () => import('../../src/shared-components/sections/BestPractices'), 
   { 
     ssr: false,
-    loading: () => null
+    loading: () => null, // Return null in the loading function
   }
 );
 
-export default function BioPage() {
+export default function FullStackReactBestPracticesPage() {
   // State to control loading visibility
   const [isLoading, setIsLoading] = useState(true);
   
@@ -32,13 +32,13 @@ export default function BioPage() {
     <>
       <LoadingPortal 
         show={isLoading}
-        type="pulse"
+        type="circle"
         color="#2196f3"
         size={60}
-        text="Loading Bio..."
+        text="Loading FullStack React Best Practices..."
       />
       <Suspense fallback={null}>
-        <Bio />
+        <BestPractices />
       </Suspense>
     </>
   );
