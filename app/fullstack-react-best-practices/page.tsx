@@ -21,7 +21,7 @@ const BestPractices = dynamic(
   }
 );
 
-export default function BestPracticesIntegrationPage() {
+export default function FullStackReactBestPracticesPage() {
   return (
     <Suspense fallback={null}>
       <BestPractices />
