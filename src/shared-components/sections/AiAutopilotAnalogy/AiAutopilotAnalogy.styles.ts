@@ -1,4 +1,6 @@
 import { CSSProperties } from 'react';
+import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 // Define consistent spacing variables that can be reused across components
 export const SPACING = {
@@ -6,8 +8,44 @@ export const SPACING = {
   paragraph: '1.5rem',
   paragraphBreak: '2rem',
   element: '1rem',
-  container: '1.5rem'
+  container: '1.5rem',
+  
+  // Responsive spacing for mobile
+  mobile: {
+    section: '2.5rem',
+    paragraph: '1.25rem',
+    paragraphBreak: '1.5rem',
+    element: '0.75rem',
+    container: '1rem'
+  }
 };
+
+// Global styles for animation classes
+export const GlobalStyles = createGlobalStyle`
+  .autopilot-content-section {
+    width: 100%;
+    background-color: #fff;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    margin-top: -24px;
+    position: relative;
+    z-index: 2;
+    padding-top: ${SPACING.section};
+    padding-bottom: ${SPACING.section};
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
+    @media (max-width: 576px) {
+      padding-top: calc(${SPACING.section} * 0.75);
+      padding-bottom: calc(${SPACING.section} * 0.75);
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      margin-top: -16px;
+    }
+  }
+`;
 
 // Animation variants
 export const fadeInUp = {
@@ -49,7 +87,8 @@ export const containerStyle: CSSProperties = {
   margin: '0 auto', 
   display: 'flex', 
   flexDirection: 'column', 
-  alignItems: 'stretch' 
+  alignItems: 'stretch',
+  position: 'relative'
 };
 
 export const contentSectionStyle: CSSProperties = { 
@@ -85,14 +124,14 @@ export const sectionContainerWithoutMarginStyle: CSSProperties = {
 export const sectionContainerTopMarginStyle: CSSProperties = { 
   width: '100%',
   maxWidth: '1000px', 
-  margin: `${SPACING.section} auto 0`,
+  margin: `${SPACING.section} auto`,
   padding: `0 ${SPACING.container}`
 };
 
 export const sectionContainerSmallTopMarginStyle: CSSProperties = { 
   width: '100%',
   maxWidth: '1000px', 
-  margin: `1.5rem auto 0`,
+  margin: `${SPACING.paragraphBreak} auto`,
   padding: `0 ${SPACING.container}`
 };
 
@@ -108,24 +147,37 @@ export const titleContainerStyle: CSSProperties = {
 };
 
 export const paragraphContainerStyle: CSSProperties = { 
-  marginBottom: SPACING.paragraphBreak 
+  marginBottom: SPACING.paragraph 
 };
 
 export const paragraphContainerTopMarginStyle: CSSProperties = { 
-  marginTop: SPACING.paragraphBreak 
+  marginTop: SPACING.paragraph,
+  marginBottom: SPACING.paragraph
 };
 
 export const paragraphContainerNoMarginStyle: CSSProperties = { 
-  marginBottom: '0' 
+  marginBottom: 0 
 };
 
-export const realityVsHollywoodContainerStyle: CSSProperties = { 
+export const realityVsHollywoodContainerStyle: CSSProperties = {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   gap: '2rem',
   width: '100%',
-  margin: '2rem 0'
+  marginTop: SPACING.paragraph
 };
+
+export const RealityVsHollywoodContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  margin-top: ${SPACING.paragraph};
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
 
 export const realityItemStyle: CSSProperties = {
   display: 'flex',
@@ -174,21 +226,18 @@ export const itemContentStyle: CSSProperties = {
 };
 
 export const mermaidContainerStyle: CSSProperties = { 
-  marginBottom: SPACING.paragraphBreak,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
   width: '100%',
-  padding: '1.5rem 0'
+  maxWidth: '1000px',
+  margin: `${SPACING.paragraph} auto`,
+  padding: `0 ${SPACING.container}`
 };
 
 export const titleBlockStyle: CSSProperties = { 
-  display: 'block', 
-  marginBottom: '1.5rem' 
+  marginBottom: SPACING.element 
 };
 
 export const descriptionBlockStyle: CSSProperties = { 
-  display: 'block' 
+  marginBottom: SPACING.paragraph 
 };
 
 export const itemsContainerStyle: CSSProperties = { 

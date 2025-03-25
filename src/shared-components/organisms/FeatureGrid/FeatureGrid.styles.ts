@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
-import { animated, SpringValue, Interpolation } from '@react-spring/web';
-import { Card } from '../../atoms/Card/Card';
+import { Card as BaseCard } from '../../atoms/Card/Card';
 import { StyledFeatureGridProps } from './FeatureGrid.types';
-import { PropsWithChildren } from 'react';
 
-export const Grid = styled.div<StyledFeatureGridProps>`
+export const Grid = styled.div<StyledFeatureGridProps & { $inView: boolean }>`
   display: grid;
   gap: 2rem;
   width: 100%;
+  opacity: ${({ $inView }) => ($inView ? 1 : 0)};
+  transition: opacity 0.5s ease-out;
   
   /* Mobile first - single column */
   grid-template-columns: 1fr;
@@ -23,7 +23,7 @@ export const Grid = styled.div<StyledFeatureGridProps>`
   }
 `;
 
-export const FeatureCard = styled(Card)`
+export const FeatureCard = styled(BaseCard)`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -49,17 +49,9 @@ export const Content = styled.div`
   flex: 1;
 `;
 
-// Define properly typed animated components
-interface AnimatedProps {
-  style?: {
-    opacity?: SpringValue<number> | number;
-    transform?: string | SpringValue<string> | Interpolation<number, string>;
-    [key: string]: any;
-  };
-  className?: string;
-  ref?: React.RefObject<any> | ((node: any) => void);
-}
-
-// Create properly typed animated components that can accept children
-export const AnimatedDiv = animated.div as React.FC<PropsWithChildren<AnimatedProps>>;
-export const AnimatedContent = animated(Content) as React.FC<PropsWithChildren<AnimatedProps>>; 
+export const CardWrapper = styled.div<{ $inView: boolean; $index: number }>`
+  opacity: ${({ $inView }) => ($inView ? 1 : 0)};
+  transform: translateY(${({ $inView }) => ($inView ? 0 : '30px')});
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: ${({ $index }) => $index * 100}ms;
+`; 

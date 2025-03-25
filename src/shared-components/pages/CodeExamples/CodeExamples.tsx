@@ -1,5 +1,6 @@
 import React from 'react';
 import { CodeExamplesProps } from './CodeExamples.types';
+import { PageLoader } from '../../atoms/PageLoader';
 import {
   Container,
   Header,
@@ -15,6 +16,10 @@ export const CodeExamples: React.FC<CodeExamplesProps> = ({
   repositories,
   className,
 }) => {
+  if (!repositories) {
+    return <PageLoader />;
+  }
+
   return (
     <Container className={className}>
       <Header>

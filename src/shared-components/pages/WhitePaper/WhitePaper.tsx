@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ErrorBoundary } from '../../components/ErrorBoundary';
 import { WhitePaperProps } from './WhitePaper.types';
+import { PageLoader } from '../../atoms/PageLoader';
 
 // Import components directly
 import { AiSkepticToExpert } from '../../sections/AiSkepticToExpert';
@@ -20,6 +21,8 @@ const FadeInContainer = styled.div`
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
   animation-delay: 100ms;
+  overflow-x: hidden;
+  position: relative;
   
   @keyframes fadeIn {
     from {
@@ -29,6 +32,12 @@ const FadeInContainer = styled.div`
       opacity: 1;
     }
   }
+`;
+
+const ContentContainer = styled.div`
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
 `;
 
 export const WhitePaper: React.FC<WhitePaperProps> = ({
@@ -43,11 +52,11 @@ export const WhitePaper: React.FC<WhitePaperProps> = ({
 
   // Only render on client-side to prevent hydration mismatch
   if (!isClient) {
-    return <div style={{ minHeight: '100vh' }}>Loading...</div>;
+    return <PageLoader />;
   }
 
   return (
-    <div className={className} style={{ width: '100%' }}>
+    <ContentContainer className={className}>
       <FadeInContainer>
         <ErrorBoundary fallback={<div>Error loading skeptic to expert section. Please refresh.</div>}>
           <AiSkepticToExpert />
@@ -66,7 +75,7 @@ export const WhitePaper: React.FC<WhitePaperProps> = ({
         </ErrorBoundary>
         {/* Additional sections will be added here as they are developed */}
       </FadeInContainer>
-    </div>
+    </ContentContainer>
   );
 };
 

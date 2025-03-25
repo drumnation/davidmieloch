@@ -15,6 +15,7 @@ export const Hero: React.FC<HeroProps> = ({
   pattern = 'dots',
   textColor = 'light',
   className,
+  style,
 }) => {
   return (
     <S.HeroContainer
@@ -25,6 +26,7 @@ export const Hero: React.FC<HeroProps> = ({
       $overlayOpacity={overlayOpacity}
       $textColor={textColor}
       $pattern={pattern}
+      style={style}
     >
       <S.HeroContent>
         {title && (

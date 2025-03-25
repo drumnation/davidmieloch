@@ -1,5 +1,7 @@
+import { CSSProperties } from 'react';
+
 export interface HeroProps {
-  title: string;
+  title?: string;
   subtitle?: string;
   background?: 'gradient' | 'light' | 'dark' | 'image';
   backgroundImage?: string;
@@ -8,4 +10,5 @@ export interface HeroProps {
   pattern?: 'circuit-board' | 'dots' | 'none';
   textColor?: 'light' | 'dark';
   className?: string;
+  style?: CSSProperties;
 } 

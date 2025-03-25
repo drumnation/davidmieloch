@@ -1,6 +1,5 @@
 import React from 'react';
 import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';
-import { useSpring, animated } from '@react-spring/web';
 import { Typography } from '../../atoms/Typography';
 import { Icon } from '../../atoms/Icon';
 import {
@@ -18,10 +17,18 @@ export const defaultContent = {
     subtitle: "Understanding the true role of AI in software development teams",
     background: "image" as const,
     backgroundImage: "/cockpit3.jpg",
+    backgroundOverlay: true,
+    overlayOpacity: 0.6,
     textColor: "light" as const,
     pattern: "none" as const,
     animation: "fade-up" as const,
-    className: '',
+    className: 'autopilot-hero',
+    style: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+      borderRadius: '24px',
+      overflow: 'hidden'
+    }
   },
   comparisonTable: {
     leftTitle: "Human Pilot",
@@ -260,63 +267,53 @@ export const enhanceHeroProps = (heroProps: AiAutopilotAnalogyProps['heroProps']
 export const RealityItem: React.FC<{
   item: { title: string; description: string; icon: React.ReactNode };
   index: number;
-}> = ({ item, index }) => {
-  const [props, api] = useSpring(() => ({
-    y: 0,
-    config: { duration: 300 }
-  }));
-
-  return (
-    <div key={index} style={realityItemStyle}>
-      <animated.div 
-        style={{
-          transform: props.y.to(y => `translateY(${y}px)`)
-        }}
-        onMouseEnter={() => api.start({ y: -4 })}
-        onMouseLeave={() => api.start({ y: 0 })}
-      >
-        <div style={iconContainerRealityStyle}>
-          {item.icon}
-        </div>
-        <div style={itemContentStyle}>
-          <Typography variant="body" weight="bold" className="mb-2">{item.title}</Typography>
-          <Typography variant="body">{item.description}</Typography>
-        </div>
-      </animated.div>
+}> = ({ item, index }) => (
+  <div style={{
+    ...realityItemStyle,
+    opacity: 1,
+    transform: 'translateY(0)',
+    transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
+    transitionDelay: `${index * 100}ms`
+  }}>
+    <div style={iconContainerRealityStyle}>
+      {item.icon}
     </div>
-  );
-};
+    <div style={itemContentStyle}>
+      <Typography variant="h3" weight="bold" color="primary">
+        {item.title}
+      </Typography>
+      <Typography variant="body" color="secondary">
+        {item.description}
+      </Typography>
+    </div>
+  </div>
+);
 
 // Hollywood item component
 export const HollywoodItem: React.FC<{
   item: { title: string; description: string; icon: React.ReactNode };
   index: number;
-}> = ({ item, index }) => {
-  const [props, api] = useSpring(() => ({
-    y: 0,
-    config: { duration: 300 }
-  }));
-
-  return (
-    <div key={index} style={hollywoodItemStyle}>
-      <animated.div 
-        style={{
-          transform: props.y.to(y => `translateY(${y}px)`)
-        }}
-        onMouseEnter={() => api.start({ y: -4 })}
-        onMouseLeave={() => api.start({ y: 0 })}
-      >
-        <div style={iconContainerHollywoodStyle}>
-          {item.icon}
-        </div>
-        <div style={itemContentStyle}>
-          <Typography variant="body" weight="bold" className="mb-2">{item.title}</Typography>
-          <Typography variant="body">{item.description}</Typography>
-        </div>
-      </animated.div>
+}> = ({ item, index }) => (
+  <div style={{
+    ...hollywoodItemStyle,
+    opacity: 1,
+    transform: 'translateY(0)',
+    transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
+    transitionDelay: `${index * 100}ms`
+  }}>
+    <div style={iconContainerHollywoodStyle}>
+      {item.icon}
     </div>
-  );
-};
+    <div style={itemContentStyle}>
+      <Typography variant="h3" weight="bold" color="primary">
+        {item.title}
+      </Typography>
+      <Typography variant="body" color="secondary">
+        {item.description}
+      </Typography>
+    </div>
+  </div>
+);
 
 // Section title component
 export const SectionTitle: React.FC<{

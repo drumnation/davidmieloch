@@ -78,6 +78,7 @@ export const HeroContainer = styled.section<{
       z-index: 0;
       will-change: transform;
       transform: translateZ(0);
+      opacity: 1;
     }
     
     /* Add overlay when backgroundOverlay is true */
@@ -90,14 +91,24 @@ export const HeroContainer = styled.section<{
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, ${$overlayOpacity || 0.5});
-        z-index: 0;
+        z-index: 1;
       }
     `}
   `}
   
   /* Ensure full width in all contexts */
-  max-width: 100%;
+  max-width: 100vw;
+  margin: 0;
   align-self: stretch;
+
+  &.full-width-hero {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
 
   ${media.up('md')} {
     min-height: 70vh;

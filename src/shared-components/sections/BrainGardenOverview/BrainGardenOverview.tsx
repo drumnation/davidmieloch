@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { useSpring, useTrail } from '@react-spring/web';
 import { Hero } from '../../organisms/Hero';
 import { useBrainGardenOverview } from './BrainGardenOverview.hook';
 import {
@@ -62,9 +61,20 @@ export const BrainGardenOverview = () => {
     }
   };
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
+  // Create separate intersection observers for each section
+  const [systemRef, systemInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [coreRef, coreInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [teamRef, teamInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [forceRef, forceInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [gardenRef, gardenInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [architectureRef, architectureInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [evolutionRef, evolutionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [transitionRef, transitionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const fadeInStyle = (inView: boolean) => ({
+    opacity: inView ? 1 : 0,
+    transform: `translateY(${inView ? 0 : 30}px)`,
+    transition: 'opacity 0.6s ease-out, transform 0.8s ease-out'
   });
 
   return (
@@ -74,44 +84,44 @@ export const BrainGardenOverview = () => {
         <Hero {...enhancedHeroProps} />
         
         {/* Content Section with White Background */}
-        <ContentSection ref={ref}>
+        <ContentSection>
           {/* Introduction Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div ref={systemRef} style={fadeInStyle(systemInView)}>
             <SystemOverviewSection introProps={introProps} />
           </div>
           
           {/* Core Components Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div ref={coreRef} style={fadeInStyle(coreInView)}>
             <CoreComponentsSection coreComponentsProps={safeData.coreComponents} />
           </div>
           
           {/* Team Customization Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div ref={teamRef} style={fadeInStyle(teamInView)}>
             <TeamCustomizationSection />
           </div>
           
           {/* Force Multipliers Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div ref={forceRef} style={fadeInStyle(forceInView)}>
             <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
           </div>
           
           {/* The Garden Metaphor Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div ref={gardenRef} style={fadeInStyle(gardenInView)}>
             <GardenMetaphorSection />
           </div>
           
           {/* System Architecture Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div ref={architectureRef} style={fadeInStyle(architectureInView)}>
             <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
           </div>
           
           {/* The Next Evolution Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s' }}>
+          <div ref={evolutionRef} style={fadeInStyle(evolutionInView)}>
             <NextEvolutionSection />
           </div>
           
           {/* Transition to Technical Implementation Section */}
-          <div style={{ opacity: inView ? 1 : 0, transform: `translateY(${inView ? 0 : 30}px)`, transition: 'opacity 0.6s, transform 0.8s', transitionDelay: '0.2s' }}>
+          <div ref={transitionRef} style={fadeInStyle(transitionInView)}>
             <TransitionSection {...transitionProps} />
           </div>
         </ContentSection>

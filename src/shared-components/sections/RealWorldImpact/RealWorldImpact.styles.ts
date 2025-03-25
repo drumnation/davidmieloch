@@ -1,67 +1,104 @@
 import styled from 'styled-components';
-import { animated } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { SPACING } from '../BrainGardenOverview/BrainGardenOverview.styles';
-
-export const Card = styled.div`
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: ${SPACING.element};
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
-`;
 
 export const Container = styled.div`
   width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  overflow: hidden;
 `;
 
-export const ContentSection = styled(animated.div)`
-  width: 100%;
-  background-color: #fff;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  margin-top: -24px;
-  position: relative;
-  z-index: 2;
-  padding-top: ${SPACING.section};
-  padding-bottom: ${SPACING.section};
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+export const ContentSection = styled.section`
+  padding: 4rem 0;
+  background: ${({ theme }) => theme.colors.background.paper};
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  
-  @media (max-width: 576px) {
-    padding-top: calc(${SPACING.section} * 0.75);
-    padding-bottom: calc(${SPACING.section} * 0.75);
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    margin-top: -16px;
-  }
+  align-items: center;
 `;
 
 export const ContentContainer = styled.div`
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto ${SPACING.section};
-  padding: 0 ${SPACING.container};
-  
-  @media (max-width: 576px) {
-    margin-bottom: calc(${SPACING.section} * 0.75);
-    padding: 0 ${SPACING.container};
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 0 1.5rem;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 0 1rem;
+  }
+
+  > div {
+    max-width: 100%;
+  }
+`;
+
+export const AnimatedSection = styled(motion.section)`
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+export const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+`;
+
+export const Card = styled(motion.div)`
+  background: ${({ theme }) => theme.colors.background.paper};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  box-shadow: ${({ theme }) => theme.shadows.card};
+  padding: 2rem;
+  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: ${({ theme }) => theme.shadows.elevated};
+  }
+`;
+
+export const MetricsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+`;
+
+export const MetricCard = styled.div`
+  background: ${({ theme }) => theme.colors.background.light};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid ${({ theme }) => theme.colors.border.light};
+`;
+
+export const ActionContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+`;
+
+export const ClosingContainer = styled.div`
+  text-align: center;
+  max-width: 800px;
+  margin: 4rem auto 0;
+  padding: 2rem;
+  background: ${({ theme }) => theme.colors.background.light};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border: 1px solid ${({ theme }) => theme.colors.border.light};
 `;
 
 export const SectionTitle = styled.h2`
@@ -359,21 +396,6 @@ export const ComponentWrapper = styled.div<{ position?: string }>`
   @media (max-width: 992px) {
     max-width: 100% !important;
     margin: ${SPACING.mobile.section} 0;
-  }
-`;
-
-export const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  width: 100%;
-  
-  @media (max-width: 991px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @media (max-width: 575px) {
-    grid-template-columns: 1fr;
   }
 `;
 

@@ -8,7 +8,7 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A full-width hero section with background patterns and animations.',
+        component: 'A full-width hero section with background patterns.',
       },
     },
   },
@@ -29,11 +29,6 @@ const meta = {
       options: ['light', 'dark'],
       description: 'Text color scheme',
     },
-    animation: {
-      control: 'select',
-      options: ['fade-up', 'slide-in', 'none'],
-      description: 'Entry animation style',
-    },
   },
 } satisfies Meta<typeof Hero>;
 
@@ -47,7 +42,6 @@ export const Default: Story = {
     background: 'gradient',
     pattern: 'circuit-board',
     textColor: 'light',
-    animation: 'fade-up',
   },
 };
 
@@ -58,7 +52,6 @@ export const LightBackground: Story = {
     background: 'light',
     pattern: 'dots',
     textColor: 'dark',
-    animation: 'slide-in',
   },
 };
 
@@ -69,6 +62,5 @@ export const DarkMinimal: Story = {
     background: 'dark',
     pattern: 'none',
     textColor: 'light',
-    animation: 'fade-up',
   },
 }; 

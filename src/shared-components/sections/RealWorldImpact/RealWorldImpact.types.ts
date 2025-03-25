@@ -308,9 +308,9 @@ export interface ConclusionProps {
   subtitle: string;
   description: string;
   content: ConclusionContent;
-  style: 'gradient-sections';
-  position: 'full-width';
-  animation: 'sequential-fade';
+  style?: 'gradient-sections' | 'default';
+  position?: 'full-width' | 'contained';
+  animation?: 'sequential-fade' | 'none';
 }
 
 export interface ConclusionContent {
@@ -320,7 +320,7 @@ export interface ConclusionContent {
     insights: Array<{
       title: string;
       description: string;
-      icon: string;
+      icon?: string;
       metrics: {
         before: string;
         after: string;
@@ -334,7 +334,7 @@ export interface ConclusionContent {
     components: Array<{
       title: string;
       features: string[];
-      icon: string;
+      icon?: string;
     }>;
   };
   currentState: {
@@ -343,7 +343,7 @@ export interface ConclusionContent {
     sections: Array<{
       title: string;
       points: string[];
-      icon: string;
+      icon?: string;
     }>;
   };
   callToAction: {
@@ -352,9 +352,21 @@ export interface ConclusionContent {
     actions: Array<{
       label: string;
       description: string;
-      icon: string;
+      icon?: string;
       link: string;
     }>;
     closing: string;
   };
+}
+
+export interface AnimationProps {
+  $inView?: boolean;
+  $delay?: number;
+}
+
+export interface StyledComponentProps {
+  className?: string;
+  theme?: any;
+  as?: string | React.ComponentType<any>;
+  forwardedAs?: string | React.ComponentType<any>;
 } 
