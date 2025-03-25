@@ -1,3 +1,57 @@
+import { HeroProps } from '../../organisms/Hero/Hero.types';
+import { DefaultTheme } from 'styled-components';
+
+export interface Metrics {
+  before: string;
+  after: string;
+  impact: string;
+}
+
+export interface Insight {
+  title: string;
+  description: string;
+  metrics: Metrics;
+}
+
+export interface FeatureItem {
+  keyword: string;
+  description: string;
+}
+
+export interface FrameworkComponent {
+  title: string;
+  icon?: string;
+  features: (string | FeatureItem)[];
+}
+
+export interface StateSection {
+  title: string;
+  icon?: string;
+  points: (string | FeatureItem)[];
+}
+
+export interface Action {
+  label: string;
+  description: string;
+}
+
+export interface InsightsSectionProps {
+  insights: Insight[];
+}
+
+export interface FrameworkSectionProps {
+  components: FrameworkComponent[];
+}
+
+export interface StateSectionProps {
+  sections: StateSection[];
+}
+
+export interface CallToActionSectionProps {
+  actions: Action[];
+  closing: string;
+}
+
 export interface RealWorldImpactProps {
   className?: string;
   heroProps?: HeroProps;
@@ -283,24 +337,74 @@ export interface RealWorldImpactProps {
   conclusionProps?: ConclusionProps;
 }
 
-export interface HeroProps {
+export interface MetricsType {
+  before: string;
+  after: string;
+  impact: string;
+}
+
+export interface InsightType {
   title: string;
-  subtitle?: string;
-  description?: string;
-  background?: 'image' | 'gradient';
-  backgroundImage?: string;
-  backgroundOverlay?: boolean;
-  overlayOpacity?: number;
-  textColor?: 'light' | 'dark';
-  callToAction?: {
-    label: string;
-    action: string;
-    target: string;
-  };
-  metrics?: Array<{
-    number: string;
-    label: string;
-  }>;
+  description: string;
+  icon?: string;
+  metrics: MetricsType;
+}
+
+export interface ComponentType {
+  title: string;
+  features: string[];
+  icon?: string;
+}
+
+export interface SectionType {
+  title: string;
+  points: string[];
+  icon?: string;
+}
+
+export interface ActionType {
+  label: string;
+  description: string;
+  icon?: string;
+  link: string;
+}
+
+export interface JourneyInsightsType {
+  title: string;
+  description: string;
+  insights: InsightType[];
+}
+
+export interface FrameworkType {
+  title: string;
+  description: string;
+  components: ComponentType[];
+}
+
+export interface CurrentStateType {
+  title: string;
+  description: string;
+  sections: SectionType[];
+}
+
+export interface CallToActionType {
+  title: string;
+  description: string;
+  actions: ActionType[];
+  closing: string;
+}
+
+export interface ConclusionContent {
+  journeyInsights: JourneyInsightsType;
+  framework: FrameworkType;
+  currentState: CurrentStateType;
+  callToAction: CallToActionType;
+}
+
+export interface StyledProps {
+  theme: DefaultTheme;
+  $inView?: boolean;
+  $delay?: number;
 }
 
 export interface ConclusionProps {
@@ -311,52 +415,6 @@ export interface ConclusionProps {
   style?: 'gradient-sections' | 'default';
   position?: 'full-width' | 'contained';
   animation?: 'sequential-fade' | 'none';
-}
-
-export interface ConclusionContent {
-  journeyInsights: {
-    title: string;
-    description: string;
-    insights: Array<{
-      title: string;
-      description: string;
-      icon?: string;
-      metrics: {
-        before: string;
-        after: string;
-        impact: string;
-      };
-    }>;
-  };
-  framework: {
-    title: string;
-    description: string;
-    components: Array<{
-      title: string;
-      features: string[];
-      icon?: string;
-    }>;
-  };
-  currentState: {
-    title: string;
-    description: string;
-    sections: Array<{
-      title: string;
-      points: string[];
-      icon?: string;
-    }>;
-  };
-  callToAction: {
-    title: string;
-    description: string;
-    actions: Array<{
-      label: string;
-      description: string;
-      icon?: string;
-      link: string;
-    }>;
-    closing: string;
-  };
 }
 
 export interface AnimationProps {

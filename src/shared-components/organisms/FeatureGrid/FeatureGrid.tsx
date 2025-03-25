@@ -1,9 +1,14 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
 import { FeatureGridProps } from './FeatureGrid.types';
-import { H3, Body } from '../../atoms/Typography/Typography';
 import * as S from './FeatureGrid.styles';
+import { H3, Body } from '../../atoms/Typography/Typography';
+import { useInView } from 'react-intersection-observer';
 
+/**
+ * FeatureGrid Component
+ * 
+ * A grid display of features with icons, titles, and descriptions.
+ */
 export const FeatureGrid: React.FC<FeatureGridProps> = ({
   features,
   columns = 3,
@@ -21,24 +26,26 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
       ref={ref}
       className={className}
     >
-      <S.Grid $columns={columns} $style={style} $inView={inView}>
+      <S.Grid $columns={columns} $style={style}>
         {features.map((feature, index) => (
           <S.CardWrapper
             key={index}
-            $inView={inView}
-            $index={index}
           >
             <S.FeatureCard
               variant={style === 'gradient-cards' ? 'gradient' : 'accent'}
               padding="lg"
             >
-              <S.IconWrapper>
-                {feature.icon}
-              </S.IconWrapper>
+              {feature.icon && (
+                <S.IconWrapper>
+                  {feature.icon}
+                </S.IconWrapper>
+              )}
               <S.Content>
-                <H3 color="primary" weight="bold">
-                  {feature.title}
-                </H3>
+                {feature.title && (
+                  <S.Title $isKeyword={true}>
+                    {feature.title}
+                  </S.Title>
+                )}
                 <Body color="secondary">
                   {feature.description}
                 </Body>
@@ -49,4 +56,6 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
       </S.Grid>
     </div>
   );
-}; 
+};
+
+export default FeatureGrid; 

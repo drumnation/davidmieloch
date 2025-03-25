@@ -2,15 +2,15 @@ import { ReactNode } from 'react';
 
 export interface Feature {
   title: string;
-  description: string;
-  icon: ReactNode;
+  description: string | ReactNode;
+  icon?: ReactNode;
 }
 
 export interface FeatureGridProps {
   features: Array<{
-    icon: React.ReactNode;
+    icon?: React.ReactNode;
     title: string;
-    description: string;
+    description: string | ReactNode;
   }>;
   columns?: 2 | 3 | 4;
   style?: 'gradient-cards' | 'accent-cards';

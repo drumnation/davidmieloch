@@ -1,38 +1,333 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 import { motion } from 'framer-motion';
-import { SPACING } from '../BrainGardenOverview/BrainGardenOverview.styles';
+import { Typography } from '../../atoms/Typography';
+import { StyledProps } from './RealWorldImpact.types';
 
-export const Container = styled.div`
+export const SPACING = {
+  section: '4rem',
+  paragraph: '2rem',
+  paragraphBreak: '2rem',
+  element: '1.5rem',
+  elementBreak: '40px',
+  container: '1.5rem',
+  sectionBreak: '80px',
+  contentWidth: '1200px',
+  mobile: {
+    section: '3rem',
+    paragraph: '1.5rem',
+    paragraphBreak: '1.5rem',
+    element: '1rem',
+    elementBreak: '20px',
+    container: '1rem',
+    sectionBreak: '40px'
+  },
+  mobileBreak: '16px'
+};
+
+export const GlobalStyles = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .real-world-impact-content-section {
+    max-width: ${SPACING.contentWidth};
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+`;
+
+export const containerStyle = css`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+`;
+
+export const contentSectionStyle = {
+  maxWidth: SPACING.contentWidth,
+  margin: '0 auto',
+  padding: '0 1.5rem'
+};
+
+export const sectionContainerStyle = {
+  marginBottom: SPACING.sectionBreak,
+  width: '100%'
+};
+
+export const sectionContainerWithoutMarginStyle = {
+  width: '100%'
+};
+
+export const sectionContainerTopMarginStyle = {
+  marginTop: SPACING.sectionBreak,
+  width: '100%'
+};
+
+export const sectionContainerSmallTopMarginStyle = {
+  marginTop: SPACING.paragraphBreak,
+  width: '100%'
+};
+
+export const comparisonSectionStyle = {
+  width: '100%',
+  background: 'var(--background-subtle)',
+  padding: '3rem 0',
+  marginBottom: SPACING.sectionBreak
+};
+
+export const titleContainerStyle = {
+  marginBottom: SPACING.elementBreak
+};
+
+export const paragraphContainerStyle = {
+  marginBottom: SPACING.paragraphBreak
+};
+
+export const paragraphContainerNoMarginStyle = {
+  marginBottom: 0
+};
+
+export const paragraphContainerTopMarginStyle = {
+  marginTop: SPACING.paragraphBreak
+};
+
+export const titleBlockStyle = {
+  marginBottom: '1rem'
+};
+
+export const descriptionBlockStyle = {
+  marginBottom: '2rem',
+  maxWidth: '800px'
+};
+
+export const quoteContainerStyle = {
+  backgroundColor: '#f9f9f9',
+  borderRadius: '8px',
+  padding: '1.5rem',
+  borderLeft: '4px solid var(--primary-blue)',
+  position: 'relative',
+  margin: '1rem 0 1.5rem'
+};
+
+export const Section = styled.div`
+  margin-bottom: 2rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const SectionTitle = styled.h2`
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: ${({ theme }) => theme.colors.text.primary};
+`;
+
+export const SectionDescription = styled.div`
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.colors.text.secondary};
+`;
+
+export const InsightCard = styled.div`
+  background-color: ${({ theme }) => theme.colors.background.paper};
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: ${({ theme }) => theme.colors.text.primary};
+  }
+  
+  p {
+    font-size: 1rem;
+    color: ${({ theme }) => theme.colors.text.secondary};
+    margin-bottom: 1rem;
+  }
+  
+  strong {
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.primary.main};
+  }
+`;
+
+export const MetricsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+`;
+
+export const MetricItem = styled.div`
+  text-align: center;
+  padding: 1rem;
+  
+  h4 {
+    font-size: 2rem;
+    margin: 0;
+    color: ${({ theme }) => theme.colors.primary.main};
+  }
+  
+  p {
+    font-size: 1rem;
+    margin: 0.5rem 0 0;
+    color: ${({ theme }) => theme.colors.text.secondary};
+  }
+`;
+
+export const FeatureList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: ${SPACING.paragraphBreak} 0;
+`;
+
+export const FeatureItem = styled.li`
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+
+  &:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: ${({ theme }) => theme.colors.primary.main};
+  }
+`;
+
+export const ActionButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors.text.light};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  text-decoration: none;
+  margin-right: ${SPACING.elementBreak};
+  margin-bottom: ${SPACING.elementBreak};
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary.dark};
+    transform: translateY(-2px);
+    box-shadow: ${({ theme }) => theme.shadows.button};
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+export const ActionGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: ${SPACING.elementBreak};
+  margin-bottom: ${SPACING.paragraphBreak};
+`;
+
+export const ClosingMessage = styled(Typography)`
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.text.primary};
+  max-width: 800px;
+  margin: ${SPACING.paragraphBreak} auto;
+  text-align: center;
+  font-weight: 500;
+`;
+
+export const WarningBox = styled.div`
   width: 100%;
+  padding: 2rem;
+  margin-top: 3rem;
+  background-color: #ffebee;
+  border-left: 4px solid #f44336;
+`;
+
+export const WarningContent = styled.div`
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+`;
+
+export const QuoteBox = styled.div`
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-blue);
+  position: relative;
+  margin: 1rem 0 1.5rem;
+`;
+
+export const QuoteContext = styled.div`
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #e6f7ff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+`;
+
+export const BlueprintCard = styled.div`
+  background-color: white;
+  border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: ${({ theme }) => theme.shadows.card};
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: ${({ theme }) => theme.shadows.elevated};
+  }
+`;
+
+export const BlueprintHeader = styled.div`
+  padding: 1.25rem;
+  background-color: #1976d2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+`;
+
+export const BlueprintContent = styled.div`
+  padding: 1.5rem;
+  background-color: #ffffff;
+`;
+
+export const BottomLineBox = styled.div<StyledProps>`
+  background: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors.text.light};
+  padding: ${SPACING.elementBreak};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  margin-top: ${SPACING.sectionBreak};
+  text-align: center;
+
+  h3 {
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    margin-bottom: ${SPACING.paragraphBreak};
+  }
+
+  p {
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    max-width: 800px;
+    margin: 0 auto;
+  }
 `;
 
 export const ContentSection = styled.section`
-  padding: 4rem 0;
-  background: ${({ theme }) => theme.colors.background.paper};
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: ${({ theme }) => theme.colors.background.paper};
+  padding: 2rem 0;
 `;
 
 export const ContentContainer = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 0 1.5rem;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    padding: 0 1rem;
-  }
-
-  > div {
-    max-width: 100%;
-  }
+  ${containerStyle}
+  display: flex;
+  flex-direction: column;
 `;
 
 export const AnimatedSection = styled(motion.section)`
@@ -99,28 +394,6 @@ export const ClosingContainer = styled.div`
   background: ${({ theme }) => theme.colors.background.light};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: 1px solid ${({ theme }) => theme.colors.border.light};
-`;
-
-export const SectionTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: ${SPACING.paragraph};
-  color: inherit;
-  text-align: center;
-  
-  @media (max-width: 576px) {
-    font-size: 1.75rem;
-  }
-`;
-
-export const SectionDescription = styled.p`
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: ${SPACING.paragraphBreak};
-  text-align: center;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 `;
 
 export const CaseStudiesGrid = styled.div`
@@ -640,25 +913,15 @@ export const BackgroundSection = styled.div`
   }
 `;
 
-export const Section = styled.section`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: ${SPACING.section} ${SPACING.container};
-  
-  @media (max-width: 576px) {
-    padding: calc(${SPACING.section} * 0.75) ${SPACING.container};
-  }
-`;
-
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  width: 100%;
-  margin-top: ${SPACING.paragraph};
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: ${SPACING.elementBreak};
+  margin: ${SPACING.paragraphBreak} 0;
   
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     grid-template-columns: 1fr;
+    gap: ${SPACING.mobile.element};
+    margin: ${SPACING.mobile.paragraph} 0;
   }
-`; 
+`;

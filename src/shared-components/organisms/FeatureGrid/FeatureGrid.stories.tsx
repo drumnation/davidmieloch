@@ -37,6 +37,25 @@ const defaultFeatures = [
   },
 ];
 
+const featuresWithoutIcons = [
+  {
+    title: 'Specialized Focus',
+    description: 'Each team excels in their domain with deep expertise and dedicated resources.',
+  },
+  {
+    title: 'Parallel Progress',
+    description: 'Multiple features advance simultaneously through coordinated team efforts.',
+  },
+  {
+    title: 'Quality Control',
+    description: 'Multi-level review and validation ensures high-quality output.',
+  },
+  {
+    title: 'Knowledge Growth',
+    description: 'Continuous learning and improvement through shared experiences.',
+  },
+];
+
 // Base FeatureGrid Story
 export const Default: Story = {
   args: {
@@ -102,7 +121,17 @@ export const AnimationVariants = () => (
       features={defaultFeatures}
       columns={2}
       style="gradient-cards"
-      animation="slide-up"
+      animation="none"
     />
   </div>
-); 
+);
+
+// Without Icons Story
+export const WithoutIcons: Story = {
+  args: {
+    features: featuresWithoutIcons,
+    columns: 2,
+    style: 'gradient-cards',
+    animation: 'stagger-fade',
+  },
+}; 

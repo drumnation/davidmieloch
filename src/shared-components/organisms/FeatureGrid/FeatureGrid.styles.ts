@@ -2,12 +2,10 @@ import styled, { css } from 'styled-components';
 import { Card as BaseCard } from '../../atoms/Card/Card';
 import { StyledFeatureGridProps } from './FeatureGrid.types';
 
-export const Grid = styled.div<StyledFeatureGridProps & { $inView: boolean }>`
+export const Grid = styled.div<StyledFeatureGridProps>`
   display: grid;
   gap: 2rem;
   width: 100%;
-  opacity: ${({ $inView }) => ($inView ? 1 : 0)};
-  transition: opacity 0.5s ease-out;
   
   /* Mobile first - single column */
   grid-template-columns: 1fr;
@@ -49,9 +47,18 @@ export const Content = styled.div`
   flex: 1;
 `;
 
-export const CardWrapper = styled.div<{ $inView: boolean; $index: number }>`
-  opacity: ${({ $inView }) => ($inView ? 1 : 0)};
-  transform: translateY(${({ $inView }) => ($inView ? 0 : '30px')});
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  transition-delay: ${({ $index }) => $index * 100}ms;
+export const CardWrapper = styled.div`
+  transition: transform 0.3s ease-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+export const Title = styled.h4<{ $isKeyword?: boolean }>`
+  margin: 0 0 0.5rem 0;
+  font-size: ${({ $isKeyword }) => $isKeyword ? '1.2rem' : '1rem'};
+  font-weight: bold;
+  color: #2196f3;
+  line-height: 1.3;
 `; 
