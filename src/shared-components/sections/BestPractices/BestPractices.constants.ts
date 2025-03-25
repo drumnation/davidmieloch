@@ -62,6 +62,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
         description: 'Creating shared configuration packages for ESLint, Prettier, and TypeScript rules across all projects',
         icon: 'config',
       },
+      {
+        title: 'Expo for Mobile Development',
+        description: 'Now officially recommended by the React Native team, Expo significantly saves development time for mobile applications',
+        icon: 'expo',
+      },
     ],
   },
   {

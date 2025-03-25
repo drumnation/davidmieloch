@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const DetailedContentContainer = styled.div`
   width: 100%;
   margin: 2rem 0 4rem;
+  padding-bottom: 70px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;

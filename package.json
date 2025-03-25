@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4000",
+    "dev": "next dev -p 5555",
     "dev:turbo": "next dev -p 4000 --turbo",
     "dev:fast": "NODE_OPTIONS='--max-old-space-size=4096' next dev -p 4000",
     "build": "next build",

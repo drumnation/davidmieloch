@@ -360,7 +360,7 @@ export const Footer = ({
                   <TrackItem 
                     key={track.id}
                     onClick={() => handleTrackSelect(track.id)}
-                    isActive={currentTrack?.id === track.id}
+                    $isActive={currentTrack?.id === track.id}
                   >
                     <TrackItemContent>
                       {track.artwork && (

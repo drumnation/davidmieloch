@@ -26,12 +26,18 @@ export const CategoryTitle = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 8px;
   color: ${({ theme }) => theme.colors.primary.main};
+  min-height: 32px;
+  display: flex;
+  align-items: center;
 `;
 
 export const CategoryDescription = styled.p`
   font-size: 1rem;
   margin-bottom: 16px;
   color: ${({ theme }) => theme.colors.text.secondary};
+  min-height: 48px;
+  display: flex;
+  align-items: center;
 `;
 
 export const ItemsList = styled.div`

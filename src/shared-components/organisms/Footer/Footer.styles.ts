@@ -345,13 +345,13 @@ export const TrackList = styled.div`
   }
 `;
 
-export const TrackItem = styled.div<{ isActive?: boolean }>`
+export const TrackItem = styled.div<{ $isActive?: boolean }>`
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  background-color: ${props => props.isActive 
+  background-color: ${props => props.$isActive 
     ? props.theme.colorScheme === 'dark' 
       ? defaultColors.dark.activeTrackBackground
       : defaultColors.light.activeTrackBackground
@@ -359,7 +359,7 @@ export const TrackItem = styled.div<{ isActive?: boolean }>`
   transition: background-color 0.2s;
   
   &:hover {
-    background-color: ${props => props.isActive 
+    background-color: ${props => props.$isActive 
       ? props.theme.colorScheme === 'dark' 
         ? defaultColors.dark.activeTrackHoverBackground
         : defaultColors.light.activeTrackHoverBackground

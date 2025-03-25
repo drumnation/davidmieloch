@@ -4,6 +4,9 @@ import React, { Suspense, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { LoadingPortal } from '../../src/components';
 
+// Add a console log to see if this file is being used
+console.log('Loading fullstack-react-best-practices-integration page');
+
 // Dynamically import the BestPractices component with no SSR to prevent hydration issues
 const BestPractices = dynamic(
   () => import('../../src/shared-components/sections/BestPractices'), 
