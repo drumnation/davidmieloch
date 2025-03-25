@@ -2,15 +2,15 @@
 
 import React, { Suspense, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { SpinnerLoader } from '../../src/components';
+import './enterprise-styles.css';
 
-// Dynamically import the WhitePaper component with error handling
+// Fix the dynamic import to properly handle the error case
 const WhitePaper = dynamic(
-  () => import('../../src/shared-components/pages/WhitePaper').catch(err => {
-    console.error('Error loading WhitePaper component:', err);
-    return () => <div>Failed to load content. Please refresh the page.</div>;
-  }),
+  () => import('../../src/shared-components/pages/WhitePaper'),
   { 
-    loading: () => <div className="loading">Loading content...</div>,
+    // Remove the loading indicator since WhitePaper already has its own loading state
+    loading: () => null,
     ssr: false // Disable SSR for this component to prevent hydration issues
   }
 );
@@ -40,7 +40,7 @@ export default function EnterpriseAiDevelopmentFrameworkPage() {
   }
 
   return (
-    <Suspense fallback={<div className="loading">Loading content...</div>}>
+    <Suspense fallback={null}>
       <WhitePaper />
     </Suspense>
   );

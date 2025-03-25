@@ -1,7 +1,6 @@
 import React from 'react';
 import { PageLoaderProps } from './PageLoader.types';
-import { LoaderContainer } from './PageLoader.styles';
-import { Spinner } from '../Spinner';
+import { SpinnerLoader } from '../../../components';
 
 export const PageLoader: React.FC<PageLoaderProps> = ({ 
   className,
@@ -9,10 +8,22 @@ export const PageLoader: React.FC<PageLoaderProps> = ({
   spinnerSize = 'large',
   spinnerColor
 }) => {
+  // Convert size string to pixel number
+  const sizeMap = {
+    small: 30,
+    medium: 50,
+    large: 70
+  };
+  
+  const size = typeof spinnerSize === 'string' ? sizeMap[spinnerSize] || 50 : spinnerSize;
+  
   return (
-    <LoaderContainer className={className} style={{ minHeight }}>
-      <Spinner size={spinnerSize} color={spinnerColor} />
-      <div style={{ marginTop: '1rem' }}>Loading...</div>
-    </LoaderContainer>
+    <SpinnerLoader
+      type="clip"
+      size={size}
+      color={spinnerColor}
+      fullPage={false}
+      className={className}
+    />
   );
 }; 

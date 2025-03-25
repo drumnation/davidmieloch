@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { lexend, inter, manrope, workSans, ibmPlex } from '../src/styles/fonts';
 import ClientLayout from '../src/components/ClientLayout';
 import { PlayerProvider } from '../src/providers/PlayerProvider';
+import '../src/styles/loading-utils.css';
 
 export const metadata: Metadata = {
   title: 'David Mieloch Portfolio',

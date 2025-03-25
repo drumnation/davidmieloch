@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ErrorBoundary } from '../../components/ErrorBoundary';
 import { WhitePaperProps } from './WhitePaper.types';
-import { PageLoader } from '../../atoms/PageLoader';
+import { SpinnerLoader } from '../../../components';
 
 // Import components directly
 import { AiSkepticToExpert } from '../../sections/AiSkepticToExpert';
@@ -52,7 +52,7 @@ export const WhitePaper: React.FC<WhitePaperProps> = ({
 
   // Only render on client-side to prevent hydration mismatch
   if (!isClient) {
-    return <PageLoader />;
+    return <SpinnerLoader type="hash" color="#2196f3" size={70} fullPage={true} />;
   }
 
   return (

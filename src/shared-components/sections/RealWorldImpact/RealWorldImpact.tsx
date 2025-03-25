@@ -9,7 +9,7 @@ import { defaultContent } from './RealWorldImpact.constants';
 import { useRealWorldImpactAnimation } from './RealWorldImpact.hook';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { ConclusionContent } from './components/ConclusionContent';
-import { PageLoader } from '../../atoms/PageLoader';
+import { SpinnerLoader } from '../../../components';
 
 export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({ 
   heroProps = defaultContent.hero,
@@ -28,7 +28,15 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
   }, []);
 
   if (isLoading) {
-    return <PageLoader minHeight="50vh" />;
+    return (
+      <SpinnerLoader
+        type="ring"
+        color="#2196f3" 
+        size={60}
+        fullPage={false}
+        text="Loading Real World Impact..."
+      />
+    );
   }
 
   return (

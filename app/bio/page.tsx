@@ -1,31 +1,29 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { Container, Text, Loader } from '@mantine/core';
 import dynamic from 'next/dynamic';
+import { SpinnerLoader } from '../../src/components';
 
 // Dynamically import the Bio component with no SSR to prevent hydration issues
 const Bio = dynamic(
-  () => import('../../src/shared-components/sections/Bio'), 
+  () => import('../../src/shared-components/sections/Bio/Bio').then(mod => mod.default), 
   { 
     ssr: false,
     loading: () => (
-      <Container style={{ padding: '4rem 0', textAlign: 'center' }}>
-        <Loader size="lg" />
-        <Text mt="md">Loading content...</Text>
-      </Container>
+      <SpinnerLoader 
+        type="pulse"
+        color="#2196f3"
+        size={60}
+        fullPage={true}
+        text="Loading Bio..."
+      />
     )
   }
 );
 
 export default function BioPage() {
   return (
-    <Suspense fallback={
-      <Container style={{ padding: '4rem 0', textAlign: 'center' }}>
-        <Loader size="lg" />
-        <Text mt="md">Loading content...</Text>
-      </Container>
-    }>
+    <Suspense fallback={null}>
       <Bio />
     </Suspense>
   );
