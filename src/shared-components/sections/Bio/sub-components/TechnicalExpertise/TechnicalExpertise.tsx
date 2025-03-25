@@ -26,8 +26,8 @@ export const TechnicalExpertise: React.FC<TechnicalExpertiseProps> = ({ classNam
   });
 
   const headingAnimation = useSpring({
-    opacity: headingInView ? 1 : 0,
-    transform: headingInView ? 'translateY(0)' : 'translateY(20px)',
+    opacity: 1,
+    transform: 'translateY(0)',
     config: { tension: 280, friction: 60 }
   });
 
@@ -44,8 +44,8 @@ export const TechnicalExpertise: React.FC<TechnicalExpertiseProps> = ({ classNam
           });
 
           const animation = useSpring({
-            opacity: inView ? 1 : 0,
-            transform: inView ? 'scale(1)' : 'scale(0.95)',
+            opacity: 1,
+            transform: 'scale(1)',
             config: { tension: 280, friction: 60 },
             delay: index * 100
           });

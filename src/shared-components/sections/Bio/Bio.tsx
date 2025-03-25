@@ -19,7 +19,7 @@ import TechnicalExpertise from './sub-components/TechnicalExpertise';
 import FeaturedMedia from './sub-components/FeaturedMedia';
 
 export const Bio: React.FC<BioProps> = ({ id = 'bio', className }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   
   // Use useEffect to trigger animations after mount
   useEffect(() => {
@@ -50,11 +50,14 @@ export const Bio: React.FC<BioProps> = ({ id = 'bio', className }) => {
       {/* Content Section with White Background */}
       <TransitionDiv
         variants={fadeIn}
-        animate={isVisible ? 'visible' : 'hidden'}
+        animate="visible"
+        initial="visible"
         className="bio-content-section"
+        style={{ opacity: 1 }}
       >
         <TransitionContainer
           className="bio-content-container"
+          style={{ opacity: 1 }}
         >
           <BioIntro />
           <TechnicalExpertise />

@@ -94,6 +94,44 @@ export const GlobalStyles = createGlobalStyle`
       padding: 0 2rem;
     }
   }
+  
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    svg {
+      color: #0070f3;
+      margin-bottom: 0.75rem;
+    }
+    
+    span {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
 `;
 
 // Define consistent spacing variables that can be reused across components

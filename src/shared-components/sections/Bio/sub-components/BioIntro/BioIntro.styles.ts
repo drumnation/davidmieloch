@@ -1,19 +1,37 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
-export const HeadingWrapper = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 1rem;
+export const HeadingWrapper = styled.div`
+  margin-bottom: 1rem;
+  
+  h2 {
+    font-size: 2.5rem;
+    color: ${({ theme }) => theme.colors.primary.main};
+    margin-bottom: 0.5rem;
+  }
   
   h3 {
-    margin: 0;
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.colors.text.secondary};
+    font-weight: 500;
+    line-height: 1.3;
   }
+`;
 
-  svg {
-    width: 1.5rem;
-    height: 1.5rem;
+export const BioTextContent = styled.div`
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: 1.125rem;
+  line-height: 1.8;
+  
+  h3 {
+    font-size: 1.5rem;
     color: ${({ theme }) => theme.colors.primary.main};
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
   }
-`; 
+  
+  p {
+    margin-bottom: 1.5rem;
+    opacity: 1;
+  }
+`;

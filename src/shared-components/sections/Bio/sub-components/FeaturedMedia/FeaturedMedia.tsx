@@ -23,10 +23,10 @@ const LazyMediaItem = ({ item, index }: { item: MediaItemType, index: number }) 
     rootMargin: '0px 0px 100px 0px'
   });
   
-  // Define animations
+  // Define animations with initial opacity 1
   const animations = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'scale(1)' : 'scale(0.95)',
+    opacity: 1, // Always visible
+    transform: 'scale(1)', // Always in final position
     config: { tension: 280, friction: 60 },
     delay: index * 150
   });
@@ -75,8 +75,8 @@ export const FeaturedMedia: React.FC<FeaturedMediaProps> = ({ className }) => {
   });
 
   const headingAnimation = useSpring({
-    opacity: headingInView ? 1 : 0,
-    transform: headingInView ? 'translateY(0)' : 'translateY(20px)',
+    opacity: 1, // Always visible
+    transform: 'translateY(0)', // Always in final position
     config: { tension: 280, friction: 60 }
   });
 
