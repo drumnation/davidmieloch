@@ -200,39 +200,6 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
       <section>
         <TitleWrapper>
           <SectionIcon>
-            <Image src="/icons/nextjs.svg" alt="Next.js Icon" width={32} height={32} />
-          </SectionIcon>
-          <DetailedContentTitle>Next.js Architecture</DetailedContentTitle>
-        </TitleWrapper>
-        <DetailedContentText>
-          Next.js provides a great framework for building React applications, but it's
-          important to have a structured approach to building your application:
-        </DetailedContentText>
-        
-        <DetailedContentList>
-          <ul>
-            <li><strong>Feature-Based Folder Structure</strong>: Organize your code by feature
-              rather than by type to keep related code together.</li>
-            <li><strong>Page-Level Data Fetching</strong>: Keep data fetching at the page level
-              using getStaticProps or getServerSideProps.</li>
-            <li><strong>Leverage ISR for Dynamic Content</strong>: Use Incremental Static
-              Regeneration for content that changes occasionally.</li>
-            <li><strong>API Routes for Backend Logic</strong>: Use API routes for backend logic
-              that needs to be secure or doesn't need to be executed on the client.</li>
-          </ul>
-        </DetailedContentList>
-        
-        <DetailedContentText>
-          Prettier is integrated with ESLint to handle code formatting, eliminating any subjective debates about code style. 
-          The key to scaling this across a monorepo is to create shared configuration packages. These packages define the 
-          ESLint, Prettier, and TypeScript rules that are used consistently across all projects within the monorepo, 
-          eliminating duplicated configuration and ensuring a unified development experience.
-        </DetailedContentText>
-      </section>
-
-      <section>
-        <TitleWrapper>
-          <SectionIcon>
             <Image src="/icons/turborepo.svg" alt="Turborepo Icon" width={32} height={32} />
           </SectionIcon>
           <DetailedContentTitle>Escaping the 'Shared Library' Bottleneck</DetailedContentTitle>

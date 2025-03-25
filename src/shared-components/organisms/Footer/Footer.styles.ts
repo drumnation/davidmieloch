@@ -104,9 +104,47 @@ export const MiniPlayerContainer = styled.div`
       : defaultColors.light.background};
 `;
 
+export const MiniModeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  height: 40px;
+  background-color: ${({ theme }) => 
+    theme.colorScheme === 'dark' 
+      ? defaultColors.dark.background 
+      : defaultColors.light.background};
+`;
+
 export const TrackInfoContainer = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const ArtworkOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+`;
+
+export const ArtworkContainer = styled.div`
+  position: relative;
+  
+  &:hover ${ArtworkOverlay} {
+    opacity: 1;
+  }
 `;
 
 export const TrackTitle = styled.div`

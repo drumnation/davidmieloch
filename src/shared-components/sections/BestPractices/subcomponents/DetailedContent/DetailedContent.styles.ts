@@ -6,7 +6,7 @@ export const DetailedContentContainer = styled.div`
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
@@ -29,7 +29,7 @@ export const SectionIcon = styled.div`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.background.light};
   padding: 8px;
-  
+
   svg, img {
     width: 100%;
     height: 100%;
@@ -84,6 +84,13 @@ export const SectionSubtitle = styled.h4`
   font-weight: 500;
 `;
 
+export const SubtitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
 export const TextContent = styled.p`
   font-size: 1.125rem;
   line-height: 1.6;
@@ -113,4 +120,4 @@ export const CodeBlock = styled.div`
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.text.primary};
   white-space: pre;
-`; 
+`;

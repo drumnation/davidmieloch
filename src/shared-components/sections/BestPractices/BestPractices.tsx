@@ -11,14 +11,14 @@ import {
 import { BestPracticesProps } from './BestPractices.types';
 import { PRACTICE_CATEGORIES } from './BestPractices.constants';
 import { renderCategory } from './BestPractices.logic';
+import { DetailedContent } from './subcomponents/DetailedContent/DetailedContent';
 import {
-  DetailedContent,
   Categories,
   Conclusion
 } from './subcomponents';
 
 export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practices', className }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
