@@ -102,7 +102,7 @@ export const ListItem = styled.li`
   margin-bottom: 0.75rem;
 `;
 
-export const CodeBlock = styled.pre`
+export const CodeBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.background.light};
   border-radius: 8px;
   padding: 1.5rem;
@@ -112,4 +112,5 @@ export const CodeBlock = styled.pre`
   font-size: 0.9rem;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.text.primary};
+  white-space: pre;
 `; 
