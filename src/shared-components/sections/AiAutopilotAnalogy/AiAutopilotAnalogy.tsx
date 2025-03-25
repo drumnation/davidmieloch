@@ -60,7 +60,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
     backgroundColor: '#f9f9f9',
     borderRadius: '8px',
     padding: '1.5rem',
-    borderLeft: '4px solid var(--primary-blue)',
+    borderLeft: '4px solid var(--accent-blue)',
     position: 'relative' as const,
     margin: '1rem 0 1.5rem'
   };

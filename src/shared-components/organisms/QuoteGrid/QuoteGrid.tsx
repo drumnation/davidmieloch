@@ -1,7 +1,11 @@
 import React from 'react';
-import { useSpring, useTrail } from '@react-spring/web';
+import { useSpring, useTrail, animated } from '@react-spring/web';
 import { Quote, QuoteGridProps } from './QuoteGrid.types';
 import { Grid, QuoteCard, QuoteText, QuoteAuthor, QuoteNote, IconWrapper } from './QuoteGrid.styles';
+
+// Create animated components
+const AnimatedDiv = animated.div;
+const AnimatedQuoteCard = animated(QuoteCard);
 
 export const QuoteGrid: React.FC<QuoteGridProps> = ({
   quotes,
@@ -11,53 +15,33 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
   background = 'light',
   className,
 }) => {
-  // Create animation properties but don't directly apply them to the components
-  // This avoids TypeScript errors with SpringValue types
-  const containerProps = useSpring({
+  // Container animation
+  const containerSpring = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
     config: { duration: 800 }
   });
 
-  // Animation trail data for the quotes
-  const trailProps = useTrail(quotes.length, {
-    from: { opacity: 0, y: 20 },
-    to: { opacity: 1, y: 0 },
+  // Quote cards animation trail
+  const cardsTrail = useTrail(quotes.length, {
+    from: { opacity: 0, transform: 'translateY(20px)' },
+    to: { opacity: 1, transform: 'translateY(0px)' },
     config: { mass: 1, tension: 280, friction: 60 },
     delay: 200
   });
 
   const isBlueTheme = background === 'blue';
 
-  // Helper function to convert spring values to regular CSS
-  const springToCss = (springObj: any) => {
-    if (!animation || animation === 'none') return {};
-    
-    const result: Record<string, string | number> = {};
-    
-    // Handle opacity
-    if (springObj.opacity !== undefined) {
-      result.opacity = springObj.opacity.get();
-    }
-    
-    // Handle transform values
-    if (springObj.y !== undefined) {
-      result.transform = `translateY(${springObj.y.get()}px)`;
-    }
-    
-    return result;
-  };
-
   return (
     <div className={className}>
-      <div style={animation !== 'none' ? springToCss(containerProps) : undefined}>
+      <AnimatedDiv style={animation !== 'none' ? containerSpring : undefined}>
         <Grid $layout={layout} $background="light">
           {quotes.map((quote, index) => (
-            <div 
+            <AnimatedDiv 
               key={index} 
-              style={animation !== 'none' ? springToCss(trailProps[index]) : undefined}
+              style={animation !== 'none' ? cardsTrail[index] : undefined}
             >
-              <QuoteCard 
+              <AnimatedQuoteCard 
                 $style={style} 
                 $background={isBlueTheme ? 'blue' : background}
               >
@@ -72,11 +56,11 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
                   {quote.role && `, ${quote.role}`}
                 </QuoteAuthor>
                 {quote.note && <QuoteNote>{quote.note}</QuoteNote>}
-              </QuoteCard>
-            </div>
+              </AnimatedQuoteCard>
+            </AnimatedDiv>
           ))}
         </Grid>
-      </div>
+      </AnimatedDiv>
     </div>
   );
 };

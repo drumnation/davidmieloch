@@ -6,11 +6,13 @@ import {
   SectionTitle,
   SectionDescription,
   CategoriesWrapper,
-  fadeIn,
-  staggerContainer
+  categoriesAnimations,
+  CategoryGrid
 } from './Categories.styles';
-import { CategoriesProps } from './Categories.types';
+import { CategoriesProps, CategoryItem } from './Categories.types';
 import { CategoryCard } from '../CategoryCard';
+import { CategoryCardItemProps } from '../CategoryCard/CategoryCard.types';
+import { ReactNativeFeature } from '../ReactNativeFeature';
 
 export const Categories: React.FC<CategoriesProps> = ({ 
   className,
@@ -40,6 +42,25 @@ export const Categories: React.FC<CategoriesProps> = ({
     };
   }, []);
 
+  // Filter out the Modern Tooling category's Expo item for React Native feature section
+  const filteredCategories = categories.map(category => {
+    if (category.title === "Modern Tooling") {
+      return {
+        ...category,
+        items: category.items.filter(item => item.title !== "Expo for Mobile Development")
+      };
+    }
+    return category;
+  });
+
+  // Convert CategoryItem to CategoryCardItemProps by ensuring every item has a key
+  const convertItemsToCardProps = (items: CategoryItem[], categoryKey: string): CategoryCardItemProps[] => {
+    return items.map(item => ({
+      ...item,
+      key: item.key || `${categoryKey}-item-${item.title.toLowerCase().replace(/\s+/g, '-')}`
+    }));
+  };
+
   return (
     <CategoriesWrapper 
       className={`${className} fade-in ${isVisible ? 'visible' : ''}`}
@@ -53,14 +74,18 @@ export const Categories: React.FC<CategoriesProps> = ({
       </SectionDescription>
       
       <CategoriesContainer>
-        {categories.map((category) => (
-          <CategoryCard 
-            key={category.key}
-            title={category.title}
-            description={category.description}
-            items={category.items}
-          />
-        ))}
+        <CategoryGrid>
+          {filteredCategories.map((category) => (
+            <CategoryCard 
+              key={category.key}
+              title={category.title}
+              description={category.description}
+              items={convertItemsToCardProps(category.items, category.key)}
+            />
+          ))}
+        </CategoryGrid>
+        
+        <ReactNativeFeature isVisible={isVisible} />
       </CategoriesContainer>
     </CategoriesWrapper>
   );

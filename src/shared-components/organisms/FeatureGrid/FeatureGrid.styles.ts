@@ -59,6 +59,6 @@ export const Title = styled.h4<{ $isKeyword?: boolean }>`
   margin: 0 0 0.5rem 0;
   font-size: ${({ $isKeyword }) => $isKeyword ? '1.2rem' : '1rem'};
   font-weight: bold;
-  color: #2196f3;
+  color: white;
   line-height: 1.3;
 `; 

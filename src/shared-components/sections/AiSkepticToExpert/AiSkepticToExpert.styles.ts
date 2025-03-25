@@ -81,17 +81,6 @@ export const ContentSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  
-  &.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
   
   @media (max-width: 576px) {
     padding-top: calc(${SPACING.section} * 0.75);
@@ -107,17 +96,6 @@ export const ContentContainer = styled.div`
   max-width: 1000px;
   margin: 0 auto ${SPACING.section};
   padding: 0 ${SPACING.container};
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  
-  &.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
   
   @media (max-width: 576px) {
     margin-bottom: calc(${SPACING.section} * 0.75);
@@ -130,15 +108,6 @@ export const BackgroundSection = styled.div`
   background-color: #f8f9fa;
   padding: ${SPACING.section} 0;
   margin-bottom: ${SPACING.section};
-  transition: opacity 0.8s ease-out;
-  
-  &.hidden {
-    opacity: 0;
-  }
-  
-  &.visible {
-    opacity: 1;
-  }
   
   @media (max-width: 576px) {
     padding: calc(${SPACING.section} * 0.75) 0;
@@ -151,15 +120,6 @@ export const AccentBackgroundSection = styled.div`
   background-color: #f0f7ff;
   padding: ${SPACING.section} 0;
   margin-bottom: ${SPACING.section};
-  transition: opacity 0.8s ease-out;
-  
-  &.hidden {
-    opacity: 0;
-  }
-  
-  &.visible {
-    opacity: 1;
-  }
   
   @media (max-width: 576px) {
     padding: calc(${SPACING.section} * 0.75) 0;
@@ -175,21 +135,12 @@ export const RedditLink = styled.a`
   background-color: #f8f9fa;
   border-radius: 8px;
   text-decoration: none;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.6s ease-out;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   
   &:hover {
     transform: scale(1.01);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  &.hidden {
-    opacity: 0;
-  }
-  
-  &.visible {
-    opacity: 1;
   }
 `;
 
@@ -206,18 +157,11 @@ export const RedditLinkContent = styled.div`
 `;
 
 export const RedditIconColumn = styled.div`
+  padding: ${SPACING.container};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${SPACING.container};
-  background-color: rgba(255, 69, 0, 0.05);
-  min-height: 60px;
-  
-  @media (min-width: 576px) {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    min-width: 80px;
-  }
+  background-color: #fff;
 `;
 
 export const RedditContentColumn = styled.div`
@@ -232,15 +176,6 @@ export const CardGrid = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  transition: opacity 0.8s ease-out;
-  
-  &.hidden {
-    opacity: 0;
-  }
-  
-  &.visible {
-    opacity: 1;
-  }
   
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);

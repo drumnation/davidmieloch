@@ -3,17 +3,20 @@ import { Typography } from '../../../../atoms/Typography';
 import { SystemArchitectureSectionProps } from './SystemArchitectureSection.types';
 import { ContentContainer } from '../../BrainGardenOverview.styles';
 import { SectionTitleComponent, CTAButtonWithIcon } from '../../BrainGardenOverview.logic';
+import { useTheme } from 'styled-components';
 
 export const SystemArchitectureSection: React.FC<SystemArchitectureSectionProps> = ({
   className,
   systemArchitectureProps
 }) => {
+  const theme = useTheme();
+  
   return (
     <ContentContainer
       className={className}
       id="system-architecture-section"
       style={{ 
-        backgroundColor: '#4a6bff', 
+        background: theme.colors.gradient, 
         color: 'white', 
         padding: '3rem 2rem',
         borderRadius: '0.5rem' 

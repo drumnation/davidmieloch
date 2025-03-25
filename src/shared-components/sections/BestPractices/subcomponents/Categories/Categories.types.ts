@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface CategoryItem {
-  key: string;
+  key?: string;
   title: string;
   description: string;
   icon: ReactNode;

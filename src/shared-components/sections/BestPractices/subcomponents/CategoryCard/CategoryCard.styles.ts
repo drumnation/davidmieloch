@@ -24,34 +24,33 @@ export const CategoryCardContainer = styled.div`
 
 export const CategoryTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 8px;
+  margin: 0 0 24px 0;
   color: ${({ theme }) => theme.colors.primary.main};
-  min-height: 32px;
+  height: 36px; /* Fixed height for alignment */
   display: flex;
   align-items: center;
 `;
 
 export const CategoryDescription = styled.p`
   font-size: 1rem;
-  margin-bottom: 16px;
+  margin: 0 0 32px 0;
   color: ${({ theme }) => theme.colors.text.secondary};
-  min-height: 48px;
+  height: 48px; /* Fixed height for alignment */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const ItemsList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   flex-grow: 1;
 `;
 
 export const Item = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
-  margin-bottom: 8px;
 `;
 
 export const ItemIcon = styled.div`
@@ -75,7 +74,7 @@ export const ItemContent = styled.div`
 
 export const ItemTitle = styled.h4`
   font-size: 1.1rem;
-  margin-bottom: 4px;
+  margin: 0 0 6px 0;
   color: ${({ theme }) => theme.colors.text.primary};
 `;
 
@@ -83,6 +82,7 @@ export const ItemDescription = styled.p`
   font-size: 0.9rem;
   color: ${({ theme }) => theme.colors.text.secondary};
   line-height: 1.5;
+  margin: 0;
 `;
 
 // Animation variants

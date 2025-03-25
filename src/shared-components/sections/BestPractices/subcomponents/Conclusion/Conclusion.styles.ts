@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ConclusionContainer = styled.div`
   width: 100%;
-  margin-top: 3rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -13,9 +12,41 @@ export const ConclusionContainer = styled.div`
   }
 `;
 
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+`;
+
+export const SectionIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.background.light};
+  padding: 8px;
+  margin-right: 16px;
+
+  svg, img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
+
+export const IconWrapper = styled.div`
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const ConclusionTitle = styled.h2`
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin: 0;
   color: ${({ theme }) => theme.colors.text.primary};
 `;
 

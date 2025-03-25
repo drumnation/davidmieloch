@@ -6,7 +6,8 @@ import {
   ContentSection,
   ContentContainer,
   Container,
-  GlobalStyles
+  GlobalStyles,
+  PageSeparator
 } from './BestPractices.styles';
 import { BestPracticesProps } from './BestPractices.types';
 import { PRACTICE_CATEGORIES } from './BestPractices.constants';
@@ -14,7 +15,8 @@ import { renderCategory } from './BestPractices.logic';
 import { DetailedContent } from './subcomponents/DetailedContent/DetailedContent';
 import {
   Categories,
-  Conclusion
+  Conclusion,
+  LetsWorkTogether
 } from './subcomponents';
 
 export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practices', className }) => {
@@ -73,8 +75,10 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
       >
         <ContentContainer className="best-practices-content-container">
           <DetailedContent />
+          <PageSeparator />
           <Categories categories={categories} />
           <Conclusion />
+          <LetsWorkTogether />
         </ContentContainer>
       </ContentSection>
     </Container>

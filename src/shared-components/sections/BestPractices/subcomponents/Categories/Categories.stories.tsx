@@ -33,13 +33,13 @@ const meta = {
 } satisfies Meta<typeof Categories>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Categories>;
 
 /**
- * The default story shows the Categories component with practice categories.
+ * The default story shows the Categories component with sample categories.
  */
 export const Default: Story = {
   args: {
-    categories: categories,
+    categories,
   },
 }; 

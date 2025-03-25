@@ -1,15 +1,23 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
+import { useSpring, useTrail, animated, config } from '@react-spring/web';
+import { useInView } from 'react-intersection-observer';
 import { Hero } from '../../organisms/Hero';
 import { QuoteGrid } from '../../organisms/QuoteGrid';
 import ProblemSolutionCard from '../../organisms/ProblemSolutionCard';
 import { AiSkepticToExpertProps } from './AiSkepticToExpert.types';
 import { Typography } from '../../atoms/Typography';
 import * as S from './AiSkepticToExpert.styles';
-import { fadeIn, fadeInUp, staggerContainer } from './AiSkepticToExpert.animations';
 import { defaultContent } from './AiSkepticToExpert.constants';
 import { enhanceHeroProps, enhanceQuotesProps, RedditIcon } from './AiSkepticToExpert.logic';
+
+// Create animated components
+const AnimatedContentSection = animated(S.ContentSection);
+const AnimatedContentContainer = animated(S.ContentContainer);
+const AnimatedBackgroundSection = animated(S.BackgroundSection);
+const AnimatedAccentBackgroundSection = animated(S.AccentBackgroundSection);
+const AnimatedCardGrid = animated(S.CardGrid);
 
 export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   className,
@@ -21,45 +29,28 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   const enhancedHeroProps = React.useMemo(() => enhanceHeroProps(heroProps), [heroProps]);
   const enhancedQuotesProps = React.useMemo(() => enhanceQuotesProps(quotesProps), [quotesProps]);
   
-  // State for visibility animations
-  const [contentVisible, setContentVisible] = useState(false);
-  const [cardAnimations, setCardAnimations] = useState<boolean[]>(Array(problemSolutionCardsProps.cards.length).fill(false));
+  // Setup intersection observer
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
   
-  const sectionRef = useRef<HTMLDivElement>(null);
+  // Main content animation
+  const contentSpring = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0px)' : 'translateY(20px)',
+    config: { ...config.gentle },
+    immediate: !inView
+  });
   
-  // Intersection observer for main section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Stagger content visibility after section becomes visible
-          setContentVisible(true);
-          
-          // Stagger card animations
-          problemSolutionCardsProps.cards.forEach((_, index) => {
-            setTimeout(() => {
-              setCardAnimations(prev => {
-                const newAnimations = [...prev];
-                newAnimations[index] = true;
-                return newAnimations;
-              });
-            }, 500 + (index * 200));
-          });
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [problemSolutionCardsProps.cards.length]);
+  // Card animations
+  const cardsTrail = useTrail(problemSolutionCardsProps.cards.length, {
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0px)' : 'translateY(20px)',
+    config: { ...config.gentle },
+    delay: 200,
+    immediate: !inView
+  });
 
   const heroComponent = React.useMemo(() => (
     <Hero {...enhancedHeroProps} />
@@ -68,16 +59,10 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   return (
     <S.Container className={className} key="ai-skeptic-content">
       <S.GlobalStyles />
-      {/* Hero Section */}
       {heroComponent}
     
-      {/* Content Section with White Background */}
-      <S.ContentSection 
-        ref={sectionRef}
-        className={contentVisible ? 'visible ai-skeptic-content-section' : 'hidden ai-skeptic-content-section'}
-      >
-        {/* Introduction Section */}
-        <S.ContentContainer className={contentVisible ? 'visible ai-skeptic-content-container' : 'hidden ai-skeptic-content-container'}>
+      <AnimatedContentSection ref={ref} style={contentSpring}>
+        <AnimatedContentContainer style={contentSpring}>
           <div className="text-left" style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="h2" className="mb-4">
               The Reality of AI Tools in Development Teams
@@ -91,36 +76,35 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
             </Typography>
           </div>
           
-          <S.RedditLink 
-            href="https://www.reddit.com/r/ExperiencedDevs/comments/1j7aqsx/ai_coding_mandates_at_work/?share_id=Dhejf8gsX_-YUsuIH1nNE&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={contentVisible ? 'visible' : 'hidden'}
-          >
-            <S.RedditLinkContent>
-              {/* Reddit Icon Column */}
-              <S.RedditIconColumn>
-                <RedditIcon />
-              </S.RedditIconColumn>
-              
-              {/* Content Column */}
-              <S.RedditContentColumn>
-                <div style={{ color: '#000000' }}>
-                  <Typography variant="caption" weight="bold" className={`mb-${S.SPACING.element}`}>
-                    🔥 Trending on r/ExperiencedDevs
+          <animated.div style={contentSpring}>
+            <S.RedditLink 
+              href="https://www.reddit.com/r/ExperiencedDevs/comments/1j7aqsx/ai_coding_mandates_at_work/?share_id=Dhejf8gsX_-YUsuIH1nNE&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <S.RedditLinkContent>
+                <S.RedditIconColumn>
+                  <RedditIcon />
+                </S.RedditIconColumn>
+                
+                <S.RedditContentColumn>
+                  <div style={{ color: '#000000' }}>
+                    <Typography variant="caption" weight="bold" className={`mb-${S.SPACING.element}`}>
+                      🔥 Trending on r/ExperiencedDevs
+                    </Typography>
+                  </div>
+                  <div style={{ color: '#0066CC' }}>
+                    <Typography variant="body" weight="bold" className={`mb-${S.SPACING.element}`}>
+                      &ldquo;AI coding mandates at work?&rdquo;
+                    </Typography>
+                  </div>
+                  <Typography variant="caption" color="secondary" className="text-gray-600">
+                    💬 286 comments &nbsp;&nbsp; ⬆️ 283 upvotes
                   </Typography>
-                </div>
-                <div style={{ color: '#0066CC' }}>
-                  <Typography variant="body" weight="bold" className={`mb-${S.SPACING.element}`}>
-                    &ldquo;AI coding mandates at work?&rdquo;
-                  </Typography>
-                </div>
-                <Typography variant="caption" color="secondary" className="text-gray-600">
-                  💬 286 comments &nbsp;&nbsp; ⬆️ 283 upvotes
-                </Typography>
-              </S.RedditContentColumn>
-            </S.RedditLinkContent>
-          </S.RedditLink>
+                </S.RedditContentColumn>
+              </S.RedditLinkContent>
+            </S.RedditLink>
+          </animated.div>
           
           <div>
             <Typography variant="body" className="mb-0" weight="regular">
@@ -128,25 +112,15 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
               about mandatory AI tool adoption. The problems are systemic and deeply concerning:
             </Typography>
           </div>
-        </S.ContentContainer>
+        </AnimatedContentContainer>
         
-        {/* Quotes Section with Light Background */}
-        <S.BackgroundSection className={contentVisible ? 'visible' : 'hidden'}>
-          <div 
-            style={{ 
-              width: '100%',
-              maxWidth: '1000px', 
-              margin: '0 auto',
-              padding: `0 ${S.SPACING.container}`
-            }}
-            className={contentVisible ? 'visible' : 'hidden'}
-          >
+        <AnimatedBackgroundSection style={contentSpring}>
+          <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', padding: `0 ${S.SPACING.container}` }}>
             <QuoteGrid {...enhancedQuotesProps} />
           </div>
-        </S.BackgroundSection>
+        </AnimatedBackgroundSection>
         
-        {/* Analysis Section */}
-        <S.ContentContainer className={contentVisible ? 'visible ai-skeptic-content-container' : 'hidden ai-skeptic-content-container'}>
+        <AnimatedContentContainer style={contentSpring}>
           <div style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="body" weight="regular">
               These quotes highlight a disturbing trend: companies implementing AI tools without proper systems, leading to metrics that
@@ -161,52 +135,29 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
               A systematic approach to implementation.
             </Typography>
           </div>
-        </S.ContentContainer>
+        </AnimatedContentContainer>
         
-        {/* Solutions Section with Accent Background */}
-        <S.AccentBackgroundSection className={contentVisible ? 'visible' : 'hidden'}>
-          <div 
-            style={{ 
-              width: '100%',
-              maxWidth: '1000px', 
-              margin: '0 auto',
-              padding: `0 ${S.SPACING.container}`
-            }}
-            className={contentVisible ? 'visible' : 'hidden'}
-          >
-            <div 
-              style={{ marginBottom: S.SPACING.paragraph }}
-              className="text-left" 
-            >
+        <AnimatedAccentBackgroundSection style={contentSpring}>
+          <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', padding: `0 ${S.SPACING.container}` }}>
+            <div style={{ marginBottom: S.SPACING.paragraph }} className="text-left">
               <Typography variant="h2" className="mb-4">
                 Common Problems &amp; My Solutions
               </Typography>
             </div>
             
-            <S.CardGrid className={contentVisible ? 'visible' : 'hidden'}>
-              {problemSolutionCardsProps.cards.map((card, index) => {
-                // Convert string impact to object format if needed
+            <AnimatedCardGrid style={contentSpring}>
+              {cardsTrail.map((style, index) => {
+                const card = problemSolutionCardsProps.cards[index];
                 const formattedImpact = typeof card.impact === 'string' 
                   ? { value: card.impact } 
                   : card.impact;
                 
-                // Map variant values to supported ProblemSolutionCard variants
                 const cardVariant = card.variant === 'gradient' || card.variant === 'accent' 
                   ? 'blue' 
                   : card.variant;
                 
                 return (
-                  <div 
-                    key={index}
-                    style={{
-                      height: '100%',
-                      display: 'flex',
-                      opacity: cardAnimations[index] ? 1 : 0,
-                      transform: cardAnimations[index] ? 'translateY(0)' : 'translateY(20px)',
-                      transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
-                      transitionDelay: `${index * 0.2}s`
-                    }}
-                  >
+                  <animated.div key={index} style={style}>
                     <ProblemSolutionCard 
                       slug={card.slug || 'Feature'}
                       problem={card.problem}
@@ -215,15 +166,14 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
                       icon={card.icon}
                       variant={cardVariant as 'blue' | 'white'}
                     />
-                  </div>
+                  </animated.div>
                 );
               })}
-            </S.CardGrid>
+            </AnimatedCardGrid>
           </div>
-        </S.AccentBackgroundSection>
+        </AnimatedAccentBackgroundSection>
         
-        {/* Conclusion Section */}
-        <S.ContentContainer className={contentVisible ? 'visible ai-skeptic-content-container' : 'hidden ai-skeptic-content-container'}>
+        <AnimatedContentContainer style={contentSpring}>
           <div style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="body" weight="regular">
               Through my journey from skeptic to innovator, I&apos;ve developed a comprehensive system that addresses these challenges head-on.
@@ -238,8 +188,8 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
               and how my perspective as a principal engineer can transform everything.
             </Typography>
           </div>
-        </S.ContentContainer>
-      </S.ContentSection>
+        </AnimatedContentContainer>
+      </AnimatedContentSection>
     </S.Container>
   );
 };

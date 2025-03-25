@@ -11,7 +11,7 @@ export const useRealWorldImpactAnimation = () => {
     from: { opacity: 0 },
     to: { opacity: inView ? 1 : 0 },
     config: { ...config.gentle },
-    reset: false
+    immediate: !inView
   });
 
   return { ref, inView, fadeIn };

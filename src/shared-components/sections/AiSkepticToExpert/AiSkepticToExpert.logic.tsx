@@ -16,8 +16,7 @@ export const enhanceHeroProps = (heroProps: AiSkepticToExpertProps['heroProps'] 
     backgroundImage: heroProps.backgroundImage || '/main-heading-background.png',
     backgroundOverlay: false, // No overlay as requested
     textColor: 'light',
-    pattern: 'none',
-    animation: (heroProps.animation as "fade-up" | "slide-in" | "none") || 'fade-up',
+    pattern: 'none'
   };
 };
 
@@ -36,7 +35,7 @@ export const enhanceQuotesProps = (quotesProps: AiSkepticToExpertProps['quotesPr
     })) as Quote[],
     layout: quotesProps.layout === 'grid' ? '3-column' : quotesProps.layout,
     animation: 'stagger-fade',
-    background: 'blue' // Set blue background for the quotes
+    background: 'gradient' // Use theme gradient instead of blue
   };
 };
 

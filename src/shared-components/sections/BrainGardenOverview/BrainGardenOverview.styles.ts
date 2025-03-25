@@ -212,7 +212,7 @@ export const SectionSubtitle = styled.h3`
 `;
 
 export const IntroBlock = styled.div`
-  background: linear-gradient(135deg, #6772e5 0%, #4ca5ff 100%);
+  background: ${({ theme }) => theme.colors.gradient};
   border-radius: 12px;
   padding: ${SPACING.container};
   color: white;
@@ -282,7 +282,7 @@ export const StatCard = styled.div`
 export const StatNumber = styled.div`
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--primary-blue);
+  color: ${({ theme }) => theme.colors.primary.main};
   margin-bottom: 0.5rem;
 `;
 
@@ -293,14 +293,14 @@ export const StatLabel = styled.div`
 
 export const IconContainer = styled.div`
   margin-bottom: 1rem;
-  color: var(--primary-blue);
+  color: ${({ theme }) => theme.colors.primary.main};
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 export const CTABlock = styled.div`
-  background: linear-gradient(135deg, #6772e5 0%, #4ca5ff 100%);
+  background: ${({ theme }) => theme.colors.gradient};
   border-radius: 12px;
   padding: ${SPACING.container};
   color: white;
@@ -324,7 +324,7 @@ export const CTAButton = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--primary-blue);
+  background: ${({ theme }) => theme.colors.primary.main};
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -335,7 +335,7 @@ export const CTAButton = styled.a`
   cursor: pointer;
   
   &:hover {
-    background: var(--primary-purple);
+    background: ${({ theme }) => theme.colors.secondary.main};
   }
 `;
 

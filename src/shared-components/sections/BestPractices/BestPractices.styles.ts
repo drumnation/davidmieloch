@@ -377,3 +377,36 @@ export const ConclusionText = styled.p`
   margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.colors.text.secondary};
 `;
+
+export const PageSeparator = styled.div`
+  width: 100%;
+  height: 1px;
+  background: ${({ theme }) => `linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  )`};
+  margin: 1rem 0 4rem 0;
+  position: relative;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: ${({ theme }) => theme.colors.background.paper};
+    border-radius: 50%;
+    background-image: url('/icons/code.svg');
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: ${({ theme }) => theme.shadows.card};
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+`;

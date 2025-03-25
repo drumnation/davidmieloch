@@ -31,7 +31,7 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   // { label: 'Home', href: '/' },
-  { label: 'Enterprise AI Development Transformation', href: '/enterprise-ai-development-framework' },
+  { label: 'Enterprise AI DevTeam Transformation', href: '/enterprise-ai-development-framework' },
   { label: 'React Best Practices', href: '/fullstack-react-best-practices-integration' },
   { label: 'Bio', href: '/bio' },
   { label: 'Code Examples', href: '/code-examples' },
