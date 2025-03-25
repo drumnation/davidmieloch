@@ -18,7 +18,7 @@ export const defaultContent = {
     background: "image" as const,
     backgroundImage: "/cockpit3.jpg",
     backgroundOverlay: true,
-    overlayOpacity: 0.6,
+    overlayOpacity: 0.1,
     textColor: "light" as const,
     pattern: "none" as const,
     animation: "fade-up" as const,
@@ -212,7 +212,11 @@ export const defaultContent = {
         items: [
           {
             name: "No \"Coup\" by Product Managers",
-            description: "Managers can prototype ideas with AI but must defer to engineering on implementation details, quality checks, and final deliverables. Beware the concerning trend where AI's democratization of coding is leading some non-technical managers to express disdain or jealousy toward developers. This sentiment sometimes manifests as an attempt to 'punish' engineers for previously being the gatekeepers of software development. Organizations must recognize that while AI empowers more stakeholders to participate in the development process, it doesn't eliminate the need for specialized engineering expertise. True collaboration comes from mutual respect, not from one group seeking to disempower another."
+            description: "Managers can prototype ideas with AI but must defer to engineering on implementation details, quality checks, and final deliverables. Beware the concerning trend where AI's democratization of coding is leading some non-technical managers to express disdain or jealousy toward developers. This sentiment sometimes manifests as an attempt to 'punish' engineers for previously being the gatekeepers of software development. Particularly troubling is when project managers dictate story points, deadlines, and development pace based solely on their limited experience using AI tools. They often tell developers exactly how long a feature should take, undermining the established practice where developers—who understand the technical complexities involved—estimate their own work."
+          },
+          {
+            name: "Preserve Engineering Estimation",
+            description: "This shift from developer-led estimation to manager-imposed timelines represents a fundamental misunderstanding of AI's role in the development process. Organizations must recognize that while AI empowers more stakeholders to participate in the development process, it doesn't eliminate the need for specialized engineering expertise. True collaboration comes from mutual respect, not from one group seeking to disempower another."
           },
           {
             name: "Establish Feedback Channels",

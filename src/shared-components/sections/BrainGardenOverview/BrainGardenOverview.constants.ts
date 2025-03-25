@@ -41,22 +41,32 @@ export const defaultContent = {
   forceMultipliers: {
     features: [
       {
-        title: "Documentation",
-        description: "Transform documentation from burden to accelerator",
-        icon: "file-text",
-        link: "./doc-force-multiplier"
+        icon: 'rocket',
+        title: 'Rapid Testing',
+        description: 'Test your changes instantly with automated testing and real-time feedback.',
+        beforeState: 'Manual testing cycles taking hours or days to complete, prone to human error.',
+        afterState: 'Instant automated testing with real-time feedback, catching issues immediately.'
       },
       {
-        title: "Testing",
-        description: "Unlock rapid feedback loops and superhuman iteration speed",
-        icon: "shield-check",
-        link: "./test-force-multiplier"
+        icon: 'brain',
+        title: 'Dynamic Documentation',
+        description: 'Documentation that evolves with your code, always staying current and relevant.',
+        beforeState: 'Static documentation that quickly becomes outdated and requires manual updates.',
+        afterState: 'Self-updating documentation that perfectly mirrors your codebase at all times.'
       },
       {
-        title: "Git Integration",
-        description: "Turn version control into a knowledge system and collaboration amplifier",
-        icon: "git-branch",
-        link: "./git-force-multiplier"
+        icon: 'sparkles',
+        title: 'AI-Powered Insights',
+        description: 'Get intelligent suggestions and optimizations for your code in real-time.',
+        beforeState: 'Relying on manual code reviews and limited static analysis tools.',
+        afterState: 'Continuous AI-driven code analysis providing actionable insights and improvements.'
+      },
+      {
+        icon: 'git-branch',
+        title: 'Version Control',
+        description: 'Track changes and collaborate seamlessly with integrated version control.',
+        beforeState: 'Complex branching strategies and manual merge conflict resolution.',
+        afterState: 'Streamlined version control with automated conflict detection and resolution.'
       }
     ]
   },

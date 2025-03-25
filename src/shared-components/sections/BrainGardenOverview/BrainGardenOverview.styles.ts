@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { animated } from '@react-spring/web';
 import { createGlobalStyle } from 'styled-components';
 
@@ -399,6 +399,99 @@ export const MermaidContainer = styled.div`
       .nodeLabel {
         font-size: 14px;
       }
+    }
+  }
+`;
+
+export const GradientText = styled.span`
+  background: linear-gradient(135deg, #4a9eff 0%, #9d4eff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-weight: bold;
+`;
+
+export const PowerfulTitle = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  
+  svg {
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+  }
+`;
+
+export const MetricsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(74, 158, 255, 0.05);
+  border-radius: 12px;
+`;
+
+export const ImpactMetric = styled.div`
+  text-align: center;
+  
+  .number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.primary.main};
+    margin-bottom: 0.5rem;
+  }
+  
+  .label {
+    font-size: 1.1rem;
+    color: ${({ theme }) => theme.colors.text.secondary};
+  }
+`;
+
+export const BeforeAfter = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: rgba(74, 158, 255, 0.05);
+  border-radius: 12px;
+  margin-top: 1rem;
+  
+  .before, .after {
+    h4 {
+      font-size: 1rem;
+      color: ${({ theme }) => theme.colors.text.secondary};
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+  }
+  
+  .before {
+    position: relative;
+    padding-right: 2rem;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: ${({ theme }) => theme.colors.border.light};
+    }
+    
+    h4 {
+      color: ${({ theme }) => theme.colors.text.secondary};
+    }
+  }
+  
+  .after {
+    h4 {
+      color: ${({ theme }) => theme.colors.primary.main};
     }
   }
 `;

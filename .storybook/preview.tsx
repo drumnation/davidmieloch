@@ -29,6 +29,18 @@ const GlobalStyles = () => (
         --accent-red: ${styledTheme.colors.accent.red};
         --accent-green: ${styledTheme.colors.accent.green};
       }
+
+      /* Add icon-specific styles */
+      .icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon-wrapper svg {
+        width: 100%;
+        height: 100%;
+      }
     `}
   </style>
 )

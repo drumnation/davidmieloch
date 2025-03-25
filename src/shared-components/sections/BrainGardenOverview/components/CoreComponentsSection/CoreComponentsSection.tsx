@@ -42,6 +42,9 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
   className,
   coreComponentsProps
 }) => {
+  // Log to verify props
+  console.log('CoreComponentsSection rendering with layout=row');
+
   return (
     <BackgroundSection
       className={className}
@@ -58,12 +61,25 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
             </Typography>
           </div>
           
-          <FeatureGrid 
-            features={coreComponentsProps.features}
-            columns={3}
-            style="gradient-cards"
-            animation="stagger-fade"
-          />
+          {/* EXPLICITLY setting layout to "row" with wrapper div */}
+          <div style={{ marginBottom: '1rem' }}>
+            <div style={{ 
+              textAlign: 'right', 
+              marginBottom: '0.5rem', 
+              fontSize: '0.8rem', 
+              color: '#666',
+              paddingRight: '1rem'
+            }}>
+              <span>Scroll horizontally to see more →</span>
+            </div>
+            <FeatureGrid 
+              features={coreComponentsProps.features}
+              columns={3}
+              style="gradient-cards"
+              animation="stagger-fade"
+              layout="row"
+            />
+          </div>
           
           {/* The Core Components Narrative */}
           <div style={{ marginTop: '3rem', marginBottom: '2rem' }}>

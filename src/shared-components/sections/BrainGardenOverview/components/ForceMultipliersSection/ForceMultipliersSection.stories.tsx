@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ForceMultipliersSection } from './ForceMultipliersSection';
 import { defaultContent } from '../../BrainGardenOverview.constants';
+import { Icon } from '../../../../atoms/Icon';
 
 const meta = {
-  title: 'Pages/01-WhitePaper/03-BrainGardenOverview/03-ForceMultipliersSection',
+  title: 'sections/BrainGardenOverview/ForceMultipliersSection',
   component: ForceMultipliersSection,
   parameters: {
     layout: 'fullscreen',
@@ -13,8 +14,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const transformedContent = {
+  ...defaultContent.forceMultipliers,
+  features: defaultContent.forceMultipliers.features.map(feature => ({
+    ...feature,
+    icon: <Icon name={feature.icon} source="tabler" size={24} />
+  }))
+};
+
 export const Default: Story = {
   args: {
-    forceMultipliersProps: defaultContent.forceMultipliers
+    forceMultipliersProps: transformedContent
   },
 }; 
