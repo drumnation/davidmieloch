@@ -95,14 +95,14 @@ export const EducationDescription = styled.p`
   margin-bottom: 16px;
 `;
 
-export const MediaContainer = styled.div<{ isWide?: boolean }>`
+export const MediaContainer = styled.div<{ $isWide?: boolean }>`
   width: 100%;
-  max-width: ${({ isWide }) => isWide ? '100%' : '400px'};
+  max-width: ${({ $isWide }) => $isWide ? '100%' : '400px'};
   margin-bottom: 16px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  flex: ${({ isWide }) => isWide ? '1 0 100%' : '1 0 calc(50% - 8px)'};
+  flex: ${({ $isWide }) => $isWide ? '1 0 100%' : '1 0 calc(50% - 8px)'};
   
   iframe, img {
     display: block;

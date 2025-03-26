@@ -39,8 +39,15 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
     endDate: '2017',
     description: 'Intensive web development bootcamp focusing on modern full-stack development. Frontend: JavaScript fundamentals (ES6+), Component Pattern, React.js, Redux + Thunk, jQuery. Backend: Ruby fundamentals, MVC pattern, Rails, SQL, ORMs, Active Record, Ruby on Rails.',
     logoPath: '/school-logos/the_flatiron_school_logo.jpeg',
-    mediaUrl: 'https://fast.wistia.net/embed/iframe/lpchu9kv9n',
-    mediaType: 'video'
+    media: [
+      {
+        type: 'embed',
+        url: 'https://fast.wistia.net/embed/iframe/lpchu9kv9n',
+        title: 'Flatiron School Experience',
+        width: 'full',
+        height: 400
+      }
+    ]
   },
   {
     school: 'App Academy',
