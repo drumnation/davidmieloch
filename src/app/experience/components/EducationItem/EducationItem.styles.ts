@@ -92,9 +92,9 @@ export const Activities = styled.div`
   }
 `;
 
-export const MediaContainer = styled.div`
+export const MediaContainer = styled.div<{ $isWide?: boolean }>`
   width: 100%;
-  max-width: 400px;
+  max-width: ${({ $isWide }) => $isWide ? '100%' : '400px'};
   margin-bottom: 1rem;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -103,5 +103,17 @@ export const MediaContainer = styled.div`
   iframe, img {
     display: block;
     width: 100%;
+  }
+`;
+
+export const MediaRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `; 

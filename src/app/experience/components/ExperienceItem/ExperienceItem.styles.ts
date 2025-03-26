@@ -121,30 +121,18 @@ export const MediaRow = styled.div`
   }
 `;
 
-export const MediaContainer = styled.div<{ isWide?: boolean }>`
-  flex: ${({ isWide }) => isWide ? '1 0 100%' : '1 0 calc(50% - 8px)'};
-  max-width: ${({ isWide }) => isWide ? '100%' : 'calc(50% - 8px)'};
+export const MediaContainer = styled.div<{ $isWide?: boolean }>`
+  width: 100%;
+  max-width: ${({ $isWide }) => $isWide ? '100%' : '400px'};
   margin-bottom: 16px;
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  flex: ${({ $isWide }) => $isWide ? '1 0 100%' : '1 0 calc(50% - 8px)'};
   
-  @media (max-width: 768px) {
-    flex: 1 0 100%;
-    max-width: 100%;
-  }
-  
-  img {
-    width: 100%;
-    height: auto;
+  iframe, img {
     display: block;
-    border-radius: 8px;
-  }
-  
-  iframe {
     width: 100%;
-    border: none;
-    display: block;
   }
   
   &.pdf-container {

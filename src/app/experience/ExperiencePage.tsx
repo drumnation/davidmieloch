@@ -101,6 +101,7 @@ export function ExperiencePage() {
                   description={position.description}
                   bulletPoints={position.bulletPoints}
                   logo={position.logoPath}
+                  media={position.media}
                 />
               ))}
               
@@ -121,6 +122,7 @@ export function ExperiencePage() {
                         description={position.description}
                         bulletPoints={position.bulletPoints}
                         logo={position.logoPath}
+                        media={position.media}
                       />
                     ))}
                   </ExperienceList>
@@ -144,6 +146,7 @@ export function ExperiencePage() {
                   logo={education.logoPath}
                   mediaUrl={education.mediaUrl}
                   mediaType={education.mediaType}
+                  media={education.media}
                 />
               ))}
             </ExperienceList>

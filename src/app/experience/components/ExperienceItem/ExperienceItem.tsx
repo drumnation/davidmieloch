@@ -61,12 +61,12 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
         {media.length > 0 && (
           <MediaRow>
             {media.map((mediaItem, mediaIndex) => {
-              const isWide = mediaItem.width === 'full' || media.length === 1;
+              const $isWide = mediaItem.width === 'full' || media.length === 1;
               
               // Render different media types
               if (mediaItem.type === 'image') {
                 return (
-                  <MediaContainer key={`media-${mediaIndex}`} isWide={isWide}>
+                  <MediaContainer key={`media-${mediaIndex}`} $isWide={$isWide}>
                     <Image 
                       src={mediaItem.url} 
                       alt={mediaItem.title || `${company} image`} 
@@ -86,7 +86,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
                 return (
                   <MediaContainer 
                     key={`media-${mediaIndex}`} 
-                    isWide={isWide}
+                    $isWide={$isWide}
                     className="pdf-container"
                   >
                     <a 
@@ -129,7 +129,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
                 return (
                   <MediaContainer 
                     key={`media-${mediaIndex}`} 
-                    isWide={isWide}
+                    $isWide={$isWide}
                   >
                     <iframe
                       src={mediaItem.url}

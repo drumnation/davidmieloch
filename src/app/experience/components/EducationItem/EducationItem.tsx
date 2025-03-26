@@ -91,11 +91,11 @@ export const EducationItem: React.FC<EducationItemProps> = ({
         {media.length > 0 && (
           <MediaRow>
             {media.map((mediaItem, mediaIndex) => {
-              const isWide = mediaItem.width === 'full' || media.length === 1;
+              const $isWide = mediaItem.width === 'full' || media.length === 1;
               
               if (mediaItem.type === 'image') {
                 return (
-                  <MediaContainer key={`media-${mediaIndex}`} isWide={isWide}>
+                  <MediaContainer key={`media-${mediaIndex}`} $isWide={$isWide}>
                     <Image 
                       src={mediaItem.url} 
                       alt={mediaItem.title || `${school} image`} 
@@ -115,7 +115,7 @@ export const EducationItem: React.FC<EducationItemProps> = ({
                 return (
                   <MediaContainer 
                     key={`media-${mediaIndex}`} 
-                    isWide={isWide}
+                    $isWide={$isWide}
                     className="pdf-container"
                   >
                     <a 
@@ -158,7 +158,7 @@ export const EducationItem: React.FC<EducationItemProps> = ({
                 return (
                   <MediaContainer 
                     key={`media-${mediaIndex}`} 
-                    isWide={isWide}
+                    $isWide={$isWide}
                   >
                     <iframe
                       src={mediaItem.url}
