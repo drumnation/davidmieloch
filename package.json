@@ -27,6 +27,7 @@
     "@tabler/icons-react": "^3.31.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/recharts": "^1.8.29",
+    "@xyflow/react": "^12.4.4",
     "dayjs": "^1.11.13",
     "framer-motion": "10.18.0",
     "lucide-react": "^0.479.0",

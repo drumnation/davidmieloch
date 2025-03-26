@@ -1,7 +1,98 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mermaid from 'mermaid';
-import { MermaidDiagramProps } from './MermaidDiagram.types';
+import styled from 'styled-components';
 import { Typography } from '../../atoms/Typography';
+import { MermaidDiagramProps } from './MermaidDiagram.types';
+
+// Define types
+type ZoomLevel = 'out' | 'normal' | 'in';
+
+// Styles
+const DiagramWrapper = styled.div<{ $width?: string }>`
+  width: ${props => props.$width || '100%'};
+  position: relative;
+  margin: 0 auto;
+`;
+
+const DiagramContainer = styled.div<{
+  $width?: string;
+  $height?: string;
+  $backgroundColor?: string;
+  $zoomLevel?: ZoomLevel;
+}>`
+  width: ${props => props.$width || '100%'};
+  height: ${props => props.$height || 'auto'};
+  background-color: ${props => props.$backgroundColor || 'rgba(74, 158, 255, 0.05)'};
+  border-radius: 8px;
+  overflow: auto;
+  padding: 16px;
+  transform-origin: center center;
+  transform: scale(
+    ${props => {
+      switch (props.$zoomLevel) {
+        case 'out': return 0.75;
+        case 'in': return 1.25;
+        default: return 1;
+      }
+    }}
+  );
+  transition: transform 0.2s ease-out;
+  
+  /* Fix SVG display */
+  svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+`;
+
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-color: rgba(74, 158, 255, 0.05);
+  border-radius: 8px;
+`;
+
+const AccessibilityDescription = styled.div`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+`;
+
+const ZoomButtonsContainer = styled.div`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  z-index: 10;
+`;
+
+const ZoomButton = styled.button`
+  background-color: white;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  
+  &:hover {
+    background-color: #f5f5f5;
+  }
+`;
 
 // Helper function to replace CSS variables with actual color values
 const replaceCssVariables = (definition: string): string => {
@@ -22,226 +113,182 @@ const replaceCssVariables = (definition: string): string => {
   // Replace all CSS variables with their corresponding color values
   let processedDefinition = definition;
   Object.entries(colorMap).forEach(([variable, color]) => {
-    processedDefinition = processedDefinition.replace(new RegExp(variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), color);
+    processedDefinition = processedDefinition.replace(
+      new RegExp(variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), 
+      color
+    );
   });
 
   return processedDefinition;
 };
 
-export const MermaidDiagram: React.FC<MermaidDiagramProps> = ({
+// ZoomControls component
+const ZoomControls: React.FC<{
+  onZoomIn: () => void;
+  onZoomOut: () => void;
+  onResetZoom: () => void;
+}> = ({ onZoomIn, onZoomOut, onResetZoom }) => (
+  <ZoomButtonsContainer>
+    <ZoomButton onClick={onZoomIn} aria-label="Zoom in">+</ZoomButton>
+    <ZoomButton onClick={onResetZoom} aria-label="Reset zoom">⟲</ZoomButton>
+    <ZoomButton onClick={onZoomOut} aria-label="Zoom out">-</ZoomButton>
+  </ZoomButtonsContainer>
+);
+
+// Main component
+export const MermaidDiagram: React.FC<MermaidDiagramProps> = React.memo(({
   definition,
-  className,
+  className = '',
   theme = 'default',
   width = '100%',
   height = 'auto',
-  backgroundColor,
+  backgroundColor = 'rgba(74, 158, 255, 0.05)',
   responsive = true,
   showZoomControls = false,
   accessibilityDescription = '',
 }) => {
-  const [svg, setSvg] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [zoomLevel, setZoomLevel] = useState<number>(1);
-  const mermaidRef = useRef<HTMLDivElement>(null);
-  const uniqueId = useRef(`mermaid-${Math.random().toString(36).substring(2, 11)}`);
+  const [zoomLevel, setZoomLevel] = useState<ZoomLevel>('normal');
+  const containerRef = useRef<HTMLDivElement>(null);
+  const uniqueId = useRef<string>(`mermaid-${Math.random().toString(36).substring(2, 11)}`);
+  
+  // Zoom control handlers
+  const handleZoomIn = () => setZoomLevel('in');
+  const handleZoomOut = () => setZoomLevel('out');
+  const handleResetZoom = () => setZoomLevel('normal');
 
-  // Add hover effect styles
-  const hoverStyles = `
-    .${uniqueId.current} g.node:hover {
-      filter: brightness(1.05);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .${uniqueId.current} g.cluster:hover {
-      filter: brightness(1.02);
-      transition: all 0.2s ease;
-    }
-    .${uniqueId.current} .edgePath:hover {
-      stroke-width: 2px;
-      transition: all 0.2s ease;
-    }
-  `;
-
+  // Initialize Mermaid
   useEffect(() => {
-    // Initialize mermaid with theme configuration
     mermaid.initialize({
-      startOnLoad: true,
-      theme: theme as any,
-      securityLevel: 'loose' as any,
+      startOnLoad: false,
+      theme: theme,
+      securityLevel: 'loose',
       fontFamily: 'Inter, sans-serif',
       fontSize: 16,
       flowchart: {
         htmlLabels: true,
-        curve: 'basis' as any,
-        nodeSpacing: 80,
-        rankSpacing: 100,
-        padding: 20,
-        useMaxWidth: true
+        curve: 'linear',
       },
-      themeVariables: {
-        nodeBorder: '2px',
-        fontSize: '16px',
-        fontFamily: 'Inter, sans-serif',
-        mainBkg: '#4a6bff',
-        secondaryBkg: '#9c6ade',
-        tertiaryBkg: '#f4f4f4',
-        primaryTextColor: '#ffffff',
-        secondaryTextColor: '#333333',
-        lineColor: '#666666',
-        clusterBkg: '#f8f9fa',
-        clusterBorder: 'rgba(0,0,0,0.2)',
-        labelBackground: '#ffffff',
-        labelBorder: '#e9ecef',
-        edgeLabelBackground: '#ffffff',
-        nodeTextColor: '#ffffff'
-      }
+      sequence: {
+        useMaxWidth: true,
+      },
     });
+  }, [theme]);
 
+  // Render the diagram
+  useEffect(() => {
+    console.log('MermaidDiagram: Starting rendering process for diagram', uniqueId.current);
     const renderDiagram = async () => {
+      if (!containerRef.current) {
+        console.error('MermaidDiagram: Container ref is null');
+        return;
+      }
+      
       try {
         setLoading(true);
         setError(null);
         
-        // Reset any previous content
-        if (mermaidRef.current) {
-          mermaidRef.current.innerHTML = '';
-        }
-        
-        // Process the definition to replace CSS variables with actual color values
+        console.log('MermaidDiagram: Processing definition:', definition.substring(0, 100) + '...');
+        // Process the definition to replace CSS variables
         const processedDefinition = replaceCssVariables(definition);
         
-        // Render the diagram
+        console.log('MermaidDiagram: Calling mermaid.render...');
+        // Use Mermaid to render the diagram
         const { svg } = await mermaid.render(uniqueId.current, processedDefinition);
+        console.log('MermaidDiagram: Render successful, SVG length:', svg.length);
         
-        // Add hover effects to the SVG
-        const enhancedSvg = svg.replace('<style>', `<style>${hoverStyles}`);
+        // Inject the SVG into the container
+        containerRef.current.innerHTML = svg;
+        console.log('MermaidDiagram: Injected SVG into container');
         
-        setSvg(enhancedSvg);
+        // Add click handlers to diagram elements if needed
+        const diagramElement = containerRef.current.querySelector('svg');
+        if (diagramElement) {
+          // Make sure SVG is responsive if needed
+          if (responsive) {
+            diagramElement.setAttribute('width', '100%');
+            diagramElement.setAttribute('height', 'auto');
+            diagramElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+            console.log('MermaidDiagram: Made SVG responsive');
+          }
+        }
+
         setLoading(false);
+        console.log('MermaidDiagram: Rendering complete');
       } catch (err) {
-        console.error('Mermaid rendering error:', err);
-        setError(err instanceof Error ? err.message : 'Unknown error rendering diagram');
+        console.error('MermaidDiagram: Failed to render diagram:', err);
+        setError(err instanceof Error ? err.message : 'Unknown error');
         setLoading(false);
       }
     };
 
-    renderDiagram();
-  }, [definition, theme]);
+    // Small timeout to ensure we're not in the middle of a render cycle
+    const timeoutId = setTimeout(renderDiagram, 50);
+    
+    return () => {
+      clearTimeout(timeoutId);
+      // Clean up any lingering elements when the component unmounts
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
+      }
+    };
+  }, [definition, responsive]);
 
-  // Handle zoom controls
-  const handleZoomIn = () => {
-    setZoomLevel(prev => Math.min(prev + 0.1, 2));
-  };
-
-  const handleZoomOut = () => {
-    setZoomLevel(prev => Math.max(prev - 0.1, 0.5));
-  };
-
-  const handleResetZoom = () => {
-    setZoomLevel(1);
-  };
-
-  if (loading) {
+  if (loading && !error) {
     return (
-      <div className={className} style={{ padding: '1rem' }}>
+      <LoadingContainer className={className}>
         <Typography variant="body">Loading diagram...</Typography>
-      </div>
+      </LoadingContainer>
     );
   }
 
   if (error) {
     return (
-      <div className={className} style={{ padding: '1rem', color: 'red' }}>
-        <Typography variant="body" weight="bold">Error rendering diagram</Typography>
-        <pre>{error}</pre>
-        <Typography variant="body">Check your Mermaid syntax and try again.</Typography>
-      </div>
+      <LoadingContainer className={className}>
+        <Typography variant="body">
+          Error rendering diagram: {error}
+        </Typography>
+      </LoadingContainer>
     );
   }
 
   return (
-    <div style={{ width, overflow: 'hidden' }}>
-      {/* Screen reader accessibility description */}
+    <DiagramWrapper $width={width}>
+      {/* Accessibility description */}
       {accessibilityDescription && (
-        <div className="sr-only" role="note" aria-label="Diagram description">
+        <AccessibilityDescription role="note" aria-label="Diagram description">
           {accessibilityDescription}
-        </div>
+        </AccessibilityDescription>
       )}
       
       {/* Zoom controls */}
       {showZoomControls && (
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'flex-end', 
-          marginBottom: '10px',
-          gap: '5px'
-        }}>
-          <button 
-            onClick={handleZoomOut}
-            aria-label="Zoom out"
-            style={{ 
-              padding: '5px 10px',
-              border: '1px solid #ddd',
-              borderRadius: '4px',
-              background: 'white',
-              cursor: 'pointer'
-            }}
-          >
-            -
-          </button>
-          <button 
-            onClick={handleResetZoom}
-            aria-label="Reset zoom"
-            style={{ 
-              padding: '5px 10px',
-              border: '1px solid #ddd',
-              borderRadius: '4px',
-              background: 'white',
-              cursor: 'pointer'
-            }}
-          >
-            Reset
-          </button>
-          <button 
-            onClick={handleZoomIn}
-            aria-label="Zoom in"
-            style={{ 
-              padding: '5px 10px',
-              border: '1px solid #ddd',
-              borderRadius: '4px',
-              background: 'white',
-              cursor: 'pointer'
-            }}
-          >
-            +
-          </button>
-        </div>
+        <ZoomControls
+          onZoomIn={handleZoomIn}
+          onZoomOut={handleZoomOut}
+          onResetZoom={handleResetZoom}
+        />
       )}
       
       {/* Diagram container */}
-      <div 
-        className={`${className} ${uniqueId.current}`}
-        style={{ 
-          width: '100%', 
-          height, 
-          backgroundColor,
-          overflow: 'auto',
-          display: 'flex',
-          justifyContent: 'center',
-          padding: '10px',
-          transform: `scale(${zoomLevel})`,
-          transformOrigin: 'center top',
-          transition: 'transform 0.2s ease-in-out'
-        }}
-        ref={mermaidRef}
-        dangerouslySetInnerHTML={{ __html: svg }}
+      <DiagramContainer 
+        className={className}
+        $width={width}
+        $height={height}
+        $backgroundColor={backgroundColor}
+        $zoomLevel={zoomLevel}
+        ref={containerRef}
         role="img"
         aria-label={accessibilityDescription || "System diagram visualization"}
         tabIndex={0}
+        data-diagram-id={uniqueId.current}
       />
-    </div>
+    </DiagramWrapper>
   );
-};
+});
+
+// Add display name for debugging
+MermaidDiagram.displayName = 'MermaidDiagram';
 
 export default MermaidDiagram;

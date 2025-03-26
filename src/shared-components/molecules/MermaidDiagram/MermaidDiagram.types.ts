@@ -1,3 +1,6 @@
+/**
+ * Props for the MermaidDiagram component
+ */
 export interface MermaidDiagramProps {
   /**
    * The Mermaid diagram definition in string format
