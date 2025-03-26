@@ -14,6 +14,8 @@
 - Added a new 'row' layout option to the FeatureGrid component for horizontal card displays
 - Added horizontal scroll indicator with "Scroll horizontally to see more →" message for row layouts
 - Added visual enhancements to row layout including animated card entrances and scroll shadows
+- Added new AiIntegrationProcessDiagram component that uses React Flow instead of Mermaid.js
+- Updated AiAutopilotAnalogy component to use the new React Flow based diagram instead of Mermaid
 
 ### Fixed
 - Fixed icon display issues for "The Synergy of AI and Modern Development Practices" and "Conclusion: Building for the Future" sections
@@ -27,6 +29,7 @@
 - Fixed the duplicate ReactNativeFeature component issue in BestPractices.tsx that was causing extra whitespace
 - Adjusted page separator styling with reduced top margin, black line color, and improved icon visibility
 - Fixed white space issues in BrainGardenOverview sections by converting grid layouts to horizontal row layouts
+- Fixed performance issues with complex diagrams by starting migration to React Flow
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
@@ -45,6 +48,12 @@
 - Changed FeatureGrid component in ForceMultipliersSection and CoreComponentsSection to use 'row' layout instead of grid
 - Enhanced FeatureGrid styling with shadow effects and improved card animations for row layouts
 - Updated FeatureGrid row layout to enable horizontal scrolling with visual indicators
+- Started migration from Mermaid.js to React Flow for improved diagram performance and styling consistency
+- Migrated diagram components from `src/shared-components/diagrams` to `src/components/diagrams`
+- Updated folder structure to follow component organization pattern:
+  - Base components (ReactFlowDiagram) in `src/shared-components/molecules`
+  - Specific diagram implementations in `src/components/diagrams`
+- Updated import paths in components using the diagram components
 
 ### Removed 
 - Removed Expo item from the Modern Tooling category (now in React Native feature section)

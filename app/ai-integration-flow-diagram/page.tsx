@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { AiIntegrationFlowDiagram } from '../../src/shared-components/diagrams/AiIntegrationFlowDiagram';
+import { AiIntegrationFlowDiagram } from '../../src/components/diagrams/AiIntegrationFlowDiagram';
 import { SpinnerLoader } from '../../src/components';
 import styled from 'styled-components';
 

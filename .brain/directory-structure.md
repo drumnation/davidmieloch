@@ -19,7 +19,7 @@
 │   ├── code-examples/            # GitHub projects portfolio
 │   │   └── utils/                # Utility functions for code examples
 │   ├── components/               # App-specific components
-│   │   └── Breakdown/            # Component breakdown
+│   │   └── diagrams/            # Specific diagram implementations using ReactFlowDiagram
 │   ├── enterprise-ai-development-framework/ # Framework page
 │   ├── error.tsx                 # Error handling
 │   ├── global-error.tsx          # Global error handling
@@ -157,6 +157,7 @@ The shared-components directory follows atomic design principles:
 6. **Sections**: Specific content sections like AiSkepticToExpert and BrainGardenOverview
 
 Each component follows a consistent structure with separate files for:
+
 - Component implementation (.tsx)
 - Types (.types.ts)
 - Styles (.styles.ts)
