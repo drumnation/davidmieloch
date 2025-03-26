@@ -189,12 +189,12 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
         {job.media && job.media.length > 0 && (
           <MediaRow>
             {job.media.map((mediaItem: any, mediaIndex: number) => {
-              const isWide = mediaItem.width === 'full' || job.media.length === 1;
+              const $isWide = mediaItem.width === 'full' || job.media.length === 1;
               
               // Render different media types
               if (mediaItem.type === 'image') {
                 return (
-                  <MediaContainer key={`media-${index}-${mediaIndex}`} $isWide={isWide}>
+                  <MediaContainer key={`media-${index}-${mediaIndex}`} $isWide={$isWide}>
                     <img 
                       src={mediaItem.url} 
                       alt={mediaItem.title || `${job.company} image`} 
@@ -211,7 +211,7 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                 return (
                   <MediaContainer 
                     key={`media-${index}-${mediaIndex}`} 
-                    $isWide={isWide}
+                    $isWide={$isWide}
                     className="pdf-container"
                   >
                     <a 
@@ -244,7 +244,7 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                 return (
                   <MediaContainer 
                     key={`media-${index}-${mediaIndex}`} 
-                    $isWide={isWide}
+                    $isWide={$isWide}
                   >
                     <iframe
                       src={mediaItem.url}

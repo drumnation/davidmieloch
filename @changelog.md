@@ -165,3 +165,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Enhanced the Experience data structure to include media arrays
 - Updated media styling for responsive display on different screen sizes
+
+## [0.6.8] - 2024-03-26
+
+### Added
+- Added second YouTube video for Gramercy Tech "Master A Million Demo Video"
+- Configured side-by-side layout for related videos in the Experience page
+
+### Fixed
+- Fixed React DOM prop warnings for isOpen and isWide props in styled components
+- Properly implemented transient props with $ prefix for styled-components
+- Updated Accordion component to use proper styled-components pattern for isOpen/isWide props
