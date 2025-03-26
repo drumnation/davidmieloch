@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 7000",
+    "storybook": "storybook dev -p 7000 --no-manager-cache --no-open",
     "build-storybook": "storybook build",
     "killports": "kill-port 3000 3001 3002 3003 3004 6006 6007 7000 4000 || true"
   },
