@@ -157,6 +157,7 @@ The shared-components directory follows atomic design principles:
 6. **Sections**: Specific content sections like AiSkepticToExpert and BrainGardenOverview
 
 Each component follows a consistent structure with separate files for:
+
 - Component implementation (.tsx)
 - Types (.types.ts)
 - Styles (.styles.ts)

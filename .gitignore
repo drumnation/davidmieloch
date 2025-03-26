@@ -41,3 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 *storybook.log
+
+# LinkedIn data processing
+.brain/linkedin-cookies.json
+.brain/linkedInDataExport
+debug_*.png

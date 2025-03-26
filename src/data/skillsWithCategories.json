@@ -1,0 +1,154 @@
+[
+  {
+    "category": "Languages",
+    "color": "#3498db",
+    "skills": [
+      { "name": "TypeScript", "icon": "IconBrandTypescript" },
+      { "name": "JavaScript", "icon": "IconBrandJavascript" },
+      { "name": "HTML", "icon": "IconBrandHtml5" },
+      { "name": "CSS3", "icon": "IconBrandCss3" }
+    ]
+  },
+  {
+    "category": "Frontend",
+    "color": "#9b59b6",
+    "skills": [
+      { "name": "React.js", "icon": "IconBrandReact" },
+      { "name": "Next.js", "icon": "IconBrandNextjs" },
+      { "name": "Angular.js", "icon": "IconBrandAngular" },
+      { "name": "UI Libraries", "icon": "IconComponents" },
+      { "name": "Ant Design", "icon": "IconLayoutDashboard" },
+      { "name": "Material UI", "icon": "IconComponents" },
+      { "name": "Mantine", "icon": "IconComponents" }
+    ]
+  },
+  {
+    "category": "Mobile Dev",
+    "color": "#e74c3c",
+    "skills": [
+      { "name": "React Native", "icon": "IconBrandReact" },
+      { "name": "Expo", "icon": "IconDeviceMobile" },
+      { "name": "Android", "icon": "IconBrandAndroid" },
+      { "name": "iOS", "icon": "IconBrandApple" }
+    ]
+  },
+  {
+    "category": "Styling",
+    "color": "#f1c40f",
+    "skills": [
+      { "name": "Styled Components", "icon": "IconBrush" },
+      { "name": "CSS Modules", "icon": "IconFileCss" },
+      { "name": "Sass", "icon": "IconBrandSass" }
+    ]
+  },
+  {
+    "category": "Backend",
+    "color": "#2ecc71",
+    "skills": [
+      { "name": "Node.js", "icon": "IconBrandNodejs" },
+      { "name": "Express", "icon": "IconServer" },
+      { "name": "Firebase", "icon": "IconBrandFirebase" }
+    ]
+  },
+  {
+    "category": "State Management",
+    "color": "#1abc9c",
+    "skills": [
+      { "name": "Redux Toolkit", "icon": "IconBrandRedux" },
+      { "name": "React Context", "icon": "IconBrandReact" },
+      { "name": "React Hooks", "icon": "IconBrandReact" }
+    ]
+  },
+  {
+    "category": "API",
+    "color": "#e67e22",
+    "skills": [
+      { "name": "GraphQL", "icon": "IconBrandGraphql" },
+      { "name": "RESTful APIs", "icon": "IconApi" }
+    ]
+  },
+  {
+    "category": "Design Principles",
+    "color": "#34495e",
+    "skills": [
+      { "name": "Atomic Design", "icon": "IconAtom" },
+      { "name": "Clean Code", "icon": "IconCode" }
+    ]
+  },
+  {
+    "category": "Databases",
+    "color": "#16a085",
+    "skills": [
+      { "name": "MongoDB Atlas", "icon": "IconDatabase" },
+      { "name": "PostgreSQL", "icon": "IconBrandPostgres" },
+      { "name": "Redis", "icon": "IconBrandRedis" }
+    ]
+  },
+  {
+    "category": "Build Tools",
+    "color": "#f39c12",
+    "skills": [
+      { "name": "Webpack", "icon": "IconBrandWebpack" },
+      { "name": "Vite", "icon": "IconBrandVite" },
+      { "name": "Parcel", "icon": "IconPackage" },
+      { "name": "Babel", "icon": "IconBrandJavascript" }
+    ]
+  },
+  {
+    "category": "Code Quality",
+    "color": "#8e44ad",
+    "skills": [
+      { "name": "ESLint", "icon": "IconRulerMeasure" },
+      { "name": "Prettier", "icon": "IconCodeAsterix" },
+      { "name": "Husky", "icon": "IconDog" }
+    ]
+  },
+  {
+    "category": "Testing",
+    "color": "#3498db",
+    "skills": [
+      { "name": "Jest", "icon": "IconTestPipe" },
+      { "name": "Playwright", "icon": "IconTestPipe" },
+      { "name": "Puppeteer", "icon": "IconRobot" },
+      { "name": "Storybook", "icon": "IconBook" },
+      { "name": "Detox", "icon": "IconDeviceMobile" }
+    ]
+  },
+  {
+    "category": "CI/CD",
+    "color": "#27ae60",
+    "skills": [
+      { "name": "GitHub Actions", "icon": "IconBrandGithub" },
+      { "name": "Docker", "icon": "IconBrandDocker" },
+      { "name": "AWS", "icon": "IconBrandAws" },
+      { "name": "Vercel", "icon": "IconBrandVercel" },
+      { "name": "Supabase", "icon": "IconDatabase" }
+    ]
+  },
+  {
+    "category": "Extension Dev",
+    "color": "#d35400",
+    "skills": [
+      { "name": "Chrome Extensions", "icon": "IconBrandChrome" },
+      { "name": "VS Code Extensions", "icon": "IconBrandVscode" }
+    ]
+  },
+  {
+    "category": "Monorepos",
+    "color": "#7f8c8d",
+    "skills": [
+      { "name": "NX", "icon": "IconPackage" },
+      { "name": "Turbo Repo", "icon": "IconPackage" },
+      { "name": "PNPM + Yarn Workspaces", "icon": "IconPackage" }
+    ]
+  },
+  {
+    "category": "AI Integration",
+    "color": "#9b59b6",
+    "skills": [
+      { "name": "OpenAI API", "icon": "IconBrain" },
+      { "name": "Claude API", "icon": "IconRobot" },
+      { "name": "Vector Databases", "icon": "IconDatabase" }
+    ]
+  }
+] 

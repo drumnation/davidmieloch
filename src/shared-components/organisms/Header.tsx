@@ -20,7 +20,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useTheme } from '../../../src/providers/ThemeProvider';
-import { IconFileDownload, IconBrandGithub, IconBrandLinkedin, IconBrandMedium } from '@tabler/icons-react';
+import { IconFileText, IconBrandGithub, IconBrandLinkedin, IconBrandMedium } from '@tabler/icons-react';
 import { ClientOnly } from '../../../src/utils';
 import { usePathname } from 'next/navigation';
 
@@ -64,11 +64,6 @@ export function Header() {
       return false;
     }
     return false;
-  };
-
-  const handleResumeDownload = () => {
-    // This will need to be updated with the actual resume PDF path
-    window.open('/resume.pdf', '_blank');
   };
 
   const navItems = navLinks.map((link) => (
@@ -174,16 +169,21 @@ export function Header() {
             </div>
           </Group>
           
-          {/* Resume download button */}
+          {/* Experience link (replacing Resume download button) */}
           <ClientOnly>
             <Button
+              component={Link}
+              href="/experience"
               variant="subtle"
-              leftSection={<IconFileDownload size={16} />}
-              onClick={handleResumeDownload}
               visibleFrom="sm"
-              style={{ whiteSpace: 'nowrap', flex: '0 0 auto' }}
+              style={{ 
+                whiteSpace: 'nowrap', 
+                flex: '0 0 auto',
+                color: isActive('/experience') ? theme.colors.blue[6] : theme.colors.gray[7],
+                fontWeight: 500
+              }}
             >
-              Resume
+              Experience
             </Button>
           </ClientOnly>
           
