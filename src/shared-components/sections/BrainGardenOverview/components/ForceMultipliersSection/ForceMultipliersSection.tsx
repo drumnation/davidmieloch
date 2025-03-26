@@ -118,11 +118,6 @@ const DiagramContainer = styled.div`
   }
 `;
 
-const DialogLine = styled.div`
-  margin-bottom: 0.5rem;
-  position: relative;
-`;
-
 const Speaker = styled.span`
   font-weight: bold;
   color: #4a9eff;
@@ -133,6 +128,68 @@ const Comment = styled.div`
   font-style: italic;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+`;
+
+// New chat interface components
+const ChatContainer = styled.div`
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+`;
+
+const ChatMessage = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+`;
+
+const Avatar = styled.div<{ bgColor?: string }>`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: ${props => props.bgColor || '#4a9eff'};
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  flex-shrink: 0;
+`;
+
+const MessageBubble = styled.div<{ bgColor?: string, textColor?: string }>`
+  background-color: ${props => props.bgColor || '#f5f5f5'};
+  color: ${props => props.textColor || '#1F2937'};
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  border-top-left-radius: ${props => props.bgColor ? '1rem' : '0.25rem'};
+  max-width: calc(100% - 50px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+`;
+
+const SpeakerName = styled.div`
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: #666;
+`;
+
+const MessageContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100% - 50px);
+`;
+
+const MessageText = styled.div`
+  font-size: 1rem;
+  line-height: 1.5;
+`;
+
+const DialogLine = styled.div`
+  margin-bottom: 0.5rem;
+  position: relative;
 `;
 
 const CodeSnippet = styled.pre`
@@ -861,19 +918,71 @@ New version: 2.4.0 (MINOR version bump for new feature)
             <R>Deleted:    src/tests/auth.test.tsx</R>
           </TerminalBlock>
           
-          <DialogLine style={{ marginTop: '1rem' }}><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "What the... I didn't make these changes. And why are there duplicate files all over the place?"</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#0B6E31' }}>Junior Dev:</Speaker> "Oh, I was using the AI to refactor our authentication. It suggested moving files around to 'improve the project structure'."</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "But we already have a project structure! Why is there an AuthProvider in three different locations now? And where did our test file go?"</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#0B6E31' }}>Junior Dev:</Speaker> "The AI said the test was redundant because it was testing implementation details... I think it deleted it."</DialogLine>
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#E34935">S</Avatar>
+              <MessageContent>
+                <SpeakerName>Sarah</SpeakerName>
+                <MessageBubble>
+                  What the... I didn't make these changes. And why are there duplicate files all over the place?
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <MessageContent>
+                <SpeakerName>Junior Dev</SpeakerName>
+                <MessageBubble>
+                  Oh, I was using the AI to refactor our authentication. It suggested moving files around to 'improve the project structure'.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#E34935">S</Avatar>
+              <MessageContent>
+                <SpeakerName>Sarah</SpeakerName>
+                <MessageBubble>
+                  But we already have a project structure! Why is there an AuthProvider in three different locations now? And where did our test file go?
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <MessageContent>
+                <SpeakerName>Junior Dev</SpeakerName>
+                <MessageBubble>
+                  The AI said the test was redundant because it was testing implementation details... I think it deleted it.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
           
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#E34935' }}>Day 3: The Bug Whack-a-Mole</strong>
           
-          <DialogLine><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "The payment processing is broken in production. All transactions are failing."</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#0B6E31' }}>Mid-level Dev:</Speaker> "That's strange. I just used the AI to enhance the order verification function yesterday, but all the tests passed."</DialogLine>
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#E34935">S</Avatar>
+              <MessageContent>
+                <SpeakerName>Sarah</SpeakerName>
+                <MessageBubble>
+                  The payment processing is broken in production. All transactions are failing.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <MessageContent>
+                <SpeakerName>Mid-level Dev</SpeakerName>
+                <MessageBubble>
+                  That's strange. I just used the AI to enhance the order verification function yesterday, but all the tests passed.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
           
           <TerminalBlock>
             <Command>git bisect start</Command>
@@ -891,25 +1000,101 @@ New version: 2.4.0 (MINOR version bump for new feature)
             <R>FAIL PaymentProcessor -&gt; Processing with existing customer -&gt; "Cannot read property 'id' of undefined"</R>
           </TerminalBlock>
           
-          <DialogLine><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "The unit tests all pass, but the integration tests are failing. The AI must have made changes that work in isolation but break in the full system context."</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#0B6E31' }}>Mid-level Dev:</Speaker> "But it generated all this defensive code to handle edge cases. I thought it was making things more robust!"</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "It looks like it's expecting a different data structure than what our API actually returns in production. Did you check if the AI was using the right version of our API spec?"</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#0B6E31' }}>Mid-level Dev:</Speaker> "I... I don't know. I just asked it to enhance the validation..."</DialogLine>
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#E34935">S</Avatar>
+              <MessageContent>
+                <SpeakerName>Sarah</SpeakerName>
+                <MessageBubble>
+                  The unit tests all pass, but the integration tests are failing. The AI must have made changes that work in isolation but break in the full system context.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <MessageContent>
+                <SpeakerName>Mid-level Dev</SpeakerName>
+                <MessageBubble>
+                  But it generated all this defensive code to handle edge cases. I thought it was making things more robust!
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#E34935">S</Avatar>
+              <MessageContent>
+                <SpeakerName>Sarah</SpeakerName>
+                <MessageBubble>
+                  It looks like it's expecting a different data structure than what our API actually returns in production. Did you check if the AI was using the right version of our API spec?
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <MessageContent>
+                <SpeakerName>Mid-level Dev</SpeakerName>
+                <MessageBubble>
+                  I... I don't know. I just asked it to enhance the validation...
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
           
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#E34935' }}>Day 7: The Management Meeting</strong>
           
-          <DialogLine><Speaker style={{ color: '#4A9EFF' }}>CTO:</Speaker> "We need to see better ROI on these AI tools. I'm implementing a new OKR for the quarter: AI suggestion acceptance rate should be above 80%."</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "But that's going to incentivize the team to accept suggestions regardless of quality. We've already had several production issues from inappropriate AI changes."</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#4A9EFF' }}>CTO:</Speaker> "The vendor says their tool increases productivity by 45%. We need to make sure we're leveraging that potential. Other teams are reporting great results."</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "We need guardrails and proper processes first. The AI doesn't understand our project structure, our testing philosophy, or our documentation standards."</DialogLine>
-          
-          <DialogLine><Speaker style={{ color: '#4A9EFF' }}>CTO:</Speaker> "That sounds like resistance to me. These tools are the future - we need to adapt."</DialogLine>
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <MessageContent>
+                <SpeakerName>CTO</SpeakerName>
+                <MessageBubble>
+                  We need to see better ROI on these AI tools. I'm implementing a new OKR for the quarter: AI suggestion acceptance rate should be above 80%.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#E34935">S</Avatar>
+              <MessageContent>
+                <SpeakerName>Sarah</SpeakerName>
+                <MessageBubble>
+                  But that's going to incentivize the team to accept suggestions regardless of quality. We've already had several production issues from inappropriate AI changes.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <MessageContent>
+                <SpeakerName>CTO</SpeakerName>
+                <MessageBubble>
+                  The vendor says their tool increases productivity by 45%. We need to make sure we're leveraging that potential. Other teams are reporting great results.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#E34935">S</Avatar>
+              <MessageContent>
+                <SpeakerName>Sarah</SpeakerName>
+                <MessageBubble>
+                  We need guardrails and proper processes first. The AI doesn't understand our project structure, our testing philosophy, or our documentation standards.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <MessageContent>
+                <SpeakerName>CTO</SpeakerName>
+                <MessageBubble>
+                  That sounds like resistance to me. These tools are the future - we need to adapt.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
           
           <BodyText variant="body" mb="2rem">
             Two weeks later, Sarah has become openly hostile to AI tools. In code reviews, she rejects any AI-generated code on principle. Junior team members are committing broken code because they're blindly accepting AI suggestions to meet the new OKR. The codebase is filled with inconsistently structured components, duplicate logic, and incorrectly refactored modules.
@@ -917,6 +1102,212 @@ New version: 2.4.0 (MINOR version bump for new feature)
           
           <BodyText variant="body">
             The team is caught in a vicious cycle: poor AI implementation → bugs and architectural issues → distrust in AI → resistance to learning proper AI implementation → continued poor usage. This pattern is playing out in companies everywhere as teams rush to adopt AI without the proper framework.
+          </BodyText>
+          
+          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#E34935' }}>The Weekend Coder PM: When AI Empowers the Wrong People</strong>
+          
+          <BodyText variant="body">
+            A month into the AI rollout, Mark, the project manager who previously had never written a line of code, proudly announces he's built a complete CRUD application over the weekend using AI tools.
+          </BodyText>
+
+          <TerminalBlock>
+            <Command>cd ~/personal-projects/weekend-crud-app</Command>
+            <Command>npm run build</Command>
+            <R>Creating an optimized production build...</R>
+            <R>Compiled successfully.</R>
+            <R>✨ Done in 5.67s</R>
+          </TerminalBlock>
+          
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <MessageContent>
+                <SpeakerName>Mark (PM)</SpeakerName>
+                <MessageBubble>
+                  See? It works perfectly! I didn't even have to understand the code. I just described what I wanted, and the AI built it for me.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#E34935">S</Avatar>
+              <MessageContent>
+                <SpeakerName>Sarah (Senior Dev)</SpeakerName>
+                <MessageBubble>
+                  That's great for a personal project, but production applications need—
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <MessageContent>
+                <SpeakerName>Mark (PM)</SpeakerName>
+                <MessageBubble>
+                  This changes everything. I've always suspected developers were overcomplicating things to justify longer timelines.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
+          
+          <strong style={{ display: 'block', marginBottom: '0.5rem', marginTop: '1.5rem', fontSize: '1rem', color: '#E34935' }}>The Following Week: Sprint Planning</strong>
+          
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <MessageContent>
+                <SpeakerName>Mark (PM)</SpeakerName>
+                <MessageBubble>
+                  I've already estimated all the stories for this sprint. Each feature is 2-3 story points maximum.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#E34935">D</Avatar>
+              <MessageContent>
+                <SpeakerName>Senior Developer</SpeakerName>
+                <MessageBubble>
+                  The authentication system rework is at least 8 points. We need to account for all the edge cases, security considerations, and—
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <MessageContent>
+                <SpeakerName>Mark (PM)</SpeakerName>
+                <MessageBubble>
+                  I literally built an OAuth system this weekend in under an hour. 3 points, tops. The AI handles all those edge cases automatically.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#E34935">D</Avatar>
+              <MessageContent>
+                <SpeakerName>Senior Developer</SpeakerName>
+                <MessageBubble>
+                  Your weekend app doesn't have to handle thousands of concurrent users, comply with GDPR, or pass security audits.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <MessageContent>
+                <SpeakerName>Mark (PM)</SpeakerName>
+                <MessageBubble>
+                  You're just being resistant to change. This is classic gatekeeping from developers who feel threatened by AI.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
+          
+          <strong style={{ display: 'block', marginBottom: '0.5rem', marginTop: '1.5rem', fontSize: '1rem', color: '#E34935' }}>Two Weeks Later: The Production Incident</strong>
+          
+          <TerminalBlock>
+            <Command>grep "ERROR" /var/log/production.log | tail -n 20</Command>
+            <R>ERROR [2023-08-15 03:42:18] [auth-service]: SQL injection attempt detected</R>
+            <R>ERROR [2023-08-15 03:45:22] [auth-service]: Brute force login attempt detected</R>
+            <R>ERROR [2023-08-15 03:52:47] [data-service]: Customer data leak detected - improper access control</R>
+            <R>ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated</R>
+          </TerminalBlock>
+          
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#E34935">ST</Avatar>
+              <MessageContent>
+                <SpeakerName>Security Team</SpeakerName>
+                <MessageBubble>
+                  We have a major breach. Customer data has been compromised. The new authentication service had multiple vulnerabilities.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <MessageContent>
+                <SpeakerName>Junior Dev</SpeakerName>
+                <MessageBubble>
+                  But I used the exact prompt Mark suggested, and the AI said the code was secure...
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#E34935">D</Avatar>
+              <MessageContent>
+                <SpeakerName>Senior Developer</SpeakerName>
+                <MessageBubble>
+                  Did you implement the security testing suite we normally use?
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <MessageContent>
+                <SpeakerName>Junior Dev</SpeakerName>
+                <MessageBubble>
+                  Mark said it was overengineering and would slow us down too much.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
+          
+          <strong style={{ display: 'block', marginBottom: '0.5rem', marginTop: '1.5rem', fontSize: '1rem', color: '#E34935' }}>The Aftermath: Developer Exodus</strong>
+          
+          <BodyText variant="body">
+            In the following weeks, three senior developers resign. Exit interviews reveal a common theme: "AI tools were weaponized against us." Developers describe a toxic environment where:
+          </BodyText>
+          
+          <ul style={{ marginLeft: '2rem', color: '#E34935', marginTop: '1rem', marginBottom: '1rem' }}>
+            <li style={{ marginBottom: '0.5rem' }}>
+              Deadlines were set by non-technical managers who equated their weekend hobby projects with enterprise software
+            </li>
+            <li style={{ marginBottom: '0.5rem' }}>
+              Technical concerns were dismissed as "resistance to innovation"
+            </li>
+            <li style={{ marginBottom: '0.5rem' }}>
+              Complex technical considerations were labeled as "overengineering"
+            </li>
+            <li style={{ marginBottom: '0.5rem' }}>
+              Years of experience were devalued compared to AI-produced quick wins
+            </li>
+            <li style={{ marginBottom: '0.5rem' }}>
+              Developer autonomy was stripped away as PMs began dictating implementations
+            </li>
+          </ul>
+          
+          <BodyText variant="body">
+            The company's Glassdoor rating plummets. One anonymous review reads: "The AI tools that were supposed to make our jobs easier became weapons used against us. PMs with no coding experience now dictate how long features should take based on their weekend 'vibe coding' sessions. When the AI tools are down, we still have the same impossible deadlines but without the tools to meet them."
+          </BodyText>
+          
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <MessageContent>
+                <SpeakerName>Mark (PM)</SpeakerName>
+                <MessageBubble>
+                  We need to hire junior developers who are more comfortable with AI. These senior developers were just too set in their ways.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <MessageContent>
+                <SpeakerName>CTO</SpeakerName>
+                <MessageBubble>
+                  But now our entire authentication system needs to be rewritten from scratch by security experts. The data breach is going to cost us millions...
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
+          
+          <BodyText variant="body" mb="2rem">
+            Two months later, the company has an engineering team composed mostly of junior developers supervised by project managers. Technical debt has accumulated to crippling levels. The AI tools generate code quickly, but without the guidance of experienced developers, that code is becoming increasingly unmaintainable. When servers are overloaded and AI tools are unavailable, development grinds to a halt as few developers can work effectively without AI assistance. The AI revolution that promised to enhance developer capabilities has instead created a dysfunctional dependency.
           </BodyText>
           
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4A9EFF' }}>The Brain Garden Difference</strong>
