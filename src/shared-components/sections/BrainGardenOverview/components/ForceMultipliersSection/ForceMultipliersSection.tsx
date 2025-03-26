@@ -126,8 +126,9 @@ const Speaker = styled.span`
 const Comment = styled.div`
   color: #6B7280;
   font-style: italic;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
 `;
 
 // New chat interface components
@@ -206,16 +207,19 @@ const CodeSnippet = styled.pre`
 const TerminalBlock = styled.div`
   background-color: #1E293B;
   color: #E2E8F0;
-  padding: 1rem;
+  padding: 1.25rem;
   border-radius: 8px;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   line-height: 1.5;
 `;
 
 const Command = styled.div`
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
+  line-height: 1.5;
+  font-family: 'Courier New', monospace;
+  
   &::before {
     content: "$ ";
     opacity: 0.6;
@@ -229,23 +233,38 @@ const Result = styled.div`
   white-space: pre-wrap;
 `;
 
-// Add a proper r component that can be used in JSX
-const R = styled.div`
+const TerminalOutput = styled.pre`
   color: #A3E635;
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  display: block;
+  background: none;
+  border: none;
+`;
+
+const GitOutput = styled(TerminalOutput)`
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+`;
+
+const R = styled(TerminalOutput)`
   margin-left: 1rem;
   margin-bottom: 0.5rem;
-  white-space: pre-wrap;
-  font-family: 'Courier New', monospace;
 `;
 
 const GitFeatureReconstruction = styled.div`
   background-color: #1E293B;
   color: #E2E8F0;
-  padding: 1.5rem;
+  padding: 1.75rem;
   border-radius: 12px;
-  margin: 1.5rem 0;
+  margin: 1.75rem 0;
   position: relative;
   overflow: hidden;
+  line-height: 1.6;
   
   &:before {
     content: '';
@@ -259,8 +278,9 @@ const GitFeatureReconstruction = styled.div`
 `;
 
 const GitCommand = styled.div`
-  margin: 0.75rem 0;
+  margin: 1rem 0 0.5rem 0;
   font-family: 'Courier New', monospace;
+  line-height: 1.5;
   
   &::before {
     content: "$ ";
@@ -274,21 +294,14 @@ const CommandHighlight = styled.span`
   font-weight: bold;
 `;
 
-const GitOutput = styled.div`
-  color: #A3E635;
-  margin: 0.5rem 0 1rem 1.5rem;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85rem;
-  white-space: pre-wrap;
-`;
-
 const GitCommit = styled.div`
   color: #F472B6;
-  margin: 0.75rem 0;
+  margin: 0.75rem 0 1rem 0;
   font-family: 'Courier New', monospace;
   padding: 0 0 0 1.5rem;
   white-space: pre-wrap;
   border-left: 2px solid #F472B6;
+  line-height: 1.6;
 `;
 
 const InsightBox = styled.div`
@@ -318,6 +331,8 @@ const PRBranch = styled.div`
   gap: 0.5rem;
   margin: 0.5rem 0;
   font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  padding: 0.25rem 0;
   
   &:before {
     content: "│";
@@ -337,6 +352,8 @@ const DependencyArrow = styled.div`
   color: #9CA3AF;
   margin: 0.25rem 0 0.25rem 1.5rem;
   font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  padding: 0.15rem 0;
   
   &:before {
     content: "└─";
@@ -676,35 +693,34 @@ flowchart TD
           <GitFeatureReconstruction>
             <Comment>// Step 1: Extract the history of a removed feature</Comment>
             <GitCommand><CommandHighlight>git log -p --all -S "userPreferences"</CommandHighlight> &gt; feature_history.txt</GitCommand>
-            <GitOutput>Finding commits that modified "userPreferences"...
-Extracted 7 commits from the past 5 months.</GitOutput>
+            <GitOutput>{`Finding commits that modified "userPreferences"... Extracted 7 commits from the past 5 months.`}</GitOutput>
             
             <Comment>// Step 2: AI analyzes the feature's evolution</Comment>
             <GitCommand><CommandHighlight>analyze_feature_evolution</CommandHighlight> feature_history.txt</GitCommand>
-            <GitOutput>Analyzing feature history...
+            <GitOutput>{`Analyzing feature history...
 ✓ Initial implementation: March 15
 ✓ Enhanced with dark mode: April 2  
 ✓ Refactored to use new API: April 28
 ✓ Fixed accessibility issues: May 10
-✓ Removed during codebase cleanup: June 3</GitOutput>
+✓ Removed during codebase cleanup: June 3`}</GitOutput>
             
             <Comment>// Step 3: Create a branch for reimplementation</Comment>
             <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> feature-reimplementation</GitCommand>
             
             <Comment>// Step 4: AI explores commit messages & compares file versions</Comment>
             <GitCommand><CommandHighlight>git show</CommandHighlight> abc123:src/components/UserPreferences.tsx</GitCommand>
-            <GitOutput>Displaying UserPreferences.tsx from commit abc123...</GitOutput>
+            <GitOutput>{`Displaying UserPreferences.tsx from commit abc123...`}</GitOutput>
             
             <GitCommand><CommandHighlight>git show</CommandHighlight> def456:src/components/UserPreferences.tsx</GitCommand>
-            <GitOutput>Displaying UserPreferences.tsx from commit def456...</GitOutput>
+            <GitOutput>{`Displaying UserPreferences.tsx from commit def456...`}</GitOutput>
             
             <Comment>// Step 5: AI reimplements the feature with modern components</Comment>
             <GitCommand><CommandHighlight>git commit</CommandHighlight> -am "Reimplemented user preferences panel"</GitCommand>
-            <GitCommit>Reimplemented user preferences panel:
+            <GitCommit>{`Reimplemented user preferences panel:
 - Restored all original functionality
 - Updated to use new design system components  
 - Added migration for existing user settings
-- Expanded test coverage by 40%</GitCommit>
+- Expanded test coverage by 40%`}</GitCommit>
           </GitFeatureReconstruction>
           
           <InsightBox>
@@ -726,45 +742,45 @@ Extracted 7 commits from the past 5 months.</GitOutput>
           <GitPRSplitter>
             <Comment>// Step 1: Extract changes for analysis</Comment>
             <GitCommand><CommandHighlight>git log --patch</CommandHighlight> &gt; changes.patch</GitCommand>
-            <GitOutput>Extracting commit history with changes...</GitOutput>
+            <GitOutput>{`Extracting commit history with changes...`}</GitOutput>
             
             <Comment>// Step 2: AI analyzes the changes to determine logical groupings</Comment>
             <GitCommand><CommandHighlight>analyze_changes</CommandHighlight> changes.patch</GitCommand>
-            <GitOutput>Analyzing 230+ files changed in PR #1458...
+            <GitOutput>{`Analyzing 230+ files changed in PR #1458...
 ✓ Identified 3 main components in the changes:
   - Authentication system refactoring (34 files)
   - Database schema migrations (48 files)
   - UI component updates (152 files)
 ✓ Dependencies detected:
   - Database changes depend on authentication
-  - UI changes depend on both database and authentication</GitOutput>
+  - UI changes depend on both database and authentication`}</GitOutput>
             
             <Comment>// Step 3: AI creates separate branches with logical commits</Comment>
             <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> part1-authentication</GitCommand>
-            <GitOutput>Created branch 'part1-authentication'</GitOutput>
+            <GitOutput>{`Created branch 'part1-authentication'`}</GitOutput>
             
             <PRBranch><BranchIcon>⎇</BranchIcon> part1-authentication: <span style={{color: "#F472B6"}}>Authentication core refactoring</span></PRBranch>
             <DependencyArrow>Required for database and UI changes</DependencyArrow>
             
             <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> part2-database</GitCommand>
-            <GitOutput>Created branch 'part2-database'</GitOutput>
+            <GitOutput>{`Created branch 'part2-database'`}</GitOutput>
             
             <PRBranch><BranchIcon>⎇</BranchIcon> part2-database: <span style={{color: "#F472B6"}}>Schema migrations and ORM updates</span></PRBranch>
             <DependencyArrow>Required for UI changes</DependencyArrow>
             
             <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> part3-ui</GitCommand>
-            <GitOutput>Created branch 'part3-ui'</GitOutput>
+            <GitOutput>{`Created branch 'part3-ui'`}</GitOutput>
             
             <PRBranch><BranchIcon>⎇</BranchIcon> part3-ui: <span style={{color: "#F472B6"}}>Component library and page updates</span></PRBranch>
             
             <Comment>// Step 4: AI creates structured PRs with dependency information</Comment>
             <GitCommand><CommandHighlight>create_pull_requests</CommandHighlight> --sequence</GitCommand>
-            <GitOutput>Creating sequential pull requests...
+            <GitOutput>{`Creating sequential pull requests...
 ✓ Created PR #1459: Authentication System Refactoring
 ✓ Created PR #1460: Database Schema Migrations (depends on #1459)
 ✓ Created PR #1461: UI Component Updates (depends on #1460)
 
-All PRs include automated documentation of changes, test results, and dependency notes.</GitOutput>
+All PRs include automated documentation of changes, test results, and dependency notes.`}</GitOutput>
           </GitPRSplitter>
           
           <InsightBox>
@@ -785,58 +801,52 @@ All PRs include automated documentation of changes, test results, and dependency
           </BodyText>
 
           <DocsFeatReconstruction>
-            <Comment>// Agent completes implementing a new authentication feature</Comment>
-            <GitCommand><CommandHighlight>git commit</CommandHighlight> -am "Implement OAuth2 authentication with Google and GitHub providers"</GitCommand>
+            <Comment>// Step 1: Detect new feature implementation in codebase</Comment>
+            <GitCommand><CommandHighlight>git log --since="2 weeks ago" --name-only --grep="QuickShare"</CommandHighlight></GitCommand>
+            <GitOutput>{`Detected new feature: "Quick Share" implementation in:
+/src/features/sharing/QuickShare.tsx
+/src/features/sharing/hooks/useQuickShare.ts
+/src/features/sharing/api/quickShareApi.ts`}</GitOutput>
             
-            <Comment>// Agent automatically initiates documentation process</Comment>
-            <GitOutput>Feature implementation complete. Initiating documentation checklist...</GitOutput>
+            <Comment>// Step 2: Check documentation status</Comment>
+            <GitCommand><CommandHighlight>check_docs_status</CommandHighlight> "Quick Share"</GitCommand>
+            <GitOutput>{`Documentation check results:
+✓ API documentation: Present (85% coverage)
+✗ Usage examples: Missing
+✗ Integration guide: Missing
+✗ Feature documentation: Missing`}</GitOutput>
             
-            <Comment>// Step 1: Update project task list</Comment>
-            <GitCommand><CommandHighlight>update_project_tasks</CommandHighlight> --mark-complete "Implement OAuth authentication"</GitCommand>
-            <GitOutput>✓ Updated tasks in .brain/github-projects-plan.md
-✓ Task "Implement OAuth authentication" marked as complete
-✓ Added implementation details to task history</GitOutput>
-            
-            <Comment>// Step 2: Update feature documentation</Comment>
-            <GitCommand><CommandHighlight>update_docs</CommandHighlight> --feature "authentication" --path "docs/features/authentication.md"</GitCommand>
-            <GitOutput>Analyzing changes to authentication system...
-✓ Created comprehensive documentation for new OAuth providers
-✓ Added code examples for authentication flows
-✓ Updated integration guide with new environment variables
-✓ Added troubleshooting section for common OAuth issues</GitOutput>
-            
-            <Comment>// Step 3: Update project README</Comment>
-            <GitCommand><CommandHighlight>update_readme</CommandHighlight> --section "Authentication"</GitCommand>
-            <GitOutput>✓ Updated authentication section in README.md
-✓ Added new OAuth providers to feature list
-✓ Updated quick start guide with new auth options</GitOutput>
-            
-            <Comment>// Step 4: Update CHANGELOG and bump version</Comment>
-            <GitCommand><CommandHighlight>bump_version</CommandHighlight> --type "minor" --update-changelog</GitCommand>
-            <GitOutput>Analyzing semantic versioning requirements...
-Current version: 2.3.1
-New version: 2.4.0 (MINOR version bump for new feature)
-✓ Updated version in package.json
-✓ Added new entry to CHANGELOG.md:
+            <Comment>// Step 3: AI follows documentation checklist</Comment>
+            <GitCommand><CommandHighlight>generate_docs</CommandHighlight> --feature "Quick Share" --complete</GitCommand>
+            <GitOutput>{`Generating missing documentation...
+Analyzing code to extract usage patterns...
+Creating examples based on implementation...
+Documenting API endpoints and parameters...
 
-## [2.4.0] - 2023-08-15
-### Added
-- OAuth2 authentication with Google and GitHub providers
-- Automatic token refresh mechanism
-- Session persistence across page reloads
-- Comprehensive documentation for authentication flows</GitOutput>
+Documentation generated:
+✓ docs/features/sharing/quick-share.md
+✓ docs/api/sharing/quick-share-api.md
+✓ docs/examples/sharing/quick-share-examples.md
+✓ docs/integration/quick-share-integration.md`}</GitOutput>
             
-            <Comment>// Step 5: Create documentation PR</Comment>
-            <GitCommand><CommandHighlight>git checkout</CommandHighlight> -b docs/oauth-authentication</GitCommand>
-            <GitCommand><CommandHighlight>git add</CommandHighlight> .</GitCommand>
-            <GitCommand><CommandHighlight>git commit</CommandHighlight> -m "docs: update documentation for OAuth authentication"</GitCommand>
-            <GitCommand><CommandHighlight>create_pull_request</CommandHighlight> --base main --title "Documentation: OAuth Authentication"</GitCommand>
-            <GitOutput>✓ Created PR #462: Documentation: OAuth Authentication
-  - Updates project task list
-  - Adds comprehensive feature documentation
-  - Updates README.md
-  - Updates CHANGELOG.md
-  - Bumps version from 2.3.1 to 2.4.0</GitOutput>
+            <Comment>// Step 4: AI creates documentation PR</Comment>
+            <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> docs/quick-share-feature</GitCommand>
+            <GitOutput>{`Created branch 'docs/quick-share-feature'`}</GitOutput>
+            
+            <GitCommand><CommandHighlight>git add</CommandHighlight> docs/</GitCommand>
+            <GitCommand><CommandHighlight>git commit -m</CommandHighlight> "Add comprehensive documentation for Quick Share feature"</GitCommand>
+            <GitOutput>{`[docs/quick-share-feature a8e29a5] Add comprehensive documentation for Quick Share feature
+ 4 files changed, 425 insertions(+)`}</GitOutput>
+            
+            <GitCommand><CommandHighlight>git push origin</CommandHighlight> docs/quick-share-feature</GitCommand>
+            <GitOutput>{`Branch 'docs/quick-share-feature' set up to track remote branch 'docs/quick-share-feature' from 'origin'.
+To github.com:company/repo.git
+   0000000..a8e29a5  docs/quick-share-feature -> docs/quick-share-feature`}</GitOutput>
+            
+            <GitCommand><CommandHighlight>create_pull_request</CommandHighlight> --branch docs/quick-share-feature</GitCommand>
+            <GitOutput>{`Created PR #2134: "Documentation: Complete Quick Share feature docs"
+Added Reviewers: @tech-writers, @feature-owners
+Added Labels: documentation, automated`}</GitOutput>
           </DocsFeatReconstruction>
 
           <InsightBox>
@@ -899,23 +909,25 @@ New version: 2.4.0 (MINOR version bump for new feature)
           
           <TerminalBlock>
             <Command>git pull</Command>
-            <R>Updating 3a5bc21..9f842d0</R>
-            <R>error: Your local changes to the following files would be overwritten by merge:</R>
-            <R>    src/components/auth/AuthProvider.tsx</R>
-            <R>    src/utils/api-client.ts</R>
-            <R>    src/pages/dashboard.tsx</R>
-            <R>Please commit your changes or stash them before you merge.</R>
-            <R>Aborting</R>
+            <R>{`Updating 3a5bc21..9f842d0
+
+error: Your local changes to the following files would be overwritten by merge:
+    src/components/auth/AuthProvider.tsx
+    src/utils/api-client.ts
+    src/pages/dashboard.tsx
+
+Please commit your changes or stash them before you merge.
+Aborting`}</R>
             
             <Command>git status</Command>
-            <R>Modified:   src/components/auth/AuthProvider.tsx</R>
-            <R>Modified:   src/utils/api-client.ts</R>
-            <R>Modified:   src/pages/dashboard.tsx</R>
-            <R>Untracked:  src/components/AuthProvider.tsx</R>
-            <R>Untracked:  src/api-client.ts</R>
-            <R>Untracked:  src/utils/authentication/AuthProvider.tsx</R>
-            <R>Untracked:  src/pages/api/auth/utils.ts</R>
-            <R>Deleted:    src/tests/auth.test.tsx</R>
+            <R>{`Modified:   src/components/auth/AuthProvider.tsx
+Modified:   src/utils/api-client.ts
+Modified:   src/pages/dashboard.tsx
+Untracked:  src/components/AuthProvider.tsx
+Untracked:  src/api-client.ts
+Untracked:  src/utils/authentication/AuthProvider.tsx
+Untracked:  src/pages/api/auth/utils.ts
+Deleted:    src/tests/auth.test.tsx`}</R>
           </TerminalBlock>
           
           <ChatContainer>
@@ -988,16 +1000,16 @@ New version: 2.4.0 (MINOR version bump for new feature)
             <Command>git bisect start</Command>
             <Command>git bisect bad</Command>
             <Command>git bisect good HEAD~20</Command>
-            <R>Bisecting: 10 revisions left to test after this (roughly 3 steps)</R>
-            <R>[8d7e25a] AI-enhanced order validation with improved error handling</R>
+            <R>{`Bisecting: 10 revisions left to test after this (roughly 3 steps)
+[8d7e25a] AI-enhanced order validation with improved error handling`}</R>
             
             <Command>npm test</Command>
-            <R>PASS src/tests/orders/validation.test.ts</R>
-            <R>PASS src/tests/orders/payment.test.ts</R>
-            <R>PASS src/tests/orders/shipping.test.ts</R>
+            <R>{`PASS src/tests/orders/validation.test.ts
+PASS src/tests/orders/payment.test.ts
+PASS src/tests/orders/shipping.test.ts`}</R>
             
             <Command>npm run integration-test</Command>
-            <R>FAIL PaymentProcessor -&gt; Processing with existing customer -&gt; "Cannot read property 'id' of undefined"</R>
+            <R>{`FAIL PaymentProcessor -> Processing with existing customer -> "Cannot read property 'id' of undefined"`}</R>
           </TerminalBlock>
           
           <ChatContainer>
@@ -1113,9 +1125,9 @@ New version: 2.4.0 (MINOR version bump for new feature)
           <TerminalBlock>
             <Command>cd ~/personal-projects/weekend-crud-app</Command>
             <Command>npm run build</Command>
-            <R>Creating an optimized production build...</R>
-            <R>Compiled successfully.</R>
-            <R>✨ Done in 5.67s</R>
+            <R>{`Creating an optimized production build...
+Compiled successfully.
+✨ Done in 5.67s`}</R>
           </TerminalBlock>
           
           <ChatContainer>
@@ -1208,10 +1220,10 @@ New version: 2.4.0 (MINOR version bump for new feature)
           
           <TerminalBlock>
             <Command>grep "ERROR" /var/log/production.log | tail -n 20</Command>
-            <R>ERROR [2023-08-15 03:42:18] [auth-service]: SQL injection attempt detected</R>
-            <R>ERROR [2023-08-15 03:45:22] [auth-service]: Brute force login attempt detected</R>
-            <R>ERROR [2023-08-15 03:52:47] [data-service]: Customer data leak detected - improper access control</R>
-            <R>ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated</R>
+            <R>{`ERROR [2023-08-15 03:42:18] [auth-service]: SQL injection attempt detected
+ERROR [2023-08-15 03:45:22] [auth-service]: Brute force login attempt detected
+ERROR [2023-08-15 03:52:47] [data-service]: Customer data leak detected - improper access control
+ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
           </TerminalBlock>
           
           <ChatContainer>
