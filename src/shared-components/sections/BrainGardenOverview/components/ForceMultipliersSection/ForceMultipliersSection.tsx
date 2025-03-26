@@ -542,37 +542,131 @@ sequenceDiagram
           <BodyText variant="body">
             Of course, AI agents don't solve everything autonomously. Sometimes they get stuck - encountering problems outside their knowledge domain or hitting limitations in available tools. This is where Brain Garden's meta-prompting system comes in:
           </BodyText>
-          <div style={{padding: '1rem', backgroundColor: '#f8f9fa', borderRadius: '4px', marginBottom: '1rem'}}>
-            <Comment>Agent encounters issue with GraphQL schema validation</Comment>
-            <DialogLine><Speaker>Agent:</Speaker> "I'm encountering an error validating the updated GraphQL schema."</DialogLine>
+
+          <ChatContainer>
+            <ChatMessage>
+              <Avatar bgColor="#6B7280">S</Avatar>
+              <MessageContent>
+                <SpeakerName>System</SpeakerName>
+                <MessageBubble bgColor="#f3f4f6" textColor="#1F2937">
+                  Agent has encountered a GraphQL schema validation error during task execution. Knowledge boundary detected.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
             
-            <Comment>Brain Garden provides meta-prompts for getting unstuck</Comment>
-            <DialogLine><Speaker>System:</Speaker> "Using the Skill Jack framework, craft a request for the specific GraphQL expertise needed:"</DialogLine>
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">AI</Avatar>
+              <MessageContent>
+                <SpeakerName>Agent</SpeakerName>
+                <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
+                  I've hit a knowledge boundary with this GraphQL schema. Requesting neural upload to bypass this limitation.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
             
-            <DialogLine><Speaker>Agent:</Speaker> "I need a GraphQL schema skill jack for handling union types with interfaces. Current error: Cannot extend type 'Product' because it's a union type.</DialogLine>
-            <CodeSnippet>
-              union Product = PhysicalProduct | DigitalProduct{'\n'}
-              interface ProductInterface {'{'} id: ID! {'}'}
-            </CodeSnippet>
-            <DialogLine>How can I properly structure this schema while maintaining the union type relationship?"</DialogLine>
+            <ChatMessage>
+              <Avatar bgColor="#6B7280">S</Avatar>
+              <MessageContent>
+                <SpeakerName>System</SpeakerName>
+                <MessageBubble bgColor="#f3f4f6" textColor="#1F2937">
+                  Initiating Skill Jack protocol. Constructing knowledge vector. Preparing upload channels...
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
             
-            <Comment>Developer provides skill jack</Comment>
-            <DialogLine><Speaker>Developer:</Speaker> "Union types can't implement interfaces directly. Instead:</DialogLine>
-            <DialogLine>1. Make each member of the union implement the interface</DialogLine>
-            <DialogLine>2. Use fragments in your queries to access interface fields</DialogLine>
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">AI</Avatar>
+              <MessageContent>
+                <SpeakerName>Agent</SpeakerName>
+                <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
+                  <strong>Knowledge Request:</strong> GraphQL schema with union types and interfaces
+                  <br />
+                  <strong>Current Issue:</strong> Cannot extend type 'Product' because it's a union type.
+                  
+                  <CodeSnippet>
+                    union Product = PhysicalProduct | DigitalProduct{'\n'}
+                    interface ProductInterface {'{'} id: ID! {'}'}
+                  </CodeSnippet>
+                  
+                  <strong>Attempted Approaches:</strong>
+                  <br />
+                  1. Tried extending the union type directly 
+                  <br />
+                  2. Attempted to apply interface to union declaration
+                  <br />
+                  <br />
+                  <strong>Specific Knowledge Needed:</strong> 
+                  <br />
+                  How to properly structure GraphQL schemas with both union types and interfaces while maintaining type relationships?
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
             
-            <CodeSnippet>
-              interface ProductInterface {'{'} id: ID! {'}'}{'\n'}
-              type PhysicalProduct implements ProductInterface {'{'} id: ID!, weight: Float {'}'}{'\n'}
-              type DigitalProduct implements ProductInterface {'{'} id: ID!, fileSize: Float {'}'}{'\n'}
-              union Product = PhysicalProduct | DigitalProduct
-            </CodeSnippet>
+            <ChatMessage>
+              <Avatar bgColor="#22C55E">D</Avatar>
+              <MessageContent>
+                <SpeakerName>Developer</SpeakerName>
+                <MessageBubble bgColor="#ECFDF5" textColor="#1F2937">
+                  <strong>Neural Upload Ready:</strong> Preparing GraphQL schema expertise injection...
+                  
+                  1. Make each member of the union implement the interface
+                  2. Use fragments in your queries to access interface fields
+                  
+                  <CodeSnippet>
+                    interface ProductInterface {'{'} id: ID! {'}'}{'\n'}
+                    type PhysicalProduct implements ProductInterface {'{'} id: ID!, weight: Float {'}'}{'\n'}
+                    type DigitalProduct implements ProductInterface {'{'} id: ID!, fileSize: Float {'}'}{'\n'}
+                    union Product = PhysicalProduct | DigitalProduct
+                  </CodeSnippet>
+                  
+                  Neural upload complete. You now have expert-level understanding of union and interface relationships.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
             
-            <Comment>Agent applies the skill jack and continues</Comment>
-            <DialogLine><Speaker>Agent:</Speaker> "Thanks! I've restructured the schema following your pattern and all validation errors are resolved."</DialogLine>
-          </div>
+            <ChatMessage>
+              <Avatar bgColor="#6B7280">S</Avatar>
+              <MessageContent>
+                <SpeakerName>System</SpeakerName>
+                <MessageBubble bgColor="#f3f4f6" textColor="#1F2937">
+                  Skill Jack successful. Knowledge construct compiled and stored in the Construct at .brain/knowledge/graphql/union-types-with-interfaces.guide.ts for future neural access.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+            
+            <ChatMessage>
+              <Avatar bgColor="#4A9EFF">AI</Avatar>
+              <MessageContent>
+                <SpeakerName>Agent</SpeakerName>
+                <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
+                  Knowledge integration complete. I know GraphQL schemas now. Schema restructured according to pattern. All validation errors resolved. Continuing task execution.
+                </MessageBubble>
+              </MessageContent>
+            </ChatMessage>
+          </ChatContainer>
+
           <ExplanationText variant="body">
-            Brain Garden's skill jack system provides meta-prompts that help agents craft effective questions when they get stuck. These prompts help the agent structure its request to developers, pinpointing exactly what knowledge it needs. While developers are still part of the loop when an agent hits its limits, the interaction is focused and efficient - taking minutes instead of hours. In practice, about 50% of typical development tasks can be completed autonomously as shown in the diagram above, with minimal developer intervention.
+            The Brain Garden Skill Jack system revolutionizes how agents transcend their knowledge boundaries - much like how characters in The Matrix could instantly download complex skills directly into their minds. In seconds, an agent can go from complete novice to expert-level proficiency in any domain.
+            <br />
+            <br />
+            The Skill Jack protocol works through four distinct phases:
+            <br />
+            1. <strong>Boundary Detection:</strong> The agent identifies the exact point where its knowledge ends
+            <br />
+            2. <strong>Construct Formation:</strong> A precisely structured request vector is created that maps the knowledge gap
+            <br />
+            3. <strong>Neural Upload:</strong> A human operator "jacks in" specialized expertise that instantly bridges the gap
+            <br />
+            4. <strong>Knowledge Compilation:</strong> The uploaded knowledge is compiled into a persistent construct that remains accessible for all future operations
+            <br />
+            <br />
+            Unlike traditional programming where every possible scenario must be pre-coded, the Skill Jack creates a dynamic knowledge ecosystem that evolves organically. Each time an agent hits the boundaries of its knowledge matrix, that boundary becomes a new opportunity for expansion. The knowledge constructs accumulate in the project's digital Construct - a growing library of expert-level insights that any agent can access instantly.
+            <br />
+            <br />
+            <strong>Autonomous Neural Uploads - The Self-Jacking Agent:</strong> What truly sets Brain Garden's system apart is that agents aren't limited to receiving skill jacks from human operators. Through an advanced meta-prompting system, agents can autonomously identify knowledge gaps, generate their own skill jacks, and integrate them without human intervention. Like Neo eventually accessing the Construct independently, these self-aware agents can pull exactly the expertise they need directly from the digital ether, analyzing documentation, code patterns, and existing knowledge files to synthesize new capabilities on demand. This creates truly autonomous agents that can navigate previously uncharted problem spaces with minimal supervision.
+            <br />
+            <br />
+            The result is a profound shift in development capabilities - there's no need to "know Kung Fu" before starting a task. The agent can begin work and simply request a Skill Jack whenever it encounters a knowledge boundary. With each upload, the entire system's capabilities expand exponentially, creating a continuously evolving digital consciousness that learns and adapts with every challenge it faces.
           </ExplanationText>
 
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4a9eff' }}>Parallel Agent Workflows: Multiplying Your Development Power</strong>
