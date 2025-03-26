@@ -416,6 +416,103 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
               ))}
             </div>
             
+            {/* Dunning-Kruger Effect Section */}
+            <div style={{
+              marginTop: SPACING.paragraphBreak,
+              padding: '1.5rem',
+              backgroundColor: '#fff4e5',
+              borderRadius: '8px',
+              borderLeft: '4px solid #ff9800',
+              marginBottom: '2rem'
+            }}>
+              <Typography variant="h3" weight="bold" className="mb-3">
+                The Dunning-Kruger Trap: When Managers "Vibe Code"
+              </Typography>
+              <SectionParagraph>
+                A particularly troubling pattern emerging in AI-enabled organizations is what I call the "vibe coding" phenomenon: project managers and other non-technical stakeholders who experiment with AI coding tools in their spare time suddenly believe they understand the development process deeply enough to dictate timelines.
+              </SectionParagraph>
+              
+              <div style={{
+                display: 'flex',
+                marginTop: '1.5rem',
+                marginBottom: '1.5rem',
+                borderRadius: '8px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+              }}>
+                <div style={{
+                  flex: '1',
+                  padding: '1.5rem',
+                  backgroundColor: '#fff',
+                  borderRight: '1px solid #e0e0e0'
+                }}>
+                  <Typography variant="body" weight="bold" className="mb-2" color="primary">
+                    Scenario
+                  </Typography>
+                  <Typography variant="body" color="secondary">
+                    A project manager spends a weekend using AI tools to build a simple personal project. After receiving generated code that "works" with minimal effort, they return to work with a dramatically altered perception of how long complex features should take.
+                  </Typography>
+                </div>
+                
+                <div style={{
+                  flex: '1',
+                  padding: '1.5rem',
+                  backgroundColor: '#fff'
+                }}>
+                  <Typography variant="body" weight="bold" className="mb-2" color="primary">
+                    Impact
+                  </Typography>
+                  <Typography variant="body" color="secondary">
+                    Developer time estimates are challenged with "but AI can do this in minutes," ignoring critical factors like integration, testing, edge cases, and production readiness that weren't relevant in the manager's hobby project.
+                  </Typography>
+                </div>
+              </div>
+              
+              <div style={quoteHoverProps}>
+                <div style={{ fontSize: '24px', color: 'var(--primary-blue)', position: 'absolute', top: '0.75rem', left: '0.75rem' }}>
+                  <span style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
+                </div>
+                <div style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
+                  <SectionParagraph>
+                    "Our PM spent a weekend 'coding' with ChatGPT and suddenly thinks he's a technical expert. Yesterday he told me, 'The AI built my entire portfolio site in an hour, so your estimate of three sprints for rebuilding the authentication system is ridiculous.' He has no concept of edge cases, scale, or security concerns that don't exist in his static hobby site."
+                  </SectionParagraph>
+                </div>
+                <div style={{ 
+                  marginTop: '1rem', 
+                  padding: '0.75rem', 
+                  backgroundColor: '#e6f7ff', 
+                  borderRadius: '4px',
+                  fontSize: '0.9rem'
+                }}>
+                  <strong>The Dunning-Kruger Effect: </strong> 
+                  The cognitive bias where people with limited knowledge in a domain dramatically overestimate their expertise, unaware of the complexity they don't understand.
+                </div>
+              </div>
+              
+              <div style={{ marginTop: '1.5rem' }}>
+                <SectionParagraph>
+                  This represents a dangerous power shift where technical decisions and timelines are increasingly imposed by those who lack the expertise to understand all requirements. The superficial simplicity of AI-generated code creates a false perception that development work is now trivial, leading to:
+                </SectionParagraph>
+                <ul style={{ 
+                  marginTop: '1rem', 
+                  marginLeft: '1.5rem', 
+                  marginBottom: '1rem' 
+                }}>
+                  <li style={{ marginBottom: '0.5rem' }}>Unrealistic deadlines imposed without technical consultation</li>
+                  <li style={{ marginBottom: '0.5rem' }}>Developer expertise and concerns being dismissed as "resistance to AI"</li>
+                  <li style={{ marginBottom: '0.5rem' }}>The "bullying" of engineering teams with pressure to match the perceived simplicity of AI demos</li>
+                  <li style={{ marginBottom: '0.5rem' }}>Degradation of engineering culture as corners are cut to meet impossible timelines</li>
+                  <li>Increasing burnout as developers struggle with unreasonable expectations</li>
+                </ul>
+              </div>
+              
+              <div style={{ marginTop: '1rem' }}>
+                <SectionParagraph>
+                  <strong>The Autopilot Connection:</strong> This is similar to someone who has played with a flight simulator game believing they understand what it takes to fly a commercial jet. The superficial familiarity with controls creates dangerous overconfidence that ignores the deep expertise, safety protocols, and system complexity that real pilots must master.
+                </SectionParagraph>
+              </div>
+            </div>
+            
             {/* Bottom Line Box */}
             <div style={{
               marginTop: SPACING.paragraphBreak,

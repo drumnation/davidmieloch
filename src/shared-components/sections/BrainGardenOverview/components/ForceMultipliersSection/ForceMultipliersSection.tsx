@@ -169,6 +169,16 @@ const Result = styled.div`
   color: #A3E635;
   margin-left: 1rem;
   margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+`;
+
+// Add a proper r component that can be used in JSX
+const R = styled.div`
+  color: #A3E635;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
 `;
 
 const GitFeatureReconstruction = styled.div`
@@ -832,23 +842,23 @@ New version: 2.4.0 (MINOR version bump for new feature)
           
           <TerminalBlock>
             <Command>git pull</Command>
-            <Result>Updating 3a5bc21..9f842d0</Result>
-            <Result>error: Your local changes to the following files would be overwritten by merge:</Result>
-            <Result>    src/components/auth/AuthProvider.tsx</Result>
-            <Result>    src/utils/api-client.ts</Result>
-            <Result>    src/pages/dashboard.tsx</Result>
-            <Result>Please commit your changes or stash them before you merge.</Result>
-            <Result>Aborting</Result>
+            <R>Updating 3a5bc21..9f842d0</R>
+            <R>error: Your local changes to the following files would be overwritten by merge:</R>
+            <R>    src/components/auth/AuthProvider.tsx</R>
+            <R>    src/utils/api-client.ts</R>
+            <R>    src/pages/dashboard.tsx</R>
+            <R>Please commit your changes or stash them before you merge.</R>
+            <R>Aborting</R>
             
             <Command>git status</Command>
-            <Result>Modified:   src/components/auth/AuthProvider.tsx</Result>
-            <Result>Modified:   src/utils/api-client.ts</Result>
-            <Result>Modified:   src/pages/dashboard.tsx</Result>
-            <Result>Untracked:  src/components/AuthProvider.tsx</Result>
-            <Result>Untracked:  src/api-client.ts</Result>
-            <Result>Untracked:  src/utils/authentication/AuthProvider.tsx</Result>
-            <Result>Untracked:  src/pages/api/auth/utils.ts</Result>
-            <Result>Deleted:    src/tests/auth.test.tsx</Result>
+            <R>Modified:   src/components/auth/AuthProvider.tsx</R>
+            <R>Modified:   src/utils/api-client.ts</R>
+            <R>Modified:   src/pages/dashboard.tsx</R>
+            <R>Untracked:  src/components/AuthProvider.tsx</R>
+            <R>Untracked:  src/api-client.ts</R>
+            <R>Untracked:  src/utils/authentication/AuthProvider.tsx</R>
+            <R>Untracked:  src/pages/api/auth/utils.ts</R>
+            <R>Deleted:    src/tests/auth.test.tsx</R>
           </TerminalBlock>
           
           <DialogLine style={{ marginTop: '1rem' }}><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "What the... I didn't make these changes. And why are there duplicate files all over the place?"</DialogLine>
@@ -869,16 +879,16 @@ New version: 2.4.0 (MINOR version bump for new feature)
             <Command>git bisect start</Command>
             <Command>git bisect bad</Command>
             <Command>git bisect good HEAD~20</Command>
-            <Result>Bisecting: 10 revisions left to test after this (roughly 3 steps)</Result>
-            <Result>[8d7e25a] AI-enhanced order validation with improved error handling</Result>
+            <R>Bisecting: 10 revisions left to test after this (roughly 3 steps)</R>
+            <R>[8d7e25a] AI-enhanced order validation with improved error handling</R>
             
             <Command>npm test</Command>
-            <Result>PASS src/tests/orders/validation.test.ts</Result>
-            <Result>PASS src/tests/orders/payment.test.ts</Result>
-            <Result>PASS src/tests/orders/shipping.test.ts</Result>
+            <R>PASS src/tests/orders/validation.test.ts</R>
+            <R>PASS src/tests/orders/payment.test.ts</R>
+            <R>PASS src/tests/orders/shipping.test.ts</R>
             
             <Command>npm run integration-test</Command>
-            <Result>FAIL PaymentProcessor -&gt; Processing with existing customer -&gt; "Cannot read property 'id' of undefined"</Result>
+            <R>FAIL PaymentProcessor -&gt; Processing with existing customer -&gt; "Cannot read property 'id' of undefined"</R>
           </TerminalBlock>
           
           <DialogLine><Speaker style={{ color: '#E34935' }}>Sarah:</Speaker> "The unit tests all pass, but the integration tests are failing. The AI must have made changes that work in isolation but break in the full system context."</DialogLine>
