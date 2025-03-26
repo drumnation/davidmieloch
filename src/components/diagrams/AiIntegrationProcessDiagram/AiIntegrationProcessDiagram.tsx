@@ -1,9 +1,16 @@
 import React, { useMemo } from 'react';
 import '@xyflow/react/dist/style.css';
 
+// Import types
 import { AiIntegrationProcessDiagramProps } from './AiIntegrationProcessDiagram.types';
+
+// Import the ReactFlowDiagram component and related types
 import { ReactFlowDiagram } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram';
-import { ReactFlowDefinition, ReactFlowNode, ReactFlowEdge } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types';
+import { 
+  ReactFlowDefinition, 
+  ReactFlowNode, 
+  ReactFlowEdge 
+} from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types';
 
 const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramProps> = ({
   title = "AI Integration Process Flow",
