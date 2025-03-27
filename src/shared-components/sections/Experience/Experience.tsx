@@ -14,7 +14,8 @@ import {
   ProfileSection, 
   ExperienceSection, 
   EducationSection, 
-  SkillsSection 
+  SkillsSection,
+  SideProjectsSection
 } from './components';
 
 // Import constants
@@ -34,8 +35,13 @@ import {
   QUALITY_SKILL_CATEGORIES,
   INFRASTRUCTURE_SKILL_CATEGORIES
 } from './components/SkillsSection/SkillsSection.constants';
+import { SIDE_PROJECTS } from './components/SideProjectsSection/SideProjectsSection.constants';
 
-export const Experience: React.FC<ExperienceProps> = ({ id = 'experience', className }) => {
+export const Experience: React.FC<ExperienceProps> = ({ 
+  id = 'experience', 
+  className,
+  sideProjects = SIDE_PROJECTS 
+}) => {
   const [isVisible, setIsVisible] = useState(true);
   
   // Use useEffect to trigger animations after mount
@@ -103,6 +109,11 @@ export const Experience: React.FC<ExperienceProps> = ({ id = 'experience', class
           <ExperienceSection 
             experiences={allExperiences}
             title={EXPERIENCE_TITLE}
+          />
+
+          {/* Side Projects Section */}
+          <SideProjectsSection 
+            projects={sideProjects}
           />
 
           {/* Education Section */}

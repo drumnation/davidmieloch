@@ -10,12 +10,49 @@ import { ExperienceItem } from './components/ExperienceItem';
 import { EducationItem } from './components/EducationItem';
 import { SkillsList } from './components/SkillsList';
 import { Accordion } from './components/Accordion';
+import { Skill } from './components/SkillsList/SkillsList.types';
 
 // Import LinkedIn data
 import profileData from '@/data/profile.json';
 import positionsData from '@/data/positions.json';
 import educationData from '@/data/education.json';
 import skillsData from '@/data/skills.json';
+
+// Transform string skills into enhanced skills objects with icon information
+const enhancedSkills: Array<Skill | string> = skillsData.slice(0, 20).map(skill => {
+  // Map the most common skills to their icons
+  const skillIcons: Record<string, string> = {
+    'React.js': 'React.js',
+    'React Native': 'React Native',
+    'TypeScript': 'TypeScript',
+    'Node.js': 'Node.js',
+    'JavaScript': 'JavaScript',
+    'MongoDB': 'MongoDB',
+    'Redux': 'Redux',
+    'Next.js': 'Next.js',
+    'Webpack': 'Webpack',
+    'GraphQL': 'GraphQL',
+    'PostgreSQL': 'PostgreSQL',
+    'HTML5': 'HTML5',
+    'CSS': 'CSS',
+    'Git': 'Git',
+    'GitHub': 'GitHub',
+    'Jest': 'Jest',
+    'Storybook': 'Storybook',
+    'styled-components': 'styled-components'
+  };
+  
+  // If we have an icon mapping for this skill, return an enhanced object
+  if (skillIcons[skill as string]) {
+    return {
+      name: skill as string,
+      icon: skillIcons[skill as string]
+    };
+  }
+  
+  // Otherwise return the original string
+  return skill;
+});
 
 const StyledExperiencePage = styled(AnimatedPage)`
   .skills-section,
@@ -85,7 +122,7 @@ export function ExperiencePage() {
           
           <section className="skills-section">
             <h2>Skills</h2>
-            <SkillsList skills={skillsData.slice(0, 20)} />
+            <SkillsList skills={enhancedSkills} showIcons={true} />
           </section>
           
           <section className="experience-section">
