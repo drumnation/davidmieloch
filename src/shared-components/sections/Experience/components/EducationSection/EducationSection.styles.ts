@@ -42,6 +42,7 @@ export const SchoolLogo = styled.div`
     width: 100%;
     height: 100%;
     object-fit: contain;
+    border-radius: 6px;
   }
   
   @media (max-width: 576px) {
@@ -98,24 +99,28 @@ export const EducationDescription = styled.p`
 export const MediaContainer = styled.div<{ $isWide?: boolean }>`
   width: 100%;
   max-width: ${({ $isWide }) => $isWide ? '100%' : '400px'};
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  flex: ${({ $isWide }) => $isWide ? '1 0 100%' : '1 0 calc(50% - 8px)'};
+  flex: ${({ $isWide }) => $isWide ? '1 0 100%' : '1 0 calc(50% - 4px)'};
   
   iframe, img {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
 
 export const MediaRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 100%;
+  justify-content: space-between;
   
   @media (max-width: 768px) {
     flex-direction: column;

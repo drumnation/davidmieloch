@@ -21,7 +21,41 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
       'Mentor developers and ensure high code quality.',
       'Guide the organization in scaling the codebase to support sustainable growth and long-term maintainability.'
     ],
-    logoPath: '/company-logos/scala.jpeg'
+    logoPath: '/company-logos/scala.jpeg',
+    media: [
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/developing-with-a-team-of-ais-b1b2019ea44c",
+        title: "Developing with a Team of AIs",
+        description: "How I organized multiple AI agents to work together on code projects",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*4-rgPFbSEHzdKo3dv5n4Tg.png",
+        width: "100%"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/reuse-your-code-authoring-your-own-universal-library-with-webpack-89d43e6ea9df",
+        title: "Reuse Your Code: Authoring Your Own Universal Library with Webpack",
+        description: "How to create reusable code libraries that work across different environments",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*gXL9S7-UfsIde4hvJ-Ngnw.png",
+        width: "100%"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/why-you-should-encapsulate-your-javascript-conditionals-in-a-function-4a492853c397",
+        title: "Why You Should Encapsulate Your JavaScript Conditionals in a Function",
+        description: "Improve code readability and maintainability with functional conditionals",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*icB7ZbVrl7mQoevW9fQa8Q.png",
+        width: "100%"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/alphabetize-your-code-3f5df98b83ef",
+        title: "Alphabetize Your Code",
+        description: "A simple practice that can improve code organization and developer efficiency",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*vDBbk1FTPZqIk_6Itxaypg.png",
+        width: "100%"
+      }
+    ]
   },
   {
     company: 'DrayNow, Inc.',
@@ -41,7 +75,27 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
       'Enhanced team collaboration through structured development workflows.',
       'Improved communication between remote teams.'
     ],
-    logoPath: '/company-logos/draynow_inc_logo.jpeg'
+    logoPath: '/company-logos/draynow_inc_logo.jpeg',
+    media: [
+      {
+        type: "image",
+        url: "/media/otg/draynow/Screenshot_20190625-090152_DrayNow.jpg",
+        title: "DrayNow Mobile App Home Screen",
+        width: "31.33%"
+      },
+      {
+        type: "image",
+        url: "/media/otg/draynow/Screenshot_20190714-184353_DrayNow.jpg",
+        title: "DrayNow Trip Details Screen",
+        width: "31.33%"
+      },
+      {
+        type: "image",
+        url: "/media/otg/draynow/Screenshot_20190715-112829_DrayNow.jpg",
+        title: "DrayNow Booking Screen",
+        width: "31.33%"
+      }
+    ]
   },
   {
     company: 'OTG Management',
@@ -59,7 +113,62 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
       'Coordinated with various teams to implement best practices in code development and project management.',
       'Fostered improved collaboration and efficiency across the organization.'
     ],
-    logoPath: '/company-logos/otg_management_logo.jpeg'
+    logoPath: '/company-logos/otg_management_logo.jpeg',
+    media: [
+      {
+        type: "image",
+        url: "/media/otg/screenshots/order-ahead-3.png",
+        title: "Order Ahead Mobile App Screenshot",
+        width: "23.5%"
+      },
+      {
+        type: "image",
+        url: "/media/otg/screenshots/order-ahead-4.png",
+        title: "Order Ahead Mobile App Interface",
+        width: "23.5%"
+      },
+      {
+        type: "image",
+        url: "/media/otg/screenshots/web-cart1.png",
+        title: "Web Cart Interface",
+        width: "23.5%"
+      },
+      {
+        type: "image",
+        url: "/media/otg/screenshots/web-cart2.png",
+        title: "Web Cart Checkout Flow",
+        width: "23.5%"
+      },
+      {
+        type: "pdf",
+        url: "/media/otg/OTG Case Studies.pdf",
+        title: "OTG Mobile Ordering Case Studies",
+        thumbnailUrl: "/media/otg/thumbnails/case-studies-1.png",
+        width: "100%"
+      },
+      {
+        type: "pdf",
+        url: "/media/otg/OTG Brain Storm - Print.pdf",
+        title: "OTG Project Brainstorming Session",
+        thumbnailUrl: "/media/otg/thumbnails/brain-storm-1.png",
+        width: "50%"
+      },
+      {
+        type: "pdf",
+        url: "/media/otg/Transition To React - Share.pdf",
+        title: "Transition To React Architecture",
+        thumbnailUrl: "/media/otg/thumbnails/transition-react-1.png",
+        width: "50%"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/shareable-and-cross-platform-components-bit-react-native-web-a2301722ddbd",
+        title: "Shareable and Cross-Platform Components: Bit + React-Native-Web",
+        description: "Using Bit and React-Native-Web to build components that work across mobile and web platforms",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*RnOTXxrGwXFC1HgLdrC12w.png",
+        width: "100%"
+      }
+    ]
   },
   {
     company: 'Gramercy Tech',
@@ -75,7 +184,63 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
       'Enhanced attendee experiences through intuitive and engaging event technology.',
       'Created and published react-native-cross-platform-dimensions npm package (25 Stars / 5 Forks) to enhance development efficiency.'
     ],
-    logoPath: '/company-logos/gramercytech_logo.jpeg'
+    logoPath: '/company-logos/gramercytech_logo.jpeg',
+    media: [
+      {
+        type: "embed",
+        url: "https://www.youtube.com/embed/FhIIgTV08RQ?si=00_ddQYAvuMKU8C3",
+        title: "Master A Million Showcase Video",
+        width: "half",
+        height: 315
+      },
+      {
+        type: "embed",
+        url: "https://www.youtube.com/embed/lJHzOcIT5os?si=gsy8mc0FbHp4Ug8J",
+        title: "Master A Million End to End Form Test Demo",
+        width: "half",
+        height: 315
+      },
+      {
+        type: "pdf",
+        url: "/media/Master A Million - REACT NATIVE.pdf",
+        title: "Master A Million - React Native Documentation",
+        thumbnailUrl: "/media/masteramillion-ball.png",
+        height: 315,
+        width: "50%"
+      },
+      {
+        type: "embed",
+        url: "https://www.youtube.com/embed/FB2o6krFmZw?si=slIxX7VyeajlqTKz",
+        title: "Hacking a dumb laser to be smart",
+        width: "50%",
+        height: 315,
+        // description: "Hacking a dumb laser to be smart"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/react-native-now/my-journey-from-reactjs-to-react-native-d19986a47dec",
+        title: "My Journey from ReactJS to React-Native",
+        description: "Mega-post with everything I learned + lots of code examples",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*7lwP90uD_PsbkbLek7ffyQ.jpeg",
+        width: "100%"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/npm-to-help-streamline-cross-platform-styling-in-react-native-f2855b8c4648",
+        title: "NPM to Help Streamline Cross-Platform Styling in React Native",
+        description: "Using react-native-cross-platform-dimensions to simplify responsive design",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*BysNBoEbKSYW274ebStYUQ.jpeg",
+        width: "100%"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/making-a-dumb-laser-smart-by-hacking-it-to-a-raspberry-pi-c88cb6aee02a",
+        title: "Making a Dumb Laser Smart by Hacking it to a Raspberry Pi",
+        description: "How we connected the Master A Million ball to a micro-controller",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*frqAogzwrKd1cpWiDlFtgw.png",
+        width: "100%"
+      }
+    ]
   },
 ];
 
@@ -147,7 +312,21 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Managed the addition of new products and maintained the e-commerce platform.',
       'Improved sales efficiency and user experience through continuous enhancements.'
     ],
-    logoPath: '/company-logos/kwikpoint.jpeg'
+    logoPath: '/company-logos/kwikpoint.jpeg',
+    media: [
+      {
+        type: "image",
+        url: "/media/photo/kwikpoint2.jpg",
+        title: "Kwikpoint Communication Guide",
+        width: "100%"
+      },
+      // {
+      //   type: "image",
+      //   url: "/media/photo/kwikpoint.jpg",
+      //   title: "Kwikpoint Visual Language Tools",
+      //   width: "100%"
+      // },
+    ]
   },
   {
     company: 'Q-nomy, Inc.',
@@ -188,7 +367,17 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Created Dynamic Marketing Website: Developed a visually engaging marketing website for an on-demand visual music television network, enhancing online presence and user experience.',
       'Streamlined Digital Content Management: Managed and optimized digital content, edited video, and formatted video files for seamless streaming, improving content delivery and viewer satisfaction.'
     ],
-    logoPath: '/company-logos/harmony.png'
+    logoPath: '/company-logos/harmony.png',
+    media: [
+      {
+        type: "embed",
+        url: "https://www.youtube.com/embed/Omd_q511Aa4?si=-pjnprAxALM4Vaiz",
+        title: "Vladimir Kush - Metaphorical Voyage Trailer",
+        width: "full",
+        height: 400,
+        description: "A trailer for the Vladimir Kush film Metaphorical Voyage, featuring Sound Design by yours truly"
+      },
+    ]
   },
   {
     company: 'West Chester Off-Campus Housing',

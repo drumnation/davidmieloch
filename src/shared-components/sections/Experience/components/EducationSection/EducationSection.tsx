@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   SectionContainer,
   EducationItem,
@@ -12,7 +12,7 @@ import {
   MediaContainer,
   MediaRow
 } from './EducationSection.styles';
-import { EducationSectionProps } from './EducationSection.types';
+import { EducationItem as EducationItemType, EducationSectionProps, MediaItem } from './EducationSection.types';
 import { stringToColor, LetterAvatar } from '../../utils/avatarHelpers';
 
 // Helper function to check if path is an image file
@@ -54,6 +54,19 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
   renderLogo
 }) => {
   const sortedEducationItems = sortEducationByDate(educationItems);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState<{ url: string; title?: string }>({ url: '' });
+  
+  // Function to open modal with image
+  const openImageModal = (url: string, title?: string) => {
+    setCurrentImage({ url, title });
+    setModalOpen(true);
+  };
+  
+  // Function to close modal
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   
   return (
     <SectionContainer className={className}>
@@ -73,7 +86,8 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
                 style={{ 
                   width: '100%', 
                   height: '100%', 
-                  objectFit: 'contain'
+                  objectFit: 'contain',
+                  borderRadius: '6px'
                 }}
               />
             ) : edu.logoPath && edu.logoPath.endsWith('.html') ? (
@@ -108,18 +122,37 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
             
             {edu.media && edu.media.length > 0 && (
               <MediaRow>
-                {edu.media.map((mediaItem, mediaIndex) => {
-                  const $isWide = mediaItem.width === 'full' || edu.media.length === 1;
+                {edu.media.map((mediaItem: MediaItem, mediaIndex: number) => {
+                  const $isWide = mediaItem.width === 'full' || mediaItem.width === '100%' || edu.media.length === 1;
+                  const isHalf = mediaItem.width === 'half' || mediaItem.width === '50%';
                   
                   if (mediaItem.type === 'image') {
                     return (
-                      <MediaContainer key={`media-${index}-${mediaIndex}`} $isWide={$isWide}>
-                        <img 
-                          src={mediaItem.url} 
-                          alt={mediaItem.title || `${edu.school} image`} 
-                          style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
-                          loading="lazy"
-                        />
+                      <MediaContainer key={`media-${index}-${mediaIndex}`} $isWide={$isWide} style={{ width: isHalf ? 'calc(50% - 4px)' : undefined }}>
+                        <div 
+                          style={{ 
+                            position: 'relative', 
+                            paddingBottom: '56.25%', /* 16:9 aspect ratio */
+                            overflow: 'hidden',
+                            cursor: 'pointer'
+                          }}
+                          onClick={() => openImageModal(mediaItem.url, mediaItem.title)}
+                        >
+                          <img 
+                            src={mediaItem.url} 
+                            alt={mediaItem.title || `${edu.school} image`} 
+                            style={{ 
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              width: '100%', 
+                              height: '100%', 
+                              objectFit: 'cover',
+                              borderRadius: '8px' 
+                            }}
+                            loading="lazy"
+                          />
+                        </div>
                         {mediaItem.description && (
                           <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
                             {mediaItem.description}
@@ -129,9 +162,13 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
                     );
                   } else if (mediaItem.type === 'pdf') {
                     return (
-                      <MediaContainer 
+                      <div 
                         key={`media-${index}-${mediaIndex}`} 
-                        $isWide={$isWide}
+                        style={{ 
+                          marginBottom: '8px', 
+                          width: $isWide ? '100%' : 'calc(50% - 4px)', 
+                          marginRight: $isWide || mediaIndex % 2 === 1 ? '0' : '8px',
+                        }}
                         className="pdf-container"
                       >
                         <a 
@@ -150,16 +187,21 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
                           ) : (
                             <div className="pdf-overlay">
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 2H8C6.9 2 6 2.9 6 4V16C6 17.1 6.9 18 8 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H8V4H20V16ZM4 6H2V20C2 21.1 2.9 22 4 22H18V20H4V6ZM16 12V9C16 8.45 15.55 8 15 8H13V13H15C15.55 13 16 12.55 16 12ZM14 9H15V12H14V9ZM18 11H19V10H18V9H19V8H17V13H18V11ZM10 11H11C11.55 11 12 10.55 12 10V9C12 8.45 11.55 8 11 8H9V13H10V11ZM10 9H11V10H10V9Z" fill="white"/>
+                                <path d="M20 2H8C6.9 2 6 2.9 6 4V16C6 17.1 6.9 18 8 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H8V4H20V16ZM4 6H2V20C2 21.1 2.9 22 4 22H18V20H4V6ZM16 12V9C16 8.45 15.55 8 15 8H13V13H15C15.55 13 16 12.55 16 12ZM14 9H15V12H14V9ZM18 11H19V10H18V9H19V8H17V13H18V11ZM10 11H11C11.55 11 12 10V9C12 8.45 11.55 8 11 8H9V13H10V11ZM10 9H11V10H10V9Z" fill="white"/>
                               </svg>
                               View PDF
                             </div>
                           )}
                         </a>
                         {mediaItem.title && (
-                          <div className="pdf-title">{mediaItem.title}</div>
+                          <div className="pdf-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '8px', verticalAlign: 'middle' }}>
+                              <path d="M20 2H8C6.9 2 6 2.9 6 4V16C6 17.1 6.9 18 8 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H8V4H20V16ZM4 6H2V20C2 21.1 2.9 22 4 22H18V20H4V6ZM16 12V9C16 8.45 15.55 8 15 8H13V13H15C15.55 13 16 12.55 16 12ZM14 9H15V12H14V9ZM18 11H19V10H18V9H19V8H17V13H18V11ZM10 11H11C11.55 11 12 10V9C12 8.45 11.55 8 11 8H9V13H10V11ZM10 9H11V10H10V9Z" fill="#E74C3C"/>
+                            </svg>
+                            {mediaItem.title}
+                          </div>
                         )}
-                      </MediaContainer>
+                      </div>
                     );
                   } else if (mediaItem.type === 'embed') {
                     return (
@@ -167,19 +209,29 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
                         key={`media-${index}-${mediaIndex}`} 
                         $isWide={$isWide}
                       >
-                        <iframe 
-                          src={mediaItem.url}
-                          title={mediaItem.title || `${edu.school} embed`}
-                          frameBorder="0"
-                          scrolling="no"
-                          allowFullScreen
-                          style={{ 
-                            width: '100%', 
-                            height: mediaItem.height || '225px', 
-                            maxWidth: '100%', 
-                            borderRadius: '8px' 
-                          }}
-                        />
+                        <div style={{
+                          position: 'relative',
+                          paddingBottom: mediaItem.height ? undefined : '56.25%', /* 16:9 aspect ratio if height not specified */
+                          height: mediaItem.height ? mediaItem.height : undefined,
+                          overflow: 'hidden'
+                        }}>
+                          <iframe 
+                            src={mediaItem.url}
+                            title={mediaItem.title || `${edu.school} embed`}
+                            frameBorder="0"
+                            scrolling="no"
+                            allowFullScreen
+                            style={{ 
+                              position: mediaItem.height ? undefined : 'absolute',
+                              top: 0,
+                              left: 0,
+                              width: '100%', 
+                              height: mediaItem.height ? mediaItem.height : '100%',
+                              maxWidth: '100%', 
+                              borderRadius: '8px' 
+                            }}
+                          />
+                        </div>
                         {mediaItem.description && (
                           <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
                             {mediaItem.description}
@@ -196,6 +248,78 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
           </EducationContent>
         </EducationItem>
       ))}
+      
+      {/* Image Modal */}
+      {modalOpen && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+            padding: '20px',
+            cursor: 'pointer'
+          }}
+          onClick={closeModal}
+        >
+          <div style={{ position: 'relative', maxWidth: '90%', maxHeight: '90%' }}>
+            <img 
+              src={currentImage.url} 
+              alt={currentImage.title || 'Full size image'} 
+              style={{ 
+                maxWidth: '100%', 
+                maxHeight: '90vh', 
+                objectFit: 'contain',
+                borderRadius: '4px', 
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)'
+              }} 
+            />
+            {currentImage.title && (
+              <div style={{ 
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                color: 'white',
+                padding: '8px 12px',
+                borderRadius: '0 0 4px 4px',
+                textAlign: 'center',
+                fontSize: '14px',
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0
+              }}>
+                {currentImage.title}
+              </div>
+            )}
+          </div>
+          <button 
+            style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50%',
+              width: '36px',
+              height: '36px',
+              fontSize: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer'
+            }}
+            onClick={closeModal}
+          >
+            ×
+          </button>
+        </div>
+      )}
     </SectionContainer>
   );
 }; 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .media-container {
+      margin-bottom: 20px;
+    }
+    .media-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .media-item {
+      flex: 1 0 calc(50% - 8px);
+      max-width: calc(50% - 8px);
+    }
+    .media-item.full-width {
+      flex: 1 0 100%;
+      max-width: 100%;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Media Test</h1>
+  
+  <div class="media-container">
+    <h2>YouTube Embeds</h2>
+    <div class="media-row">
+      <div class="media-item full-width">
+        <iframe 
+          src="https://www.youtube.com/embed/FhIIgTV08RQ?si=00_ddQYAvuMKU8C3" 
+          title="Master A Million Showcase Video"
+          height="315"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="media-item">
+        <iframe 
+          src="https://www.youtube.com/embed/FB2o6krFmZw?si=slIxX7VyeajlqTKz" 
+          title="Master A Million Demo Video"
+          height="315"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+  
+  <div class="media-container">
+    <h2>SoundCloud Embeds</h2>
+    <div class="media-row">
+      <div class="media-item full-width">
+        <iframe 
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/83095836&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" 
+          title="Orchestral Playlist"
+          height="300"
+          allow="autoplay"
+        ></iframe>
+      </div>
+      <div class="media-item">
+        <iframe 
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/120727701&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" 
+          title="Music For Games"
+          height="300"
+          allow="autoplay"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+  
+  <div class="media-container">
+    <h2>PDF Document</h2>
+    <div class="media-row">
+      <div class="media-item">
+        <a href="/media/Master A Million - REACT NATIVE.pdf" target="_blank">View PDF Document</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

@@ -57,10 +57,10 @@ export const ProfileActionsContainer = styled.div`
 `;
 
 export const ProfileSummary = styled.p`
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: rgba(0, 0, 0, 0.9);
-  margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 0;
 `;
 
 export const ProfileButton = styled.a`
@@ -93,5 +93,40 @@ export const ProfileButton = styled.a`
       background-color: rgba(0, 0, 0, 0.08);
       color: rgba(0, 0, 0, 0.9);
     }
+  }
+`;
+
+export const ResumeButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export const ResumeButton = styled.a`
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #3366cc;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  
+  svg {
+    margin-right: 10px;
+  }
+  
+  &:hover {
+    background-color: #2952a3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
 `; 

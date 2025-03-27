@@ -6,7 +6,7 @@ export const FORMAL_EDUCATION: EducationItem[] = [
   {
     school: 'West Chester University of Pennsylvania',
     degree: 'B.A.',
-    fieldOfStudy: 'Music',
+    fieldOfStudy: 'Music Theory and Composition, Focus in Percussion',
     startDate: '2003',
     endDate: '2008',
     description: 'Instrumental Concentration with focus on Classical Percussion and Jazz Drumset performance. Secondary instruments included Computer, Tabla, Guitar and Piano. Active member of Phi Mu Alpha Sinfonia and Percussion Ensemble.',
@@ -46,6 +46,44 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
         title: 'Flatiron School Experience',
         width: 'full',
         height: 400
+      },
+      {
+        type: 'image',
+        url: '/media/photo/musichead.jpg',
+        title: 'MusicHead Application',
+        width: 'half'
+      },
+      {
+        type: 'embed',
+        url: 'https://www.youtube.com/embed/nPsGSknxuiw?si=9PXoHGRkLp5Gr6Pi',
+        title: 'React VR Tour Application',
+        width: 'half'
+      },
+      {
+        type: 'embed',
+        url: 'https://www.youtube.com/embed/W0LfRSNiCAo?si=RZCPRmVbj-od0hmb',
+        title: 'Piano Roll Project',
+        width: 'half'
+      },
+      {
+        type: 'image',
+        url: '/media/photo/addictme.jpg',
+        title: 'AddictMe Project',
+        width: 'half'
+      },
+      {
+        type: 'image',
+        url: '/media/photo/the-golden-hammer.jpg',
+        title: 'The Golden Hammer Project',
+        width: 'half',
+        height: 315
+      },
+      {
+        type: 'image',
+        url: '/media/photo/code-friend.jpg',
+        title: 'Code Friend Application',
+        width: 'half',
+        height: 315
       }
     ]
   },

@@ -1,0 +1,12 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#3366cc"/>
+  <rect x="100" y="100" width="600" height="250" rx="12" fill="#ffffff" opacity="0.9"/>
+  <text x="400" y="200" font-family="Arial" font-size="40" font-weight="bold" fill="#3366cc" text-anchor="middle">React Native Journey</text>
+  <text x="400" y="250" font-family="Arial" font-size="24" fill="#555555" text-anchor="middle">From ReactJS to React Native</text>
+  <path d="M400 310 C 430 310, 450 290, 450 260 C 450 230, 430 210, 400 210 C 370 210, 350 230, 350 260 C 350 290, 370 310, 400 310" stroke="#3366cc" stroke-width="8" fill="none"/>
+  <circle cx="400" cy="260" r="12" fill="#3366cc"/>
+  <circle cx="370" cy="225" r="5" fill="#3366cc"/>
+  <circle cx="430" cy="225" r="5" fill="#3366cc"/>
+  <circle cx="370" cy="295" r="5" fill="#3366cc"/>
+  <circle cx="430" cy="295" r="5" fill="#3366cc"/>
+</svg> 

@@ -27,7 +27,16 @@
     "endDate": "Jul 2019",
     "description": "OTG operates the world's largest fleet of centrally managed, public facing iPads (10K+ iPads), located in airports around the US  • Order Ahead Application: Developed full-stack 'Order Ahead' web app, enabling passengers to order food from airport restaurants for gate-side pickup. Integrated dynamic menu data across national locations, driving a 20% increase in order throughput and customer transactions.  • Cart Screen Redesign: Reimplemented critical cart screen in JavaScript for the OTG iOS app Concierge, enabling over-the-air updates to thousands of iPads nationwide. This innovation facilitated 30% faster feature rollouts, enhanced customizability, and eliminated the need for time-consuming manual updates across terminals.  • In-App Advertisement System: Developed template-driven ad system for OTG iOS app, boosting campaign update speed by 50% and user engagement by 15%.  • Cross-Functional Collaboration: Coordinated with various teams to implement best practices in code development and project management, fostering improved collaboration and efficiency across the organization.",
     "bulletPoints": [],
-    "logoPath": "/company-logos/otgmanagement.png"
+    "logoPath": "/company-logos/otgmanagement.png",
+    "media": [
+      {
+        "type": "embed",
+        "url": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/540157266&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+        "title": "OTG Airport Experience Demo",
+        "width": "full",
+        "height": 300
+      }
+    ]
   },
   {
     "company": "Gramercy Tech",
@@ -35,8 +44,12 @@
     "location": "New York, NY",
     "startDate": "Jul 2017",
     "endDate": "Jun 2018",
-    "description": "Gramercy Tech specializes in innovative event technology solutions, including event management apps and immersive AR/VR experiences.  • Master A Million™ Platform: Solely developed award-winning React Native app (iOS/Android) and web app. The app and toy won \"Best of NYC Toy Fair\" (Parents' Magazine) and \"Activity Toy of the Year\" (Swedish Toy Awards).  • Event Technology Solutions: Developed interactive applications and backend systems for high-profile events (TD/Ameritrade, Novartis Pharma, Jack Daniels), enhancing attendee experiences.  • Cross-Platform Development: Created and published react-native-cross-platform-dimensions npm package (25 Stars / 5 Forks) to enhance development efficiency.",
-    "bulletPoints": [],
+    "description": "Gramercy Tech specializes in innovative event technology solutions, including event management apps and immersive AR/VR experiences.",
+    "bulletPoints": [
+      "Solely developed award-winning Master A Million™ Platform: React Native app (iOS/Android) and web app. The app and toy won \"Best of NYC Toy Fair\" (Parents' Magazine) and \"Activity Toy of the Year\" (Swedish Toy Awards).",
+      "Developed interactive applications and backend systems for high-profile events (TD/Ameritrade, Novartis Pharma, Jack Daniels), enhancing attendee experiences.",
+      "Created and published react-native-cross-platform-dimensions npm package (25 Stars / 5 Forks) to enhance development efficiency."
+    ],
     "logoPath": "/company-logos/gramercytech.png",
     "media": [
       {
@@ -51,12 +64,38 @@
         "url": "https://www.youtube.com/embed/FB2o6krFmZw?si=slIxX7VyeajlqTKz",
         "title": "Master A Million Demo Video",
         "width": "50%",
-        "height": 315
+        "height": 315,
+        "description": "Hacking a dumb laser to be smart"
       },
       {
         "type": "pdf",
         "url": "/media/Master A Million - REACT NATIVE.pdf",
-        "title": "Master A Million - React Native Documentation"
+        "title": "Master A Million - React Native Documentation",
+        "thumbnailUrl": "/media/masteramillion-ball.png"
+      },
+      {
+        "type": "link",
+        "url": "https://medium.com/react-native-now/my-journey-from-reactjs-to-react-native-d19986a47dec",
+        "title": "My Journey from ReactJS to React-Native",
+        "description": "Mega-post with everything I learned + lots of code examples",
+        "thumbnailUrl": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*7lwP90uD_PsbkbLek7ffyQ.jpeg",
+        "width": "100%"
+      },
+      {
+        "type": "link",
+        "url": "https://medium.com/@davidmieloch/npm-to-help-streamline-cross-platform-styling-in-react-native-f2855b8c4648",
+        "title": "NPM to Help Streamline Cross-Platform Styling in React Native",
+        "description": "Using react-native-cross-platform-dimensions to simplify responsive design",
+        "thumbnailUrl": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*7lwP90uD_PsbkbLek7ffyQ.jpeg",
+        "width": "100%"
+      },
+      {
+        "type": "link",
+        "url": "https://medium.com/@davidmieloch/making-a-dumb-laser-smart-by-hacking-it-to-a-raspberry-pi-c88cb6aee02a",
+        "title": "Making a Dumb Laser Smart by Hacking it to a Raspberry Pi",
+        "description": "How we connected the Master A Million ball to a micro-controller",
+        "thumbnailUrl": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*frqAogzwrKd1cpWiDlFtgw.png",
+        "width": "100%"
       }
     ]
   },

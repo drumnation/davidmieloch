@@ -83,14 +83,15 @@ export const Description = styled.div`
 `;
 
 export const BulletPoints = styled.ul`
-  margin: 0.5rem 0 0;
-  padding-left: 1.5rem;
-`;
-
-export const BulletPoint = styled.li`
   font-size: 0.95rem;
   color: ${({ theme }) => theme.colors.text};
   line-height: 1.5;
+  padding-left: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+`;
+
+export const BulletPoint = styled.li`
   margin-bottom: 0.5rem;
   
   &:last-child {
@@ -115,6 +116,7 @@ export const MediaRow = styled.div`
   gap: 16px;
   margin-top: 16px;
   margin-bottom: 16px;
+  align-items: stretch; /* Make all children the same height */
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -122,28 +124,54 @@ export const MediaRow = styled.div`
 `;
 
 export const MediaContainer = styled.div<{ $isWide?: boolean }>`
-  width: 100%;
-  max-width: ${({ $isWide }) => $isWide ? '100%' : '400px'};
-  margin-bottom: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   flex: ${({ $isWide }) => $isWide ? '1 0 100%' : '1 0 calc(50% - 8px)'};
+  max-width: ${({ $isWide }) => $isWide ? '100%' : 'calc(50% - 8px)'};
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: ${({ theme }) => theme.shadows.card};
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 300px;
   
-  iframe, img {
-    display: block;
+  @media (max-width: 768px) {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+  
+  img {
     width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  iframe {
+    width: 100%;
+    border: none;
+    display: block;
+    flex: 1; /* Fill available space */
+  }
+  
+  .media-caption {
+    padding: 12px 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: ${({ theme }) => theme.colors.text.secondary};
+    background-color: ${({ theme }) => theme.colors.background.light};
+    margin-top: auto; /* Push to bottom */
+    border-top: 1px solid ${({ theme }) => theme.colors.border};
   }
   
   &.pdf-container {
-    display: flex;
-    flex-direction: column;
-    
     .pdf-thumbnail {
       position: relative;
       padding-top: 56.25%; /* 16:9 aspect ratio */
       background-color: ${({ theme }) => theme.colors.background.light};
       cursor: pointer;
+      flex: 1;
       
       img {
         position: absolute;
@@ -163,21 +191,65 @@ export const MediaContainer = styled.div<{ $isWide?: boolean }>`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.6);
         color: white;
-        font-weight: 500;
+        font-weight: 600;
+        font-size: 1.1rem;
         
         svg {
-          margin-right: 8px;
+          margin-right: 10px;
+          width: 36px;
+          height: 36px;
         }
       }
     }
     
     .pdf-title {
-      padding: 12px;
+      padding: 12px 15px;
+      font-size: 1rem;
       font-weight: 500;
+      color: ${({ theme }) => theme.colors.text.secondary};
       background-color: ${({ theme }) => theme.colors.background.light};
+      margin-top: auto; /* Push to bottom */
       border-top: 1px solid ${({ theme }) => theme.colors.border};
+    }
+  }
+  
+  &.link-container {
+    .link-preview {
+      position: relative;
+      display: block;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      background-color: ${({ theme }) => theme.colors.background.light};
+      cursor: pointer;
+      flex: 1;
+      
+      .link-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.05);
+        color: ${({ theme }) => theme.colors.primary};
+        font-weight: 600;
+        font-size: 1.1rem;
+        
+        svg {
+          margin-bottom: 12px;
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+    
+    .link-description {
+      color: ${({ theme }) => theme.colors.text.secondary};
+      font-weight: normal;
     }
   }
 `; 

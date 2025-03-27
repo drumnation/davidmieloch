@@ -47,12 +47,12 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
         </MetadataRow>
         
         {description && (
-          <Description dangerouslySetInnerHTML={{ __html: description }} />
+          <Description>{description}</Description>
         )}
         
         {bulletPoints.length > 0 && (
           <BulletPoints>
-            {bulletPoints.map((point, index) => (
+            {bulletPoints.map((point: string, index: number) => (
               <BulletPoint key={index}>{point}</BulletPoint>
             ))}
           </BulletPoints>
@@ -60,7 +60,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
         
         {media.length > 0 && (
           <MediaRow>
-            {media.map((mediaItem, mediaIndex) => {
+            {media.map((mediaItem: MediaItem, mediaIndex: number) => {
               const $isWide = mediaItem.width === 'full' || media.length === 1;
               
               // Render different media types
@@ -76,7 +76,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
                       loading="lazy"
                     />
                     {mediaItem.description && (
-                      <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
+                      <div className="media-caption">
                         {mediaItem.description}
                       </div>
                     )}
@@ -113,10 +113,16 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
                         />
                       ) : (
                         <div className="pdf-overlay">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 2H8C6.9 2 6 2.9 6 4V16C6 17.1 6.9 18 8 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H8V4H20V16ZM4 6H2V20C2 21.1 2.9 22 4 22H18V20H4V6ZM16 12V9C16 8.45 15.55 8 15 8H13V13H15C15.55 13 16 12.55 16 12ZM14 9H15V12H14V9ZM18 11H19V10H18V9H19V8H17V13H18V11ZM10 11H11C11.55 11 12 10.55 12 10V9C12 8.45 11.55 8 11 8H9V13H10V11ZM10 9H11V10H10V9Z" fill="white"/>
+                          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" rx="4" fill="#f40f02" />
+                            <path d="M12 16.5V17.5H7.5V13.5H8.5V16.5H12Z" fill="white"/>
+                            <path d="M11.5 9H10.5V13H11.5V9Z" fill="white"/>
+                            <path d="M19 11C19 11.552 18.552 12 18 12V13C19.105 13 20 12.105 20 11C20 9.895 19.105 9 18 9V10C18.552 10 19 10.448 19 11Z" fill="white"/>
+                            <path d="M16 13H17V10H18V9H16C15.448 9 15 9.448 15 10V12C15 12.552 15.448 13 16 13ZM16 10H17V12H16V10Z" fill="white"/>
+                            <path d="M15 16.5V17.5H19.5V16.5H15Z" fill="white"/>
+                            <path d="M7 6H19.5C20.052 6 20.5 6.448 20.5 7V19C20.5 19.552 20.052 20 19.5 20H4.5C3.948 20 3.5 19.552 3.5 19V7C3.5 6.448 3.948 6 4.5 6H7ZM4.5 5C3.395 5 2.5 5.895 2.5 7V19C2.5 20.105 3.395 21 4.5 21H19.5C20.605 21 21.5 20.105 21.5 19V7C21.5 5.895 20.605 5 19.5 5H4.5Z" fill="white"/>
                           </svg>
-                          View PDF
+                          <span>View PDF</span>
                         </div>
                       )}
                     </a>
@@ -141,10 +147,60 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
                       allowFullScreen
                     />
                     {mediaItem.description && (
-                      <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
+                      <div className="media-caption">
                         {mediaItem.description}
                       </div>
                     )}
+                  </MediaContainer>
+                );
+              } else if (mediaItem.type === 'link') {
+                return (
+                  <MediaContainer 
+                    key={`media-${mediaIndex}`} 
+                    $isWide={$isWide}
+                    className="link-container"
+                  >
+                    <a 
+                      href={mediaItem.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="link-preview"
+                    >
+                      {mediaItem.thumbnailUrl ? (
+                        <Image 
+                          src={mediaItem.thumbnailUrl} 
+                          alt={mediaItem.title || "Blog post"} 
+                          width={800}
+                          height={450}
+                          style={{ 
+                            width: '100%', 
+                            height: 'auto',
+                            objectFit: 'cover',
+                            borderRadius: '8px 8px 0 0'
+                          }}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="link-placeholder">
+                          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" rx="4" fill="#3366cc" />
+                            <path d="M7 8H17C17.55 8 18 8.45 18 9V15C18 15.55 17.55 16 17 16H7C6.45 16 6 15.55 6 15V9C6 8.45 6.45 8 7 8ZM7 15H17V9H7V15Z" fill="white"/>
+                            <path d="M10 10H14V12H10V10Z" fill="white"/>
+                            <path d="M8 17H16V18H8V17Z" fill="white"/>
+                            <path d="M8 19H16V20H8V19Z" fill="white"/>
+                          </svg>
+                          <span>View Article</span>
+                        </div>
+                      )}
+                    </a>
+                    <div className="media-caption">
+                      {mediaItem.title}
+                      {mediaItem.description && (
+                        <div className="link-description" style={{ marginTop: '4px', fontSize: '0.9em' }}>
+                          {mediaItem.description}
+                        </div>
+                      )}
+                    </div>
                   </MediaContainer>
                 );
               }

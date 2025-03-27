@@ -22,11 +22,11 @@ export interface ExperienceSectionProps {
 }
 
 export interface MediaItem {
-  type: 'image' | 'pdf' | 'embed';
+  type: 'image' | 'pdf' | 'embed' | 'link';
   url: string;
   title?: string;
   description?: string;
-  thumbnailUrl?: string; // For PDFs
+  thumbnailUrl?: string; // For PDFs or links
   width?: string | number;
   height?: string | number;
 } 

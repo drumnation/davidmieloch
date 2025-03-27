@@ -17,13 +17,9 @@ export const SectionContainer = styled.section`
 
 export const ExperienceItem = styled.div`
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   position: relative;
   align-items: flex-start;
-  
-  &:last-child {
-    margin-bottom: 0;
-  }
   
   @media (max-width: 576px) {
     flex-direction: column;
@@ -43,6 +39,7 @@ export const CompanyLogo = styled.div`
     width: 100%;
     height: 100%;
     object-fit: contain;
+    border-radius: 6px;
   }
   
   @media (max-width: 576px) {
@@ -123,12 +120,41 @@ export const ExperienceDescription = styled.div`
 export const MediaRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 0;
   margin-top: 16px;
   margin-bottom: 16px;
   
+  .quarter-width-image {
+    flex: 0 0 23.5% !important;
+    max-width: 23.5% !important;
+    margin-right: 2% !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .quarter-width-image:nth-child(4n) {
+    margin-right: 0 !important;
+  }
+  
+  .third-width-image {
+    flex: 0 0 31.33% !important;
+    max-width: 31.33% !important;
+    margin-right: 3% !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .third-width-image:nth-child(3n) {
+    margin-right: 0 !important;
+  }
+  
   @media (max-width: 768px) {
     flex-direction: column;
+    
+    .quarter-width-image,
+    .third-width-image {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      margin-right: 0 !important;
+    }
   }
 `;
 
@@ -156,6 +182,23 @@ export const MediaContainer = styled.div<{ $isWide?: boolean }>`
     width: 100%;
     border: none;
     display: block;
+  }
+  
+  /* Add styles for clickable images */
+  &:has(> img) {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  &.quarter-width-image {
+    &:hover {
+      z-index: 1;
+    }
   }
   
   &.pdf-container {
@@ -201,6 +244,132 @@ export const MediaContainer = styled.div<{ $isWide?: boolean }>`
       font-weight: 500;
       background-color: #f9f9f9;
       border-top: 1px solid #eee;
+    }
+  }
+  
+  &.link-container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 160px;
+    max-height: 180px;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .link-thumbnail {
+      position: relative;
+      width: 280px;
+      height: 100%;
+      flex-shrink: 0;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .link-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 20px;
+        text-align: center;
+        
+        svg {
+          margin-bottom: 12px;
+          width: 48px;
+          height: 48px;
+        }
+        
+        .placeholder-text {
+          font-weight: 500;
+          font-size: 14px;
+          color: #555;
+        }
+      }
+    }
+    
+    .link-content {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      background-color: #fff;
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .link-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: #000;
+      margin: 0 0 8px 0;
+      line-height: 1.4;
+    }
+    
+    .link-description {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 0 0 16px 0;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      background-color: #3366cc;
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+      margin-top: auto;
+      align-self: flex-start;
+      
+      &:hover {
+        background-color: #2952a3;
+      }
+      
+      svg {
+        margin-left: 8px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      max-height: none;
+      
+      .link-thumbnail {
+        width: 100%;
+        height: 180px;
+      }
+      
+      .link-content {
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
     }
   }
 `; 
