@@ -48,12 +48,6 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
         height: 400
       },
       {
-        type: 'image',
-        url: '/media/photo/musichead.jpg',
-        title: 'MusicHead Application',
-        width: 'half'
-      },
-      {
         type: 'embed',
         url: 'https://www.youtube.com/embed/nPsGSknxuiw?si=9PXoHGRkLp5Gr6Pi',
         title: 'React VR Tour Application',
@@ -67,24 +61,11 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
       },
       {
         type: 'image',
-        url: '/media/photo/addictme.jpg',
-        title: 'AddictMe Project',
-        width: 'half'
+        url: '/media/photo/musichead.jpg',
+        title: 'MusicHead Application',
+        width: 'full',
+        height: 500
       },
-      {
-        type: 'image',
-        url: '/media/photo/the-golden-hammer.jpg',
-        title: 'The Golden Hammer Project',
-        width: 'half',
-        height: 315
-      },
-      {
-        type: 'image',
-        url: '/media/photo/code-friend.jpg',
-        title: 'Code Friend Application',
-        width: 'half',
-        height: 315
-      }
     ]
   },
   {

@@ -319,28 +319,35 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
           project.halfWidth ? (
             <S.ProjectCard key={`${project.title}-${index}`}>
               <S.ProjectHeader>
-                <ProjectLogo 
-                  name={project.title} 
-                  logoPath={project.logoPath} 
-                  size={50}
-                  initialsCount={2}
-                  showBorder={project.showBorder}
-                />
-                <S.HeaderContent>
-                  <S.ProjectTitle>{project.title}</S.ProjectTitle>
-                  <S.HeaderDateRow>
-                    {(project.startDate || project.endDate) && (
-                      <S.HeaderDate>
-                        {project.startDate || 'N/A'} - {project.endDate || 'Present'}
-                      </S.HeaderDate>
-                    )}
-                    {project.repoUrl && (
-                      <S.HeaderRepoLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                        <FaGithub /> Repository
-                      </S.HeaderRepoLink>
-                    )}
-                  </S.HeaderDateRow>
-                </S.HeaderContent>
+                <S.HeaderLeft>
+                  <ProjectLogo 
+                    name={project.title} 
+                    logoPath={project.logoPath} 
+                    size={50}
+                    initialsCount={2}
+                    showBorder={project.showBorder}
+                  />
+                  <S.HeaderContent>
+                    <S.ProjectTitle>{project.title}</S.ProjectTitle>
+                    <S.HeaderDateRow>
+                      {(project.startDate || project.endDate) && (
+                        <S.HeaderDate>
+                          {project.startDate || 'N/A'} - {project.endDate || 'Present'}
+                        </S.HeaderDate>
+                      )}
+                      {project.repoUrl && (
+                        <S.HeaderRepoLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                          <FaGithub /> Repository
+                        </S.HeaderRepoLink>
+                      )}
+                    </S.HeaderDateRow>
+                  </S.HeaderContent>
+                </S.HeaderLeft>
+                {project.category && (
+                  <S.CategoryPill className={project.category.toLowerCase().replace(/\s+/g, '-')}>
+                    {project.category}
+                  </S.CategoryPill>
+                )}
               </S.ProjectHeader>
               
               <S.ProjectDescription>{project.description}</S.ProjectDescription>
@@ -378,28 +385,35 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
           ) : (
             <S.FullRowProjectCard key={`${project.title}-${index}`}>
               <S.ProjectHeader>
-                <ProjectLogo 
-                  name={project.title} 
-                  logoPath={project.logoPath} 
-                  size={50}
-                  initialsCount={2}
-                  showBorder={project.showBorder}
-                />
-                <S.HeaderContent>
-                  <S.ProjectTitle>{project.title}</S.ProjectTitle>
-                  <S.HeaderDateRow>
-                    {(project.startDate || project.endDate) && (
-                      <S.HeaderDate>
-                        {project.startDate || 'N/A'} - {project.endDate || 'Present'}
-                      </S.HeaderDate>
-                    )}
-                    {project.repoUrl && (
-                      <S.HeaderRepoLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                        <FaGithub /> Repository
-                      </S.HeaderRepoLink>
-                    )}
-                  </S.HeaderDateRow>
-                </S.HeaderContent>
+                <S.HeaderLeft>
+                  <ProjectLogo 
+                    name={project.title} 
+                    logoPath={project.logoPath} 
+                    size={50}
+                    initialsCount={2}
+                    showBorder={project.showBorder}
+                  />
+                  <S.HeaderContent>
+                    <S.ProjectTitle>{project.title}</S.ProjectTitle>
+                    <S.HeaderDateRow>
+                      {(project.startDate || project.endDate) && (
+                        <S.HeaderDate>
+                          {project.startDate || 'N/A'} - {project.endDate || 'Present'}
+                        </S.HeaderDate>
+                      )}
+                      {project.repoUrl && (
+                        <S.HeaderRepoLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                          <FaGithub /> Repository
+                        </S.HeaderRepoLink>
+                      )}
+                    </S.HeaderDateRow>
+                  </S.HeaderContent>
+                </S.HeaderLeft>
+                {project.category && (
+                  <S.CategoryPill className={project.category.toLowerCase().replace(/\s+/g, '-')}>
+                    {project.category}
+                  </S.CategoryPill>
+                )}
               </S.ProjectHeader>
               
               <div className="project-content">

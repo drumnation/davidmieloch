@@ -150,6 +150,21 @@ export const ProjectHeader = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+export const HeaderLeft = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
 `;
 
 export const HeaderContent = styled.div`
@@ -157,6 +172,59 @@ export const HeaderContent = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: 5px;
+  flex: 1;
+  min-width: 0;
+`;
+
+export const CategoryPill = styled.div`
+  background-color: #f3f2ef;
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-flex;
+  margin-left: auto;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  align-self: center;
+  height: fit-content;
+  
+  @media (max-width: 576px) {
+    margin-left: 60px; /* Align with the text content on mobile */
+    margin-top: 4px;
+  }
+  
+  /* Variant colors based on category */
+  &.personal-innovation-lab {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid rgba(46, 125, 50, 0.2);
+  }
+  
+  &.developer-tools {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid rgba(21, 101, 192, 0.2);
+  }
+  
+  &.saas-applications {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+    border: 1px solid rgba(123, 31, 162, 0.2);
+  }
+  
+  &.digital-marketing {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid rgba(230, 81, 0, 0.2);
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
 `;
 
 export const ProjectLogo = styled.img`
@@ -173,6 +241,9 @@ export const ProjectTitle = styled.h4`
   font-weight: 600;
   margin: 0;
   color: rgba(0, 0, 0, 0.9);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 export const HeaderDate = styled.span`
@@ -577,4 +648,4 @@ export const CloseButton = styled.button`
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
-`; 
+`;

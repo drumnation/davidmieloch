@@ -14,12 +14,12 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Game Sage',
     category: 'Personal Innovation Lab',
-    description: 'Select a game, select a commentary type (instructional, narration, esports), select on demand commentary or automatic, game sage speaks advice or narrates videos games by analyzing screenshots of gameplay infused by dynamic skill-jacks training the AI with context for any game you are playing.',
-    technologies: ['Electron', 'React.js', 'Openai', 'TypeScript'],
+    description: 'An AI-powered desktop application that enhances the gaming experience by providing real-time analysis and commentary. Features include real-time AI gameplay analysis through automatic screenshot capture, multiple analysis modes (tactical advice, professional commentary, e-sports casting), global hotkeys for instant capture during gameplay, multi-monitor support with selective display options, context-aware responses that maintain gameplay history, and scene change detection to identify key gameplay moments.',
+    technologies: ['Electron', 'React.js', 'TypeScript', 'OpenAI Vision API'],
     startDate: '2024',
     endDate: '2024',
     repoUrl: 'https://github.com/drumnation/game-sage',
-    impact: 'Created an AI-powered gaming assistant that provides real-time gameplay analysis and narration',
+    impact: 'Transforms gaming experiences by delivering AI-powered real-time analysis and commentary that helps players improve their skills while adding a new dimension of entertainment.',
     media: [
       {
         type: 'image',
@@ -106,13 +106,14 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Music Project Management System for Music Licensing',
     category: 'Personal Innovation Lab',
-    description: 'A music project management system for music licensing. Built for effective collaboration between artists and music producers, features region based commenting, meta data tagging and editing, bpm detection and modification.',
-    technologies: ['React.js', 'Render.com'],
+    description: 'A comprehensive web application designed for music professionals to review, annotate, and manage audio tracks. Features include advanced audio waveform visualization with zoom functionality, precise audio playback controls, BPM detection and modification, time-based commenting system, track metadata management, responsive layout with resizable components, real-time waveform navigation, volume control with visual feedback, dynamic comment display tied to playback position, AI-powered comment generation through OpenAI integration, interactive keyboard shortcuts, and support for various audio file formats.',
+    technologies: ['React.js', 'TypeScript', 'WaveSurfer.js', 'OpenAI', 'Render.com'],
     startDate: '2024',
     endDate: '2024',
     logoPath: 'media/screenshots/mpm-logo-crop.png',
     showBorder: true,
     repoUrl: 'https://github.com/drumnation/mpm',
+    impact: 'Transformed how music professionals collaborate by providing precise, time-stamped feedback on audio tracks, enabling more effective communication and accelerating the music production workflow.',
     media: [
       {
         type: 'image',
@@ -125,6 +126,7 @@ export const SIDE_PROJECTS: SideProject[] = [
         buttonText: 'Try Demo',
         description: 'A music project management system for music licensing, built with React.js.',
         thumbnail: 'media/misc/render.png',
+        thumbnailWidth: '240px',
         width: '100%'
       }
     ]
@@ -152,12 +154,20 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Browser-use CLI (FORK)',
     category: 'Developer Tools',
-    description: 'My open source fork of the browser-use library that adds a comprehensive set of command line functionality and tool documentation to allow a central agent to use a browser-use browser agent as a tool for frontend testing.',
-    technologies: ['Python', 'CLI', 'Deepseek', 'Gemini', 'Openai', 'Anthropic'],
-    repoUrl: 'https://github.com/yourusername/browser-use-cli',
-    startDate: '2025',
-    endDate: '2025',
-    impact: 'Enhanced an open source library to enable AI-powered browser automation with natural language controls'
+    description: 'A powerful terminal-based interface that enables developers to train AI agents to perform browser automation tasks through natural language commands. Features include terminal-based browser automation via natural language, multi-provider LLM support (Anthropic, OpenAI, Google Gemini, DeepSeek), vision-capable browser interaction for visual analysis, session recording and tracing for debugging, persistent browser sessions between commands, custom Chrome profile integration, headless mode for server environments, configurable automation parameters, and enhanced toolchain integration for Cursor.',
+    technologies: ['Python', 'CLI', 'Anthropic', 'OpenAI', 'Google Gemini', 'DeepSeek'],
+    repoUrl: 'https://github.com/drumnation/browser-use-cli',
+    startDate: '2024',
+    endDate: '2024',
+    impact: 'Empowers Cursor users to train their AI agents to navigate, interact with, and analyze web content through simple terminal commands, eliminating the complexity of browser automation programming while enabling powerful LLM-driven web interactions.',
+    media: [
+      {
+        type: 'image',
+        url: 'media/screenshots/browser-use-cli.png',
+        title: 'Browser-use CLI Terminal Interface',
+        width: '100%'
+      }
+    ]
   },
   {
     title: 'Prompt Forge',
@@ -210,12 +220,20 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Cursor Directory Structure TS',
     category: 'Developer Tools',
-    description: 'Extracts a file tree and AI generated descriptions into your .brain folder to provide context to AI coding systems.',
+    description: 'A TypeScript tool that enhances developer productivity by automatically documenting project structures and providing AI-powered insights. Features include project structure documentation automation, AI-powered file and function descriptions using Google Gemini, real-time file monitoring and updates, automatic project type detection, multi-project support with dedicated documentation, Cursor IDE integration via .cursorrules, smart caching system for performance optimization, customizable ignore patterns, and interactive project setup.',
     technologies: ['Node', 'TypeScript', 'CLI', 'Gemini'],
     startDate: '2024',
     endDate: '2024',
     repoUrl: 'https://github.com/drumnation/cursor-directory-structure-ts',
-    impact: 'Enhanced AI coding assistance by automatically generating contextual project information'
+    impact: 'Streamlines development workflows by creating intelligent, self-updating documentation that gives developers and AI assistants deeper understanding of complex codebases.',
+    media: [
+      {
+        type: 'image',
+        url: 'media/screenshots/directory-structure.png',
+        title: 'Cursor Directory Structure TS',
+        width: '100%'
+      }
+    ]
   },
   {
     title: 'AI Context Generator',
@@ -235,7 +253,7 @@ export const SIDE_PROJECTS: SideProject[] = [
         buttonText: 'VSCode Marketplace',
         description: 'Generate AI context for selected directories. Generate AI context for the root folder of your workspace. Easily copy generated context to the clipboard. Install the extension from the VSCode marketplace.',
         thumbnail: 'media/screenshots/ai-context-generator.png',
-        thumbnailWidth: '100px',
+        thumbnailWidth: '200px',
         customHeight: '200px'
       }
     ],
@@ -322,20 +340,20 @@ export const SIDE_PROJECTS: SideProject[] = [
         buttonText: 'Try Coparenting Copilot',
         thumbnail: 'media/misc/cc-logo.svg',
         width: '100%',
-        thumbnailWidth: '75px',
-        customHeight: '120px'
+        thumbnailWidth: '700px',
+        customHeight: '150px'
       }
     ]
   },
-  {
-    title: 'Evidence Hero',
-    category: 'SaaS Applications',
-    description: 'Evidence and Parenting Time tracking for Family court, AI assisted summarization, categorization and RAG message search. Bringing all modes of messaging and documentation into one place (Email, SMS, Our Family Wizard).',
-    technologies: ['React Native', 'TypeScript', 'Node', 'Express', 'Openai', 'MongoDB'],
-    startDate: '2022',
-    endDate: 'Present',
-    impact: 'Created a specialized tool for organizing and analyzing family court documentation with AI assistance'
-  },
+  // {
+  //   title: 'Evidence Hero',
+  //   category: 'SaaS Applications',
+  //   description: 'Evidence and Parenting Time tracking for Family court, AI assisted summarization, categorization and RAG message search. Bringing all modes of messaging and documentation into one place (Email, SMS, Our Family Wizard).',
+  //   technologies: ['React Native', 'TypeScript', 'Node', 'Express', 'Openai', 'MongoDB'],
+  //   startDate: '2022',
+  //   endDate: 'Present',
+  //   impact: 'Created a specialized tool for organizing and analyzing family court documentation with AI assistance'
+  // },
   {
     title: 'Cheddar',
     category: 'SaaS Applications',

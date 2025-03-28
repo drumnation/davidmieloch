@@ -212,7 +212,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
                         <div style={{
                           position: 'relative',
                           paddingBottom: mediaItem.height ? undefined : '56.25%', /* 16:9 aspect ratio if height not specified */
-                          height: mediaItem.height ? mediaItem.height : undefined,
+                          height: mediaItem.height ? (typeof mediaItem.height === 'number' ? `${mediaItem.height}px` : mediaItem.height) : undefined,
                           overflow: 'hidden'
                         }}>
                           <iframe 
@@ -226,7 +226,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
                               top: 0,
                               left: 0,
                               width: '100%', 
-                              height: mediaItem.height ? mediaItem.height : '100%',
+                              height: mediaItem.height ? (typeof mediaItem.height === 'number' ? `${mediaItem.height}px` : mediaItem.height) : '100%',
                               maxWidth: '100%', 
                               borderRadius: '8px' 
                             }}
