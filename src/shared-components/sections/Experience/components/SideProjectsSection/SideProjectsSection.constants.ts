@@ -97,11 +97,19 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Life Guidance AI',
     category: 'Personal Innovation Lab',
-    description: 'A self-help book customized to my life, a 2 hour audiobook read by my voice clone.',
-    technologies: ['TypeScript', 'Speechify', 'Openai', 'Gemini'],
+    description: 'A meta-prompting framework that compares responses from ChatGPT and Gemini across 11 strategic archetypes to generate personalized development advice. The TypeScript processing pipeline organizes content into a structured audiobook exploring career, future planning, and ethics. Features include specialized transformers, content preservation for technical elements, side-by-side model comparison, and hierarchical navigation across four strategic areas (Future, Development, Career, Ethics).',
+    technologies: ['TypeScript', 'Speechify', 'OpenAI', 'Gemini', 'Node.js', 'Markdown'],
     startDate: '2024',
     endDate: '2024',
-    impact: 'Pioneered a personalized approach to self-help content using AI customization and voice clone technology'
+    impact: 'Life Guidance transforms abstract AI capabilities into concrete personal development insights by systematically comparing multiple AI models across strategic archetypes, creating an actionable roadmap for navigating technological and career evolution.',
+    media: [
+      {
+        type: 'image',
+        url: 'media/screenshots/life-guidance.png',
+        title: 'Life Guidance Interface',
+        width: '100%'
+      }
+    ]
   },
   {
     title: 'Music Project Management System for Music Licensing',
@@ -272,15 +280,36 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Code Companion',
     category: 'Developer Tools',
-    description: 'AI Unit Test Writer: Generates full coverage unit tests and runs them in the browser.',
-    technologies: ['React.js', 'TypeScript', 'Openai', 'Render.com'],
+    description: 'A sophisticated web application that streamlines TypeScript unit testing by leveraging AI to automatically generate and fix tests. Features include interactive diff views for code comparison, real-time test execution, customizable fix instructions, persistent state management, and Monaco code editor integration. Developed around the time GPT-3.5 was released to the public.',
+    technologies: ['React.js', 'TypeScript', 'Redux', 'OpenAI', 'Monaco Editor', 'Render.com'],
     startDate: '2023',
     endDate: '2023',
-    impact: 'Automated the creation of comprehensive unit tests to improve code quality',
+    impact: 'Revolutionizes TypeScript testing by automating the entire test creation and debugging workflow, allowing developers to build more reliable software with significantly less manual effort.',
     media: [
       {
         type: 'image',
         url: 'media/screenshots/code-helper.png',
+        title: 'Interactive Test Generation Interface',
+        width: '100%'
+      },
+      {
+        type: 'group',
+        width: '100%',
+        url: '#',
+        items: [
+          {
+            type: 'image',
+            url: 'media/screenshots/code-companion/diff-view.png',
+            title: 'Visual Code Diff Comparison',
+            width: '48%'
+          },
+          {
+            type: 'image',
+            url: 'media/screenshots/code-companion/test-execution.png',
+            title: 'Real-time Test Execution',
+            width: '48%'
+          }
+        ]
       }
     ]
   },

@@ -32,6 +32,50 @@ const SpeechifyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24,
   );
 };
 
+// Custom Monaco Editor Icon Component
+const MonacoEditorIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#0078D7' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <img 
+        src="/media/icons/monaco-editor.svg" 
+        alt="Monaco Editor" 
+        width={size} 
+        height={size} 
+        style={{ objectFit: 'contain' }}
+      />
+    </div>
+  );
+};
+
+// Custom Render.com Icon Component
+const RenderIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#46E3B7' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <img 
+        src="/media/icons/render-icon.svg" 
+        alt="Render.com" 
+        width={size} 
+        height={size} 
+        style={{ objectFit: 'contain' }}
+      />
+    </div>
+  );
+};
+
 // Map of technology names to their respective icons
 // The keys are lowercase for case-insensitive matching
 const TECH_ICON_MAP: Record<string, {
@@ -225,6 +269,7 @@ const TECH_ICON_MAP: Record<string, {
   'vscode extension': { icon: Fa.FaCode, color: '#007ACC' },
   'vs code extensions': { icon: Fa.FaCode, color: '#007ACC' },
   'chrome extensions': { icon: Fa.FaChrome, color: '#4285F4' },
+  'monaco editor': { icon: MonacoEditorIcon, color: '#0078D7' },
   
   // Code Quality & Formatting
   'eslint': { icon: Fa.FaCheck, color: '#4B32C3' },
@@ -261,6 +306,10 @@ const TECH_ICON_MAP: Record<string, {
   'twitter': { icon: Fa.FaTwitter, color: '#1DA1F2' },
   'youtube': { icon: Fa.FaYoutube, color: '#FF0000' },
   'pinterest': { icon: Fa.FaPinterest, color: '#BD081C' },
+  
+  // Platforms & Services
+  'render.com': { icon: RenderIcon, color: '#46E3B7' },
+  'render': { icon: RenderIcon, color: '#46E3B7' },
 };
 
 /**

@@ -112,11 +112,17 @@ export const MiniModeContainer = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
-  height: 40px;
+  height: 50px;
   background-color: ${({ theme }) => 
     theme.colorScheme === 'dark' 
       ? defaultColors.dark.background 
       : defaultColors.light.background};
+      
+  /* Ensure all direct children are perfectly centered */
+  & > * {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const TrackInfoContainer = styled.div`
