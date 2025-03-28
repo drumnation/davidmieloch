@@ -20,15 +20,61 @@ export const SIDE_PROJECTS: SideProject[] = [
     endDate: '2024',
     repoUrl: 'https://github.com/drumnation/game-sage',
     impact: 'Created an AI-powered gaming assistant that provides real-time gameplay analysis and narration',
+    media: [
+      {
+        type: 'image',
+        url: 'media/screenshots/game-sage/game-sage.png',
+        title: 'Game Sage Main Interface',
+        width: '100%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/game-sage/game-sage5.png',
+        title: 'Analysis Features',
+        width: '100%'
+      }
+    ]
   },
   {
     title: 'AI Hypnosis Script Generator',
     category: 'Personal Innovation Lab',
-    description: 'Generate personalized hypnosis scripts in a multi-stage process customized to your name and needs, then read to you by AI, with integrated binaural beats generator and relaxing AI generated music.',
-    technologies: ['React.js', 'Openai'],
+    description: 'A comprehensive platform for creating personalized hypnotherapy experiences. The system features AI-assisted script generation with multi-section hypnosis scripts (induction, deepener, therapeutic content, emergence), text-to-speech conversion using SSML for natural voice output, integrated binaural beats generation for enhanced hypnotic effects, and a template system for quick customization. Users can manage client information for personalized scripts, save sessions for future reference, and download or stream the complete audio experience.',
+    technologies: ['React.js', 'TypeScript', 'Openai', 'Web Audio API', 'SSML', 'IndexedDB', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
-    impact: 'Combined AI script generation with audio technology to create personalized wellness experiences',
+    impact: 'Combined AI script generation with audio technology to create personalized wellness experiences. The project has helped users address issues ranging from anxiety and stress management to confidence building and sleep improvement through accessible self-hypnosis.',
+    media: [
+      {
+        type: 'image',
+        url: 'media/screenshots/hypnosis/hyp1.png',
+        title: 'Welcome Dashboard',
+        width: '100%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/hypnosis/hyp3.png',
+        title: 'Script Generation Interface',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/hypnosis/hyp5.png',
+        title: 'Script Editor View',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/hypnosis/hyp7.png',
+        title: 'Audio Playback Controls',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/hypnosis/hyp12.png',
+        title: 'Session History',
+        width: '48%'
+      }
+    ]
   },
   {
     title: 'Parenting Pilot',
@@ -79,6 +125,7 @@ export const SIDE_PROJECTS: SideProject[] = [
         buttonText: 'Try Demo',
         description: 'A music project management system for music licensing, built with React.js.',
         thumbnail: 'media/misc/render.png',
+        width: '100%'
       }
     ]
   },
@@ -125,7 +172,8 @@ export const SIDE_PROJECTS: SideProject[] = [
         type: 'image',
         url: 'media/screenshots/prompt-forge.png',
         title: 'Prompt Forge',
-        width: '100%'
+        width: '100%',
+        customHeight: '350px'
       }
     ]
   },
@@ -136,7 +184,28 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['React.js', 'Node', 'TypeScript', 'Openai', 'Replit Agent'],
     startDate: '2024',
     endDate: '2024',
+    repoUrl: 'https://github.com/drumnation/model-maestro',
     impact: 'Developed a tool that matches prompts with optimal AI models for improved results',
+    media: [
+      {
+        type: 'image',
+        url: 'media/screenshots/model-maestro4.png',
+        title: 'Model Maestro Interface',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/model-maestro5.png',
+        title: 'Model Comparison',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/model-maestro3.png',
+        title: 'Model Performance Analysis',
+        width: '100%'
+      }
+    ]
   },
   {
     title: 'Cursor Directory Structure TS',
@@ -145,6 +214,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['Node', 'TypeScript', 'CLI', 'Gemini'],
     startDate: '2024',
     endDate: '2024',
+    repoUrl: 'https://github.com/drumnation/cursor-directory-structure-ts',
     impact: 'Enhanced AI coding assistance by automatically generating contextual project information'
   },
   {
@@ -164,7 +234,9 @@ export const SIDE_PROJECTS: SideProject[] = [
         title: 'AI Context Generator',
         buttonText: 'VSCode Marketplace',
         description: 'Generate AI context for selected directories. Generate AI context for the root folder of your workspace. Easily copy generated context to the clipboard. Install the extension from the VSCode marketplace.',
-        thumbnail: 'media/screenshots/ai-context-generator.png'
+        thumbnail: 'media/screenshots/ai-context-generator.png',
+        thumbnailWidth: '100px',
+        customHeight: '200px'
       }
     ],
     impact: 'Streamlined the process of providing project context to AI assistants'
@@ -235,13 +307,13 @@ export const SIDE_PROJECTS: SideProject[] = [
         type: 'image',
         url: 'media/screenshots/coparenting-copilot/summarizer-no-padding.png',
         title: 'Summarizer',
-        width: '100%'
+        width: '48%'
       },
       {
         type: 'image',
         url: 'media/screenshots/coparenting-copilot/email-result.png',
         title: 'Final AI Generated Email',
-        width: '100%'
+        width: '48%'
       },
       {
         type: 'link',
@@ -249,7 +321,9 @@ export const SIDE_PROJECTS: SideProject[] = [
         // title: 'Coparenting Copilot',
         buttonText: 'Try Coparenting Copilot',
         thumbnail: 'media/misc/cc-logo.svg',
-        width: '100%'
+        width: '100%',
+        thumbnailWidth: '75px',
+        customHeight: '120px'
       }
     ]
   },
@@ -263,13 +337,40 @@ export const SIDE_PROJECTS: SideProject[] = [
     impact: 'Created a specialized tool for organizing and analyzing family court documentation with AI assistance'
   },
   {
-    title: 'Stacks Track',
+    title: 'Cheddar',
     category: 'SaaS Applications',
-    description: 'Balance Forecasting for Personal Finance: Plan your financial future.',
-    technologies: ['React.js','React Native', 'TypeScript', 'Node', 'Express', 'MongoDB'],
+    description: 'Cheddar is a comprehensive personal finance management application that empowers users to take control of their financial future. The platform combines intuitive account management with powerful forecasting tools that visualize upcoming financial positions based on scheduled transactions and recurring payments. Users can connect their existing bank accounts through Plaid integration or manually track accounts, while the interactive balance chart provides immediate visual feedback on financial health with color-coded thresholds. Key features include financial account management with real-time balance tracking, transaction categorization and filtering, smart balance forecasting, interactive visualization, transaction scheduling with recurring payment support, and a date-based financial calendar view.',
+    technologies: ['React.js', 'React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Plaid API', 'Chart.js', 'Styled Components', 'Date-fns'],
     startDate: '2022',
     endDate: 'Present',
-    impact: 'Developed a personal finance application focused on predictive modeling and budget planning'
+    logoPath: 'media/misc/cheddar.png',
+    impact: 'Transformed financial anxiety into confidence by combining transaction tracking with intelligent forecasting that helps users visualize and plan their financial future with clarity and precision. The application enables users to make informed decisions by simulating different financial scenarios, providing clear visualization of spending patterns, and offering projections months into the future.',
+    media: [
+      {
+        type: 'image',
+        url: 'media/screenshots/cheddar/cheddar.png',
+        title: 'Cheddar Dashboard with Balance Forecast',
+        width: '100%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/cheddar/cheddar-forecast.png',
+        title: 'Future Forecast Simulation',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/cheddar/cheddar4.png',
+        title: 'Financial Calendar & Planning',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/cheddar/cheddar2.png',
+        title: 'Transaction Management View',
+        width: '100%'
+      },
+    ]
   },
   {
     title: 'Medical Supply Inc.',
@@ -305,27 +406,32 @@ export const SIDE_PROJECTS: SideProject[] = [
         type: 'embed',
         url: 'https://www.youtube.com/embed/I9ua6m65MmQ?si=vH0FFDb7txrYD1Ej',
         title: 'Oneironaught Band Performance',
-        width: 'full',
+        width: '100%',
         height: 400
       },
       {
         type: 'embed',
         url: 'https://www.youtube.com/embed/OfeE14y4CEU?si=O7ytI8_g5SBTibG0',
         title: 'Enlist Today! Album Launch',
-        width: 'full',
+        width: '48%',
         height: 400
       },
       {
         type: 'image',
         url: '/media/photo/oneironaught.jpg',
         title: 'Automated Content Marketing Website',
+        width: '48%'
       },
       {
         type: 'link',
         url: 'https://medium.com/@davidmieloch/how-i-automated-my-bands-music-blog-including-content-creation-740741bbb23f',
         title: 'How I Automated My Band\'s Music Blog Including Content Creation',
+        description: 'This article details my journey, the tools I used, and the lessons learned from this experiment in fully automated digital marketing.',
         thumbnail: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*iO4AGAfTaXzDQryDkwVeaA.jpeg',
-        width: 'full'
+        width: '100%',
+        buttonText: 'Read My Post',
+        customHeight: '160px',
+        thumbnailWidth: '350px'
       },
     ]
   }

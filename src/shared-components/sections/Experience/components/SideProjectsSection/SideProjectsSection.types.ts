@@ -24,7 +24,8 @@ export interface SideProject {
 }
 
 export interface SideProjectsSectionProps {
-  projects: SideProject[];
+  projects?: SideProject[];
   title?: string;
   className?: string;
+  id?: string;
 } 

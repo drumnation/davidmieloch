@@ -10,10 +10,12 @@ import { MediaItem } from '../../Experience.types';
 export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({ 
   projects = SIDE_PROJECTS, 
   title = SECTION_TITLE,
-  className
+  className,
+  id,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | 'All'>('All');
   const [selectedTech, setSelectedTech] = useState<string | 'All'>('All');
+  const [modalImage, setModalImage] = useState<MediaItem | null>(null);
   
   // Extract unique technologies from all projects
   const uniqueTechnologies = useMemo(() => {
@@ -88,6 +90,16 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
     setSelectedTech(tech);
   };
 
+  // Function to open the modal
+  const openModal = (image: MediaItem) => {
+    setModalImage(image);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setModalImage(null);
+  };
+
   const renderMedia = (media: MediaItem[] | undefined, isHalfWidth = false) => {
     if (!media || media.length === 0) return null;
     
@@ -148,15 +160,46 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
         );
       }
 
+      // For links
+      if (type === 'link') {
+        return (
+          <S.MediaItem
+            key={`media-link-${index}`}
+            className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
+            style={adjustedStyle}
+          >
+            <S.LinkContainer style={{ height: item.customHeight || '150px' }}>
+              {thumbnail && (
+                <div className="link-thumbnail" style={{ width: item.thumbnailWidth || '150px' }}>
+                  <img src={thumbnail} alt={title || 'Link thumbnail'} />
+                </div>
+              )}
+              <div className="link-content">
+                {title && <div className="link-title">{title}</div>}
+                {description && <div className="link-description">{description}</div>}
+                <a href={url} target="_blank" rel="noopener noreferrer" className="link-button">
+                  {buttonText || 'View'}
+                </a>
+              </div>
+            </S.LinkContainer>
+          </S.MediaItem>
+        );
+      }
+
       // For images
       if (type === 'image') {
         return (
           <S.MediaItem
             key={`media-image-${index}`}
             className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
-            style={adjustedStyle}
+            style={{...adjustedStyle, height: item.customHeight || 'auto'}}
           >
-            <S.MediaImage src={url} alt={title || 'Project image'} />
+            <S.MediaImage 
+              src={url} 
+              alt={title || 'Project image'} 
+              onClick={() => openModal(item)} 
+              style={{ cursor: 'pointer', height: item.customHeight ? '100%' : 'auto', objectFit: item.customHeight ? 'cover' : 'contain' }}
+            />
             {title && <S.MediaTitle>{title}</S.MediaTitle>}
             {description && <S.MediaDescription>{description}</S.MediaDescription>}
           </S.MediaItem>
@@ -173,7 +216,11 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
           >
             <S.MediaVideo 
               controls 
-              style={{ display: 'block', width: '100%', height: 'auto' }}
+              style={{ 
+                display: 'block', 
+                width: '100%', 
+                height: item.customHeight || 'auto' 
+              }}
               poster={thumbnail}
             >
               <source src={url} type="video/mp4" />
@@ -185,20 +232,25 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
         );
       }
 
-      // For links
-      if (type === 'link') {
+      // For embeds
+      if (type === 'embed') {
         return (
           <S.MediaItem
-            key={`media-link-${index}`}
+            key={`media-embed-${index}`}
             className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
             style={adjustedStyle}
           >
-            {thumbnail && <S.MediaImage src={thumbnail} alt={title || 'Link thumbnail'} />}
+            <S.MediaEmbed>
+              <iframe
+                src={url}
+                title={title || 'Embedded content'}
+                height={item.height || 400}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </S.MediaEmbed>
             {title && <S.MediaTitle>{title}</S.MediaTitle>}
             {description && <S.MediaDescription>{description}</S.MediaDescription>}
-            <S.MediaLink href={url} target="_blank" rel="noopener noreferrer">
-              {buttonText || 'View'}
-            </S.MediaLink>
           </S.MediaItem>
         );
       }
@@ -214,8 +266,10 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
   };
 
   return (
-    <S.SideProjectsContainer className={className}>
-      <h2>{title}</h2>
+    <S.SideProjectsContainer className={className} id={id}>
+      <S.SectionHeader>
+        <S.SectionTitle>{title}</S.SectionTitle>
+      </S.SectionHeader>
       
       {/* Category filters */}
       <S.FiltersSectionTitle>Filter by Category</S.FiltersSectionTitle>
@@ -389,6 +443,21 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
           )
         )}
       </S.ProjectsGrid>
+
+      {/* Add modal component */}
+      {modalImage && (
+        <S.ModalOverlay onClick={closeModal}>
+          <S.ModalContent onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+            <S.CloseButton onClick={closeModal}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="white"/>
+              </svg>
+            </S.CloseButton>
+            <img src={modalImage.url} alt={modalImage.title || "Full size image"} />
+            {modalImage.title && <div className="modal-caption">{modalImage.title}</div>}
+          </S.ModalContent>
+        </S.ModalOverlay>
+      )}
     </S.SideProjectsContainer>
   );
 };

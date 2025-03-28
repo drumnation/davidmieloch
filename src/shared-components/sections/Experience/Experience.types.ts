@@ -44,6 +44,8 @@ export interface MediaItem {
   url: string;
   title?: string;
   thumbnail?: string; // Optional thumbnail for videos or PDFs
+  thumbnailWidth?: string; // Optional width for thumbnails (e.g., '150px', '200px')
+  customHeight?: string; // Optional custom height for media items (e.g., '200px', '300px')
   description?: string;
   buttonText?: string; // Optional custom text for link buttons
   width?: string; // For controlling layout width ('full', '100%', '31.33%', '23.5%', etc.)

@@ -501,4 +501,80 @@ export const MediaLink = styled.a`
   &:hover {
     background-color: #006097;
   }
+`;
+
+export const SectionHeader = styled.div`
+  margin-bottom: 2rem;
+`;
+
+export const SectionTitle = styled.h2`
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 1rem 0;
+`;
+
+// Modal components
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+`;
+
+export const ModalContent = styled.div`
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+  
+  img {
+    max-width: 100%;
+    max-height: 90vh;
+    display: block;
+    object-fit: contain;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  .modal-caption {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+  }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 `; 
