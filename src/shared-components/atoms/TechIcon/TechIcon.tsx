@@ -1,23 +1,41 @@
 import React from 'react';
 import { TechIconProps } from './TechIcon.types';
 import * as S from './TechIcon.styles';
+import { IconType } from 'react-icons'; // Import IconType
 
 // Import various icon collections
 import * as Di from 'react-icons/di';  // Devicons
 import * as Si from 'react-icons/si';  // Simple Icons
 import * as Fa from 'react-icons/fa';  // Font Awesome
 import * as Tb from 'react-icons/tb';  // Tabler Icons
-import * as Ai from 'react-icons/ai';  // Ant Design Icons
 import * as Bs from 'react-icons/bs';  // Bootstrap Icons
-import * as Gr from 'react-icons/gr';  // Grommet Icons
-import * as Ti from 'react-icons/ti';  // Typicons
-import * as Vsc from 'react-icons/vsc'; // Visual Studio Code Icons
-import * as Io from 'react-icons/io5'; // Ionicons 5
+
+// Custom Speechify Icon Component
+const SpeechifyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#FF6B00' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent' // Using transparent background to show the icon clearly
+    }}>
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Speechify_Icon.png/480px-Speechify_Icon.png" 
+        alt="Speechify" 
+        width={size} 
+        height={size} 
+        style={{ objectFit: 'contain' }}
+      />
+    </div>
+  );
+};
 
 // Map of technology names to their respective icons
 // The keys are lowercase for case-insensitive matching
 const TECH_ICON_MAP: Record<string, {
-  icon: React.ComponentType<any>;
+  icon: IconType | React.FC<{ size?: number; color?: string }>;
   color?: string;
 }> = {
   // Programming Languages
@@ -135,11 +153,17 @@ const TECH_ICON_MAP: Record<string, {
   'jasmine': { icon: Si.SiJasmine, color: '#8A4182' },
   'cypress': { icon: Si.SiCypress, color: '#17202C' },
   'selenium': { icon: Si.SiSelenium, color: '#43B02A' },
-  'playwright': { icon: Fa.FaVial, color: '#2EAD33' }, // Using test tube icon for Playwright
-  'puppeteer': { icon: Fa.FaChrome, color: '#40B5A4' }, // Using Chrome icon as puppeteer is for Chrome
+  'playwright': { icon: Fa.FaTheaterMasks, color: '#2EAD33' }, // Using theater masks icon
+  'puppeteer': { icon: Fa.FaChrome, color: '#40B5A4' }, // Using Chrome icon as fallback
   'junit': { icon: Si.SiJunit5, color: '#25A162' },
   'storybook': { icon: Si.SiStorybook, color: '#FF4785' },
-  'detox': { icon: Fa.FaVial, color: '#8D69F1' }, // Using vial icon as detox doesn't have an official icon
+  'detox': { icon: Si.SiTestcafe || Fa.FaMobileAlt, color: '#8D69F1' }, // Using TestCafe or mobile icon as fallback
+  
+  // Update colors to match the UI elements in the image
+  'te': { icon: Bs.BsCodeSquare, color: '#3498DB' }, // Custom color for "Te" icon (for Jest and Playwright)
+  'au': { icon: Bs.BsCodeSquare, color: '#3498DB' }, // Custom color for "Au" icon (for Puppeteer)
+  's': { icon: Bs.BsCodeSquare, color: '#3498DB' },  // Custom color for "S" icon (for Storybook)
+  'mo': { icon: Bs.BsCodeSquare, color: '#3498DB' }, // Custom color for "Mo" icon (for Detox)
   
   // Frameworks & Libraries
   'electron': { icon: Si.SiElectron, color: '#47848F' },
@@ -218,7 +242,7 @@ const TECH_ICON_MAP: Record<string, {
   'claude': { icon: Fa.FaRobot, color: '#5E5CFA' }, // Using robot icon
   'ai integration': { icon: Fa.FaRobot, color: '#1A90FF' },
   'replit agent': { icon: Fa.FaTerminal, color: '#56676E' }, // Using terminal icon as fallback for Replit Agent
-  'speechify': { icon: Fa.FaVolumeUp, color: '#FF6B00' }, // Using volume icon as fallback for Speechify
+  'speechify': { icon: SpeechifyIcon, color: '#FF6B00' }, // Using custom Speechify icon
   
   // Architecture
   'atomic design': { icon: Fa.FaAtom, color: '#663399' },
@@ -230,6 +254,41 @@ const TECH_ICON_MAP: Record<string, {
   'n8n': { icon: Fa.FaRandom, color: '#6933FF' }, // Using random icon as fallback
   'ifttt': { icon: Si.SiIfttt, color: '#000000' }, // Adding IFTTT
   'buffer': { icon: Fa.FaBuffer, color: '#231F20' }, // Using Buffer icon
+  
+  // Social Media Platforms
+  'facebook': { icon: Fa.FaFacebookF, color: '#1877F2' },
+  'instagram': { icon: Fa.FaInstagram, color: '#E4405F' },
+  'twitter': { icon: Fa.FaTwitter, color: '#1DA1F2' },
+  'youtube': { icon: Fa.FaYoutube, color: '#FF0000' },
+  'pinterest': { icon: Fa.FaPinterest, color: '#BD081C' },
+};
+
+/**
+ * Custom component for testing technologies shown in the image
+ * This provides better styling to match the image exactly
+ */
+const TestingIcon: React.FC<{ shortName: string; size?: number; color?: string }> = ({
+  shortName,
+  size = 24,
+  color = '#3498DB', // Default blue color from the image
+}) => {
+  return (
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: color,
+      color: 'white',
+      borderRadius: '4px',
+      width: `${size}px`,
+      height: `${size}px`,
+      fontSize: `${size * 0.45}px`,
+      fontWeight: 600,
+      textTransform: 'uppercase',
+    }}>
+      {shortName}
+    </div>
+  );
 };
 
 /**
@@ -280,7 +339,7 @@ export const TechIcon: React.FC<TechIconProps> = ({
       title={showTooltip ? name : undefined}
       $labelPosition={labelPosition}
     >
-      <S.FallbackContainer $bgColor={color}>
+      <S.FallbackContainer $bgColor={color} $size={size}>
         {name.substring(0, 2)}
       </S.FallbackContainer>
       

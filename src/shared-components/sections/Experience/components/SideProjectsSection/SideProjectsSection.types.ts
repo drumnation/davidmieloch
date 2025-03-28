@@ -19,6 +19,8 @@ export interface SideProject {
   impact?: string;
   logoPath?: string;
   media?: MediaItem[];
+  halfWidth?: boolean;
+  showBorder?: boolean;
 }
 
 export interface SideProjectsSectionProps {

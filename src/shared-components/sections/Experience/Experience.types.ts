@@ -40,9 +40,12 @@ export interface ProjectItem {
 }
 
 export interface MediaItem {
-  type: 'image' | 'pdf' | 'video';
+  type: 'image' | 'pdf' | 'video' | 'link' | 'embed';
   url: string;
-  title: string;
+  title?: string;
   thumbnail?: string; // Optional thumbnail for videos or PDFs
   description?: string;
+  buttonText?: string; // Optional custom text for link buttons
+  width?: string; // For controlling layout width ('full', '100%', '31.33%', '23.5%', etc.)
+  height?: number; // Optional height for embeds
 } 

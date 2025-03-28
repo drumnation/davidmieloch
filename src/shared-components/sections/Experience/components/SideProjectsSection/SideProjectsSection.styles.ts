@@ -33,9 +33,22 @@ export const FiltersContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const FilterButton = styled.button<{ active?: boolean }>`
-  background-color: ${({ active }) => active ? '#0073b1' : '#f3f2ef'};
-  color: ${({ active }) => active ? 'white' : 'rgba(0, 0, 0, 0.9)'};
+export const FiltersSectionTitle = styled.div`
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 0.75rem;
+  width: 100%;
+`;
+
+export const TechFiltersContainer = styled(FiltersContainer)`
+  margin-bottom: 2rem;
+  gap: 0.5rem;
+`;
+
+export const FilterButton = styled.button<{ $active?: boolean }>`
+  background-color: ${({ $active }) => $active ? '#0073b1' : '#f3f2ef'};
+  color: ${({ $active }) => $active ? 'white' : 'rgba(0, 0, 0, 0.9)'};
   border: none;
   border-radius: 20px;
   padding: 0.5rem 1rem;
@@ -45,8 +58,14 @@ export const FilterButton = styled.button<{ active?: boolean }>`
   transition: all 0.2s ease;
   
   &:hover {
-    background-color: ${({ active }) => active ? '#006097' : '#e6e5e4'};
+    background-color: ${({ $active }) => $active ? '#006097' : '#e6e5e4'};
   }
+`;
+
+export const TechFilterButton = styled(FilterButton)`
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 16px;
 `;
 
 export const ProjectsGrid = styled.div`
@@ -72,10 +91,72 @@ export const ProjectCard = styled.div`
   }
 `;
 
+export const MediaContainer = styled.div`
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .quarter-width-image {
+    width: 23.5%;
+  }
+  
+  .third-width-image {
+    width: 31.33%;
+  }
+  
+  // Mobile responsiveness for multi-column layouts
+  @media (max-width: 768px) {
+    .quarter-width-image,
+    .third-width-image {
+      width: 100%;
+    }
+  }
+`;
+
+export const FullRowProjectCard = styled(ProjectCard)`
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .project-main {
+    width: 100%;
+  }
+  
+  .project-media {
+    width: 100%;
+    
+    & > div {
+      margin-top: 0.75rem;
+      
+      & > div {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+`;
+
 export const ProjectHeader = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+`;
+
+export const HeaderContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
 `;
 
 export const ProjectLogo = styled.img`
@@ -83,6 +164,7 @@ export const ProjectLogo = styled.img`
   height: 50px;
   object-fit: contain;
   margin-right: 1rem;
+  padding-right: 5px;
   border-radius: 8px;
 `;
 
@@ -91,6 +173,36 @@ export const ProjectTitle = styled.h4`
   font-weight: 600;
   margin: 0;
   color: rgba(0, 0, 0, 0.9);
+`;
+
+export const HeaderDate = styled.span`
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 0.1rem;
+`;
+
+export const HeaderDateRow = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 0.1rem;
+  gap: 0.5rem;
+`;
+
+export const HeaderRepoLink = styled.a`
+  font-size: 0.8rem;
+  color: #0073b1;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  svg {
+    margin-right: 4px;
+    font-size: 0.9rem;
+  }
 `;
 
 export const ProjectDescription = styled.p`
@@ -168,10 +280,6 @@ export const ProjectLink = styled.a`
   }
 `;
 
-export const MediaContainer = styled.div`
-  margin-top: 1.5rem;
-`;
-
 export const MediaItem = styled.div`
   margin-top: 1rem;
   border-radius: 8px;
@@ -180,9 +288,11 @@ export const MediaItem = styled.div`
 `;
 
 export const MediaTitle = styled.p`
-  font-size: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
   margin-bottom: 0.5rem;
   color: rgba(0, 0, 0, 0.6);
+  padding-left: 15px;
 `;
 
 export const MediaImage = styled.img`
@@ -193,6 +303,18 @@ export const MediaImage = styled.img`
 export const MediaVideo = styled.video`
   width: 100%;
   border-radius: 8px;
+`;
+
+export const MediaEmbed = styled.div`
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  
+  iframe {
+    display: block;
+    border: none;
+    width: 100%;
+  }
 `;
 
 export const MediaThumbnail = styled.div`
@@ -220,5 +342,97 @@ export const MediaThumbnail = styled.div`
   
   img {
     width: 100%;
+  }
+`;
+
+/* Link container styles */
+export const LinkContainer = styled.div`
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .link-thumbnail {
+    flex: 0 0 auto;
+    position: relative;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    @media (min-width: 768px) {
+      width: 200px;
+    }
+  }
+  
+  .link-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f3f2ef;
+    padding: 20px;
+    height: 100%;
+    
+    .placeholder-text {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+  
+  .link-content {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .link-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .link-description {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    flex: 1;
+  }
+  
+  .link-button {
+    background-color: #0073b1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    
+    svg {
+      margin-left: 8px;
+    }
+    
+    &:hover {
+      background-color: #006097;
+      text-decoration: none;
+    }
   }
 `; 

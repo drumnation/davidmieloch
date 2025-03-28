@@ -49,7 +49,8 @@ export const ProjectLogo: React.FC<ProjectLogoProps> = ({
   className,
   onClick,
   showTooltip = true,
-  initialsCount = 2
+  initialsCount = 2,
+  showBorder = false
 }) => {
   // Determine background color (use provided or generate from name)
   const backgroundColor = bgColor || generateColorFromName(name);
@@ -63,7 +64,7 @@ export const ProjectLogo: React.FC<ProjectLogoProps> = ({
       $labelPosition={labelPosition}
     >
       {logoPath ? (
-        <S.ImageWrapper>
+        <S.ImageWrapper style={showBorder ? { border: '1px solid rgba(0, 0, 0, 0.2)', padding: '2px', borderRadius: '8px' } : {}}>
           <img 
             src={logoPath} 
             alt={`${name} logo`} 
@@ -76,6 +77,7 @@ export const ProjectLogo: React.FC<ProjectLogoProps> = ({
           $bgColor={backgroundColor}
           $size={size}
           $textColor={textColor}
+          style={showBorder ? { border: '1px solid rgba(0, 0, 0, 0.2)', padding: '2px' } : {}}
         >
           {getInitials(name, initialsCount)}
         </S.FallbackLogo>

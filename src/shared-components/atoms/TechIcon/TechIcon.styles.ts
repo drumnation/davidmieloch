@@ -77,20 +77,28 @@ export const TechLabel = styled.span<TechLabelProps>`
   }}
   text-align: center;
   color: rgba(0, 0, 0, 0.75);
-  max-width: 100px;
+  max-width: 160px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 
-export const FallbackContainer = styled.div<{ $bgColor?: string }>`
+interface FallbackContainerProps {
+  $bgColor?: string;
+  $size?: number;
+}
+
+export const FallbackContainer = styled.div<FallbackContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ $bgColor }) => $bgColor || '#f0f0f0'};
-  color: rgba(0, 0, 0, 0.8);
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  background-color: ${({ $bgColor }) => $bgColor || '#3498DB'}; /* Default to blue if no color provided */
+  color: white;
+  border-radius: 6px;
+  font-size: ${props => Math.max(props.$size || 24, 24) * 0.4}px;
+  font-weight: 600;
+  width: ${props => props.$size || 24}px;
+  height: ${props => props.$size || 24}px;
+  text-transform: uppercase;
+  margin-right: ${props => props.$size ? props.$size * 0.2 : 4}px;
 `; 

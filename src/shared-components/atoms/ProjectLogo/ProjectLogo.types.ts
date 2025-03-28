@@ -65,4 +65,10 @@ export interface ProjectLogoProps {
    * @default 2
    */
   initialsCount?: 1 | 2;
+  
+  /**
+   * Whether to show a border around the logo
+   * @default false
+   */
+  showBorder?: boolean;
 } 
