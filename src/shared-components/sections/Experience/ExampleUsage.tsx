@@ -1,14 +1,16 @@
 import React from 'react';
 import { SkillsSection } from './components/SkillsSection';
+import { SideProjectsSection } from './components/SideProjectsSection';
 import { TechIcon } from '../../atoms/TechIcon';
 import { 
   SKILL_CATEGORIES, 
   ADDITIONAL_SKILL_CATEGORIES, 
   TOOLING_SKILL_CATEGORIES 
 } from './components/SkillsSection/SkillsSection.constants';
+import { sampleProjects } from './data';
 
 /**
- * Example usage of the SkillsSection component with TechIcon integration
+ * Example usage of Experience section components
  */
 const ExampleUsage: React.FC = () => {
   // Example of custom icon rendering function that uses TechIcon component
@@ -41,7 +43,15 @@ const ExampleUsage: React.FC = () => {
   
   return (
     <div>
-      <h1>Skills Section Example</h1>
+      <h1>Experience Components Examples</h1>
+      
+      <h2>Side Projects with Complex Media Layouts</h2>
+      <SideProjectsSection 
+        title="Side Projects" 
+        projects={sampleProjects}
+      />
+      
+      <h2>Skills Section Example</h2>
       
       {/* Basic usage with default TechIcon implementation */}
       <SkillsSection 

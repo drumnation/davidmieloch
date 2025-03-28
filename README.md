@@ -103,3 +103,103 @@ If you encounter issues with media downloads:
 2. Check for debug screenshots in the project root directory
 3. Try using LinkedIn authentication as described above
 4. If all else fails, the script will generate letter avatars as placeholders
+
+# Experience Components
+
+This package contains a set of components for displaying experience sections typically found on resumes and personal websites.
+
+## Components
+
+- `Experience`: The main container component for all experience sections
+- `ExperienceSection`: For showcasing work experience 
+- `EducationSection`: For displaying educational background
+- `SkillsSection`: For listing skills with optional categorization
+- `SideProjectsSection`: For displaying side projects and personal work
+
+## Media Layout System
+
+The components support a flexible media layout system:
+
+### Basic Media Types
+
+- **image**: Display an image with optional title and description
+- **video**: Display a video with controls and optional thumbnail
+- **link**: Display a link with optional thumbnail, title, and description
+
+### Advanced Layouts with Media Groups
+
+You can create complex media layouts using the `group` media type:
+
+```js
+{
+  type: 'group',
+  layout: 'default', // 'default' for side-by-side, 'stack' for vertical
+  url: '#', // Required placeholder URL
+  items: [
+    // First item takes 48% width
+    {
+      type: 'image',
+      url: '/path/to/image1.jpg',
+      title: 'Main Feature',
+      width: '48%'
+    },
+    // Second item is a group of stacked media
+    {
+      type: 'group',
+      layout: 'stack',
+      url: '#',
+      width: '48%',
+      items: [
+        {
+          type: 'image',
+          url: '/path/to/image2.jpg',
+          title: 'Stacked Item 1'
+        },
+        {
+          type: 'image',
+          url: '/path/to/image3.jpg',
+          title: 'Stacked Item 2'
+        }
+      ]
+    }
+  ]
+}
+```
+
+This creates a layout with:
+- One main image on the left (48% width)
+- Two stacked images on the right (48% width combined)
+
+### Width Options
+
+Media items support several width options:
+- Percentage values (e.g., `'48%'`, `'100%'`)
+- Predefined values: `'quarter'`, `'third'`, `'half'`, `'full'`
+- Default: Takes full width if no width specified
+
+### Responsive Behavior
+
+All media layouts are responsive and adapt to smaller screens:
+- On mobile, media items stack vertically regardless of layout
+- Images maintain proper aspect ratios
+- Media groups preserve their internal layout structure when possible
+
+## Usage
+
+```jsx
+import { Experience, SideProjectsSection } from '@components/Experience';
+import { sampleProjects } from './data';
+
+const MyExperiencePage = () => (
+  <Experience>
+    <SideProjectsSection 
+      title="Side Projects" 
+      projects={sampleProjects} 
+    />
+  </Experience>
+);
+```
+
+## Example Data
+
+See `data.ts` and `ExampleUsage.tsx` for example implementations.

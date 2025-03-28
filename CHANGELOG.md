@@ -131,3 +131,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configured styled-components with SSR support
 - Created basic page layout structure
 - Set up initial routing
+
+### Added
+- Advanced media layout system with nested groups and stacked layouts in SideProjectsSection
+- Support for complex media arrangements with flexible width options
+- Fixed half-width property for side project media items
+- Improved styling for media titles with better spacing and typography
+
+### Changed
+- Updated styling for media items to be more responsive
+- Improved media container to use flexbox for better layout control
+- Fixed styling for media titles, making them 15px left padding, 2pt larger and bold
+
+### Fixed
+- Fixed issue with halfWidth project media items not displaying correctly
+- Fixed media containers not respecting width properties in certain contexts

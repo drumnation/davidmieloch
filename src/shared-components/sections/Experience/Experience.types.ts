@@ -40,7 +40,7 @@ export interface ProjectItem {
 }
 
 export interface MediaItem {
-  type: 'image' | 'pdf' | 'video' | 'link' | 'embed';
+  type: 'image' | 'pdf' | 'video' | 'link' | 'embed' | 'group';
   url: string;
   title?: string;
   thumbnail?: string; // Optional thumbnail for videos or PDFs
@@ -48,4 +48,6 @@ export interface MediaItem {
   buttonText?: string; // Optional custom text for link buttons
   width?: string; // For controlling layout width ('full', '100%', '31.33%', '23.5%', etc.)
   height?: number; // Optional height for embeds
+  layout?: 'default' | 'stack'; // For group items: 'default' (side-by-side), 'stack' (vertical)
+  items?: MediaItem[]; // For group type, contains nested media items
 } 

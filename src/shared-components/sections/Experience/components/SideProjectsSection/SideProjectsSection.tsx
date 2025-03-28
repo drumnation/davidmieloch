@@ -5,6 +5,7 @@ import { SideProject, SideProjectsSectionProps } from './SideProjectsSection.typ
 import * as S from './SideProjectsSection.styles';
 import { TechIcon } from '../../../../atoms/TechIcon';
 import { ProjectLogo } from '../../../../atoms/ProjectLogo';
+import { MediaItem } from '../../Experience.types';
 
 export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({ 
   projects = SIDE_PROJECTS, 
@@ -87,121 +88,127 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
     setSelectedTech(tech);
   };
 
-  const renderMedia = (project: SideProject) => {
-    if (!project.media || project.media.length === 0) return null;
+  const renderMedia = (media: MediaItem[] | undefined, isHalfWidth = false) => {
+    if (!media || media.length === 0) return null;
+    
+    const renderMediaItem = (item: MediaItem, index: number, inGroup = false, groupLayout?: 'default' | 'stack') => {
+      const { type, url, title, description, thumbnail, buttonText, width } = item;
+      
+      // Check if the width is a special case
+      const isQuarterWidth = width === 'quarter';
+      const isThirdWidth = width === 'third';
+      const isPercentageWidth = typeof width === 'string' && width.includes('%');
+      
+      // Determine if this is in a half-width card
+      const isHalfWidthCard = isHalfWidth && !inGroup;
+      
+      // Adjust style based on context (special layout or half-width card)
+      const adjustedStyle: React.CSSProperties = {};
+      
+      if (isQuarterWidth) {
+        adjustedStyle.width = isHalfWidthCard ? '100%' : '25%';
+      } else if (isThirdWidth) {
+        adjustedStyle.width = isHalfWidthCard ? '100%' : '33.33%';
+      } else if (isPercentageWidth) {
+        adjustedStyle.width = isHalfWidthCard ? '100%' : width;
+      } else if (width && !isHalfWidthCard) {
+        adjustedStyle.width = width;
+      } else if (isHalfWidthCard) {
+        adjustedStyle.width = '100%';
+      }
+      
+      if (type === 'group' && item.items && item.items.length > 0) {
+        const itemClass = isQuarterWidth 
+          ? 'quarter-width-group' 
+          : isThirdWidth 
+            ? 'third-width-group' 
+            : isHalfWidthCard || width === 'half' 
+              ? 'half-width-group' 
+              : '';
+            
+        return (
+          <S.MediaGroup 
+            key={`media-group-${index}`} 
+            className={itemClass}
+            $layout={item.layout}
+            style={adjustedStyle}
+          >
+            {item.layout === 'stack' ? (
+              <S.MediaGroupContent>
+                {item.items.map((nestedItem: MediaItem, nestedIndex: number) => 
+                  renderMediaItem(nestedItem, nestedIndex, true, item.layout)
+                )}
+              </S.MediaGroupContent>
+            ) : (
+              item.items.map((nestedItem: MediaItem, nestedIndex: number) => 
+                renderMediaItem(nestedItem, nestedIndex, true, item.layout)
+              )
+            )}
+          </S.MediaGroup>
+        );
+      }
+
+      // For images
+      if (type === 'image') {
+        return (
+          <S.MediaItem
+            key={`media-image-${index}`}
+            className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
+            style={adjustedStyle}
+          >
+            <S.MediaImage src={url} alt={title || 'Project image'} />
+            {title && <S.MediaTitle>{title}</S.MediaTitle>}
+            {description && <S.MediaDescription>{description}</S.MediaDescription>}
+          </S.MediaItem>
+        );
+      }
+
+      // For videos
+      if (type === 'video') {
+        return (
+          <S.MediaItem
+            key={`media-video-${index}`}
+            className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
+            style={adjustedStyle}
+          >
+            <S.MediaVideo 
+              controls 
+              style={{ display: 'block', width: '100%', height: 'auto' }}
+              poster={thumbnail}
+            >
+              <source src={url} type="video/mp4" />
+              Your browser does not support the video tag.
+            </S.MediaVideo>
+            {title && <S.MediaTitle>{title}</S.MediaTitle>}
+            {description && <S.MediaDescription>{description}</S.MediaDescription>}
+          </S.MediaItem>
+        );
+      }
+
+      // For links
+      if (type === 'link') {
+        return (
+          <S.MediaItem
+            key={`media-link-${index}`}
+            className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
+            style={adjustedStyle}
+          >
+            {thumbnail && <S.MediaImage src={thumbnail} alt={title || 'Link thumbnail'} />}
+            {title && <S.MediaTitle>{title}</S.MediaTitle>}
+            {description && <S.MediaDescription>{description}</S.MediaDescription>}
+            <S.MediaLink href={url} target="_blank" rel="noopener noreferrer">
+              {buttonText || 'View'}
+            </S.MediaLink>
+          </S.MediaItem>
+        );
+      }
+
+      return null;
+    };
 
     return (
       <S.MediaContainer>
-        {project.media?.map((item, index) => {
-          // Check if this is a media item specifically set for special layouts
-          const isQuarterWidth = item.width === '23.5%';
-          const isThirdWidth = item.width === '31.33%';
-          // Handle percentage-based widths (like 48% for 2-column layout)
-          const isPercentageWidth = item.width && item.width.includes('%');
-          const isSpecialLayout = isQuarterWidth || isThirdWidth || isPercentageWidth;
-          
-          // For default sizing, use normal isWide logic
-          const isWide = !isSpecialLayout && 
-            (item.width === 'full' || item.width === '100%' || project.media?.length === 1);
-          
-          // Determine if we're in a half-width card context
-          const isHalfWidthCard = project.halfWidth === true;
-          // For half-width cards, we need to adjust how media items are displayed
-          const adjustedStyle = isSpecialLayout 
-            ? { width: item.width } 
-            : isHalfWidthCard && item.width 
-              ? { width: '100%' } // Force full width within half cards regardless of specified width
-              : {};
-          
-          return (
-            <S.MediaItem 
-              key={`${project.title}-media-${index}`}
-              style={adjustedStyle}
-              className={
-                isQuarterWidth 
-                  ? "quarter-width-image" 
-                  : isThirdWidth 
-                    ? "third-width-image" 
-                    : isWide || isHalfWidthCard ? "full-width" : ""
-              }
-            >
-              {/* Only show MediaTitle for non-link type media */}
-              {item.title && item.type !== 'link' && <S.MediaTitle>{item.title}</S.MediaTitle>}
-              
-              {item.type === 'image' ? (
-                <S.MediaImage 
-                  src={item.url} 
-                  alt={item.title || project.title} 
-                />
-              ) : item.type === 'video' ? (
-                <S.MediaVideo 
-                  src={item.url}
-                  controls
-                  poster={item.thumbnail}
-                />
-              ) : item.type === 'embed' ? (
-                <S.MediaEmbed>
-                  <iframe
-                    src={item.url}
-                    title={item.title || `${project.title} embed`}
-                    height={item.height || 400}
-                    width="100%"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </S.MediaEmbed>
-              ) : item.type === 'link' ? (
-                <S.LinkContainer>
-                  <div className="link-thumbnail">
-                    {item.thumbnail ? (
-                      <a href={item.url} target="_blank" rel="noopener noreferrer">
-                        <img 
-                          src={item.thumbnail} 
-                          alt={item.title || "Blog post"} 
-                          loading="lazy"
-                        />
-                      </a>
-                    ) : (
-                      <div className="link-placeholder">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect width="48" height="48" rx="8" fill="#3366cc" />
-                          <path d="M14 16H34C35.1 16 36 16.9 36 18V30C36 31.1 35.1 32 34 32H14C12.9 32 12 31.1 12 30V18C12 16.9 12.9 16 14 16ZM14 30H34V18H14V30Z" fill="white"/>
-                          <path d="M20 20H28V24H20V20Z" fill="white"/>
-                          <path d="M16 34H32V36H16V34Z" fill="white"/>
-                          <path d="M16 38H32V40H16V38Z" fill="white"/>
-                        </svg>
-                        <span className="placeholder-text">Blog Post Preview</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="link-content">
-                    <h4 className="link-title">{item.title}</h4>
-                    {item.description && (
-                      <p className="link-description">{item.description}</p>
-                    )}
-                    <a 
-                      href={item.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="link-button"
-                    >
-                      {item.buttonText || "View Article"}
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.6667 12.6667H3.33333V3.33333H8V2H3.33333C2.6 2 2 2.6 2 3.33333V12.6667C2 13.4 2.6 14 3.33333 14H12.6667C13.4 14 14 13.4 14 12.6667V8H12.6667V12.6667ZM9.33333 2V3.33333H11.7267L5.17333 9.88667L6.11333 10.8267L12.6667 4.27333V6.66667H14V2H9.33333Z" fill="white"/>
-                      </svg>
-                    </a>
-                  </div>
-                </S.LinkContainer>
-              ) : (
-                // Display PDF or other types as a link
-                <S.ProjectLink href={item.url} target="_blank" rel="noopener noreferrer">
-                  View {item.title || 'Document'}
-                </S.ProjectLink>
-              )}
-            </S.MediaItem>
-          );
-        })}
+        {media.map((item, index) => renderMediaItem(item, index))}
       </S.MediaContainer>
     );
   };
@@ -312,7 +319,7 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 )}
               </S.ProjectLinks>
               
-              {renderMedia(project)}
+              {renderMedia(project.media, project.halfWidth)}
             </S.ProjectCard>
           ) : (
             <S.FullRowProjectCard key={`${project.title}-${index}`}>
@@ -374,11 +381,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                   </S.ProjectLinks>
                 </div>
                 
-                {project.media && project.media.length > 0 && (
-                  <div className="project-media">
-                    {renderMedia(project)}
-                  </div>
-                )}
+                <div className="project-media">
+                  {renderMedia(project.media, project.halfWidth)}
+                </div>
               </div>
             </S.FullRowProjectCard>
           )

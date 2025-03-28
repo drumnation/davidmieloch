@@ -86,7 +86,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'AI Brain Garden',
     category: 'Developer Tools',
-    description: 'A command line framework that provides structure, prompts, and developer tools for AI assisted development IDEs.',
+    description: 'AI-Brain-Garden is a command line tool designed to revolutionize software development by creating project-specific "Brains," structured knowledge bases that integrate templates, rules, and AI agents. It addresses the inefficiencies of current AI tools by providing context-aware assistance, customizable agents, and an integrated task management system, enhancing productivity, code quality, and collaboration. By leveraging dynamic cursorrules and atomic design principles for prompts, it offers a unique, highly customizable solution for developers and project managers seeking to streamline workflows and improve project outcomes.',
     technologies: ['Node', 'TypeScript', 'Gemini', 'CLI'],
     startDate: '2024',
     endDate: 'Present',
@@ -120,6 +120,14 @@ export const SIDE_PROJECTS: SideProject[] = [
     startDate: '2024',
     endDate: 'Present',
     impact: 'Created a productivity tool that optimizes AI prompt management and reuse',
+    media: [
+      {
+        type: 'image',
+        url: 'media/screenshots/prompt-forge.png',
+        title: 'Prompt Forge',
+        width: '100%'
+      }
+    ]
   },
   {
     title: 'Model Maestro',
@@ -201,21 +209,27 @@ export const SIDE_PROJECTS: SideProject[] = [
     media: [
       {
         type: 'image',
-        url: 'media/screenshots/coparenting-copilot/email-result.png',
-        title: 'Final AI Generated Email',
-        width: '100%'
-      },
-      {
-        type: 'image',
         url: 'media/screenshots/coparenting-copilot/mobile-reply-view.png',
         title: 'Mobile Reply View',
         width: '48%'
       },
       {
-        type: 'image',
-        url: 'media/screenshots/coparenting-copilot/tools.png',
-        title: 'Tools',
-        width: '48%'
+        type: 'group',
+        layout: 'stack',
+        width: '48%',
+        url: '#',
+        items: [
+          {
+            type: 'image',
+            url: 'media/screenshots/coparenting-copilot/composer-mode.png',
+            title: 'Composer Mode',
+          },
+          {
+            type: 'image',
+            url: 'media/screenshots/coparenting-copilot/tools.png',
+            title: 'Tools',
+          },
+        ]
       },
       {
         type: 'image',
@@ -225,10 +239,18 @@ export const SIDE_PROJECTS: SideProject[] = [
       },
       {
         type: 'image',
-        url: 'media/screenshots/coparenting-copilot/composer-mode.png',
-        title: 'Composer Mode',
-        width: '48%'
+        url: 'media/screenshots/coparenting-copilot/email-result.png',
+        title: 'Final AI Generated Email',
+        width: '100%'
       },
+      {
+        type: 'link',
+        url: 'https://www.coparentingcopilot.com/',
+        // title: 'Coparenting Copilot',
+        buttonText: 'Try Coparenting Copilot',
+        thumbnail: 'media/misc/cc-logo.svg',
+        width: '100%'
+      }
     ]
   },
   {
