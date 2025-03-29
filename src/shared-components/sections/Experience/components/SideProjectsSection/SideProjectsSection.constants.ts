@@ -536,25 +536,34 @@ export const SIDE_PROJECTS: SideProject[] = [
     showBorder: true,
     media: [
       {
-        type: 'pdf',
+        type: 'link',
         url: 'media/saturn/sas-optimization-legalresearchfirm-3-12-2015.pdf',
         title: 'SAS Optimization Case Study',
+        buttonText: 'View PDF',
+        description: 'Case study on SAS optimization for a legal research firm',
+        thumbnail: 'company-logos/saturn_business_systems_logo.jpeg',
         width: '48%',
-        description: 'Case study on SAS optimization for a legal research firm'
+        thumbnailWidth: '80px'
       },
       {
-        type: 'pdf',
+        type: 'link',
         url: 'media/saturn/saturn-information-value-management.pdf',
         title: 'Information Value Management',
+        buttonText: 'View PDF',
+        description: 'White paper on Saturn\'s information value management approach',
+        thumbnail: 'company-logos/saturn_business_systems_logo.jpeg',
         width: '48%',
-        description: 'White paper on Saturn\'s information value management approach'
+        thumbnailWidth: '80px'
       },
       {
-        type: 'pdf',
+        type: 'link',
         url: 'media/saturn/Saturn-Business-Systems-SME-Network.pdf',
         title: 'SME Network Overview',
+        buttonText: 'View PDF',
+        description: 'Overview of Saturn Business Systems\' SME Network',
+        thumbnail: 'company-logos/saturn_business_systems_logo.jpeg',
         width: '100%',
-        description: 'Overview of Saturn Business Systems\' SME Network'
+        thumbnailWidth: '80px'
       }
     ]
   }

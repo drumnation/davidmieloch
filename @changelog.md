@@ -47,6 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Saturn Business Systems marketing videos by converting QuickTime MOV files to MP4 format for better browser compatibility
 - Simplified Saturn Business Systems media section by removing videos and keeping only PDF documents
 - Fixed URL handling issues for PDF files with spaces in filenames by using hyphenated filenames
+- Fixed PDF file path issues by removing leading slashes to ensure proper rendering in Next.js
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
