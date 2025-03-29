@@ -532,26 +532,26 @@ export const SIDE_PROJECTS: SideProject[] = [
     startDate: '2013',
     endDate: '2015',
     impact: 'Enhanced the company\'s digital footprint, strengthened lead generation capabilities, and empowered the sales team with compelling content that drove conversions and client engagement.',
-    logoPath: '/company-logos/saturn_business_systems_logo.jpeg',
+    logoPath: 'company-logos/saturn_business_systems_logo.jpeg',
     showBorder: true,
     media: [
       {
         type: 'pdf',
-        url: '/media/saturn/sas-optimization-legalresearchfirm-3-12-2015.pdf',
+        url: 'media/saturn/sas-optimization-legalresearchfirm-3-12-2015.pdf',
         title: 'SAS Optimization Case Study',
         width: '48%',
         description: 'Case study on SAS optimization for a legal research firm'
       },
       {
         type: 'pdf',
-        url: '/media/saturn/saturn-information-value-management.pdf',
+        url: 'media/saturn/saturn-information-value-management.pdf',
         title: 'Information Value Management',
         width: '48%',
         description: 'White paper on Saturn\'s information value management approach'
       },
       {
         type: 'pdf',
-        url: '/media/saturn/Saturn-Business-Systems-SME-Network.pdf',
+        url: 'media/saturn/Saturn-Business-Systems-SME-Network.pdf',
         title: 'SME Network Overview',
         width: '100%',
         description: 'Overview of Saturn Business Systems\' SME Network'
