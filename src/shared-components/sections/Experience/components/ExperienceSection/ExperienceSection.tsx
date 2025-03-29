@@ -434,13 +434,25 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                     key={`media-${index}-${mediaIndex}`} 
                     $isWide={$isWide}
                   >
-                    <iframe
-                      src={mediaItem.url}
-                      title={mediaItem.title || `${job.company} embed`}
-                      height={mediaItem.height || 400}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
+                    {mediaItem.url.endsWith('.mp4') || mediaItem.url.includes('.mp4#') ? (
+                      <video
+                        src={mediaItem.url}
+                        title={mediaItem.title || `${job.company} video`}
+                        height={mediaItem.height || 400}
+                        controls
+                        preload="metadata"
+                        style={{ width: '100%', height: 'auto', maxHeight: mediaItem.height || 400 }}
+                        poster={mediaItem.thumbnailUrl}
+                      />
+                    ) : (
+                      <iframe
+                        src={mediaItem.url}
+                        title={mediaItem.title || `${job.company} embed`}
+                        height={mediaItem.height || 400}
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    )}
                     {mediaItem.description && (
                       <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
                         {mediaItem.description}

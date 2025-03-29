@@ -146,3 +146,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed issue with halfWidth project media items not displaying correctly
 - Fixed media containers not respecting width properties in certain contexts
+- Removed Saturn Business Systems from side projects to avoid duplication, as it's already included in the main work experience
+- Moved Saturn Business Systems media content from side projects to the work experience section
+- Fixed Saturn Business Systems videos to display side-by-side and prevent autoplay
+- Added generated thumbnails for Saturn Business Systems PDF documents

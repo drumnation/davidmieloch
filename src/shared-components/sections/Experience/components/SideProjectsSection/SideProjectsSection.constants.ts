@@ -523,36 +523,5 @@ export const SIDE_PROJECTS: SideProject[] = [
         thumbnailWidth: '350px'
       },
     ]
-  },
-  {
-    title: 'Saturn Business Systems Marketing',
-    category: 'Digital Marketing',
-    description: 'Designed and implemented a comprehensive digital marketing strategy for Saturn Business Systems, an IT solutions provider specializing in data center, cloud solutions, big data analytics, and cybersecurity. Created an integrated marketing ecosystem including a new company website, HubSpot blog for content marketing, and comprehensive sales materials. Leveraged thought leadership to position the company as an authority in data governance and IT solutions.',
-    technologies: ['HubSpot', 'WordPress', 'Adobe Creative Suite', 'Content Marketing', 'Sales Enablement', 'Email Marketing'],
-    startDate: '2013',
-    endDate: '2015',
-    impact: 'Enhanced the company\'s digital footprint, strengthened lead generation capabilities, and empowered the sales team with compelling content that drove conversions and client engagement.',
-    logoPath: 'company-logos/saturn_business_systems_logo.jpeg',
-    showBorder: true,
-    media: [
-      {
-        type: 'image',
-        url: 'media/screenshots/saturn-pdfs/sas-preview.png',
-        title: 'SAS Optimization Case Study',
-        width: '48%'
-      },
-      {
-        type: 'image',
-        url: 'media/screenshots/saturn-pdfs/ivm-preview.png',
-        title: 'Information Value Management',
-        width: '48%'
-      },
-      {
-        type: 'image',
-        url: 'media/screenshots/saturn-pdfs/sme-preview.png',
-        title: 'SME Network Overview',
-        width: '100%'
-      }
-    ]
   }
 ];

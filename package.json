@@ -12,7 +12,8 @@
     "storybook": "storybook dev -p 7000",
     "build-storybook": "storybook build",
     "killports": "kill-port 3000 3001 3002 3003 3004 3333 6006 6007 7000 4000 || true",
-    "process-linkedin": "node scripts/process-linkedin-data.js"
+    "process-linkedin": "node scripts/process-linkedin-data.js",
+    "generate-pdf-thumbnails": "node scripts/generate-pdf-thumbnails.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -77,9 +78,11 @@
     "eslint-config-next": "15.2.1",
     "eslint-plugin-storybook": "^0.11.4",
     "kill-port": "^2.0.1",
+    "pdf-lib": "^1.17.1",
     "playwright": "^1.51.0",
     "react-intersection-observer": "^9.16.0",
     "rimraf": "^6.0.1",
+    "sharp": "^0.33.5",
     "storybook": "^8.6.4",
     "typescript": "^5",
     "vitest": "^3.0.8"

@@ -306,24 +306,25 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
     media: [
       {
         type: 'embed',
-        url: '/media/saturn/mp4/power_sas.mp4',
+        url: '/media/saturn/mp4/power_sas.mp4#t=0.001',
         title: 'Power SAS - Marketing Video',
         thumbnailUrl: '/company-logos/saturn_business_systems_logo.jpeg',
-        width: '100%',
+        width: '48%',
         description: 'Marketing video showcasing Saturn Business Systems\' SAS analytics solutions'
       },
       {
         type: 'embed',
-        url: '/media/saturn/mp4/sql_takeout.mp4',
+        url: '/media/saturn/mp4/sql_takeout.mp4#t=0.001',
         title: 'SQL Takeout Cold Call Video',
         thumbnailUrl: '/company-logos/saturn_business_systems_logo.jpeg',
-        width: '100%',
+        width: '48%',
         description: 'Cold call training video for the sales team focused on SQL database solutions'
       },
       {
         type: 'pdf',
         url: '/media/saturn/sas-optimization-legalresearchfirm-3-12-2015.pdf',
         title: 'SAS Optimization Case Study',
+        thumbnailUrl: '/media/saturn/thumbnails/sas-optimization-legalresearchfirm-3-12-2015-thumbnail.png',
         width: '48%',
         description: 'Case study on SAS optimization for a legal research firm'
       },
@@ -331,6 +332,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         type: 'pdf',
         url: '/media/saturn/saturn-information-value-management.pdf',
         title: 'Information Value Management',
+        thumbnailUrl: '/media/saturn/thumbnails/saturn-information-value-management-thumbnail.png',
         width: '48%',
         description: 'White paper on Saturn\'s information value management approach'
       },
@@ -338,6 +340,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         type: 'pdf',
         url: '/media/saturn/Saturn-Business-Systems-SME-Network.pdf',
         title: 'SME Network Overview',
+        thumbnailUrl: '/media/saturn/thumbnails/Saturn-Business-Systems-SME-Network-thumbnail.png',
         width: '100%',
         description: 'Overview of Saturn Business Systems\' SME Network'
       }

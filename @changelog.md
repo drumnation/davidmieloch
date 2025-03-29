@@ -52,6 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Simplified Saturn media display by replacing PDF links with simple image previews for guaranteed rendering
 - Fixed transparent header background in SideProjectsSection by adding solid white background and border styling
 - Fixed CategoryPill styling by adding !important rules to ensure consistent appearance across all categories
+- Fixed data duplication issue by removing Saturn Business Systems from side projects as it's already in the main work experience
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
@@ -92,6 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed 
 - Removed Expo item from the Modern Tooling category (now in React Native feature section)
 - Removed duplicate ReactNativeFeature component from BestPractices.tsx as it was already included in the Categories component
+- Removed Saturn Business Systems entry from side projects section to avoid duplication with main work experience
 
 ## [0.6.0] - 2023-XX-XX
 
