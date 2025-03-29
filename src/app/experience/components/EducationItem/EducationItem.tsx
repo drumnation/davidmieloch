@@ -228,7 +228,7 @@ export const EducationItem: React.FC<EducationItemProps> = ({
                     <div className="link-content">
                       <h4 className="link-title">{mediaItem.title}</h4>
                       {mediaItem.description && (
-                        <p className="link-description">{mediaItem.description}</p>
+                        <div className="link-description">{mediaItem.description}</div>
                       )}
                       <a 
                         href={mediaItem.url} 

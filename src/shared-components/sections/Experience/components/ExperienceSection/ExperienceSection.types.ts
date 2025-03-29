@@ -10,6 +10,7 @@ export interface ExperienceItem {
   foldable?: boolean;
   bulletPoints?: string[];
   logoPath?: string;
+  showBorder?: boolean;
   media?: MediaItem[];
   sortOrder?: number;
 }
@@ -23,17 +24,23 @@ export interface ExperienceSectionProps {
 }
 
 export interface MediaItem {
-  type: 'image' | 'video' | 'embed' | 'link' | 'pdf' | 'audio' | 'group';
+  type: 'image' | 'pdf' | 'link' | 'embed' | 'video' | 'audio' | 'group';
   url?: string;
   title?: string;
   description?: string;
-  foldable?: boolean;
-  thumbnailUrl?: string;
-  width?: string | number;
+  width?: string;
   height?: number;
-  layout?: 'default' | 'stack';
-  items?: MediaItem[];
+  thumbnailUrl?: string;
+  thumbnail?: string;
+  thumbnailWidth?: string;
   customHeight?: string;
   cropHeight?: string;
   buttonText?: string;
+  foldable?: boolean;
+  showLogo?: boolean;
+  titleLogoPath?: string;
+  logoHasBorderRadius?: boolean;
+  logoHasBorder?: boolean;
+  items?: MediaItem[];
+  layout?: 'default' | 'stack';
 } 

@@ -263,9 +263,6 @@ const Accordion: React.FC<AccordionProps> = ({
   );
 };
 
-// List of companies that need borders on their logos
-const companiesWithBorders = ['scala', 'saturn', 'graphnet', 'kwikpoint'];
-
 // Helper function to check if path is an image file
 const isImageFile = (path: string | undefined): boolean => {
   if (!path) return false;
@@ -289,7 +286,7 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
               height: '100%', 
               objectFit: 'contain',
               borderRadius: '6px',
-              ...(companiesWithBorders.includes(job.company.toLowerCase()) && {
+              ...(job.showBorder && {
                 border: '1px solid rgba(0, 0, 0, 0.2)',
                 padding: '2px'
               })
@@ -387,8 +384,33 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                         fontSize: '1rem', 
                         fontWeight: 500, 
                         backgroundColor: '#f9f9f9', 
-                        borderTop: '1px solid #eee' 
+                        borderTop: '1px solid #eee',
+                        display: 'flex',
+                        alignItems: 'center'
                       }}>
+                        {mediaItem.showLogo && (
+                          <img 
+                            src={mediaItem.titleLogoPath || job.logoPath} 
+                            alt={`${job.company} logo`}
+                            style={{ 
+                              width: '20px', 
+                              height: '20px', 
+                              objectFit: 'contain',
+                              marginRight: '8px',
+                              borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
+                              overflow: 'visible',
+                              backgroundColor: mediaItem.logoHasBorderRadius === false ? 'transparent' : '#f8f8f8',
+                              padding: mediaItem.logoHasBorderRadius === false ? '0' : '3px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              ...(mediaItem.logoHasBorder && {
+                                border: '1px solid rgba(0, 0, 0, 0.2)',
+                                padding: '1px'
+                              })
+                            }}
+                          />
+                        )}
                         {mediaItem.title}
                       </div>
                     )}
@@ -434,11 +456,49 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       )}
                     </a>
                     {mediaItem.title && (
-                      <div className="pdf-title">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '8px', verticalAlign: 'middle' }}>
-                          <path d="M20 2H8C6.9 2 6 2.9 6 4V16C6 17.1 6.9 18 8 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H8V4H20V16ZM4 6H2V20C2 21.1 2.9 22 4 22H18V20H4V6ZM16 12V9C16 8.45 15.55 8 15 8H13V13H15C15.55 13 16 12.55 16 12ZM14 9H15V12H14V9ZM18 11H19V10H18V9H19V8H17V13H18V11ZM10 11H11C11.55 11 12 10V9C12 8.45 11.55 8 11 8H9V13H10V11ZM10 9H11V10H10V9Z" fill="#E74C3C"/>
-                        </svg>
-                        {mediaItem.title}
+                      <div className="pdf-title" style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between'
+                      }}>
+                        <div style={{
+                          display: 'flex',
+                          alignItems: 'center'
+                        }}>
+                          {mediaItem.showLogo && (
+                            <img 
+                              src={mediaItem.titleLogoPath || job.logoPath} 
+                              alt={`${job.company} logo`}
+                              style={{ 
+                                width: '20px', 
+                                height: '20px', 
+                                objectFit: 'contain',
+                                marginRight: '8px',
+                                borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
+                                overflow: 'visible',
+                                backgroundColor: mediaItem.logoHasBorderRadius === false ? 'transparent' : '#f8f8f8',
+                                padding: mediaItem.logoHasBorderRadius === false ? '0' : '3px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                ...(mediaItem.logoHasBorder && {
+                                  border: '1px solid rgba(0, 0, 0, 0.2)',
+                                  padding: '1px'
+                                })
+                              }}
+                            />
+                          )}
+                          {mediaItem.title}
+                        </div>
+                        <span style={{
+                          background: '#E74C3C',
+                          color: 'white',
+                          fontSize: '0.7rem',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          fontWeight: 'bold',
+                          textTransform: 'uppercase'
+                        }}>PDF</span>
                       </div>
                     )}
                     {mediaItem.description && (
@@ -480,7 +540,38 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       />
                     )}
                     {mediaItem.title && (
-                      <div style={{ padding: '8px', fontSize: '1rem', fontWeight: 500, borderTop: '1px solid #eee', backgroundColor: '#f9f9f9' }}>
+                      <div style={{ 
+                        padding: '8px', 
+                        fontSize: '1rem', 
+                        fontWeight: 500, 
+                        borderTop: '1px solid #eee', 
+                        backgroundColor: '#f9f9f9',
+                        display: 'flex',
+                        alignItems: 'center' 
+                      }}>
+                        {mediaItem.showLogo && (
+                          <img 
+                            src={mediaItem.titleLogoPath || job.logoPath} 
+                            alt={`${job.company} logo`}
+                            style={{ 
+                              width: '20px', 
+                              height: '20px', 
+                              objectFit: 'contain',
+                              marginRight: '8px',
+                              borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
+                              overflow: 'visible',
+                              backgroundColor: mediaItem.logoHasBorderRadius === false ? 'transparent' : '#f8f8f8',
+                              padding: mediaItem.logoHasBorderRadius === false ? '0' : '3px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              ...(mediaItem.logoHasBorder && {
+                                border: '1px solid rgba(0, 0, 0, 0.2)',
+                                padding: '1px'
+                              })
+                            }}
+                          />
+                        )}
                         {mediaItem.title}
                       </div>
                     )}
@@ -531,8 +622,36 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       )}
                     </div>
                     <div className="link-content">
-                      <h4 className="link-title">{mediaItem.title}</h4>
-                      <p className="link-description">
+                      <h4 className="link-title" style={{
+                        display: 'flex',
+                        alignItems: 'center'
+                      }}>
+                        {mediaItem.showLogo && (
+                          <img 
+                            src={mediaItem.titleLogoPath || job.logoPath} 
+                            alt={`${job.company} logo`}
+                            style={{ 
+                              width: '20px', 
+                              height: '20px', 
+                              objectFit: 'contain',
+                              marginRight: '8px',
+                              borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
+                              overflow: 'visible',
+                              backgroundColor: mediaItem.logoHasBorderRadius === false ? 'transparent' : '#f8f8f8',
+                              padding: mediaItem.logoHasBorderRadius === false ? '0' : '3px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              ...(mediaItem.logoHasBorder && {
+                                border: '1px solid rgba(0, 0, 0, 0.2)',
+                                padding: '1px'
+                              })
+                            }}
+                          />
+                        )}
+                        {mediaItem.title}
+                      </h4>
+                      <div className="link-description">
                         {mediaItem.foldable ? (
                           <FoldableContent maxHeight={100} customMaxHeight="120px">
                             <MarkdownRenderer content={mediaItem.description} compact={true} />
@@ -540,7 +659,7 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                         ) : (
                           <MarkdownRenderer content={mediaItem.description} compact={true} />
                         )}
-                      </p>
+                      </div>
                       <a 
                         href={mediaItem.url} 
                         target="_blank" 
@@ -612,8 +731,33 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                             fontWeight: 500, 
                             backgroundColor: '#f9f9f9', 
                             borderTop: '1px solid #eee',
-                            borderBottom: nestedIndex < mediaItem.items.length - 1 ? '1px solid rgba(0, 0, 0, 0.08)' : 'none'
+                            borderBottom: nestedIndex < mediaItem.items.length - 1 ? '1px solid rgba(0, 0, 0, 0.08)' : 'none',
+                            display: 'flex',
+                            alignItems: 'center'
                           }}>
+                            {nestedItem.showLogo && (
+                              <img 
+                                src={nestedItem.titleLogoPath || job.logoPath} 
+                                alt={`${job.company} logo`}
+                                style={{ 
+                                  width: '20px', 
+                                  height: '20px', 
+                                  objectFit: 'contain',
+                                  marginRight: '8px',
+                                  borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
+                                  overflow: 'visible',
+                                  backgroundColor: mediaItem.logoHasBorderRadius === false ? 'transparent' : '#f8f8f8',
+                                  padding: mediaItem.logoHasBorderRadius === false ? '0' : '3px',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  ...(mediaItem.logoHasBorder && {
+                                    border: '1px solid rgba(0, 0, 0, 0.2)',
+                                    padding: '1px'
+                                  })
+                                }}
+                              />
+                            )}
                             {nestedItem.title}
                           </div>
                         )}
@@ -654,8 +798,33 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                         fontWeight: 600,
                         color: 'rgba(0, 0, 0, 0.75)',  
                         backgroundColor: '#edf2f7', 
-                        borderBottom: '1px solid rgba(0, 0, 0, 0.1)'
+                        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+                        display: 'flex',
+                        alignItems: 'center'
                       }}>
+                        {mediaItem.showLogo && (
+                          <img 
+                            src={mediaItem.titleLogoPath || job.logoPath} 
+                            alt={`${job.company} logo`}
+                            style={{ 
+                              width: '20px', 
+                              height: '20px', 
+                              objectFit: 'contain',
+                              marginRight: '8px',
+                              borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
+                              overflow: 'visible',
+                              backgroundColor: mediaItem.logoHasBorderRadius === false ? 'transparent' : '#f8f8f8',
+                              padding: mediaItem.logoHasBorderRadius === false ? '0' : '3px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              ...(mediaItem.logoHasBorder && {
+                                border: '1px solid rgba(0, 0, 0, 0.2)',
+                                padding: '1px'
+                              })
+                            }}
+                          />
+                        )}
                         {mediaItem.title}
                       </div>
                     )}

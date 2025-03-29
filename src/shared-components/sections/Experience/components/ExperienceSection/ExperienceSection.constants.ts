@@ -1,4 +1,5 @@
 import { ExperienceItem } from './ExperienceSection.types';
+import { CustomIcon } from '../../../RealWorldImpact/RealWorldImpact.logic';
 
 export const SECTION_TITLE = 'Professional Experience';
 
@@ -9,6 +10,7 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
     location: 'Malvern, PA',
     startDate: 'Mar 2020',
     endDate: 'Present',
+    showBorder: true,
     description: 'With **31 years of experience** in the digital signage industry, Scala is known globally as the leader in stable, secure network deployment at scale',
     bulletPoints: [
       'Lead a team of 5 developers in adopting modern React patterns, TypeScript, and Atomic Design principles.',
@@ -29,6 +31,8 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
         title: "Scala Designer Cloud - Menu Sign Board Design",
         width: "100%",
         foldable: true,
+        showLogo: true,
+        titleLogoPath: "media/scala-bang-logo.png",
         description: `Scala Designer Cloud offers Photoshop-like functionality in a browser, specifically tailored for digital signage creation. Key features visible in the interface include:
 
 ## Content Creation Tools
@@ -62,13 +66,17 @@ Perfect for creating professional digital menu boards, promotional displays, and
         type: "image",
         url: "media/screenshots/portals/portals2.png",
         title: "Airport Portal",
-        width: "49%"
+        width: "49%",
+        showLogo: true,
+        titleLogoPath: "media/scala-bang-logo.png"
       },
       {
         type: "image",
         url: "media/screenshots/portals/portals3.png",
         title: "Airport Portal",
-        width: "49%"
+        width: "49%",
+        showLogo: true,
+        titleLogoPath: "media/scala-bang-logo.png"
       },
       {
         type: "link",
@@ -76,7 +84,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
         title: "Developing with a Team of AIs",
         description: "How I organized multiple AI agents to work together on code projects",
         thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*4-rgPFbSEHzdKo3dv5n4Tg.png",
-        width: "100%"
+        width: "100%",
       },
       {
         type: "link",
@@ -84,7 +92,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
         title: "Reuse Your Code: Authoring Your Own Universal Library with Webpack",
         description: "How to create reusable code libraries that work across different environments",
         thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*gXL9S7-UfsIde4hvJ-Ngnw.png",
-        width: "100%"
+        width: "100%",
       }
     ]
   },
@@ -111,20 +119,26 @@ Perfect for creating professional digital menu boards, promotional displays, and
       {
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190625-090152_DrayNow.jpg",
-        title: "Marketplace Screen",
-        width: "30%"
+        title: "Marketplace",
+        width: "30%",
+        showLogo: true,
+        logoHasBorderRadius: true,
       },
       {
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190714-184353_DrayNow.jpg",
-        title: "Rail Billing Information Screen",
-        width: "30%"
+        title: "Rail Billing Information",
+        width: "30%",
+        showLogo: true,
+        logoHasBorderRadius: true,
       },
       {
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190715-112829_DrayNow.jpg",
-        title: "Marketplace Listing Screen",
-        width: "30%"
+        title: "Marketplace Listing",
+        width: "30%",
+        showLogo: true,
+        logoHasBorderRadius: true,
       },
       {
         type: "link",
@@ -170,12 +184,14 @@ Perfect for creating professional digital menu boards, promotional displays, and
           {
             type: "image",
             url: "/media/otg/screenshots/order-ahead-2.png",
-            title: "Gate-Ready Airport Pizza App"
+            title: "Gate-Ready Airport Pizza App",
+            showLogo: true,
           },
           {
             type: "image",
             url: "/media/otg/screenshots/otg-categories-short.png",
-            title: "Gate-Ready Airport Pizza App - Category Selection"
+            title: "Gate-Ready Airport Pizza App",
+            showLogo: true,
           },
         ]
       },
@@ -189,7 +205,8 @@ Perfect for creating professional digital menu boards, promotional displays, and
             url: "/media/otg/screenshots/web-cart1.png",
             title: "Airport Restaurant Digital Ordering System",
             description: "Designed the interface for OTG's in-terminal dining payment system, featuring boarding pass integration for personalized offers, multiple payment options including airline miles, and upsell opportunities. This mobile ordering solution allows travelers to seamlessly place and pay for meals across OTG's airport restaurant locations.",
-            foldable: true
+            foldable: true,
+            showLogo: true
           }
         ]
       },
@@ -198,21 +215,23 @@ Perfect for creating professional digital menu boards, promotional displays, and
         url: "/media/otg/OTG Case Studies.pdf",
         title: "OTG Mobile Ordering Case Studies",
         thumbnailUrl: "/media/otg/thumbnails/case-studies-1.png",
-        width: "48.5%"
+        showLogo: true
       },
       {
         type: "pdf",
         url: "/media/otg/OTG Brain Storm - Print.pdf",
         title: "OTG Project Brainstorming Session",
         thumbnailUrl: "/media/otg/thumbnails/brain-storm-1.png",
-        width: "48.5%"
+        width: "48.5%",
+        showLogo: true
       },
       {
         type: "pdf",
         url: "/media/otg/Transition To React - Share.pdf",
         title: "Transition To React Architecture",
         thumbnailUrl: "/media/otg/thumbnails/transition-react-1.png",
-        width: "100%"
+        width: "100%",
+        showLogo: true
       }
     ]
   },
@@ -237,22 +256,25 @@ Perfect for creating professional digital menu boards, promotional displays, and
         url: "https://www.youtube.com/embed/FhIIgTV08RQ?si=00_ddQYAvuMKU8C3",
         title: "Master A Million - Television Commercial",
         width: "half",
-        height: 315
+        height: 315,
+        showLogo: true
       },
       {
         type: "embed",
         url: "https://www.youtube.com/embed/lJHzOcIT5os?si=gsy8mc0FbHp4Ug8J",
         title: "Master A Million - End to End Form Test Demo",
         width: "half",
-        height: 315
+        height: 315,
+        showLogo: true
       },
       {
         type: "pdf",
         url: "/media/Master A Million - REACT NATIVE.pdf",
-        title: "Master A Million - React Native Documentation",
+        title: "MaM - React Native Documentation",
         thumbnailUrl: "/media/masteramillion-ball.png",
         description: "Documentation for the Master A Million app, including the React Native codebase and design files",
-        height: 315,
+        height: 315,  
+        showLogo: true,
         width: "50%"
       },
       {
@@ -260,6 +282,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
         url: "https://www.youtube.com/embed/FB2o6krFmZw?si=slIxX7VyeajlqTKz",
         title: "Hacking a dumb laser to be smart",
         width: "50%",
+        showLogo: true,
         height: 315,
       },
       {
@@ -314,6 +337,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
     location: 'New York, NY',
     startDate: 'Feb 2013',
     endDate: 'Sep 2015',
+    showBorder: true,
     description: 'Saturn Business Systems provides integrated IT solutions, including data center and cloud solutions, big data analytics, and cybersecurity.',
     bulletPoints: [
       'Designed a new company website and implemented a HubSpot blog for content marketing.',
@@ -331,6 +355,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         title: 'SAS Performance Transformation Case Study',
         thumbnailUrl: '/company-logos/saturn_business_systems_logo.jpeg',
         width: '48%',
+        showLogo: true,
+        logoHasBorder: true,
         description: "Client testimonial showcasing Saturn's migration of a failing SAS environment to Power 8/AIS architecture, achieving 386% faster processing and 689% faster data operations. Jobs that previously took hours now complete in 20 minutes. Includes CTA for datasheet download and discovery call."
       },
       {
@@ -339,6 +365,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         title: 'SQL Migration Outreach Video',
         thumbnailUrl: '/company-logos/saturn_business_systems_logo.jpeg',
         width: '48%',
+        showLogo: true,
+        logoHasBorder: true,
         description: "Brief cold outreach video from Jonathan Karp of Saturn Business Systems targeting organizations with outdated SQL Server installations. Presents alternatives to expensive upgrades, highlighting Saturn's data warehouse solutions, cost comparison tools, and ROI analysis to help prospects make informed decisions about their aging SQL infrastructure."
       },
       {
@@ -347,6 +375,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         title: 'Legal Research Firm SAS Optimization',
         thumbnailUrl: '/media/saturn/thumbnails/sas-optimization-legalresearchfirm-3-12-2015-thumbnail.png',
         width: '48%',
+        showLogo: true,
+        logoHasBorder: true,
         description: "Designed and created this two-page case study showcasing Saturn's transformation of a legal research firm's failing SAS environment. Crafted compelling visuals and persuasive copy highlighting dramatic performance improvements (386% faster processing, 689% faster data operations), which equipped sales team members with powerful collateral for targeted client outreach."
       },
       {
@@ -355,6 +385,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         title: 'Information Value Management Campaign',
         thumbnailUrl: '/media/saturn/thumbnails/saturn-information-value-management-thumbnail.png',
         width: '48%',
+        showLogo: true,
+        logoHasBorder: true,
         description: 'Designed and wrote this two-page thought leadership brochure addressing data management challenges for Saturn Business Systems. Created compelling visuals and persuasive messaging about translating business goals into actionable data strategies, which I used for personal outreach to industry experts to participate in my thought leadership marketing initiative.'
       },
       {
@@ -364,6 +396,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         thumbnailUrl: '/media/saturn/thumbnails/Saturn-Business-Systems-SME-Network-thumbnail.png',
         width: '100%',
         foldable: true,
+        showLogo: true,
+        logoHasBorder: true,
         description: `Designed and wrote this two-page recruitment brochure for Saturn's Subject Matter Expert Network, featuring compelling visuals and persuasive copy that emphasized "who you know is valuable." Created as a key component of my thought leadership marketing initiative to recruit industry experts through a multi-phase engagement model offering five distinct revenue streams.`
       }
     ]
@@ -374,6 +408,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
     location: 'New York, NY',
     startDate: 'Jan 2012',
     endDate: 'Feb 2013',
+    showBorder: true,
     description: 'Graphnet provides telecommunications services and solutions.',
     bulletPoints: [
       'Designed and implemented a comprehensive marketing strategy, enhancing the sales process.',
@@ -390,6 +425,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         type: "image",
         url: "/media/photo/graphnet.jpg",
         title: "Graphnet Website Rebranding",
+        showLogo: true,
+        logoHasBorder: true,
         description: "I led the rebranding of Graphnet's website, including the development of a new logo and color palette. I also created a new website design that is more user-friendly and visually appealing.",
         width: "100%"
       }
@@ -401,6 +438,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
     location: 'Alexandria, VA',
     startDate: 'Jan 2011',
     endDate: 'Mar 2016',
+    showBorder: true,
     description: 'Kwikpoint specializes in the creation of visual language communication tools that help bridge language barriers, widely used in military, healthcare, and emergency response.',
     bulletPoints: [
       'Led a team in the creation of a comprehensive website and online store.',
@@ -416,6 +454,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         type: "image",
         url: "/media/photo/kwikpoint2.jpg",
         title: "Kwikpoint Visual Language Communication Guide - Online Store",
+        showLogo: true,
+        logoHasBorder: true,
         description: "I designed the online store for Kwikpoint's Visual Language Communication Guide, which is a tool that helps bridge language barriers. The store features a variety of products, including books, DVDs, and other materials.",
         width: "100%"
       }
@@ -468,7 +508,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         title: "Vladimir Kush - Metaphorical Voyage Trailer",
         width: "full",
         height: 400,
-        description: "A trailer for the Vladimir Kush film Metaphorical Voyage, featuring Sound Design by yours truly"
+        description: "A trailer for the Vladimir Kush film Metaphorical Voyage, featuring Sound Design by yours truly",
+        showLogo: true,
       },
     ]
   },
@@ -485,5 +526,5 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Executed Extensive Hardware Repairs: Diagnosed and repaired hundreds of laptops and desktop computers, ensuring minimal downtime and maintaining high levels of user satisfaction.'
     ],
     logoPath: '/company-logos/wcuoch.jpeg'
-  }
+  },
 ]; 
