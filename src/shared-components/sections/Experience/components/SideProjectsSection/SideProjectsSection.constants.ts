@@ -14,12 +14,14 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Game Sage',
     category: 'Personal Innovation Lab',
-    description: 'An AI-powered desktop application that enhances the gaming experience by providing real-time analysis and commentary. Features include real-time AI gameplay analysis through automatic screenshot capture, multiple analysis modes (tactical advice, professional commentary, e-sports casting), global hotkeys for instant capture during gameplay, multi-monitor support with selective display options, context-aware responses that maintain gameplay history, and scene change detection to identify key gameplay moments.',
+    description: 'An AI-powered desktop application that enhances the gaming experience by providing real-time analysis and commentary. Features include:\n\n* **Real-time AI gameplay analysis** through automatic screenshot capture\n* **Multiple analysis modes** (tactical advice, professional commentary, e-sports casting)\n* **Global hotkeys** for instant capture during gameplay\n* **Multi-monitor support** with selective display options\n* **Context-aware responses** that maintain gameplay history\n* **Scene change detection** to identify key gameplay moments',
     technologies: ['Electron', 'React.js', 'TypeScript', 'OpenAI Vision API'],
     startDate: '2024',
     endDate: '2024',
+    logoPath: 'media/game-sage-logo.png',
+    showBorder: true,
     repoUrl: 'https://github.com/drumnation/game-sage',
-    impact: 'Transforms gaming experiences by delivering AI-powered real-time analysis and commentary that helps players improve their skills while adding a new dimension of entertainment.',
+    impact: '**Transforms gaming experiences** by delivering AI-powered real-time analysis and commentary that helps players improve their skills while adding a new dimension of entertainment.',
     media: [
       {
         type: 'image',
@@ -94,7 +96,7 @@ export const SIDE_PROJECTS: SideProject[] = [
         width: '100%',
         customHeight: '250px',
         thumbnailWidth: '250px'
-      }
+      },
     ]
   },
   {
@@ -123,63 +125,77 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'StoryTime',
     category: 'Personal Innovation Lab',
-    description: 'An AI-powered audiobook creation platform that transforms written stories into immersive listening experiences with multiple character voices. The system features advanced text-to-speech technology with voice cloning capabilities, character voice assignment for dialogue, automated sound effects insertion based on scene context, interactive storytelling options with branching narratives, and a user-friendly editor for fine-tuning voice parameters and pacing. StoryTime enables creators to produce professional-quality audiobooks with distinct character voices without the need for voice actors or recording studios.',
-    technologies: ['Next.js', 'TypeScript', 'OpenAI', 'ElevenLabs Voice Cloning', 'React Audio Player', 'Node.js'],
+    description: 'A comprehensive web application that empowers users to create fully-voiced audiobooks through an intuitive interface. It combines AI-powered script generation with advanced text-to-speech technology, allowing storytellers to focus on developing rich narratives and characters while automating the technical aspects of audiobook production.\n\n## Key Features\n\n* **Story management** with chapter organization\n* **Character creation** with customizable attributes (personality, appearance, background)\n* **AI-powered script generation** using OpenAI\'s GPT models\n* **Voice customization** for characters and narrators\n* **Text-to-speech conversion** using advanced voice APIs\n* **Script version history**\n* **Plot mapping** with relationship visualization\n* **Multi-voice compilation** for complete audiobooks',
+    technologies: ['Next.js', 'TypeScript', 'OpenAI', 'Speechify API', 'ElevenLabs Voice Cloning', 'React Audio Player', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
-    impact: 'Created an automated platform for generating engaging multi-voice audiobooks that brings stories to life for listeners of all ages, making literature more accessible and engaging',
+    logoPath: 'media/story-time-logo.png',
+    showBorder: true,
+    impact: '**Transforms** the complex process of audiobook production into an **accessible creative experience**, enabling storytellers to bring their narratives to life with rich character voices and professional-quality audio.',
     media: [
       {
-        type: 'group',
-        layout: 'stack',
-        width: '31%',
-        url: '#',
-        items: [
-          {
-            type: 'image',
-            url: '/media/screenshots/storytime/storytime1.png',
-            title: 'StoryTime Dashboard'
-          },
-          {
-            type: 'image',
-            url: '/media/screenshots/storytime/storytime2.png',
-            title: 'Character Voice Assignment'
-          }
-        ]
-      },
-      {
-        type: 'group',
-        layout: 'stack',
-        width: '31%',
-        url: '#',
-        items: [
-          {
-            type: 'image',
-            url: '/media/screenshots/storytime/storytime3.png',
-            title: 'Story Editor Interface'
-          },
-          {
-            type: 'image',
-            url: '/media/screenshots/storytime/storytime4.png',
-            title: 'Voice Parameter Controls'
-          }
-        ]
+        type: 'image',
+        url: '/media/screenshots/storytime/storytime1.png',
+        title: 'StoryVoice™ Dashboard: Your Audiobook Command Center',
+        description: `Transform written stories into captivating audiobooks with our all-in-one interface:
+
+**Left Panel:** Access your complete story library with one-click navigation between projects.
+
+**Center Panel:** Configure your active story with:
+- Custom narrator voice selection with audio samples
+- Chapter-by-chapter structure visualization showing plot elements, conflicts, and character moments
+
+**Right Panel:** Manage characters effortlessly—edit profiles, generate new characters with AI, and maintain consistent characterization throughout.
+
+With StoryVoice™, professional audiobook creation is just a few clicks away.`,
+        width: '100%'
       },
       {
         type: 'image',
-        url: '/media/screenshots/storytime/storytime5.png',
-        title: 'Audiobook Preview Player',
-        width: '31%'
+        url: '/media/screenshots/storytime/storytime3.png',
+        title: 'Chapter View Interface',
+        description: 'View and generate story chapter scripts and voiceovers with plot devices and character integration',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: '/media/screenshots/storytime/storytime2.png',
+        title: 'Chapter Edit Interface',
+        description: `Our intuitive Chapter Edit interface gives you **unprecedented control** over your AI-generated audiobook's structure and performance. With a few simple selections, shape how your story unfolds:
+
+* **Define Critical Moments** — Set meaningful chapter titles and select pivotal plot points that drive your narrative forward
+* **Character Casting** — Choose exactly which characters appear in each chapter, ensuring consistent character development throughout your story
+* **Narrative Techniques** — Apply sophisticated plot devices like frame narratives that elevate your storytelling approach`,
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: '/media/screenshots/storytime/storytime4.png',
+        title: 'Character Creation Interface',
+        description: 'Create and manage character profiles with customizable attributes',
+        width: '100%'
       },
       {
         type: 'audio',
         url: '/media/storytime-demo.mp3',
-        title: 'StoryTime Audio Sample',
+        title: 'StoryTime 2.0 Multi-VoiceAudio Sample',
         description: 'Listen to a sample audiobook generated with multiple AI character voices',
         thumbnail: '/media/storytime-mcguffin.png',
         thumbnailWidth: '80px',
         width: '100%'
-      }
+      },
+      {
+        type: 'embed',
+        url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1896499647&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/davidmieloch" title="davidmieloch" target="_blank" style="color: #cccccc; text-decoration: none;">davidmieloch</a> · <a href="https://soundcloud.com/davidmieloch/the-end-of-time-a-hitchhikers-guide-to-the-dying-universe',
+        title: 'From Manual Process to Streamlined App - StoryTime 1.0 MVP',
+        description: `I created this demo by manually using Agent Aider to experiment with AI storytelling. Through trial and error, I discovered how to generate a 10-chapter story one piece at a time, then iteratively revise it in ways human writers rarely attempt—like introducing a new character in Chapter 3 that completely redirected the narrative.
+
+The process revealed something powerful: AI could effortlessly regenerate all subsequent chapters when early plot elements changed. My sci-fi adventure featuring family members (my girlfriend became a space whale!) showed how deeply personal these stories could be.
+
+*This manual experimentation directly inspired **Storytime 2.0**—an app designed to streamline this complex process of character development, plot point creation, and narrative regeneration into an intuitive tool anyone can use.*`,
+        cropHeight: '170px',
+        width: '100%'
+      },
     ]
   },
   {
@@ -240,12 +256,12 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'AI Brain Garden',
     category: 'Developer Tools',
-    description: 'AI-Brain-Garden is a command line tool designed to revolutionize software development by creating project-specific "Brains," structured knowledge bases that integrate templates, rules, and AI agents. It addresses the inefficiencies of current AI tools by providing context-aware assistance, customizable agents, and an integrated task management system, enhancing productivity, code quality, and collaboration. By leveraging dynamic cursorrules and atomic design principles for prompts, it offers a unique, highly customizable solution for developers and project managers seeking to streamline workflows and improve project outcomes.',
+    description: 'AI-Brain-Garden is a command line tool designed to revolutionize software development by creating project-specific "Brains," structured knowledge bases that integrate templates, rules, and AI agents.\n\n## Key Features\n\n* **Context-aware assistance** - Provides AI help that understands your specific project\n* **Customizable agents** - Configure specialized AI helpers for different tasks\n* **Integrated task management** - Track and prioritize development activities\n* **Dynamic cursorrules** - Automatically enforces coding standards\n* **Atomic design for prompts** - Creates reusable, modular AI instructions\n\nBy addressing the inefficiencies of current AI tools, it offers a unique, highly customizable solution for developers and project managers seeking to streamline workflows and improve project outcomes.',
     technologies: ['Node', 'TypeScript', 'Gemini', 'CLI'],
     startDate: '2024',
     endDate: 'Present',
     logoPath: 'media/misc/brain-garden.png',
-    impact: 'Created a framework that enhances structure for Enterprise AI-assisted development workflows'
+    impact: '**Created a framework** that enhances structure for Enterprise AI-assisted development workflows'
   },
   {
     title: 'Code Relay',
@@ -513,7 +529,16 @@ export const SIDE_PROJECTS: SideProject[] = [
         url: 'media/screenshots/cheddar/cheddar.png',
         title: 'Cheddar Dashboard with Balance Forecast',
         width: '100%',
-        description: `The Cheddar Dashboard presents a unified view of your financial landscape with intelligent transaction management. As scheduled payments approach their due dates, they appear as "pending" in your forecast. When payments clear your account, you simply mark them complete—automatically updating your bank balance and moving the transaction to next month's list. This dynamic system maintains accuracy between your actual and projected finances while providing flexible scenario planning. Toggle transactions on or off to visualize different financial outcomes, or temporarily disable items to see alternative forecasts. The Month Summary provides key metrics including overall balance change, income totals, largest expenses, and total debt—giving you complete visibility into your financial health with minimal effort.`
+        description: `The Cheddar Dashboard presents a **unified view of your financial landscape** with intelligent transaction management. 
+
+Key features include:
+
+* **Pending Transactions** - As scheduled payments approach their due dates, they appear as "pending" in your forecast
+* **Completion Tracking** - When payments clear your account, simply mark them complete—automatically updating your bank balance and moving the transaction to next month's list
+* **Scenario Planning** - Toggle transactions on or off to visualize different financial outcomes, or temporarily disable items to see alternative forecasts 
+* **Monthly Summary** - View key metrics including balance change, income totals, largest expenses, and total debt
+
+This dynamic system maintains accuracy between your actual and projected finances while providing complete visibility into your financial health with minimal effort.`
       },
       {
         type: 'image',
@@ -549,7 +574,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'We Learn Music Together',
     category: 'SaaS Applications',
-    description: 'WLMT (What Looks Makes Tones) is a comprehensive educational platform designed to help users develop emotional intelligence through music recognition. The system consists of a React Native mobile application that delivers interactive games teaching users to distinguish between happy and sad musical tones across progressive difficulty levels. Features include interactive game-based learning with 10 educational levels, comprehensive sound library with emotion-categorized audio assets, user progress tracking and performance analytics, school/institutional licensing management system, admin dashboard for educators to manage users, schools, and lessons, secure authentication with role-based access control, and a RESTful API backend with comprehensive documentation.',
+    description: 'WLMT (We Learn Music Together) is a comprehensive educational platform designed to help users develop emotional intelligence through music recognition. The system consists of a React Native mobile application that delivers interactive games teaching users to distinguish between happy and sad musical tones across progressive difficulty levels. Features include interactive game-based learning with 10 educational levels, comprehensive sound library with emotion-categorized audio assets, user progress tracking and performance analytics, school/institutional licensing management system, admin dashboard for educators to manage users, schools, and lessons, secure authentication with role-based access control, and a RESTful API backend with comprehensive documentation.',
     technologies: ['React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Web Audio API'],
     startDate: '2024',
     endDate: 'present',

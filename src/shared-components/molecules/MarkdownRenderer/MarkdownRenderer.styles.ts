@@ -7,9 +7,11 @@ export const MarkdownContainer = styled.div`
   line-height: 1.6;
   font-size: 1.1rem;
 
+  h3 {
+    color: ${({ theme }) => theme.colors.primary};
+  }
   h1, h2, h3 {
     margin: 2rem 0 1rem;
-    color: ${({ theme }) => theme.colors.primary};
   }
 
   h1 {
@@ -56,7 +58,7 @@ export const MarkdownContainer = styled.div`
     background: ${({ theme }) => theme.colors.codeBackground};
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
-    font-family: ${({ theme }) => theme.fonts.monospace};
+    font-family: ${({ theme }) => theme.fonts.mono};
   }
 
   pre {
@@ -79,5 +81,59 @@ export const MarkdownContainer = styled.div`
     padding: 0.5rem 1rem;
     background: ${({ theme }) => theme.colors.blockquoteBackground};
     color: ${({ theme }) => theme.colors.blockquoteText};
+  }
+`;
+
+export const CompactMarkdownContainer = styled(MarkdownContainer)`
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+
+  h1, h2, h3 {
+    margin: 1rem 0 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.accent};
+    padding-bottom: 0.25rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0.5rem 0;
+  }
+
+  ul, ol {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin: 0.25rem 0;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  pre {
+    margin: 0.75rem 0;
+    padding: 0.5rem;
+  }
+
+  blockquote {
+    margin: 0.75rem 0;
+    padding: 0.25rem 0.5rem;
   }
 `;

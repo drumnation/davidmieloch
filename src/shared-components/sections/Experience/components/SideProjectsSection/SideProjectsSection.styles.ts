@@ -319,11 +319,15 @@ export const HeaderRepoLink = styled.a`
   }
 `;
 
-export const ProjectDescription = styled.p`
+export const ProjectDescription = styled.div`
   font-size: 0.9rem;
   margin-bottom: 1rem;
   color: rgba(0, 0, 0, 0.8);
-  line-height: 1.6;
+  
+  /* Custom styles for markdown content inside project descriptions */
+  .markdown-container {
+    padding: 0;
+  }
 `;
 
 export const ProjectMeta = styled.div`
@@ -342,6 +346,12 @@ export const ProjectImpact = styled.div`
   margin-top: 0.5rem;
   font-weight: 600;
   color: #2196f3;
+  
+  /* Custom styles for markdown content inside impact sections */
+  .markdown-container {
+    padding: 0;
+    font-weight: 600;
+  }
 `;
 
 export const TechnologiesList = styled.div`
@@ -673,16 +683,39 @@ export const MediaGroupContent = styled.div`
   }
 `;
 
-export const MediaDescription = styled.p`
+export const MediaDescription = styled.div`
   font-size: 0.875rem;
   color: rgba(0, 0, 0, 0.7);
   margin: 0.5rem 0;
   padding: 0 1rem 1rem;
   line-height: 1.4;
+  
+  /* Custom styles for markdown content inside media descriptions */
+  .markdown-container {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .markdown-strong {
+    color: #2196f3;
+    font-weight: 600;
+  }
+  
+  .markdown-list {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+  }
+  
+  .markdown-list-item {
+    margin: 0.25rem 0;
+  }
+  
+  p {
+    margin: 0.5rem 0;
+  }
 `;
 
-export const AudioInfoContainer = styled.div`
-  display: flex;
+export const AudioInfoContainer = styled.div`  display: flex;
   padding: 10px 15px;
   align-items: flex-start;
   gap: 15px;

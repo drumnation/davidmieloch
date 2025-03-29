@@ -6,6 +6,7 @@ import * as S from './SideProjectsSection.styles';
 import { TechIcon } from '../../../../atoms/TechIcon';
 import { ProjectLogo } from '../../../../atoms/ProjectLogo';
 import { MediaItem } from '../../Experience.types';
+import { MarkdownRenderer } from '../../../../molecules/MarkdownRenderer';
 
 export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({ 
   projects = SIDE_PROJECTS, 
@@ -189,7 +190,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               )}
               <div className="link-content">
                 {title && <div className="link-title">{title}</div>}
-                {description && <div className="link-description">{description}</div>}
+                {description && <div className="link-description">
+                  <MarkdownRenderer content={description} compact={true} />
+                </div>}
                 <a href={url} target="_blank" rel="noopener noreferrer" className="link-button">
                   {buttonText || 'View'}
                 </a>
@@ -214,7 +217,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               style={{ cursor: 'pointer', height: item.customHeight ? '100%' : 'auto', objectFit: item.customHeight ? 'cover' : 'contain' }}
             />
             {title && <S.MediaTitle>{title}</S.MediaTitle>}
-            {description && <S.MediaDescription>{description}</S.MediaDescription>}
+            {description && <S.MediaDescription>
+              <MarkdownRenderer content={description} compact={true} />
+            </S.MediaDescription>}
           </S.MediaItem>
         );
       }
@@ -240,7 +245,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               Your browser does not support the video tag.
             </S.MediaVideo>
             {title && <S.MediaTitle>{title}</S.MediaTitle>}
-            {description && <S.MediaDescription>{description}</S.MediaDescription>}
+            {description && <S.MediaDescription>
+              <MarkdownRenderer content={description} compact={true} />
+            </S.MediaDescription>}
           </S.MediaItem>
         );
       }
@@ -265,7 +272,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               )}
               <div className="audio-text-content">
                 {title && <S.MediaTitle style={{ marginTop: 0 }}>{title}</S.MediaTitle>}
-                {description && <S.MediaDescription style={{ padding: 0 }}>{description}</S.MediaDescription>}
+                {description && <S.MediaDescription style={{ padding: 0 }}>
+                  <MarkdownRenderer content={description} compact={true} />
+                </S.MediaDescription>}
               </div>
             </S.AudioInfoContainer>
           </S.MediaItem>
@@ -302,7 +311,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               </S.MediaEmbed>
             )}
             {title && <S.MediaTitle>{title}</S.MediaTitle>}
-            {description && <S.MediaDescription>{description}</S.MediaDescription>}
+            {description && <S.MediaDescription>
+              <MarkdownRenderer content={description} compact={true} />
+            </S.MediaDescription>}
           </S.MediaItem>
         );
       }
@@ -329,7 +340,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               </div>
             </S.PDFViewer>
             {title && <S.MediaTitle>{title}</S.MediaTitle>}
-            {description && <S.MediaDescription>{description}</S.MediaDescription>}
+            {description && <S.MediaDescription>
+              <MarkdownRenderer content={description} compact={true} />
+            </S.MediaDescription>}
           </S.MediaItem>
         );
       }
@@ -445,10 +458,14 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 )}
               </S.ProjectHeader>
               
-              <S.ProjectDescription>{project.description}</S.ProjectDescription>
+              <S.ProjectDescription>
+                <MarkdownRenderer content={project.description} compact={true} />
+              </S.ProjectDescription>
               
               {project.impact && (
-                <S.ProjectImpact>{project.impact}</S.ProjectImpact>
+                <S.ProjectImpact>
+                  <MarkdownRenderer content={project.impact} compact={true} />
+                </S.ProjectImpact>
               )}
               
               {project.technologies && project.technologies.length > 0 && (
@@ -513,10 +530,14 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               
               <div className="project-content">
                 <div className="project-main">
-                  <S.ProjectDescription>{project.description}</S.ProjectDescription>
+                  <S.ProjectDescription>
+                    <MarkdownRenderer content={project.description} compact={true} />
+                  </S.ProjectDescription>
                   
                   {project.impact && (
-                    <S.ProjectImpact>{project.impact}</S.ProjectImpact>
+                    <S.ProjectImpact>
+                      <MarkdownRenderer content={project.impact} compact={true} />
+                    </S.ProjectImpact>
                   )}
                   
                   {project.technologies && project.technologies.length > 0 && (
