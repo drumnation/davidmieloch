@@ -45,10 +45,17 @@ export const SIDE_PROJECTS: SideProject[] = [
     impact: 'Combined AI script generation with audio technology to create a personal hypnotherapy experience. The system delivers deeply personalized content that incorporates the user\'s name, specific goals, and individual scenarios, then speaks them aloud with natural intonation—effectively simulating a one-on-one session with a hypnotherapist.',
     media: [
       {
+        type: 'audio',
+        url: 'media/creativity-hypnosis-session.mp3',
+        title: 'Confidence and Creativity Hypnosis Session',
+        description: 'An AI-generated hypnosis script created with the generator, featuring AI generated meditative music, and spoken by my voice clone using text-to-speech.',
+        buttonText: 'Listen to Hypnosis Session',
+        thumbnail: 'media/hypnosis-thumbnail.png',
+        width: '100%'
+      },
+      {
         type: 'image',
         url: 'media/screenshots/hypnosis/hyp1.png',
-        title: 'Welcome Dashboard',
-        width: '100%'
       },
       {
         type: 'image',
