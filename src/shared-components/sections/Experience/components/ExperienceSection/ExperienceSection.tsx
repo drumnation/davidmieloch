@@ -25,6 +25,13 @@ import { OLDER_EXPERIENCE } from './ExperienceSection.constants';
 import { MarkdownRenderer } from '../../../../molecules/MarkdownRenderer';
 import { FoldableContent } from '../../../../molecules/FoldableContent';
 import { TechIcon } from '../../../../atoms/TechIcon';
+// Import icons for bullet points
+import { 
+  FaCode, FaDatabase, FaCloud, FaUsers, FaTools, FaChartLine, 
+  FaLightbulb, FaBook, FaCogs, FaServer, FaMobileAlt, FaUserShield, 
+  FaPencilAlt, FaLock, FaUserCog, FaFileAlt, FaTasks, FaRocket,
+  FaSearch, FaHandshake, FaGlobe, FaRegCheckCircle, FaBug
+} from 'react-icons/fa';
 
 // Add a styled divider component
 const Divider = styled.div`
@@ -32,6 +39,84 @@ const Divider = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05));
   margin: 40px 0;
   width: 100%;
+`;
+
+// Add styled components for custom bullet points with icons
+const BulletList = styled.div`
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+const BulletItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+`;
+
+const BulletIcon = styled.div`
+  flex-shrink: 0;
+  background: #f5f5f5;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  
+  svg {
+    color: #555;
+    width: 14px;
+    height: 14px;
+    transition: color 0.2s ease;
+  }
+  
+  &:hover {
+    background: #eef1f6;
+    svg {
+      color: #3366cc;
+    }
+  }
+`;
+
+const BulletText = styled.div`
+  flex: 1;
+`;
+
+// Styled component for enhanced company description
+const CompanyDescription = styled.div`
+  margin-bottom: 26px;
+  padding: 1px 0;
+  transform: scale(1); /* Force repaint */
+  
+  /* Target the paragraph directly */
+  & > div > p,
+  & > div div p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.8em !important;
+  }
+  
+  @media screen and (min-width: 768px) {
+    & > div > p,
+    & > div div p {
+      font-size: 18px !important;
+    }
+  }
+  
+  & > div > p:last-child,
+  & > div div p:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Override any compact styles from MarkdownRenderer */
+  & > div {
+    font-size: inherit !important;
+  }
 `;
 
 // Add MediaGroup container for group media type
@@ -272,6 +357,58 @@ const isImageFile = (path: string | undefined): boolean => {
   return imageExtensions.some(ext => path.toLowerCase().endsWith(ext));
 };
 
+// Helper function to determine which icon to use based on bullet point content
+const getBulletIcon = (text: string) => {
+  const lowerText = text.toLowerCase();
+  
+  if (lowerText.includes('develop') || lowerText.includes('code') || lowerText.includes('program') || lowerText.includes('implement')) {
+    return <FaCode />;
+  } else if (lowerText.includes('database') || lowerText.includes('data') || lowerText.includes('sql')) {
+    return <FaDatabase />;
+  } else if (lowerText.includes('cloud') || lowerText.includes('aws') || lowerText.includes('azure') || lowerText.includes('infrastructure')) {
+    return <FaCloud />;
+  } else if (lowerText.includes('lead') || lowerText.includes('team') || lowerText.includes('manage') || lowerText.includes('collaborat')) {
+    return <FaUsers />;
+  } else if (lowerText.includes('tool') || lowerText.includes('build') || lowerText.includes('construct')) {
+    return <FaTools />;
+  } else if (lowerText.includes('analytics') || lowerText.includes('growth') || lowerText.includes('improve') || lowerText.includes('metric')) {
+    return <FaChartLine />;
+  } else if (lowerText.includes('design') || lowerText.includes('architec') || lowerText.includes('creat')) {
+    return <FaLightbulb />;
+  } else if (lowerText.includes('learn') || lowerText.includes('research') || lowerText.includes('study')) {
+    return <FaBook />;
+  } else if (lowerText.includes('config') || lowerText.includes('settings') || lowerText.includes('setup')) {
+    return <FaCogs />;
+  } else if (lowerText.includes('server') || lowerText.includes('backend') || lowerText.includes('api')) {
+    return <FaServer />;
+  } else if (lowerText.includes('mobile') || lowerText.includes('app') || lowerText.includes('responsive')) {
+    return <FaMobileAlt />;
+  } else if (lowerText.includes('security') || lowerText.includes('protect') || lowerText.includes('privacy')) {
+    return <FaUserShield />;
+  } else if (lowerText.includes('write') || lowerText.includes('document') || lowerText.includes('review')) {
+    return <FaPencilAlt />;
+  } else if (lowerText.includes('launch') || lowerText.includes('deploy') || lowerText.includes('release')) {
+    return <FaRocket />;
+  } else if (lowerText.includes('test') || lowerText.includes('debug') || lowerText.includes('fix')) {
+    return <FaBug />;
+  } else if (lowerText.includes('client') || lowerText.includes('partner') || lowerText.includes('stakeholder')) {
+    return <FaHandshake />;
+  } else if (lowerText.includes('global') || lowerText.includes('international') || lowerText.includes('worldwide')) {
+    return <FaGlobe />;
+  } else if (lowerText.includes('complete') || lowerText.includes('achieve') || lowerText.includes('success') || lowerText.includes('deliver')) {
+    return <FaRegCheckCircle />;
+  } else if (lowerText.includes('search') || lowerText.includes('find') || lowerText.includes('discover')) {
+    return <FaSearch />;
+  } else if (lowerText.includes('task') || lowerText.includes('project')) {
+    return <FaTasks />;
+  } else if (lowerText.includes('file') || lowerText.includes('report') || lowerText.includes('document')) {
+    return <FaFileAlt />;
+  } else {
+    // Default icon if no specific match
+    return <FaRegCheckCircle />;
+  }
+};
+
 // Function to render an experience item
 const renderExperienceItem = (job: any, index: number, renderLogo?: (company: string) => React.ReactNode, setModalImage?: (image: {url: string, title?: string}) => void) => {
   return (
@@ -344,18 +481,31 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
         <ExperienceDescription>
           {job.foldable ? (
             <FoldableContent maxHeight={200} customMaxHeight="250px">
-              <MarkdownRenderer content={job.description} compact={true} />
+              <CompanyDescription>
+                <MarkdownRenderer 
+                  content={job.description} 
+                  compact={true}
+                />
+              </CompanyDescription>
             </FoldableContent>
           ) : (
-            <MarkdownRenderer content={job.description} compact={true} />
+            <CompanyDescription>
+              <MarkdownRenderer 
+                content={job.description} 
+                compact={true}
+              />
+            </CompanyDescription>
           )}
           
           {job.bulletPoints && job.bulletPoints.length > 0 && (
-            <ul>
+            <BulletList>
               {job.bulletPoints.map((point: string, i: number) => (
-                <li key={`point-${index}-${i}`}>{point}</li>
+                <BulletItem key={`point-${index}-${i}`}>
+                  <BulletIcon>{getBulletIcon(point)}</BulletIcon>
+                  <BulletText>{point}</BulletText>
+                </BulletItem>
               ))}
-            </ul>
+            </BulletList>
           )}
         </ExperienceDescription>
         
