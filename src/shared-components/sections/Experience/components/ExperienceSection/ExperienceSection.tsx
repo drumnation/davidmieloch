@@ -624,14 +624,16 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
 
 export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   experiences,
-  title = 'Professional Experience',
-  className,
+  title = 'Work Experience',
+  className = '',
   children,
   renderLogo
 }) => {
   const hasOlderExperience = OLDER_EXPERIENCE && OLDER_EXPERIENCE.length > 0;
   const [modalImage, setModalImage] = useState<{url: string, title?: string} | null>(null);
   
+  console.log('Experience items with media:', experiences.filter(exp => exp.media?.length).map(exp => ({ company: exp.company, mediaCount: exp.media?.length || 0 })));
+
   const closeModal = () => {
     setModalImage(null);
   };
