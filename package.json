@@ -1,6 +1,6 @@
 {
   "name": "david-monorepo",
-  "version": "0.7.4",
+  "version": "0.3.1",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -77,6 +77,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "eslint-plugin-storybook": "^0.11.4",
+    "ghostscript4js": "^3.2.3",
     "kill-port": "^2.0.1",
     "pdf-lib": "^1.17.1",
     "playwright": "^1.51.0",
