@@ -453,6 +453,11 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                         allowFullScreen
                       />
                     )}
+                    {mediaItem.title && (
+                      <div style={{ padding: '8px', fontSize: '1rem', fontWeight: 500, borderTop: '1px solid #eee', backgroundColor: '#f9f9f9' }}>
+                        {mediaItem.title}
+                      </div>
+                    )}
                     {mediaItem.description && (
                       <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
                         {mediaItem.description}
