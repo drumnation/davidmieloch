@@ -9,7 +9,7 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
     location: 'Malvern, PA',
     startDate: 'Mar 2020',
     endDate: 'Present',
-    description: 'With 31 years of experience in the digital signage industry, Scala is known globally as the leader in stable, secure network deployment at scale',
+    description: 'With **31 years of experience** in the digital signage industry, Scala is known globally as the leader in stable, secure network deployment at scale',
     bulletPoints: [
       'Lead a team of 5 developers in adopting modern React patterns, TypeScript, and Atomic Design principles.',
       'Conduct regular code reviews and one-on-ones to boost efficiency, code quality, and team performance.',
@@ -26,8 +26,37 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
       {
         type: "image",
         url: "media/scala-designer-cloud.jpeg",
-        title: "Designer Cloud - Menu Sign Board Design",
-        width: "100%"
+        title: "Scala Designer Cloud - Menu Sign Board Design",
+        width: "100%",
+        foldable: true,
+        description: `Scala Designer Cloud offers Photoshop-like functionality in a browser, specifically tailored for digital signage creation. Key features visible in the interface include:
+
+## Content Creation Tools
+* **Template Library**: Pre-designed templates for quick customization (burger menu examples visible)
+* **Asset Library**: Stock images and graphics organized by category
+* **Vector Library**: Basic shapes and widgets for layout design
+* **Layer Management**: Control individual elements with precision
+
+## Design Interface
+* **Canvas Editor**: WYSIWYG editing of digital signage content
+* **Color Selection**: Advanced color picker with RGB/hex values
+* **Typography Controls**: Text formatting tools
+* **Drop Shadow Effects**: Add dimension to design elements
+* **Alignment Tools**: Precise positioning options
+
+## Digital Signage Features
+* **Menu Board Templates**: Restaurant-specific layouts optimized for digital displays
+* **Price List Formatting**: Structured data presentation for retail environments
+* **Promotional Callouts**: Highlight special offers with visual emphasis
+* **Multi-panel Layouts**: Create complex screen divisions for information organization
+
+## Cloud Functionality
+* **Browser-based Workflow**: No software installation required
+* **User Account Management**: Personalized access and settings
+* **Cross-device Compatibility**: Design anywhere with internet access
+* **Direct Publishing**: Push designs to Scala's proprietary digital signage hardware
+
+Perfect for creating professional digital menu boards, promotional displays, and information screens for Scala's digital signage ecosystem.`
       },
       {
         type: "image",
@@ -159,7 +188,8 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
             type: "image",
             url: "/media/otg/screenshots/web-cart1.png",
             title: "Airport Restaurant Digital Ordering System",
-            description: "Designed the interface for OTG's in-terminal dining payment system, featuring boarding pass integration for personalized offers, multiple payment options including airline miles, and upsell opportunities. This mobile ordering solution allows travelers to seamlessly place and pay for meals across OTG's airport restaurant locations."
+            description: "Designed the interface for OTG's in-terminal dining payment system, featuring boarding pass integration for personalized offers, multiple payment options including airline miles, and upsell opportunities. This mobile ordering solution allows travelers to seamlessly place and pay for meals across OTG's airport restaurant locations.",
+            foldable: true
           }
         ]
       },
@@ -333,6 +363,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         title: 'Subject Matter Expert Network Campaign',
         thumbnailUrl: '/media/saturn/thumbnails/Saturn-Business-Systems-SME-Network-thumbnail.png',
         width: '100%',
+        foldable: true,
         description: `Designed and wrote this two-page recruitment brochure for Saturn's Subject Matter Expert Network, featuring compelling visuals and persuasive copy that emphasized "who you know is valuable." Created as a key component of my thought leadership marketing initiative to recruit industry experts through a multi-phase engagement model offering five distinct revenue streams.`
       }
     ]

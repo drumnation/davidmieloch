@@ -7,6 +7,7 @@ export interface ExperienceItem {
   startDate: string;
   endDate: string;
   description: string;
+  foldable?: boolean;
   bulletPoints?: string[];
   logoPath?: string;
   media?: MediaItem[];
@@ -22,13 +23,17 @@ export interface ExperienceSectionProps {
 }
 
 export interface MediaItem {
-  type: 'image' | 'pdf' | 'embed' | 'link' | 'group';
+  type: 'image' | 'video' | 'embed' | 'link' | 'pdf' | 'audio' | 'group';
   url?: string;
   title?: string;
   description?: string;
+  foldable?: boolean;
   thumbnailUrl?: string;
-  width?: string;
+  width?: string | number;
   height?: number;
   layout?: 'default' | 'stack';
   items?: MediaItem[];
+  customHeight?: string;
+  cropHeight?: string;
+  buttonText?: string;
 } 

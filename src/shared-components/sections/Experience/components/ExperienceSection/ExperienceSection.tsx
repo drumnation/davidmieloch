@@ -17,6 +17,8 @@ import {
 import { ExperienceSectionProps } from './ExperienceSection.types';
 import { stringToColor, LetterAvatar } from '../../utils/avatarHelpers';
 import { OLDER_EXPERIENCE } from './ExperienceSection.constants';
+import { MarkdownRenderer } from '../../../../molecules/MarkdownRenderer';
+import { FoldableContent } from '../../../../molecules/FoldableContent';
 
 // Add a styled divider component
 const Divider = styled.div`
@@ -319,7 +321,14 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
           <ExperienceLocation>{job.location}</ExperienceLocation>
         </ExperienceMetadataRow>
         <ExperienceDescription>
-          {job.description}
+          {job.foldable ? (
+            <FoldableContent maxHeight={200} customMaxHeight="250px">
+              <MarkdownRenderer content={job.description} compact={true} />
+            </FoldableContent>
+          ) : (
+            <MarkdownRenderer content={job.description} compact={true} />
+          )}
+          
           {job.bulletPoints && job.bulletPoints.length > 0 && (
             <ul>
               {job.bulletPoints.map((point: string, i: number) => (
@@ -361,16 +370,16 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                     $isWide={$isWide}
                     className={specialLayoutClass}
                     style={widthStyle}
-                    onClick={() => setModalImage && setModalImage({
-                      url: mediaItem.url,
-                      title: mediaItem.title || `${job.company} image`
-                    })}
                   >
                     <img 
                       src={mediaItem.url} 
                       alt={mediaItem.title || `${job.company} image`} 
                       loading="lazy"
                       style={{ cursor: 'pointer' }}
+                      onClick={() => setModalImage && setModalImage({
+                        url: mediaItem.url,
+                        title: mediaItem.title || `${job.company} image`
+                      })}
                     />
                     {mediaItem.title && (
                       <div style={{ 
@@ -385,7 +394,13 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                     )}
                     {mediaItem.description && (
                       <div style={{ padding: '8px 15px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
-                        {mediaItem.description}
+                        {mediaItem.foldable ? (
+                          <FoldableContent maxHeight={100} customMaxHeight="120px">
+                            <MarkdownRenderer content={mediaItem.description} compact={true} />
+                          </FoldableContent>
+                        ) : (
+                          <MarkdownRenderer content={mediaItem.description} compact={true} />
+                        )}
                       </div>
                     )}
                   </MediaContainer>
@@ -428,7 +443,13 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                     )}
                     {mediaItem.description && (
                       <div style={{ padding: '8px 15px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
-                        {mediaItem.description}
+                        {mediaItem.foldable ? (
+                          <FoldableContent maxHeight={100} customMaxHeight="120px">
+                            <MarkdownRenderer content={mediaItem.description} compact={true} />
+                          </FoldableContent>
+                        ) : (
+                          <MarkdownRenderer content={mediaItem.description} compact={true} />
+                        )}
                       </div>
                     )}
                   </MediaContainer>
@@ -465,7 +486,13 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                     )}
                     {mediaItem.description && (
                       <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
-                        {mediaItem.description}
+                        {mediaItem.foldable ? (
+                          <FoldableContent maxHeight={100} customMaxHeight="120px">
+                            <MarkdownRenderer content={mediaItem.description} compact={true} />
+                          </FoldableContent>
+                        ) : (
+                          <MarkdownRenderer content={mediaItem.description} compact={true} />
+                        )}
                       </div>
                     )}
                   </MediaContainer>
@@ -505,9 +532,15 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                     </div>
                     <div className="link-content">
                       <h4 className="link-title">{mediaItem.title}</h4>
-                      {mediaItem.description && (
-                        <p className="link-description">{mediaItem.description}</p>
-                      )}
+                      <p className="link-description">
+                        {mediaItem.foldable ? (
+                          <FoldableContent maxHeight={100} customMaxHeight="120px">
+                            <MarkdownRenderer content={mediaItem.description} compact={true} />
+                          </FoldableContent>
+                        ) : (
+                          <MarkdownRenderer content={mediaItem.description} compact={true} />
+                        )}
+                      </p>
                       <a 
                         href={mediaItem.url} 
                         target="_blank" 
@@ -590,7 +623,13 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                             fontSize: '0.85rem', 
                             color: 'rgba(0,0,0,0.6)' 
                           }}>
-                            {nestedItem.description}
+                            {nestedItem.foldable ? (
+                              <FoldableContent maxHeight={100} customMaxHeight="120px">
+                                <MarkdownRenderer content={nestedItem.description} compact={true} />
+                              </FoldableContent>
+                            ) : (
+                              <MarkdownRenderer content={nestedItem.description} compact={true} />
+                            )}
                           </div>
                         )}
                       </div>
