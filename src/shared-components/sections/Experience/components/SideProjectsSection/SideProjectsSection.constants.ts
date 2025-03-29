@@ -42,6 +42,8 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['React.js', 'TypeScript', 'Openai', 'Web Audio API', 'SSML', 'IndexedDB', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
+    logoPath: 'media/hypnosis-logo.png',
+    showBorder: true,
     impact: 'Combined AI script generation with audio technology to create a personal hypnotherapy experience. The system delivers deeply personalized content that incorporates the user\'s name, specific goals, and individual scenarios, then speaks them aloud with natural intonation—effectively simulating a one-on-one session with a hypnotherapist.',
     media: [
       {
@@ -187,7 +189,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['TypeScript', 'Speechify', 'OpenAI', 'Gemini', 'Node.js', 'Markdown'],
     startDate: '2024',
     endDate: '2024',
-    impact: 'Created a personalized two-hour audiobook narrated in my own voice clone, delivering tailored career and personal development guidance based on AI analysis of my digital footprint.',
+    impact: 'Created a personalized two-hour self-help audiobook narrated in my own voice clone, delivering tailored career and personal development guidance based on AI analysis of my digital footprint.',
     media: [
       {
         type: 'pdf',
@@ -281,6 +283,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     endDate: 'Present',
     showBorder: true,
     logoPath: 'media/prompt-forge-logo.png',
+    repoUrl: 'https://github.com/drumnation/prompt-forge',
     impact: 'Empowers users to create, manage, and automatically enhance AI prompts across multiple platforms, streamlining the process of prompt engineering for maximum AI performance.',
     media: [
       {
@@ -340,6 +343,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['Node', 'TypeScript', 'CLI', 'Gemini'],
     startDate: '2024',
     endDate: '2024',
+    logoPath: 'media/cursor.png',
     repoUrl: 'https://github.com/drumnation/cursor-directory-structure-ts',
     impact: 'Streamlines development workflows by creating intelligent, self-updating documentation that gives developers and AI assistants deeper understanding of complex codebases.',
     media: [
