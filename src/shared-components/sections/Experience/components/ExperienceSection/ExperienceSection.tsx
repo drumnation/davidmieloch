@@ -426,6 +426,11 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                         {mediaItem.title}
                       </div>
                     )}
+                    {mediaItem.description && (
+                      <div style={{ padding: '8px 15px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
+                        {mediaItem.description}
+                      </div>
+                    )}
                   </MediaContainer>
                 );
               } else if (mediaItem.type === 'embed') {
