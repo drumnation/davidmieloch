@@ -236,7 +236,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     startDate: '2024',
     endDate: 'Present',
     logoPath: 'media/misc/brain-garden.png',
-    impact: 'Created a framework that enhances AI-assisted development workflows for multiple IDE environments'
+    impact: 'Created a framework that enhances structure for Enterprise AI-assisted development workflows'
   },
   {
     title: 'Code Relay',
@@ -251,7 +251,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     title: 'Browser-use CLI (FORK)',
     category: 'Developer Tools',
     description: 'A powerful terminal-based interface that enables developers to train AI agents to perform browser automation tasks through natural language commands. Features include terminal-based browser automation via natural language, multi-provider LLM support (Anthropic, OpenAI, Google Gemini, DeepSeek), vision-capable browser interaction for visual analysis, session recording and tracing for debugging, persistent browser sessions between commands, custom Chrome profile integration, headless mode for server environments, configurable automation parameters, and enhanced toolchain integration for Cursor.',
-    technologies: ['Python', 'CLI', 'Anthropic', 'OpenAI', 'Google Gemini', 'DeepSeek'],
+    technologies: ['Python', 'CLI', 'Anthropic', 'OpenAI', 'Google Gemini', 'Deepseek'],
     repoUrl: 'https://github.com/drumnation/browser-use-cli',
     startDate: '2024',
     endDate: '2024',
@@ -287,7 +287,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     title: 'Model Maestro',
     category: 'Developer Tools',
     description: 'An intelligent AI model router that analyzes user prompts to recommend the optimal AI model for specific tasks. It evaluates prompt complexity, context requirements, and special needs, then matches these with detailed profiles of models from providers like OpenAI, Anthropic, Google, and DeepSeek. Features include prompt analysis that evaluates task type and complexity, intelligent model recommendation, comparative benchmarking across providers, customizable preferences for prioritizing speed/cost/reliability, visual confidence metrics, detailed scoring breakdowns, performance history tracking, real-time token analysis, and comprehensive model specifications.',
-    technologies: ['React.js', 'Node', 'TypeScript', 'Openai', 'Replit Agent', 'Anthropic', 'Google AI', 'DeepSeek'],
+    technologies: ['React.js', 'Node', 'TypeScript', 'Openai', 'Replit Agent', 'Anthropic', 'Google AI', 'Deepseek'],
     startDate: '2024',
     endDate: '2024',
     repoUrl: 'https://github.com/drumnation/model-maestro',

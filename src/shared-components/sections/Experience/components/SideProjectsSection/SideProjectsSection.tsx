@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { FaGlobe, FaGithub } from 'react-icons/fa';
+import { FaGlobe, FaGithub, FaChevronDown } from 'react-icons/fa';
 import { PROJECT_CATEGORIES, SECTION_TITLE, SIDE_PROJECTS } from './SideProjectsSection.constants';
 import { SideProject, SideProjectsSectionProps } from './SideProjectsSection.types';
 import * as S from './SideProjectsSection.styles';
@@ -16,6 +16,10 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string | 'All'>('All');
   const [selectedTech, setSelectedTech] = useState<string | 'All'>('All');
   const [modalImage, setModalImage] = useState<MediaItem | null>(null);
+  
+  // Category filter open by default, technology filter closed by default
+  const [categoryFilterOpen, setCategoryFilterOpen] = useState<boolean>(true);
+  const [techFilterOpen, setTechFilterOpen] = useState<boolean>(false);
   
   // Extract unique technologies from all projects
   const uniqueTechnologies = useMemo(() => {
@@ -88,6 +92,15 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
   
   const handleTechChange = (tech: string | 'All') => {
     setSelectedTech(tech);
+  };
+
+  // Toggle accordion functions
+  const toggleCategoryFilter = () => {
+    setCategoryFilterOpen(!categoryFilterOpen);
+  };
+
+  const toggleTechFilter = () => {
+    setTechFilterOpen(!techFilterOpen);
   };
 
   // Function to open the modal
@@ -337,47 +350,63 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
         <S.SectionTitle>{title}</S.SectionTitle>
       </S.SectionHeader>
       
-      {/* Category filters */}
-      <S.FiltersSectionTitle>Filter by Category</S.FiltersSectionTitle>
-      <S.FiltersContainer>
-        <S.FilterButton 
-          $active={selectedCategory === 'All'} 
-          onClick={() => handleCategoryChange('All')}
-        >
-          All
-        </S.FilterButton>
-        
-        {PROJECT_CATEGORIES.map(category => (
-          <S.FilterButton 
-            key={category}
-            $active={selectedCategory === category}
-            onClick={() => handleCategoryChange(category)}
-          >
-            {category}
-          </S.FilterButton>
-        ))}
-      </S.FiltersContainer>
+      {/* Category filters with accordion functionality */}
+      <S.FilterAccordionHeader onClick={toggleCategoryFilter}>
+        <S.FiltersSectionTitle>Filter by Category</S.FiltersSectionTitle>
+        <S.AccordionIcon $isOpen={categoryFilterOpen}>
+          <FaChevronDown />
+        </S.AccordionIcon>
+      </S.FilterAccordionHeader>
       
-      {/* Technology filters */}
-      <S.FiltersSectionTitle>Filter by Technology</S.FiltersSectionTitle>
-      <S.TechFiltersContainer>
-        <S.TechFilterButton 
-          $active={selectedTech === 'All'} 
-          onClick={() => handleTechChange('All')}
-        >
-          All
-        </S.TechFilterButton>
-        
-        {uniqueTechnologies.filter(tech => tech !== 'All').map(tech => (
-          <S.TechFilterButton 
-            key={tech}
-            $active={selectedTech === tech}
-            onClick={() => handleTechChange(tech)}
+      {categoryFilterOpen && (
+        <S.FiltersContainer>
+          <S.FilterButton 
+            $active={selectedCategory === 'All'} 
+            onClick={() => handleCategoryChange('All')}
           >
-            {tech}
+            All
+          </S.FilterButton>
+          
+          {PROJECT_CATEGORIES.map(category => (
+            <S.FilterButton 
+              key={category}
+              $active={selectedCategory === category}
+              onClick={() => handleCategoryChange(category)}
+            >
+              {category}
+            </S.FilterButton>
+          ))}
+        </S.FiltersContainer>
+      )}
+      
+      {/* Technology filters with accordion functionality */}
+      <S.FilterAccordionHeader onClick={toggleTechFilter}>
+        <S.FiltersSectionTitle>Filter by Technology</S.FiltersSectionTitle>
+        <S.AccordionIcon $isOpen={techFilterOpen}>
+          <FaChevronDown />
+        </S.AccordionIcon>
+      </S.FilterAccordionHeader>
+      
+      {techFilterOpen && (
+        <S.TechFiltersContainer>
+          <S.TechFilterButton 
+            $active={selectedTech === 'All'} 
+            onClick={() => handleTechChange('All')}
+          >
+            All
           </S.TechFilterButton>
-        ))}
-      </S.TechFiltersContainer>
+          
+          {uniqueTechnologies.filter(tech => tech !== 'All').map(tech => (
+            <S.TechFilterButton 
+              key={tech}
+              $active={selectedTech === tech}
+              onClick={() => handleTechChange(tech)}
+            >
+              {tech}
+            </S.TechFilterButton>
+          ))}
+        </S.TechFiltersContainer>
+      )}
       
       {/* Projects grid */}
       <S.ProjectsGrid>

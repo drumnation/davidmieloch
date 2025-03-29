@@ -33,12 +33,48 @@ export const FiltersContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
+export const FilterAccordionHeader = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
 export const FiltersSectionTitle = styled.div`
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.7);
-  margin-bottom: 0.75rem;
-  width: 100%;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  flex: 1;
+  display: flex;
+  align-items: center;
+`;
+
+export const AccordionIcon = styled.span<{ $isOpen: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.35);
+  
+  svg {
+    width: 14px;
+    height: 14px;
+    color: white;
+    transition: transform 0.3s ease;
+    transform: ${props => props.$isOpen ? 'rotate(-180deg)' : 'rotate(0deg)'};
+  }
 `;
 
 export const TechFiltersContainer = styled(FiltersContainer)`
