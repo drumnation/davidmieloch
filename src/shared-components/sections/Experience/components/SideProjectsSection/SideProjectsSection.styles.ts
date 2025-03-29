@@ -414,7 +414,7 @@ export const MediaItem = styled.div`
 export const MediaTitle = styled.p`
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin: 0;
   color: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
@@ -611,6 +611,12 @@ export const LinkContainer = styled.div`
     font-weight: 600;
     margin: 0 0 8px 0;
     color: rgba(0, 0, 0, 0.9);
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    margin: -16px -16px 8px -16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
   }
   
   .link-description {

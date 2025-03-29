@@ -183,44 +183,46 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
             style={adjustedStyle}
           >
             <S.LinkContainer style={{ height: item.customHeight || '150px' }}>
-              {thumbnail && (
-                <div className="link-thumbnail" style={{ width: item.thumbnailWidth || '150px' }}>
-                  <img src={thumbnail} alt={title || 'Link thumbnail'} />
-                </div>
-              )}
-              <div className="link-content">
-                {title && (
-                  <div className="link-title" style={{ display: 'flex', alignItems: 'center' }}>
-                    {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
-                      <img 
-                        src={item.titleLogoPath || project?.logoPath} 
-                        alt={`Logo for ${title}`}
-                        style={{ 
-                          width: '20px', 
-                          height: '20px', 
-                          objectFit: 'contain',
-                          marginRight: '8px',
-                          borderRadius: item.logoHasBorderRadius === false ? '0' : '6px',
-                          overflow: 'visible',
-                          backgroundColor: 'transparent',
-                          display: 'inline-block',
-                          verticalAlign: 'middle',
-                          ...(item.logoHasBorder && {
-                            border: '1px solid rgba(0, 0, 0, 0.2)',
-                            padding: '1px'
-                          })
-                        }}
-                      />
-                    )}
-                    <span>{title}</span>
+              <div style={{ display: 'flex', flex: 1 }}>
+                {thumbnail && (
+                  <div className="link-thumbnail" style={{ width: item.thumbnailWidth || '150px' }}>
+                    <img src={thumbnail} alt={title || 'Link thumbnail'} />
                   </div>
                 )}
-                {description && <div className="link-description">
-                  <MarkdownRenderer content={description} compact={true} />
-                </div>}
-                <a href={url} target="_blank" rel="noopener noreferrer" className="link-button">
-                  {buttonText || 'View'}
-                </a>
+                <div className="link-content">
+                  {title && (
+                    <div className="link-title">
+                      {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
+                        <img 
+                          src={item.titleLogoPath || project?.logoPath} 
+                          alt={`Logo for ${title}`}
+                          style={{ 
+                            width: '20px', 
+                            height: '20px', 
+                            objectFit: 'contain',
+                            marginRight: '8px',
+                            borderRadius: item.logoHasBorderRadius === false ? '0' : '6px',
+                            overflow: 'visible',
+                            backgroundColor: 'transparent',
+                            display: 'inline-block',
+                            verticalAlign: 'middle',
+                            ...(item.logoHasBorder && {
+                              border: '1px solid rgba(0, 0, 0, 0.2)',
+                              padding: '1px'
+                            })
+                          }}
+                        />
+                      )}
+                      <span>{title}</span>
+                    </div>
+                  )}
+                  {description && <div className="link-description">
+                    <MarkdownRenderer content={description} compact={true} />
+                  </div>}
+                  <a href={url} target="_blank" rel="noopener noreferrer" className="link-button">
+                    {buttonText || 'View'}
+                  </a>
+                </div>
               </div>
             </S.LinkContainer>
           </S.MediaItem>

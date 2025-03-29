@@ -55,35 +55,53 @@ export const SIDE_PROJECTS: SideProject[] = [
         description: 'An AI-generated hypnosis script created with the generator, featuring AI generated meditative music, and spoken by my voice clone using text-to-speech.',
         buttonText: 'Listen to Hypnosis Session',
         thumbnail: 'media/hypnosis-thumbnail.png',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
         width: '100%'
       },
       {
         type: 'image',
         url: 'media/screenshots/hypnosis/hyp1.png',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
       },
       {
         type: 'image',
         url: 'media/screenshots/hypnosis/hyp3.png',
         title: 'Script Generation Interface',
-        width: '48%'
+        width: '48%',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
       },
       {
         type: 'image',
         url: 'media/screenshots/hypnosis/hyp5.png',
         title: 'Script Editor View',
-        width: '48%'
+        width: '48%',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
       },
       {
         type: 'image',
         url: 'media/screenshots/hypnosis/hyp7.png',
         title: 'Audio Playback Controls',
-        width: '48%'
+        width: '48%',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
       },
       {
         type: 'image',
         url: 'media/screenshots/hypnosis/hyp12.png',
         title: 'Session History',
-        width: '48%'
+        width: '48%',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
       },
       {
         type: 'link',
@@ -457,6 +475,9 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         type: 'image',
         url: 'media/screenshots/coparenting-copilot/mobile-reply-view.png',
         title: 'Mobile Reply View',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
         description: 'The mobile reply view provides a compact, focused interface for quick responses. It allows you to quickly scan and respond to messages, while keeping the conversation context in view.',
         width: '48%'
       },
@@ -470,11 +491,17 @@ The process revealed something powerful: AI could effortlessly regenerate all su
             type: 'image',
             url: 'media/screenshots/coparenting-copilot/composer-mode.png',
             title: 'Composer Mode',
+            showLogo: true,
+            logoHasBorderRadius: true,
+            logoHasBorder: true,
           },
           {
             type: 'image',
             url: 'media/screenshots/coparenting-copilot/tools.png',
             title: 'Tools',
+            showLogo: true,
+            logoHasBorderRadius: true,
+            logoHasBorder: true,
           },
         ]
       },
@@ -483,14 +510,20 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         url: 'media/screenshots/coparenting-copilot/summarizer-no-padding.png',
         title: 'Summarizer',
         description: 'The summarizer provides a concise summary of the conversation, which can be used to quickly understand and respond to the main points.',
-        width: '48%'
+        width: '48%',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
       },
       {
         type: 'image',
         url: 'media/screenshots/coparenting-copilot/email-result.png',
         title: 'Final AI Generated Email',
         description: 'The final AI generated email is displayed in a modal. It includes the AI generated email, a summary of the conversation, and a button to copy the email to the clipboard.',
-        width: '48%'
+        width: '48%',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
       },
       {
         type: 'link',
@@ -501,7 +534,10 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         thumbnail: 'media/misc/cc-logo.svg',
         width: '100%',
         thumbnailWidth: '700px',
-        customHeight: '150px'
+        customHeight: '150px',
+        showLogo: true,
+        logoHasBorderRadius: true,
+        logoHasBorder: true,
       }
     ]
   },
