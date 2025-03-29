@@ -536,22 +536,6 @@ export const SIDE_PROJECTS: SideProject[] = [
     showBorder: true,
     media: [
       {
-        type: 'video',
-        url: '/media/saturn/mp4/power_sas.mp4',
-        title: 'Power SAS - Marketing Video',
-        thumbnail: '/company-logos/saturn_business_systems_logo.jpeg',
-        width: '100%',
-        description: 'Marketing video showcasing Saturn Business Systems\' SAS analytics solutions'
-      },
-      {
-        type: 'video',
-        url: '/media/saturn/mp4/sql_takeout.mp4',
-        title: 'SQL Takeout Cold Call Video',
-        thumbnail: '/company-logos/saturn_business_systems_logo.jpeg',
-        width: '100%',
-        description: 'Cold call training video for the sales team focused on SQL database solutions'
-      },
-      {
         type: 'pdf',
         url: '/media/saturn/sas-optimization-legalresearchfirm-3-12-2015.pdf',
         title: 'SAS Optimization Case Study',
@@ -567,7 +551,7 @@ export const SIDE_PROJECTS: SideProject[] = [
       },
       {
         type: 'pdf',
-        url: '/media/saturn/Saturn Business Systems - SME Network.pdf',
+        url: '/media/saturn/Saturn-Business-Systems-SME-Network.pdf',
         title: 'SME Network Overview',
         width: '100%',
         description: 'Overview of Saturn Business Systems\' SME Network'

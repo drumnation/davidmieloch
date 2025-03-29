@@ -45,6 +45,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Next.js image hostname configuration error by downloading and using local profile image instead of LinkedIn URL
 - Fixed media loading issues by implementing letter avatars for company and school logos
 - Fixed Saturn Business Systems marketing videos by converting QuickTime MOV files to MP4 format for better browser compatibility
+- Simplified Saturn Business Systems media section by removing videos and keeping only PDF documents
+- Fixed URL handling issues for PDF files with spaces in filenames by using hyphenated filenames
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
