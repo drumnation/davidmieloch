@@ -537,7 +537,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     media: [
       {
         type: 'video',
-        url: '/media/saturn/power sas - updated music.mov',
+        url: '/media/saturn/mp4/power_sas.mp4',
         title: 'Power SAS - Marketing Video',
         thumbnail: '/company-logos/saturn_business_systems_logo.jpeg',
         width: '100%',
@@ -545,7 +545,7 @@ export const SIDE_PROJECTS: SideProject[] = [
       },
       {
         type: 'video',
-        url: '/media/saturn/SQL Takeout Video Cold Call-v3.mov',
+        url: '/media/saturn/mp4/sql_takeout.mp4',
         title: 'SQL Takeout Cold Call Video',
         thumbnail: '/company-logos/saturn_business_systems_logo.jpeg',
         width: '100%',

@@ -44,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed white space issues in BrainGardenOverview sections by converting grid layouts to horizontal row layouts
 - Fixed Next.js image hostname configuration error by downloading and using local profile image instead of LinkedIn URL
 - Fixed media loading issues by implementing letter avatars for company and school logos
+- Fixed Saturn Business Systems marketing videos by converting QuickTime MOV files to MP4 format for better browser compatibility
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
