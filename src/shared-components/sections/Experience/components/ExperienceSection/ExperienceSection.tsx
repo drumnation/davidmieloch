@@ -667,9 +667,9 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
         <>
           <Divider />
           <Accordion 
-            title={`Previous Experience (${OLDER_EXPERIENCE.length} Positions)`}
-            subtitle="Click to expand and see earlier positions from 2004-2016"
-            initiallyOpen={false}
+            title={`Previous Sales & Marketing Experience (${OLDER_EXPERIENCE.length} Positions)`}
+            subtitle="Click to expand and see earlier sales and marketing positions from 2004-2016"
+            initiallyOpen={true}
           >
             {OLDER_EXPERIENCE.map((job, index) => (
               <React.Fragment key={`older-job-fragment-${index}`}>
