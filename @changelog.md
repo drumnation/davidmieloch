@@ -50,6 +50,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed PDF file path issues by removing leading slashes to ensure proper rendering in Next.js
 - Fixed PDF rendering for Saturn project by changing from iframe embedding to direct links
 - Simplified Saturn media display by replacing PDF links with simple image previews for guaranteed rendering
+- Fixed transparent header background in SideProjectsSection by adding solid white background and border styling
+- Fixed CategoryPill styling by adding !important rules to ensure consistent appearance across all categories
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
