@@ -104,9 +104,18 @@ export const SIDE_PROJECTS: SideProject[] = [
     impact: 'Life Guidance transforms abstract AI capabilities into concrete personal development insights by systematically comparing multiple AI models across strategic archetypes, creating an actionable roadmap for navigating technological and career evolution.',
     media: [
       {
-        type: 'image',
-        url: 'media/screenshots/life-guidance.png',
-        title: 'Life Guidance Interface',
+        type: 'pdf',
+        url: 'media/Life Guidance - Table of Contents.pdf',
+        title: 'Life Guidance Table of Contents',
+        width: '100%'
+      },
+      {
+        type: 'audio',
+        url: 'media/life-guidance.mp3',
+        title: 'Life Guidance Audio Sample',
+        description: 'Listen to a sample of the AI-generated guidance audio',
+        thumbnail: 'media/misc/life-guidance-sample.png',
+        thumbnailWidth: '80px',
         width: '100%'
       }
     ]
@@ -180,11 +189,11 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Prompt Forge',
     category: 'Developer Tools',
-    description: 'Store and categorize prompts, create prompt templates to avoid repetitive typing, use AI to enhance prompts.',
-    technologies: ['React.js', 'ReplitAgent', 'TypeScript', 'Deepseek', 'Gemini', 'Node', 'Openai', 'PostgreSQL', ],
+    description: 'A sophisticated web application designed for AI prompt engineering, allowing users to create, manage, and enhance prompts for various AI language models. Features include a comprehensive template management system with drag-and-drop organization, real-time prompt preview with dynamic field replacements, AI-powered prompt enhancement using multiple models (Google, Anthropic, OpenAI), customizable enhancement instructions by domain and purpose, and a modern interface with copy-to-clipboard functionality and full-screen viewing. The platform streamlines prompt crafting across different AI platforms with an intuitive template categorization system.',
+    technologies: ['React.js', 'ReplitAgent', 'TypeScript', 'Deepseek', 'Gemini', 'Node', 'Openai', 'PostgreSQL'],
     startDate: '2024',
     endDate: 'Present',
-    impact: 'Created a productivity tool that optimizes AI prompt management and reuse',
+    impact: 'Empowers users to create, manage, and automatically enhance AI prompts across multiple platforms, streamlining the process of prompt engineering for maximum AI performance.',
     media: [
       {
         type: 'image',

@@ -373,7 +373,40 @@ export const MediaImage = styled.img`
 
 export const MediaVideo = styled.video`
   width: 100%;
-  border-radius: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+`;
+
+export const MediaAudio = styled.audio`
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  
+  &::-webkit-media-controls-panel {
+    background-color: #f5f5f5;
+  }
+  
+  &::-webkit-media-controls-play-button,
+  &::-webkit-media-controls-volume-slider,
+  &::-webkit-media-controls-mute-button,
+  &::-webkit-media-controls-timeline {
+    cursor: pointer;
+  }
+`;
+
+// Add additional styling for audio thumbnails
+export const AudioThumbnailContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  img {
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 export const MediaEmbed = styled.div`
@@ -385,6 +418,40 @@ export const MediaEmbed = styled.div`
     display: block;
     border: none;
     width: 100%;
+  }
+`;
+
+export const PDFViewer = styled.div`
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  
+  iframe {
+    display: block;
+    border: none;
+    width: 100%;
+    background-color: white;
+  }
+  
+  .pdf-fallback {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    background-color: #f9f9f9;
+    
+    a {
+      color: #0073b1;
+      font-weight: 500;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 `;
 
@@ -555,6 +622,36 @@ export const MediaDescription = styled.p`
   margin: 0.5rem 0;
   padding: 0 1rem 1rem;
   line-height: 1.4;
+`;
+
+export const AudioInfoContainer = styled.div`
+  display: flex;
+  padding: 10px 15px;
+  align-items: flex-start;
+  gap: 15px;
+  
+  > div {
+    flex: 1;
+  }
+  
+  ${MediaTitle} {
+    padding-left: 0;
+    margin-top: 0;
+  }
+  
+  ${MediaDescription} {
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+  
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: center;
+    
+    ${AudioThumbnailContainer} {
+      margin-bottom: 15px;
+    }
+  }
 `;
 
 export const MediaLink = styled.a`

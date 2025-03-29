@@ -40,7 +40,7 @@ export interface ProjectItem {
 }
 
 export interface MediaItem {
-  type: 'image' | 'pdf' | 'video' | 'link' | 'embed' | 'group';
+  type: 'image' | 'pdf' | 'video' | 'link' | 'embed' | 'group' | 'audio';
   url: string;
   title?: string;
   thumbnail?: string; // Optional thumbnail for videos or PDFs

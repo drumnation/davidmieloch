@@ -232,6 +232,33 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
         );
       }
 
+      // For audio
+      if (type === 'audio') {
+        return (
+          <S.MediaItem
+            key={`media-audio-${index}`}
+            className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
+            style={adjustedStyle}
+          >
+            <S.MediaAudio controls>
+              <source src={url} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </S.MediaAudio>
+            <S.AudioInfoContainer>
+              {thumbnail && (
+                <S.AudioThumbnailContainer style={{ maxWidth: item.thumbnailWidth || '100px' }}>
+                  <img src={thumbnail} alt={title || 'Audio thumbnail'} />
+                </S.AudioThumbnailContainer>
+              )}
+              <div className="audio-text-content">
+                {title && <S.MediaTitle style={{ marginTop: 0 }}>{title}</S.MediaTitle>}
+                {description && <S.MediaDescription style={{ padding: 0 }}>{description}</S.MediaDescription>}
+              </div>
+            </S.AudioInfoContainer>
+          </S.MediaItem>
+        );
+      }
+
       // For embeds
       if (type === 'embed') {
         return (
@@ -249,6 +276,33 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 allowFullScreen
               />
             </S.MediaEmbed>
+            {title && <S.MediaTitle>{title}</S.MediaTitle>}
+            {description && <S.MediaDescription>{description}</S.MediaDescription>}
+          </S.MediaItem>
+        );
+      }
+
+      // For PDFs
+      if (type === 'pdf') {
+        // Using direct PDF URL for modern browsers that support PDF viewing
+        return (
+          <S.MediaItem
+            key={`media-pdf-${index}`}
+            className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
+            style={adjustedStyle}
+          >
+            <S.PDFViewer>
+              <iframe
+                src={url}
+                title={title || 'PDF document'}
+                height={item.height || 600}
+                style={{ width: '100%', border: 'none' }}
+                frameBorder="0"
+              />
+              <div className="pdf-fallback">
+                <p>If the PDF viewer doesn't load, you can <a href={url} target="_blank" rel="noopener noreferrer">view the PDF directly</a>.</p>
+              </div>
+            </S.PDFViewer>
             {title && <S.MediaTitle>{title}</S.MediaTitle>}
             {description && <S.MediaDescription>{description}</S.MediaDescription>}
           </S.MediaItem>
