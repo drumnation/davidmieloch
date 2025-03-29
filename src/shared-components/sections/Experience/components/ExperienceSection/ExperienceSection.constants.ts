@@ -82,19 +82,19 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
       {
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190625-090152_DrayNow.jpg",
-        title: "DrayNow Mobile App Home Screen",
+        title: "Marketplace Screen",
         width: "30%"
       },
       {
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190714-184353_DrayNow.jpg",
-        title: "DrayNow Trip Details Screen",
+        title: "Rail Billing Information Screen",
         width: "30%"
       },
       {
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190715-112829_DrayNow.jpg",
-        title: "DrayNow Booking Screen",
+        title: "Marketplace Listing Screen",
         width: "30%"
       },
       {

@@ -272,6 +272,8 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['React.js', 'ReplitAgent', 'TypeScript', 'Deepseek', 'Gemini', 'Node', 'Openai', 'PostgreSQL'],
     startDate: '2024',
     endDate: 'Present',
+    showBorder: true,
+    logoPath: 'media/prompt-forge-logo.png',
     impact: 'Empowers users to create, manage, and automatically enhance AI prompts across multiple platforms, streamlining the process of prompt engineering for maximum AI performance.',
     media: [
       {
@@ -280,6 +282,17 @@ export const SIDE_PROJECTS: SideProject[] = [
         title: 'Prompt Forge',
         width: '100%',
         customHeight: '350px'
+      },
+      {
+        type: 'link',
+        url: 'https://prompt-forge.replit.app/',
+        title: 'Prompt Forge',
+        description: 'A minimalist tool for developers to craft and test LLM prompts with your own API keys. Stores frequently used prompts and securely keeps credentials in localStorage. Built for personal use but shared among developers, it focuses on functionality over user management—perfect for quick prompt experimentation.',
+        buttonText: 'Try Prompt Forge',
+        thumbnail: 'media/prompt-forge-logo.png',
+        thumbnailWidth: '200px',
+        customHeight: '200px',
+        width: '100%',
       }
     ]
   },
@@ -417,6 +430,7 @@ export const SIDE_PROJECTS: SideProject[] = [
         type: 'image',
         url: 'media/screenshots/coparenting-copilot/mobile-reply-view.png',
         title: 'Mobile Reply View',
+        description: 'The mobile reply view provides a compact, focused interface for quick responses. It allows you to quickly scan and respond to messages, while keeping the conversation context in view.',
         width: '48%'
       },
       {
@@ -441,18 +455,21 @@ export const SIDE_PROJECTS: SideProject[] = [
         type: 'image',
         url: 'media/screenshots/coparenting-copilot/summarizer-no-padding.png',
         title: 'Summarizer',
+        description: 'The summarizer provides a concise summary of the conversation, which can be used to quickly understand and respond to the main points.',
         width: '48%'
       },
       {
         type: 'image',
         url: 'media/screenshots/coparenting-copilot/email-result.png',
         title: 'Final AI Generated Email',
+        description: 'The final AI generated email is displayed in a modal. It includes the AI generated email, a summary of the conversation, and a button to copy the email to the clipboard.',
         width: '48%'
       },
       {
         type: 'link',
         url: 'https://www.coparentingcopilot.com/',
-        // title: 'Coparenting Copilot',
+        title: 'SaaS Application',
+        description: 'Co-parenting comm. tool.',
         buttonText: 'Try Coparenting Copilot',
         thumbnail: 'media/misc/cc-logo.svg',
         width: '100%',
@@ -478,13 +495,14 @@ export const SIDE_PROJECTS: SideProject[] = [
     startDate: '2022',
     endDate: 'Present',
     logoPath: 'media/misc/cheddar.png',
-    impact: 'Transformed financial anxiety into confidence by combining transaction tracking with intelligent forecasting that helps users visualize and plan their financial future with clarity and precision. The application enables users to make informed decisions by simulating different financial scenarios, providing clear visualization of spending patterns, and offering projections months into the future.',
+    impact: 'Transforms financial uncertainty into confidence through intelligent forecasting that visualizes your future balance in real-time. By revealing upcoming cash flow patterns and allowing scenario testing, users gain both peace of mind and practical financial control.',
     media: [
       {
         type: 'image',
         url: 'media/screenshots/cheddar/cheddar.png',
         title: 'Cheddar Dashboard with Balance Forecast',
-        width: '100%'
+        width: '100%',
+        description: `The Cheddar Dashboard presents a unified view of your financial landscape with intelligent transaction management. As scheduled payments approach their due dates, they appear as "pending" in your forecast. When payments clear your account, you simply mark them complete—automatically updating your bank balance and moving the transaction to next month's list. This dynamic system maintains accuracy between your actual and projected finances while providing flexible scenario planning. Toggle transactions on or off to visualize different financial outcomes, or temporarily disable items to see alternative forecasts. The Month Summary provides key metrics including overall balance change, income totals, largest expenses, and total debt—giving you complete visibility into your financial health with minimal effort.`
       },
       {
         type: 'image',
@@ -495,14 +513,16 @@ export const SIDE_PROJECTS: SideProject[] = [
       {
         type: 'image',
         url: 'media/screenshots/cheddar/cheddar4.png',
-        title: 'Financial Calendar & Planning',
+        title: 'Edit Transaction Modal',
+        description: 'The transaction editor provides complete management of your recurring expenses and income. This powerful interface lets you specify essential details like payment amount, category, frequency, and whether a transaction repeats.',
         width: '48%'
       },
       {
         type: 'image',
         url: 'media/screenshots/cheddar/cheddar2.png',
-        title: 'Transaction Management View',
-        width: '100%'
+        title: 'Financial Calendar & Planning',
+        width: '100%',
+        description: 'The Financial Calendar & Planning section provides an interactive, multi-dimensional view of your finances across time. The color-coded calendar instantly reveals your financial status for each day—green for positive balances, yellow for warnings, and red for negative balances—with hoverable dates showing transaction previews. Complementing this, the cash flow chart tracks your balance trajectory over time using the same color system, giving you an immediate visual understanding of financial trends. Both elements function as powerful navigation tools; clicking any date or chart point automatically selects that date and scrolls to the corresponding forecast transactions in the right panel. This integrated approach transforms abstract financial data into an intuitive visual experience, allowing you to quickly identify trouble spots, plan for upcoming expenses, and understand the long-term impact of your financial decisions.'
       },
     ]
   },
@@ -518,15 +538,15 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'We Learn Music Together',
     category: 'SaaS Applications',
-    description: 'A comprehensive educational platform designed to make music theory accessible and enjoyable for young children. The platform combines a gamified mobile application with a subscription-based web portal for parents and educators. Features include interactive music theory lessons with adaptive difficulty based on the child\'s progress, virtual instruments that teach proper technique and note recognition, rhythm games with physical interaction components, ear training exercises with progressive complexity, and performance tracking for parents and teachers to monitor progress. The platform uses colorful animations, engaging characters, and reward systems to maintain children\'s interest while building genuine musical knowledge.',
-    technologies: ['React Native', 'React.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Web Audio API', 'Animation Libraries'],
+    description: 'WLMT (What Looks Makes Tones) is a comprehensive educational platform designed to help users develop emotional intelligence through music recognition. The system consists of a React Native mobile application that delivers interactive games teaching users to distinguish between happy and sad musical tones across progressive difficulty levels. Features include interactive game-based learning with 10 educational levels, comprehensive sound library with emotion-categorized audio assets, user progress tracking and performance analytics, school/institutional licensing management system, admin dashboard for educators to manage users, schools, and lessons, secure authentication with role-based access control, and a RESTful API backend with comprehensive documentation.',
+    technologies: ['React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Web Audio API'],
     startDate: '2024',
-    endDate: '2025',
-    impact: 'Created an educational platform that makes music theory accessible to young children through gamification and interactive learning, helping establish a solid foundation for musical development at an early age',
+    endDate: 'present',
+    impact: 'WLMT revolutionizes emotional intelligence education by transforming abstract musical concepts into engaging, game-based learning experiences that help users recognize and distinguish emotional tones.',
     media: [
       {
         type: 'embed',
-        url: 'https://www.youtube.com/embed/JPj578UcVwU?si=1CGd401CRRO7eZJD',
+        url: 'https://www.youtube.com/embed/9oVfOIaMTIk?si=_Xxc1IVf3Pegp12R',
         title: 'We Learn Music Together Demo',
         width: '100%'
       }

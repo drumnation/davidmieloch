@@ -405,7 +405,7 @@ export const MediaTitle = styled.p`
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.9);
   padding-left: 15px;
 `;
 
