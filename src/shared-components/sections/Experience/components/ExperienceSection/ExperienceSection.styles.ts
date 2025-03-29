@@ -17,13 +17,49 @@ export const SectionContainer = styled.section`
 
 export const ExperienceItem = styled.div`
   display: flex;
-  margin-bottom: 0;
+  flex-direction: column;
+  margin-bottom: 24px;
   position: relative;
-  align-items: flex-start;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  padding: 0;
+  
+  /* Add padding to child elements except TechnologiesList and ExperienceHeader */
+  > *:not(.technologies-list):not(.project-header) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 576px) {
+    margin-bottom: 32px;
+  }
+`;
+
+// Header area with logo and basic info
+export const ExperienceHeader = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
   
   @media (max-width: 576px) {
     flex-direction: column;
+    align-items: flex-start;
   }
+`;
+
+export const HeaderLeft = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
 `;
 
 export const CompanyLogo = styled.div`
@@ -47,11 +83,20 @@ export const CompanyLogo = styled.div`
   }
 `;
 
+export const HeaderContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
+  flex: 1;
+  min-width: 0;
+`;
+
 export const ExperienceContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-top: 2px;
+  padding: 16px;
 `;
 
 export const ExperienceTitle = styled.h3`
@@ -428,5 +473,26 @@ const MediaGroupContent = styled.div`
     &:hover {
       transform: none;
     }
+  }
+`;
+
+export const TechnologiesList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 8px 8px 12px 8px;
+  margin: 0 0 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+`;
+
+export const TechnologyItem = styled.div`
+  background-color: #f3f2ef;
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  
+  &:hover {
+    background-color: #e6e5e4;
   }
 `; 

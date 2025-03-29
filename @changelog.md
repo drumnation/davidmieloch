@@ -31,6 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented skills section with tag display
 
 ### Fixed
+- Fixed issue with missing West Chester Off-Campus Housing job entry by adding it to the OLDER_EXPERIENCE array
+- Fixed issue with sales and marketing experiences not displaying in the OLDER_EXPERIENCE accordion by properly adding Q-nomy, Edit.com, The Harmony Channel, and Kwikpoint entries to the OLDER_EXPERIENCE array
+- Fixed duplicate experience entries by removing redundant definitions in the Experience component
 - Fixed icon display issues for "The Synergy of AI and Modern Development Practices" and "Conclusion: Building for the Future" sections
 - Added proper bottom padding to accommodate the music player
 - Fixed name conflict in SectionTitle export between Categories and DetailedContent components

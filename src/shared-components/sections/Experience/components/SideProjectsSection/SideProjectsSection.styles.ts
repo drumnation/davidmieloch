@@ -117,13 +117,23 @@ export const ProjectsGrid = styled.div`
 export const ProjectCard = styled.div`
   background-color: white;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add padding to child elements except TechnologiesList and ProjectHeader */
+  > *:not(.technologies-list):not(.project-header) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  > .project-description {
+    margin-top: 1.5rem;
   }
 `;
 
@@ -163,6 +173,7 @@ export const FullRowProjectCard = styled(ProjectCard)`
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
   }
   
   .project-main {
@@ -358,8 +369,9 @@ export const TechnologiesList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding: 8px 8px 12px 8px;
+  margin: 0 0 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
 export const TechnologyItem = styled.div`

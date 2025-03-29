@@ -378,6 +378,347 @@ const SunoIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, colo
   );
 };
 
+// New custom icons for technologies we need
+
+// Custom Digital Marketing Icon
+const DigitalMarketingIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#3498DB' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M12 4V6M4 12H6M12 18V20M18 12H20M6.34 6.34L7.76 7.76M17.66 6.34L16.24 7.76M6.34 17.66L7.76 16.24M17.66 17.66L16.24 16.24M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom SEO Icon
+const SEOIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#F39C12' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M10 4H14M12 4V8M8 12H16M7 16L12 20L17 16M5 8H19V18H5V8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Content Marketing Icon
+const ContentMarketingIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#27AE60' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M14 4L18 8M18 8V18H6V6H14V10H18M9 10H12M9 14H15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Analytics Icon
+const AnalyticsIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#9B59B6' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M4 19V13M12 19V5M20 19V9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom UI/UX Design Icon
+const UIUXDesignIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#E74C3C' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M7 7H7.01M12 7H12.01M17 7H17.01M7 12H7.01M12 12H12.01M17 12H12.01M7 17H7.01M12 17H17M5 5H19V19H5V5Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Email Marketing Icon
+const EmailMarketingIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#3498DB' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M4 6L12 13L20 6M4 18V8C4 7.46957 4.21071 6.96086 4.58579 6.58579C4.96086 6.21071 5.46957 6 6 6H18C18.5304 6 19.0391 6.21071 19.4142 6.58579C19.7893 6.96086 20 7.46957 20 8V18C20 18.5304 19.7893 19.0391 19.4142 19.4142C19.0391 19.7893 18.5304 20 18 20H6C5.46957 20 4.96086 19.7893 4.58579 19.4142C4.21071 19.0391 4 18.5304 4 18Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Lead Generation Icon
+const LeadGenerationIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#E67E22' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M18 11C18 14.866 15.3137 18 12 18C8.68629 18 6 14.866 6 11C6 7.13401 8.68629 4 12 4C15.3137 4 18 7.13401 18 11Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M15 14L19 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom AB Testing Icon
+const ABTestingIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#8E44AD' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M7 8H5.5C5.22386 8 5 8.22386 5 8.5V15.5C5 15.7761 5.22386 16 5.5 16H7.5C7.77614 16 8 15.7761 8 15.5V8.5C8 8.22386 7.77614 8 7.5 8H7Z" stroke="white" strokeWidth="1.5"/>
+        <path d="M10 8L13 8L15 16L19 8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Sales Icon
+const SalesIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#16A085' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M12 16V17M8 11H16M10 7H14M7 20H17C17.5304 20 18.0391 19.7893 18.4142 19.4142C18.7893 19.0391 19 18.5304 19 18V6C19 5.46957 18.7893 4.96086 18.4142 4.58579C18.0391 4.21071 17.5304 4 17 4H7C6.46957 4 5.96086 4.21071 5.58579 4.58579C5.21071 4.96086 5 5.46957 5 6V18C5 18.5304 5.21071 19.0391 5.58579 19.4142C5.96086 19.7893 6.46957 20 7 20Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Computer Repair Icon
+const ComputerRepairIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#7F8C8D' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M10 15L8 17L6 15M14 15L16 17L18 15M8 7H16M12 7V17M4 11H20V18C20 18.5304 19.7893 19.0391 19.4142 19.4142C19.0391 19.7893 18.5304 20 18 20H6C5.46957 20 4.96086 19.7893 4.58579 19.4142C4.21071 19.0391 4 18.5304 4 18V11ZM4 11V6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4H18C18.5304 4 19.0391 4.21071 19.4142 4.58579C19.7893 4.96086 20 5.46957 20 6V11H4Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Networking Icon
+const NetworkingIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#34495E' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M9 6H4V9H9V6Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M20 6H15V9H20V6Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M20 15H15V18H20V15Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 15H4V18H9V15Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 7.5H15M9 16.5H15M17.5 9V15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M6.5 9V15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom System Administration Icon
+const SystemAdminIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#2C3E50' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M12 15V16M6 9H18M8 5H16M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Kwikpoint Icon
+const KwikpointIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#FF9800' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M6 7V17M6 7H10L14 12M6 7L14 17M14 12L18 7H14M14 12L18 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Qnomy Icon
+const QnomyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#3498DB' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M14 6L18 10L14 14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M6 18V15C6 13.3431 7.34315 12 9 12H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Edit.com Icon
+const EditComIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#E74C3C' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M12 19L19 12L17 10L10 17L7 17L7 20L12 19Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M16 11L18 9L15 6L13 8L16 11Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom The Harmony Channel Icon
+const HarmonyChannelIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#9B59B6' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M14 4C14 4 15.5 6 15.5 8C15.5 10 14 12 14 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M17 6C17 6 18.5 8 18.5 10C18.5 12 17 14 17 14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10 4C10 4 8.5 6 8.5 8C8.5 10 10 12 10 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M7 6C7 6 5.5 8 5.5 10C5.5 12 7 14 7 14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10 18V16H14V18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 16V20" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom West Chester Off-Campus Housing Icon
+const WCUOCHIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#1ABC9C' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill={color}/>
+        <path d="M5 12L12 6L19 12V19H5V12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 19V14H15V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
 // Map of technology names to their respective icons
 // The keys are lowercase for case-insensitive matching
 const TECH_ICON_MAP: Record<string, {
@@ -629,6 +970,38 @@ const TECH_ICON_MAP: Record<string, {
   'chart.js': { icon: ChartJsIcon, color: '#FF6384' },
   'date-fns': { icon: DateFnsIcon, color: '#3D9DF5' },
   'wavesurfer.js': { icon: WaveSurferIcon, color: '#3598DB' },
+  
+  // Digital Marketing & Design
+  'digital marketing': { icon: DigitalMarketingIcon, color: '#3498DB' },
+  'seo': { icon: SEOIcon, color: '#F39C12' },
+  'content marketing': { icon: ContentMarketingIcon, color: '#27AE60' },
+  'analytics': { icon: AnalyticsIcon, color: '#9B59B6' },
+  'social media': { icon: Fa.FaHashtag, color: '#1DA1F2' },
+  'hubspot': { icon: Si.SiHubspot, color: '#FF7A59' },
+  'adobe creative suite': { icon: Si.SiAdobe, color: '#FF0000' },
+  'lead generation': { icon: LeadGenerationIcon, color: '#E67E22' },
+  'e-commerce': { icon: Fa.FaShoppingCart, color: '#F1C40F' },
+  'email marketing': { icon: EmailMarketingIcon, color: '#3498DB' },
+  'ui/ux design': { icon: UIUXDesignIcon, color: '#E74C3C' },
+  'crm': { icon: Fa.FaUsers, color: '#2980B9' },
+  'mailchimp': { icon: Si.SiMailchimp, color: '#FFE01B' },
+  'a/b testing': { icon: ABTestingIcon, color: '#8E44AD' },
+  'sales': { icon: SalesIcon, color: '#16A085' },
+  
+  // IT & Infrastructure
+  'networking': { icon: NetworkingIcon, color: '#34495E' },
+  'computer repair': { icon: ComputerRepairIcon, color: '#7F8C8D' },
+  'hardware': { icon: Fa.FaMicrochip, color: '#95A5A6' },
+  'system administration': { icon: SystemAdminIcon, color: '#2C3E50' },
+  'mobile development': { icon: Fa.FaMobile, color: '#3498DB' },
+  'raspberry pi': { icon: Si.SiRaspberrypi, color: '#A22846' },
+  
+  // Company Icons
+  'kwikpoint': { icon: KwikpointIcon, color: '#FF9800' },
+  'qnomy': { icon: QnomyIcon, color: '#3498DB' },
+  'edit.com': { icon: EditComIcon, color: '#E74C3C' },
+  'the harmony channel': { icon: HarmonyChannelIcon, color: '#9B59B6' },
+  'west chester off-campus housing': { icon: WCUOCHIcon, color: '#1ABC9C' },
 };
 
 /**

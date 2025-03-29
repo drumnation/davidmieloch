@@ -21,6 +21,7 @@ import {
 // Import constants
 import { PROFILE } from './components/ProfileSection/ProfileSection.constants';
 import { SECTION_TITLE as EXPERIENCE_TITLE, WORK_EXPERIENCE, OLDER_EXPERIENCE } from './components/ExperienceSection/ExperienceSection.constants';
+import { ExperienceItem } from './components/ExperienceSection/ExperienceSection.types';
 import { 
   SECTION_TITLE as EDUCATION_TITLE, 
   FORMAL_EDUCATION, 
@@ -76,9 +77,39 @@ export const Experience: React.FC<ExperienceProps> = ({
     ...INFRASTRUCTURE_SKILL_CATEGORIES
   ];
 
-  // We only show WORK_EXPERIENCE in the main list
+  // Only use WORK_EXPERIENCE in the main list
   // OLDER_EXPERIENCE will be displayed in an accordion by the ExperienceSection component
-  const allExperiences = [...WORK_EXPERIENCE];
+  // Removing duplicate entries to avoid confusion with OLDER_EXPERIENCE
+  const allExperiences = [...WORK_EXPERIENCE].sort((a, b) => {
+    // First sort by sortOrder if available
+    if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
+      return a.sortOrder - b.sortOrder;
+    }
+    
+    // Otherwise sort by start date (most recent first)
+    // Convert month names to numbers
+    const monthToNum: Record<string, number> = {
+      'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+      'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
+    };
+    
+    const aDateParts = a.startDate.split(' ');
+    const bDateParts = b.startDate.split(' ');
+    
+    const aYear = parseInt(aDateParts[1] || '0');
+    const bYear = parseInt(bDateParts[1] || '0');
+    
+    // Sort by year (descending)
+    if (aYear !== bYear) {
+      return bYear - aYear;
+    }
+    
+    // If years are the same, sort by month (descending)
+    const aMonth = monthToNum[aDateParts[0]] || 0;
+    const bMonth = monthToNum[bDateParts[0]] || 0;
+    
+    return bMonth - aMonth;
+  });
 
   return (
     <ExperienceContainer id={id} className={className}>

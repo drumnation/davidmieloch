@@ -24,6 +24,7 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
       'Guide the organization in scaling the codebase to support sustainable growth and long-term maintainability.'
     ],
     logoPath: '/company-logos/scala.jpeg',
+    technologies: ['React', 'TypeScript', 'Node.js', 'JavaScript', 'CSS', 'HTML', 'Atomic Design'],
     media: [
       {
         type: "image",
@@ -115,6 +116,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
       'Improved communication between remote teams.'
     ],
     logoPath: '/company-logos/draynow_inc_logo.jpeg',
+    technologies: ['React Native', 'TypeScript', 'React', 'TDD', 'Jest', 'Express', 'Node.js'],
     media: [
       {
         type: "image",
@@ -175,6 +177,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
       'Fostered improved collaboration and efficiency across the organization.'
     ],
     logoPath: '/company-logos/otg_management_logo.jpeg',
+    technologies: ['JavaScript', 'CSS', 'HTML', 'iOS', 'Swift', 'jQuery', 'Angular'],
     media: [
       {
         type: "group",
@@ -250,6 +253,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
       'Created and published react-native-cross-platform-dimensions npm package (25 Stars / 5 Forks) to enhance development efficiency.'
     ],
     logoPath: '/company-logos/gramercytech_logo.jpeg',
+    technologies: ['React Native', 'React', 'JavaScript', 'Node.js', 'NPM', 'Mobile Development', 'Raspberry Pi'],
     media: [
       {
         type: "embed",
@@ -311,6 +315,106 @@ Perfect for creating professional digital menu boards, promotional displays, and
       }
     ]
   },
+  {
+    company: 'Kwikpoint',
+    title: 'Frontend Web Developer',
+    location: 'Alexandria, VA',
+    startDate: 'Jan 2011',
+    endDate: 'Mar 2016',
+    showBorder: true,
+    description: 'Kwikpoint specializes in the creation of visual language communication tools that help bridge language barriers, widely used in military, healthcare, and emergency response.',
+    bulletPoints: [
+      'Led a team in the creation of a comprehensive website and online store.',
+      'Ensured seamless functionality and user experience, while providing ongoing support.',
+      'Designed and optimized landing pages for email marketing campaigns.',
+      'Increased conversion rates and customer engagement through strategic design.',
+      'Managed the addition of new products and maintained the e-commerce platform.',
+      'Improved sales efficiency and user experience through continuous enhancements.'
+    ],
+    logoPath: '/company-logos/kwikpoint.jpeg',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'E-commerce', 'Email Marketing', 'UI/UX Design'],
+    media: [
+      {
+        type: "image",
+        url: "/media/photo/kwikpoint2.jpg",
+        title: "Kwikpoint Visual Language Communication Guide - Online Store",
+        showLogo: true,
+        logoHasBorder: true,
+        description: "I designed the online store for Kwikpoint's Visual Language Communication Guide, which is a tool that helps bridge language barriers. The store features a variety of products, including books, DVDs, and other materials.",
+        width: "100%"
+      }
+    ]
+  },
+  {
+    company: 'Q-nomy, Inc.',
+    title: 'Business Development Manager',
+    location: 'New York, NY',
+    startDate: 'Jan 2011',
+    endDate: 'Dec 2011',
+    description: 'Q-nomy provides customer journey and queue management solutions for organizations.',
+    bulletPoints: [
+      'Drove Product Adoption: Effectively scheduled and conducted product demos for company software, digital signage, and proprietary kiosks, showcasing the value and capabilities to potential clients.',
+      'Led High-Stakes Sales Presentations: Delivered compelling technical sales presentations to groups of decision makers via WebEx, influencing purchasing decisions and driving sales growth.',
+      'Strategically Targeted Executives: Utilized Jigsaw to identify and target C-level executives, crafting and A/B testing personalized MailChimp email templates to maximize engagement and conversion rates.'
+    ],
+    logoPath: '/company-logos/qnomy.jpeg',
+    technologies: ['CRM', 'MailChimp', 'WebEx', 'Digital Signage', 'A/B Testing', 'Sales']
+  },
+  {
+    company: 'Edit.com',
+    title: 'B2B Website Sales Consultant',
+    location: 'Brookyln, NY',
+    startDate: 'Feb 2010',
+    endDate: 'Dec 2010',
+    description: 'Edit.com provided website development and digital marketing services for small businesses.',
+    bulletPoints: [
+      'Optimized Client Campaigns: Developed high-conversion landing pages for client marketing campaigns, enhancing online engagement and lead generation.',
+      'Exceeded Sales Targets: Consistently met and exceeded sales quotas by self-generating leads, scheduling, and leading persuasive sales presentations.',
+      'Consultative Sales Excellence: Demonstrated a consultative sales approach, creating tailored web strategies that addressed client needs and drove business growth.'
+    ],
+    logoPath: '/company-logos/editcom.jpeg',
+    technologies: ['HTML', 'CSS', 'Marketing', 'SEO', 'Lead Generation', 'Sales']
+  },
+  {
+    company: 'The Harmony Channel',
+    title: 'Frontend Developer',
+    location: 'Greater Philadelphia Area',
+    startDate: 'Aug 2006',
+    endDate: 'Sep 2007',
+    description: 'The Harmony Channel was an on-demand visual music television network.',
+    bulletPoints: [
+      'Created Dynamic Marketing Website: Developed a visually engaging marketing website for an on-demand visual music television network, enhancing online presence and user experience.',
+      'Streamlined Digital Content Management: Managed and optimized digital content, edited video, and formatted video files for seamless streaming, improving content delivery and viewer satisfaction.'
+    ],
+    logoPath: '/company-logos/harmony.png',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Video Editing', 'Multimedia', 'Sound Design'],
+    media: [
+      {
+        type: "embed",
+        url: "https://www.youtube.com/embed/Omd_q511Aa4?si=-pjnprAxALM4Vaiz",
+        title: "Vladimir Kush - Metaphorical Voyage Trailer",
+        width: "full",
+        height: 400,
+        description: "A trailer for the Vladimir Kush film Metaphorical Voyage, featuring Sound Design by yours truly",
+        showLogo: true,
+      },
+    ]
+  },
+  {
+    company: 'West Chester Off-Campus Housing',
+    title: 'Lead Network Admin and Computer Repair Specialist',
+    location: 'Greater Philadelphia Area',
+    startDate: 'Jun 2004',
+    endDate: 'Jul 2006',
+    description: 'West Chester Off-Campus Housing provided student housing near West Chester University.',
+    bulletPoints: [
+      'Developed and Maintained Marketing Website: Designed and continuously updated the company\'s marketing website, enhancing online visibility and user engagement.',
+      'Managed Large-Scale Network Infrastructure: Efficiently supported a complex network of over 400 nodes, providing reliable internet connectivity to a 7-apartment building housing students.',
+      'Executed Extensive Hardware Repairs: Diagnosed and repaired hundreds of laptops and desktop computers, ensuring minimal downtime and maintaining high levels of user satisfaction.'
+    ],
+    logoPath: '/company-logos/wcuoch.jpeg',
+    technologies: ['Networking', 'Computer Repair', 'Hardware', 'HTML', 'CSS', 'System Administration']
+  },
 ];
 
 export const OLDER_EXPERIENCE: ExperienceItem[] = [
@@ -329,7 +433,9 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Managed and optimized search and social advertising budget.',
       'Effectively promoted original content through digital ads, resulting in higher ROI and increased brand visibility.'
     ],
-    logoPath: '/company-logos/uniquesound.png'
+    logoPath: '/company-logos/uniquesound.png',
+    technologies: ['HTML', 'CSS', 'Digital Marketing', 'SEO', 'Content Marketing', 'Analytics', 'Social Media'],
+    sortOrder: 1
   },
   {
     company: 'Saturn Business Systems',
@@ -348,6 +454,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Empowered the sales team with compelling content to drive conversions and client engagement.'
     ],
     logoPath: '/company-logos/saturn_business_systems_logo.jpeg',
+    technologies: ['HTML', 'CSS', 'HubSpot', 'Content Marketing', 'WordPress', 'Adobe Creative Suite'],
+    sortOrder: 2,
     media: [
       {
         type: 'embed',
@@ -420,6 +528,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Provided the sales team with persuasive tools to secure client deals.'
     ],
     logoPath: '/company-logos/graphnet.jpeg',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Adobe Photoshop', 'Marketing', 'Lead Generation'],
+    sortOrder: 3,
     media: [
       {
         type: "image",
@@ -438,17 +548,15 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
     location: 'Alexandria, VA',
     startDate: 'Jan 2011',
     endDate: 'Mar 2016',
-    showBorder: true,
     description: 'Kwikpoint specializes in the creation of visual language communication tools that help bridge language barriers, widely used in military, healthcare, and emergency response.',
     bulletPoints: [
-      'Led a team in the creation of a comprehensive website and online store.',
-      'Ensured seamless functionality and user experience, while providing ongoing support.',
+      'Directed a development team in the creation of a comprehensive website and online store.',
       'Designed and optimized landing pages for email marketing campaigns.',
-      'Increased conversion rates and customer engagement through strategic design.',
-      'Managed the addition of new products and maintained the e-commerce platform.',
-      'Improved sales efficiency and user experience through continuous enhancements.'
+      'Managed the addition of new products and maintained the e-commerce platform.'
     ],
     logoPath: '/company-logos/kwikpoint.jpeg',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'eCommerce', 'Email Marketing'],
+    sortOrder: 4,
     media: [
       {
         type: "image",
@@ -473,7 +581,9 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Led High-Stakes Sales Presentations: Delivered compelling technical sales presentations to groups of decision makers via WebEx, influencing purchasing decisions and driving sales growth.',
       'Strategically Targeted Executives: Utilized Jigsaw to identify and target C-level executives, crafting and A/B testing personalized MailChimp email templates to maximize engagement and conversion rates.'
     ],
-    logoPath: '/company-logos/qnomy.jpeg'
+    logoPath: '/company-logos/qnomy.jpeg',
+    technologies: ['CRM', 'MailChimp', 'WebEx', 'Digital Signage', 'A/B Testing', 'Sales'],
+    sortOrder: 5
   },
   {
     company: 'Edit.com',
@@ -487,7 +597,9 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Exceeded Sales Targets: Consistently met and exceeded sales quotas by self-generating leads, scheduling, and leading persuasive sales presentations.',
       'Consultative Sales Excellence: Demonstrated a consultative sales approach, creating tailored web strategies that addressed client needs and drove business growth.'
     ],
-    logoPath: '/company-logos/editcom.jpeg'
+    logoPath: '/company-logos/editcom.jpeg',
+    technologies: ['HTML', 'CSS', 'Marketing', 'SEO', 'Lead Generation', 'Sales'],
+    sortOrder: 6
   },
   {
     company: 'The Harmony Channel',
@@ -501,17 +613,19 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Streamlined Digital Content Management: Managed and optimized digital content, edited video, and formatted video files for seamless streaming, improving content delivery and viewer satisfaction.'
     ],
     logoPath: '/company-logos/harmony.png',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Video Editing', 'Multimedia', 'Sound Design'],
     media: [
       {
-        type: "embed",
+        type: 'embed' as const,
         url: "https://www.youtube.com/embed/Omd_q511Aa4?si=-pjnprAxALM4Vaiz",
         title: "Vladimir Kush - Metaphorical Voyage Trailer",
-        width: "full",
+        width: "100%",
         height: 400,
         description: "A trailer for the Vladimir Kush film Metaphorical Voyage, featuring Sound Design by yours truly",
         showLogo: true,
       },
-    ]
+    ],
+    sortOrder: 7
   },
   {
     company: 'West Chester Off-Campus Housing',
@@ -525,6 +639,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Managed Large-Scale Network Infrastructure: Efficiently supported a complex network of over 400 nodes, providing reliable internet connectivity to a 7-apartment building housing students.',
       'Executed Extensive Hardware Repairs: Diagnosed and repaired hundreds of laptops and desktop computers, ensuring minimal downtime and maintaining high levels of user satisfaction.'
     ],
-    logoPath: '/company-logos/wcuoch.jpeg'
-  },
+    logoPath: '/company-logos/wcuoch.jpeg',
+    technologies: ['Networking', 'Computer Repair', 'Hardware', 'HTML', 'CSS', 'System Administration'],
+    sortOrder: 8
+  }
 ]; 

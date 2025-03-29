@@ -578,7 +578,23 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
         {filteredProjects.map((project, index) => 
           project.halfWidth ? (
             <S.ProjectCard key={`${project.title}-${index}`}>
-              <S.ProjectHeader>
+              {project.technologies && project.technologies.length > 0 && (
+                <S.TechnologiesList className="technologies-list">
+                  {project.technologies.map(tech => (
+                    <S.TechnologyItem key={tech}>
+                      <TechIcon 
+                        name={tech} 
+                        size={20}
+                        showLabel={true}
+                        labelPosition="right"
+                        showTooltip={true}
+                      />
+                    </S.TechnologyItem>
+                  ))}
+                </S.TechnologiesList>
+              )}
+              
+              <S.ProjectHeader className="project-header">
                 <S.HeaderLeft>
                   <ProjectLogo 
                     name={project.title} 
@@ -610,7 +626,7 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 )}
               </S.ProjectHeader>
               
-              <S.ProjectDescription>
+              <S.ProjectDescription className="project-description">
                 <MarkdownRenderer content={project.description} compact={true} />
               </S.ProjectDescription>
               
@@ -618,22 +634,6 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 <S.ProjectImpact>
                   <MarkdownRenderer content={project.impact} compact={true} />
                 </S.ProjectImpact>
-              )}
-              
-              {project.technologies && project.technologies.length > 0 && (
-                <S.TechnologiesList>
-                  {project.technologies.map(tech => (
-                    <S.TechnologyItem key={tech}>
-                      <TechIcon 
-                        name={tech} 
-                        size={20}
-                        showLabel={true}
-                        labelPosition="right"
-                        showTooltip={true}
-                      />
-                    </S.TechnologyItem>
-                  ))}
-                </S.TechnologiesList>
               )}
               
               <S.ProjectLinks>
@@ -652,7 +652,23 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
             </S.ProjectCard>
           ) : (
             <S.FullRowProjectCard key={`${project.title}-${index}`}>
-              <S.ProjectHeader>
+              {project.technologies && project.technologies.length > 0 && (
+                <S.TechnologiesList className="technologies-list">
+                  {project.technologies.map(tech => (
+                    <S.TechnologyItem key={tech}>
+                      <TechIcon 
+                        name={tech} 
+                        size={20}
+                        showLabel={true}
+                        labelPosition="right"
+                        showTooltip={true}
+                      />
+                    </S.TechnologyItem>
+                  ))}
+                </S.TechnologiesList>
+              )}
+              
+              <S.ProjectHeader className="project-header">
                 <S.HeaderLeft>
                   <ProjectLogo 
                     name={project.title} 
@@ -686,7 +702,7 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               
               <div className="project-content">
                 <div className="project-main">
-                  <S.ProjectDescription>
+                  <S.ProjectDescription className="project-description">
                     <MarkdownRenderer content={project.description} compact={true} />
                   </S.ProjectDescription>
                   
@@ -694,22 +710,6 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                     <S.ProjectImpact>
                       <MarkdownRenderer content={project.impact} compact={true} />
                     </S.ProjectImpact>
-                  )}
-                  
-                  {project.technologies && project.technologies.length > 0 && (
-                    <S.TechnologiesList>
-                      {project.technologies.map(tech => (
-                        <S.TechnologyItem key={tech}>
-                          <TechIcon 
-                            name={tech} 
-                            size={20}
-                            showLabel={true}
-                            labelPosition="right"
-                            showTooltip={true}
-                          />
-                        </S.TechnologyItem>
-                      ))}
-                    </S.TechnologiesList>
                   )}
                   
                   <S.ProjectLinks>

@@ -13,6 +13,7 @@ export interface ExperienceItem {
   showBorder?: boolean;
   media?: MediaItem[];
   sortOrder?: number;
+  technologies?: string[];
 }
 
 export interface ExperienceSectionProps {

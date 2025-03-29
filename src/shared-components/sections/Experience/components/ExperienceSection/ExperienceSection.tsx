@@ -12,13 +12,19 @@ import {
   ExperienceLocation,
   ExperienceDescription,
   MediaRow,
-  MediaContainer
+  MediaContainer,
+  ExperienceHeader,
+  HeaderLeft,
+  HeaderContent,
+  TechnologiesList,
+  TechnologyItem
 } from './ExperienceSection.styles';
 import { ExperienceSectionProps } from './ExperienceSection.types';
 import { stringToColor, LetterAvatar } from '../../utils/avatarHelpers';
 import { OLDER_EXPERIENCE } from './ExperienceSection.constants';
 import { MarkdownRenderer } from '../../../../molecules/MarkdownRenderer';
 import { FoldableContent } from '../../../../molecules/FoldableContent';
+import { TechIcon } from '../../../../atoms/TechIcon';
 
 // Add a styled divider component
 const Divider = styled.div`
@@ -164,10 +170,6 @@ const AccordionHeader = styled.div<{ $isOpen: boolean }>`
   }
 `;
 
-const HeaderContent = styled.div`
-  flex: 1;
-`;
-
 const AccordionTitle = styled.h3`
   font-size: 1rem;
   font-weight: 600;
@@ -274,49 +276,71 @@ const isImageFile = (path: string | undefined): boolean => {
 const renderExperienceItem = (job: any, index: number, renderLogo?: (company: string) => React.ReactNode, setModalImage?: (image: {url: string, title?: string}) => void) => {
   return (
     <ExperienceItem key={`job-${index}`}>
-      <CompanyLogo>
-        {renderLogo ? (
-          renderLogo(job.company)
-        ) : job.logoPath && isImageFile(job.logoPath) ? (
-          <img 
-            src={job.logoPath} 
-            alt={`${job.company} logo`}
-            style={{ 
-              width: '100%', 
-              height: '100%', 
-              objectFit: 'contain',
-              borderRadius: '6px',
-              ...(job.showBorder && {
-                border: '1px solid rgba(0, 0, 0, 0.2)',
-                padding: '2px'
-              })
-            }}
-          />
-        ) : job.logoPath && job.logoPath.endsWith('.html') ? (
-          <iframe 
-            src={job.logoPath} 
-            style={{ 
-              width: '100%', 
-              height: '100%', 
-              border: 'none' 
-            }}
-            title={`${job.company} logo`}
-          />
-        ) : (
-          <LetterAvatar 
-            name={job.company} 
-            bgColor={stringToColor(job.company)} 
-          />
-        )}
-      </CompanyLogo>
+      {job.technologies && job.technologies.length > 0 && (
+        <TechnologiesList className="technologies-list">
+          {job.technologies.map((tech: string) => (
+            <TechnologyItem key={tech}>
+              <TechIcon 
+                name={tech} 
+                size={20}
+                showLabel={true}
+                labelPosition="right"
+                showTooltip={true}
+              />
+            </TechnologyItem>
+          ))}
+        </TechnologiesList>
+      )}
+      
+      <ExperienceHeader className="project-header">
+        <HeaderLeft>
+          <CompanyLogo>
+            {renderLogo ? (
+              renderLogo(job.company)
+            ) : job.logoPath && isImageFile(job.logoPath) ? (
+              <img 
+                src={job.logoPath} 
+                alt={`${job.company} logo`}
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'contain',
+                  borderRadius: '6px',
+                  ...(job.showBorder && {
+                    border: '1px solid rgba(0, 0, 0, 0.2)',
+                    padding: '2px'
+                  })
+                }}
+              />
+            ) : job.logoPath && job.logoPath.endsWith('.html') ? (
+              <iframe 
+                src={job.logoPath} 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  border: 'none' 
+                }}
+                title={`${job.company} logo`}
+              />
+            ) : (
+              <LetterAvatar 
+                name={job.company} 
+                bgColor={stringToColor(job.company)} 
+              />
+            )}
+          </CompanyLogo>
+          <HeaderContent>
+            <ExperienceTitle>{job.title}</ExperienceTitle>
+            <ExperienceMetadataRow>
+              <ExperienceCompany>{job.company}</ExperienceCompany>
+              <ExperienceDates>{job.startDate} - {job.endDate}</ExperienceDates>
+              <ExperienceLocation>{job.location}</ExperienceLocation>
+            </ExperienceMetadataRow>
+          </HeaderContent>
+        </HeaderLeft>
+      </ExperienceHeader>
       
       <ExperienceContent>
-        <ExperienceTitle>{job.title}</ExperienceTitle>
-        <ExperienceMetadataRow>
-          <ExperienceCompany>{job.company}</ExperienceCompany>
-          <ExperienceDates>{job.startDate} - {job.endDate}</ExperienceDates>
-          <ExperienceLocation>{job.location}</ExperienceLocation>
-        </ExperienceMetadataRow>
         <ExperienceDescription>
           {job.foldable ? (
             <FoldableContent maxHeight={200} customMaxHeight="250px">
@@ -875,28 +899,47 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
       {children}
       
       {experiences.map((job, index) => (
-        <React.Fragment key={`job-fragment-${index}`}>
-          {index > 0 && <Divider />}
+        <React.Fragment key={`job-${index}`}>
           {renderExperienceItem(job, index, renderLogo, setModalImage)}
         </React.Fragment>
       ))}
       
       {hasOlderExperience && (
-        <>
-          <Divider />
-          <Accordion 
-            title={`Previous Sales & Marketing Experience (${OLDER_EXPERIENCE.length} Positions)`}
-            subtitle="Click to expand and see earlier sales and marketing positions from 2004-2016"
-            initiallyOpen={true}
-          >
-            {OLDER_EXPERIENCE.map((job, index) => (
-              <React.Fragment key={`older-job-fragment-${index}`}>
-                {index > 0 && <Divider />}
-                {renderExperienceItem(job, index, renderLogo, setModalImage)}
-              </React.Fragment>
-            ))}
-          </Accordion>
-        </>
+        <Accordion 
+          title={`Previous Sales & Marketing Experience (${OLDER_EXPERIENCE.length} Positions)`}
+          subtitle="Click to expand and see earlier sales and marketing positions from 2004-2016"
+          initiallyOpen={true}
+        >
+          {[...OLDER_EXPERIENCE].sort((a, b) => {
+            // Sort by start date (most recent first)
+            // Convert month names to numbers
+            const monthToNum: Record<string, number> = {
+              'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+              'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
+            };
+            
+            const aDateParts = a.startDate.split(' ');
+            const bDateParts = b.startDate.split(' ');
+            
+            const aYear = parseInt(aDateParts[1] || '0');
+            const bYear = parseInt(bDateParts[1] || '0');
+            
+            // Sort by year (descending)
+            if (aYear !== bYear) {
+              return bYear - aYear;
+            }
+            
+            // If years are the same, sort by month (descending)
+            const aMonth = monthToNum[aDateParts[0]] || 0;
+            const bMonth = monthToNum[bDateParts[0]] || 0;
+            
+            return bMonth - aMonth;
+          }).map((job, index) => (
+            <React.Fragment key={`older-job-${index}`}>
+              {renderExperienceItem(job, index, renderLogo, setModalImage)}
+            </React.Fragment>
+          ))}
+        </Accordion>
       )}
       
       {modalImage && (
