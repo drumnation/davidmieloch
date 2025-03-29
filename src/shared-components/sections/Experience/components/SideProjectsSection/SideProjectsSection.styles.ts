@@ -421,6 +421,20 @@ export const MediaEmbed = styled.div`
   }
 `;
 
+// New component for cropped embeds
+export const CroppedMediaEmbed = styled(MediaEmbed)<{ $cropHeight: string }>`
+  position: relative;
+  height: ${props => props.$cropHeight};
+  
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px; /* Taller than needed to ensure content is visible */
+  }
+`;
+
 export const PDFViewer = styled.div`
   width: 100%;
   border-radius: 8px;

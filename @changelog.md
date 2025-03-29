@@ -176,3 +176,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed React DOM prop warnings for isOpen and isWide props in styled components
 - Properly implemented transient props with $ prefix for styled-components
 - Updated Accordion component to use proper styled-components pattern for isOpen/isWide props
+
+## [0.19.0] - 2024-08-XX
+### Added
+- Added Saturn Business Systems Marketing to the side projects section with videos and PDF documents
+- Added media files from Saturn Business Systems marketing materials

@@ -267,15 +267,27 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
             className={`${isQuarterWidth ? 'quarter-width-image' : ''} ${isThirdWidth ? 'third-width-image' : ''}`}
             style={adjustedStyle}
           >
-            <S.MediaEmbed>
-              <iframe
-                src={url}
-                title={title || 'Embedded content'}
-                height={item.height || 400}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </S.MediaEmbed>
+            {item.cropHeight ? (
+              <S.CroppedMediaEmbed $cropHeight={item.cropHeight}>
+                <iframe
+                  src={url}
+                  title={title || 'Embedded content'}
+                  height={item.height || 400}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </S.CroppedMediaEmbed>
+            ) : (
+              <S.MediaEmbed>
+                <iframe
+                  src={url}
+                  title={title || 'Embedded content'}
+                  height={item.height || 400}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </S.MediaEmbed>
+            )}
             {title && <S.MediaTitle>{title}</S.MediaTitle>}
             {description && <S.MediaDescription>{description}</S.MediaDescription>}
           </S.MediaItem>

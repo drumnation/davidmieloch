@@ -42,7 +42,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['React.js', 'TypeScript', 'Openai', 'Web Audio API', 'SSML', 'IndexedDB', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
-    impact: 'Combined AI script generation with audio technology to create personalized wellness experiences. The project has helped users address issues ranging from anxiety and stress management to confidence building and sleep improvement through accessible self-hypnosis.',
+    impact: 'Combined AI script generation with audio technology to create a personal hypnotherapy experience. The system delivers deeply personalized content that incorporates the user\'s name, specific goals, and individual scenarios, then speaks them aloud with natural intonation—effectively simulating a one-on-one session with a hypnotherapist.',
     media: [
       {
         type: 'image',
@@ -73,17 +73,43 @@ export const SIDE_PROJECTS: SideProject[] = [
         url: 'media/screenshots/hypnosis/hyp12.png',
         title: 'Session History',
         width: '48%'
+      },
+      {
+        type: 'link',
+        url: 'https://medium.com/@davidmieloch/enhanced-focus-and-concentration-techniques-to-improve-your-mind-while-coding-c7454fdcf3b5',
+        thumbnail: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*vTo6Unq_jBCR8PbwQrQTiw.jpeg',
+        height: 400,
+        buttonText: 'Read My Article',
+        title: 'Techniques for Increasing Focus, Concentration, and Improving Your Mind',
+        description: 'This comprehensive guide outlines various techniques for enhancing mental performance, including rhythmic breathing exercises, brainwave entrainment through binaural beats, meditation practices, and the use of nootropic supplements. Drawing from personal experience as a "biohacker," the text explains how these methods can help achieve optimal mental states while highlighting the importance of proper nutrition and strategic power napping for cognitive function.',
+        width: '100%',
+        customHeight: '250px',
+        thumbnailWidth: '250px'
       }
     ]
   },
   {
     title: 'Parenting Pilot',
     category: 'Personal Innovation Lab',
-    description: 'A platform that consumes all my parenting emails and data, performs OCR, stores data in a database, creates vector embeddings, and creates a RAG knowledge base with everything I need to know as a parent. A mobile app for scanning in physical papers, viewing AI generated task lists, Events, and Insights about what the kids are learning based on handouts, artwork, and other media.',
+    description: 'An intelligent mobile application that helps parents stay organized and on top of their children\'s educational journey. Using advanced AI, the app automatically processes information from school emails, scanned documents, and uploaded media to create actionable items, track important events, and document progress. Features include child profile management for multiple children, AI-powered email and document processing with OCR for digitizing physical papers, automatic categorization of information into action items and events, calendar integration for school events, progress tracking for academic achievements and developmental milestones, media gallery for storing children\'s artwork, and an automated notification system with scheduled email reports.',
     technologies: ['React Native', 'Node', 'TypeScript', 'Openai'],
     startDate: '2024',
     endDate: 'Present',
-    impact: 'Developed a comprehensive AI-powered system to organize and make sense of parenting-related information'
+    impact: 'Transforms the chaos of school communications into an organized system that ensures parents never miss important deadlines, events, or achievements in their children\'s educational journey.',
+    // media: [
+    //   {
+    //     type: 'image',
+    //     url: 'media/screenshots/parenting-pilot/dashboard.png',
+    //     title: 'Parenting Pilot Dashboard',
+    //     width: '48%'
+    //   },
+    //   {
+    //     type: 'image',
+    //     url: 'media/screenshots/parenting-pilot/document-scan.png',
+    //     title: 'Document Scanning Interface',
+    //     width: '48%'
+    //   }
+    // ]
   },
   {
     title: 'StoryTime',
@@ -97,11 +123,11 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Life Guidance AI',
     category: 'Personal Innovation Lab',
-    description: 'A meta-prompting framework that compares responses from ChatGPT and Gemini across 11 strategic archetypes to generate personalized development advice. The TypeScript processing pipeline organizes content into a structured audiobook exploring career, future planning, and ethics. Features include specialized transformers, content preservation for technical elements, side-by-side model comparison, and hierarchical navigation across four strategic areas (Future, Development, Career, Ethics).',
+    description: 'A personal development system that creates a customized self-help audiobook by feeding vast amounts of personal data into AI models. The system ingests personal content (blog posts, LinkedIn profiles, project overviews, video comments, music page data, and professional testimonials) and uses meta-prompting to generate personalized guidance. The TypeScript processing pipeline compares responses from ChatGPT and Gemini across 11 strategic archetypes, transforming the content into a structured audiobook exploring career, future planning, and ethics. The output is enhanced through voice cloning technology to create a self-narrated experience, with specialized transformers ensuring technical content is preserved and properly formatted for natural speech delivery.',
     technologies: ['TypeScript', 'Speechify', 'OpenAI', 'Gemini', 'Node.js', 'Markdown'],
     startDate: '2024',
     endDate: '2024',
-    impact: 'Life Guidance transforms abstract AI capabilities into concrete personal development insights by systematically comparing multiple AI models across strategic archetypes, creating an actionable roadmap for navigating technological and career evolution.',
+    impact: 'Created a personalized two-hour audiobook narrated in my own voice clone, delivering tailored career and personal development guidance based on AI analysis of my digital footprint.',
     media: [
       {
         type: 'pdf',
@@ -162,11 +188,11 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Code Relay',
     category: 'Developer Tools',
-    description: 'A mobile application that serves as a remote control for AI Assisted IDEs, allowing for Prompt Driven Development (PDD) on the go.',
-    technologies: ['VSCode Extension', 'React Native'],
+    description: 'An innovative system that bridges the gap between mobile devices and development environments, allowing developers to remotely control VS Code from their phones or tablets. The project consists of a VS Code extension that acts as a server and a React Native mobile app as the client, communicating via WebSockets. Code Relay enables execution of VS Code commands, provides access to installed extensions, and features deep integration with AI coding assistants like Roo Code and Copilot, all while away from your computer.',
+    technologies: ['React Native', 'VS Code Extension', 'WebSockets', 'TypeScript', 'AI Integration'],
     startDate: '2025',
     endDate: 'Present',
-    impact: 'Pioneered mobile-first AI development tools enabling coding productivity anywhere'
+    impact: 'Empowers developers to stay productive by providing seamless mobile access to their VS Code environment and AI coding assistants from anywhere.',
   },
   {
     title: 'Browser-use CLI (FORK)',
@@ -207,12 +233,12 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Model Maestro',
     category: 'Developer Tools',
-    description: 'App that tries to determine the best model for any given prompt.',
-    technologies: ['React.js', 'Node', 'TypeScript', 'Openai', 'Replit Agent'],
+    description: 'An intelligent AI model router that analyzes user prompts to recommend the optimal AI model for specific tasks. It evaluates prompt complexity, context requirements, and special needs, then matches these with detailed profiles of models from providers like OpenAI, Anthropic, Google, and DeepSeek. Features include prompt analysis that evaluates task type and complexity, intelligent model recommendation, comparative benchmarking across providers, customizable preferences for prioritizing speed/cost/reliability, visual confidence metrics, detailed scoring breakdowns, performance history tracking, real-time token analysis, and comprehensive model specifications.',
+    technologies: ['React.js', 'Node', 'TypeScript', 'Openai', 'Replit Agent', 'Anthropic', 'Google AI', 'DeepSeek'],
     startDate: '2024',
     endDate: '2024',
     repoUrl: 'https://github.com/drumnation/model-maestro',
-    impact: 'Developed a tool that matches prompts with optimal AI models for improved results',
+    impact: 'Empowers users to consistently select the optimal AI model for their specific needs, maximizing performance while optimizing for cost, speed, and reliability.',
     media: [
       {
         type: 'image',
@@ -264,6 +290,24 @@ export const SIDE_PROJECTS: SideProject[] = [
     showBorder: true,
     media: [
       {
+        type: 'image',
+        url: 'media/screenshots/ai-context-generator/ai-context-gen.png',
+        title: 'AI Context Generator Interface',
+        width: '100%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/ai-context-generator/ai-context-gen2.png',
+        title: 'File Tree Structure',
+        width: '48%'
+      },
+      {
+        type: 'image',
+        url: 'media/screenshots/ai-context-generator/ai-context-gen4.png',
+        title: 'Code Context Generation',
+        width: '48%'
+      },
+      {
         type: 'link',
         url: 'https://marketplace.visualstudio.com/items?itemName=drumnation.ai-context-generator',
         title: 'AI Context Generator',
@@ -272,7 +316,7 @@ export const SIDE_PROJECTS: SideProject[] = [
         thumbnail: 'media/screenshots/ai-context-generator.png',
         thumbnailWidth: '200px',
         customHeight: '200px'
-      }
+      },
     ],
     impact: 'Streamlined the process of providing project context to AI assistants'
   },
@@ -300,25 +344,6 @@ export const SIDE_PROJECTS: SideProject[] = [
         url: 'media/screenshots/code-helper.png',
         title: 'Interactive Test Generation Interface',
         width: '100%'
-      },
-      {
-        type: 'group',
-        width: '100%',
-        url: '#',
-        items: [
-          {
-            type: 'image',
-            url: 'media/screenshots/code-companion/diff-view.png',
-            title: 'Visual Code Diff Comparison',
-            width: '48%'
-          },
-          {
-            type: 'image',
-            url: 'media/screenshots/code-companion/test-execution.png',
-            title: 'Real-time Test Execution',
-            width: '48%'
-          }
-        ]
       }
     ]
   },
@@ -444,7 +469,15 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['React Native', 'React.js', 'TypeScript', 'Node', 'Express', 'MongoDB'],
     startDate: '2024',
     endDate: '2025',
-    impact: 'Created an educational platform that makes music theory accessible to young children'
+    impact: 'Created an educational platform that makes music theory accessible to young children',
+    media: [
+      {
+        type: 'embed',
+        url: 'https://www.youtube.com/embed/JPj578UcVwU?si=1CGd401CRRO7eZJD',
+        title: 'We Learn Music Together',
+        width: '100%'
+      }
+    ]
   },
   
   // Digital Marketing
@@ -489,6 +522,56 @@ export const SIDE_PROJECTS: SideProject[] = [
         customHeight: '160px',
         thumbnailWidth: '350px'
       },
+    ]
+  },
+  {
+    title: 'Saturn Business Systems Marketing',
+    category: 'Digital Marketing',
+    description: 'Designed and implemented a comprehensive digital marketing strategy for Saturn Business Systems, an IT solutions provider specializing in data center, cloud solutions, big data analytics, and cybersecurity. Created an integrated marketing ecosystem including a new company website, HubSpot blog for content marketing, and comprehensive sales materials. Leveraged thought leadership to position the company as an authority in data governance and IT solutions.',
+    technologies: ['HubSpot', 'WordPress', 'Adobe Creative Suite', 'Content Marketing', 'Sales Enablement', 'Email Marketing'],
+    startDate: '2013',
+    endDate: '2015',
+    impact: 'Enhanced the company\'s digital footprint, strengthened lead generation capabilities, and empowered the sales team with compelling content that drove conversions and client engagement.',
+    logoPath: '/company-logos/saturn_business_systems_logo.jpeg',
+    showBorder: true,
+    media: [
+      {
+        type: 'video',
+        url: '/media/saturn/power sas - updated music.mov',
+        title: 'Power SAS - Marketing Video',
+        thumbnail: '/company-logos/saturn_business_systems_logo.jpeg',
+        width: '100%',
+        description: 'Marketing video showcasing Saturn Business Systems\' SAS analytics solutions'
+      },
+      {
+        type: 'video',
+        url: '/media/saturn/SQL Takeout Video Cold Call-v3.mov',
+        title: 'SQL Takeout Cold Call Video',
+        thumbnail: '/company-logos/saturn_business_systems_logo.jpeg',
+        width: '100%',
+        description: 'Cold call training video for the sales team focused on SQL database solutions'
+      },
+      {
+        type: 'pdf',
+        url: '/media/saturn/sas-optimization-legalresearchfirm-3-12-2015.pdf',
+        title: 'SAS Optimization Case Study',
+        width: '48%',
+        description: 'Case study on SAS optimization for a legal research firm'
+      },
+      {
+        type: 'pdf',
+        url: '/media/saturn/saturn-information-value-management.pdf',
+        title: 'Information Value Management',
+        width: '48%',
+        description: 'White paper on Saturn\'s information value management approach'
+      },
+      {
+        type: 'pdf',
+        url: '/media/saturn/Saturn Business Systems - SME Network.pdf',
+        title: 'SME Network Overview',
+        width: '100%',
+        description: 'Overview of Saturn Business Systems\' SME Network'
+      }
     ]
   }
 ];

@@ -120,54 +120,44 @@ export const ExperienceDescription = styled.div`
 export const MediaRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
+  gap: 2%;
   margin-top: 16px;
   margin-bottom: 16px;
   
   .quarter-width-image {
     flex: 0 0 23.5% !important;
     max-width: 23.5% !important;
-    margin-right: 2% !important;
     margin-bottom: 16px !important;
-  }
-  
-  .quarter-width-image:nth-child(4n) {
-    margin-right: 0 !important;
   }
   
   .third-width-image {
     flex: 0 0 31.33% !important;
     max-width: 31.33% !important;
-    margin-right: 3% !important;
     margin-bottom: 16px !important;
-  }
-  
-  .third-width-image:nth-child(3n) {
-    margin-right: 0 !important;
   }
   
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 16px;
     
     .quarter-width-image,
     .third-width-image {
       flex: 0 0 100% !important;
       max-width: 100% !important;
-      margin-right: 0 !important;
     }
   }
 `;
 
 export const MediaContainer = styled.div<{ $isWide?: boolean }>`
-  flex: ${({ $isWide }) => $isWide ? '1 0 100%' : '1 0 calc(50% - 8px)'};
-  max-width: ${({ $isWide }) => $isWide ? '100%' : 'calc(50% - 8px)'};
+  flex: ${({ $isWide }) => $isWide ? '0 0 100%' : '0 0 48.5%'};
+  max-width: ${({ $isWide }) => $isWide ? '100%' : '48.5%'};
   margin-bottom: 16px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   
   @media (max-width: 768px) {
-    flex: 1 0 100%;
+    flex: 0 0 100%;
     max-width: 100%;
   }
   
@@ -175,7 +165,7 @@ export const MediaContainer = styled.div<{ $isWide?: boolean }>`
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
   }
   
   iframe {
@@ -370,6 +360,73 @@ export const MediaContainer = styled.div<{ $isWide?: boolean }>`
         border-left: none;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
       }
+    }
+  }
+`;
+
+// Add MediaGroup container for group media type
+const MediaGroup = styled.div<{ $layout?: 'default' | 'stack'; $width?: string }>`
+  display: flex;
+  flex-direction: ${props => props.$layout === 'stack' ? 'column' : 'row'};
+  flex-wrap: wrap;
+  gap: 8px;
+  width: ${props => props.$width || '100%'};
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  
+  &.half-width-group {
+    width: 48.5%;
+    flex: 0 0 48.5%;
+  }
+  
+  &.third-width-group {
+    width: 31.33%;
+    flex: 0 0 31.33%;
+  }
+  
+  &.quarter-width-group {
+    width: 23.5%;
+    flex: 0 0 23.5%;
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    flex: 0 0 100%;
+    
+    &.half-width-group,
+    &.third-width-group,
+    &.quarter-width-group {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+`;
+
+const MediaGroupContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0;
+  
+  > div {
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  img {
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    
+    &:hover {
+      transform: none;
     }
   }
 `; 

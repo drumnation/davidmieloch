@@ -26,6 +26,54 @@ const Divider = styled.div`
   width: 100%;
 `;
 
+// Add MediaGroup container for group media type
+const MediaGroup = styled.div<{ $layout?: 'default' | 'stack'; $width?: string }>`
+  display: flex;
+  flex-direction: ${props => props.$layout === 'stack' ? 'column' : 'row'};
+  flex-wrap: wrap;
+  gap: 16px;
+  width: ${props => props.$width || '100%'};
+  margin-bottom: 16px;
+  
+  &.half-width-group {
+    width: 48.5%;
+    flex: 0 0 48.5%;
+  }
+  
+  &.third-width-group {
+    width: 31.33%;
+    flex: 0 0 31.33%;
+  }
+  
+  &.quarter-width-group {
+    width: 23.5%;
+    flex: 0 0 23.5%;
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    flex: 0 0 100%;
+    
+    &.half-width-group,
+    &.third-width-group,
+    &.quarter-width-group {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+`;
+
+const MediaGroupContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+  
+  > div {
+    margin-bottom: 0 !important;
+  }
+`;
+
 // Image Modal Component
 const ModalOverlay = styled.div`
   position: fixed;
@@ -302,12 +350,17 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                     ? "third-width-image" 
                     : "";
                 
+                // Calculate width style for non-standard percentages
+                const widthStyle = !isSpecialLayout && !$isWide && mediaItem.width 
+                  ? { flex: `0 0 ${mediaItem.width}`, maxWidth: mediaItem.width } 
+                  : {};
+                
                 return (
                   <MediaContainer 
                     key={`media-${index}-${mediaIndex}`} 
                     $isWide={$isWide}
                     className={specialLayoutClass}
-                    style={isSpecialLayout ? { width: mediaItem.width } : {}}
+                    style={widthStyle}
                     onClick={() => setModalImage && setModalImage({
                       url: mediaItem.url,
                       title: mediaItem.title || `${job.company} image`
@@ -319,8 +372,19 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       loading="lazy"
                       style={{ cursor: 'pointer' }}
                     />
+                    {mediaItem.title && (
+                      <div style={{ 
+                        padding: '12px 15px', 
+                        fontSize: '1rem', 
+                        fontWeight: 500, 
+                        backgroundColor: '#f9f9f9', 
+                        borderTop: '1px solid #eee' 
+                      }}>
+                        {mediaItem.title}
+                      </div>
+                    )}
                     {mediaItem.description && (
-                      <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
+                      <div style={{ padding: '8px 15px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
                         {mediaItem.description}
                       </div>
                     )}
@@ -435,6 +499,117 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       </a>
                     </div>
                   </MediaContainer>
+                );
+              } else if (mediaItem.type === 'group' && mediaItem.items && mediaItem.items.length > 0) {
+                const isHalfWidth = mediaItem.width === '49%' || mediaItem.width === '48%' || mediaItem.width === '48.5%' || mediaItem.width === 'half';
+                const isThirdWidth = mediaItem.width === '31.33%' || mediaItem.width === '32%' || mediaItem.width === 'third';
+                const isQuarterWidth = mediaItem.width === '23.5%' || mediaItem.width === '24%' || mediaItem.width === '25%' || mediaItem.width === 'quarter';
+                
+                const groupClass = isQuarterWidth 
+                  ? 'quarter-width-group' 
+                  : isThirdWidth 
+                    ? 'third-width-group' 
+                    : isHalfWidth
+                      ? 'half-width-group' 
+                      : '';
+                      
+                // Calculate width style for non-standard percentages
+                const widthStyle = !groupClass && mediaItem.width 
+                  ? { flex: `0 0 ${mediaItem.width}`, maxWidth: mediaItem.width } 
+                  : {};
+                
+                // Function to render a nested media item
+                const renderNestedMediaItem = (nestedItem: any, nestedIndex: number) => {
+                  if (nestedItem.type === 'image') {
+                    return (
+                      <div 
+                        key={`nested-media-${index}-${mediaIndex}-${nestedIndex}`}
+                        style={{ 
+                          borderRadius: 0,
+                          overflow: 'hidden',
+                          boxShadow: 'none',
+                          marginBottom: 0,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          borderBottom: nestedIndex < mediaItem.items.length - 1 ? '1px solid rgba(0, 0, 0, 0.08)' : 'none'
+                        }}
+                      >
+                        <img 
+                          src={nestedItem.url} 
+                          alt={nestedItem.title || `${job.company} image`} 
+                          loading="lazy"
+                          style={{ 
+                            cursor: 'pointer',
+                            width: '100%',
+                            height: 'auto',
+                            display: 'block',
+                            borderRadius: 0
+                          }}
+                          onClick={() => setModalImage && setModalImage({
+                            url: nestedItem.url,
+                            title: nestedItem.title || `${job.company} image`
+                          })}
+                        />
+                        {nestedItem.title && (
+                          <div style={{ 
+                            padding: '10px 12px', 
+                            fontSize: '0.9rem', 
+                            fontWeight: 500, 
+                            backgroundColor: '#f9f9f9', 
+                            borderTop: '1px solid #eee',
+                            borderBottom: nestedIndex < mediaItem.items.length - 1 ? '1px solid rgba(0, 0, 0, 0.08)' : 'none'
+                          }}>
+                            {nestedItem.title}
+                          </div>
+                        )}
+                        {nestedItem.description && (
+                          <div style={{ 
+                            padding: '6px 12px', 
+                            fontSize: '0.85rem', 
+                            color: 'rgba(0,0,0,0.6)' 
+                          }}>
+                            {nestedItem.description}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+                  return null;
+                };
+                
+                return (
+                  <MediaGroup 
+                    key={`media-group-${index}-${mediaIndex}`} 
+                    className={groupClass}
+                    $layout={mediaItem.layout}
+                    $width={mediaItem.width}
+                    style={widthStyle}
+                  >
+                    {mediaItem.title && (
+                      <div style={{ 
+                        width: '100%', 
+                        padding: '10px 15px', 
+                        fontSize: '1rem', 
+                        fontWeight: 600,
+                        color: 'rgba(0, 0, 0, 0.75)',  
+                        backgroundColor: '#edf2f7', 
+                        borderBottom: '1px solid rgba(0, 0, 0, 0.1)'
+                      }}>
+                        {mediaItem.title}
+                      </div>
+                    )}
+                    {mediaItem.layout === 'stack' ? (
+                      <MediaGroupContent>
+                        {mediaItem.items.map((nestedItem: any, nestedIndex: number) => 
+                          renderNestedMediaItem(nestedItem, nestedIndex)
+                        )}
+                      </MediaGroupContent>
+                    ) : (
+                      mediaItem.items.map((nestedItem: any, nestedIndex: number) => 
+                        renderNestedMediaItem(nestedItem, nestedIndex)
+                      )
+                    )}
+                  </MediaGroup>
                 );
               }
               

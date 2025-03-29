@@ -10,6 +10,7 @@ export const ProfileContainer = styled.div`
 
 export const ProfileDetails = styled.div`
   display: flex;
+  align-items: center;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -24,6 +25,9 @@ export const ProfileImageWrapper = styled.div`
   border: 2px solid white;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
   margin-right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   @media (max-width: 576px) {
     width: 160px;

@@ -7,5 +7,4 @@ export interface ProfileSectionProps {
   summary: string;
   className?: string;
   children?: ReactNode;
-  profileActions?: ReactNode;
 } 

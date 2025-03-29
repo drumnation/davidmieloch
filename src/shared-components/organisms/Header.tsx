@@ -105,15 +105,15 @@ export function Header() {
     <AppShell.Header 
       p="md" 
       style={{ 
-        backdropFilter: 'blur(10px)',
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+        backdropFilter: 'none',
+        backgroundColor: 'transparent',
+        borderBottom: 'none',
         position: 'fixed',
         top: 0,
         width: '100%',
         zIndex: 1000,
-        height: '60px', // Fixed height
-        overflow: 'visible', // Allow dropdowns to be visible
+        height: '60px',
+        overflow: 'visible',
       }}
     >
       <Container size="lg" h="100%" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

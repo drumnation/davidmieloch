@@ -24,6 +24,24 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
     logoPath: '/company-logos/scala.jpeg',
     media: [
       {
+        type: "image",
+        url: "media/scala-designer-cloud.jpeg",
+        title: "Designer Cloud - Menu Sign Board Design",
+        width: "100%"
+      },
+      {
+        type: "image",
+        url: "media/screenshots/portals/portals2.png",
+        title: "Airport Portal",
+        width: "49%"
+      },
+      {
+        type: "image",
+        url: "media/screenshots/portals/portals3.png",
+        title: "Airport Portal",
+        width: "49%"
+      },
+      {
         type: "link",
         url: "https://medium.com/@davidmieloch/developing-with-a-team-of-ais-b1b2019ea44c",
         title: "Developing with a Team of AIs",
@@ -37,22 +55,6 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
         title: "Reuse Your Code: Authoring Your Own Universal Library with Webpack",
         description: "How to create reusable code libraries that work across different environments",
         thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*gXL9S7-UfsIde4hvJ-Ngnw.png",
-        width: "100%"
-      },
-      {
-        type: "link",
-        url: "https://medium.com/@davidmieloch/why-you-should-encapsulate-your-javascript-conditionals-in-a-function-4a492853c397",
-        title: "Why You Should Encapsulate Your JavaScript Conditionals in a Function",
-        description: "Improve code readability and maintainability with functional conditionals",
-        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*icB7ZbVrl7mQoevW9fQa8Q.png",
-        width: "100%"
-      },
-      {
-        type: "link",
-        url: "https://medium.com/@davidmieloch/alphabetize-your-code-3f5df98b83ef",
-        title: "Alphabetize Your Code",
-        description: "A simple practice that can improve code organization and developer efficiency",
-        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*vDBbk1FTPZqIk_6Itxaypg.png",
         width: "100%"
       }
     ]
@@ -81,19 +83,35 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190625-090152_DrayNow.jpg",
         title: "DrayNow Mobile App Home Screen",
-        width: "31.33%"
+        width: "30%"
       },
       {
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190714-184353_DrayNow.jpg",
         title: "DrayNow Trip Details Screen",
-        width: "31.33%"
+        width: "30%"
       },
       {
         type: "image",
         url: "/media/otg/draynow/Screenshot_20190715-112829_DrayNow.jpg",
         title: "DrayNow Booking Screen",
-        width: "31.33%"
+        width: "30%"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/why-you-should-encapsulate-your-javascript-conditionals-in-a-function-4a492853c397",
+        title: "Why You Should Encapsulate Your JavaScript Conditionals in a Function",
+        description: "Improve code readability and maintainability with functional conditionals",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*icB7ZbVrl7mQoevW9fQa8Q.png",
+        width: "100%"
+      },
+      {
+        type: "link",
+        url: "https://medium.com/@davidmieloch/alphabetize-your-code-3f5df98b83ef",
+        title: "Alphabetize Your Code",
+        description: "A simple practice that can improve code organization and developer efficiency",
+        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*vDBbk1FTPZqIk_6Itxaypg.png",
+        width: "100%"
       }
     ]
   },
@@ -116,56 +134,63 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
     logoPath: '/company-logos/otg_management_logo.jpeg',
     media: [
       {
-        type: "image",
-        url: "/media/otg/screenshots/order-ahead-3.png",
-        title: "Order Ahead Mobile App Screenshot",
-        width: "23.5%"
+        type: "group",
+        layout: "stack",
+        width: "31.33%",
+        items: [
+          {
+            type: "image",
+            url: "/media/otg/screenshots/order-ahead-1.png",
+            title: "Mobile App - Category Selection"
+          },
+          {
+            type: "image",
+            url: "/media/otg/screenshots/order-ahead-2.png",
+            title: "Mobile App - Menu Browse"
+          },
+          {
+            type: "image",
+            url: "/media/otg/screenshots/order-ahead-4.png",
+            title: "Mobile App - Checkout"
+          }
+        ]
       },
       {
-        type: "image",
-        url: "/media/otg/screenshots/order-ahead-4.png",
-        title: "Order Ahead Mobile App Interface",
-        width: "23.5%"
-      },
-      {
-        type: "image",
-        url: "/media/otg/screenshots/web-cart1.png",
-        title: "Web Cart Interface",
-        width: "23.5%"
-      },
-      {
-        type: "image",
-        url: "/media/otg/screenshots/web-cart2.png",
-        title: "Web Cart Checkout Flow",
-        width: "23.5%"
+        type: "group",
+        layout: "stack",
+        width: "65.67%",
+        items: [
+          {
+            type: "image",
+            url: "/media/otg/screenshots/web-cart1.png",
+            title: "Order Entry"
+          },
+          {
+            type: "image",
+            url: "/media/otg/screenshots/web-cart2.png",
+            title: "Checkout Flow"
+          }
+        ]
       },
       {
         type: "pdf",
         url: "/media/otg/OTG Case Studies.pdf",
         title: "OTG Mobile Ordering Case Studies",
         thumbnailUrl: "/media/otg/thumbnails/case-studies-1.png",
-        width: "100%"
+        width: "48.5%"
       },
       {
         type: "pdf",
         url: "/media/otg/OTG Brain Storm - Print.pdf",
         title: "OTG Project Brainstorming Session",
         thumbnailUrl: "/media/otg/thumbnails/brain-storm-1.png",
-        width: "50%"
+        width: "48.5%"
       },
       {
         type: "pdf",
         url: "/media/otg/Transition To React - Share.pdf",
         title: "Transition To React Architecture",
         thumbnailUrl: "/media/otg/thumbnails/transition-react-1.png",
-        width: "50%"
-      },
-      {
-        type: "link",
-        url: "https://medium.com/@davidmieloch/shareable-and-cross-platform-components-bit-react-native-web-a2301722ddbd",
-        title: "Shareable and Cross-Platform Components: Bit + React-Native-Web",
-        description: "Using Bit and React-Native-Web to build components that work across mobile and web platforms",
-        thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*RnOTXxrGwXFC1HgLdrC12w.png",
         width: "100%"
       }
     ]
@@ -295,7 +320,15 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Designed professional white papers, case studies, and data sheets using Adobe Photoshop.',
       'Provided the sales team with persuasive tools to secure client deals.'
     ],
-    logoPath: '/company-logos/graphnet.jpeg'
+    logoPath: '/company-logos/graphnet.jpeg',
+    media: [
+      {
+        type: "image",
+        url: "/media/photo/graphnet.jpg",
+        title: "Graphnet",
+        width: "100%"
+      }
+    ]
   },
   {
     company: 'Kwikpoint',

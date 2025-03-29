@@ -8,7 +8,7 @@ export const PROFILE = {
     FIRST_NAME: 'David',
     LAST_NAME: 'Mieloch',
     FULL_NAME: 'David Mieloch',
-    HEADLINE: 'Senior Frontend Engineer, Lead | React, React Native, TypeScript, Node.js',
+    HEADLINE: 'Staff, Principal, Lead, Architect | React, React Native, TypeScript, Node.js',
     HEADLINE_EXTENDED: 'I Help Teams Transform Front-end Codebases with Clean, Maintainable Patterns, Boosting Productivity by 30%',
     LOCATION: 'King of Prussia, Pennsylvania, United States',
     INDUSTRY: 'Software Development'

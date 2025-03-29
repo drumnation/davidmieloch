@@ -102,7 +102,6 @@ export const Experience: React.FC<ExperienceProps> = ({
             name={PROFILE.BASIC_INFO.FULL_NAME}
             headline={PROFILE.BASIC_INFO.HEADLINE}
             summary={`${PROFILE.SUMMARY.INTRO} ${PROFILE.SUMMARY.EXPERIENCE} ${PROFILE.SUMMARY.SKILLS_OVERVIEW}`}
-            profileActions={profileActions}
           />
 
           {/* Experience Section */}

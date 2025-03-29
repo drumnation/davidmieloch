@@ -32,8 +32,8 @@ const SpeechifyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24,
   );
 };
 
-// Custom Monaco Editor Icon Component
-const MonacoEditorIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#0078D7' }) => {
+// Custom Web Audio API Icon
+const WebAudioIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#3498DB' }) => {
   return (
     <div style={{ 
       width: `${size}px`, 
@@ -43,13 +43,251 @@ const MonacoEditorIcon: React.FC<{ size?: number; color?: string }> = ({ size = 
       justifyContent: 'center',
       backgroundColor: 'transparent'
     }}>
-      <img 
-        src="/media/icons/monaco-editor.svg" 
-        alt="Monaco Editor" 
-        width={size} 
-        height={size} 
-        style={{ objectFit: 'contain' }}
-      />
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#3498DB"/>
+        <path d="M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="12" cy="15" r="2" fill="white"/>
+        <path d="M9 18L15 18" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom SSML Icon
+const SSMLIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#8E44AD' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#8E44AD"/>
+        <path d="M7 8H17L15 12H9L7 8Z" fill="white"/>
+        <path d="M9 12L6 16H18L15 12" fill="white"/>
+        <path d="M4 6L6 8L7 6H4Z" fill="white"/>
+        <path d="M20 6L18 8L17 6H20Z" fill="white"/>
+        <rect x="11" y="16" width="2" height="3" fill="white"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Udio Icon
+const UdioIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#FF6347' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#FF6347"/>
+        <path d="M7 8C7 6.89543 7.89543 6 9 6C10.1046 6 11 6.89543 11 8V16C11 17.1046 10.1046 18 9 18C7.89543 18 7 17.1046 7 16V8Z" fill="white"/>
+        <path d="M13 8C13 6.89543 13.8954 6 15 6C16.1046 6 17 6.89543 17 8V16C17 17.1046 16.1046 18 15 18C13.8954 18 13 17.1046 13 16V8Z" fill="white"/>
+        <path d="M5 10H7V14H5V10Z" fill="white"/>
+        <path d="M17 10H19V14H17V10Z" fill="white"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Refine Icon
+const RefineIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#1890FF' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#1890FF"/>
+        <path d="M7 7H17V9H7V7Z" fill="white"/>
+        <path d="M7 11H14V13H7V11Z" fill="white"/>
+        <path d="M7 15H17V17H7V15Z" fill="white"/>
+        <path d="M16 11L19 12L16 13V11Z" fill="white"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Deepseek Icon
+const DeepseekIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#2563EB' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#F4F4F5"/>
+        <text x="5" y="16" fontFamily="sans-serif" fontSize="9" fontWeight="bold" fill="#000">DE</text>
+        <circle cx="5" cy="5" r="3" fill="#2563EB"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Anthropic Icon
+const AnthropicIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#5E5CFA' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#F4F4F5"/>
+        <text x="5" y="16" fontFamily="sans-serif" fontSize="9" fontWeight="bold" fill="#000">AN</text>
+        <circle cx="5" cy="5" r="3" fill="#5E5CFA"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Google AI Icon
+const GoogleAIIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#1A73E8' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#F4F4F5"/>
+        <text x="5" y="16" fontFamily="sans-serif" fontSize="9" fontWeight="bold" fill="#000">GE</text>
+        <circle cx="5" cy="5" r="3" fill="#1A73E8"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Google Gemini Icon
+const GoogleGeminiIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#1A73E8' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#F4F4F5"/>
+        <text x="5" y="16" fontFamily="sans-serif" fontSize="9" fontWeight="bold" fill="#000">GG</text>
+        <circle cx="5" cy="5" r="3" fill="#1A73E8"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom OpenAI Vision API Icon
+const OpenAIVisionIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#10A37F' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#10A37F"/>
+        <circle cx="12" cy="12" r="5" stroke="white" strokeWidth="1.5"/>
+        <circle cx="12" cy="12" r="2" fill="white"/>
+        <path d="M12 5V7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M12 17V19" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M5 12H7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M17 12H19" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Plaid API Icon
+const PlaidIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#2EAB7C' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#2EAB7C"/>
+        <rect x="6" y="6" width="5" height="5" rx="1" fill="white"/>
+        <rect x="13" y="6" width="5" height="5" rx="1" fill="white"/>
+        <rect x="6" y="13" width="5" height="5" rx="1" fill="white"/>
+        <rect x="13" y="13" width="5" height="5" rx="1" fill="white" fillOpacity="0.5"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Chart.js Icon
+const ChartJsIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#FF6384' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#FF6384"/>
+        <rect x="4" y="14" width="4" height="6" rx="1" fill="white"/>
+        <rect x="10" y="10" width="4" height="10" rx="1" fill="white"/>
+        <rect x="16" y="4" width="4" height="16" rx="1" fill="white"/>
+        <path d="M4 9L8 6L13 8L20 4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Date-fns Icon
+const DateFnsIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#3D9DF5' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#3D9DF5"/>
+        <rect x="5" y="5" width="14" height="14" rx="2" stroke="white" strokeWidth="2"/>
+        <path d="M5 9H19" stroke="white" strokeWidth="2"/>
+        <path d="M9 5V3" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M15 5V3" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M7.5 12L10 14.5L16.5 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
     </div>
   );
 };
@@ -72,6 +310,70 @@ const RenderIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, co
         height={size} 
         style={{ objectFit: 'contain' }}
       />
+    </div>
+  );
+};
+
+// Custom WaveSurfer.js Icon
+const WaveSurferIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#3598DB' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#FFFFFF"/>
+        <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" stroke="#E0E0E0" strokeOpacity="0.5"/>
+        <circle cx="6" cy="12" r="2" fill="#3598DB"/>
+        <path d="M4 13.5C4 13.5 5 16 6 16C7 16 8 13.5 9 13.5C10 13.5 11 16 12 16C13 16 14 10 15 10C16 10 17 13.5 18 13.5C19 13.5 20 12 20 12" stroke="#3598DB" strokeWidth="1.5" strokeLinecap="round"/>
+        <text x="12" y="21" textAnchor="middle" fontSize="4" fill="#3598DB" fontWeight="bold">WS</text>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Monaco Editor Icon
+const MonacoEditorIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#0078D7' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#FFFFFF"/>
+        <rect x="0.5" y="0.5" width="23" height="23" rx="3.5" stroke="#E0E0E0" strokeOpacity="0.5"/>
+        <path d="M12 4L20 12L12 20L4 12L12 4Z" fill="#FFFFFF" stroke="#0078D7" strokeWidth="1.5"/>
+        <path d="M9 10L11 12L9 14" stroke="#0078D7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M15 10L13 12L15 14" stroke="#0078D7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <text x="12" y="21" textAnchor="middle" fontSize="4" fill="#0078D7" fontWeight="bold">ME</text>
+      </svg>
+    </div>
+  );
+};
+
+// Custom Suno Icon
+const SunoIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#2374E1' }) => {
+  return (
+    <div style={{ 
+      width: `${size}px`, 
+      height: `${size}px`, 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+    }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="4" fill="#2374E1"/>
+        <text x="12" y="17" textAnchor="middle" fontSize="12" fontFamily="sans-serif" fill="white" fontWeight="bold">su</text>
+      </svg>
     </div>
   );
 };
@@ -283,11 +585,18 @@ const TECH_ICON_MAP: Record<string, {
   // AI & ML
   'openai api': { icon: Si.SiOpenai, color: '#412991' }, 
   'openai': { icon: Si.SiOpenai, color: '#412991' }, 
-  'claude api': { icon: Fa.FaRobot, color: '#5E5CFA' }, // Using robot icon as Anthropic doesn't have an official icon
-  'claude': { icon: Fa.FaRobot, color: '#5E5CFA' }, // Using robot icon
+  'claude api': { icon: AnthropicIcon, color: '#5E5CFA' }, 
+  'claude': { icon: AnthropicIcon, color: '#5E5CFA' }, 
+  'anthropic': { icon: AnthropicIcon, color: '#5E5CFA' }, 
   'ai integration': { icon: Fa.FaRobot, color: '#1A90FF' },
-  'replit agent': { icon: Fa.FaTerminal, color: '#56676E' }, // Using terminal icon as fallback for Replit Agent
-  'speechify': { icon: SpeechifyIcon, color: '#FF6B00' }, // Using custom Speechify icon
+  'replit agent': { icon: Fa.FaTerminal, color: '#56676E' }, 
+  'speechify': { icon: SpeechifyIcon, color: '#FF6B00' }, 
+  'deepseek': { icon: DeepseekIcon, color: '#2563EB' }, 
+  'google ai': { icon: GoogleAIIcon, color: '#1A73E8' }, 
+  'google gemini': { icon: GoogleAIIcon, color: '#1A73E8' }, 
+  'gemini': { icon: GoogleAIIcon, color: '#1A73E8' }, 
+  'openai vision api': { icon: OpenAIVisionIcon, color: '#10A37F' },
+  'suno': { icon: SunoIcon, color: '#2374E1' },
   
   // Architecture
   'atomic design': { icon: Fa.FaAtom, color: '#663399' },
@@ -310,6 +619,16 @@ const TECH_ICON_MAP: Record<string, {
   // Platforms & Services
   'render.com': { icon: RenderIcon, color: '#46E3B7' },
   'render': { icon: RenderIcon, color: '#46E3B7' },
+  
+  // Custom Technologies
+  'web audio api': { icon: WebAudioIcon, color: '#3498DB' },
+  'ssml': { icon: SSMLIcon, color: '#8E44AD' },
+  'udio': { icon: UdioIcon, color: '#F39C12' },
+  'refine': { icon: RefineIcon, color: '#1890FF' },
+  'plaid api': { icon: PlaidIcon, color: '#2EAB7C' },
+  'chart.js': { icon: ChartJsIcon, color: '#FF6384' },
+  'date-fns': { icon: DateFnsIcon, color: '#3D9DF5' },
+  'wavesurfer.js': { icon: WaveSurferIcon, color: '#3598DB' },
 };
 
 /**
