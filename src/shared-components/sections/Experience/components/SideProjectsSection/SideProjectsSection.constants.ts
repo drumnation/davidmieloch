@@ -574,16 +574,19 @@ This dynamic system maintains accuracy between your actual and projected finance
   {
     title: 'We Learn Music Together',
     category: 'SaaS Applications',
-    description: 'WLMT (We Learn Music Together) is a comprehensive educational platform designed to help users develop emotional intelligence through music recognition. The system consists of a React Native mobile application that delivers interactive games teaching users to distinguish between happy and sad musical tones across progressive difficulty levels. Features include interactive game-based learning with 10 educational levels, comprehensive sound library with emotion-categorized audio assets, user progress tracking and performance analytics, school/institutional licensing management system, admin dashboard for educators to manage users, schools, and lessons, secure authentication with role-based access control, and a RESTful API backend with comprehensive documentation.',
+    description: 'WLMT (We Learn Music Together) is a comprehensive educational platform designed to help users develop emotional intelligence through music recognition. The system consists of a React Native mobile application that delivers interactive games teaching users to distinguish between happy and sad musical tones across progressive difficulty levels.\n\n## Key Features\n\n* **Interactive Game-Based Learning** - 10 educational levels with increasing complexity\n* **Comprehensive Sound Library** - Emotion-categorized audio assets \n* **Progress Tracking** - Detailed performance analytics for users\n* **School Management** - Institutional licensing system for educators\n* **Secure Admin Dashboard** - Tools for managing users, schools, and lessons\n* **Role-Based Access Control** - Secure authentication system\n* **RESTful API Backend** - Complete documentation for integration',
     technologies: ['React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Web Audio API'],
     startDate: '2024',
     endDate: 'present',
-    impact: 'WLMT revolutionizes emotional intelligence education by transforming abstract musical concepts into engaging, game-based learning experiences that help users recognize and distinguish emotional tones.',
+    logoPath: 'media/welearn-logo.png',
+    showBorder: true, 
+    impact: '**WLMT revolutionizes emotional intelligence education** by transforming abstract musical concepts into engaging, game-based learning experiences that help users recognize and distinguish emotional tones.',
     media: [
       {
         type: 'embed',
         url: 'https://www.youtube.com/embed/9oVfOIaMTIk?si=_Xxc1IVf3Pegp12R',
         title: 'We Learn Music Together Demo',
+        description: '**Watch the interactive demo** of our emotional intelligence application in action:\n\n* See how users engage with **musical tone recognition exercises**\n* Learn about the **progressive difficulty system** that adapts to user skill\n* Discover the **intuitive interface** designed for users of all ages\n* Observe how the **real-time feedback system** reinforces learning concepts',
         width: '100%'
       }
     ]
@@ -593,11 +596,11 @@ This dynamic system maintains accuracy between your actual and projected finance
   {
     title: 'Oneironaught Band Marketing',
     category: 'Digital Marketing',
-    description: 'Led web development and guerilla digital marketing for NYC instrumental progressive metal band. Implemented automated content marketing system using IFTTT, Wordpress, and API integrations.',
+    description: 'Led web development and guerilla digital marketing for NYC instrumental progressive metal band. Created an **automated content marketing system** leveraging multiple platforms:\n\n* **WordPress Integration** - Custom website with automated content publishing\n* **IFTTT Automation** - Cross-platform content distribution triggers\n* **API Integrations** - Connected with Spotify, Reddit, Buffer, and social platforms\n* **Content Recycling** - Automated repurposing of music content across channels\n* **Analytics Dashboard** - Custom tracking for campaign performance',
     technologies: ['WordPress', 'IFTTT', 'Spotify API', 'Reddit API', 'Buffer', "Facebook", "Instagram", "Twitter", "YouTube", "Pinterest"],
     startDate: '2013',
     endDate: '2016',
-    impact: 'Grew Twitter following to 14,600 with 385K monthly impressions and achieved #1 Google ranking for target keywords',
+    impact: '**Grew Twitter following to 14,600** with 385K monthly impressions and achieved **#1 Google ranking** for target keywords',
     logoPath: '/media/misc/oneironaught-logo.jpg',
     media: [
       {
@@ -624,7 +627,7 @@ This dynamic system maintains accuracy between your actual and projected finance
         type: 'link',
         url: 'https://medium.com/@davidmieloch/how-i-automated-my-bands-music-blog-including-content-creation-740741bbb23f',
         title: 'How I Automated My Band\'s Music Blog Including Content Creation',
-        description: 'This article details my journey, the tools I used, and the lessons learned from this experiment in fully automated digital marketing.',
+        description: '**Read about my guerilla marketing experiment:** This article details my journey developing an automated content marketing system that helped our band grow from unknown to having thousands of followers.\n\n* How I used **IFTTT automations** to connect platforms\n* Creating a **content recycling system** for maximum reach\n* Setting up **API integrations** for seamless delivery\n* Measuring results with **custom analytics**',
         thumbnail: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*iO4AGAfTaXzDQryDkwVeaA.jpeg',
         width: '100%',
         buttonText: 'Read My Post',
