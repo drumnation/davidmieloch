@@ -302,7 +302,46 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       'Produced a comprehensive suite of sales materials, including white papers, case studies, videos, blogs, and data sheets.',
       'Empowered the sales team with compelling content to drive conversions and client engagement.'
     ],
-    logoPath: '/company-logos/saturn_business_systems_logo.jpeg'
+    logoPath: '/company-logos/saturn_business_systems_logo.jpeg',
+    media: [
+      {
+        type: 'embed',
+        url: '/media/saturn/mp4/power_sas.mp4',
+        title: 'Power SAS - Marketing Video',
+        thumbnailUrl: '/company-logos/saturn_business_systems_logo.jpeg',
+        width: '100%',
+        description: 'Marketing video showcasing Saturn Business Systems\' SAS analytics solutions'
+      },
+      {
+        type: 'embed',
+        url: '/media/saturn/mp4/sql_takeout.mp4',
+        title: 'SQL Takeout Cold Call Video',
+        thumbnailUrl: '/company-logos/saturn_business_systems_logo.jpeg',
+        width: '100%',
+        description: 'Cold call training video for the sales team focused on SQL database solutions'
+      },
+      {
+        type: 'pdf',
+        url: '/media/saturn/sas-optimization-legalresearchfirm-3-12-2015.pdf',
+        title: 'SAS Optimization Case Study',
+        width: '48%',
+        description: 'Case study on SAS optimization for a legal research firm'
+      },
+      {
+        type: 'pdf',
+        url: '/media/saturn/saturn-information-value-management.pdf',
+        title: 'Information Value Management',
+        width: '48%',
+        description: 'White paper on Saturn\'s information value management approach'
+      },
+      {
+        type: 'pdf',
+        url: '/media/saturn/Saturn-Business-Systems-SME-Network.pdf',
+        title: 'SME Network Overview',
+        width: '100%',
+        description: 'Overview of Saturn Business Systems\' SME Network'
+      }
+    ]
   },
   {
     company: 'Graphnet',
