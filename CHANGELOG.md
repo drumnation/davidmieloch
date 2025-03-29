@@ -150,3 +150,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Moved Saturn Business Systems media content from side projects to the work experience section
 - Fixed Saturn Business Systems videos to display side-by-side and prevent autoplay
 - Added generated thumbnails for Saturn Business Systems PDF documents
+
+## [0.3.1] - 2023-11-07
+
+### Added
+- Enhanced PDF thumbnails with more realistic document preview design
+- Improved visual styling for PDF document thumbnails with document title display and preview mockup
+- Better metadata extraction from PDF documents for thumbnail title display
+
+### Fixed
+- Saturn Business Systems videos now display side-by-side and don't autoplay
+- Added proper video element support for direct MP4 playback with controls
+- Removed Saturn Business Systems from side projects to avoid duplication (already in work experience)
+- Fixed issues with halfWidth project media items not displaying correctly
+- Ensured media containers respect width properties in certain contexts
+- Added generated thumbnails for Saturn Business Systems PDF documents
+
+## [0.3.2] - 2023-11-08
+
+### Improved
+- Enhanced visibility of sales and marketing positions by making the previous experience accordion expanded by default
+- Updated previous experience section title to explicitly mention "Sales & Marketing Experience" for better clarity
+- Improved subtitle text to clarify the type of positions in the older experience section
+
+### Fixed
+- Enhanced PDF thumbnail generation to display actual first pages of PDF documents
+- Removed fixed height constraint from experience accordion to ensure all positions are visible
+- Updated PDF thumbnail script to use pdftoppm for reliable PDF page rendering
+- Improved consistency of media display in the experience section

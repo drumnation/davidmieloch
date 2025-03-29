@@ -1,6 +1,6 @@
 {
   "name": "david-monorepo",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -14,6 +14,9 @@
     "killports": "kill-port 3000 3001 3002 3003 3004 3333 6006 6007 7000 4000 || true",
     "process-linkedin": "node scripts/process-linkedin-data.js",
     "generate-pdf-thumbnails": "node scripts/generate-pdf-thumbnails.js"
+  },
+  "// comments": {
+    "pdf-thumbnails": "Requires pdftoppm from poppler-utils to be installed on the system for PDF page extraction"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

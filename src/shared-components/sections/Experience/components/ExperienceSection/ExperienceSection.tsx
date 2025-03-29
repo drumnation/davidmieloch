@@ -209,12 +209,12 @@ const IconContainer = styled.div<{ $isOpen: boolean }>`
 
 const AccordionContent = styled.div<{ $isOpen: boolean }>`
   padding: ${({ $isOpen }) => $isOpen ? '16px' : '0 16px'};
-  max-height: ${({ $isOpen }) => $isOpen ? '5000px' : '0'};
+  max-height: ${({ $isOpen }) => $isOpen ? 'none' : '0'};
   opacity: ${({ $isOpen }) => $isOpen ? '1' : '0'};
   overflow: hidden;
   transition: ${({ $isOpen }) => 
     $isOpen 
-      ? 'max-height 0.6s ease, opacity 0.3s ease, padding 0.2s ease' 
+      ? 'opacity 0.3s ease, padding 0.2s ease' 
       : 'max-height 0.3s ease, opacity 0.2s ease, padding 0.1s ease'
   };
   border-top: ${({ $isOpen }) => $isOpen ? '1px solid rgba(0, 0, 0, 0.1)' : 'none'};
