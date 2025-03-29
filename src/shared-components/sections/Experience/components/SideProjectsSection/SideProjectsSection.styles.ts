@@ -153,6 +153,10 @@ export const ProjectHeader = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
+  background-color: white;
+  padding: 8px;
+  border-radius: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   
   @media (max-width: 576px) {
     flex-direction: column;
@@ -177,12 +181,12 @@ export const HeaderContent = styled.div`
 `;
 
 export const CategoryPill = styled.div`
-  background-color: #f3f2ef;
-  color: rgba(0, 0, 0, 0.7);
+  background-color: #f3f2ef !important;
+  color: rgba(0, 0, 0, 0.7) !important;
   border-radius: 20px;
   padding: 0.3rem 0.8rem;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
   display: inline-flex;
   margin-left: auto;
@@ -190,6 +194,8 @@ export const CategoryPill = styled.div`
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
   align-self: center;
   height: fit-content;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  opacity: 1 !important;
   
   @media (max-width: 576px) {
     margin-left: 60px; /* Align with the text content on mobile */
@@ -198,27 +204,28 @@ export const CategoryPill = styled.div`
   
   /* Variant colors based on category */
   &.personal-innovation-lab {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid rgba(46, 125, 50, 0.2);
+    background-color: #e8f5e9 !important;
+    color: #2e7d32 !important;
+    border: 1px solid rgba(46, 125, 50, 0.2) !important;
   }
   
   &.developer-tools {
-    background-color: #e3f2fd;
-    color: #1565c0;
-    border: 1px solid rgba(21, 101, 192, 0.2);
+    background-color: #e3f2fd !important;
+    color: #1565c0 !important;
+    border: 1px solid rgba(21, 101, 192, 0.2) !important;
   }
   
   &.saas-applications {
-    background-color: #f3e5f5;
-    color: #7b1fa2;
-    border: 1px solid rgba(123, 31, 162, 0.2);
+    background-color: #f3e5f5 !important;
+    color: #7b1fa2 !important;
+    border: 1px solid rgba(123, 31, 162, 0.2) !important;
   }
   
   &.digital-marketing {
-    background-color: #fff3e0;
-    color: #e65100;
-    border: 1px solid rgba(230, 81, 0, 0.2);
+    background-color: #fff3e0 !important;
+    color: #e65100 !important;
+    border: 1px solid rgba(230, 81, 0, 0.2) !important;
+    opacity: 1 !important;
   }
 
   &:hover {
