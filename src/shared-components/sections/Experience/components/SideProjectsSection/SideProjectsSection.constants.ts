@@ -114,11 +114,64 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'StoryTime',
     category: 'Personal Innovation Lab',
-    description: 'AI Audiobook Creator: Multi-character stories brought to life with AI voices and voice clones.',
-    technologies: ['Next.js', 'Openai'],
+    description: 'An AI-powered audiobook creation platform that transforms written stories into immersive listening experiences with multiple character voices. The system features advanced text-to-speech technology with voice cloning capabilities, character voice assignment for dialogue, automated sound effects insertion based on scene context, interactive storytelling options with branching narratives, and a user-friendly editor for fine-tuning voice parameters and pacing. StoryTime enables creators to produce professional-quality audiobooks with distinct character voices without the need for voice actors or recording studios.',
+    technologies: ['Next.js', 'TypeScript', 'OpenAI', 'ElevenLabs Voice Cloning', 'React Audio Player', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
-    impact: 'Created an automated platform for generating engaging multi-voice audiobooks from text'
+    impact: 'Created an automated platform for generating engaging multi-voice audiobooks that brings stories to life for listeners of all ages, making literature more accessible and engaging',
+    media: [
+      {
+        type: 'group',
+        layout: 'stack',
+        width: '31%',
+        url: '#',
+        items: [
+          {
+            type: 'image',
+            url: '/media/screenshots/storytime/storytime1.png',
+            title: 'StoryTime Dashboard'
+          },
+          {
+            type: 'image',
+            url: '/media/screenshots/storytime/storytime2.png',
+            title: 'Character Voice Assignment'
+          }
+        ]
+      },
+      {
+        type: 'group',
+        layout: 'stack',
+        width: '31%',
+        url: '#',
+        items: [
+          {
+            type: 'image',
+            url: '/media/screenshots/storytime/storytime3.png',
+            title: 'Story Editor Interface'
+          },
+          {
+            type: 'image',
+            url: '/media/screenshots/storytime/storytime4.png',
+            title: 'Voice Parameter Controls'
+          }
+        ]
+      },
+      {
+        type: 'image',
+        url: '/media/screenshots/storytime/storytime5.png',
+        title: 'Audiobook Preview Player',
+        width: '31%'
+      },
+      {
+        type: 'audio',
+        url: '/media/storytime-demo.mp3',
+        title: 'StoryTime Audio Sample',
+        description: 'Listen to a sample audiobook generated with multiple AI character voices',
+        thumbnail: '/media/storytime-mcguffin.png',
+        thumbnailWidth: '80px',
+        width: '100%'
+      }
+    ]
   },
   {
     title: 'Life Guidance AI',
@@ -465,16 +518,16 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'We Learn Music Together',
     category: 'SaaS Applications',
-    description: 'Mobile Game + SaaS Platform: Teaches toddlers Music Theory.',
-    technologies: ['React Native', 'React.js', 'TypeScript', 'Node', 'Express', 'MongoDB'],
+    description: 'A comprehensive educational platform designed to make music theory accessible and enjoyable for young children. The platform combines a gamified mobile application with a subscription-based web portal for parents and educators. Features include interactive music theory lessons with adaptive difficulty based on the child\'s progress, virtual instruments that teach proper technique and note recognition, rhythm games with physical interaction components, ear training exercises with progressive complexity, and performance tracking for parents and teachers to monitor progress. The platform uses colorful animations, engaging characters, and reward systems to maintain children\'s interest while building genuine musical knowledge.',
+    technologies: ['React Native', 'React.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Web Audio API', 'Animation Libraries'],
     startDate: '2024',
     endDate: '2025',
-    impact: 'Created an educational platform that makes music theory accessible to young children',
+    impact: 'Created an educational platform that makes music theory accessible to young children through gamification and interactive learning, helping establish a solid foundation for musical development at an early age',
     media: [
       {
         type: 'embed',
         url: 'https://www.youtube.com/embed/JPj578UcVwU?si=1CGd401CRRO7eZJD',
-        title: 'We Learn Music Together',
+        title: 'We Learn Music Together Demo',
         width: '100%'
       }
     ]

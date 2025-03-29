@@ -178,3 +178,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed fixed height constraint from experience accordion to ensure all positions are visible
 - Updated PDF thumbnail script to use pdftoppm for reliable PDF page rendering
 - Improved consistency of media display in the experience section
+
+## [0.3.4] - 2023-11-08
+
+### Added
+- Enhanced StoryTime project with detailed description and media content
+- Added comprehensive screenshots and audio samples for StoryTime project
+- Expanded We Learn Music Together project with detailed feature description
+- Added mockup screenshots for We Learn Music Together mobile application
+- Improved project details with proper tech stack and impact descriptions
+
+## [0.3.5] - 2023-11-08
+
+### Fixed
+- Added display of titles for embedded media items in the Experience section
+- Enhanced embed handling to show titles when provided while keeping them optional
+- Improved visual styling of embed titles for better readability and consistency
+
+## [0.3.6] - 2023-11-08
+
+### Fixed
+- Added support for displaying descriptions for PDF type media items
+- Fixed inconsistency in media item descriptions across different media types
+- Ensured consistent styling for all media item descriptions
+
+## [0.3.3] - 2023-11-08

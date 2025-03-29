@@ -140,19 +140,14 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
         items: [
           {
             type: "image",
-            url: "/media/otg/screenshots/order-ahead-1.png",
-            title: "Mobile App - Category Selection"
-          },
-          {
-            type: "image",
             url: "/media/otg/screenshots/order-ahead-2.png",
-            title: "Mobile App - Menu Browse"
+            title: "Gate-Ready Airport Pizza App"
           },
           {
             type: "image",
-            url: "/media/otg/screenshots/order-ahead-4.png",
-            title: "Mobile App - Checkout"
-          }
+            url: "/media/otg/screenshots/otg-categories-short.png",
+            title: "Gate-Ready Airport Pizza App - Category Selection"
+          },
         ]
       },
       {
@@ -163,12 +158,8 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
           {
             type: "image",
             url: "/media/otg/screenshots/web-cart1.png",
-            title: "Order Entry"
-          },
-          {
-            type: "image",
-            url: "/media/otg/screenshots/web-cart2.png",
-            title: "Checkout Flow"
+            title: "Airport Restaurant Digital Ordering System",
+            description: "Designed the interface for OTG's in-terminal dining payment system, featuring boarding pass integration for personalized offers, multiple payment options including airline miles, and upsell opportunities. This mobile ordering solution allows travelers to seamlessly place and pay for meals across OTG's airport restaurant locations."
           }
         ]
       },
@@ -214,14 +205,14 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
       {
         type: "embed",
         url: "https://www.youtube.com/embed/FhIIgTV08RQ?si=00_ddQYAvuMKU8C3",
-        title: "Master A Million Showcase Video",
+        title: "Master A Million - Television Commercial",
         width: "half",
         height: 315
       },
       {
         type: "embed",
         url: "https://www.youtube.com/embed/lJHzOcIT5os?si=gsy8mc0FbHp4Ug8J",
-        title: "Master A Million End to End Form Test Demo",
+        title: "Master A Million - End to End Form Test Demo",
         width: "half",
         height: 315
       },
@@ -230,6 +221,7 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
         url: "/media/Master A Million - REACT NATIVE.pdf",
         title: "Master A Million - React Native Documentation",
         thumbnailUrl: "/media/masteramillion-ball.png",
+        description: "Documentation for the Master A Million app, including the React Native codebase and design files",
         height: 315,
         width: "50%"
       },
@@ -239,7 +231,6 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
         title: "Hacking a dumb laser to be smart",
         width: "50%",
         height: 315,
-        // description: "Hacking a dumb laser to be smart"
       },
       {
         type: "link",
@@ -306,43 +297,43 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
     media: [
       {
         type: 'embed',
-        url: '/media/saturn/mp4/power_sas.mp4#t=0.001',
-        title: 'Power SAS - Marketing Video',
+        url: 'https://www.youtube.com/embed/ybZDUK6AzLs?si=wymYbkw5JqyAISTo',
+        title: 'SAS Performance Transformation Case Study',
         thumbnailUrl: '/company-logos/saturn_business_systems_logo.jpeg',
         width: '48%',
-        description: 'Marketing video showcasing Saturn Business Systems\' SAS analytics solutions'
+        description: "Client testimonial showcasing Saturn's migration of a failing SAS environment to Power 8/AIS architecture, achieving 386% faster processing and 689% faster data operations. Jobs that previously took hours now complete in 20 minutes. Includes CTA for datasheet download and discovery call."
       },
       {
         type: 'embed',
-        url: '/media/saturn/mp4/sql_takeout.mp4#t=0.001',
-        title: 'SQL Takeout Cold Call Video',
+        url: 'https://www.youtube.com/embed/uAhkmIqFwno?si=yggZSqrYL9ddN8F0',
+        title: 'SQL Migration Outreach Video',
         thumbnailUrl: '/company-logos/saturn_business_systems_logo.jpeg',
         width: '48%',
-        description: 'Cold call training video for the sales team focused on SQL database solutions'
+        description: "Brief cold outreach video from Jonathan Karp of Saturn Business Systems targeting organizations with outdated SQL Server installations. Presents alternatives to expensive upgrades, highlighting Saturn's data warehouse solutions, cost comparison tools, and ROI analysis to help prospects make informed decisions about their aging SQL infrastructure."
       },
       {
         type: 'pdf',
         url: '/media/saturn/sas-optimization-legalresearchfirm-3-12-2015.pdf',
-        title: 'SAS Optimization Case Study',
+        title: 'Legal Research Firm SAS Optimization',
         thumbnailUrl: '/media/saturn/thumbnails/sas-optimization-legalresearchfirm-3-12-2015-thumbnail.png',
         width: '48%',
-        description: 'Case study on SAS optimization for a legal research firm'
+        description: "Designed and created this two-page case study showcasing Saturn's transformation of a legal research firm's failing SAS environment. Crafted compelling visuals and persuasive copy highlighting dramatic performance improvements (386% faster processing, 689% faster data operations), which equipped sales team members with powerful collateral for targeted client outreach."
       },
       {
         type: 'pdf',
         url: '/media/saturn/saturn-information-value-management.pdf',
-        title: 'Information Value Management',
+        title: 'Information Value Management Campaign',
         thumbnailUrl: '/media/saturn/thumbnails/saturn-information-value-management-thumbnail.png',
         width: '48%',
-        description: 'White paper on Saturn\'s information value management approach'
+        description: 'Designed and wrote this two-page thought leadership brochure addressing data management challenges for Saturn Business Systems. Created compelling visuals and persuasive messaging about translating business goals into actionable data strategies, which I used for personal outreach to industry experts to participate in my thought leadership marketing initiative.'
       },
       {
         type: 'pdf',
         url: '/media/saturn/Saturn-Business-Systems-SME-Network.pdf',
-        title: 'SME Network Overview',
+        title: 'Subject Matter Expert Network Campaign',
         thumbnailUrl: '/media/saturn/thumbnails/Saturn-Business-Systems-SME-Network-thumbnail.png',
         width: '100%',
-        description: 'Overview of Saturn Business Systems\' SME Network'
+        description: `Designed and wrote this two-page recruitment brochure for Saturn's Subject Matter Expert Network, featuring compelling visuals and persuasive copy that emphasized "who you know is valuable." Created as a key component of my thought leadership marketing initiative to recruit industry experts through a multi-phase engagement model offering five distinct revenue streams.`
       }
     ]
   },
@@ -367,7 +358,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       {
         type: "image",
         url: "/media/photo/graphnet.jpg",
-        title: "Graphnet",
+        title: "Graphnet Website Rebranding",
+        description: "I led the rebranding of Graphnet's website, including the development of a new logo and color palette. I also created a new website design that is more user-friendly and visually appealing.",
         width: "100%"
       }
     ]
@@ -392,15 +384,10 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
       {
         type: "image",
         url: "/media/photo/kwikpoint2.jpg",
-        title: "Kwikpoint Communication Guide",
+        title: "Kwikpoint Visual Language Communication Guide - Online Store",
+        description: "I designed the online store for Kwikpoint's Visual Language Communication Guide, which is a tool that helps bridge language barriers. The store features a variety of products, including books, DVDs, and other materials.",
         width: "100%"
-      },
-      // {
-      //   type: "image",
-      //   url: "/media/photo/kwikpoint.jpg",
-      //   title: "Kwikpoint Visual Language Tools",
-      //   width: "100%"
-      // },
+      }
     ]
   },
   {
