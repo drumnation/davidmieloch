@@ -114,7 +114,7 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
     setModalImage(null);
   };
 
-  const renderMedia = (media: MediaItem[] | undefined, isHalfWidth = false) => {
+  const renderMedia = (media: MediaItem[] | undefined, isHalfWidth = false, project?: SideProject) => {
     if (!media || media.length === 0) return null;
     
     const renderMediaItem = (item: MediaItem, index: number, inGroup = false, groupLayout?: 'default' | 'stack') => {
@@ -189,7 +189,32 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 </div>
               )}
               <div className="link-content">
-                {title && <div className="link-title">{title}</div>}
+                {title && (
+                  <div className="link-title" style={{ display: 'flex', alignItems: 'center' }}>
+                    {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
+                      <img 
+                        src={item.titleLogoPath || project?.logoPath} 
+                        alt={`Logo for ${title}`}
+                        style={{ 
+                          width: '20px', 
+                          height: '20px', 
+                          objectFit: 'contain',
+                          marginRight: '8px',
+                          borderRadius: item.logoHasBorderRadius === false ? '0' : '6px',
+                          overflow: 'visible',
+                          backgroundColor: 'transparent',
+                          display: 'inline-block',
+                          verticalAlign: 'middle',
+                          ...(item.logoHasBorder && {
+                            border: '1px solid rgba(0, 0, 0, 0.2)',
+                            padding: '1px'
+                          })
+                        }}
+                      />
+                    )}
+                    <span>{title}</span>
+                  </div>
+                )}
                 {description && <div className="link-description">
                   <MarkdownRenderer content={description} compact={true} />
                 </div>}
@@ -216,7 +241,32 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               onClick={() => openModal(item)} 
               style={{ cursor: 'pointer', height: item.customHeight ? '100%' : 'auto', objectFit: item.customHeight ? 'cover' : 'contain' }}
             />
-            {title && <S.MediaTitle>{title}</S.MediaTitle>}
+            {title && (
+              <S.MediaTitle>
+                {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
+                  <img 
+                    src={item.titleLogoPath || project?.logoPath} 
+                    alt={`Logo for ${title}`}
+                    style={{ 
+                      width: '20px', 
+                      height: '20px', 
+                      objectFit: 'contain',
+                      marginRight: '8px',
+                      borderRadius: item.logoHasBorderRadius === false ? '0' : '6px',
+                      overflow: 'visible',
+                      backgroundColor: 'transparent',
+                      display: 'inline-block',
+                      verticalAlign: 'middle',
+                      ...(item.logoHasBorder && {
+                        border: '1px solid rgba(0, 0, 0, 0.2)',
+                        padding: '1px'
+                      })
+                    }}
+                  />
+                )}
+                {title}
+              </S.MediaTitle>
+            )}
             {description && <S.MediaDescription>
               <MarkdownRenderer content={description} compact={true} />
             </S.MediaDescription>}
@@ -244,7 +294,32 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               <source src={url} type="video/mp4" />
               Your browser does not support the video tag.
             </S.MediaVideo>
-            {title && <S.MediaTitle>{title}</S.MediaTitle>}
+            {title && (
+              <S.MediaTitle>
+                {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
+                  <img 
+                    src={item.titleLogoPath || project?.logoPath} 
+                    alt={`Logo for ${title}`}
+                    style={{ 
+                      width: '20px', 
+                      height: '20px', 
+                      objectFit: 'contain',
+                      marginRight: '8px',
+                      borderRadius: item.logoHasBorderRadius === false ? '0' : '6px',
+                      overflow: 'visible',
+                      backgroundColor: 'transparent',
+                      display: 'inline-block',
+                      verticalAlign: 'middle',
+                      ...(item.logoHasBorder && {
+                        border: '1px solid rgba(0, 0, 0, 0.2)',
+                        padding: '1px'
+                      })
+                    }}
+                  />
+                )}
+                {title}
+              </S.MediaTitle>
+            )}
             {description && <S.MediaDescription>
               <MarkdownRenderer content={description} compact={true} />
             </S.MediaDescription>}
@@ -271,7 +346,32 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 </S.AudioThumbnailContainer>
               )}
               <div className="audio-text-content">
-                {title && <S.MediaTitle style={{ marginTop: 0 }}>{title}</S.MediaTitle>}
+                {title && (
+                  <S.MediaTitle style={{ marginTop: 0 }}>
+                    {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
+                      <img 
+                        src={item.titleLogoPath || project?.logoPath} 
+                        alt={`Logo for ${title}`}
+                        style={{ 
+                          width: '20px', 
+                          height: '20px', 
+                          objectFit: 'contain',
+                          marginRight: '8px',
+                          borderRadius: item.logoHasBorderRadius === false ? '0' : '6px',
+                          overflow: 'visible',
+                          backgroundColor: 'transparent',
+                          display: 'inline-block',
+                          verticalAlign: 'middle',
+                          ...(item.logoHasBorder && {
+                            border: '1px solid rgba(0, 0, 0, 0.2)',
+                            padding: '1px'
+                          })
+                        }}
+                      />
+                    )}
+                    {title}
+                  </S.MediaTitle>
+                )}
                 {description && <S.MediaDescription style={{ padding: 0 }}>
                   <MarkdownRenderer content={description} compact={true} />
                 </S.MediaDescription>}
@@ -310,7 +410,32 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 />
               </S.MediaEmbed>
             )}
-            {title && <S.MediaTitle>{title}</S.MediaTitle>}
+            {title && (
+              <S.MediaTitle>
+                {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
+                  <img 
+                    src={item.titleLogoPath || project?.logoPath} 
+                    alt={`Logo for ${title}`}
+                    style={{ 
+                      width: '20px', 
+                      height: '20px', 
+                      objectFit: 'contain',
+                      marginRight: '8px',
+                      borderRadius: item.logoHasBorderRadius === false ? '0' : '6px',
+                      overflow: 'visible',
+                      backgroundColor: 'transparent',
+                      display: 'inline-block',
+                      verticalAlign: 'middle',
+                      ...(item.logoHasBorder && {
+                        border: '1px solid rgba(0, 0, 0, 0.2)',
+                        padding: '1px'
+                      })
+                    }}
+                  />
+                )}
+                {title}
+              </S.MediaTitle>
+            )}
             {description && <S.MediaDescription>
               <MarkdownRenderer content={description} compact={true} />
             </S.MediaDescription>}
@@ -339,7 +464,32 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 <p>If the PDF viewer doesn't load, you can <a href={url} target="_blank" rel="noopener noreferrer">view the PDF directly</a>.</p>
               </div>
             </S.PDFViewer>
-            {title && <S.MediaTitle>{title}</S.MediaTitle>}
+            {title && (
+              <S.MediaTitle>
+                {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
+                  <img 
+                    src={item.titleLogoPath || project?.logoPath} 
+                    alt={`Logo for ${title}`}
+                    style={{ 
+                      width: '20px', 
+                      height: '20px', 
+                      objectFit: 'contain',
+                      marginRight: '8px',
+                      borderRadius: item.logoHasBorderRadius === false ? '0' : '6px',
+                      overflow: 'visible',
+                      backgroundColor: 'transparent',
+                      display: 'inline-block',
+                      verticalAlign: 'middle',
+                      ...(item.logoHasBorder && {
+                        border: '1px solid rgba(0, 0, 0, 0.2)',
+                        padding: '1px'
+                      })
+                    }}
+                  />
+                )}
+                {title}
+              </S.MediaTitle>
+            )}
             {description && <S.MediaDescription>
               <MarkdownRenderer content={description} compact={true} />
             </S.MediaDescription>}
@@ -492,7 +642,11 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 )}
               </S.ProjectLinks>
               
-              {renderMedia(project.media, project.halfWidth)}
+              {project.media && project.media.length > 0 && (
+                <S.MediaContainer>
+                  {renderMedia(project.media, false, project)}
+                </S.MediaContainer>
+              )}
             </S.ProjectCard>
           ) : (
             <S.FullRowProjectCard key={`${project.title}-${index}`}>
@@ -566,7 +720,11 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 </div>
                 
                 <div className="project-media">
-                  {renderMedia(project.media, project.halfWidth)}
+                  {project.media && project.media.length > 0 && (
+                    <S.MediaContainer>
+                      {renderMedia(project.media, false, project)}
+                    </S.MediaContainer>
+                  )}
                 </div>
               </div>
             </S.FullRowProjectCard>

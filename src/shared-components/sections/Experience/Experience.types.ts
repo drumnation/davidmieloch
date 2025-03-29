@@ -53,4 +53,8 @@ export interface MediaItem {
   height?: number; // Optional height for embeds
   layout?: 'default' | 'stack'; // For group items: 'default' (side-by-side), 'stack' (vertical)
   items?: MediaItem[]; // For group type, contains nested media items
+  showLogo?: boolean; // Optional flag to show a logo next to the title
+  titleLogoPath?: string; // Optional path to the logo image
+  logoHasBorderRadius?: boolean; // Optional flag to control if the logo has rounded corners
+  logoHasBorder?: boolean; // Optional flag to control if the logo has a border
 } 

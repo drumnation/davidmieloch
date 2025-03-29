@@ -416,7 +416,11 @@ export const MediaTitle = styled.p`
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: rgba(0, 0, 0, 0.9);
-  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 `;
 
 export const MediaImage = styled.img`

@@ -529,6 +529,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         url: 'media/screenshots/cheddar/cheddar.png',
         title: 'Cheddar Dashboard with Balance Forecast',
         width: '100%',
+        showLogo: true,
         description: `The Cheddar Dashboard presents a **unified view of your financial landscape** with intelligent transaction management. 
 
 Key features include:
@@ -544,12 +545,14 @@ This dynamic system maintains accuracy between your actual and projected finance
         type: 'image',
         url: 'media/screenshots/cheddar/cheddar-forecast.png',
         title: 'Future Forecast Simulation',
+        showLogo: true,
         width: '48%'
       },
       {
         type: 'image',
         url: 'media/screenshots/cheddar/cheddar4.png',
         title: 'Edit Transaction Modal',
+        showLogo: true,
         description: 'The transaction editor provides complete management of your recurring expenses and income. This powerful interface lets you specify essential details like payment amount, category, frequency, and whether a transaction repeats.',
         width: '48%'
       },
@@ -557,6 +560,7 @@ This dynamic system maintains accuracy between your actual and projected finance
         type: 'image',
         url: 'media/screenshots/cheddar/cheddar2.png',
         title: 'Financial Calendar & Planning',
+        showLogo: true,
         width: '100%',
         description: 'The Financial Calendar & Planning section provides an interactive, multi-dimensional view of your finances across time. The color-coded calendar instantly reveals your financial status for each day—green for positive balances, yellow for warnings, and red for negative balances—with hoverable dates showing transaction previews. Complementing this, the cash flow chart tracks your balance trajectory over time using the same color system, giving you an immediate visual understanding of financial trends. Both elements function as powerful navigation tools; clicking any date or chart point automatically selects that date and scrolls to the corresponding forecast transactions in the right panel. This integrated approach transforms abstract financial data into an intuitive visual experience, allowing you to quickly identify trouble spots, plan for upcoming expenses, and understand the long-term impact of your financial decisions.'
       },
