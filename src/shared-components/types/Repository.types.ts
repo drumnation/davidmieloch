@@ -27,8 +27,8 @@ export interface RepositoryOwner {
 
 export interface RepositoryFilterOptions {
   language?: string | null;
-  sortBy?: \"stars\" | \"forks\" | \"updated\" | \"created\";
-  order?: \"asc\" | \"desc\";
+  sortBy?: "stars" | "forks" | "updated" | "created";
+  order?: "asc" | "desc";
   searchTerm?: string;
 }
 
