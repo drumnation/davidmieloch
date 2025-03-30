@@ -212,8 +212,11 @@ export const Footer = ({
       style={{
         borderTop: `1px solid ${colors.border}`
       }}
+      data-print-hidden="true"
+      aria-hidden="true"
+      className="audio-player-container"
     >
-      <FooterContainer>
+      <FooterContainer data-print-hidden="true" className="audio-player-wrapper">
         <GradientBorder style={{ background: colors.border }} />
         
         {/* Mini Mode Player */}

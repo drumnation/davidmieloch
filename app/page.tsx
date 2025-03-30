@@ -184,8 +184,8 @@ export default function HomePage() {
     title: "David Mieloch",
     subtitle: "Full-Stack Business Person / Lean Tech Leader",
     description: "Bridging AI, Engineering, and Business Growth with deep technical expertise and broad business acumen to drive efficiency and results in lean, dynamic environments.",
-    background: 'gradient' as const,
-    gradientColors: ['#4361ee', '#3f37c9'],
+    background: "image" as const,
+    backgroundImage: "/connected-dots.jpg",
     textColor: 'light' as const,
     animation: 'fade-up' as const,
     cta: {
@@ -195,7 +195,7 @@ export default function HomePage() {
       },
       secondary: {
         text: 'View My Experience',
-        link: '/bio'
+        link: '/experience'
       }
     }
   };
@@ -316,7 +316,7 @@ export default function HomePage() {
     
       <HomePageContainer>
         {/* Hero Section */}
-        <div className="hero-section">
+        <div className="hero-section fade-in-element">
           <Hero {...heroProps} />
         </div>
         
@@ -336,170 +336,300 @@ export default function HomePage() {
         {/* Full-Stack Business Person Whitepaper Section */}
         <div id="fsbp" className="fsbp-section">
           <div className="fsbp-header">
-            <Typography variant="h2" color="primary">The Full-Stack Business Person</Typography>
-            <div style={{ maxWidth: '700px', margin: '1rem auto' }}>
+            <Typography variant="h2" color="primary" as="h1" className="fsbp-title">The Full-Stack Business Person</Typography>
+            <div className="fsbp-subheadline">
               <Typography variant="body" color="secondary">
                 Why the future belongs to multi-skilled professionals who leverage AI to perform roles previously done by specialists
               </Typography>
             </div>
+            <span className="fsbp-header-separator"></span>
           </div>
           
           <div className="fsbp-content">
-            <Typography variant="body" mb="1.5rem">
-              As AI transforms the workplace, the future belongs to professionals who can span multiple domains.
-              We're already witnessing the dawn of hyper-efficient organizations – AI-native companies achieving unprecedented results with remarkably small teams.
-              The Full-Stack Business Person is someone who combines deep technical expertise with broad business 
-              acumen, leveraging AI to perform roles that previously required several specialists.
-            </Typography>
+            <div className="fsbp-intro">
+              <Typography variant="body" mb="1.5rem" className="fsbp-text">
+                As AI transforms the workplace, the future belongs to professionals who can span multiple domains.
+                We're already witnessing the dawn of <span className="fsbp-emphasis">hyper-efficient organizations</span> – AI-native companies achieving <span className="fsbp-emphasis">unprecedented results with remarkably small teams</span>.
+                The <span className="fsbp-key-term">Full-Stack Business Person</span> is someone who combines deep technical expertise with broad business 
+                acumen, leveraging AI to perform roles that previously required several specialists.
+              </Typography>
+            </div>
             
-            <Typography variant="h3" color="primary" mb="1rem">The New Paradigm of Work</Typography>
+            <Typography variant="h3" color="primary" mb="1rem" className="fsbp-section-heading">The New Paradigm of Work</Typography>
             
-            <Typography variant="body" mb="1.5rem">
-              In this new paradigm, developers make product design decisions, contribute marketing copy, 
-              and understand sales strategies. Engineers develop business plans, marketing specialists write code,
-              and everyone uses AI to fill their knowledge gaps and automate routine tasks.
-              Crucially, AI's power is unlocked not just by technical skill, but by <em>asking the right questions</em>. An FSBP possesses the broad <strong>conceptual vocabulary</strong> spanning technology, product, marketing, and sales, allowing them to direct AI agents effectively across diverse tasks far beyond what a narrow specialist could achieve. <strong>This isn't just theory.</strong> We see companies like <strong>Midjourney (AI art) reaching $200M+ revenue with ~40 people, and Cursor (AI IDE) hitting ~$100M ARR with only ~20.</strong> That's roughly <strong>$5 million in revenue per employee</strong> – orders of magnitude higher than the ~$125k median for SaaS startups. They achieve this through mass automation and leveraging AI infrastructure – capabilities best directed by those with holistic understanding.
-            </Typography>
+            <div className="paradigm-section">
+              <div className="paradigm-paragraph">
+                <h4 className="paradigm-subheading">
+                  <svg className="paradigm-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4361ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2v6M12 22v-6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M22 12h-6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"></path>
+                  </svg>
+                  AI Leverage & Market Proof
+                </h4>
+                <Typography variant="body" mb="1.5rem" className="fsbp-text">
+                  In this new paradigm, developers make product design decisions, contribute marketing copy, 
+                  and understand sales strategies. Engineers develop business plans, marketing specialists write code,
+                  and everyone uses AI to fill their knowledge gaps and automate routine tasks.
+                  Crucially, AI's power is unlocked not just by technical skill, but by <em>asking the right questions</em>. An FSBP possesses the broad <strong>conceptual vocabulary</strong> spanning technology, product, marketing, and sales, allowing them to direct AI agents effectively across diverse tasks far beyond what a narrow specialist could achieve. <strong>This isn't just theory.</strong> We see companies like <span className="company-highlight">Midjourney (AI art)</span> reaching $200M+ revenue with ~40 people, and <span className="company-highlight">Cursor (AI IDE)</span> hitting ~$100M ARR with only ~20. That's roughly <span className="data-highlight">$5 million in revenue per employee</span> – orders of magnitude higher than the <span className="data-highlight">~$125k median for SaaS startups</span>. They achieve this through mass automation and leveraging AI infrastructure – capabilities best directed by those with holistic understanding.
+                </Typography>
+              </div>
+              
+              {/* Simple pull quote matching the screenshot */}
+              <div className="pull-quote-container">
+                <div className="pull-quote">
+                  AI's power is unlocked not just by technical skill, but by asking the right questions.
+                </div>
+              </div>
+              
+              <div className="paradigm-paragraph">
+                <h4 className="paradigm-subheading">
+                  <svg className="paradigm-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4361ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  The Need for Lean Team Navigators
+                </h4>
+                <Typography variant="body" mb="1.5rem" className="fsbp-text">
+                  These examples demonstrate the raw power of <strong>lean, hyper-efficient organizations</strong> that can indeed outpace traditional structures. AI augmentation allows small teams to achieve what previously required armies. But these high-velocity teams don't run on AI alone. They <em>require</em> individuals who can bridge the gap – <strong>Full-Stack Business People</strong> who can wear multiple hats, operate effectively across domains, direct AI strategically, design scalable systems, and make the critical decisions needed to harness this new power. They are the architects and navigators of these lean organizations where communication overhead plummets and iteration speed accelerates.
+                </Typography>
+              </div>
+              
+              <div className="paradigm-paragraph">
+                <h4 className="paradigm-subheading">
+                  <svg className="paradigm-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4361ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                  Holistic Strategy & Value Creation
+                </h4>
+                <Typography variant="body" mb="1.5rem" className="fsbp-text">
+                  Furthermore, in these lean, AI-driven environments, strategic decisions carry immense weight. FSBPs understand the full value chain – how technology serves product, how marketing informs development, how sales connects to strategy. They make better architectural, product, and go-to-market decisions because they see the bigger picture, ensuring scarce resources are deployed for maximum impact – a necessity when a small team aims for massive scale.
+                </Typography>
+              </div>
+            </div>
             
-            <Typography variant="body" mb="1.5rem">
-              These examples demonstrate the raw power of <strong>lean, hyper-efficient organizations</strong> that can indeed outpace traditional structures. AI augmentation allows small teams to achieve what previously required armies. But these high-velocity teams don't run on AI alone. They <em>require</em> individuals who can bridge the gap – <strong>Full-Stack Business People</strong> who can wear multiple hats, operate effectively across domains, direct AI strategically, design scalable systems, and make the critical decisions needed to harness this new power. They are the architects and navigators of these lean organizations where communication overhead plummets and iteration speed accelerates.
-            </Typography>
+            <Typography variant="h3" color="primary" mb="1rem" className="fsbp-section-heading">Key Characteristics of a Full-Stack Business Person</Typography>
             
-            <Typography variant="body" mb="1.5rem">
-              Furthermore, in these lean, AI-driven environments, strategic decisions carry immense weight. FSBPs understand the full value chain – how technology serves product, how marketing informs development, how sales connects to strategy. They make better architectural, product, and go-to-market decisions because they see the bigger picture, ensuring scarce resources are deployed for maximum impact – a necessity when a small team aims for massive scale.
-            </Typography>
-            
-            <Typography variant="h3" color="primary" mb="1rem">Key Characteristics of a Full-Stack Business Person</Typography>
-            
-            <Typography variant="body" mb="0.5rem">
+            <Typography variant="body" mb="0.5rem" className="fsbp-text">
               A true Full-Stack Business Person exhibits several key characteristics:
             </Typography>
             
-            <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem' }}>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <Typography variant="body">
-                  <strong>Technical Depth:</strong> Expertise in at least one technical domain (programming, design, marketing)
-                </Typography>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <Typography variant="body">
-                  <strong>Business Breadth:</strong> Understanding of various business functions and how they interrelate
-                </Typography>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <Typography variant="body">
-                  <strong>AI Integration:</strong> Ability to leverage AI tools to extend capabilities beyond personal expertise
-                </Typography>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <Typography variant="body">
-                  <strong>Systems Thinking:</strong> Capacity to see how changes in one area affect the broader organization
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body">
-                  <strong>Adaptability:</strong> Willingness to continuously learn and evolve with changing technology
-                </Typography>
-              </li>
-            </ul>
+            <div className="fsbp-characteristic-grid">
+              {/* Deep Technical Execution Mastery */}
+              <div className="characteristic-card" tabIndex={0}>
+                <div className="characteristic-icon-container">
+                  <svg className="characteristic-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <div className="characteristic-title">Deep Technical Execution Mastery</div>
+                <div className="characteristic-description">
+                  Expert-level ability to architect, build, implement, and manipulate complex technological systems. This provides the core capability to translate cross-domain ideas into tangible realities and effectively direct AI in technical execution.
+                </div>
+              </div>
+              
+              {/* Applied Expertise in Multiple Domains */}
+              <div className="characteristic-card" tabIndex={0}>
+                <div className="characteristic-icon-container">
+                  <svg className="characteristic-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div className="characteristic-title">Applied Expertise in Multiple Domains</div>
+                <div className="characteristic-description">
+                  Significant, practical depth and hands-on experience in several additional business or creative domains. This expertise must be sufficient to independently conceive strategies, solve domain-specific problems, and critically guide and evaluate AI within these areas.
+                </div>
+              </div>
+              
+              {/* Synergistic Innovation & Problem Solving */}
+              <div className="characteristic-card" tabIndex={0}>
+                <div className="characteristic-icon-container">
+                  <svg className="characteristic-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                  </svg>
+                </div>
+                <div className="characteristic-title">Synergistic Innovation & Problem Solving</div>
+                <div className="characteristic-description">
+                  The unique ability to synthesize knowledge and opportunities across the primary technical domain and secondary expertise areas to identify non-obvious solutions, generate novel ideas, and create value propositions that bridge traditional boundaries.
+                </div>
+              </div>
+              
+              {/* Strategic AI Orchestration */}
+              <div className="characteristic-card" tabIndex={0}>
+                <div className="characteristic-icon-container">
+                  <svg className="characteristic-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                    <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                    <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                    <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+                  </svg>
+                </div>
+                <div className="characteristic-title">Strategic AI Orchestration</div>
+                <div className="characteristic-description">
+                  Mastery in strategically leveraging and directing AI tools and agents across the full spectrum of owned skills – using AI not just for isolated tasks, but to orchestrate complex, multi-domain workflows and amplify the impact of the entire synergistic skillset.
+                </div>
+              </div>
+              
+              {/* Integrative Systems Thinking */}
+              <div className="characteristic-card" tabIndex={0}>
+                <div className="characteristic-icon-container">
+                  <svg className="characteristic-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div className="characteristic-title">Integrative Systems Thinking</div>
+                <div className="characteristic-description">
+                  Perceives and analyzes challenges and opportunities holistically, understanding the interconnectedness of technical, business, market, and human systems. Designs solutions that account for these interdependencies and anticipates downstream effects across domains.
+                </div>
+              </div>
+              
+              {/* High-Impact Communication & Translation */}
+              <div className="characteristic-card" tabIndex={0}>
+                <div className="characteristic-icon-container">
+                  <svg className="characteristic-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    <path d="M8 9h.01"></path>
+                    <path d="M12 9h.01"></path>
+                    <path d="M16 9h.01"></path>
+                  </svg>
+                </div>
+                <div className="characteristic-title">High-Impact Communication & Translation</div>
+                <div className="characteristic-description">
+                  Ability to fluently translate complex concepts between technical and various business/creative domains. Articulates vision, strategy, and value compellingly to diverse stakeholders to drive alignment and action.
+                </div>
+              </div>
+            </div>
             
-            <Typography variant="h3" color="primary" mb="1rem">The FSBP in Action: Practical Applications</Typography>
+            <Typography variant="h3" color="primary" mb="1rem" className="fsbp-section-heading">The FSBP in Action: Practical Applications</Typography>
             
-            <Typography variant="body" mb="1.5rem">
-              My work embodies this philosophy across several domains:
+            <Typography variant="body" mb="1.5rem" className="fsbp-text">
+              My work embodies this philosophy in two key areas:
             </Typography>
             
-            <Typography variant="body" mb="1.5rem">
-              <strong>Enterprise AI Development Framework:</strong> I've developed an approach that helps traditional 
-              development teams transform into AI-augmented powerhouses. This framework addresses both the technical 
-              implementation of AI tools and the business process changes needed to fully capitalize on AI's potential.
-            </Typography>
+            <div className="fsbp-domain-section">
+              <Typography variant="body" mb="1rem" className="fsbp-text">
+                <strong>Enterprise AI Development Framework:</strong> I've developed an approach that helps traditional 
+                development teams transform into AI-augmented powerhouses. This framework addresses the technical 
+                implementation of AI tools, the necessary business process changes, and <strong>the crucial team optimization</strong> required to build 
+                versatile, AI-leveraging professionals and fully capitalize on AI's potential.
+              </Typography>
+              <Button 
+                variant="primary"
+                href="/enterprise-ai-development-framework"
+                size="sm"
+              >
+                Explore AI Framework
+              </Button>
+            </div>
             
-            <Typography variant="body" mb="1.5rem">
-              <strong>React Best Practices:</strong> Beyond just technical implementation, my approach to React 
-              development integrates business concerns like maintainability, scalability, and development velocity. 
-              This ensures that technical decisions support broader business goals.
-            </Typography>
+            <div className="fsbp-domain-section">
+              <Typography variant="body" mb="1rem" className="fsbp-text">
+                <strong>React Best Practices:</strong> Beyond just technical implementation, my approach to React 
+                development integrates business concerns like maintainability, scalability, and development velocity. 
+                This ensures that technical decisions support broader business goals.
+              </Typography>
+              <Button 
+                variant="primary"
+                href="/fullstack-react-best-practices-integration"
+                size="sm"
+              >
+                View React Best Practices
+              </Button>
+            </div>
             
-            <Typography variant="body" mb="2rem">
-              <strong>Team Transformation:</strong> I help organizations build and optimize development teams for the 
-              AI era, focusing on creating versatile professionals who can bridge traditional role boundaries and 
-              leverage AI to extend their capabilities.
-            </Typography>
+            <Typography variant="h3" color="primary" mb="1rem" className="fsbp-section-heading">The Path Forward</Typography>
             
-            <Typography variant="h3" color="primary" mb="1rem">The Path Forward</Typography>
-            
-            <Typography variant="body" mb="1.5rem">
+            <Typography variant="body" mb="1.5rem" className="fsbp-text">
               As AI continues to transform how we work, the most valuable professionals will be those who can 
               leverage these tools to operate across traditional boundaries. Organizations that embrace the Full-Stack 
               Business Person model will gain significant advantages in agility, efficiency, and innovation.
               The emergence of hyper-efficient, high-revenue, small-team companies isn't an anomaly; it's a glimpse into the future.
             </Typography>
             
-            <Typography variant="body" mb="1.5rem">
+            <Typography variant="body" mb="3rem" className="fsbp-text fsbp-italic-text">
               This portfolio itself exemplifies the FSBP principle – strategically designed, marketed, and 
               coded to deliver a specific message to different target audiences, demonstrating how technical depth and business breadth 
               combine to create exceptional outcomes in the AI-assisted future.
             </Typography>
+            
+            <hr className="fsbp-section-divider" />
           </div>
           
           <div className="fsbp-cta-container">
-            <div className="cta-section">
-              <Typography variant="h3" color="primary" mb="1rem">Core Frameworks</Typography>
-              <Button 
-                variant="primary"
-                href="/enterprise-ai-development-framework"
-              >
-                Explore the Enterprise AI Transformation Framework
-              </Button>
-              
-              <Button 
-                variant="primary"
-                href="/fullstack-react-best-practices-integration"
-              >
-                Discover Strategic React Best Practices
-              </Button>
+            <div className="cta-group">
+              <Typography variant="h3">Explore My Core Frameworks</Typography>
+              <div className="button-group">
+                <a href="/enterprise-ai-development-framework" className="cta-button">
+                  <svg className="cta-button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                  </svg>
+                  Enterprise AI Transformation
+                </a>
+                <a href="/fullstack-react-best-practices-integration" className="cta-button">
+                  <svg className="cta-button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path>
+                    <circle cx="12" cy="10" r="2"></circle>
+                    <path d="M12 14v4"></path>
+                  </svg>
+                  React Best Practices
+                </a>
+              </div>
             </div>
             
-            <div className="cta-section">
-              <Typography variant="h3" color="primary" mb="1rem">Background & Impact</Typography>
-              <Button 
-                variant="primary"
-                href="/experience"
-              >
-                View My Rich Media Experience
-              </Button>
-              
-              <Button 
-                variant="primary"
-                href="/bio"
-              >
-                My Story (Bio)
-              </Button>
-              
-              <Button 
-                variant="primary"
-                href="/code-examples"
-              >
-                Explore Code Examples
-              </Button>
+            <div className="cta-group">
+              <Typography variant="h3">See My Background & Impact</Typography>
+              <div className="button-group">
+                <a href="/experience" className="cta-button">
+                  <svg className="cta-button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  Experience
+                </a>
+                <a href="/bio" className="cta-button">
+                  <svg className="cta-button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  Bio Page
+                </a>
+                <a href="/code-examples" className="cta-button">
+                  <svg className="cta-button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Code Examples
+                </a>
+              </div>
             </div>
             
-            <div className="cta-section">
-              <Typography variant="h3" color="primary" mb="1rem">Connect</Typography>
-              <Button 
-                variant="ghost"
-                href="/bio#contact"
-              >
-                Contact Me
-              </Button>
-              
-              <Button 
-                variant="ghost"
-                href="https://calendly.com/davidmieloch"
-              >
-                Schedule Consultation
-              </Button>
+            <div className="cta-group">
+              <Typography variant="h3">Connect</Typography>
+              <div className="button-group">
+                <a href="https://www.linkedin.com/in/davidmieloch" className="cta-button">
+                  <svg className="cta-button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  Connect on LinkedIn
+                </a>
+              </div>
+              <p className="connect-context">Open to discussing strategic partnerships and leadership opportunities.</p>
             </div>
           </div>
         </div>

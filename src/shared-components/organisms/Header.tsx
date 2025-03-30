@@ -122,16 +122,17 @@ export function Header() {
             <UnstyledButton style={{ textDecoration: 'none' }}>
               <Group gap="xs" align="center" wrap="nowrap">
                 <Image 
-                  src="/web-app-manifest-192x192.png" 
+                  src="/dave-mieloch-headshot.jpg" 
                   alt="David Mieloch Logo" 
                   width={32} 
                   height={32} 
-                  style={{ borderRadius: '50%' }}
+                  style={{ borderRadius: '50%', border: '1px solid #141517' }}
                 />
                 <Text 
                   fw={700} 
                   size="lg" 
                   style={{
+                    marginTop: '5px',
                     color: '#141517'
                   }}
                 >

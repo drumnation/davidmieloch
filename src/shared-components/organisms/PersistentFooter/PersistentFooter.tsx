@@ -19,6 +19,8 @@ export const PersistentFooter = ({
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Remove print style injection to avoid conflicts
   
   // Initialize tracks in the context only once when the component mounts
   useEffect(() => {
@@ -36,10 +38,17 @@ export const PersistentFooter = ({
   }
   
   return (
-    <Footer 
-      socialLinks={socialLinks}
-      soundCloudTracks={tracks.length > 0 ? tracks : defaultTracks}
-    />
+    <div 
+      className="persistent-footer" 
+      data-print-hidden="true" 
+      aria-hidden="true" 
+      style={{ display: 'contents' }}
+    >
+      <Footer 
+        socialLinks={socialLinks}
+        soundCloudTracks={tracks.length > 0 ? tracks : defaultTracks}
+      />
+    </div>
   );
 };
  

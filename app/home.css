@@ -44,13 +44,46 @@
     width: 100%;
   }
   
+  /* Consolidated FSBP mobile styles */
   .fsbp-section {
-    margin: 1rem 0 3rem;
+    padding: 3rem 0;
+  }
+  
+  .fsbp-title {
+    font-size: 2.4rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .fsbp-subheadline {
+    font-size: 1.2rem;
+  }
+  
+  .fsbp-header-separator {
+    width: 80px;
+    margin: 1.5rem auto;
+  }
+  
+  .fsbp-section-heading {
+    margin-top: 2rem;
+    font-size: 1.6rem;
   }
   
   .fsbp-cta-container {
-    flex-direction: column;
-    align-items: center;
+    padding: 2rem 1.5rem;
+  }
+  
+  .fsbp-key-characteristics,
+  .fsbp-domain-section {
+    padding: 1.25rem;
+  }
+  
+  /* Paradigm mobile styles */
+  .paradigm-subheading {
+    font-size: 1.2rem;
+  }
+  
+  .paradigm-paragraph {
+    margin-bottom: 2rem;
   }
 }
 
@@ -79,6 +112,28 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Hero section curved bottom styling */
+.hero-section {
+  position: relative;
+  border-bottom-left-radius: 50% 80px;
+  border-bottom-right-radius: 50% 80px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* Remove the ::after pseudo-element approach entirely */
+.hero-section::after {
+  display: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    border-bottom-left-radius: 50% 50px;
+    border-bottom-right-radius: 50% 50px;
   }
 }
 
@@ -188,8 +243,26 @@
 
 /* Full-Stack Business Person section */
 .fsbp-section {
-  padding: 4rem 0;
+  padding: 5rem 0;
   background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.fsbp-title {
+  color: #2d3748;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.fsbp-text {
+  color: #343a40;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
 }
 
 .fsbp-header {
@@ -199,43 +272,737 @@
   padding: 0 1.5rem;
 }
 
+.fsbp-header-separator {
+  display: block;
+  width: 100px;
+  height: 3px;
+  margin: 2rem auto;
+  background: linear-gradient(90deg, rgba(67,97,238,0.1) 0%, rgba(67,97,238,0.8) 50%, rgba(67,97,238,0.1) 100%);
+  border-radius: 3px;
+}
+
+.fsbp-subheadline {
+  font-size: 1.4rem;
+  max-width: 700px;
+  margin: 0.75rem auto 0;
+  color: #495057;
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: italic;
+}
+
 .fsbp-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  line-height: 1.7;
+  color: #343a40;
+}
+
+.fsbp-intro {
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.fsbp-key-term {
+  font-weight: 700;
+  color: #4361ee;
+}
+
+.fsbp-emphasis {
+  font-style: italic;
+}
+
+/* New paradigm section styling */
+.paradigm-paragraph {
+  margin-bottom: 2.5rem; /* Increased spacing between paragraphs */
+}
+
+.paradigm-subheading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #4361ee;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.015em;
+  display: flex;
+  align-items: center;
+}
+
+/* Simplified pull quote styling that matches the screenshot exactly */
+.pull-quote-container {
+  border-left: 4px solid #4361ee;
+  padding-left: 16px;
+  margin: 24px 0;
+}
+
+.pull-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #4361ee;
+  line-height: 1.5;
+}
+
+/* Remove all the desktop positioning logic */
+.pull-quote-container.desktop-side,
+.pull-quote-container.mobile-only {
+  display: block; /* Always show, forget the desktop/mobile separation */
+}
+
+/* Remove unused styles */
+.pull-quote::before {
+  display: none;
+}
+
+/* Restore the icon styles */
+.paradigm-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Restore the data highlight styles */
+.data-highlight {
+  display: inline-block;
+  background-color: rgba(67, 97, 238, 0.1);
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.company-highlight {
+  font-weight: 700;
+  color: #2d3748;
+}
+
+/* Media queries for the paradigm section */
+@media (max-width: 767px) {
+  .paradigm-subheading {
+    font-size: 1.2rem;
+  }
+  
+  .paradigm-paragraph {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .paradigm-section {
+    position: relative;
+    padding-left: 0; /* Remove the padding we added before */
+  }
+}
+
+/* Simplified media query */
+@media (min-width: 768px) and (max-width: 1100px) {
+  .paradigm-section {
+    padding-left: 0;
+  }
+}
+
+.fsbp-section-heading {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: #2b6cb0;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.75rem;
+}
+
+.fsbp-highlighted-data {
+  display: inline-block;
+  font-weight: 700;
+  color: #2b6cb0;
+  background-color: rgba(43, 108, 176, 0.08);
+  padding: 0 0.3rem;
+  border-radius: 3px;
+}
+
+.fsbp-key-characteristics {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.fsbp-key-characteristics ul {
+  margin-bottom: 0;
+  padding-left: 2rem;
+}
+
+.fsbp-key-characteristics li {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.fsbp-key-characteristics li:last-child {
+  margin-bottom: 0;
+}
+
+.fsbp-domain-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #4361ee;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-left-width: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fsbp-domain-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.fsbp-domain-section strong {
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Increase contrast for text in domain sections */
+.fsbp-domain-section .fsbp-text {
+  color: #1a202c;
+}
+
+/* Update strong text highlight to be more readable */
+.fsbp-domain-section strong {
+  background-color: rgba(67, 97, 238, 0.1);
+  padding: 0 0.25rem;
+  border-radius: 3px;
+  color: #1a202c;
+}
+
+/* Dark mode support for domain sections */
+@media (prefers-color-scheme: dark) {
+  .fsbp-domain-section {
+    background-color: #252b38;
+    border-left-color: #4361ee;
+  }
+  
+  .fsbp-domain-section .fsbp-text {
+    color: #e2e8f0;
+  }
+  
+  .fsbp-domain-section strong {
+    color: #fff;
+    background-color: rgba(67, 97, 238, 0.25);
+  }
+}
+
+.fsbp-portfolio-reference {
+  font-style: italic;
+  background-color: #f0f4f8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  border-left: 4px solid #4361ee;
+}
+
+.fsbp-section-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(67,97,238,0.1) 0%, rgba(67,97,238,0.8) 50%, rgba(67,97,238,0.1) 100%);
+  margin: 0 auto 2rem;
+  width: 80%;
 }
 
 .fsbp-cta-container {
   max-width: 900px;
-  margin: 4rem auto 0;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+  margin: 2rem auto 0;
+  padding: 3rem; /* Consistent overall padding */
+  background-color: #1a202c;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  color: white;
+  box-sizing: border-box;
 }
 
-.cta-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
+.cta-group {
+  margin-bottom: 2.5rem; /* Consistent margin between groups */
+  padding-bottom: 0;
+  border-bottom: 1px solid #2d3748;
+  position: relative;
 }
 
-@media (min-width: 768px) {
+.cta-group:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.cta-group h3 {
+  color: #e2e8f0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem; /* Consistent spacing below headings */
+  text-align: center; /* Center align headings to match button alignment */
+  padding-bottom: 0;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem; /* Consistent gap between buttons */
+  align-items: center;
+  justify-content: center; /* Center buttons */
+  margin-bottom: 0; /* No bottom margin needed since cta-group handles spacing */
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #4361ee;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(67, 97, 238, 0.15);
+  width: 280px; /* Increased from 260px to accommodate longer text */
+  height: 48px; /* Fixed height for all buttons */
+  box-sizing: border-box;
+  white-space: nowrap; /* Prevent text wrapping that could affect height */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Handle any potential text overflow */
+}
+
+.cta-button:hover {
+  background-color: #3651d4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(67, 97, 238, 0.2);
+}
+
+/* Icon styling for the CTA buttons */
+.cta-button-icon {
+  margin-right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke-width: 2px;
+  stroke: white;
+}
+
+.connect-context {
+  text-align: center;
+  color: #a0aec0;
+  font-size: 0.9rem;
+  margin-top: 1.25rem; /* Consistent margin */
+  font-style: italic;
+  max-width: 500px; /* Prevent text from appearing too wide */
+  margin-left: auto;
+  margin-right: auto; /* Center the text block */
+}
+
+@media (max-width: 768px) {
   .fsbp-cta-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    padding: 2rem 1.5rem;
   }
   
-  .cta-section {
-    flex: 1;
-    max-width: 30%;
+  .button-group, 
+  .cta-group:nth-child(2) .button-group {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 280px;
+    justify-content: flex-start;
   }
 }
 
-@media (prefers-contrast: high) {
-  .fsbp-section a {
-    text-decoration: underline double;
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .fsbp-cta-container {
+    background-color: #1a202c;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cta-group {
+    border-bottom-color: #2d3748;
+  }
+  
+  .cta-group h3 {
+    color: #e2e8f0;
+  }
+  
+  .connect-context {
+    color: #9ca3af;
+  }
+}
+
+/* New characteristic cards grid layout */
+.fsbp-characteristic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.characteristic-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.characteristic-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4361ee, #7276e7);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.characteristic-card:hover::before {
+  transform: scaleX(1);
+}
+
+.characteristic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  background-color: #fcfcfc;
+}
+
+.characteristic-icon-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(67, 97, 238, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.characteristic-icon-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(67, 97, 238, 0.05);
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.characteristic-card:hover .characteristic-icon-container::after {
+  transform: scale(1.5);
+}
+
+.characteristic-card:hover .characteristic-icon-container {
+  transform: scale(1.08);
+  background-color: rgba(67, 97, 238, 0.15);
+}
+
+.characteristic-icon {
+  width: 32px;
+  height: 32px;
+  color: #4361ee;
+  transition: transform 0.3s ease;
+}
+
+.characteristic-card:hover .characteristic-icon {
+  transform: scale(1.1);
+}
+
+.characteristic-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #2d3748;
+  transition: color 0.3s ease;
+}
+
+.characteristic-card:hover .characteristic-title {
+  color: #4361ee;
+}
+
+.characteristic-description {
+  color: #4a5568;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+/* Dark mode support for characteristic cards */
+@media (prefers-color-scheme: dark) {
+  .characteristic-card {
+    background-color: #1a202c;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .characteristic-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: #242a38;
+  }
+  
+  .characteristic-title {
+    color: #e2e8f0;
+  }
+  
+  .characteristic-card:hover .characteristic-title {
+    color: #90cdf4;
+  }
+  
+  .characteristic-description {
+    color: #a0aec0;
+  }
+  
+  .characteristic-icon-container {
+    background-color: rgba(67, 97, 238, 0.2);
+  }
+  
+  .characteristic-icon {
+    color: #90cdf4;
+  }
+  
+  .characteristic-card:hover .characteristic-icon-container {
+    background-color: rgba(67, 97, 238, 0.3);
+  }
+  
+  .characteristic-card::before {
+    background: linear-gradient(90deg, #4361ee, #6366f1);
+  }
+}
+
+/* Update grid layouts for different screen sizes */
+@media (min-width: 1024px) {
+  .fsbp-characteristic-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .fsbp-characteristic-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .characteristic-card {
+    padding: 1.5rem;
+  }
+  
+  .characteristic-icon-container {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 767px) {
+  .fsbp-characteristic-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+  }
+  
+  .characteristic-card {
+    padding: 1.5rem;
+  }
+  
+  .characteristic-icon-container {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .characteristic-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .characteristic-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .characteristic-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .characteristic-card,
+  .characteristic-icon-container,
+  .characteristic-icon,
+  .characteristic-title,
+  .characteristic-description,
+  .characteristic-card::before,
+  .characteristic-icon-container::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .characteristic-card:hover,
+  .characteristic-card:hover::before,
+  .characteristic-card:hover .characteristic-icon-container,
+  .characteristic-card:hover .characteristic-icon-container::after,
+  .characteristic-card:hover .characteristic-icon,
+  .characteristic-card:hover .characteristic-title {
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .characteristic-card {
+    border: 1px solid CanvasText;
+    box-shadow: none;
+  }
+  
+  .characteristic-icon-container {
+    border: 1px solid CanvasText;
+    background-color: Canvas;
+  }
+  
+  .characteristic-icon {
+    forced-color-adjust: none;
+  }
+  
+  .characteristic-title {
+    color: CanvasText;
+  }
+  
+  .characteristic-description {
+    color: CanvasText;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.characteristic-card:focus-visible {
+  outline: 3px solid #4361ee;
+  outline-offset: 2px;
+}
+
+/* Print styles for characteristic cards */
+@media print {
+  .fsbp-characteristic-grid {
+    display: block;
+  }
+  
+  .characteristic-card {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #000;
+    margin-bottom: 1rem;
+    break-inside: avoid;
+  }
+  
+  .characteristic-icon-container {
+    border: 1px solid #000;
+    background: none !important;
+  }
+  
+  .characteristic-icon {
+    color: #000 !important;
+  }
+}
+
+/* Dark mode styling adjustment */
+@media (prefers-color-scheme: dark) {
+  .fsbp-domain-section {
+    background-color: #1a202c;
+    border-left-color: #4361ee;
+  }
+  
+  .fsbp-domain-section strong {
+    color: #e2e8f0;
+  }
+}
+
+.fsbp-italic-text {
+  font-style: italic;
+}
+
+.connect-context {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+@media (prefers-color-scheme: dark) {
+  .connect-context {
+    color: #9ca3af;
+  }
+}
+
+/* Fade in animation for hero section */
+.fade-in-element {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  animation-delay: 100ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduce animations for those who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-element {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Add a specific style for the group with 3 buttons to ensure they all stay on same line */
+.cta-group:nth-child(2) .button-group {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: calc(880px + 2.5rem); /* 3 buttons at 280px width + 2 gaps at 1.25rem */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 940px) {
+  .cta-group:nth-child(2) .button-group {
+    grid-template-columns: repeat(2, 1fr);
   }
 } 
