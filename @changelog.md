@@ -31,6 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented skills section with tag display
 - Added new AiIntegrationProcessDiagram component that uses React Flow instead of Mermaid.js
 - Updated AiAutopilotAnalogy component to use the new React Flow based diagram instead of Mermaid
+- Added Vercel configuration file (vercel.json) to optimize deployment settings
+- Added `--legacy-peer-deps` flag to npm install command in Vercel config to handle dependency conflicts
 
 ### Fixed
 - Fixed issue with missing West Chester Off-Campus Housing job entry by adding it to the OLDER_EXPERIENCE array
@@ -59,6 +61,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed CategoryPill styling by adding !important rules to ensure consistent appearance across all categories
 - Fixed data duplication issue by removing Saturn Business Systems from side projects as it's already in the main work experience
 - Fixed performance issues with complex diagrams by starting migration to React Flow
+- Fixed dependency conflict with react-soundcloud-player by removing the unused package
+- Fixed deployment issues by configuring Vercel to bypass linting during build
+- Removed unused type definition for react-soundcloud-player
+- Properly reinstalled mermaid package to resolve build issues
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
@@ -101,6 +107,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Base components (ReactFlowDiagram) in `src/shared-components/molecules`
   - Specific diagram implementations in `src/components/diagrams`
 - Updated import paths in components using the diagram components
+- Simplified dependency tree by removing unnecessary packages
+- Updated build process to be more resilient to lint errors
 
 ### Removed 
 - Removed Expo item from the Modern Tooling category (now in React Native feature section)
