@@ -67,6 +67,9 @@ export const Footer = ({
 }: FooterProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMiniMode, setIsMiniMode] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const [interactionTimeout, setInteractionTimeout] = useState<NodeJS.Timeout | null>(null);
   const { tracks: hookTracks } = useFooter([], soundCloudTracks);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
@@ -96,13 +99,66 @@ export const Footer = ({
   // Use the tracks from the player context or fallback to hook tracks
   const displayTracks = tracks.length > 0 ? tracks : hookTracks;
 
+  // Handle scroll event to automatically minimize/maximize player
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const handleScroll = () => {
+      // Skip if user is currently interacting with player controls
+      if (isUserInteracting) return;
+      
+      // If player is expanded, don't auto-minimize
+      if (isExpanded) return;
+      
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Determine scroll direction
+      const isScrollingDown = scrollTop > lastScrollTop;
+      
+      // Update scroll position
+      setLastScrollTop(scrollTop);
+      
+      // Automatically minimize when scrolling down, restore when scrolling up
+      if (isScrollingDown && !isMiniMode) {
+        setIsMiniMode(true);
+      } else if (!isScrollingDown && isMiniMode) {
+        setIsMiniMode(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isMounted, lastScrollTop, isMiniMode, isUserInteracting, isExpanded]);
+
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
     return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
   };
 
+  // Set a temporary flag when user manually interacts with controls
+  const startUserInteraction = () => {
+    setIsUserInteracting(true);
+    
+    // Clear any existing timeout
+    if (interactionTimeout) {
+      clearTimeout(interactionTimeout);
+    }
+    
+    // Reset the flag after a delay
+    const timeout = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 2000); // 2 seconds grace period
+    
+    setInteractionTimeout(timeout);
+  };
+
   const handleTriStateButton = () => {
+    startUserInteraction();
+    
     // Tri-state cycle:
     // Mini Mode (35px) -> Normal Mode (player with controls) -> Expanded Mode (with playlist) -> Mini Mode
     
@@ -123,9 +179,19 @@ export const Footer = ({
   };
 
   const handleTrackSelect = (trackId: number | string) => {
+    startUserInteraction();
     console.log('Selecting track:', trackId);
     playTrack(trackId);
   };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (interactionTimeout) {
+        clearTimeout(interactionTimeout);
+      }
+    };
+  }, [interactionTimeout]);
 
   // If not mounted yet, return an empty footer to prevent hydration errors
   if (!isMounted) {
@@ -146,8 +212,11 @@ export const Footer = ({
       style={{
         borderTop: `1px solid ${colors.border}`
       }}
+      data-print-hidden="true"
+      aria-hidden="true"
+      className="audio-player-container"
     >
-      <FooterContainer>
+      <FooterContainer data-print-hidden="true" className="audio-player-wrapper">
         <GradientBorder style={{ background: colors.border }} />
         
         {/* Mini Mode Player */}
@@ -155,12 +224,22 @@ export const Footer = ({
           <MiniModeContainer>
             {/* Track artwork */}
             <div 
-              style={{ display: 'flex', alignItems: 'center', height: '100%', cursor: 'pointer', position: 'relative' }} 
-              onClick={togglePlay}
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                height: '100%', 
+                cursor: 'pointer', 
+                position: 'relative'
+              }} 
+              onClick={() => {
+                startUserInteraction();
+                togglePlay();
+              }}
               aria-label={isPlaying ? "Pause" : "Play"}
             >
               {currentTrack?.artwork ? (
-                <ArtworkContainer>
+                <ArtworkContainer style={{ display: 'flex', alignItems: 'center' }}>
                   <TrackArtwork 
                     src={currentTrack.artwork} 
                     alt={`${currentTrack.title} artwork`} 
@@ -193,9 +272,12 @@ export const Footer = ({
             {/* Progress bar */}
             <div style={{ 
               flex: 1, 
-              margin: '0 0.5rem'
+              margin: '0 0.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              height: '100%'
             }}>
-              <ProgressBar ref={progressBarRef} style={{ margin: 0 }}>
+              <ProgressBar ref={progressBarRef} style={{ margin: 0, width: '100%' }}>
                 <ProgressFill style={{ width: `${progress}%` }} />
               </ProgressBar>
             </div>
@@ -204,7 +286,14 @@ export const Footer = ({
             <ControlButton 
               onClick={handleTriStateButton}
               aria-label="Expand player"
-              style={{ padding: 0, margin: 0 }}
+              style={{ 
+                padding: 0, 
+                margin: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%'
+              }}
             >
               <ChevronUp size={14} style={{ color: colors.text }} />
             </ControlButton>
@@ -230,7 +319,10 @@ export const Footer = ({
                   {currentTrack?.artwork ? (
                     <ArtworkContainer 
                       style={{ cursor: 'pointer' }} 
-                      onClick={togglePlay}
+                      onClick={() => {
+                        startUserInteraction();
+                        togglePlay();
+                      }}
                     >
                       <TrackArtwork 
                         src={currentTrack.artwork} 
@@ -276,7 +368,10 @@ export const Footer = ({
                   {/* Playback controls */}
                   <ControlsContainer style={{ alignSelf: 'center' }}>
                     <ControlButton 
-                      onClick={prevTrack}
+                      onClick={() => {
+                        startUserInteraction();
+                        prevTrack();
+                      }}
                       aria-label="Previous track"
                       disabled={!currentTrack}
                     >
@@ -284,7 +379,10 @@ export const Footer = ({
                     </ControlButton>
                     
                     <ControlButton 
-                      onClick={togglePlay}
+                      onClick={() => {
+                        startUserInteraction();
+                        togglePlay();
+                      }}
                       aria-label={isPlaying ? "Pause" : "Start playing"}
                       disabled={!currentTrack}
                       style={{ margin: '0 0.75rem' }}
@@ -297,7 +395,10 @@ export const Footer = ({
                     </ControlButton>
                     
                     <ControlButton 
-                      onClick={nextTrack}
+                      onClick={() => {
+                        startUserInteraction();
+                        nextTrack();
+                      }}
                       aria-label="Next track"
                       disabled={!currentTrack}
                     >

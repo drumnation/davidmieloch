@@ -22,7 +22,10 @@ const variantStyles = {
     background: transparent;
     color: #4F46E5;
     &:hover {
-      background: #F3F4F6;
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+      font-weight: 600;
     }
   `,
   'repo-action': () => `

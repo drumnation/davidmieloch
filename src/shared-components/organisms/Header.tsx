@@ -20,7 +20,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useTheme } from '../../../src/providers/ThemeProvider';
-import { IconFileDownload, IconBrandGithub, IconBrandLinkedin, IconBrandMedium } from '@tabler/icons-react';
+import { IconFileText, IconBrandGithub, IconBrandLinkedin, IconBrandMedium } from '@tabler/icons-react';
 import { ClientOnly } from '../../../src/utils';
 import { usePathname } from 'next/navigation';
 
@@ -66,11 +66,6 @@ export function Header() {
     return false;
   };
 
-  const handleResumeDownload = () => {
-    // This will need to be updated with the actual resume PDF path
-    window.open('/resume.pdf', '_blank');
-  };
-
   const navItems = navLinks.map((link) => (
     <Link
       key={link.label}
@@ -110,15 +105,15 @@ export function Header() {
     <AppShell.Header 
       p="md" 
       style={{ 
-        backdropFilter: 'blur(10px)',
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+        backdropFilter: 'none',
+        backgroundColor: 'transparent',
+        borderBottom: 'none',
         position: 'fixed',
         top: 0,
         width: '100%',
         zIndex: 1000,
-        height: '60px', // Fixed height
-        overflow: 'visible', // Allow dropdowns to be visible
+        height: '60px',
+        overflow: 'visible',
       }}
     >
       <Container size="lg" h="100%" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -127,16 +122,17 @@ export function Header() {
             <UnstyledButton style={{ textDecoration: 'none' }}>
               <Group gap="xs" align="center" wrap="nowrap">
                 <Image 
-                  src="/web-app-manifest-192x192.png" 
+                  src="/dave-mieloch-headshot.jpg" 
                   alt="David Mieloch Logo" 
                   width={32} 
                   height={32} 
-                  style={{ borderRadius: '50%' }}
+                  style={{ borderRadius: '50%', border: '1px solid #141517' }}
                 />
                 <Text 
                   fw={700} 
                   size="lg" 
                   style={{
+                    marginTop: '5px',
                     color: '#141517'
                   }}
                 >
@@ -174,16 +170,21 @@ export function Header() {
             </div>
           </Group>
           
-          {/* Resume download button */}
+          {/* Experience link (replacing Resume download button) */}
           <ClientOnly>
             <Button
+              component={Link}
+              href="/experience"
               variant="subtle"
-              leftSection={<IconFileDownload size={16} />}
-              onClick={handleResumeDownload}
               visibleFrom="sm"
-              style={{ whiteSpace: 'nowrap', flex: '0 0 auto' }}
+              style={{ 
+                whiteSpace: 'nowrap', 
+                flex: '0 0 auto',
+                color: isActive('/experience') ? theme.colors.blue[6] : theme.colors.gray[7],
+                fontWeight: 500
+              }}
             >
-              Resume
+              Experience
             </Button>
           </ClientOnly>
           

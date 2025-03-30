@@ -123,6 +123,11 @@ export const ContentSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  min-height: 1000px; /* Ensure sufficient height for positioned content */
+  
+  & > div {
+    width: 100%; /* Ensure full width for all direct children */
+  }
   
   @media (max-width: 576px) {
     padding-top: calc(${SPACING.section} * 0.75);
