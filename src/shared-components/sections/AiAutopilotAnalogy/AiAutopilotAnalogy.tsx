@@ -6,7 +6,7 @@ import { FeatureGrid } from '../../organisms/FeatureGrid/FeatureGrid';
 import { ComparisonTable } from '../../molecules/ComparisonTable';
 import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';
 import { Typography } from '../../atoms/Typography';
-import { MermaidDiagram } from '../../molecules/MermaidDiagram';
+import { AiIntegrationProcessDiagram } from '../../../components/diagrams/AiIntegrationProcessDiagram';
 import { useAiAutopilotAnalogy } from './AiAutopilotAnalogy.hook';
 import {
   GlobalStyles,
@@ -557,12 +557,14 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                 margin: '0 auto',
                 textAlign: 'center'
               }}>
-                <MermaidDiagram
-                  definition={mermaidDiagramProps.definition || ''}
+                <AiIntegrationProcessDiagram
                   theme={mermaidDiagramProps.theme as 'default' | 'dark' | 'forest' | 'neutral' | undefined}
                   height="auto"
                   width="100%"
                   className="centered-diagram"
+                  title=""
+                  description=""
+                  showZoomControls={false}
                 />
               </div>
             </div>

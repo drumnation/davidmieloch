@@ -29,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented company logo display in experience entries
 - Added education section with school information
 - Implemented skills section with tag display
+- Added new AiIntegrationProcessDiagram component that uses React Flow instead of Mermaid.js
+- Updated AiAutopilotAnalogy component to use the new React Flow based diagram instead of Mermaid
 
 ### Fixed
 - Fixed issue with missing West Chester Off-Campus Housing job entry by adding it to the OLDER_EXPERIENCE array
@@ -40,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed key property handling in CategoryItems to ensure type safety
 - Fixed excessive whitespace in the React Native feature section for a more compact appearance
 - Fixed spacing in CategoryCard by setting proper margins between titles, descriptions, and items
-- Corrected horizontal alignment of category cards by standardizing height and spacing
+- Fixed horizontal alignment of category cards by standardizing height and spacing
 - Removed excessive top margin in ReactNativeFeature component for better visual flow with other sections
 - Fixed the duplicate ReactNativeFeature component issue in BestPractices.tsx that was causing extra whitespace
 - Adjusted page separator styling with reduced top margin, black line color, and improved icon visibility
@@ -56,6 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed transparent header background in SideProjectsSection by adding solid white background and border styling
 - Fixed CategoryPill styling by adding !important rules to ensure consistent appearance across all categories
 - Fixed data duplication issue by removing Saturn Business Systems from side projects as it's already in the main work experience
+- Fixed performance issues with complex diagrams by starting migration to React Flow
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
@@ -92,6 +95,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved code organization with proper component separation, barrel exports, and style isolation
 - Created dedicated constants files for all Experience page sections to make content easily editable and maintainable
 - Restructured LinkedIn data into well-organized, modular content chunks that can be customized independently
+- Started migration from Mermaid.js to React Flow for improved diagram performance and styling consistency
+- Migrated diagram components from `src/shared-components/diagrams` to `src/components/diagrams`
+- Updated folder structure to follow component organization pattern:
+  - Base components (ReactFlowDiagram) in `src/shared-components/molecules`
+  - Specific diagram implementations in `src/components/diagrams`
+- Updated import paths in components using the diagram components
 
 ### Removed 
 - Removed Expo item from the Modern Tooling category (now in React Native feature section)
