@@ -161,3 +161,20 @@ export const Subtitle = styled.div`
   opacity: 0.95;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  
+  ${media.down('sm')} {
+    flex-direction: column;
+    align-items: center;
+    
+    > * {
+      margin-left: 0 !important;
+      margin-bottom: 1rem;
+    }
+  }
+`;

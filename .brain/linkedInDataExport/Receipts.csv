@@ -1,0 +1,32 @@
+First Name,Last Name,Billing Country,Postal Code,Transaction Made At,Payment Method Type,Invoice Number,Description,Tax Amount,Sub Total,Total Amount,Currency Code
+David,Mieloch,us,10009,"7/3/18, 12:11 AM",CreditCard,4120801233,Premium Career Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"6/3/18, 12:11 AM",CreditCard,4072596083,Premium Career Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"5/3/18, 12:12 AM",CreditCard,3067218496,Premium Career Subscription (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"10/27/17, 1:53 AM",CreditCard,3802432303,Premium Career Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"9/27/17, 1:53 AM",CreditCard,2732189436,Premium Career Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"8/27/17, 1:53 AM",CreditCard,3737873873,Premium Career Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"7/27/17, 1:53 AM",CreditCard,3705762943,Premium Career Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"6/27/17, 1:54 AM",CreditCard,3671640683,Premium Career Subscription (Monthly),0,0,0,USD
+Romain ,Cochet,us,10018,"1/20/16, 12:48 AM",CreditCard,2505604564,Sales Navigator Core Subscription (Monthly),7.1,79.99,87.09,USD
+David,Mieloch,us,10009,"1/19/16, 5:59 PM",CreditCard,2504550784,Business Plus Subscription renewal (Monthly),5.32,59.99,65.31,USD
+David,Mieloch,us,10009,"12/19/15, 5:59 PM",CreditCard,2424396074,Business Plus Subscription renewal (Monthly),5.32,59.99,65.31,USD
+Romain ,Cochet,us,10018,"12/18/15, 1:28 PM",CreditCard,2421682234,LinkedIn Ads recurring charges,0,53.35,53.35,USD
+Romain ,Cochet,us,10018,"12/12/15, 1:28 PM",CreditCard,2403597354,LinkedIn Ads recurring charges,0,27.06,27.06,USD
+David,Mieloch,us,10009,"11/19/15, 6:00 PM",CreditCard,2328059964,Business Plus Subscription (Monthly),0,0.00,0.00,USD
+David,Mieloch,us,10009,"11/13/15, 7:28 AM",CreditCard,2303554644,LinkedIn Ads recurring charges,0,0,0,USD
+Romain ,Cochet,us,10018,"11/5/15, 11:23 PM",CreditCard,2276071994,LinkedIn Ads account activation,0,0,0,USD
+Alan,Krieger,us,10017,"10/1/15, 10:31 AM",CreditCard,3196384903,LinkedIn Ads recurring charges,0,7.92,7.92,USD
+David,Mieloch,us,10009,"8/31/15, 3:24 PM",CreditCard,3080096553,Premium Job Seeker Subscription renewal (Monthly),2.66,29.99,32.65,USD
+Alan,Krieger,us,10017,"8/31/15, 2:41 PM",CreditCard,3079915633,LinkedIn Ads account activation,0,0,0,USD
+David,Mieloch,us,10009,"7/31/15, 3:24 PM",CreditCard,2972977943,Premium Job Seeker Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"6/30/15, 3:24 PM",CreditCard,2867484753,Premium Job Seeker Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"5/31/15, 3:25 PM",CreditCard,2766400793,Premium Job Seeker Subscription (Monthly),2.66,29.99,32.65,USD
+Alan,Krieger,us,10017,"1/1/15, 1:25 PM",CreditCard,1774631633,Executive Subscription renewal (Monthly),8.87,99.99,108.86,USD
+Alan,Krieger,us,10017,"12/1/14, 1:25 PM",CreditCard,1625355693,Executive Subscription renewal (Monthly),8.87,99.99,108.86,USD
+Alan,Krieger,us,10017,"11/1/14, 1:26 PM",CreditCard,1471139413,Executive Subscription renewal (Monthly),8.87,99.99,108.86,USD
+Alan,Krieger,us,10017,"10/1/14, 1:29 PM",CreditCard,1349891591,"Executive Subscription (Monthly), Credit from previous subscription purchase",3.55,40.00,43.55,USD
+David,Mieloch,us,10009,"10/1/14, 1:22 PM",CreditCard,1349860811,"Business Plus Subscription (Monthly), Credit from previous subscription purchase",2.75,30.99,33.74,USD
+David,Mieloch,us,10009,"9/30/14, 12:17 PM",CreditCard,1342462791,Premium Job Seeker Subscription renewal (Monthly),2.66,29.99,32.65,USD
+David,Mieloch,us,10009,"8/30/14, 12:18 PM",CreditCard,1193482791,Premium Job Seeker Subscription renewal (Monthly),2.66,29.99,32.65,USD
+Alan,Krieger,us,10017,"7/31/14, 3:06 PM",CreditCard,1050194651,LinkedIn Ads account activation,0,5,5,USD
+David,Mieloch,us,10009,"7/30/14, 12:20 PM",CreditCard,1043690691,Premium Job Seeker Subscription (Monthly),0,0.00,0.00,USD

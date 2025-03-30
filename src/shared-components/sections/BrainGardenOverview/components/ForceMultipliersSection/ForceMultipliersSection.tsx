@@ -6,7 +6,6 @@ import { Icon } from '../../../../atoms/Icon';
 import styled from 'styled-components';
 import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
 import {
-  ContentContainer,
   SectionSubtitle,
   GradientText,
   ImpactMetric,
@@ -14,6 +13,7 @@ import {
   PowerfulTitle,
   MetricsContainer
 } from '../../BrainGardenOverview.styles';
+import { ForceMultiplierContainer } from './ForceMultipliersSection.styles';
 
 // Styled components for typography
 const IntroText = styled(Typography)`
@@ -379,7 +379,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
   ];
 
   return (
-    <ContentContainer className={className} id="force-multipliers-section">
+    <ForceMultiplierContainer className={className} id="force-multipliers-section">
       <div>
         <PowerfulTitle>
           <Icon name="bolt" source="tabler" size={32} />
@@ -1445,6 +1445,6 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
           </BodyText>
         </StoryBox>
       </div>
-    </ContentContainer>
+    </ForceMultiplierContainer>
   );
 };

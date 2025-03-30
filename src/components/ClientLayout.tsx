@@ -27,7 +27,7 @@ export default function ClientLayout({
           </Container>
         </AppShell.Main>
         
-        <PersistentFooter />
+        <PersistentFooter data-print-hidden="true" />
       </AppShell>
     </ThemeProvider>
   );

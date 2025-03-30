@@ -1,0 +1,90 @@
+[
+  {
+    "school": "Flatiron School",
+    "degree": "Certificate",
+    "fieldOfStudy": "15 Week – Full Stack Web Immersive",
+    "startDate": "2017",
+    "endDate": "2017",
+    "description": "15 Week – Full Stack Web Immersive • Frontend: JS fundamentals (ES6+), Component Pattern, React.js, Redux + Thunk, jQuery • Backend: Ruby fundamentals, MVC pattern, Rails, SQL, ORMs, Active Record, Ruby on Rails",
+    "activities": "",
+    "logoPath": "/school-logos/flatironschool.png",
+    "mediaUrl": "https://fast.wistia.net/embed/iframe/lpchu9kv9n",
+    "mediaType": "video"
+  },
+  {
+    "school": "Codecademy",
+    "degree": "Online Courses",
+    "fieldOfStudy": "Web Development",
+    "startDate": "2017",
+    "endDate": "2017",
+    "description": "• Ruby, Javascript, ReactJS",
+    "activities": "",
+    "logoPath": "/school-logos/codecademy.png"
+  },
+  {
+    "school": "App Academy",
+    "degree": "Certificate",
+    "fieldOfStudy": "3 Month  – Online Fundamentals Intensive",
+    "startDate": "2016",
+    "endDate": "2016",
+    "description": "3 Month  – Online Fundamentals Intensive • JavaScript ES6+",
+    "activities": "",
+    "logoPath": "/school-logos/appacademy.png"
+  },
+  {
+    "school": "General Assembly",
+    "degree": "Certificate",
+    "fieldOfStudy": "NYC Campus",
+    "startDate": "2016",
+    "endDate": "2016",
+    "description": "NYC Campus • Growth Hacking for Startups • Google AdWords Certification",
+    "activities": "",
+    "logoPath": "/school-logos/generalassembly.png"
+  },
+  {
+    "school": "Udemy",
+    "degree": "Online Courses",
+    "fieldOfStudy": "Multiple Disciplines",
+    "startDate": "2014",
+    "endDate": "2017",
+    "description": "• Programming, Digital Marketing, PPC, SEO, Content Marketing, Ad Publishing",
+    "activities": "",
+    "logoPath": "/school-logos/udemy.png"
+  },
+  {
+    "school": "IBM Corporate Training",
+    "degree": "Professional Development",
+    "fieldOfStudy": "Data Analytics",
+    "startDate": "2014",
+    "endDate": "2015",
+    "description": "• Attended IBM Partner Content Marketing Workshops • Attended IBM Insight Conference • Trained to create data models for clients using Watson Analytics for Social Media • Use supervised and unsupervised methods to derive insights from data.",
+    "activities": "",
+    "logoPath": "/school-logos/ibmcorporatetraining.png"
+  },
+  {
+    "school": "West Chester University of Pennsylvania",
+    "degree": "B.A.",
+    "fieldOfStudy": "Music",
+    "startDate": "2003",
+    "endDate": "2008",
+    "description": "• Instrumental Concentration – Classical Percussion and Jazz Drumset performance • Secondary Instruments – Computer, Tabla, Guitar and Piano",
+    "activities": "Phi Mu Alpha Sinfonia + Percussion Ensemble",
+    "logoPath": "/school-logos/westchesteruniversityofpennsylvania.png",
+    "media": [
+      {
+        "type": "embed",
+        "url": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1289735&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+        "title": "Orchestral | Chamber Ensemble | Acoustic | Classical",
+        "width": "50%",
+        "height": 300
+      },
+      {
+        "type": "embed",
+        "url": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1289959&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+        "title": "Music for Games",
+        "width": "50%",
+        "height": 300
+      }
+    ]
+  }
+]

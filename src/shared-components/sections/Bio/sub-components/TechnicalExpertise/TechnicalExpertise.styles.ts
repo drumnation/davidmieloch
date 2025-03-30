@@ -24,10 +24,21 @@ export const CategoryTitle = styled.h4`
 export const CategorySkills = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.875rem;
+  gap: 0.75rem;
+  align-items: center;
+  
+  & > * {
+    margin: 0.1rem;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
 `;
 
+// We're no longer using this component, but keeping it for reference
+// in case we need to revert back or use it elsewhere
 export const CompactSkillTag = styled(motion.span)`
   background: ${({ theme }) => theme.colors.background.light};
   color: ${({ theme }) => theme.colors.text.primary};

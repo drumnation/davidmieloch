@@ -1,0 +1,192 @@
+[
+  {
+    "company": "Scala",
+    "title": "Senior Software Engineer, Frontend Lead",
+    "location": "Malvern, PA",
+    "startDate": "Mar 2020",
+    "endDate": "Present",
+    "description": "With 31 years' experience in the digital signage industry, Scala is known globally as the leader in stable, secure network deployment at scale  • Lead a team of 5 developers in adopting modern React patterns, TypeScript, and Atomic Design principles. Conduct regular code reviews and one-on-ones to boost efficiency, code quality, and team performance.  • Spearhead the re-architecture of Scala's flagship \"Designer\" graphic design product and the Scala Cloud Platform, aligning cross-functional teams with strategic business goals.  • Document Requirements: Author detailed JIRA tickets with comprehensive user stories, technical specifications, and acceptance criteria to guide development and ensure clear communication.  • Manage the development of key features, including a template builder tool, device monitoring module, Node.js microservices, 24 hour scheduled projects player, while mentoring developers and ensuring high code quality.  • Guide the organization in scaling the codebase to support sustainable growth and long-term maintainability.",
+    "bulletPoints": [],
+    "logoPath": "/company-logos/scala.png"
+  },
+  {
+    "company": "DrayNow, Inc.",
+    "title": "Senior Software Engineer",
+    "location": "Conshohocken, PA",
+    "startDate": "Apr 2019",
+    "endDate": "Mar 2020",
+    "description": "DrayNow is the first real-time marketplace for seamlessly connecting intermodal freight and carriers.  • Led critical rewrite of React Native app, delivering a stable, feature-complete solution using TypeScript and TDD after external team missed deadlines. Managed both internal and external development teams, introducing structured workflows and improving communication.  • Converted five major areas of web platform to atomic design patterns, leading to a 30% reduction in bugs and a 25% increase in developer productivity.  • Mentored five junior engineers, reducing onboarding time by 40% and contributing to 30% faster • • completion of major project milestones.  • Enhanced team collaboration by introducing structured development workflows and improving communication between remote teams.",
+    "bulletPoints": [],
+    "logoPath": "/company-logos/draynowinc.png"
+  },
+  {
+    "company": "OTG Management",
+    "title": "Senior Frontend Engineer",
+    "location": "New York, NY",
+    "startDate": "Jun 2018",
+    "endDate": "Jul 2019",
+    "description": "OTG operates the world's largest fleet of centrally managed, public facing iPads (10K+ iPads), located in airports around the US  • Order Ahead Application: Developed full-stack 'Order Ahead' web app, enabling passengers to order food from airport restaurants for gate-side pickup. Integrated dynamic menu data across national locations, driving a 20% increase in order throughput and customer transactions.  • Cart Screen Redesign: Reimplemented critical cart screen in JavaScript for the OTG iOS app Concierge, enabling over-the-air updates to thousands of iPads nationwide. This innovation facilitated 30% faster feature rollouts, enhanced customizability, and eliminated the need for time-consuming manual updates across terminals.  • In-App Advertisement System: Developed template-driven ad system for OTG iOS app, boosting campaign update speed by 50% and user engagement by 15%.  • Cross-Functional Collaboration: Coordinated with various teams to implement best practices in code development and project management, fostering improved collaboration and efficiency across the organization.",
+    "bulletPoints": [],
+    "logoPath": "/company-logos/otgmanagement.png",
+    "media": [
+      {
+        "type": "embed",
+        "url": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/540157266&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+        "title": "OTG Airport Experience Demo",
+        "width": "full",
+        "height": 300
+      }
+    ]
+  },
+  {
+    "company": "Gramercy Tech",
+    "title": "Full Stack Developer",
+    "location": "New York, NY",
+    "startDate": "Jul 2017",
+    "endDate": "Jun 2018",
+    "description": "Gramercy Tech specializes in innovative event technology solutions, including event management apps and immersive AR/VR experiences.",
+    "bulletPoints": [
+      "Solely developed award-winning Master A Million™ Platform: React Native app (iOS/Android) and web app. The app and toy won \"Best of NYC Toy Fair\" (Parents' Magazine) and \"Activity Toy of the Year\" (Swedish Toy Awards).",
+      "Developed interactive applications and backend systems for high-profile events (TD/Ameritrade, Novartis Pharma, Jack Daniels), enhancing attendee experiences.",
+      "Created and published react-native-cross-platform-dimensions npm package (25 Stars / 5 Forks) to enhance development efficiency."
+    ],
+    "logoPath": "/company-logos/gramercytech.png",
+    "media": [
+      {
+        "type": "embed",
+        "url": "https://www.youtube.com/embed/FhIIgTV08RQ?si=00_ddQYAvuMKU8C3",
+        "title": "Master A Million Showcase Video",
+        "width": "full",
+        "height": 315
+      },
+      {
+        "type": "embed",
+        "url": "https://www.youtube.com/embed/FB2o6krFmZw?si=slIxX7VyeajlqTKz",
+        "title": "Master A Million Demo Video",
+        "width": "50%",
+        "height": 315,
+        "description": "Hacking a dumb laser to be smart"
+      },
+      {
+        "type": "pdf",
+        "url": "/media/Master A Million - REACT NATIVE.pdf",
+        "title": "Master A Million - React Native Documentation",
+        "thumbnailUrl": "/media/masteramillion-ball.png"
+      },
+      {
+        "type": "link",
+        "url": "https://medium.com/react-native-now/my-journey-from-reactjs-to-react-native-d19986a47dec",
+        "title": "My Journey from ReactJS to React-Native",
+        "description": "Mega-post with everything I learned + lots of code examples",
+        "thumbnailUrl": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*7lwP90uD_PsbkbLek7ffyQ.jpeg",
+        "width": "100%"
+      },
+      {
+        "type": "link",
+        "url": "https://medium.com/@davidmieloch/npm-to-help-streamline-cross-platform-styling-in-react-native-f2855b8c4648",
+        "title": "NPM to Help Streamline Cross-Platform Styling in React Native",
+        "description": "Using react-native-cross-platform-dimensions to simplify responsive design",
+        "thumbnailUrl": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*7lwP90uD_PsbkbLek7ffyQ.jpeg",
+        "width": "100%"
+      },
+      {
+        "type": "link",
+        "url": "https://medium.com/@davidmieloch/making-a-dumb-laser-smart-by-hacking-it-to-a-raspberry-pi-c88cb6aee02a",
+        "title": "Making a Dumb Laser Smart by Hacking it to a Raspberry Pi",
+        "description": "How we connected the Master A Million ball to a micro-controller",
+        "thumbnailUrl": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*frqAogzwrKd1cpWiDlFtgw.png",
+        "width": "100%"
+      }
+    ]
+  },
+  {
+    "company": "UniqueSound (Techstars NYC' 15)",
+    "title": "Head of Growth",
+    "location": "New York, NY",
+    "startDate": "Sep 2015",
+    "endDate": "Feb 2016",
+    "description": "UniqueSound was an innovative platform connecting content creators with curated music composers. It enabled composers and sound designers to showcase their work and get hired by global brands. As part of Techstars NYC, UniqueSound enhanced collaboration and workflow in the music industry, offering unique solutions for pitching and collaboration.  • Accelerated Platform Growth: Developed persona-driven landing pages that significantly boosted creator marketplace platform growth by tailoring content to attract and engage targeted audiences.  • Content Strategy Leadership: Built and led a team of bloggers to produce high-quality, original content, driving a substantial increase in site traffic and user engagement from target personas.  • Optimized Advertising Spend: Managed and optimized a search and social advertising budget, effectively promoting original content through digital ads, resulting in higher ROI and increased brand visibility.",
+    "bulletPoints": [],
+    "logoPath": "/company-logos/uniquesoundtechstarsnyc15.png"
+  },
+  {
+    "company": "Saturn Business Systems",
+    "title": "Digital Marketing Manager",
+    "location": "New York, NY",
+    "startDate": "Feb 2013",
+    "endDate": "Sep 2015",
+    "description": "Saturn Business Systems, provides integrated IT solutions, including data center and cloud solutions, big data analytics, and cybersecurity. They partner with top technology manufacturers to deliver customized solutions for clients in finance, telecom, retail, healthcare, and education.  • Revamped Online Presence: Designed a new company website and implemented a HubSpot blog for content marketing, significantly enhancing the company's digital footprint and lead generation capabilities.  • Cultivated Industry Expertise: Sourced and developed data governance experts into thought-leaders and sales consultants, strengthening the company's reputation and driving industry influence.  • Created High-Impact Sales Collateral: Produced a comprehensive suite of sales materials, including white papers, case studies, videos, blogs, and data sheets, empowering the sales team with compelling content to drive conversions and client engagement.",
+    "bulletPoints": [],
+    "logoPath": "/company-logos/saturnbusinesssystems.png"
+  },
+  {
+    "company": "Graphnet",
+    "title": "Marketing Manager and Frontend Developer",
+    "location": "New York, NY",
+    "startDate": "Jan 2012",
+    "endDate": "Feb 2013",
+    "description": "",
+    "bulletPoints": [
+      "Revamped Marketing Strategy: Designed and implemented a comprehensive marketing strategy, enhancing the sales process and creating compelling collateral that drove brand visibility and engagement.  • Generated $50,000 in monthly recurring revenue within the first few months of campaign launches through targeted strategies and optimization.  • Optimized Lead Generation: Built and optimized high-conversion landing pages, managing a steady pipeline of inbound leads and efficiently distributing them to the sales team to maximize sales opportunities.  • Crafted High-Impact Sales Materials: Designed professional white papers, case studies, and data sheets using Adobe Photoshop, providing the sales team with persuasive tools to secure client deals."
+    ],
+    "logoPath": "/company-logos/graphnet.png"
+  },
+  {
+    "company": "Kwikpoint",
+    "title": "Frontend Web Developer",
+    "location": "Alexandria, VA",
+    "startDate": "Jan 2011",
+    "endDate": "Mar 2016",
+    "description": "Kwikpoint specializes in the creation of visual language communication tools that help bridge language barriers. Their products are widely used in various industries, including military, healthcare, and emergency response, to facilitate clear and effective communication through universally understandable symbols and graphics.  • Directed a Development Team: Led a team in the creation of a comprehensive website and online store, ensuring seamless functionality and user experience, while providing ongoing support to maintain optimal performance.  • Boosted Marketing Campaigns: Designed and optimized landing pages for email marketing campaigns, increasing conversion rates and customer engagement.  • Enhanced E-commerce Operations: Managed the addition of new products and maintained the e-commerce platform, improving sales efficiency and user experience.",
+    "bulletPoints": [],
+    "logoPath": "/company-logos/kwikpoint.png"
+  },
+  {
+    "company": "Q-nomy, Inc.",
+    "title": "Business Development Manager",
+    "location": "New York, NY",
+    "startDate": "Jan 2011",
+    "endDate": "Dec 2011",
+    "description": "",
+    "bulletPoints": [
+      "Drove Product Adoption: Effectively scheduled and conducted product demos for company software, digital signage, and proprietary kiosks, showcasing the value and capabilities to potential clients.  • Led High-Stakes Sales Presentations: Delivered compelling technical sales presentations to groups of decision makers via WebEx, influencing purchasing decisions and driving sales growth.  • Strategically Targeted Executives: Utilized Jigsaw to identify and target C-level executives, crafting and A/B testing personalized MailChimp email templates to maximize engagement and conversion rates."
+    ],
+    "logoPath": "/company-logos/qnomyinc.png"
+  },
+  {
+    "company": "Edit.com",
+    "title": "B2B Website Sales Consultant",
+    "location": "Brookyln, NY",
+    "startDate": "Feb 2010",
+    "endDate": "Dec 2010",
+    "description": "",
+    "bulletPoints": [
+      "Optimized Client Campaigns: Developed high-conversion landing pages for client marketing campaigns, enhancing online engagement and lead generation.  • Exceeded Sales Targets: Consistently met and exceeded sales quotas by self-generating leads, scheduling, and leading persuasive sales presentations.  • Consultative Sales Excellence: Demonstrated a consultative sales approach, creating tailored web strategies that addressed client needs and drove business growth."
+    ],
+    "logoPath": "/company-logos/editcom.png"
+  },
+  {
+    "company": "The Harmony Channel",
+    "title": "Frontend Developer",
+    "location": "Greater Philadelphia Area",
+    "startDate": "Aug 2006",
+    "endDate": "Sep 2007",
+    "description": "",
+    "bulletPoints": [
+      "Created Dynamic Marketing Website: Developed a visually engaging marketing website for an on-demand visual music television network, enhancing online presence and user experience.  • Streamlined Digital Content Management: Managed and optimized digital content, edited video, and formatted video files for seamless streaming, improving content delivery and viewer satisfaction."
+    ],
+    "logoPath": "/company-logos/theharmonychannel.png"
+  },
+  {
+    "company": "West Chester Off-Campus Housing",
+    "title": "Lead Network Admin and Computer Repair Specialist",
+    "location": "Greater Philadelphia Area",
+    "startDate": "Jun 2004",
+    "endDate": "Jul 2006",
+    "description": "",
+    "bulletPoints": [
+      "Developed and Maintained Marketing Website: Designed and continuously updated the company's marketing website, enhancing online visibility and user engagement.  • Managed Large-Scale Network Infrastructure: Efficiently supported a complex network of over 400 nodes, providing reliable internet connectivity to a 7-apartment building housing students.  • Executed Extensive Hardware Repairs: Diagnosed and repaired hundreds of laptops and desktop computers, ensuring minimal downtime and maintaining high levels of user satisfaction."
+    ],
+    "logoPath": "/company-logos/westchesteroffcampushousing.png"
+  }
+]

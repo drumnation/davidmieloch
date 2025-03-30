@@ -11,8 +11,8 @@ import {
   CategoryContainer,
   CategoryTitle,
   CategorySkills,
-  CompactSkillTag
 } from './TechnicalExpertise.styles';
+import { TechIcon } from '../../../../atoms/TechIcon';
 
 // Create animated components
 const AnimatedBioSectionTitle = animated(BioSectionTitle);
@@ -59,7 +59,13 @@ export const TechnicalExpertise: React.FC<TechnicalExpertiseProps> = ({ classNam
               <CategoryTitle>{category.name}</CategoryTitle>
               <CategorySkills>
                 {category.skills.map((skill) => (
-                  <CompactSkillTag key={skill}>{skill}</CompactSkillTag>
+                  <TechIcon 
+                    key={skill} 
+                    name={skill} 
+                    size={20}
+                    showLabel={false}
+                    showTooltip={true}
+                  />
                 ))}
               </CategorySkills>
             </AnimatedCategoryContainer>

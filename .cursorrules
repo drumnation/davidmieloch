@@ -2,9 +2,9 @@
 
 ## ! Initiatize context for the project like this:
 
-1. Check .brain/github-projects-plan.md for tasks
-2. Read and review .brain/directory-structure.md for the directory structure
-3. Review .brain/design-guide.md for design guidelines
+1. Check `.brain/github-projects-plan.md` for tasks
+2. Read and review `.brain/directory-structure.md` for the directory structure
+3. ALWAYS READ `.brain/coding-standards.md` for Best Practices
 4. After each completed task, update .brain/github-projects-plan.md and start a new task
 5. Use the `browser-use` tool to check your work both in storybook at localhost:6006 and in the main app at localhost:3001
 6. ALWAYS use `execute_mcp_client` tool before coding to architect a coding plan
