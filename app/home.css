@@ -1,0 +1,241 @@
+/* Responsive styles for the home page */
+
+/* Mobile styles (up to 767px) */
+@media (max-width: 767px) {
+  .hero-content {
+    padding: 1.5rem !important;
+  }
+  
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem !important;
+  }
+  
+  .section-container {
+    padding: 2rem 1rem !important;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .persona-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .persona-card {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .cta-buttons button {
+    margin-right: 0 !important;
+    width: 100%;
+  }
+  
+  .fsbp-section {
+    margin: 1rem 0 3rem;
+  }
+  
+  .fsbp-cta-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Tablet styles (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .section-container {
+    padding: 3rem 1.5rem !important;
+  }
+}
+
+/* Small desktop styles (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .section-container {
+    max-width: 960px !important;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ensure persona cards have white background with dark text */
+.persona-card {
+  background-color: white !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 180px;
+}
+
+.persona-title {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #333333 !important;
+  font-weight: 600;
+}
+
+.persona-description {
+  font-size: 0.875rem;
+  color: #555555 !important;
+  text-align: center;
+  margin: 0;
+}
+
+/* Dark mode support - with fixed persona cards */
+@media (prefers-color-scheme: dark) {
+  .project-card,
+  .article-card {
+    background-color: #2a2a2a !important;
+    color: #e0e0e0 !important;
+  }
+  
+  .article-title {
+    color: #f0f0f0 !important;
+  }
+  
+  .article-description {
+    color: #b0b0b0 !important;
+  }
+  
+  /* Override dark mode for persona cards to ensure readability */
+  .persona-card {
+    background-color: white !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+  
+  .persona-title {
+    color: #333333 !important;
+  }
+  
+  .persona-description {
+    color: #555555 !important;
+  }
+}
+
+/* Print styles for better readability when printed */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .hero-section {
+    min-height: auto !important;
+    padding: 2em 0 !important;
+  }
+  
+  .cta-section,
+  .persona-nav {
+    display: none !important;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  .fsbp-section {
+    break-inside: avoid;
+  }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  .hero-container,
+  .feature-section,
+  .insights-section,
+  .cta-section {
+    border: 1px solid CanvasText;
+  }
+  
+  .project-card,
+  .article-card,
+  .persona-card {
+    border: 1px solid CanvasText;
+  }
+}
+
+/* Full-Stack Business Person section */
+.fsbp-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.fsbp-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.fsbp-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.fsbp-cta-container {
+  max-width: 900px;
+  margin: 4rem auto 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .fsbp-cta-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .cta-section {
+    flex: 1;
+    max-width: 30%;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .fsbp-section a {
+    text-decoration: underline double;
+  }
+} 

@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { CSSProperties, useEffect } from 'react';
 import { Hero } from '../../organisms/Hero';
 import { useBrainGardenOverview } from './BrainGardenOverview.hook';
 import {
@@ -65,16 +65,33 @@ export const BrainGardenOverview = () => {
   const [systemRef, systemInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [coreRef, coreInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [teamRef, teamInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [forceRef, forceInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [forceRef, forceInView] = useInView({ 
+    triggerOnce: true, 
+    threshold: 0,
+    rootMargin: '0px 0px -10% 0px'
+  });
   const [gardenRef, gardenInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [architectureRef, architectureInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [evolutionRef, evolutionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [transitionRef, transitionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const fadeInStyle = (inView: boolean) => ({
+  // Debug useEffect to log intersection observer state
+  useEffect(() => {
+    if (forceInView) {
+      console.log('Force Multipliers section is now in view!');
+    }
+  }, [forceInView]);
+
+  const fadeInStyle = (inView: boolean): CSSProperties => ({
     opacity: inView ? 1 : 0,
+    visibility: inView ? 'visible' : 'hidden',
+    position: inView ? 'relative' : 'absolute',
+    pointerEvents: inView ? 'auto' : 'none',
     transform: `translateY(${inView ? 0 : 30}px)`,
-    transition: 'opacity 0.6s ease-out, transform 0.8s ease-out'
+    willChange: 'opacity, transform',
+    transition: inView 
+      ? 'visibility 0s, opacity 0.6s ease-out, transform 0.8s ease-out, position 0s' 
+      : 'opacity 0.6s ease-out, transform 0.8s ease-out, visibility 0s 0.6s, position 0s 0.6s'
   });
 
   return (
@@ -101,7 +118,7 @@ export const BrainGardenOverview = () => {
           </div>
           
           {/* Force Multipliers Section */}
-          <div ref={forceRef} style={fadeInStyle(forceInView)}>
+          <div ref={forceRef} style={fadeInStyle(forceInView)} id="force-multiplier-debug-container" data-inview={forceInView}>
             <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
           </div>
           
