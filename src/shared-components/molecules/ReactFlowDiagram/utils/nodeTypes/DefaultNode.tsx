@@ -11,14 +11,14 @@ interface NodeData {
   style?: React.CSSProperties;
 }
 
-const NodeContainer = styled.div<{ $hasTopIcon?: boolean }>`
+const NodeContainer = styled.div<{ $hasTopIcon?: boolean; $width?: string }>`
   padding: 12px 20px;
   border-radius: 5px;
   background: white;
   border: 1px solid #ddd;
-  /* min-width: 150px; */
   position: relative;
   overflow: visible;
+  width: ${props => props.$width || 'auto'};
   
   display: flex;
   flex-direction: ${props => props.$hasTopIcon ? 'column' : 'row'};
@@ -67,12 +67,20 @@ function DefaultNode({ data, isConnectable }: NodeProps) {
   } = nodeData;
   
   const hasTopIcon = iconPosition === 'top';
+  const nodeWidth = style?.width as string | undefined;
+  
+  // Create a new style object without the width property
+  const nodeStyle = { ...style };
+  if (nodeStyle.width) {
+    delete nodeStyle.width;
+  }
   
   return (
     <NodeContainer 
       $hasTopIcon={hasTopIcon} 
+      $width={nodeWidth}
       className={className} 
-      style={style}
+      style={nodeStyle}
     >
       <Handle
         type="target"
