@@ -56,6 +56,9 @@
     "styled-components": "^6.1.15",
     "wavesurfer.js": "^7.9.1"
   },
+  "optionalDependencies": {
+    "canvas": "^2.11.2"
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
     "@eslint/eslintrc": "^3",
@@ -77,11 +80,9 @@
     "@vitest/coverage-v8": "^3.0.8",
     "babel-loader": "^10.0.0",
     "babel-plugin-styled-components": "^2.1.4",
-    "canvas": "^2.11.2",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "eslint-plugin-storybook": "^0.11.4",
-    "ghostscript4js": "^3.2.3",
     "kill-port": "^2.0.1",
     "pdf-lib": "^1.17.1",
     "playwright": "^1.51.0",

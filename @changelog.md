@@ -65,6 +65,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed deployment issues by configuring Vercel to bypass linting during build
 - Removed unused type definition for react-soundcloud-player
 - Properly reinstalled mermaid package to resolve build issues
+- Fixed build issues on Vercel by moving canvas to optionalDependencies
+- Fixed ESLint configuration by reinstating eslint packages to devDependencies
+- Removed unused ghostscript4js dependency
 
 ### Changed
 - Enhanced image loading with priority flag for important section icons
@@ -109,6 +112,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated import paths in components using the diagram components
 - Simplified dependency tree by removing unnecessary packages
 - Updated build process to be more resilient to lint errors
+- Moved canvas to optionalDependencies to handle environments without required system dependencies
 
 ### Removed 
 - Removed Expo item from the Modern Tooling category (now in React Native feature section)
