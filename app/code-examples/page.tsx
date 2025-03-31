@@ -118,7 +118,6 @@ const filters = {
 export default function CodeExamplesPage() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   const loadRepositories = async (forceFresh = false) => {
     setLoading(true);

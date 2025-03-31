@@ -78,7 +78,7 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
             
             <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
               <Typography variant="body" color="secondary">
-                The three phases of a Brain Garden project's growth - from initial setup to self-improving system
+                The three phases of a Brain Garden project&apos;s growth - from initial setup to self-improving system
               </Typography>
             </div>
           </div>
@@ -90,7 +90,7 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
             </Typography>
             
             <Typography variant="body" mb="1.5rem">
-              This natural growth cycle helps teams overcome the learning curve that typically accompanies AI adoption. Instead of trying to implement a perfect system from day one, you start with simple structures that grow organically with your team's experience.
+              This natural growth cycle helps teams overcome the learning curve that typically accompanies AI adoption. Instead of trying to implement a perfect system from day one, you start with simple structures that grow organically with your team&apos;s experience.
             </Typography>
           </div>
           
@@ -121,7 +121,7 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
                 <span style={{ marginRight: '0.5rem' }}>🌿</span> Sprout Phase
               </Typography>
               <Typography variant="body" mb="1rem">
-                As your team works with the system, it naturally expands. Knowledge becomes richer, prompts are refined based on experience, and workflows become smoother. This phase is about cultivating patterns and adapting to your team's specific needs.
+                As your team works with the system, it naturally expands. Knowledge becomes richer, prompts are refined based on experience, and workflows become smoother. This phase is about cultivating patterns and adapting to your team&apos;s specific needs.
               </Typography>
             </div>
             
@@ -136,7 +136,7 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
                 <span style={{ marginRight: '0.5rem' }}>🌳</span> Mature Phase
               </Typography>
               <Typography variant="body" mb="1rem">
-                The system becomes robust and self-improving. AI agents understand context deeply, can handle complex tasks with minimal guidance, and adapt to new challenges efficiently. The system doesn't just help with individual tasks but enhances the entire development ecosystem.
+                The system becomes robust and self-improving. AI agents understand context deeply, can handle complex tasks with minimal guidance, and adapt to new challenges efficiently. The system doesn&apos;t just help with individual tasks but enhances the entire development ecosystem.
               </Typography>
             </div>
           </div>

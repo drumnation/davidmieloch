@@ -1,33 +1,34 @@
 import styled from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 import { TagProps } from './Tag.types';
 
 const variantStyles = {
-  default: (theme: any) => `
+  default: (theme: DefaultTheme) => `
     background-color: ${theme.colors.background.light};
     color: ${theme.colors.text.primary};
-    border: 1px solid ${theme.colors.border.default};
+    border: 1px solid ${theme.colors.border.light};
   `,
-  primary: (theme: any) => `
+  primary: (theme: DefaultTheme) => `
     background-color: ${theme.colors.primary.main};
     color: #ffffff;
     border: 1px solid ${theme.colors.primary.main};
   `,
-  secondary: (theme: any) => `
+  secondary: (theme: DefaultTheme) => `
     background-color: ${theme.colors.secondary.light};
     color: ${theme.colors.secondary.main};
     border: 1px solid ${theme.colors.secondary.light};
   `,
-  success: (theme: any) => `
+  success: (theme: DefaultTheme) => `
     background-color: ${theme.colors.accent.green}20;
     color: ${theme.colors.accent.green};
     border: 1px solid ${theme.colors.accent.green}20;
   `,
-  warning: (theme: any) => `
-    background-color: ${theme.colors.accent.orange}20;
-    color: ${theme.colors.accent.orange};
-    border: 1px solid ${theme.colors.accent.orange}20;
+  warning: (theme: DefaultTheme) => `
+    background-color: ${theme.colors.accent.yellow}20;
+    color: ${theme.colors.accent.yellow};
+    border: 1px solid ${theme.colors.accent.yellow}20;
   `,
-  danger: (theme: any) => `
+  danger: (theme: DefaultTheme) => `
     background-color: ${theme.colors.accent.red}20;
     color: ${theme.colors.accent.red};
     border: 1px solid ${theme.colors.accent.red}20;

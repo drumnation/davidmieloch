@@ -11,7 +11,6 @@ import { useAiAutopilotAnalogy } from './AiAutopilotAnalogy.hook';
 import {
   GlobalStyles,
   containerStyle,
-  contentSectionStyle,
   sectionContainerStyle,
   sectionContainerWithoutMarginStyle,
   sectionContainerTopMarginStyle,
@@ -20,8 +19,6 @@ import {
   titleContainerStyle,
   paragraphContainerStyle,
   paragraphContainerNoMarginStyle,
-  realityVsHollywoodContainerStyle,
-  itemsContainerStyle,
   mermaidContainerStyle,
   titleBlockStyle,
   descriptionBlockStyle,
@@ -35,7 +32,6 @@ import {
   SectionTitle,
   SectionSubtitle,
   SectionParagraph,
-  enhanceHeroProps,
   defaultContent
 } from './AiAutopilotAnalogy.logic';
 
@@ -45,7 +41,6 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
   className
 }) => {
   const {
-    enhancedHeroProps,
     comparisonTableProps,
     realityVsHollywoodProps: updatedRealityVsHollywoodProps,
     strategicFocusAreasProps,
@@ -79,7 +74,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
     <div className={className}>
       <GlobalStyles />
       <div style={containerStyle}>
-        <Hero {...enhancedHeroProps} />
+        <Hero {...heroProps} />
         
         <div className="autopilot-content-section">
           {/* Introduction Section */}
@@ -282,7 +277,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
             <div style={paragraphContainerStyle}>
               <SectionParagraph>
                 Such overreach disrupts a key balance: developers—who understand software complexity—lose influence over timelines and 
-                design decisions, while managers set aggressive deadlines based on AI's partial outputs. Another quote underscores how 
+                design decisions, while managers set aggressive deadlines based on AI&apos;s partial outputs. Another quote underscores how 
                 deadlines ignore real effort:
               </SectionParagraph>
             </div>
@@ -314,7 +309,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
             {/* Narrative between quotes */}
             <div style={paragraphContainerStyle}>
               <SectionParagraph>
-                This dynamic drains the joy from engineering. Developers end up debugging and polishing code they didn't fully create, 
+                This dynamic drains the joy from engineering. Developers end up debugging and polishing code they didn&apos;t fully create, 
                 yet remain fully accountable for production-readiness:
               </SectionParagraph>
             </div>
@@ -350,10 +345,10 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
               marginTop: '1rem'
             }}>
               <SectionParagraph>
-                <strong>The Autopilot Connection:</strong> Just like autopilot in aviation, AI tools can greatly reduce the repetitive "flying" (writing boilerplate code) so the 
+                <strong>The Autopilot Connection:</strong> Just like autopilot in aviation, AI tools can greatly reduce the repetitive &quot;flying&quot; (writing boilerplate code) so the 
                 pilot (developer) can focus on higher-level tasks—planning architecture, anticipating future issues, and ensuring 
-                reliability. But if someone mistakes an AI or an autopilot for a "set-it-and-forget-it" tool, they risk both safety 
-                and quality. As with flying, the pilot must train, monitor, and correct for any deviation, because autopilot doesn't 
+                reliability. But if someone mistakes an AI or an autopilot for a &quot;set-it-and-forget-it&quot; tool, they risk both safety 
+                and quality. As with flying, the pilot must train, monitor, and correct for any deviation, because autopilot doesn&apos;t 
                 replace the pilot—it only assists.
               </SectionParagraph>
             </div>
@@ -426,10 +421,10 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
               marginBottom: '2rem'
             }}>
               <Typography variant="h3" weight="bold" className="mb-3">
-                The Dunning-Kruger Trap: When Managers "Vibe Code"
+                The Dunning-Kruger Trap: When Managers &quot;Vibe Code&quot;
               </Typography>
               <SectionParagraph>
-                A particularly troubling pattern emerging in AI-enabled organizations is what I call the "vibe coding" phenomenon: project managers and other non-technical stakeholders who experiment with AI coding tools in their spare time suddenly believe they understand the development process deeply enough to dictate timelines.
+                A particularly troubling pattern emerging in AI-enabled organizations is what I call the &quot;vibe coding&quot; phenomenon: project managers and other non-technical stakeholders who experiment with AI coding tools in their spare time suddenly believe they understand the development process deeply enough to dictate timelines.
               </SectionParagraph>
               
               <div style={{
@@ -450,7 +445,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                     Scenario
                   </Typography>
                   <Typography variant="body" color="secondary">
-                    A project manager spends a weekend using AI tools to build a simple personal project. After receiving generated code that "works" with minimal effort, they return to work with a dramatically altered perception of how long complex features should take.
+                    A project manager spends a weekend using AI tools to build a simple personal project. After receiving generated code that &quot;works&quot; with minimal effort, they return to work with a dramatically altered perception of how long complex features should take.
                   </Typography>
                 </div>
                 
@@ -463,7 +458,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                     Impact
                   </Typography>
                   <Typography variant="body" color="secondary">
-                    Developer time estimates are challenged with "but AI can do this in minutes," ignoring critical factors like integration, testing, edge cases, and production readiness that weren't relevant in the manager's hobby project.
+                    Developer time estimates are challenged with &quot;but AI can do this in minutes,&quot; ignoring critical factors like integration, testing, edge cases, and production readiness that weren&apos;t relevant in the manager&apos;s hobby project.
                   </Typography>
                 </div>
               </div>
@@ -474,7 +469,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                 </div>
                 <div style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
                   <SectionParagraph>
-                    "Our PM spent a weekend 'coding' with ChatGPT and suddenly thinks he's a technical expert. Yesterday he told me, 'The AI built my entire portfolio site in an hour, so your estimate of three sprints for rebuilding the authentication system is ridiculous.' He has no concept of edge cases, scale, or security concerns that don't exist in his static hobby site."
+                    &quot;Our PM spent a weekend &apos;coding&apos; with ChatGPT and suddenly thinks he&apos;s a technical expert. Yesterday he told me, &apos;The AI built my entire portfolio site in an hour, so your estimate of three sprints for rebuilding the authentication system is ridiculous.&apos; He has no concept of edge cases, scale, or security concerns that don&apos;t exist in his static hobby site.&quot;
                   </SectionParagraph>
                 </div>
                 <div style={{ 
@@ -485,7 +480,7 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
                   fontSize: '0.9rem'
                 }}>
                   <strong>The Dunning-Kruger Effect: </strong> 
-                  The cognitive bias where people with limited knowledge in a domain dramatically overestimate their expertise, unaware of the complexity they don't understand.
+                  The cognitive bias where people with limited knowledge in a domain dramatically overestimate their expertise, unaware of the complexity they don&apos;t understand.
                 </div>
               </div>
               

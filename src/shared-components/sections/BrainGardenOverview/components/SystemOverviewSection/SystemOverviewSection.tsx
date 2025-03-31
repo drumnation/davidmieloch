@@ -37,7 +37,7 @@ export const SystemOverviewSection: React.FC<SystemOverviewSectionProps> = ({
                 <Icon name={introProps.icon} size={48} />
               </div>
             )}
-            <IntroTextComponent text={introProps.text || "Expanding on the autopilot analogy, the AI Brain Garden isn't a magical solution—it's a practical, evolving system of documentation techniques and structural approaches I've developed to enhance AI's capabilities in development workflows. Through years of working with React and Node.js teams, I've created a framework that provides structure, focus, and contextual knowledge that makes AI agents smarter and more effective. Unlike using raw AI without structure, this system reduces cognitive load by providing systematic approaches to common development challenges, allowing you to leverage AI more effectively while maintaining control of architecture and quality."} />
+            <IntroTextComponent text={introProps.text || "Expanding on the autopilot analogy, the AI Brain Garden isn&apos;t a magical solution—it&apos;s a practical, evolving system of documentation techniques and structural approaches I&apos;ve developed to enhance AI&apos;s capabilities in development workflows. Through years of working with React and Node.js teams, I&apos;ve created a framework that provides structure, focus, and contextual knowledge that makes AI agents smarter and more effective. Unlike using raw AI without structure, this system reduces cognitive load by providing systematic approaches to common development challenges, allowing you to leverage AI more effectively while maintaining control of architecture and quality."} />
           </IntroBlock>
         </div>
         
@@ -68,7 +68,7 @@ export const SystemOverviewSection: React.FC<SystemOverviewSectionProps> = ({
             </ul>
             
             <Typography variant="body">
-              While I'm exploring multi-agent approaches (different agent personas for different features), the core strength of Brain Garden is its systematic approach to documentation and structure that makes even a single AI agent much more effective.
+              While I&apos;m exploring multi-agent approaches (different agent personas for different features), the core strength of Brain Garden is its systematic approach to documentation and structure that makes even a single AI agent much more effective.
             </Typography>
           </div>
         </div>
@@ -83,10 +83,10 @@ export const SystemOverviewSection: React.FC<SystemOverviewSectionProps> = ({
             
             <ul style={{ listStyleType: 'decimal', paddingLeft: '2rem', marginBottom: '1.5rem' }}>
               <li style={{ marginBottom: '0.5rem' }}>
-                <Typography variant="body" as="span"><strong>Preventing Merge Conflicts:</strong> When AI works at 10x speed across many files, proper separation of concerns becomes critical. MECE organization minimizes the chances of developers or agents overwriting each other's work or creating difficult merge conflicts.</Typography>
+                <Typography variant="body" as="span"><strong>Preventing Merge Conflicts:</strong> When AI works at 10x speed across many files, proper separation of concerns becomes critical. MECE organization minimizes the chances of developers or agents overwriting each other&apos;s work or creating difficult merge conflicts.</Typography>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
-                <Typography variant="body" as="span"><strong>Complexity Management:</strong> As projects scale, the Brain Garden's MECE-based documentation structure helps maintain context and organization, making it easier for AI to understand specific domains without getting confused by overlapping responsibilities.</Typography>
+                <Typography variant="body" as="span"><strong>Complexity Management:</strong> As projects scale, the Brain Garden&apos;s MECE-based documentation structure helps maintain context and organization, making it easier for AI to understand specific domains without getting confused by overlapping responsibilities.</Typography>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Typography variant="body" as="span"><strong>Conflict Resolution Tools:</strong> While the system provides enhanced capabilities for resolving conflicts when they arise (including generating implementation guides rather than merging directly), strategic organization with MECE principles prevents many conflicts from occurring in the first place.</Typography>

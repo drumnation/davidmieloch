@@ -1,31 +1,32 @@
 import styled from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 import { BadgeProps } from './Badge.types';
 
 const variantStyles = {
-  default: (theme: any) => `
+  default: (theme: DefaultTheme) => `
     background-color: ${theme.colors.background.light};
     color: ${theme.colors.text.secondary};
-    border: 1px solid ${theme.colors.border.default};
+    border: 1px solid ${theme.colors.border.light};
   `,
-  stars: (theme: any) => `
+  stars: (theme: DefaultTheme) => `
     background-color: ${theme.colors.accent.yellow}10;
     color: ${theme.colors.accent.yellow};
     border: 1px solid ${theme.colors.accent.yellow}20;
   `,
-  forks: (theme: any) => `
+  forks: (theme: DefaultTheme) => `
     background-color: ${theme.colors.accent.blue}10;
     color: ${theme.colors.accent.blue};
     border: 1px solid ${theme.colors.accent.blue}20;
   `,
-  issues: (theme: any) => `
+  issues: (theme: DefaultTheme) => `
     background-color: ${theme.colors.accent.green}10;
     color: ${theme.colors.accent.green};
     border: 1px solid ${theme.colors.accent.green}20;
   `,
-  prs: (theme: any) => `
-    background-color: ${theme.colors.accent.purple}10;
-    color: ${theme.colors.accent.purple};
-    border: 1px solid ${theme.colors.accent.purple}20;
+  prs: (theme: DefaultTheme) => `
+    background-color: ${theme.colors.accent.red}10;
+    color: ${theme.colors.accent.red};
+    border: 1px solid ${theme.colors.accent.red}20;
   `
 };
 

@@ -18,7 +18,7 @@ export default function GlobalError({
             Critical Application Error
           </Title>
           <Text mb="xl" size="lg">
-            The application encountered a serious error and couldn't load properly.
+            The application encountered a serious error and couldn&apos;t load properly.
           </Text>
           
           {process.env.NODE_ENV !== 'production' && (

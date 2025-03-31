@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import { Hero } from '../src/shared-components/organisms/Hero';
-import { FeatureGrid } from '../src/shared-components/organisms/FeatureGrid';
 import { Typography } from '../src/shared-components/atoms/Typography';
 import { Button } from '../src/shared-components/atoms/Button';
 import styled from 'styled-components';
@@ -15,92 +13,6 @@ import testClarityFeatures from '../src/utils/analytics-test';
 // Styled components for the home page
 const HomePageContainer = styled.div`
   width: 100%;
-`;
-
-const SectionContainer = styled.div`
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-const SectionTitle = styled.div`
-  margin-bottom: 2rem;
-  text-align: center;
-`;
-
-const FeatureSection = styled.div`
-  background-color: #f5f7fa;
-  padding: 4rem 0;
-`;
-
-const InsightsSection = styled.div`
-  padding: 4rem 0;
-`;
-
-const CTASection = styled.div`
-  background: linear-gradient(135deg, #4361ee, #3f37c9);
-  color: white;
-  padding: 4rem 0;
-  text-align: center;
-`;
-
-const ContentSection = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1.5rem;
-`;
-
-const ProjectCard = styled.div`
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  }
-`;
-
-const ProjectGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-`;
-
-const ArticleCard = styled.div`
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  
-  &:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  }
-`;
-
-const ArticleImageContainer = styled.div`
-  position: relative;
-  height: 160px;
-  background-color: #e9ecef;
-`;
-
-const ArticleContent = styled.div`
-  padding: 1.5rem;
-`;
-
-const ArticleTitle = styled.h3`
-  margin-top: 0;
-  font-size: 1.25rem;
-  color: #343a40;
-`;
-
-const ArticleDescription = styled.p`
-  color: #6c757d;
-  margin-bottom: 1rem;
 `;
 
 const PersonaNav = styled.div`
@@ -206,77 +118,6 @@ export default function HomePage() {
     }
   };
 
-  // Feature grid props
-  const featuresData = [
-    {
-      title: 'Technical Expertise',
-      description: 'Deep knowledge of React, Node.js, and modern web development practices.',
-      icon: '💻'
-    },
-    {
-      title: 'AI Strategy',
-      description: 'Implementing effective AI strategies for lean, high-performing teams.',
-      icon: '🤖'
-    },
-    {
-      title: 'Business Acumen',
-      description: 'Bridging the gap between technology execution and business outcomes.',
-      icon: '📊'
-    },
-    {
-      title: 'Team Transformation',
-      description: 'Building and optimizing development teams for maximum efficiency.',
-      icon: '👥'
-    }
-  ];
-
-  // Project data
-  const projectsData = [
-    {
-      title: 'Enterprise AI Development Framework',
-      description: 'A comprehensive framework for implementing AI in enterprise development teams, focusing on practical integration and team upskilling.',
-      impact: 'Reduced development time by 35% while maintaining code quality',
-      techStack: 'React, Node.js, AI Tooling',
-      link: '/enterprise-ai-development-framework'
-    },
-    {
-      title: 'React Best Practices Integration',
-      description: 'A guide to implementing modern React best practices in enterprise applications, with practical examples and performance optimization techniques.',
-      impact: 'Improved application performance by 40%',
-      techStack: 'React, TypeScript, Next.js',
-      link: '/fullstack-react-best-practices-integration'
-    },
-    {
-      title: 'Team Transformation Case Study',
-      description: 'How I helped transform a traditional development team into a lean, AI-augmented powerhouse through strategic training and process optimization.',
-      impact: 'Increased team velocity by 60%',
-      techStack: 'Process Design, AI Integration, Team Management',
-      link: '/code-examples'
-    }
-  ];
-
-  // Insights/blog data
-  const insightsData = [
-    {
-      title: 'The Future of AI in Development Teams',
-      description: 'How AI tools are reshaping the landscape of software development and what leaders need to know.',
-      image: '/images/ai-future.jpg',
-      link: '/enterprise-ai-development-framework'
-    },
-    {
-      title: 'Bridging Technical and Business Perspectives',
-      description: 'Strategies for technical leaders to communicate effectively with business stakeholders.',
-      image: '/images/bridge-perspectives.jpg',
-      link: '/bio'
-    },
-    {
-      title: 'The Full-Stack Business Person',
-      description: 'Why the future belongs to multi-skilled professionals who leverage AI to perform roles previously done by specialists.',
-      image: '/images/lean-teams.jpg',
-      link: '/#fsbp'
-    }
-  ];
-
   // Persona-targeted navigation
   const personaNavData = [
     {
@@ -354,8 +195,7 @@ export default function HomePage() {
           <div className="fsbp-content">
             <div className="fsbp-intro">
               <Typography variant="body" mb="1.5rem" className="fsbp-text">
-                As AI transforms the workplace, the future belongs to professionals who can span multiple domains.
-                We're already witnessing the dawn of <span className="fsbp-emphasis">hyper-efficient organizations</span> – AI-native companies achieving <span className="fsbp-emphasis">unprecedented results with remarkably small teams</span>.
+                We&apos;re already witnessing the dawn of <span className="fsbp-emphasis">hyper-efficient organizations</span> – AI-native companies achieving <span className="fsbp-emphasis">unprecedented results with remarkably small teams</span>.
                 The <span className="fsbp-key-term">Full-Stack Business Person</span> is someone who combines deep technical expertise with broad business 
                 acumen, leveraging AI to perform roles that previously required several specialists.
               </Typography>
@@ -372,17 +212,14 @@ export default function HomePage() {
                   AI Leverage & Market Proof
                 </h4>
                 <Typography variant="body" mb="1.5rem" className="fsbp-text">
-                  In this new paradigm, developers make product design decisions, contribute marketing copy, 
-                  and understand sales strategies. Engineers develop business plans, marketing specialists write code,
-                  and everyone uses AI to fill their knowledge gaps and automate routine tasks.
-                  Crucially, AI's power is unlocked not just by technical skill, but by <em>asking the right questions</em>. An FSBP possesses the broad <strong>conceptual vocabulary</strong> spanning technology, product, marketing, and sales, allowing them to direct AI agents effectively across diverse tasks far beyond what a narrow specialist could achieve. <strong>This isn't just theory.</strong> We see companies like <span className="company-highlight">Midjourney (AI art)</span> reaching $200M+ revenue with ~40 people, and <span className="company-highlight">Cursor (AI IDE)</span> hitting ~$100M ARR with only ~20. That's roughly <span className="data-highlight">$5 million in revenue per employee</span> – orders of magnitude higher than the <span className="data-highlight">~$125k median for SaaS startups</span>. They achieve this through mass automation and leveraging AI infrastructure – capabilities best directed by those with holistic understanding.
+                  Crucially, AI&apos;s power is unlocked not just by technical skill, but by <em>asking the right questions</em>. An FSBP possesses the broad <strong>conceptual vocabulary</strong> spanning technology, product, marketing, and sales, allowing them to direct AI agents effectively across diverse tasks far beyond what a narrow specialist could achieve. <strong>This isn&apos;t just theory.</strong> We see companies like <span className="company-highlight">Midjourney (AI art)</span> reaching $200M+ revenue with ~40 people, and <span className="company-highlight">Cursor (AI IDE)</span> hitting ~$100M ARR with only ~20. That&apos;s roughly <span className="data-highlight">$5 million in revenue per employee</span> – orders of magnitude higher than the <span className="data-highlight">~$125k median for SaaS startups</span>. They achieve this through mass automation and leveraging AI infrastructure – capabilities best directed by those with holistic understanding.
                 </Typography>
               </div>
               
               {/* Simple pull quote matching the screenshot */}
               <div className="pull-quote-container">
                 <div className="pull-quote">
-                  AI's power is unlocked not just by technical skill, but by asking the right questions.
+                  AI&apos;s power is unlocked not just by technical skill, but by asking the right questions.
                 </div>
               </div>
               
@@ -397,7 +234,7 @@ export default function HomePage() {
                   The Need for Lean Team Navigators
                 </h4>
                 <Typography variant="body" mb="1.5rem" className="fsbp-text">
-                  These examples demonstrate the raw power of <strong>lean, hyper-efficient organizations</strong> that can indeed outpace traditional structures. AI augmentation allows small teams to achieve what previously required armies. But these high-velocity teams don't run on AI alone. They <em>require</em> individuals who can bridge the gap – <strong>Full-Stack Business People</strong> who can wear multiple hats, operate effectively across domains, direct AI strategically, design scalable systems, and make the critical decisions needed to harness this new power. They are the architects and navigators of these lean organizations where communication overhead plummets and iteration speed accelerates.
+                  This revolution is forming in real-time as AI tools enhance human capabilities at an unprecedented pace. It&apos;s not about replacing entire teams, but about rethinking the entire structure of organizations that use conventional, AI-free, human-only knowledge worker armies. But these high-velocity teams don&apos;t run on AI alone. They <em>require</em> individuals who can bridge the gap – <strong>Full-Stack Business People</strong> who can wear multiple hats, operate effectively across domains, direct AI strategically, design scalable systems, and make the critical decisions needed to harness this new power. They are the architects and navigators of these lean organizations where communication overhead plummets and iteration speed accelerates.
                 </Typography>
               </div>
               
@@ -528,10 +365,10 @@ export default function HomePage() {
             
             <div className="fsbp-domain-section">
               <Typography variant="body" mb="1rem" className="fsbp-text">
-                <strong>Enterprise AI Development Framework:</strong> I've developed an approach that helps traditional 
+                <strong>Enterprise AI Development Framework:</strong> I&apos;ve developed an approach that helps traditional 
                 development teams transform into AI-augmented powerhouses. This framework addresses the technical 
                 implementation of AI tools, the necessary business process changes, and <strong>the crucial team optimization</strong> required to build 
-                versatile, AI-leveraging professionals and fully capitalize on AI's potential.
+                versatile, AI-leveraging professionals and fully capitalize on AI&apos;s potential.
               </Typography>
               <Button 
                 variant="primary"
@@ -563,7 +400,7 @@ export default function HomePage() {
               As AI continues to transform how we work, the most valuable professionals will be those who can 
               leverage these tools to operate across traditional boundaries. Organizations that embrace the Full-Stack 
               Business Person model will gain significant advantages in agility, efficiency, and innovation.
-              The emergence of hyper-efficient, high-revenue, small-team companies isn't an anomaly; it's a glimpse into the future.
+              The emergence of hyper-efficient, high-revenue, small-team companies isn&apos;t an anomaly; it&apos;s a glimpse into the future.
             </Typography>
             
             <Typography variant="body" mb="3rem" className="fsbp-text fsbp-italic-text">

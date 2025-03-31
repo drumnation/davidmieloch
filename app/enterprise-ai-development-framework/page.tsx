@@ -2,10 +2,6 @@
 
 import React, { Suspense, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { H1, H2, H3, H4, Text, TextLead } from "@/src/shared-components/atoms/Typography";
-import { Container, ContentContainer } from "@/src/shared-components/atoms/Container";
-import { Tabs, TabPanel } from '@/src/shared-components/atoms/Tabs';
-import styled from "styled-components";
 import './enterprise-styles.css';
 
 // Fix the dynamic import to properly handle the error case
@@ -36,7 +32,7 @@ export default function EnterpriseAiDevelopmentFrameworkPage() {
     return (
       <div className="error-container">
         <h2>Something went wrong</h2>
-        <p>We couldn't load the content. Please try refreshing the page.</p>
+        <p>We couldn&apos;t load the content. Please try refreshing the page.</p>
         <button onClick={() => window.location.reload()}>Refresh Page</button>
       </div>
     );

@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import { Container, Text, Title, Button, Group } from '@mantine/core';
-import Link from 'next/link';
 
 export default function ErrorPage({
   error,
@@ -19,7 +18,7 @@ export default function ErrorPage({
   return (
     <Container size="md" style={{ paddingTop: '5rem', textAlign: 'center' }}>
       <Title order={1} size="2.5rem" mb="xl" style={{ color: '#e53e3e' }}>Something went wrong</Title>
-      <Text mb="xl" size="lg">The application encountered an error and couldn't load properly.</Text>
+      <Text mb="xl" size="lg">The application encountered an error and couldn&apos;t load properly.</Text>
       
       {error.message && process.env.NODE_ENV !== 'production' && (
         <Container

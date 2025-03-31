@@ -203,12 +203,12 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
         </ResearchAreaContainer>
         
         <Typography variant="body" mt="2rem" mb="1rem">
-          Now that we've explored the conceptual framework of the Brain Garden system, 
-          let's examine how these ideas come to life through technical implementation.
+          Now that we&apos;ve explored the conceptual framework of the Brain Garden system, 
+          let&apos;s examine how these ideas come to life through technical implementation.
         </Typography>
         
         <Typography variant="body">
-          The architecture we're about to explore translates these concepts into practical 
+          The architecture we&apos;re about to explore translates these concepts into practical 
           tools and structures that developers can immediately apply to their daily workflows.
         </Typography>
       </div>
