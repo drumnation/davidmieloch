@@ -1,1 +1,134 @@
- 
+---
+description: Cursor Rules Workaround Process - Instructions for creating and updating Cursor rules via the .brain/rules directory workaround to ensure editable, version-controlled rules that are properly symlinked to the .cursor/rules location.
+globs: "*"
+alwaysApply: true
+---
+# Cursor Rules Workaround Process
+# Last Updated: 2025-03-31 10:34:05 AM
+
+## Background
+The `.cursor/rules` directory has limitations with direct file editing. This workaround process stores rule files in the `.brain/rules` directory and symlinks them to `.cursor/rules` to ensure:
+
+1. Rules are editable
+2. Rules are version controlled with the codebase
+3. Cursor can read the rules from its expected location
+
+## Creating a New Rule
+
+### 1. File Creation
+- **Always** create new rules in the `.brain/rules` directory
+- **Never** create rules directly in `.cursor/rules`
+- Use the `.mdc` extension for all rule files
+- Follow naming convention: `descriptive-name-rules.mdc`
+
+### 2. File Structure
+Every rule file must have:
+
+```
+---
+description: [Brief summary of what the rule does and when to use it]
+globs: [Pattern matching for auto-application, or empty]
+alwaysApply: [true/false]
+---
+# Rule Title
+# Last Updated: YYYY-MM-DD HH:MM:SS AM/PM
+
+[Rule content...]
+```
+
+### 3. Rule Configuration Options
+
+| Option | Description | Values | Example |
+|--------|-------------|--------|---------|
+| description | Brief summary shown in rule list | String | "Code formatting rules for TypeScript" |
+| globs | File patterns for auto-application | String/Array/Empty | "*.ts" or ["*.ts", "*.tsx"] |
+| alwaysApply | Apply to all conversations | Boolean | true/false |
+| title | Rule title in UI (optional) | String | "TypeScript Rules" |
+
+### 4. Create Symlink
+After creating the rule file, create a symlink with:
+
+```bash
+# Create directory if needed
+mkdir -p .cursor/rules
+
+# Remove existing file if it exists
+rm -f .cursor/rules/your-rule-name.mdc
+
+# Create the symlink
+ln -s ../../.brain/rules/your-rule-name.mdc .cursor/rules/your-rule-name.mdc
+
+# Verify the symlink
+ls -la .cursor/rules/
+```
+
+## Updating Existing Rules
+
+1. **Always** edit the file in the `.brain/rules` directory
+2. Update the "Last Updated" timestamp with the current date
+3. If the symlink is broken, recreate it using steps above
+
+## Examples
+
+### Minimal Rule (Always Applied)
+```
+---
+description: Basic formatting rules for the project
+globs: 
+alwaysApply: true
+---
+# Formatting Rules
+# Last Updated: 2025-03-31 10:04:24 AM
+
+## Indentation
+- Use 2 spaces for indentation
+```
+
+### File-Specific Rule
+```
+---
+description: Rules for React component files
+globs: ["*.tsx", "*.jsx"]
+alwaysApply: false
+---
+# React Component Rules
+# Last Updated: 2025-03-31 10:04:24 AM
+
+## Component Structure
+- Use functional components with hooks
+```
+
+### Multi-glob Rule
+```
+---
+description: Documentation rules
+globs: ["*.md", "*.mdx", "README*"]
+alwaysApply: false
+---
+# Documentation Rules
+# Last Updated: 2025-03-31 10:04:24 AM
+
+## Headers
+- Use # for main titles
+```
+
+## Symlink Creation Script
+For convenience, use the provided script to create/update all symlinks:
+
+```bash
+# Run the symlink update script
+./scripts/update-rule-symlinks.sh
+```
+
+This script will:
+1. Create the `.cursor/rules` directory if needed
+2. Find all `.mdc` files in `.brain/rules`
+3. Create appropriate symlinks in `.cursor/rules`
+4. Verify the symlinks were created correctly
+
+## Agent Instructions
+1. ALWAYS create and edit rules in `.brain/rules` directory
+2. NEVER directly edit files in `.cursor/rules`
+3. After creating a new rule, use `./scripts/update-rule-symlinks.sh` to update all symlinks
+4. Update the "Last Updated" date whenever rules are modified
+5. When referring to rules, use the `.brain/rules` path in documentation 

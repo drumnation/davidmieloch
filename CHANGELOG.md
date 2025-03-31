@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [0.21.4] - 2025-03-31
+
+#### Changed
+- Moved update-rule-symlinks.sh from .brain/rules/ to scripts/ directory for better organization [#Refactor]
 ### [0.21.3] - 2025-03-31
 
 #### Added
@@ -39,6 +43,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced file metadata with descriptions and appropriate glob patterns
 
 #### Improved
-- Enhanced changelog entries with tags for better categorization and searchability [#Organization]- Improved context efficiency by applying rules only when needed
+- Updated cursor-rules-workaround.mdc to reference the script in its new location [#Documentation]- Enhanced changelog entries with tags for better categorization and searchability [#Organization]- Improved context efficiency by applying rules only when needed
 - Added proper version control for cursor rules by storing in `.brain/rules/`
 - Enhanced maintainability by splitting rules into logical units
