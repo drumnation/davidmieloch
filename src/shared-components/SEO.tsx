@@ -1,6 +1,22 @@
 import React from 'react';
 import Head from 'next/head';
-import { SEOProps } from './SEO.types';
+
+export interface SEOProps {
+  title: string;
+  description: string;
+  canonical?: string;
+  openGraph?: {
+    title?: string;
+    description?: string;
+    url?: string;
+    type?: string;
+    image?: string;
+  };
+  twitter?: {
+    cardType?: string;
+    handle?: string;
+  };
+}
 
 export const SEO: React.FC<SEOProps> = ({
   title,
