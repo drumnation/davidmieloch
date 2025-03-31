@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 import { Typography } from '../../../../shared-components/atoms/Typography';
 import { SystemOverviewContainer, DiagramWrapper } from './SystemOverview.styles';
 import { SystemOverviewProps } from './SystemOverview.types';
@@ -155,11 +156,19 @@ const SystemOverview: FC<SystemOverviewProps> = ({
             <Typography variant="body">{githubExample.description}</Typography>
             <Card>
               <ImageContainer>
-                <img 
+                <Image 
                   src={githubExample.image} 
                   alt="GitHub Integration Example" 
+                  width={800}
+                  height={400}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block'
+                  }}
                   onError={(e) => {
                     // Fallback for missing image
+                    // @ts-expect-error - Next.js Image doesn't have the same onError type but this works
                     e.currentTarget.src = "https://via.placeholder.com/800x400?text=GitHub+Integration+Example";
                   }}
                 />
