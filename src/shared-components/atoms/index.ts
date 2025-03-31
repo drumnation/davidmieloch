@@ -9,4 +9,7 @@ export * from './PageLoader';
 export * from './LanguageDot';
 export * from './Spinner';
 export * from './TechIcon';
-export { default as ProjectLogo } from './ProjectLogo'; 
+export { default as ProjectLogo } from './ProjectLogo';
+export * from './Container';
+export * from './PageTitle';
+export * from './AnimatedPage'; 

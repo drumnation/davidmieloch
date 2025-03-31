@@ -1,22 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Container, Title } from '@mantine/core';
+import { motion } from 'framer-motion';
 import { SEO } from '@/shared-components/SEO';
-import { Container } from '@/shared-components/atoms/Container';
+import { PageTitle } from '@/shared-components/atoms/PageTitle/PageTitle';
+import { AnimatedPage } from '@/shared-components/atoms/AnimatedPage/AnimatedPage';
 import { Header } from '@/shared-components/molecules/Header';
-import { PageTitle } from '@/shared-components/atoms/PageTitle';
-import { AnimatedPage } from '@/shared-components/atoms/AnimatedPage';
 import { ExperienceList } from './components/ExperienceList';
 import { ExperienceItem } from './components/ExperienceItem';
 import { EducationItem } from './components/EducationItem';
 import { SkillsList } from './components/SkillsList';
 import { Accordion } from './components/Accordion';
 import { Skill } from './components/SkillsList/SkillsList.types';
+import { MediaItem } from './components/ExperienceItem/ExperienceItem.types';
 
 // Import LinkedIn data
 import profileData from '@/data/profile.json';
 import positionsData from '@/data/positions.json';
 import educationData from '@/data/education.json';
 import skillsData from '@/data/skills.json';
+
+// Helper function to validate and transform media items
+const validateMediaItems = (mediaItems: any[] | undefined): MediaItem[] | undefined => {
+  if (!mediaItems) return undefined;
+  
+  return mediaItems.map(item => {
+    // Ensure type is one of the allowed values
+    const validType = ['image', 'pdf', 'embed', 'link'].includes(item.type) 
+      ? (item.type as 'image' | 'pdf' | 'embed' | 'link') 
+      : 'link';
+      
+    return {
+      ...item,
+      type: validType,
+      // Ensure width and height are of the correct type
+      width: item.width || '100%',
+      height: typeof item.height === 'number' ? item.height : 300
+    };
+  });
+};
 
 // Transform string skills into enhanced skills objects with icon information
 const enhancedSkills: Array<Skill | string> = skillsData.slice(0, 20).map(skill => {
@@ -54,31 +76,6 @@ const enhancedSkills: Array<Skill | string> = skillsData.slice(0, 20).map(skill 
   return skill;
 });
 
-const StyledExperiencePage = styled(AnimatedPage)`
-  .skills-section,
-  .experience-section,
-  .education-section {
-    margin: 2rem 0;
-  }
-
-  h2 {
-    margin-bottom: 1.5rem;
-    color: ${({ theme }) => theme.colors.text};
-    position: relative;
-    display: inline-block;
-    
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 50px;
-      height: 3px;
-      background-color: ${({ theme }) => theme.colors.primary};
-    }
-  }
-`;
-
 // Helper function to sort education items by date (most recent first)
 const sortEducationByDate = (items: any[]) => {
   return [...items].sort((a, b) => {
@@ -109,24 +106,59 @@ export function ExperiencePage() {
     !['Scala', 'DrayNow, Inc.', 'OTG Management', 'Gramercy Tech'].includes(position.company)
   );
   
+  // Extract profile and positions data
+  const { headline, summary } = profileData;
+
+  // Animation variants for page transitions
+  const pageVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        duration: 0.4,
+        ease: "easeInOut"
+      } 
+    },
+    exit: { 
+      opacity: 0,
+      transition: { 
+        duration: 0.2,
+        ease: "easeOut"
+      } 
+    }
+  };
+
+  // Custom styles for section titles with simple styling
+  const titleStyle = {
+    marginBottom: "2rem",
+    borderBottom: "3px solid var(--mantine-color-blue-6)",
+    paddingBottom: "0.5rem",
+    display: "inline-block"
+  };
+
   return (
     <>
       <SEO 
         title="Experience | David Mieloch" 
         description={`Professional background, work experience, and skills of ${profileData.fullName}`}
       />
-      <StyledExperiencePage>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={pageVariants}
+      >
         <Header />
-        <Container>
-          <PageTitle>Experience</PageTitle>
+        <Container size="lg" py="md">
+          <Title order={1} mt="xl" style={titleStyle}>Experience</Title>
           
-          <section className="skills-section">
-            <h2>Skills</h2>
+          <section className="skills-section" style={{ margin: '2rem 0' }}>
+            <Title order={2} style={titleStyle}>Skills</Title>
             <SkillsList skills={enhancedSkills} showIcons={true} />
           </section>
           
-          <section className="experience-section">
-            <h2>Work Experience</h2>
+          <section className="experience-section" style={{ margin: '2rem 0' }}>
+            <Title order={2} style={titleStyle}>Work Experience</Title>
             <ExperienceList>
               {recentPositions.map((position, index) => (
                 <ExperienceItem
@@ -138,7 +170,7 @@ export function ExperiencePage() {
                   description={position.description}
                   bulletPoints={position.bulletPoints}
                   logo={position.logoPath}
-                  media={position.media}
+                  media={validateMediaItems(position.media)}
                 />
               ))}
               
@@ -159,7 +191,7 @@ export function ExperiencePage() {
                         description={position.description}
                         bulletPoints={position.bulletPoints}
                         logo={position.logoPath}
-                        media={position.media}
+                        media={validateMediaItems(position.media)}
                       />
                     ))}
                   </ExperienceList>
@@ -168,8 +200,8 @@ export function ExperiencePage() {
             </ExperienceList>
           </section>
           
-          <section className="education-section">
-            <h2>Education</h2>
+          <section className="education-section" style={{ margin: '2rem 0' }}>
+            <Title order={2} style={titleStyle}>Education</Title>
             <ExperienceList>
               {sortedEducationData.map((education, index) => (
                 <EducationItem
@@ -183,13 +215,13 @@ export function ExperiencePage() {
                   logo={education.logoPath}
                   mediaUrl={education.mediaUrl}
                   mediaType={education.mediaType}
-                  media={education.media}
+                  media={validateMediaItems(education.media)}
                 />
               ))}
             </ExperienceList>
           </section>
         </Container>
-      </StyledExperiencePage>
+      </motion.div>
     </>
   );
 }
