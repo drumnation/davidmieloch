@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { DiagramContainerProps } from './FlowchartDiagram.types';
-import { ReactFlow } from '@xyflow/react';
+import { ReactFlow, ReactFlowProps } from '@xyflow/react';
 
 // Global styles to ensure React Flow nodes display correctly everywhere
 export const ReactFlowGlobalStyles = createGlobalStyle`
@@ -29,7 +29,7 @@ export const DiagramWrapper = styled.div<{ $width?: string }>`
   margin: 0 auto;
 `;
 
-export const StyledReactFlow = styled(ReactFlow as any)`
+export const StyledReactFlow = styled(ReactFlow as React.ComponentType<ReactFlowProps>)`
   border-radius: 8px;
   overflow: hidden;
   height: 100%;

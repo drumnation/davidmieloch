@@ -75,7 +75,7 @@ export interface ReactFlowDiagramProps {
     panOnScroll?: boolean;
     panOnDrag?: boolean;
     preventScrolling?: boolean;
-    [key: string]: any;
+    [key: string]: unknown;
   };
 }
 
@@ -88,7 +88,7 @@ export interface ReactFlowNode {
   position: { x: number; y: number };
   data: {
     label: string;
-    [key: string]: any;
+    [key: string]: unknown;
   };
   style?: React.CSSProperties;
   className?: string;
