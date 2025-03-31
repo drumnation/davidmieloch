@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Head from 'next/head';
 import './home.css';
+import testClarityFeatures from '../src/utils/analytics-test';
 
 // Styled components for the home page
 const HomePageContainer = styled.div`
@@ -177,6 +178,11 @@ export default function HomePage() {
       preloadLink.as = link.as;
       document.head.appendChild(preloadLink);
     });
+
+    // Test Clarity analytics in development
+    if (process.env.NODE_ENV === 'development') {
+      testClarityFeatures();
+    }
   }, []);
 
   // Hero section props

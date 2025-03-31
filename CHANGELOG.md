@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [0.8.0] - 2024-07-06
+
+### Added
+- Microsoft Clarity analytics integration for user behavior insights
+- Created ClarityProvider component for easy implementation
+- Implemented analytics utility with support for:
+  - Custom tags and events
+  - User identification
+  - Cookie consent management
+  - Session priority upgrades
+- Added environment variable support for Clarity project ID
+
 ### [0.7.4] - 2024-07-05
 
 ### Changed
