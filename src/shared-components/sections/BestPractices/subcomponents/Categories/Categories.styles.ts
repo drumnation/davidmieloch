@@ -75,7 +75,7 @@ export const CategoryItems = styled.ul`
   flex-grow: 1;
 `;
 
-export const CategoryItem = styled.li`
+export const CategoryItemListEntry = styled.li`
   display: flex;
   align-items: flex-start;
   margin-bottom: 0.75rem;

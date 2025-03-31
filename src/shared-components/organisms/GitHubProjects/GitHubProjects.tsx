@@ -5,7 +5,7 @@ import { RepoSearch } from '../../molecules/RepoSearch';
 import { RepoFilter } from '../../molecules/RepoFilter';
 import { RepoGrid } from '../../molecules/RepoGrid';
 import { RepoDetails } from '../RepoDetails';
-import { Repository } from '../../types';
+import { Repository } from '../../types/Repository.types';
 import {
   ProjectsContainer,
   FiltersRow,

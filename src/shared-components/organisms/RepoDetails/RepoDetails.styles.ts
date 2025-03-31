@@ -114,7 +114,7 @@ export const StatCard = styled.div`
   display: flex;
   flex-direction: column;
   padding: 16px;
-  background-color: ${({ theme }) => theme.colors.background.medium};
+  background-color: ${({ theme }) => theme.colors.background.light};
   border-radius: 8px;
 `;
 

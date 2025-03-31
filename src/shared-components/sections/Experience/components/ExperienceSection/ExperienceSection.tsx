@@ -1,6 +1,7 @@
 import React, { useState, ReactNode } from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
-import { 
+import {
   SectionContainer,
   ExperienceItem,
   CompanyLogo,
@@ -17,29 +18,23 @@ import {
   HeaderLeft,
   HeaderContent,
   TechnologiesList,
-  TechnologyItem
+  TechnologyItem,
 } from './ExperienceSection.styles';
-import { ExperienceSectionProps } from './ExperienceSection.types';
+import { ExperienceSectionProps, ExperienceItem as ExperienceItemType, MediaItem } from './ExperienceSection.types'; // Renamed ExperienceItem to avoid conflict
 import { stringToColor, LetterAvatar } from '../../utils/avatarHelpers';
 import { OLDER_EXPERIENCE } from './ExperienceSection.constants';
 import { MarkdownRenderer } from '../../../../molecules/MarkdownRenderer';
 import { FoldableContent } from '../../../../molecules/FoldableContent';
 import { TechIcon } from '../../../../atoms/TechIcon';
 // Import icons for bullet points
-import { 
-  FaCode, FaDatabase, FaCloud, FaUsers, FaTools, FaChartLine, 
-  FaLightbulb, FaBook, FaCogs, FaServer, FaMobileAlt, FaUserShield, 
-  FaPencilAlt, FaLock, FaUserCog, FaFileAlt, FaTasks, FaRocket,
+import {
+  FaCode, FaDatabase, FaCloud, FaUsers, FaTools, FaChartLine,
+  FaLightbulb, FaBook, FaCogs, FaServer, FaMobileAlt, FaUserShield,
+  FaPencilAlt, FaFileAlt, FaTasks, FaRocket, // Removed FaLock, FaUserCog
   FaSearch, FaHandshake, FaGlobe, FaRegCheckCircle, FaBug
 } from 'react-icons/fa';
 
-// Add a styled divider component
-const Divider = styled.div`
-  height: 1px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05));
-  margin: 40px 0;
-  width: 100%;
-`;
+// Removed unused Divider component
 
 // Add styled components for custom bullet points with icons
 const BulletList = styled.div`
@@ -188,7 +183,7 @@ const ModalContent = styled.div`
   max-height: 90%;
   position: relative;
   
-  img {
+  img { // Keep this for potential non-Next.js images if needed elsewhere, or remove if fully migrated
     max-width: 100%;
     max-height: 90vh;
     display: block;
@@ -301,9 +296,9 @@ const AccordionContent = styled.div<{ $isOpen: boolean }>`
   max-height: ${({ $isOpen }) => $isOpen ? 'none' : '0'};
   opacity: ${({ $isOpen }) => $isOpen ? '1' : '0'};
   overflow: hidden;
-  transition: ${({ $isOpen }) => 
-    $isOpen 
-      ? 'opacity 0.3s ease, padding 0.2s ease' 
+  transition: ${({ $isOpen }) =>
+    $isOpen
+      ? 'opacity 0.3s ease, padding 0.2s ease'
       : 'max-height 0.3s ease, opacity 0.2s ease, padding 0.1s ease'
   };
   border-top: ${({ $isOpen }) => $isOpen ? '1px solid rgba(0, 0, 0, 0.1)' : 'none'};
@@ -360,7 +355,7 @@ const isImageFile = (path: string | undefined): boolean => {
 // Helper function to determine which icon to use based on bullet point content
 const getBulletIcon = (text: string) => {
   const lowerText = text.toLowerCase();
-  
+
   if (lowerText.includes('develop') || lowerText.includes('code') || lowerText.includes('program') || lowerText.includes('implement')) {
     return <FaCode />;
   } else if (lowerText.includes('database') || lowerText.includes('data') || lowerText.includes('sql')) {
@@ -410,15 +405,17 @@ const getBulletIcon = (text: string) => {
 };
 
 // Function to render an experience item
-const renderExperienceItem = (job: any, index: number, renderLogo?: (company: string) => React.ReactNode, setModalImage?: (image: {url: string, title?: string}) => void) => {
+const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo?: (company: string) => React.ReactNode, setModalImage?: (image: {url: string, title?: string}) => void) => {
+  const logoSrc = job.logoPath; // Keep original path for iframe check
+
   return (
     <ExperienceItem key={`job-${index}`}>
       {job.technologies && job.technologies.length > 0 && (
         <TechnologiesList className="technologies-list">
           {job.technologies.map((tech: string) => (
             <TechnologyItem key={tech}>
-              <TechIcon 
-                name={tech} 
+              <TechIcon
+                name={tech}
                 size={20}
                 showLabel={true}
                 labelPosition="right"
@@ -428,41 +425,40 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
           ))}
         </TechnologiesList>
       )}
-      
+
       <ExperienceHeader className="project-header">
         <HeaderLeft>
           <CompanyLogo>
             {renderLogo ? (
               renderLogo(job.company)
-            ) : job.logoPath && isImageFile(job.logoPath) ? (
-              <img 
-                src={job.logoPath} 
+            ) : logoSrc && isImageFile(logoSrc) ? (
+              <Image
+                src={logoSrc} // Use checked logoSrc
                 alt={`${job.company} logo`}
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'contain',
+                layout="fill"
+                objectFit="contain"
+                style={{
                   borderRadius: '6px',
                   ...(job.showBorder && {
                     border: '1px solid rgba(0, 0, 0, 0.2)',
-                    padding: '2px'
-                  })
+                    padding: '2px',
+                  }),
                 }}
               />
-            ) : job.logoPath && job.logoPath.endsWith('.html') ? (
-              <iframe 
-                src={job.logoPath} 
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  border: 'none' 
+            ) : logoSrc && logoSrc.endsWith('.html') ? (
+              <iframe
+                src={logoSrc}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none'
                 }}
                 title={`${job.company} logo`}
               />
             ) : (
-              <LetterAvatar 
-                name={job.company} 
-                bgColor={stringToColor(job.company)} 
+              <LetterAvatar
+                name={job.company}
+                bgColor={stringToColor(job.company)}
               />
             )}
           </CompanyLogo>
@@ -476,27 +472,27 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
           </HeaderContent>
         </HeaderLeft>
       </ExperienceHeader>
-      
+
       <ExperienceContent>
         <ExperienceDescription>
           {job.foldable ? (
             <FoldableContent maxHeight={200} customMaxHeight="250px">
               <CompanyDescription>
-                <MarkdownRenderer 
-                  content={job.description} 
+                <MarkdownRenderer
+                  content={job.description}
                   compact={true}
                 />
               </CompanyDescription>
             </FoldableContent>
           ) : (
             <CompanyDescription>
-              <MarkdownRenderer 
-                content={job.description} 
+              <MarkdownRenderer
+                content={job.description}
                 compact={true}
               />
             </CompanyDescription>
           )}
-          
+
           {job.bulletPoints && job.bulletPoints.length > 0 && (
             <BulletList>
               {job.bulletPoints.map((point: string, i: number) => (
@@ -508,68 +504,80 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
             </BulletList>
           )}
         </ExperienceDescription>
-        
+
         {job.media && job.media.length > 0 && (
           <MediaRow>
-            {job.media.map((mediaItem: any, mediaIndex: number) => {
+            {job.media.map((mediaItem: MediaItem, mediaIndex: number) => {
               // Check if this is a media item specifically set for special layouts
               const isQuarterWidth = mediaItem.width === '23.5%';
               const isThirdWidth = mediaItem.width === '31.33%';
               const isSpecialLayout = isQuarterWidth || isThirdWidth;
-              
+
               // For default sizing, use normal isWide logic
-              const $isWide = !isSpecialLayout && 
-                (mediaItem.width === 'full' || mediaItem.width === '100%' || job.media.length === 1);
-              
+              const $isWide = !isSpecialLayout &&
+                (mediaItem.width === 'full' || mediaItem.width === '100%' || (job.media?.length === 1)); // Added optional chaining for job.media
+
               // Render different media types
               if (mediaItem.type === 'image') {
                 // Handle special layouts with specific classes
-                const specialLayoutClass = isQuarterWidth 
-                  ? "quarter-width-image" 
-                  : isThirdWidth 
-                    ? "third-width-image" 
+                const specialLayoutClass = isQuarterWidth
+                  ? "quarter-width-image"
+                  : isThirdWidth
+                    ? "third-width-image"
                     : "";
-                
+
                 // Calculate width style for non-standard percentages
-                const widthStyle = !isSpecialLayout && !$isWide && mediaItem.width 
-                  ? { flex: `0 0 ${mediaItem.width}`, maxWidth: mediaItem.width } 
+                const widthStyle = !isSpecialLayout && !$isWide && mediaItem.width
+                  ? { flex: `0 0 ${mediaItem.width}`, maxWidth: mediaItem.width }
                   : {};
-                
+
+                const titleLogoSrc = mediaItem.titleLogoPath || job.logoPath;
+
                 return (
-                  <MediaContainer 
-                    key={`media-${index}-${mediaIndex}`} 
+                  <MediaContainer
+                    key={`media-${index}-${mediaIndex}`}
                     $isWide={$isWide}
                     className={specialLayoutClass}
                     style={widthStyle}
                   >
-                    <img 
-                      src={mediaItem.url} 
-                      alt={mediaItem.title || `${job.company} image`} 
-                      loading="lazy"
-                      style={{ cursor: 'pointer' }}
-                      onClick={() => setModalImage && setModalImage({
-                        url: mediaItem.url,
-                        title: mediaItem.title || `${job.company} image`
-                      })}
-                    />
+                    <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9' /* Default aspect ratio, adjust if needed */ }}>
+                      {mediaItem.url && ( // Check if url exists
+                        <Image
+                          src={mediaItem.url}
+                          alt={mediaItem.title || `${job.company} image`}
+                          layout="fill"
+                          objectFit="cover" // Or "contain" depending on desired behavior
+                          loading="lazy"
+                          style={{ cursor: 'pointer' }}
+                          onClick={() => {
+                            if (setModalImage && mediaItem.url) { // Check url inside handler
+                              setModalImage({
+                                url: mediaItem.url,
+                                title: mediaItem.title || `${job.company} image`
+                              });
+                            }
+                          }}
+                        />
+                      )}
+                    </div>
                     {mediaItem.title && (
-                      <div style={{ 
-                        padding: '12px 15px', 
-                        fontSize: '1rem', 
-                        fontWeight: 500, 
-                        backgroundColor: '#f9f9f9', 
+                      <div style={{
+                        padding: '12px 15px',
+                        fontSize: '1rem',
+                        fontWeight: 500,
+                        backgroundColor: '#f9f9f9',
                         borderTop: '1px solid #eee',
                         display: 'flex',
                         alignItems: 'center'
                       }}>
-                        {mediaItem.showLogo && (
-                          <img 
-                            src={mediaItem.titleLogoPath || job.logoPath} 
+                        {mediaItem.showLogo && titleLogoSrc && ( // Check if titleLogoSrc exists
+                          <Image
+                            src={titleLogoSrc}
                             alt={`${job.company} logo`}
-                            style={{ 
-                              width: '20px', 
-                              height: '20px', 
-                              objectFit: 'contain',
+                            width={20}
+                            height={20}
+                            objectFit="contain"
+                            style={{
                               marginRight: '8px',
                               borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                               overflow: 'visible',
@@ -592,32 +600,36 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       <div style={{ padding: '8px 15px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
                         {mediaItem.foldable ? (
                           <FoldableContent maxHeight={100} customMaxHeight="120px">
-                            <MarkdownRenderer content={mediaItem.description} compact={true} />
+                            <MarkdownRenderer content={mediaItem.description || ''} compact={true} />
                           </FoldableContent>
                         ) : (
-                          <MarkdownRenderer content={mediaItem.description} compact={true} />
+                          <MarkdownRenderer content={mediaItem.description || ''} compact={true} />
                         )}
                       </div>
                     )}
                   </MediaContainer>
                 );
               } else if (mediaItem.type === 'pdf') {
+                 const titleLogoSrc = mediaItem.titleLogoPath || job.logoPath;
                 return (
-                  <MediaContainer 
-                    key={`media-${index}-${mediaIndex}`} 
+                  <MediaContainer
+                    key={`media-${index}-${mediaIndex}`}
                     $isWide={$isWide}
                     className="pdf-container"
                   >
-                    <a 
-                      href={mediaItem.url} 
-                      target="_blank" 
+                    <a
+                      href={mediaItem.url || '#'} // Provide fallback href
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="pdf-thumbnail"
+                      style={{ position: 'relative', display: 'block', aspectRatio: '4/3', backgroundColor: '#eee' }} // Ensure container has dimensions
                     >
                       {mediaItem.thumbnailUrl ? (
-                        <img 
-                          src={mediaItem.thumbnailUrl} 
-                          alt={mediaItem.title || "PDF Document"} 
+                        <Image
+                          src={mediaItem.thumbnailUrl}
+                          alt={mediaItem.title || "PDF Document"}
+                          layout="fill"
+                          objectFit="cover"
                           loading="lazy"
                         />
                       ) : (
@@ -639,14 +651,14 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                           display: 'flex',
                           alignItems: 'center'
                         }}>
-                          {mediaItem.showLogo && (
-                            <img 
-                              src={mediaItem.titleLogoPath || job.logoPath} 
+                          {mediaItem.showLogo && titleLogoSrc && ( // Check if titleLogoSrc exists
+                            <Image
+                              src={titleLogoSrc}
                               alt={`${job.company} logo`}
-                              style={{ 
-                                width: '20px', 
-                                height: '20px', 
-                                objectFit: 'contain',
+                              width={20}
+                              height={20}
+                              objectFit="contain"
+                              style={{
                                 marginRight: '8px',
                                 borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                                 overflow: 'visible',
@@ -679,22 +691,23 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       <div style={{ padding: '8px 15px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
                         {mediaItem.foldable ? (
                           <FoldableContent maxHeight={100} customMaxHeight="120px">
-                            <MarkdownRenderer content={mediaItem.description} compact={true} />
+                            <MarkdownRenderer content={mediaItem.description || ''} compact={true} />
                           </FoldableContent>
                         ) : (
-                          <MarkdownRenderer content={mediaItem.description} compact={true} />
+                          <MarkdownRenderer content={mediaItem.description || ''} compact={true} />
                         )}
                       </div>
                     )}
                   </MediaContainer>
                 );
               } else if (mediaItem.type === 'embed') {
+                 const titleLogoSrc = mediaItem.titleLogoPath || job.logoPath;
                 return (
-                  <MediaContainer 
-                    key={`media-${index}-${mediaIndex}`} 
+                  <MediaContainer
+                    key={`media-${index}-${mediaIndex}`}
                     $isWide={$isWide}
                   >
-                    {mediaItem.url.endsWith('.mp4') || mediaItem.url.includes('.mp4#') ? (
+                    {mediaItem.url && (mediaItem.url.endsWith('.mp4') || mediaItem.url.includes('.mp4#')) ? ( // Check url exists
                       <video
                         src={mediaItem.url}
                         title={mediaItem.title || `${job.company} video`}
@@ -704,7 +717,7 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                         style={{ width: '100%', height: 'auto', maxHeight: mediaItem.height || 400 }}
                         poster={mediaItem.thumbnailUrl}
                       />
-                    ) : (
+                    ) : mediaItem.url ? ( // Check url exists
                       <iframe
                         src={mediaItem.url}
                         title={mediaItem.title || `${job.company} embed`}
@@ -712,25 +725,25 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       />
-                    )}
+                    ) : null}
                     {mediaItem.title && (
-                      <div style={{ 
-                        padding: '8px', 
-                        fontSize: '1rem', 
-                        fontWeight: 500, 
-                        borderTop: '1px solid #eee', 
+                      <div style={{
+                        padding: '8px',
+                        fontSize: '1rem',
+                        fontWeight: 500,
+                        borderTop: '1px solid #eee',
                         backgroundColor: '#f9f9f9',
                         display: 'flex',
-                        alignItems: 'center' 
+                        alignItems: 'center'
                       }}>
-                        {mediaItem.showLogo && (
-                          <img 
-                            src={mediaItem.titleLogoPath || job.logoPath} 
+                        {mediaItem.showLogo && titleLogoSrc && ( // Check if titleLogoSrc exists
+                          <Image
+                            src={titleLogoSrc}
                             alt={`${job.company} logo`}
-                            style={{ 
-                              width: '20px', 
-                              height: '20px', 
-                              objectFit: 'contain',
+                            width={20}
+                            height={20}
+                            objectFit="contain"
+                            style={{
                               marginRight: '8px',
                               borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                               overflow: 'visible',
@@ -753,32 +766,36 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       <div style={{ padding: '8px', fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)' }}>
                         {mediaItem.foldable ? (
                           <FoldableContent maxHeight={100} customMaxHeight="120px">
-                            <MarkdownRenderer content={mediaItem.description} compact={true} />
+                            <MarkdownRenderer content={mediaItem.description || ''} compact={true} />
                           </FoldableContent>
                         ) : (
-                          <MarkdownRenderer content={mediaItem.description} compact={true} />
+                          <MarkdownRenderer content={mediaItem.description || ''} compact={true} />
                         )}
                       </div>
                     )}
                   </MediaContainer>
                 );
               } else if (mediaItem.type === 'link') {
+                 const titleLogoSrc = mediaItem.titleLogoPath || job.logoPath;
                 return (
-                  <MediaContainer 
-                    key={`media-${index}-${mediaIndex}`} 
+                  <MediaContainer
+                    key={`media-${index}-${mediaIndex}`}
                     $isWide={$isWide || mediaItem.width === '100%'}
                     className="link-container"
                   >
-                    <div className="link-thumbnail">
+                    <div className="link-thumbnail" style={{ position: 'relative', aspectRatio: '16/9', backgroundColor: '#eee' }}>
                       {mediaItem.thumbnailUrl ? (
-                        <a 
-                          href={mediaItem.url} 
-                          target="_blank" 
+                        <a
+                          href={mediaItem.url || '#'} // Provide fallback href
+                          target="_blank"
                           rel="noopener noreferrer"
+                          style={{ display: 'block', width: '100%', height: '100%' }}
                         >
-                          <img 
-                            src={mediaItem.thumbnailUrl} 
-                            alt={mediaItem.title || "Blog post"} 
+                          <Image
+                            src={mediaItem.thumbnailUrl}
+                            alt={mediaItem.title || "Blog post"}
+                            layout="fill"
+                            objectFit="cover"
                             loading="lazy"
                           />
                         </a>
@@ -800,14 +817,14 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                         display: 'flex',
                         alignItems: 'center'
                       }}>
-                        {mediaItem.showLogo && (
-                          <img 
-                            src={mediaItem.titleLogoPath || job.logoPath} 
+                        {mediaItem.showLogo && titleLogoSrc && ( // Check if titleLogoSrc exists
+                          <Image
+                            src={titleLogoSrc}
                             alt={`${job.company} logo`}
-                            style={{ 
-                              width: '20px', 
-                              height: '20px', 
-                              objectFit: 'contain',
+                            width={20}
+                            height={20}
+                            objectFit="contain"
+                            style={{
                               marginRight: '8px',
                               borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                               overflow: 'visible',
@@ -828,15 +845,15 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                       <div className="link-description">
                         {mediaItem.foldable ? (
                           <FoldableContent maxHeight={100} customMaxHeight="120px">
-                            <MarkdownRenderer content={mediaItem.description} compact={true} />
+                            <MarkdownRenderer content={mediaItem.description || ''} compact={true} />
                           </FoldableContent>
                         ) : (
-                          <MarkdownRenderer content={mediaItem.description} compact={true} />
+                          <MarkdownRenderer content={mediaItem.description || ''} compact={true} />
                         )}
                       </div>
-                      <a 
-                        href={mediaItem.url} 
-                        target="_blank" 
+                      <a
+                        href={mediaItem.url || '#'} // Provide fallback href
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="link-button"
                       >
@@ -852,80 +869,90 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                 const isHalfWidth = mediaItem.width === '49%' || mediaItem.width === '48%' || mediaItem.width === '48.5%' || mediaItem.width === 'half';
                 const isThirdWidth = mediaItem.width === '31.33%' || mediaItem.width === '32%' || mediaItem.width === 'third';
                 const isQuarterWidth = mediaItem.width === '23.5%' || mediaItem.width === '24%' || mediaItem.width === '25%' || mediaItem.width === 'quarter';
-                
-                const groupClass = isQuarterWidth 
-                  ? 'quarter-width-group' 
-                  : isThirdWidth 
-                    ? 'third-width-group' 
+
+                const groupClass = isQuarterWidth
+                  ? 'quarter-width-group'
+                  : isThirdWidth
+                    ? 'third-width-group'
                     : isHalfWidth
-                      ? 'half-width-group' 
+                      ? 'half-width-group'
                       : '';
-                      
+
                 // Calculate width style for non-standard percentages
-                const widthStyle = !groupClass && mediaItem.width 
-                  ? { flex: `0 0 ${mediaItem.width}`, maxWidth: mediaItem.width } 
+                const widthStyle = !groupClass && mediaItem.width
+                  ? { flex: `0 0 ${mediaItem.width}`, maxWidth: mediaItem.width }
                   : {};
-                
+
+                 const titleLogoSrc = mediaItem.titleLogoPath || job.logoPath;
+
                 // Function to render a nested media item
-                const renderNestedMediaItem = (nestedItem: any, nestedIndex: number) => {
+                const renderNestedMediaItem = (nestedItem: MediaItem, nestedIndex: number) => {
+                  const nestedTitleLogoSrc = nestedItem.titleLogoPath || job.logoPath;
                   if (nestedItem.type === 'image') {
                     return (
-                      <div 
+                      <div
                         key={`nested-media-${index}-${mediaIndex}-${nestedIndex}`}
-                        style={{ 
+                        style={{
                           borderRadius: 0,
                           overflow: 'hidden',
                           boxShadow: 'none',
                           marginBottom: 0,
                           display: 'flex',
                           flexDirection: 'column',
-                          borderBottom: nestedIndex < mediaItem.items.length - 1 ? '1px solid rgba(0, 0, 0, 0.08)' : 'none'
+                          borderBottom: nestedIndex < (mediaItem.items?.length || 0) - 1 ? '1px solid rgba(0, 0, 0, 0.08)' : 'none' // Optional chaining
                         }}
                       >
-                        <img 
-                          src={nestedItem.url} 
-                          alt={nestedItem.title || `${job.company} image`} 
-                          loading="lazy"
-                          style={{ 
-                            cursor: 'pointer',
-                            width: '100%',
-                            height: 'auto',
-                            display: 'block',
-                            borderRadius: 0
-                          }}
-                          onClick={() => setModalImage && setModalImage({
-                            url: nestedItem.url,
-                            title: nestedItem.title || `${job.company} image`
-                          })}
-                        />
+                        {nestedItem.url && ( // Check url exists
+                          <Image
+                            src={nestedItem.url}
+                            alt={nestedItem.title || `${job.company} image`}
+                            layout="responsive" // Or fill if parent has position relative and dimensions
+                            width={1600} // Example width, adjust as needed
+                            height={900} // Example height, adjust as needed
+                            loading="lazy"
+                            style={{
+                              cursor: 'pointer',
+                              display: 'block',
+                              borderRadius: 0
+                            }}
+                            onClick={() => {
+                              if (setModalImage && nestedItem.url) { // Check url inside handler
+                                setModalImage({
+                                  url: nestedItem.url,
+                                  title: nestedItem.title || `${job.company} image`
+                                });
+                              }
+                            }}
+                          />
+                        )}
                         {nestedItem.title && (
-                          <div style={{ 
-                            padding: '10px 12px', 
-                            fontSize: '0.9rem', 
-                            fontWeight: 500, 
-                            backgroundColor: '#f9f9f9', 
+                          <div style={{
+                            padding: '10px 12px',
+                            fontSize: '0.9rem',
+                            fontWeight: 500,
+                            backgroundColor: '#f9f9f9',
                             borderTop: '1px solid #eee',
-                            borderBottom: nestedIndex < mediaItem.items.length - 1 ? '1px solid rgba(0, 0, 0, 0.08)' : 'none',
+                            borderBottom: nestedIndex < (mediaItem.items?.length || 0) - 1 ? '1px solid rgba(0, 0, 0, 0.08)' : 'none', // Optional chaining
                             display: 'flex',
                             alignItems: 'center'
                           }}>
-                            {nestedItem.showLogo && (
-                              <img 
-                                src={nestedItem.titleLogoPath || job.logoPath} 
+                            {nestedItem.showLogo && nestedTitleLogoSrc && ( // Check nestedTitleLogoSrc exists
+                              <Image
+                                src={nestedTitleLogoSrc}
                                 alt={`${job.company} logo`}
-                                style={{ 
-                                  width: '20px', 
-                                  height: '20px', 
-                                  objectFit: 'contain',
+                                width={20}
+                                height={20}
+                                objectFit="contain"
+                                style={{
                                   marginRight: '8px',
-                                  borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
+                                  borderRadius: nestedItem.logoHasBorderRadius === false ? '0' : '6px', // Use nestedItem here
                                   overflow: 'visible',
-                                  backgroundColor: mediaItem.logoHasBorderRadius === false ? 'transparent' : '#f8f8f8',
-                                  padding: mediaItem.logoHasBorderRadius === false ? '0' : '3px',
+                                  backgroundColor: nestedItem.logoHasBorderRadius === false ? 'transparent' : '#f8f8f8', // Use nestedItem here
+                                  padding: nestedItem.logoHasBorderRadius === false ? '0' : '3px', // Use nestedItem here
                                   display: 'flex',
                                   alignItems: 'center',
                                   justifyContent: 'center',
-                                  ...(mediaItem.logoHasBorder && {
+                                  ...(nestedItem.logoHasBorder && { // Use nestedItem here
                                     border: '1px solid rgba(0, 0, 0, 0.2)',
                                     padding: '1px'
                                   })
@@ -936,17 +963,17 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                           </div>
                         )}
                         {nestedItem.description && (
-                          <div style={{ 
-                            padding: '6px 12px', 
-                            fontSize: '0.85rem', 
-                            color: 'rgba(0,0,0,0.6)' 
+                          <div style={{
+                            padding: '6px 12px',
+                            fontSize: '0.85rem',
+                            color: 'rgba(0,0,0,0.6)'
                           }}>
                             {nestedItem.foldable ? (
                               <FoldableContent maxHeight={100} customMaxHeight="120px">
-                                <MarkdownRenderer content={nestedItem.description} compact={true} />
+                                <MarkdownRenderer content={nestedItem.description || ''} compact={true} />
                               </FoldableContent>
                             ) : (
-                              <MarkdownRenderer content={nestedItem.description} compact={true} />
+                              <MarkdownRenderer content={nestedItem.description || ''} compact={true} />
                             )}
                           </div>
                         )}
@@ -955,35 +982,35 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                   }
                   return null;
                 };
-                
+
                 return (
-                  <MediaGroup 
-                    key={`media-group-${index}-${mediaIndex}`} 
+                  <MediaGroup
+                    key={`media-group-${index}-${mediaIndex}`}
                     className={groupClass}
                     $layout={mediaItem.layout}
                     $width={mediaItem.width}
                     style={widthStyle}
                   >
                     {mediaItem.title && (
-                      <div style={{ 
-                        width: '100%', 
-                        padding: '10px 15px', 
-                        fontSize: '1rem', 
+                      <div style={{
+                        width: '100%',
+                        padding: '10px 15px',
+                        fontSize: '1rem',
                         fontWeight: 600,
-                        color: 'rgba(0, 0, 0, 0.75)',  
-                        backgroundColor: '#edf2f7', 
+                        color: 'rgba(0, 0, 0, 0.75)',
+                        backgroundColor: '#edf2f7',
                         borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
                         display: 'flex',
                         alignItems: 'center'
                       }}>
-                        {mediaItem.showLogo && (
-                          <img 
-                            src={mediaItem.titleLogoPath || job.logoPath} 
+                        {mediaItem.showLogo && titleLogoSrc && ( // Check titleLogoSrc exists
+                          <Image
+                            src={titleLogoSrc}
                             alt={`${job.company} logo`}
-                            style={{ 
-                              width: '20px', 
-                              height: '20px', 
-                              objectFit: 'contain',
+                            width={20}
+                            height={20}
+                            objectFit="contain"
+                            style={{
                               marginRight: '8px',
                               borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                               overflow: 'visible',
@@ -1004,19 +1031,19 @@ const renderExperienceItem = (job: any, index: number, renderLogo?: (company: st
                     )}
                     {mediaItem.layout === 'stack' ? (
                       <MediaGroupContent>
-                        {mediaItem.items.map((nestedItem: any, nestedIndex: number) => 
+                        {mediaItem.items?.map((nestedItem: MediaItem, nestedIndex: number) => // Optional chaining
                           renderNestedMediaItem(nestedItem, nestedIndex)
                         )}
                       </MediaGroupContent>
                     ) : (
-                      mediaItem.items.map((nestedItem: any, nestedIndex: number) => 
+                      mediaItem.items?.map((nestedItem: MediaItem, nestedIndex: number) => // Optional chaining
                         renderNestedMediaItem(nestedItem, nestedIndex)
                       )
                     )}
                   </MediaGroup>
                 );
               }
-              
+
               return null;
             })}
           </MediaRow>
@@ -1035,27 +1062,27 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
 }) => {
   const hasOlderExperience = OLDER_EXPERIENCE && OLDER_EXPERIENCE.length > 0;
   const [modalImage, setModalImage] = useState<{url: string, title?: string} | null>(null);
-  
+
   console.log('Experience items with media:', experiences.filter(exp => exp.media?.length).map(exp => ({ company: exp.company, mediaCount: exp.media?.length || 0 })));
 
   const closeModal = () => {
     setModalImage(null);
   };
-  
+
   return (
     <SectionContainer className={className}>
       <h2>{title}</h2>
-      
+
       {children}
-      
+
       {experiences.map((job, index) => (
         <React.Fragment key={`job-${index}`}>
           {renderExperienceItem(job, index, renderLogo, setModalImage)}
         </React.Fragment>
       ))}
-      
+
       {hasOlderExperience && (
-        <Accordion 
+        <Accordion
           title={`Previous Sales & Marketing Experience (${OLDER_EXPERIENCE.length} Positions)`}
           subtitle="Click to expand and see earlier sales and marketing positions from 2004-2016"
           initiallyOpen={true}
@@ -1067,31 +1094,31 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
               'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
               'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
             };
-            
+
             const aDateParts = a.startDate.split(' ');
             const bDateParts = b.startDate.split(' ');
-            
+
             const aYear = parseInt(aDateParts[1] || '0');
             const bYear = parseInt(bDateParts[1] || '0');
-            
+
             // Sort by year (descending)
             if (aYear !== bYear) {
               return bYear - aYear;
             }
-            
+
             // If years are the same, sort by month (descending)
             const aMonth = monthToNum[aDateParts[0]] || 0;
             const bMonth = monthToNum[bDateParts[0]] || 0;
-            
+
             return bMonth - aMonth;
           }).map((job, index) => (
             <React.Fragment key={`older-job-${index}`}>
-              {renderExperienceItem(job, index, renderLogo, setModalImage)}
+              {renderExperienceItem(job as ExperienceItemType, index, renderLogo, setModalImage)} {/* Cast job to ExperienceItemType */}
             </React.Fragment>
           ))}
         </Accordion>
       )}
-      
+
       {modalImage && (
         <ModalOverlay onClick={closeModal}>
           <ModalContent onClick={(e) => e.stopPropagation()}>
@@ -1100,11 +1127,18 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
                 <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="white"/>
               </svg>
             </CloseButton>
-            <img src={modalImage.url} alt={modalImage.title || "Full size image"} />
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+              <Image
+                src={modalImage.url} // url is guaranteed here because setModalImage checks it
+                alt={modalImage.title || "Full size image"}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
             {modalImage.title && <div className="modal-caption">{modalImage.title}</div>}
           </ModalContent>
         </ModalOverlay>
       )}
     </SectionContainer>
   );
-}; 
+};

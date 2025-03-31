@@ -1,2 +1,2 @@
 export { PersistentFooter } from './PersistentFooter';
-export type { PersistentFooterProps } from './PersistentFooter'; 
+export type { PersistentFooterProps } from './PersistentFooter.types'; 

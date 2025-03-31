@@ -8,6 +8,7 @@ import {
   ContentSection,
 } from './BrainGardenOverview.styles';
 import { useInView } from 'react-intersection-observer';
+import { BrainGardenOverviewProps } from './BrainGardenOverview.types';
 
 // Import all the section components
 import { SystemOverviewSection } from './components/SystemOverviewSection';
@@ -19,7 +20,7 @@ import { SystemArchitectureSection } from './components/SystemArchitectureSectio
 import { NextEvolutionSection } from './components/NextEvolutionSection';
 import { TransitionSection } from './components/TransitionSection';
 
-export const BrainGardenOverview = () => {
+export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) => {
   const {
     className,
     enhancedHeroProps,
@@ -31,7 +32,7 @@ export const BrainGardenOverview = () => {
     processedKeyBenefits,
     processedCTA,
     transitionProps
-  } = useBrainGardenOverview({});
+  } = useBrainGardenOverview(props);
 
   // Process the data to ensure all icons are properly handled
   const safeData = {

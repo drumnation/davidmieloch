@@ -54,7 +54,7 @@ export const LanguageTag = styled.button<{ $active?: boolean }>`
   
   &:hover {
     background: ${({ $active, theme }) =>
-      $active ? theme.colors.primary.dark : theme.colors.background.medium};
+      $active ? theme.colors.primary.dark : theme.colors.background.paper};
   }
 `;
 
@@ -89,6 +89,6 @@ export const OrderToggle = styled.button<{ $active?: boolean }>`
   transition: all 0.2s ease;
   
   &:hover {
-    background-color: ${({ theme }) => theme.colors.background.medium};
+    background-color: ${({ theme }) => theme.colors.background.paper};
   }
 `; 

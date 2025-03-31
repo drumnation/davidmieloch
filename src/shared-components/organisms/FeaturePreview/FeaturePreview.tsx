@@ -4,6 +4,7 @@ import { Card } from '../../atoms/Card';
 import { Icon } from '../../atoms/Icon';
 import { FeaturePreviewProps } from './FeaturePreview.types';
 import * as S from './FeaturePreview.styles';
+import { animated } from '@react-spring/web';
 
 export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
   features,
@@ -50,19 +51,22 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
   return (
     <S.FeatureGrid className={className} style={animation !== 'none' ? springToCss(containerProps) : undefined}>
       {features.map((feature, index) => (
-        <Card
+        <animated.div
           key={index}
-          variant={cardVariant}
           style={animation !== 'none' ? springToCss(featureTrail[index]) : undefined}
         >
-          <S.FeatureContent>
-            <S.IconWrapper>
-              <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
-            </S.IconWrapper>
-            <S.Title>{feature.title}</S.Title>
-            <S.Description>{feature.description}</S.Description>
-          </S.FeatureContent>
-        </Card>
+          <Card
+            variant={cardVariant}
+          >
+            <S.FeatureContent>
+              <S.IconWrapper>
+                <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
+              </S.IconWrapper>
+              <S.Title>{feature.title}</S.Title>
+              <S.Description>{feature.description}</S.Description>
+            </S.FeatureContent>
+          </Card>
+        </animated.div>
       ))}
     </S.FeatureGrid>
   );

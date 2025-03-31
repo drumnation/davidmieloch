@@ -87,7 +87,22 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
         </Sidebar>
 
         <MainContent>
-          <RepoGrid repositories={repositories} onRepoClick={onRepoClick} />
+          <RepoGrid 
+            repositories={repositories.map(repo => ({
+              ...repo,
+              fullName: repo.name,
+              watchers: 0,
+              createdAt: repo.lastUpdated,
+              updatedAt: repo.lastUpdated,
+              owner: {
+                login: 'owner',
+                id: '0',
+                avatarUrl: '',
+                url: ''
+              }
+            }))} 
+            onRepoClick={onRepoClick} 
+          />
         </MainContent>
       </Content>
     </Container>

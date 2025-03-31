@@ -25,7 +25,7 @@ export const RepoGrid: React.FC<RepoGridProps> = ({
       {repositories.map((repo) => (
         <RepoCard
           key={repo.id}
-          repository={repo}
+          repo={repo}
           onClick={onRepoClick ? () => onRepoClick(repo) : undefined}
           isSelected={selectedRepoId === repo.id}
         />

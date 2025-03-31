@@ -1,4 +1,4 @@
-import { Repository } from '../../molecules/RepoCard/RepoCard.types';
+import { Repository } from '../../types/Repository.types';
 
 export interface CodeExamplesProps {
   repositories: Repository[];

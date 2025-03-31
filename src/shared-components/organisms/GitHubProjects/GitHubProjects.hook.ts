@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Repository, RepositoryFilterOptions, RepositoriesState } from '../../types';
+import { Repository, RepositoryFilterOptions, RepositoriesState } from '../../types/Repository.types';
 
 // This would normally come from an API
 import { mockRepositories } from './mockData';

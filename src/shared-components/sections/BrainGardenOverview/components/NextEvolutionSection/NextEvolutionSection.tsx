@@ -195,7 +195,7 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
           <ResearchGridContainer>
             {researchAreas.map((area, index) => (
               <ResearchAreaCard key={index}>
-                <Typography variant="h4" mb="0.5rem">{area.title}</Typography>
+                <Typography variant="h3" mb="0.5rem">{area.title}</Typography>
                 <Typography variant="body">{area.description}</Typography>
               </ResearchAreaCard>
             ))}

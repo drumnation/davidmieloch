@@ -1,4 +1,4 @@
-import { RepositoryFilterOptions } from '../../types';
+import { RepositoryFilterOptions } from '../../types/Repository.types';
 
 export interface RepoFilterProps {
   filterOptions: RepositoryFilterOptions;

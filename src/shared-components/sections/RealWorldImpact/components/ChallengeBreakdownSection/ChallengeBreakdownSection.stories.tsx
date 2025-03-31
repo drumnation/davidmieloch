@@ -9,7 +9,14 @@ const ChallengeBreakdownSection = () => {
       <ChallengeBreakdown 
         title={defaultContent.challengeBreakdown.title}
         description="Key challenges in enterprise development knowledge management"
-        challenges={defaultContent.challengeBreakdown.key_issues.map(issue => ({
+        challenges={defaultContent.challengeBreakdown.challenges.map((issue: {
+          title: string;
+          description: string;
+          impact: string;
+          solution: string;
+          icon: string;
+          style: string;
+        }) => ({
           title: issue.title,
           description: issue.description,
           impact: issue.impact

@@ -71,7 +71,7 @@ export const Loader = styled.div`
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  border: 2px solid ${({ theme }) => theme.colors.background.medium};
+  border: 2px solid ${({ theme }) => theme.colors.background.light};
   border-top: 2px solid ${({ theme }) => theme.colors.primary.main};
   border-radius: 50%;
   animation: ${spin} 0.8s linear infinite;

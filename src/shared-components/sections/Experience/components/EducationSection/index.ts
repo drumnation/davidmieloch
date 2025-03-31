@@ -1,3 +1,3 @@
-export * from './EducationSection';
-export * from './EducationSection.styles';
-export * from './EducationSection.types'; 
+export { EducationSection } from './EducationSection';
+export { SectionContainer, SchoolLogo, EducationContent, EducationSchool, EducationMetadataRow, EducationDegree, EducationDates, EducationDescription, MediaContainer, MediaRow } from './EducationSection.styles';
+export type { EducationItem, MediaItem, EducationSectionProps } from './EducationSection.types'; 

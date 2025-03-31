@@ -68,7 +68,7 @@ export const RepoDetails: React.FC<RepoDetailsProps> = ({
         
         {repository.topics.length > 0 && (
           <TagsContainer>
-            {repository.topics.map(topic => (
+            {repository.topics.map((topic: string) => (
               <Tag key={topic} label={topic} />
             ))}
           </TagsContainer>

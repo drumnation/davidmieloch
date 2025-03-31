@@ -22,6 +22,7 @@ export const RepoCard: React.FC<RepoCardProps> = ({
   isCompact = false,
   className,
   onClick,
+  isSelected,
 }) => {
   const {
     name,
@@ -31,10 +32,10 @@ export const RepoCard: React.FC<RepoCardProps> = ({
     stars,
     forks,
     issues,
-    lastUpdated,
+    updatedAt: lastUpdated,
+    createdAt,
     isPrivate,
     topics,
-    createdAt,
   } = repo;
 
   const handleClick = () => {
@@ -56,6 +57,7 @@ export const RepoCard: React.FC<RepoCardProps> = ({
       onClick={handleClick} 
       role="article"
       style={{ cursor: onClick ? 'pointer' : 'default' }}
+      $isSelected={isSelected}
     >
       <Header>
         <RepoName>{name}</RepoName>

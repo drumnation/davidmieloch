@@ -225,8 +225,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     repositories: mockRepositories,
-    stats: mockStats,
-    privateWorks: mockPrivateWorks,
     filters: mockFilters,
     selectedFilters: {
       languages: [],

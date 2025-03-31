@@ -22,9 +22,34 @@ export interface NavigationCardContent {
 
 export interface NavigationCardProps {
   /**
-   * The content of the navigation card
+   * The content of the navigation card (legacy approach)
    */
-  content: NavigationCardContent;
+  content?: NavigationCardContent;
+  
+  /**
+   * Title/text of the card (direct prop approach)
+   */
+  title?: string;
+  
+  /**
+   * Description text (direct prop approach)
+   */
+  description?: string;
+  
+  /**
+   * The action text for the link (direct prop approach)
+   */
+  action?: string;
+  
+  /**
+   * The URL to navigate to (direct prop approach)
+   */
+  link?: string;
+  
+  /**
+   * Optional icon name to display (direct prop approach)
+   */
+  icon?: string;
   
   /**
    * Visual style of the card

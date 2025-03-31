@@ -1,7 +1,8 @@
-import { Repository } from '../../types';
+import { Repository } from '../../types/Repository.types';
 
 export interface GitHubProjectsProps {
   initialRepositories?: Repository[];
-  username?: string;
+  title?: string;
+  description?: string;
   className?: string;
 } 

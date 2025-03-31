@@ -1,25 +1,35 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { RepoCard } from './RepoCard';
-import { Repository } from './RepoCard.types';
+import { Repository } from '../../types/Repository.types';
 
 const mockRepo: Repository = {
   id: '1',
   name: 'awesome-project',
+  fullName: 'username/awesome-project',
   description: 'This is a really awesome project with a ton of features. It includes everything you need to build amazing applications. The codebase is clean, well-tested, and follows best practices.',
   url: 'https://github.com/username/awesome-project',
   language: 'TypeScript',
   stars: 1250,
   forks: 124,
+  watchers: 85,
   issues: 35,
-  lastUpdated: '2023-03-15T10:30:00Z',
-  isPrivate: false,
+  createdAt: '2022-01-10T09:15:00Z',
+  updatedAt: '2023-03-15T10:30:00Z',
   topics: ['react', 'typescript', 'storybook', 'frontend', 'ui', 'design-system'],
+  isPrivate: false,
+  owner: {
+    login: 'username',
+    id: 'user1',
+    avatarUrl: 'https://github.com/username.png',
+    url: 'https://github.com/username'
+  }
 };
 
 const privateRepo: Repository = {
   ...mockRepo,
   id: '2',
   name: 'secret-project',
+  fullName: 'username/secret-project',
   isPrivate: true,
   description: 'A private repository with confidential code and features.',
   topics: ['private', 'security', 'enterprise'],
@@ -68,7 +78,7 @@ export const NoLanguage: Story = {
     repo: {
       ...mockRepo,
       id: '3',
-      language: '',
+      language: undefined,
     },
     isCompact: false,
   },
@@ -93,6 +103,7 @@ export const MinimalStats: Story = {
       stars: 0,
       forks: 0,
       issues: 0,
+      watchers: 0,
     },
     isCompact: false,
   },

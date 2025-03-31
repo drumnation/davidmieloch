@@ -24,25 +24,25 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
     switch (animation) {
       case 'fade-up':
         return {
-          from: { opacity: 0, y: 20 },
-          to: inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+          from: { opacity: 0, y: 20, x: 0 },
+          to: inView ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 20, x: 0 },
           config: config.gentle
         };
       case 'slide-in':
         return {
-          from: { opacity: 0, x: -20 },
-          to: inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 },
+          from: { opacity: 0, x: -20, y: 0 },
+          to: inView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -20, y: 0 },
           config: config.gentle
         };
       case 'none':
         return {
-          from: { opacity: 1 },
-          to: { opacity: 1 },
+          from: { opacity: 1, x: 0, y: 0 },
+          to: { opacity: 1, x: 0, y: 0 },
         };
       default:
         return {
-          from: { opacity: 0, y: 20 },
-          to: inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+          from: { opacity: 0, y: 20, x: 0 },
+          to: inView ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 20, x: 0 },
           config: config.gentle
         };
     }
@@ -74,9 +74,9 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
       style={{
         opacity: containerSpring.opacity,
         transform: animation === 'fade-up' 
-          ? containerSpring.y.to(y => `translateY(${y}px)`)
+          ? containerSpring.y?.to(y => `translateY(${y}px)`) || 'none'
           : animation === 'slide-in'
-            ? containerSpring.x.to(x => `translateX(${x}px)`)
+            ? containerSpring.x?.to(x => `translateX(${x}px)`) || 'none'
             : 'none'
       }}
       ref={ref}
@@ -85,9 +85,9 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
         style={{
           opacity: headerSpring.opacity,
           transform: animation === 'fade-up' 
-            ? headerSpring.y.to(y => `translateY(${y}px)`)
+            ? headerSpring.y?.to(y => `translateY(${y}px)`) || 'none'
             : animation === 'slide-in'
-              ? headerSpring.x.to(x => `translateX(${x}px)`)
+              ? headerSpring.x?.to(x => `translateX(${x}px)`) || 'none'
               : 'none'
         }}
       >
@@ -103,9 +103,9 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
         style={{
           opacity: descriptionSpring.opacity,
           transform: animation === 'fade-up' 
-            ? descriptionSpring.y.to(y => `translateY(${y}px)`)
+            ? descriptionSpring.y?.to(y => `translateY(${y}px)`) || 'none'
             : animation === 'slide-in'
-              ? descriptionSpring.x.to(x => `translateX(${x}px)`)
+              ? descriptionSpring.x?.to(x => `translateX(${x}px)`) || 'none'
               : 'none'
         }}
       >
@@ -124,9 +124,9 @@ export const ProblemOverview: React.FC<ProblemOverviewProps> = ({
             style={{
               opacity: style.opacity,
               transform: animation === 'fade-up' 
-                ? style.y.to(y => `translateY(${y}px)`)
+                ? style.y?.to(y => `translateY(${y}px)`) || 'none'
                 : animation === 'slide-in'
-                  ? style.x.to(x => `translateX(${x}px)`)
+                  ? style.x?.to(x => `translateX(${x}px)`) || 'none'
                   : 'none'
             }}
           >

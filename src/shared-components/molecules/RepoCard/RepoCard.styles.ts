@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { RepoCardProps } from './RepoCard.types';
 
-export const Card = styled.div<{ $isCompact?: boolean }>`
+export const Card = styled.div<{ $isCompact?: boolean; $isSelected?: boolean }>`
   display: flex;
   flex-direction: column;
   padding: ${({ $isCompact }) => ($isCompact ? '16px' : '24px')};
   border-radius: 12px;
   background-color: ${({ theme }) => theme.colors.background.light};
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  border: 1px solid ${({ $isSelected, theme }) => 
+    $isSelected ? theme.colors.primary.main : theme.colors.border.light};
   transition: all 0.2s ease;
   height: 100%;
   cursor: pointer;
@@ -23,6 +24,11 @@ export const Card = styled.div<{ $isCompact?: boolean }>`
     transform: translateY(-2px);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
   }
+
+  ${({ $isSelected, theme }) => $isSelected && `
+    box-shadow: 0 0 0 2px ${theme.colors.primary.main};
+    border-color: ${theme.colors.primary.main};
+  `}
 
   &::after {
     content: '';

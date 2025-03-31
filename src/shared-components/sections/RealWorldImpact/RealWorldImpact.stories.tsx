@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    // Core content
+    className: 'real-world-impact',
     heroProps: defaultContent.hero,
     problemOverviewProps: defaultContent.problemOverview,
     challengeBreakdownProps: defaultContent.challengeBreakdown,
@@ -32,8 +32,6 @@ export const Default: Story = {
     statsComparisonProps: defaultContent.statsComparison,
     debtAnalysisProps: defaultContent.debtAnalysis,
     cycleDiagramProps: defaultContent.cycleDiagram,
-    
-    // Solutions and impact content
     problemSolutionProps: defaultContent.problemSolution,
     impactGridProps: defaultContent.impactGrid,
     navigationCardProps: defaultContent.navigationCard,
@@ -42,7 +40,12 @@ export const Default: Story = {
     
     // Additional insights
     commonPitfallsProps: defaultContent.commonPitfalls,
-    brainGardenSolutionsProps: defaultContent.brainGardenSolutions,
-    conclusionProps: defaultContent.conclusion,
+    brainGardenSolutionsProps: {
+      ...defaultContent.brainGardenSolutions,
+      subtitle: "Systematic solutions for AI adoption challenges"
+    },
+    // The conclusionProps is being handled in the component's logic
+    // through defaultContent.conclusion, removing from direct props
+    // to avoid type issues
   },
 }; 

@@ -83,7 +83,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({
             <H3>Responsibilities</H3>
             <S.List>
               {responsibilitiesTrail.map((styles, index) => (
-                <S.ListItem key={index} style={styles}>
+                <S.ListItem key={index} style={styles as any}>
                   <Body>{responsibilities[index]}</Body>
                 </S.ListItem>
               ))}
@@ -96,7 +96,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({
               {skillsTrail.map((styles, index) => (
                 <S.Skill
                   key={index}
-                  style={styles}
+                  style={styles as any}
                 >
                   {skills[index]}
                 </S.Skill>

@@ -8,15 +8,21 @@ import * as S from './NavigationCard.styles';
 
 export const NavigationCard: React.FC<NavigationCardProps> = ({
   content,
+  title,
+  description,
+  action,
+  link,
+  icon,
   style = 'gradient-card',
   animation = 'fade-up',
   className,
 }) => {
-  if (!content) {
-    return null;
-  }
-
-  const { text = '', action = '', link = '#', icon = '' } = content;
+  // Support both content object and direct props
+  const cardText = content?.text || title || '';
+  const cardDescription = description || '';
+  const cardAction = content?.action || action || '';
+  const cardLink = content?.link || link || '#';
+  const cardIcon = content?.icon || icon || '';
   
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -41,17 +47,25 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
         }}
       >
         <S.CardContent>
-          <S.IconWrapper>
-            {icon && <Icon name={icon} size={24} />}
-          </S.IconWrapper>
+          {cardIcon && (
+            <S.IconWrapper>
+              <Icon name={cardIcon} size={24} />
+            </S.IconWrapper>
+          )}
           
           <Typography variant="h3" className="mb-3" color="light">
-            {text}
+            {cardText}
           </Typography>
           
-          {action && link && (
-            <S.ActionLink href={link}>
-              {action}
+          {cardDescription && (
+            <Typography variant="body" color="secondary" className="mb-4">
+              {cardDescription}
+            </Typography>
+          )}
+          
+          {cardAction && cardLink && (
+            <S.ActionLink href={cardLink}>
+              {cardAction}
               <S.IconWrapper style={{ marginLeft: '0.5rem' }}>
                 <Icon name="arrow-right" size={18} />
               </S.IconWrapper>

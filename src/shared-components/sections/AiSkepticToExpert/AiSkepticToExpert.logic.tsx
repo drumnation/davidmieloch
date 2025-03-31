@@ -9,8 +9,15 @@ import { Icon } from '../../atoms/Icon';
  * Enhances the hero props with consistent styling and defaults
  */
 export const enhanceHeroProps = (heroProps: AiSkepticToExpertProps['heroProps'] = defaultContent.hero): HeroProps => {
+  // Extract the animation value and ensure it's a valid value for HeroProps
+  const { animation } = heroProps;
+  const validAnimation = (animation === 'fade-up' || animation === 'slide-in' || animation === 'none') 
+    ? animation 
+    : 'fade-up'; // Default to fade-up if not valid
+    
   return {
     ...heroProps,
+    animation: validAnimation,
     className: `${heroProps.className || ''} mb-0`, // No margin needed with the new design
     background: 'image',
     backgroundImage: heroProps.backgroundImage || '/main-heading-background.png',

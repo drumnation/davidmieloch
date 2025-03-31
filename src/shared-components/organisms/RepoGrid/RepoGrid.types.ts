@@ -1,4 +1,4 @@
-import { Repository } from '../../../shared-components/templates/GitHubPortfolioTemplate/GitHubPortfolioTemplate.types';
+import { Repository } from '../../types/Repository.types';
 
 export interface GridContainerProps {
   columns?: number;

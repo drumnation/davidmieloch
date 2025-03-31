@@ -56,7 +56,9 @@ export const springToCss = (
 // Animated components with proper type handling
 export const AnimatedDiv = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { style?: any }
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'style'> & { 
+    style?: any;  // Use 'any' to avoid TypeScript complexity with nested spring values
+  }
 >((props, ref) => {
   const filteredProps = filterFramerProps(props);
   return <animated.div ref={ref} {...filteredProps} />;
@@ -65,7 +67,7 @@ AnimatedDiv.displayName = 'AnimatedDiv';
 
 export const AnimatedSection = React.forwardRef<
   HTMLElement,
-  React.HTMLAttributes<HTMLElement> & { style?: any }
+  Omit<React.HTMLAttributes<HTMLElement>, 'style'> & { style?: any }
 >((props, ref) => {
   const filteredProps = filterFramerProps(props);
   return <animated.section ref={ref} {...filteredProps} />;
@@ -74,7 +76,7 @@ AnimatedSection.displayName = 'AnimatedSection';
 
 export const AnimatedArticle = React.forwardRef<
   HTMLElement,
-  React.HTMLAttributes<HTMLElement> & { style?: any }
+  Omit<React.HTMLAttributes<HTMLElement>, 'style'> & { style?: any }
 >((props, ref) => {
   const filteredProps = filterFramerProps(props);
   return <animated.article ref={ref} {...filteredProps} />;
@@ -83,7 +85,7 @@ AnimatedArticle.displayName = 'AnimatedArticle';
 
 export const AnimatedH1 = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement> & { style?: any }
+  Omit<React.HTMLAttributes<HTMLHeadingElement>, 'style'> & { style?: any }
 >((props, ref) => {
   const filteredProps = filterFramerProps(props);
   return <animated.h1 ref={ref} {...filteredProps} />;
@@ -92,7 +94,7 @@ AnimatedH1.displayName = 'AnimatedH1';
 
 export const AnimatedH2 = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement> & { style?: any }
+  Omit<React.HTMLAttributes<HTMLHeadingElement>, 'style'> & { style?: any }
 >((props, ref) => {
   const filteredProps = filterFramerProps(props);
   return <animated.h2 ref={ref} {...filteredProps} />;
@@ -101,7 +103,7 @@ AnimatedH2.displayName = 'AnimatedH2';
 
 export const AnimatedH3 = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement> & { style?: any }
+  Omit<React.HTMLAttributes<HTMLHeadingElement>, 'style'> & { style?: any }
 >((props, ref) => {
   const filteredProps = filterFramerProps(props);
   return <animated.h3 ref={ref} {...filteredProps} />;
@@ -110,7 +112,7 @@ AnimatedH3.displayName = 'AnimatedH3';
 
 export const AnimatedParagraph = React.forwardRef<
   HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement> & { style?: any }
+  Omit<React.HTMLAttributes<HTMLParagraphElement>, 'style'> & { style?: any }
 >((props, ref) => {
   const filteredProps = filterFramerProps(props);
   return <animated.p ref={ref} {...filteredProps} />;

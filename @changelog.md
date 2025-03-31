@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added 'type-check' script to package.json for TypeScript type checking without emitting files.
 - Created four new SVG icons for the BestPractices page: react-native.svg, enterprise.svg, ai-synergy.svg, and future.svg
 - Added icons to existing sections in the DetailedContent component
 - Added two new sections to the BestPractices page: "The Synergy of AI and Modern Development Practices" and "Conclusion: Building for the Future"

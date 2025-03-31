@@ -15,7 +15,7 @@ import { NavigationCardProps } from '../../organisms/NavigationCard/NavigationCa
  */
 export const enhanceHeroProps = (heroProps: RealWorldImpactProps['heroProps'] = defaultContent.hero): HeroProps => {
   // Handling both legacy and new hero props
-  const backgroundImage = heroProps.backgroundImageUrl || heroProps.backgroundImage;
+  const backgroundImage = heroProps.backgroundImage;
   const backgroundOverlay = heroProps.backgroundOverlay !== undefined ? heroProps.backgroundOverlay : true;
   const textColor = heroProps.textColor || 'light';
   const pattern = (heroProps.pattern === 'circuit-board' || heroProps.pattern === 'dots' || heroProps.pattern === 'none')
@@ -41,8 +41,7 @@ export const enhanceHeroProps = (heroProps: RealWorldImpactProps['heroProps'] = 
     overlayOpacity: 0.5,
     textColor: textColor,
     pattern: pattern,
-    animation: (heroProps.animation as "fade-up" | "slide-in" | "none") || 'fade-up',
-    initialAnimation: 'hidden'
+    animation: (heroProps.animation as "fade-up" | "slide-in" | "none") || 'fade-up'
   };
 };
 
@@ -415,45 +414,6 @@ export const enhanceSolutionsImpactProps = (
     style: string;
     position: string;
   };
-  qualityAssurance: {
-    features: Array<{
-      title: string;
-      description: string;
-      benefits: Array<string>;
-    }>;
-    style: string;
-    position: string;
-  };
-  statsComparison: {
-    comparisons: Array<{
-      metric: string;
-      before: string;
-      after: string;
-      impact: string;
-    }>;
-    style: string;
-    position: string;
-  };
-  technicalDebt: {
-    strategies: Array<{
-      title: string;
-      description: string;
-      impact: string;
-    }>;
-    style: string;
-    position: string;
-  };
-  transformationMetrics: {
-    categories: Array<{
-      title: string;
-      metrics: Array<{
-        label: string;
-        improvement: string;
-      }>;
-    }>;
-    style: string;
-    position: string;
-  };
   caseStudies: Array<{
     title: string;
     challenge: string;
@@ -463,11 +423,6 @@ export const enhanceSolutionsImpactProps = (
     style: string;
     position: string;
   }>;
-  journeyTimeline: {
-    diagram: string;
-    style: string;
-    position: string;
-  };
 } => {
   // Convert case studies to the expected format
   let formattedCaseStudies: Array<{
@@ -489,8 +444,8 @@ export const enhanceSolutionsImpactProps = (
       solution: study.solution || '',
       results: Array.isArray(study.results) ? study.results : [],
       quote: study.quote || '',
-      style: study.style || 'accent-card',
-      position: study.position || 'full-width'
+      style: 'accent-card',
+      position: 'full-width'
     }));
   }
 
@@ -520,32 +475,7 @@ export const enhanceSolutionsImpactProps = (
       style: solutionsImpactProps?.metricsGrid?.style || 'gradient-cards',
       position: solutionsImpactProps?.metricsGrid?.position || 'right',
     },
-    qualityAssurance: {
-      features: solutionsImpactProps?.qualityAssurance?.features || [],
-      style: solutionsImpactProps?.qualityAssurance?.style || 'accent-cards',
-      position: solutionsImpactProps?.qualityAssurance?.position || 'left',
-    },
-    statsComparison: {
-      comparisons: solutionsImpactProps?.statsComparison?.comparisons || [],
-      style: solutionsImpactProps?.statsComparison?.style || 'gradient-cards',
-      position: solutionsImpactProps?.statsComparison?.position || 'right',
-    },
-    technicalDebt: {
-      strategies: solutionsImpactProps?.technicalDebt?.strategies || [],
-      style: solutionsImpactProps?.technicalDebt?.style || 'accent-cards',
-      position: solutionsImpactProps?.technicalDebt?.position || 'left',
-    },
-    transformationMetrics: {
-      categories: solutionsImpactProps?.transformationMetrics?.categories || [],
-      style: solutionsImpactProps?.transformationMetrics?.style || 'gradient-cards',
-      position: solutionsImpactProps?.transformationMetrics?.position || 'full-width',
-    },
-    caseStudies: formattedCaseStudies,
-    journeyTimeline: {
-      diagram: solutionsImpactProps?.journeyTimeline?.diagram || '',
-      style: solutionsImpactProps?.journeyTimeline?.style || 'gradient-bg',
-      position: solutionsImpactProps?.journeyTimeline?.position || 'center',
-    }
+    caseStudies: formattedCaseStudies
   };
 };
 
