@@ -1,5 +1,3 @@
-import { CSSProperties } from 'react';
-
 /**
  * Props for the AiIntegrationFlowDiagram component
  */
@@ -33,11 +31,6 @@ export interface AiIntegrationFlowDiagramProps {
    * Height of the diagram container
    */
   height?: string;
-  
-  /**
-   * Background color of the diagram container (overrides theme)
-   */
-  backgroundColor?: string;
   
   /**
    * Whether to show zoom controls

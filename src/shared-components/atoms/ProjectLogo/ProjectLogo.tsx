@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ProjectLogoProps } from './ProjectLogo.types';
 import * as S from './ProjectLogo.styles';
 
@@ -65,11 +66,15 @@ export const ProjectLogo: React.FC<ProjectLogoProps> = ({
     >
       {logoPath ? (
         <S.ImageWrapper style={showBorder ? { border: '1px solid rgba(0, 0, 0, 0.2)', padding: '2px', borderRadius: '8px' } : {}}>
-          <img 
+          <Image 
             src={logoPath} 
             alt={`${name} logo`} 
             width={size} 
             height={size}
+            style={{
+              maxWidth: '100%',
+              height: 'auto'
+            }}
           />
         </S.ImageWrapper>
       ) : (
