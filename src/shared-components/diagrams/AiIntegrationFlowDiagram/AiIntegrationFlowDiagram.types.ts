@@ -1,6 +1,3 @@
-import { CSSProperties } from 'react';
-import { ReactFlowDiagramProps } from '../../molecules/ReactFlowDiagram/ReactFlowDiagram.types';
-
 /**
  * Props for the AiIntegrationFlowDiagram component
  */

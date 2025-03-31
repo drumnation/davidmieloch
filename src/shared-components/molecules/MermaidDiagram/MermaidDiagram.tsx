@@ -178,44 +178,48 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = React.memo(({
 
   // Render the diagram
   useEffect(() => {
-    console.log('MermaidDiagram: Starting rendering process for diagram', uniqueId.current);
+    setError('');
+    setLoading(true);
+
     const renderDiagram = async () => {
-      if (!containerRef.current) {
-        console.error('MermaidDiagram: Container ref is null');
-        return;
-      }
-      
       try {
-        setLoading(true);
-        setError(null);
-        
-        console.log('MermaidDiagram: Processing definition:', definition.substring(0, 100) + '...');
-        // Process the definition to replace CSS variables
-        const processedDefinition = replaceCssVariables(definition);
-        
-        console.log('MermaidDiagram: Calling mermaid.render...');
-        // Use Mermaid to render the diagram
-        const { svg } = await mermaid.render(uniqueId.current, processedDefinition);
-        console.log('MermaidDiagram: Render successful, SVG length:', svg.length);
-        
-        // Inject the SVG into the container
-        containerRef.current.innerHTML = svg;
-        console.log('MermaidDiagram: Injected SVG into container');
-        
-        // Add click handlers to diagram elements if needed
-        const diagramElement = containerRef.current.querySelector('svg');
-        if (diagramElement) {
-          // Make sure SVG is responsive if needed
-          if (responsive) {
-            diagramElement.setAttribute('width', '100%');
-            diagramElement.setAttribute('height', 'auto');
-            diagramElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-            console.log('MermaidDiagram: Made SVG responsive');
-          }
+        if (!containerRef.current) {
+          return;
         }
 
+        // Process definition through CSS variable replacement
+        const processedDef = replaceCssVariables(definition);
+        
+        // Clear previous diagram
+        containerRef.current.innerHTML = '';
+        
+        // Initialize Mermaid
+        await mermaid.init(
+          { theme: theme === 'dark' ? 'dark' : 'default' }, 
+          containerRef.current
+        );
+        
+        // Render the diagram
+        const { svg } = await mermaid.render(
+          `mermaid-diagram-${uniqueId.current}`,
+          processedDef
+        );
+        
+        if (containerRef.current) {
+          containerRef.current.innerHTML = svg;
+          
+          // Make the diagram responsive if requested
+          if (responsive) {
+            const svgElement = containerRef.current.querySelector('svg');
+            if (svgElement) {
+              svgElement.setAttribute('width', '100%');
+              svgElement.setAttribute('height', 'auto');
+              svgElement.style.maxWidth = '100%';
+            }
+          }
+        }
+        
         setLoading(false);
-        console.log('MermaidDiagram: Rendering complete');
       } catch (err) {
         console.error('MermaidDiagram: Failed to render diagram:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
@@ -226,14 +230,17 @@ export const MermaidDiagram: React.FC<MermaidDiagramProps> = React.memo(({
     // Small timeout to ensure we're not in the middle of a render cycle
     const timeoutId = setTimeout(renderDiagram, 50);
     
+    // Save ref to a variable to avoid the exhaustive-deps warning
+    const currentContainer = containerRef.current;
+    
     return () => {
       clearTimeout(timeoutId);
       // Clean up any lingering elements when the component unmounts
-      if (containerRef.current) {
-        containerRef.current.innerHTML = '';
+      if (currentContainer) {
+        currentContainer.innerHTML = '';
       }
     };
-  }, [definition, responsive]);
+  }, [definition, responsive, theme]);
 
   if (loading && !error) {
     return (

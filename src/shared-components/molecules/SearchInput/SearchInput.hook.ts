@@ -6,24 +6,25 @@ export const useSearchInput = (
   debounceMs: number = 300
 ) => {
   const [inputValue, setInputValue] = useState(initialValue);
+  
+  // Store the timeout ID outside of the callback to persist between renders
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setInputValue(initialValue);
   }, [initialValue]);
 
-  const debouncedOnChange = useCallback(
-    (() => {
-      let timeoutId: NodeJS.Timeout;
-
-      return (value: string) => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-          onChange(value);
-        }, debounceMs);
-      };
-    })(),
-    [onChange, debounceMs]
-  );
+  const debouncedOnChange = useCallback((value: string) => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    
+    const newTimeoutId = setTimeout(() => {
+      onChange(value);
+    }, debounceMs);
+    
+    setTimeoutId(newTimeoutId);
+  }, [onChange, debounceMs, timeoutId]);
 
   const handleChange = useCallback(
     (value: string) => {
@@ -32,6 +33,15 @@ export const useSearchInput = (
     },
     [debouncedOnChange]
   );
+
+  // Clean up the timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [timeoutId]);
 
   return {
     inputValue,

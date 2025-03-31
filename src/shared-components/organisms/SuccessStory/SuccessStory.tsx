@@ -23,13 +23,16 @@ export const SuccessStory: React.FC<SuccessStoryProps> = ({
       { rootMargin: "-100px" }
     );
     
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    // Store a reference to the current value of cardRef
+    const currentCardRef = cardRef.current;
+    
+    if (currentCardRef) {
+      observer.observe(currentCardRef);
     }
     
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+      if (currentCardRef) {
+        observer.unobserve(currentCardRef);
       }
     };
   }, []);

@@ -29,7 +29,7 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
   });
   
   // Helper function to convert spring values to regular CSS
-  const springToCss = (springObj: any) => {
+  const springToCss = (springObj: Record<string, { get: () => number }>) => {
     if (!animation || animation === 'none') return {};
     
     const result: Record<string, string | number> = {};

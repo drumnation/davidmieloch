@@ -12,7 +12,6 @@ export const AiIntegrationFlowDiagram: React.FC<AiIntegrationFlowDiagramProps> =
   theme = 'default',
   width = '100%',
   height = '1000px',
-  backgroundColor,
   showZoomControls = false,
   accessibilityDescription = 'Flow diagram showing the AI integration process from workflow assessment to continuous improvement',
 }) => {

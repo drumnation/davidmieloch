@@ -29,16 +29,19 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
           setIsVisible(true);
         }
       },
-      { rootMargin: "-50px", threshold: 0.1 }
+      { threshold: 0.1 }
     );
     
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    // Store a reference to the current value of cardRef
+    const currentCardRef = cardRef.current;
+    
+    if (currentCardRef) {
+      observer.observe(currentCardRef);
     }
     
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+      if (currentCardRef) {
+        observer.unobserve(currentCardRef);
       }
     };
   }, []);
