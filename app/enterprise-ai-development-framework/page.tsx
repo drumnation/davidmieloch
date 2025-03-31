@@ -2,7 +2,10 @@
 
 import React, { Suspense, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { SpinnerLoader } from '../../src/components';
+import { H1, H2, H3, H4, Text, TextLead } from "@/src/shared-components/atoms/Typography";
+import { Container, ContentContainer } from "@/src/shared-components/atoms/Container";
+import { Tabs, TabPanel } from '@/src/shared-components/atoms/Tabs';
+import styled from "styled-components";
 import './enterprise-styles.css';
 
 // Fix the dynamic import to properly handle the error case

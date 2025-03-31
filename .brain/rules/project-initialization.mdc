@@ -1,0 +1,22 @@
+---
+description: Core project initialization steps and workflow.
+globs: "*"
+alwaysApply: true
+---
+# Project Initialization Workflow
+# Last Updated: 2025-03-31 10:13:02 AM
+
+## ! Initialize context for the project like this:
+
+1. Check `.brain/errors/01-lint-errors.md` for tasks -- ALWAYS update this file with progress, marking x's in the checkboxes after every task completion, do not wait until later.
+2. Read and review `.brain/directory-structure.md` for the directory structure
+3. ALWAYS READ `.brain/coding-standards.md` for Best Practices
+4. After each completed task, update .brain/github-projects-plan.md and start a new task
+5. Use the `browser-use` tool to check your work both in storybook at localhost:6006 and in the main app at localhost:3001
+6. ALWAYS use `execute_mcp_client` tool before coding to architect a coding plan
+7. ALWAYS update the CHANGELOG.md after any significant changes are made, then bump the version number according to semantic versioning rules in the @package.json
+
+## !! Important (General)
+
+1. Don't define anything important in the storybook preview.tsx file. ALWAYS define in the main app and share to preview.tsx. Storybook and the main app should always have their setup in sync.
+2. Use `pnpm` as the package manager. 

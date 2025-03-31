@@ -1,0 +1,77 @@
+---
+description: Playwright MCP Server Configuration - Contains server status, loading indicators, timeouts, and health check settings for browser automation tasks. The agent should request this rule when performing UI testing, web scraping, or any browser-based operations to ensure proper server management and page load handling.
+globs: 
+alwaysApply: false
+---
+# Playwright MCP Configuration
+# Last Updated: 2025-03-31 10:05:53 AM - Editable via .brain/rules
+
+## Server Configuration
+SERVER_URL="http://localhost:3003"  # Using port 3003 to avoid conflicts with dev (3001), dev:alt (3002), and dev:turbo (4000)
+SERVER_STATUS="stopped"  # running | stopped | error
+SERVER_PID=""
+LAST_HEARTBEAT=""
+
+## Page Load Configuration
+# Adjusted based on observed loading patterns in the codebase
+PAGE_LOAD_TIMEOUT=20000  # 20 seconds for normal operations
+MAX_WAIT_TIME=40000     # 40 seconds for dynamic imports and heavy operations
+
+## Loading State Indicators
+# Based on actual loading indicators found in the codebase
+LOADING_INDICATORS=[
+  ".loading-spinner",
+  ".global-loading-spinner",
+  ".next-loading-spinner",
+  "[data-testid='loading-spinner']",
+  ".loading-container",
+  ".global-loading-container",
+  ".next-loading-container",
+  ".loading-overlay",
+  ".LoadingPortal"
+]
+
+## Ready State Indicators
+# Based on component structure and hydration patterns
+READY_INDICATORS=[
+  "#__next:not([aria-busy='true'])",
+  ".hydrated",
+  "[data-testid='main-content']",
+  ".Experience-loaded",  # For experience page
+  ".Footer-loaded",     # For footer component
+  ".Hero-loaded"        # For hero section
+]
+
+## Health Check Settings
+HEALTH_CHECK_INTERVAL=3000  # 3 seconds
+HEALTH_CHECK_ENDPOINT="/api/health"  # Adjusted for Next.js API routes
+MAX_RETRY_ATTEMPTS=3
+
+## Agent Instructions
+# These instructions help the agent manage the Playwright MCP server
+
+1. Server Management:
+   - Check SERVER_STATUS before starting new server
+   - Update SERVER_PID when starting/stopping server
+   - Update LAST_HEARTBEAT on successful operations
+   - Use health check before operations
+
+2. Page Load Handling:
+   - Wait for LOADING_INDICATORS to disappear
+   - Wait for at least one READY_INDICATOR to appear
+   - Respect PAGE_LOAD_TIMEOUT for normal operations
+   - Use MAX_WAIT_TIME for dynamic imports and heavy components
+   - Handle Suspense boundaries and dynamic imports gracefully
+
+3. Error Recovery:
+   - Update SERVER_STATUS to "error" on failures
+   - Attempt graceful shutdown of existing server
+   - Start new server if health check fails
+   - Maximum 3 retry attempts before alerting user
+   - Handle Next.js specific error boundaries
+
+4. Status Updates:
+   - Keep SERVER_STATUS current
+   - Update timestamp when modifying configuration
+   - Log significant state changes
+   - Monitor dynamic component loading states

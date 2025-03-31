@@ -1,0 +1,178 @@
+---
+description: Guide for using Claude Code commands via terminal subprocesses. Request for complex codebase tasks, git ops, or refactoring.
+globs:
+alwaysApply: false
+---
+# Claude Code Commands Guide
+# Last Updated: 2025-03-31 10:13:02 AM
+
+## Overview
+
+This guide teaches the Cursor Agent how to use Claude Code as a subprocess tool for enhanced coding capabilities. Claude Code is an agentic coding assistant that can understand codebases, edit files, manage git operations, and more.
+
+## Basic Command Structure
+
+### CLI Commands
+
+| Command | Description | Example Usage in Cursor |
+|---------|-------------|-------------------------|
+| `claude` | Start interactive REPL | `spawn('claude')` |
+| `claude "query"` | Start REPL with initial prompt | `spawn('claude', ['explain this project'])` |
+| `claude -p "query"` | Run one-off query, then exit | `spawn('claude', ['-p', 'explain this function'])` |
+| `cat file \| claude -p "query"` | Process piped content | `exec('cat logs.txt \| claude -p "explain"')` |
+| `claude config` | Configure settings | `spawn('claude', ['config', 'set', '--global', 'theme', 'dark'])` |
+| `claude update` | Update to latest version | `spawn('claude', ['update'])` |
+
+### CLI Flags
+
+- `--print` or `-p`: Print response without interactive mode
+- `--verbose`: Enable verbose logging
+- `--dangerously-skip-permissions`: Skip permission prompts (only in Docker containers without internet)
+
+## Natural Language Commands
+
+When interacting with Claude Code, use natural language commands for various tasks:
+
+### Understanding Code
+
+```
+explain this project
+what does the payment processing system do?
+find where user permissions are checked
+explain how the caching layer works
+```
+
+### Git Operations
+
+```
+commit my changes
+create a pr
+which commit added tests for markdown back in December?
+rebase on main and resolve any merge conflicts
+```
+
+### Editing Code
+
+```
+add input validation to the signup form
+refactor the logger to use the new API
+fix the race condition in the worker queue
+edit src/components/Auth.js to add password validation
+```
+
+### Testing and Debugging
+
+```
+run tests for the auth module and fix failures
+find and fix security vulnerabilities
+explain why this test is failing
+```
+
+## Slash Commands
+
+These commands can be used within an interactive Claude Code session:
+
+| Command | Purpose | Example Usage in Cursor |
+|---------|---------|-------------------------|
+| `/help` | Get usage help | `write('/help\n')` |
+| `/clear` | Clear conversation history | `write('/clear\n')` |
+| `/compact` | Compact conversation to save context space | `write('/compact\n')` |
+| `/config` | View/modify configuration | `write('/config\n')` |
+| `/cost` | Show token usage statistics | `write('/cost\n')` |
+| `/doctor` | Check Claude Code installation health | `write('/doctor\n')` |
+| `/init` | Initialize project with CLAUDE.md guide | `write('/init\n')` |
+| `/review` | Request code review | `write('/review\n')` |
+| `/bug` | Report bugs (sends conversation to Anthropic) | `write('/bug\n')` |
+
+## Integration Examples
+
+### Basic Subprocess Call
+
+```javascript
+// Run a one-off Claude Code command and get the result
+async function runClaudeCode(command) {
+  return new Promise((resolve, reject) => {
+    const childProcess = spawn('claude', ['-p', command]);
+    let stdout = '';
+    let stderr = '';
+    
+    childProcess.stdout.on('data', (data) => {
+      stdout += data.toString();
+    });
+    
+    childProcess.stderr.on('data', (data) => {
+      stderr += data.toString();
+    });
+    
+    childProcess.on('close', (code) => {
+      if (code === 0) {
+        resolve(stdout);
+      } else {
+        reject(new Error(`Claude Code exited with code ${code}: ${stderr}`));
+      }
+    });
+  });
+}
+```
+
+### Interactive Session Example
+
+```javascript
+// Create an interactive session with Claude Code
+function createClaudeCodeSession() {
+  const session = spawn('claude', [], { stdio: ['pipe', 'pipe', 'pipe'] });
+  
+  // Helper to send commands to the session
+  session.sendCommand = async (command) => {
+    return new Promise((resolve) => {
+      let output = '';
+      const dataHandler = (data) => {
+        const chunk = data.toString();
+        output += chunk;
+        // Detect when Claude has finished responding
+        if (chunk.includes('> ') || chunk.includes('? ')) {
+          session.stdout.removeListener('data', dataHandler);
+          resolve(output);
+        }
+      };
+      
+      session.stdout.on('data', dataHandler);
+      session.stdin.write(command + '\n');
+    });
+  };
+  
+  return session;
+}
+```
+
+### Delegating Complex Tasks
+
+```javascript
+// Use Claude Code for complex codebase understanding
+async function understandCodebase(question) {
+  try {
+    const answer = await runClaudeCode(question);
+    return answer;
+  } catch (error) {
+    console.error('Error using Claude Code:', error);
+    return 'Failed to get answer from Claude Code';
+  }
+}
+
+// Example: Get detailed information about project architecture
+const architecture = await understandCodebase(
+  'explain the architecture of this project and how components interact'
+);
+```
+
+## Advanced Usage: Parallel Processing with Claude Code
+
+To maximize the potential of Claude Code, you can run multiple instances as child processes in parallel. This approach offers significant advantages for complex development tasks.
+
+### Why Use Claude Code as Child Processes
+
+1. **Non-blocking operation**: Run complex, long-running tasks without blocking Cursor Agent
+2. **Maintained connection**: Unlike background processes, child processes maintain connection to logs and output
+3. **Parallelization**: Multiple Claude Code instances can work simultaneously on different tasks
+4. **Specialized contexts**: Each Claude Code instance maintains its own context, optimizing for specific tasks
+5. **Interactive feedback**: Send additional input to running processes as needed 

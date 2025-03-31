@@ -1,0 +1,62 @@
+---
+description: Standards for React component structure, styling, types, logic, and stories using Styled Components.
+globs: ["**/src/**/*.tsx", "**/src/**/*.ts", "*.stories.tsx"]
+alwaysApply: false
+---
+# Component Standards (React & Styled Components)
+# Last Updated: 2025-03-31 10:13:02 AM
+
+## Component Structure & Best Practices
+
+- WE ARE NOT USING TAILWIND CSS, WE ARE USING STYLED COMPONENTS. DO NOT ADD TAILWIND CLASSES TO THE COMPONENT.
+- Each component should have its own folder
+- Put styles in a Component.styles.ts file
+- Types in their own Component.types.ts file
+- Export barrel in Component/index.ts
+- Stateful logic in Component.hook.ts
+- Non-stateful logic in Component.logic.tsx
+- Extract inline styles and logic into their respective files and import.
+- Keep components less than 500 lines if possible
+  - If a component exceeds this, create a sub-components folder and split the component into multiple files, copying this exact pattern for it's subcomponents.
+  - Barrel the components folder and each subcomponent.
+- When building or refactoring react components, always split them into multiple files based on concerns and use barrel exports.
+
+## Storybook Standards
+
+- Stories in Component.stories.tsx
+- For reusable atomic components, use autodocs, and define every variation of the component's props as a story.
+- For non-reusable composed components, only use a default story, no autodocs.
+- Align story content with the main application, do not define content in the story as this will lead to divergences between the app and the story.
+- ALWAYS trust and use the preview.tsx for any providers, do not define providers in the story.
+
+## Component Structure Rules
+
+- Component organization:
+  - root: src/shared-components
+  - atoms: src/shared-components/atoms
+  - molecules: src/shared-components/molecules
+  - organisms: src/shared-components/organisms
+  - templates: src/shared-components/templates
+- Stories location: alongside components
+- Stories naming: {ComponentName}.stories.tsx
+- Types location: alongside components
+- Types naming: {ComponentName}.types.ts
+- Styles location: alongside components 
+- Styles naming: {ComponentName}.styles.ts
+
+## Component Export Rules
+- Use barrel exports
+- Use named exports
+- Types are required
+- Props interface naming: {ComponentName}Props
+- Stories are required
+- Use autodocs for reusable components
+
+## Component Usage Rules
+- Use Next Image instead of HTML img element
+- Use camelCase for component properties
+- Use useCallback for event handlers
+- Use useMemo for expensive computations
+- Include all dependencies in dependency arrays
+- Theme type location: src/shared-components/theme.d.ts
+- Theme type: DefaultTheme 

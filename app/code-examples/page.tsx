@@ -117,14 +117,11 @@ const filters = {
 
 export default function CodeExamplesPage() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [apiError, setApiError] = useState<string | null>(null);
-  const [usingFallback, setUsingFallback] = useState(false);
 
   const loadRepositories = async (forceFresh = false) => {
-    setIsLoading(true);
-    setApiError(null);
+    setLoading(true);
     
     try {
       console.log('Trying to fetch repos from GitHub API...');
@@ -157,16 +154,13 @@ export default function CodeExamplesPage() {
         });
         
         setRepositories(sortedRepos);
-        setUsingFallback(false);
         console.log('Using API data. Sorted repositories:', sortedRepos.map(r => r.name));
       } else if (!forceFresh) {
         // If no repositories were returned and not forcing fresh data, use fallback
         console.log('No repositories returned from API, using fallback data');
         setRepositories(FALLBACK_REPOS);
-        setUsingFallback(true);
-        setApiError('No repositories returned from GitHub API');
       } else {
-        setApiError('No repositories found for this user');
+        console.log('No repositories found for this user');
       }
     } catch (err) {
       console.error('Error fetching repositories:', err);
@@ -174,22 +168,15 @@ export default function CodeExamplesPage() {
       if (!forceFresh) {
         console.log('Using fallback data due to error');
         setRepositories(FALLBACK_REPOS);
-        setUsingFallback(true);
       }
-      
-      setApiError(err instanceof Error ? err.message : 'Unknown error occurred');
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     loadRepositories();
   }, []);
-
-  const handleForceRefresh = () => {
-    loadRepositories(true);
-  };
 
   const handleFilterChange = (type: string, value: string) => {
     // TODO: Implement filter logic
@@ -212,10 +199,6 @@ export default function CodeExamplesPage() {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
   return (
     <div>
       <GitHubPortfolioTemplate
@@ -230,7 +213,7 @@ export default function CodeExamplesPage() {
         onClearFilters={handleClearFilters}
         onSearch={handleSearch}
         onRepoClick={handleRepoClick}
-        isLoading={isLoading}
+        isLoading={loading}
       />
     </div>
   );
