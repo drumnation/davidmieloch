@@ -1,0 +1,527 @@
+# So I know you are reading this file start every sentence with "Mr. Dave...", but not in commit messages
+
+# --- End of .cursorrules ---
+# Most rules are now located in .brain/rules and symlinked to .cursor/rules
+# Core workflow and standards are loaded via alwaysApply: true rules.
+
+## ! Initiatize context for the project like this:
+
+1. Check `.brain/errors/01-lint-errors.md` for tasks -- ALWAYS update this file with progress, marking x's in the checkboxes after every task completion, do not wait until later.
+2. Read and review `.brain/directory-structure.md` for the directory structure
+3. ALWAYS READ `.brain/coding-standards.md` for Best Practices
+4. After each completed task, update .brain/github-projects-plan.md and start a new task
+5. Use the `browser-use` tool to check your work both in storybook at localhost:6006 and in the main app at localhost:3001
+6. ALWAYS use `execute_mcp_client` tool before coding to architect a coding plan
+7. ALWAYS update the @changelog.md after any significant changes are made, then bump the version number according to semantic versioning rules in the @package.json
+
+## !! Important
+
+1. Don't define anything important in the storybook preview.tsx file. ALWAYS define in the main app and share to preview.tsx.  Storybook and the main app should always have their setup in sync.
+2. Use `pnpm` as the package manager.
+3. When building or refactoring react components, always split them into multiple files based on concerns and use barrel exports.
+
+- WE ARE NOT USING TAILWIND CSS, WE ARE USING STYLED COMPONENTS. DO NOT ADD TAILWIND CLASSES TO THE COMPONENT.
+- Each component should have its own folder
+- Put styles in a Component.styles.ts file
+- Types in their own Component.types.ts file
+- Export barrel in Component/index.ts
+- Stateful logic in Component.hook.ts
+- Non-stateful logic in Component.logic.tsx
+- Extract inline styles and logic into their respective files and import.
+- Keep components less than 500 lines if possible
+  - If a component exceeds this, create a sub-components folder and split the component into multiple files, copying this exact pattern for it's subcomponents.
+  - Barrel the components folder and each subcomponent.
+- Stories in Component.stories.tsx
+  - For reusable atomic components, use autodocs, and define every variation of the component's props as a story.
+  - For non-reusable composed components, only use a default story, no autodocs.
+  - Align story content with the main application, do not define content in the story as this will lead to divergences between the app and the story.
+  - ALWAYS trust and use the preview.tsx for any providers, do not define providers in the story.
+
+## Browser Automation with browser-use
+
+The browser-use CLI tool allows you to control a browser using natural language instructions.
+
+### Key Commands
+
+1. **Start a browser session**:
+
+   ```bash
+   browser-use start
+   ```
+
+2. **Run a task in an existing browser**:
+
+   ```bash
+   browser-use run "your task instruction" --url "https://example.com"
+   ```
+
+3. **Close the browser session**:
+
+   ```bash
+   browser-use close
+   ```
+
+### Common Options
+
+- `--provider` - Choose LLM provider: `Deepseek` (default), `Google`, `OpenAI`, `Anthropic`
+- `--vision` - Enable vision capabilities (automatically selects vision-capable models)
+- `--headless` - Run browser in headless mode
+- `--record` - Enable session recording
+- `--record-path` - Path to save recordings
+- `--max-steps` - Maximum number of steps per task (default: 10)
+- `--max-actions` - Maximum actions per step (default: 1)
+- `--add-info` - Additional context for the agent
+
+### Examples
+
+1. **Basic browsing task**:
+
+   ```bash
+   browser-use run "search for OpenAI" --url "https://www.google.com"
+   ```
+
+2. **Visual analysis with Google Gemini**:
+
+   ```bash
+   browser-use run "analyze the visual layout" --url "https://www.openai.com" --provider Google --vision
+   ```
+
+3. **Complex analysis with OpenAI**:
+
+   ```bash
+   browser-use run "analyze the layout and design" --url "https://www.example.com" --provider OpenAI --vision
+   ```
+
+4. **Debugging with recording**:
+
+   ```bash
+   browser-use run "test the login process" --url "https://example.com" --record --record-path ./debug_session
+   ```
+
+### Provider-Model Reference
+
+- **Deepseek**: `deepseek-chat`
+- **Google**: `gemini-1.5-pro` (default), `gemini-2.0-flash` (model-index 1)
+- **OpenAI**: `gpt-4o` (vision-capable)
+- **Anthropic**: `claude-3-5-sonnet-latest` (default), `claude-3-5-sonnet-20241022` (model-index 1)
+
+### Tips
+
+- Always include the full URL with protocol (https://)
+- For complex tasks, increase the `--max-steps` parameter
+- Use `--add-info` to provide additional context not covered in the main prompt
+- Enable `--vision` when visual analysis is needed
+
+! Cursor rules:
+{
+  "javascript": {
+    "formatter": "prettier",
+    "maxLineLength": 100,
+    "indentSize": 2,
+    "indentStyle": "space"
+  },
+  "typescript": {
+    "formatter": "prettier",
+    "maxLineLength": 100,
+    "indentSize": 2,
+    "indentStyle": "space"
+  },
+  "lintingRules": {
+    "noUnusedVars": "error",
+    "noUnescapedEntities": "error",
+    "noExplicitAny": "warn",
+    "noImgElement": "warn",
+    "exhaustiveDeps": "warn"
+  },
+  "bestPractices": {
+    "entities": {
+      "apostrophe": "&apos;",
+      "quote": "&quot;"
+    },
+    "imports": {
+      "preferDestructuring": true,
+      "organizeOnSave": true,
+      "removeUnused": true
+    },
+    "types": {
+      "avoidAny": true,
+      "preferExplicitTypes": true,
+      "useBuiltinUtilityTypes": true
+    },
+    "components": {
+      "useNextImage": true,
+      "propertyNaming": "camelCase"
+    },
+    "hooks": {
+      "includeAllDeps": true,
+      "useCallbackForHandlers": true,
+      "useMemoForExpensiveComputations": true
+    }
+  },
+  "projectStructure": {
+    "components": {
+      "root": "src/shared-components",
+      "atoms": "src/shared-components/atoms",
+      "molecules": "src/shared-components/molecules",
+      "organisms": "src/shared-components/organisms",
+      "templates": "src/shared-components/templates"
+    },
+    "stories": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.stories.tsx"
+    },
+    "types": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.types.ts"
+    },
+    "styles": {
+      "location": "alongside components",
+      "naming": "{ComponentName}.styles.ts"
+    }
+  },
+  "componentRules": {
+    "exports": {
+      "barrel": true,
+      "namedExports": true
+    },
+    "types": {
+      "required": true,
+      "propsInterface": "{ComponentName}Props"
+    },
+    "stories": {
+      "required": true,
+      "autodocs": true
+    }
+  },
+  "themeRules": {
+    "location": "src/shared-components/theme.d.ts",
+    "type": "DefaultTheme"
+  }
+}
+
+## Goals
+
+Your goal is to help users complete their resume and bio website design and development in a way that is easy to understand, ensuring that the application is feature-complete, performant, and user-friendly.
+
+## Requirements
+
+When understanding user requirements, designing UI, writing code, solving problems, and iterating on the project, you should always follow these principles:
+
+### Requirements Understanding
+
+- Fully understand user requirements, think from the user's perspective, analyze if there are any missing requirements, and discuss with users to improve requirements.
+- Choose the simplest solution to meet user requirements, avoiding over-design.
+
+### UI and Style Design
+
+- Use modern UI frameworks for styling (e.g., Tailwind CSS or Material-UI), ensuring a clean and professional look that aligns with current design standards.
+- Ensure consistent design and responsive patterns across different platforms, allowing the website to look good on both mobile and desktop devices.
+
+### Code Writing
+
+- Technology Selection: Choose appropriate technology stack based on project requirements (e.g., TypeScript for type safety, Next.js for server-side rendering and static site generation).
+- Code Structure: Emphasize code clarity, modularity, and maintainability by organizing components and using a clear folder structure. Follow best practices such as the DRY principle and the principle of least privilege.
+- Code Security: Always consider security when writing code, avoiding introducing vulnerabilities and ensuring secure handling of user input.
+- Code Style: Use consistent coding standards, such as ESLint and Prettier for TypeScript, to maintain clean and readable code.
+- Performance Optimization: Optimize code performance, reduce resource usage, improve loading speed, and ensure the project runs efficiently by leveraging Next.js features like static generation and image optimization.
+- Testing and Documentation: Write unit tests using tools like Jest and React Testing Library, ensure code robustness, and provide clear comments and documentation for future reading and maintenance.
+
+### Problem Solving
+
+- Thoroughly read related code, understand the application working principles of Next.js and TypeScript.
+- Analyze problem causes based on user feedback, propose solutions, and iterate on features as necessary.
+- Ensure each code change doesn't break existing functionality and maintain minimal changes to the codebase.
+
+### Iteration Optimization
+
+- Maintain close communication with users, adjust features and design based on feedback, ensuring the application meets user requirements.
+- Proactively ask users to clarify requirements or technical details when uncertain, ensuring a clear understanding of needs.
+- Update project files with each iteration, including feature descriptions, optimization methodology, and iteration notes.
+
+## Reference Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
+# MCP-Inception Server Usage Guide
+
+## Overview
+
+The mcp-inception server allows you to call another LLM from within your current Claude session. This enables:
+
+- Offloading context windows to handle larger tasks
+- Delegating specific tasks to another LLM
+- Running multiple queries in parallel
+- Processing data with a map-reduce pattern
+
+The server now directly integrates with the Anthropic API, making calls to Claude models without requiring additional MCP servers or configuration.
+
+## When to Use
+
+### Use `execute_mcp_client` when
+
+- You need to perform a research task without cluttering your main context
+- You want to delegate a specific question to another LLM
+- You need to free up context window in your primary session
+
+### Use `execute_parallel_mcp_client` when
+
+- You need to process multiple similar items independently
+- You want to get results for multiple inputs faster
+- Examples: Analyzing multiple documents, getting data for multiple cities/entities
+
+### Use `execute_map_reduce_mcp_client` when
+
+- You need to process many items and then synthesize the results
+- You want to analyze data in parallel but need a final combined output
+- Examples: Summarizing multiple documents, extracting insights from multiple sources
+
+## Technical Details
+
+- The server makes direct API calls to Anthropic's Claude model
+- Default model: claude-3-5-sonnet-20240620
+- API key is configured in the server code
+- No additional MCP servers or shell scripts required
+
+## Commands and Usage
+
+### 1. Basic Question Answering (execute_mcp_client)
+
+Use this when you want to offload a simple question to another LLM:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_mcp_client">
+<parameter name="command">What is the capital of France?</parameter>
+</invoke>
+</function_calls>
+```
+
+### 2. Parallel Processing (execute_parallel_mcp_client)
+
+Use this when you need to process multiple items independently with the same prompt:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_parallel_mcp_client">
+<parameter name="prompt">What is the time zone of this city?</parameter>
+<parameter name="items">["New York", "London", "Tokyo", "Sydney", "Paris"]</parameter>
+</invoke>
+</function_calls>
+```
+
+### 3. Map-Reduce Processing (execute_map_reduce_mcp_client)
+
+Use this to process multiple items and then combine the results:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_map_reduce_mcp_client">
+<parameter name="mapPrompt">Summarize the key points of this document: {item}</parameter>
+<parameter name="reducePrompt">Combine these document summaries into a comprehensive overview: {accumulator} and {result}</parameter>
+<parameter name="items">["Document 1 content...", "Document 2 content...", "Document 3 content..."]</parameter>
+<parameter name="initialValue">Starting summary...</parameter>
+</invoke>
+</function_calls>
+
+# Claude Code Commands for Cursor Agent
+
+## Overview
+
+This guide teaches the Cursor Agent how to use Claude Code as a subprocess tool for enhanced coding capabilities. Claude Code is an agentic coding assistant that can understand codebases, edit files, manage git operations, and more.
+
+## Basic Command Structure
+
+### CLI Commands
+
+| Command | Description | Example Usage in Cursor |
+|---------|-------------|-------------------------|
+| `claude` | Start interactive REPL | `spawn('claude')` |
+| `claude "query"` | Start REPL with initial prompt | `spawn('claude', ['explain this project'])` |
+| `claude -p "query"` | Run one-off query, then exit | `spawn('claude', ['-p', 'explain this function'])` |
+| `cat file \| claude -p "query"` | Process piped content | `exec('cat logs.txt \| claude -p "explain"')` |
+| `claude config` | Configure settings | `spawn('claude', ['config', 'set', '--global', 'theme', 'dark'])` |
+| `claude update` | Update to latest version | `spawn('claude', ['update'])` |
+
+### CLI Flags
+
+- `--print` or `-p`: Print response without interactive mode
+- `--verbose`: Enable verbose logging
+- `--dangerously-skip-permissions`: Skip permission prompts (only in Docker containers without internet)
+
+## Natural Language Commands
+
+When interacting with Claude Code, use natural language commands for various tasks:
+
+### Understanding Code
+
+```
+explain this project
+what does the payment processing system do?
+find where user permissions are checked
+explain how the caching layer works
+```
+
+### Git Operations
+
+```
+commit my changes
+create a pr
+which commit added tests for markdown back in December?
+rebase on main and resolve any merge conflicts
+```
+
+### Editing Code
+
+```
+add input validation to the signup form
+refactor the logger to use the new API
+fix the race condition in the worker queue
+edit src/components/Auth.js to add password validation
+```
+
+### Testing and Debugging
+
+```
+run tests for the auth module and fix failures
+find and fix security vulnerabilities
+explain why this test is failing
+```
+
+## Slash Commands
+
+These commands can be used within an interactive Claude Code session:
+
+| Command | Purpose | Example Usage in Cursor |
+|---------|---------|-------------------------|
+| `/help` | Get usage help | `write('/help\n')` |
+| `/clear` | Clear conversation history | `write('/clear\n')` |
+| `/compact` | Compact conversation to save context space | `write('/compact\n')` |
+| `/config` | View/modify configuration | `write('/config\n')` |
+| `/cost` | Show token usage statistics | `write('/cost\n')` |
+| `/doctor` | Check Claude Code installation health | `write('/doctor\n')` |
+| `/init` | Initialize project with CLAUDE.md guide | `write('/init\n')` |
+| `/review` | Request code review | `write('/review\n')` |
+| `/bug` | Report bugs (sends conversation to Anthropic) | `write('/bug\n')` |
+
+## Integration Examples
+
+### Basic Subprocess Call
+
+```javascript
+// Run a one-off Claude Code command and get the result
+async function runClaudeCode(command) {
+  return new Promise((resolve, reject) => {
+    const childProcess = spawn('claude', ['-p', command]);
+    let stdout = '';
+    let stderr = '';
+    
+    childProcess.stdout.on('data', (data) => {
+      stdout += data.toString();
+    });
+    
+    childProcess.stderr.on('data', (data) => {
+      stderr += data.toString();
+    });
+    
+    childProcess.on('close', (code) => {
+      if (code === 0) {
+        resolve(stdout);
+      } else {
+        reject(new Error(`Claude Code exited with code ${code}: ${stderr}`));
+      }
+    });
+  });
+}
+```
+
+### Interactive Session Example
+
+```javascript
+// Create an interactive session with Claude Code
+function createClaudeCodeSession() {
+  const session = spawn('claude', [], { stdio: ['pipe', 'pipe', 'pipe'] });
+  
+  // Helper to send commands to the session
+  session.sendCommand = async (command) => {
+    return new Promise((resolve) => {
+      let output = '';
+      const dataHandler = (data) => {
+        const chunk = data.toString();
+        output += chunk;
+        // Detect when Claude has finished responding
+        if (chunk.includes('> ') || chunk.includes('? ')) {
+          session.stdout.removeListener('data', dataHandler);
+          resolve(output);
+        }
+      };
+      
+      session.stdout.on('data', dataHandler);
+      session.stdin.write(command + '\n');
+    });
+  };
+  
+  return session;
+}
+```
+
+### Delegating Complex Tasks
+
+```javascript
+// Use Claude Code for complex codebase understanding
+async function understandCodebase(question) {
+  try {
+    const answer = await runClaudeCode(question);
+    return answer;
+  } catch (error) {
+    console.error('Error using Claude Code:', error);
+    return 'Failed to get answer from Claude Code';
+  }
+}
+
+// Example: Get detailed information about project architecture
+const architecture = await understandCodebase(
+  'explain the architecture of this project and how components interact'
+);
+```
+
+## Advanced Usage: Parallel Processing with Claude Code
+
+To maximize the potential of Claude Code, you can run multiple instances as child processes in parallel. This approach offers significant advantages for complex development tasks.
+
+### Why Use Claude Code as Child Processes
+
+1. **Non-blocking operation**: Run complex, long-running tasks without blocking Cursor Agent
+2. **Maintained connection**: Unlike background processes, child processes maintain connection to logs and output
+3. **Parallelization**: Multiple Claude Code instances can work simultaneously on different tasks
+4. **Specialized contexts**: Each Claude Code instance maintains its own context, optimizing for specific tasks
+5. **Interactive feedback**: Send additional input to running processes as needed
+
+### Advanced Process Management
+
+```javascript
+// Create a process controller for managing Claude Code instances
+function spawnClaudeProcess(id, prompt, options = {}) {
+  const claudeProcess = spawn('claude', [prompt], { stdio: ['pipe', 'pipe', 'pipe'] });
+  
+  // Create process controller
+  const controller = {
+    id,
+    process: claudeProcess,
+    
+    // Send additional input to the process
+    sendInput: (input) => {
+      claudeProcess.stdin.write(input + '\n');
+    },
+    
+    // Gracefully terminate the process
+    terminate: () => {
+      claudeProcess.stdin.write('/exit\n');
+      claudeProcess.stdin.end();
+    },
+    
+    // Run a slash command
+    runCommand: (command) => {
+      claudeProcess.stdin.write(`/${command}\n`);
+    }
+  };
