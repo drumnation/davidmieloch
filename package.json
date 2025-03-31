@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --project tsconfig.json --noEmit",
+    "clean:js": "find ./src -name \"*.js\" -type f -delete",
     "storybook": "storybook dev -p 7000 --no-open --no-version-updates",
     "build-storybook": "storybook build",
     "killports": "kill-port 3000 3001 3002 3003 3004 3333 6006 6007 7000 4000 || true",

@@ -39,6 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Ignore JavaScript files generated from TypeScript sources
+/src/**/*.js
+/src/**/*.jsx
+/src/**/*.js.map
 
 *storybook.log
 
