@@ -7,6 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [0.21.10] - 2025-03-31
+
+#### Removed
+- Deleted redundant script files from the `scripts/` directory after confirming they work correctly in `.brain/scripts/` [#Cleanup]
+
+### [0.21.9] - 2025-03-31
+
+#### Changed
+- Reorganized Braingarden scripts by moving them from `scripts/` to `.brain/scripts/` directory [#Structure]
+- Updated all references to scripts in rules and documentation to use the new paths [#Refactor]
+- Created clear separation between Braingarden system scripts and project-specific scripts [#Architecture]
+
+### [0.21.8] - 2025-03-31
+
+#### Enhanced
+- Expanded `.brain/docs/cursor-rules-system.md` to include detailed changelog management system documentation [#Documentation]
+- Added Braingarden CLI integration plan for both rule and changelog management [#Planning]
+- Incorporated changelog scripts as a core component of the rule system architecture [#Integration]
+
+### [0.21.7] - 2025-03-31
+
+#### Added
+- Created `.brain/docs/cursor-rules-system.md` with comprehensive documentation of the entire rules system [#Documentation]
+- Added detailed plans for Braingarden CLI integration for rule management [#Planning]
+
+#### Changed
+- Removed redundant `.brain/code-standards.md` file since it has been converted to a Cursor rule [#Cleanup]
+
+### [0.21.6] - 2025-03-31
+
+#### Changed
+- Converted `.brain/code-standards.md` to a Cursor rule (`.brain/rules/code-standards.mdc`) [#Refactor]
+- Updated project initialization workflow to reference the new code-standards rule instead of the standalone file [#Process]
+
+### [0.21.5] - 2025-03-31
+
+#### Fixed
+- Removed duplicate update-rule-symlinks.sh from .brain/rules/ directory [#Cleanup]
 ### [0.21.4] - 2025-03-31
 
 #### Changed
@@ -45,4 +83,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Improved
 - Updated cursor-rules-workaround.mdc to reference the script in its new location [#Documentation]- Enhanced changelog entries with tags for better categorization and searchability [#Organization]- Improved context efficiency by applying rules only when needed
 - Added proper version control for cursor rules by storing in `.brain/rules/`
-- Enhanced maintainability by splitting rules into logical units
