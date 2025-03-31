@@ -1,6 +1,6 @@
 {
   "name": "david-monorepo",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -26,6 +26,7 @@
     "@mantine/dates": "^7.17.1",
     "@mantine/form": "^7.17.1",
     "@mantine/hooks": "^7.17.1",
+    "@microsoft/clarity": "^1.0.0",
     "@react-spring/animated": "9.5.5",
     "@react-spring/core": "9.5.5",
     "@react-spring/shared": "9.5.5",

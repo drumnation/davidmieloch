@@ -3,6 +3,7 @@
 import React from 'react';
 import { AppShell, Container } from '@mantine/core';
 import { ThemeProvider } from '../providers/ThemeProvider';
+import { ClarityProvider } from '../providers/ClarityProvider';
 import Header from '../shared-components/organisms/Header';
 import { PersistentFooter } from '../shared-components/organisms/PersistentFooter';
 
@@ -13,22 +14,24 @@ export default function ClientLayout({
 }) {
   return (
     <ThemeProvider>
-      <AppShell
-        header={{ height: 60 }}
-        padding="md"
-      >
-        <AppShell.Header>
-          <Header />
-        </AppShell.Header>
-        
-        <AppShell.Main>
-          <Container size="lg" py="md">
-            {children}
-          </Container>
-        </AppShell.Main>
-        
-        <PersistentFooter data-print-hidden="true" />
-      </AppShell>
+      <ClarityProvider>
+        <AppShell
+          header={{ height: 60 }}
+          padding="md"
+        >
+          <AppShell.Header>
+            <Header />
+          </AppShell.Header>
+          
+          <AppShell.Main>
+            <Container size="lg" py="md">
+              {children}
+            </Container>
+          </AppShell.Main>
+          
+          <PersistentFooter data-print-hidden="true" />
+        </AppShell>
+      </ClarityProvider>
     </ThemeProvider>
   );
 } 

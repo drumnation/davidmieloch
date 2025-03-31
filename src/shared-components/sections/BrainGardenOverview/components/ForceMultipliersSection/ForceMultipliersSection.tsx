@@ -442,7 +442,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
             But here's where it gets truly revolutionary. These best practices - the tests, the commit messages, the documentation - they're not just nice to have anymore. They've become force multipliers that enable AI agents to perform tasks that would have seemed like science fiction just a few years ago.
           </BodyText>
 
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4a9eff' }}>Autonomous Testing Magic</strong>
+          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Autonomous Testing Magic</strong>
           <BodyText variant="body">
             Imagine making a change and having several tests fail. Instead of diving into debugging, you grab a coffee. Why? Because the AI agent can work autonomously while you take a break:
           </BodyText>
@@ -453,19 +453,19 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
   init: {
     'theme': 'base',
     'themeVariables': {
-      'primaryColor': '#4A9EFF',
+      'primaryColor': '#6772e5',
       'primaryTextColor': '#FFFFFF',
-      'primaryBorderColor': '#4A9EFF',
+      'primaryBorderColor': '#6772e5',
       'lineColor': '#000000',
-      'secondaryColor': '#4A9EFF',
-      'tertiaryColor': '#4A9EFF',
+      'secondaryColor': '#6772e5',
+      'tertiaryColor': '#6772e5',
       'noteBkgColor': '#FFE17E',
       'noteTextColor': '#1F2937',
       'noteBorderColor': '#FFD700',
       'textColor': '#1F2937',
       'fontSize': '16px',
       'fontFamily': 'Inter, sans-serif',
-      'mainBkg': '#4A9EFF',
+      'mainBkg': '#6772e5',
       'errorTextColor': '#FF0000',
       'errorBkgColor': '#FFEBEE',
       'nodeBorder': '#000000',
@@ -475,7 +475,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
       'activationBkgColor': '#F4F4F4',
       'sequenceNumberColor': '#000000',
       'actorBorder': '#000000',
-      'actorBkg': '#4A9EFF',
+      'actorBkg': '#6772e5',
       'labelBoxBorderColor': '#000000',
       'loopTextColor': '#000000'
     }
@@ -489,35 +489,35 @@ sequenceDiagram
     Dev->>AI: Encounters failing test
     Note over Dev: Goes for coffee ☕
     
-    rect rgb(74, 158, 255)
+    rect rgb(103, 114, 229)
       Note right of AI: Attempt 1
       AI->>Tests: npm test auth.spec.ts
       Tests-->>AI: ❌ Token validation failed
       AI->>AI: Analyzes error & updates code
     end
 
-    rect rgb(74, 158, 255)
+    rect rgb(103, 114, 229)
       Note right of AI: Attempt 2
       AI->>Tests: npm test auth.spec.ts
       Tests-->>AI: ❌ Refresh token expired
       AI->>AI: Implements retry mechanism
     end
 
-    rect rgb(74, 158, 255)
+    rect rgb(103, 114, 229)
       Note right of AI: Attempt 3
       AI->>Tests: npm test auth.spec.ts
       Tests-->>AI: ❌ Edge case uncovered
       AI->>AI: Adds edge case handling
     end
 
-    rect rgb(74, 158, 255)
+    rect rgb(103, 114, 229)
       Note right of AI: Attempt 4
       AI->>Tests: npm test auth.spec.ts
       Tests-->>AI: ❌ Race condition found
       AI->>AI: Implements mutex lock
     end
 
-    rect rgb(74, 158, 255)
+    rect rgb(103, 114, 229)
       Note right of AI: Attempt 5
       AI->>Tests: npm test auth.spec.ts
       Tests-->>AI: ✅ All tests passing!
@@ -529,7 +529,7 @@ sequenceDiagram
     Note over Dev,AI: Fixed regression in user authentication:<br/>- Added token validation<br/>- Implemented retry mechanism<br/>- Handled edge cases<br/>- Resolved race condition
               `}
               theme="default"
-              backgroundColor="rgba(74, 158, 255, 0.05)"
+              backgroundColor="rgba(103, 114, 229, 0.05)"
               showZoomControls={true}
               accessibilityDescription="A sequence diagram showing the AI agent autonomously fixing failing tests while the developer takes a coffee break. The diagram shows 5 attempts, each addressing different issues until all tests pass."
             />
@@ -538,7 +538,7 @@ sequenceDiagram
             This is where tests become more than just quality checks - they're the AI agent's validation system. Each test provides clear, objective criteria that would traditionally require a human tester to verify. The AI methodically works through each failure, using the test results as concrete feedback to guide its improvements. Without these automated tests, we'd still need manual verification for every change, creating a bottleneck in the development process. Instead, the tests serve as an automated "human tester in code," allowing the AI to work autonomously and confidently.
           </ExplanationText>
 
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4a9eff' }}>When Agents Get Stuck: The Skill Jack Framework</strong>
+          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>When Agents Get Stuck: The Skill Jack Framework</strong>
           <BodyText variant="body">
             Of course, AI agents don't solve everything autonomously. Sometimes they get stuck - encountering problems outside their knowledge domain or hitting limitations in available tools. This is where Brain Garden's meta-prompting system comes in:
           </BodyText>
@@ -555,7 +555,7 @@ sequenceDiagram
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">AI</Avatar>
+              <Avatar bgColor="#6772e5">AI</Avatar>
               <MessageContent>
                 <SpeakerName>Agent</SpeakerName>
                 <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
@@ -575,7 +575,7 @@ sequenceDiagram
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">AI</Avatar>
+              <Avatar bgColor="#6772e5">AI</Avatar>
               <MessageContent>
                 <SpeakerName>Agent</SpeakerName>
                 <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
@@ -635,7 +635,7 @@ sequenceDiagram
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">AI</Avatar>
+              <Avatar bgColor="#6772e5">AI</Avatar>
               <MessageContent>
                 <SpeakerName>Agent</SpeakerName>
                 <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
@@ -669,7 +669,7 @@ sequenceDiagram
             The result is a profound shift in development capabilities - there's no need to "know Kung Fu" before starting a task. The agent can begin work and simply request a Skill Jack whenever it encounters a knowledge boundary. With each upload, the entire system's capabilities expand exponentially, creating a continuously evolving digital consciousness that learns and adapts with every challenge it faces.
           </ExplanationText>
 
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4a9eff' }}>Parallel Agent Workflows: Multiplying Your Development Power</strong>
+          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Parallel Agent Workflows: Multiplying Your Development Power</strong>
           <BodyText variant="body">
             For teams looking to maximize productivity, the real breakthrough comes from running multiple AI agents in parallel. Using git worktrees (which let you have multiple working copies of your code repository at once), you can seamlessly switch between different features without the overhead of context switching:
           </BodyText>
@@ -779,7 +779,7 @@ flowchart TD
             This workflow transforms how teams develop software. Instead of working on one feature at a time, developers can now orchestrate multiple AI agents working on different features simultaneously. When one agent is solving a problem (which typically takes 3-10 minutes), the developer can shift attention to another feature. The key insight is that you're never waiting - you're always making progress on something. This approach effectively doubles development velocity without requiring longer hours or additional resources.
           </ExplanationText>
 
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4a9eff' }}>Git Archaeology: Reconstructing Features from History</strong>
+          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Git Archaeology: Reconstructing Features from History</strong>
           <BodyText variant="body">
             Remember that feature that was accidentally removed three months ago? With well-documented git history, AI can reconstruct entire features from the commit log:
           </BodyText>
@@ -828,7 +828,7 @@ flowchart TD
             <p style={{ marginTop: '0.5rem' }}>When merging code would introduce conflicts, the agent can instead understand the purpose of both code branches and create a new implementation that combines the best elements of each - something that requires deep understanding rather than just text manipulation.</p>
           </InsightBox>
 
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4a9eff' }}>Automated Refactoring: Breaking Down Complex Changes</strong>
+          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Automated Refactoring: Breaking Down Complex Changes</strong>
           <BodyText variant="body">
             Got a massive PR that's too big to review? The AI agent can analyze the commit history and automatically split it into logical, reviewable chunks:
           </BodyText>
@@ -889,7 +889,7 @@ All PRs include automated documentation of changes, test results, and dependency
             <p style={{ marginTop: '0.5rem' }}>This transforms what would be an overwhelming code review into a manageable, systematic process—reducing review time by up to 70% while improving the quality of feedback.</p>
           </InsightBox>
 
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4a9eff' }}>Automated Documentation: The Ultimate Force Multiplier</strong>
+          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Automated Documentation: The Ultimate Force Multiplier</strong>
           <BodyText variant="body">
             With the right system prompts, the agent automatically follows a comprehensive documentation checklist after completing any feature—no human prompting required:
           </BodyText>
@@ -1416,7 +1416,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             Two months later, the company has an engineering team composed mostly of junior developers supervised by project managers. Technical debt has accumulated to crippling levels. The AI tools generate code quickly, but without the guidance of experienced developers, that code is becoming increasingly unmaintainable. When servers are overloaded and AI tools are unavailable, development grinds to a halt as few developers can work effectively without AI assistance. The AI revolution that promised to enhance developer capabilities has instead created a dysfunctional dependency.
           </BodyText>
           
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#4A9EFF' }}>The Brain Garden Difference</strong>
+          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>The Brain Garden Difference</strong>
           
           <BodyText variant="body">
             This scenario highlights the core problem: AI tools without structure create chaos. The Brain Garden System addresses exactly these issues:

@@ -93,7 +93,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
                       🔥 Trending on r/ExperiencedDevs
                     </Typography>
                   </div>
-                  <div style={{ color: '#0066CC' }}>
+                  <div style={{ color: '#6772e5' }}>
                     <Typography variant="body" weight="bold" className={`mb-${S.SPACING.element}`}>
                       &ldquo;AI coding mandates at work?&rdquo;
                     </Typography>
