@@ -12,7 +12,7 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
       },
       {
         title: 'Hierarchical Structure for App-Specific Components',
-        description: 'Application-specific components use a traditional hierarchical structure, organized around the application\'s feature set',
+        description: 'Application-specific components use a traditional hierarchical structure, organized around the application&apos;s feature set',
         icon: 'hierarchy',
       },
       {

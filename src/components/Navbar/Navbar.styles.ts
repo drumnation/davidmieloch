@@ -6,7 +6,7 @@ export const NavbarContainer = styled.nav<{ $isScrolled: boolean }>`
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: ${({ $isScrolled, theme }) => 
+  background-color: ${({ $isScrolled }) => 
     $isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent'};
   backdrop-filter: ${({ $isScrolled }) => 
     $isScrolled ? 'blur(8px)' : 'none'};

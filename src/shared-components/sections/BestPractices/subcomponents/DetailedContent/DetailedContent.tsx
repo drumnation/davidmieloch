@@ -123,14 +123,14 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           <DetailedContentTitle>TypeScript Best Practices</DetailedContentTitle>
         </TitleWrapper>
         <DetailedContentText>
-          TypeScript is not just about adding types; it's about leveraging the type system
-          to create safer, more maintainable code. Here's how I approach TypeScript:
+          TypeScript is not just about adding types; it&apos;s about leveraging the type system
+          to create safer, more maintainable code. Here&apos;s how I approach TypeScript:
         </DetailedContentText>
         
         <DetailedContentList>
           <ul>
-            <li><strong>Be Explicit with Types</strong>: Avoid using 'any' as much as possible
-              and be explicit with types to leverage TypeScript's power.</li>
+            <li><strong>Be Explicit with Types</strong>: Avoid using &apos;any&apos; as much as possible
+              and be explicit with types to leverage TypeScript&apos;s power.</li>
             <li><strong>Use Interfaces for Object Shapes</strong>: Interfaces are better for
               defining the shape of objects because they can be extended and merged.</li>
             <li><strong>Discriminated Unions</strong>: Use discriminated unions for complex
@@ -220,7 +220,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
         </TitleWrapper>
         <DetailedContentText>
           In larger organizations, shared libraries can become a bottleneck for development.
-          Here's how I approach this problem:
+          Here&apos;s how I approach this problem:
         </DetailedContentText>
         
         <DetailedContentList>
@@ -293,7 +293,7 @@ monorepo/
         </TitleWrapper>
         <DetailedContentText>
           A well-configured development environment can significantly improve developer
-          productivity. Here's how I set up my development environment:
+          productivity. Here&apos;s how I set up my development environment:
         </DetailedContentText>
         
         <DetailedContentList>
@@ -336,7 +336,7 @@ monorepo/
         <DetailedContentList>
           <ul>
             <li><strong>Code Splitting</strong>: Use dynamic imports and React.lazy to split
-              your code and load only what's needed.</li>
+              your code and load only what&apos;s needed.</li>
             <li><strong>Image Optimization</strong>: Use Next.js Image component or other image
               optimization techniques to reduce image size and improve loading performance.</li>
             <li><strong>Memoization</strong>: Use React.memo, useMemo, and useCallback to prevent

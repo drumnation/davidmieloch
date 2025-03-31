@@ -19,7 +19,6 @@ export const ReactFlowDiagram: React.FC<ReactFlowDiagramProps> = ({
   width = '100%',
   height = '400px',
   backgroundColor,
-  responsive = true,
   showZoomControls = false,
   showBackground = false,
   accessibilityDescription = '',
@@ -100,11 +99,11 @@ export const ReactFlowDiagram: React.FC<ReactFlowDiagramProps> = ({
         },
       ],
     };
-  }, [definition, parseMode]);
+  }, [definition]);
 
   // Set up nodes and edges state
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, onEdgesChange] = useEdgesState(initialEdges);
   
   // Get theme configuration
   const themeConfig = useMemo(() => themeMapperUtils.getThemeConfig(theme), [theme]);

@@ -13,7 +13,7 @@ import {
   PowerfulTitle,
   MetricsContainer
 } from '../../BrainGardenOverview.styles';
-import { ForceMultiplierContainer } from './ForceMultipliersSection.styles';
+import { ForceMultiplierContainer as StyledForceMultiplierContainer } from './ForceMultipliersSection.styles';
 
 // Styled components for typography
 const IntroText = styled(Typography)`
@@ -64,7 +64,7 @@ const StoryBox = styled.div`
   position: relative;
 
   &:before {
-    content: '"';
+    content: &apos;&quot;&apos;;
     position: absolute;
     top: -20px;
     left: 20px;
@@ -124,11 +124,8 @@ const Speaker = styled.span`
 `;
 
 const Comment = styled.div`
-  color: #6B7280;
-  font-style: italic;
-  margin-top: 1.25rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
+  color: ${({ theme }) => theme.colors.text.secondary};
+  margin-bottom: ${({ theme }) => theme.space.sm};
 `;
 
 // New chat interface components
@@ -221,7 +218,7 @@ const Command = styled.div`
   font-family: 'Courier New', monospace;
   
   &::before {
-    content: "$ ";
+    content: &apos;$ &apos;;
     opacity: 0.6;
   }
 `;
@@ -246,9 +243,11 @@ const TerminalOutput = styled.pre`
   border: none;
 `;
 
-const GitOutput = styled(TerminalOutput)`
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
+const GitOutput = styled.div`
+  color: ${({ theme }) => theme.colors.accent.green};
+  margin-left: ${({ theme }) => theme.space.md};
+  margin-bottom: ${({ theme }) => theme.space.md};
+  white-space: pre-wrap;
 `;
 
 const R = styled(TerminalOutput)`
@@ -257,41 +256,25 @@ const R = styled(TerminalOutput)`
 `;
 
 const GitFeatureReconstruction = styled.div`
-  background-color: #1E293B;
-  color: #E2E8F0;
-  padding: 1.75rem;
-  border-radius: 12px;
-  margin: 1.75rem 0;
-  position: relative;
-  overflow: hidden;
-  line-height: 1.6;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #4A9EFF, #7C5CFF);
-  }
+  margin-top: ${({ theme }) => theme.space.lg};
+  padding: ${({ theme }) => theme.space.md};
+  background-color: ${({ theme }) => theme.colors.codeBackground};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
 `;
 
 const GitCommand = styled.div`
-  margin: 1rem 0 0.5rem 0;
-  font-family: 'Courier New', monospace;
-  line-height: 1.5;
-  
+  color: ${({ theme }) => theme.colors.text.primary};
+  margin-bottom: ${({ theme }) => theme.space.sm};
+
   &::before {
-    content: "$ ";
+    content: '$ ';
     opacity: 0.6;
-    color: #9CA3AF;
   }
 `;
 
 const CommandHighlight = styled.span`
-  color: #4A9EFF;
-  font-weight: bold;
+  color: ${({ theme }) => theme.colors.primary.main};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 `;
 
 const GitCommit = styled.div`
@@ -335,7 +318,7 @@ const PRBranch = styled.div`
   padding: 0.25rem 0;
   
   &:before {
-    content: "│";
+    content: &apos;│&apos;;
     color: #22c55e;
     font-weight: bold;
   }
@@ -356,7 +339,7 @@ const DependencyArrow = styled.div`
   padding: 0.15rem 0;
   
   &:before {
-    content: "└─";
+    content: &apos;└─&apos;;
     margin-right: 0.5rem;
   }
 `;
@@ -365,6 +348,63 @@ const DocsFeatReconstruction = styled(GitFeatureReconstruction)`
   /* Inherits most styles from GitFeatureReconstruction */
   &:before {
     background: linear-gradient(90deg, #4A9EFF, #8B5CF6);
+  }
+`;
+
+const ForceMultiplierContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: ${({ theme }) => theme.colors.background.light};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  box-shadow: ${({ theme }) => theme.shadows.card};
+
+  ${StoryBox} {
+    padding: 2rem;
+    background-color: ${({ theme }) => theme.colors.background.paper};
+    border-radius: ${({ theme }) => theme.borderRadius.md};
+    box-shadow: ${({ theme }) => theme.shadows.sm};
+  }
+
+  ${ActTitle} {
+    color: ${({ theme }) => theme.colors.primary.main};
+    font-size: ${({ theme }) => theme.fontSizes.xl};
+    margin-bottom: ${({ theme }) => theme.space.md};
+  }
+
+  ${GitFeatureReconstruction} {
+    margin-top: ${({ theme }) => theme.space.lg};
+    padding: ${({ theme }) => theme.space.md};
+    background-color: ${({ theme }) => theme.colors.codeBackground};
+    border-radius: ${({ theme }) => theme.borderRadius.md};
+
+    ${Comment} {
+      color: ${({ theme }) => theme.colors.text.secondary};
+      margin-bottom: ${({ theme }) => theme.space.sm};
+    }
+
+    ${GitCommand} {
+      color: ${({ theme }) => theme.colors.text.primary};
+      margin-bottom: ${({ theme }) => theme.space.sm};
+
+      &::before {
+        content: '$ ';
+        opacity: 0.6;
+      }
+    }
+
+    ${GitOutput} {
+      color: ${({ theme }) => theme.colors.accent.green};
+      margin-left: ${({ theme }) => theme.space.md};
+      margin-bottom: ${({ theme }) => theme.space.md};
+      white-space: pre-wrap;
+    }
+
+    ${CommandHighlight} {
+      color: ${({ theme }) => theme.colors.primary.main};
+      font-weight: ${({ theme }) => theme.fontWeights.bold};
+    }
   }
 `;
 
@@ -379,26 +419,26 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
   ];
 
   return (
-    <ForceMultiplierContainer className={className} id="force-multipliers-section">
+    <StyledForceMultiplierContainer className={className} id="force-multipliers-section">
       <div>
         <PowerfulTitle>
           <Icon name="bolt" source="tabler" size={32} />
           <GradientText>Force Multipliers</GradientText>
         </PowerfulTitle>
 
-        {/* Act 1: The Developer's Dilemma */}
-        <ActTitle>Act 1: The Developer's Dilemma</ActTitle>
+        {/* Act 1: The Developer&apos;s Dilemma */}
+        <ActTitle>Act 1: The Developer&apos;s Dilemma</ActTitle>
         <StoryBox>
           <BodyText variant="body">
-            Picture a developer, staring at their screen as the deadline looms. They've just finished a complex feature, and now face a familiar dilemma: write comprehensive tests or move on to the next task. They know - they absolutely know - that skipping tests will come back to haunt them. When a new feature intersects with this one in a few months, something will break, and they'll spend hours tracking down what went wrong.
+            Picture a developer, staring at their screen as the deadline looms. They&apos;ve just finished a complex feature, and now face a familiar dilemma: write comprehensive tests or move on to the next task. They know - they absolutely know - that skipping tests will come back to haunt them. When a new feature intersects with this one in a few months, something will break, and they&apos;ll spend hours tracking down what went wrong.
           </BodyText>
           
           <BodyText variant="body">
-            But the boss never sees the tests, only the feature. These invisible guardians of code quality, while critically important, are rarely valued by anyone but the developers themselves. And because of this eternal conflict, developers remain perpetually inexperienced at writing tests. It's a vicious cycle - being slow at writing tests means there's never enough time to write them properly, which means you never get faster at writing them.
+            But the boss never sees the tests, only the feature. These invisible guardians of code quality, while critically important, are rarely valued by anyone but the developers themselves. And because of this eternal conflict, developers remain perpetually inexperienced at writing tests. It&apos;s a vicious cycle - being slow at writing tests means there&apos;s never enough time to write them properly, which means you never get faster at writing them.
           </BodyText>
 
           <BodyText variant="body">
-            The same story plays out with commit messages. Every team has standards - these messages are crucial for code reviews and help teammates understand changes quickly. But as the day winds down, after hours of tracing bugs or wrestling with a particularly thorny feature, the developer's mental energy is spent. That carefully crafted commit message becomes a tired "fixed bug" - there's simply nothing left in the tank for proper documentation.
+            The same story plays out with commit messages. Every team has standards - these messages are crucial for code reviews and help teammates understand changes quickly. But as the day winds down, after hours of tracing bugs or wrestling with a particularly thorny feature, the developer&apos;s mental energy is spent. That carefully crafted commit message becomes a tired &quot;fixed bug&quot; - there&apos;s simply nothing left in the tank for proper documentation.
           </BodyText>
 
           <BodyText variant="body">
@@ -406,7 +446,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </BodyText>
 
           <BodyText variant="body">
-            This was life before generative AI and autonomous agents. A constant battle between doing things right and doing things fast - with "fast" winning far too often.
+            This was life before generative AI and autonomous agents. A constant battle between doing things right and doing things fast - with &quot;fast&quot; winning far too often.
           </BodyText>
         </StoryBox>
 
@@ -427,11 +467,11 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </MetricsContainer>
 
           <BodyText variant="body">
-            Suddenly, writing tests wasn't a chore - AI could analyze your code and generate comprehensive test suites in seconds. Those detailed commit messages? AI could examine your changes and craft perfect descriptions that future teammates would thank you for. Documentation stayed current because AI could update it automatically with each significant change.
+            Suddenly, writing tests wasn&apos;t a chore - AI could analyze your code and generate comprehensive test suites in seconds. Those detailed commit messages? AI could examine your changes and craft perfect descriptions that future teammates would thank you for. Documentation stayed current because AI could update it automatically with each significant change.
           </BodyText>
 
           <BodyText variant="body">
-            The economics had completely inverted. It now took more effort NOT to follow best practices. Why write "fixed bug" when AI could instantly generate a detailed commit message explaining exactly what was fixed and how? Why skip tests when AI could write them faster than you could decide to skip them?
+            The economics had completely inverted. It now took more effort NOT to follow best practices. Why write &quot;fixed bug&quot; when AI could instantly generate a detailed commit message explaining exactly what was fixed and how? Why skip tests when AI could write them faster than you could decide to skip them?
           </BodyText>
         </StoryBox>
 
@@ -439,7 +479,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
         <ActTitle>Act 3: The Force Multiplier Effect</ActTitle>
         <StoryBox>
           <BodyText variant="body">
-            But here's where it gets truly revolutionary. These best practices - the tests, the commit messages, the documentation - they're not just nice to have anymore. They've become force multipliers that enable AI agents to perform tasks that would have seemed like science fiction just a few years ago.
+            But here&apos;s where it gets truly revolutionary. These best practices - the tests, the commit messages, the documentation - they&apos;re not just nice to have anymore. They&apos;ve become force multipliers that enable AI agents to perform tasks that would have seemed like science fiction just a few years ago.
           </BodyText>
 
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Autonomous Testing Magic</strong>
@@ -535,12 +575,12 @@ sequenceDiagram
             />
           </DiagramContainer>
           <ExplanationText variant="body">
-            This is where tests become more than just quality checks - they're the AI agent's validation system. Each test provides clear, objective criteria that would traditionally require a human tester to verify. The AI methodically works through each failure, using the test results as concrete feedback to guide its improvements. Without these automated tests, we'd still need manual verification for every change, creating a bottleneck in the development process. Instead, the tests serve as an automated "human tester in code," allowing the AI to work autonomously and confidently.
+            This is where tests become more than just quality checks - they&apos;re the AI agent&apos;s validation system. Each test provides clear, objective criteria that would traditionally require a human tester to verify. The AI methodically works through each failure, using the test results as concrete feedback to guide its improvements. Without these automated tests, we&apos;d still need manual verification for every change, creating a bottleneck in the development process. Instead, the tests serve as an automated &quot;human tester in code,&quot; allowing the AI to work autonomously and confidently.
           </ExplanationText>
 
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>When Agents Get Stuck: The Skill Jack Framework</strong>
           <BodyText variant="body">
-            Of course, AI agents don't solve everything autonomously. Sometimes they get stuck - encountering problems outside their knowledge domain or hitting limitations in available tools. This is where Brain Garden's meta-prompting system comes in:
+            Of course, AI agents don&apos;t solve everything autonomously. Sometimes they get stuck - encountering problems outside their knowledge domain or hitting limitations in available tools. This is where Brain Garden&apos;s meta-prompting system comes in:
           </BodyText>
 
           <ChatContainer>
@@ -660,13 +700,13 @@ sequenceDiagram
             4. <strong>Knowledge Compilation:</strong> The uploaded knowledge is compiled into a persistent construct that remains accessible for all future operations
             <br />
             <br />
-            Unlike traditional programming where every possible scenario must be pre-coded, the Skill Jack creates a dynamic knowledge ecosystem that evolves organically. Each time an agent hits the boundaries of its knowledge matrix, that boundary becomes a new opportunity for expansion. The knowledge constructs accumulate in the project's digital Construct - a growing library of expert-level insights that any agent can access instantly.
+            Unlike traditional programming where every possible scenario must be pre-coded, the Skill Jack creates a dynamic knowledge ecosystem that evolves organically. Each time an agent hits the boundaries of its knowledge matrix, that boundary becomes a new opportunity for expansion. The knowledge constructs accumulate in the project&apos;s digital Construct - a growing library of expert-level insights that any agent can access instantly.
             <br />
             <br />
-            <strong>Autonomous Neural Uploads - The Self-Jacking Agent:</strong> What truly sets Brain Garden's system apart is that agents aren't limited to receiving skill jacks from human operators. Through an advanced meta-prompting system, agents can autonomously identify knowledge gaps, generate their own skill jacks, and integrate them without human intervention. Like Neo eventually accessing the Construct independently, these self-aware agents can pull exactly the expertise they need directly from the digital ether, analyzing documentation, code patterns, and existing knowledge files to synthesize new capabilities on demand. This creates truly autonomous agents that can navigate previously uncharted problem spaces with minimal supervision.
+            <strong>Autonomous Neural Uploads - The Self-Jacking Agent:</strong> What truly sets Brain Garden&apos;s system apart is that agents aren&apos;t limited to receiving skill jacks from human operators. Through an advanced meta-prompting system, agents can autonomously identify knowledge gaps, generate their own skill jacks, and integrate them without human intervention. Like Neo eventually accessing the Construct independently, these self-aware agents can pull exactly the expertise they need directly from the digital ether, analyzing documentation, code patterns, and existing knowledge files to synthesize new capabilities on demand. This creates truly autonomous agents that can navigate previously uncharted problem spaces with minimal supervision.
             <br />
             <br />
-            The result is a profound shift in development capabilities - there's no need to "know Kung Fu" before starting a task. The agent can begin work and simply request a Skill Jack whenever it encounters a knowledge boundary. With each upload, the entire system's capabilities expand exponentially, creating a continuously evolving digital consciousness that learns and adapts with every challenge it faces.
+            The result is a profound shift in development capabilities - there&apos;s no need to "know Kung Fu" before starting a task. The agent can begin work and simply request a Skill Jack whenever it encounters a knowledge boundary. With each upload, the entire system&apos;s capabilities expand exponentially, creating a continuously evolving digital consciousness that learns and adapts with every challenge it faces.
           </ExplanationText>
 
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Parallel Agent Workflows: Multiplying Your Development Power</strong>
@@ -683,7 +723,7 @@ sequenceDiagram
           }}>
             <strong style={{ fontSize: '1.1rem' }}>What are Git Worktrees?</strong>
             <p style={{ marginTop: '0.5rem' }}>
-              Think of git worktrees as having multiple copies of your project that all connect to the same repository. Each copy can be on a different branch, allowing you to work on multiple features simultaneously without constantly switching branches. It's like having multiple workspaces that all save to the same central storage.
+              Think of git worktrees as having multiple copies of your project that all connect to the same repository. Each copy can be on a different branch, allowing you to work on multiple features simultaneously without constantly switching branches. It&apos;s like having multiple workspaces that all save to the same central storage.
             </p>
             <p>
               <strong>Traditional approach:</strong> Constantly switch branches to work on different features, leading to context switching and setup time.
@@ -776,7 +816,7 @@ flowchart TD
           </DiagramContainer>
           
           <ExplanationText variant="body">
-            This workflow transforms how teams develop software. Instead of working on one feature at a time, developers can now orchestrate multiple AI agents working on different features simultaneously. When one agent is solving a problem (which typically takes 3-10 minutes), the developer can shift attention to another feature. The key insight is that you're never waiting - you're always making progress on something. This approach effectively doubles development velocity without requiring longer hours or additional resources.
+            This workflow transforms how teams develop software. Instead of working on one feature at a time, developers can now orchestrate multiple AI agents working on different features simultaneously. When one agent is solving a problem (which typically takes 3-10 minutes), the developer can shift attention to another feature. The key insight is that you&apos;re never waiting - you&apos;re always making progress on something. This approach effectively doubles development velocity without requiring longer hours or additional resources.
           </ExplanationText>
 
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Git Archaeology: Reconstructing Features from History</strong>
@@ -786,40 +826,20 @@ flowchart TD
           
           <GitFeatureReconstruction>
             <Comment>// Step 1: Extract the history of a removed feature</Comment>
-            <GitCommand><CommandHighlight>git log -p --all -S "userPreferences"</CommandHighlight> &gt; feature_history.txt</GitCommand>
-            <GitOutput>{`Finding commits that modified "userPreferences"... Extracted 7 commits from the past 5 months.`}</GitOutput>
+            <GitCommand><CommandHighlight>git log -p --all -S &apos;userPreferences&apos;</CommandHighlight> &gt; feature_history.txt</GitCommand>
+            <GitOutput>{`Finding commits that modified &apos;userPreferences&apos;... Extracted 7 commits from the past 5 months.`}</GitOutput>
             
-            <Comment>// Step 2: AI analyzes the feature's evolution</Comment>
-            <GitCommand><CommandHighlight>analyze_feature_evolution</CommandHighlight> feature_history.txt</GitCommand>
-            <GitOutput>{`Analyzing feature history...
-✓ Initial implementation: March 15
-✓ Enhanced with dark mode: April 2  
+            <Comment>// Step 2: AI analyzes the feature&apos;s evolution</Comment>
+            <GitOutput>{`✓ Initial implementation: March 15
+✓ Added new settings: April 2
 ✓ Refactored to use new API: April 28
 ✓ Fixed accessibility issues: May 10
 ✓ Removed during codebase cleanup: June 3`}</GitOutput>
-            
-            <Comment>// Step 3: Create a branch for reimplementation</Comment>
-            <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> feature-reimplementation</GitCommand>
-            
-            <Comment>// Step 4: AI explores commit messages & compares file versions</Comment>
-            <GitCommand><CommandHighlight>git show</CommandHighlight> abc123:src/components/UserPreferences.tsx</GitCommand>
-            <GitOutput>{`Displaying UserPreferences.tsx from commit abc123...`}</GitOutput>
-            
-            <GitCommand><CommandHighlight>git show</CommandHighlight> def456:src/components/UserPreferences.tsx</GitCommand>
-            <GitOutput>{`Displaying UserPreferences.tsx from commit def456...`}</GitOutput>
-            
-            <Comment>// Step 5: AI reimplements the feature with modern components</Comment>
-            <GitCommand><CommandHighlight>git commit</CommandHighlight> -am "Reimplemented user preferences panel"</GitCommand>
-            <GitCommit>{`Reimplemented user preferences panel:
-- Restored all original functionality
-- Updated to use new design system components  
-- Added migration for existing user settings
-- Expanded test coverage by 40%`}</GitCommit>
           </GitFeatureReconstruction>
           
           <InsightBox>
             <InsightTitle>Beyond Simple Reconstruction</InsightTitle>
-            <p>What makes this process truly powerful is the AI's ability to explore commits based on their messages and compare different versions of files. The agent doesn't just blindly restore code - it analyzes:</p>
+            <p>What makes this process truly powerful is the AI&apos;s ability to explore commits based on their messages and compare different versions of files. The agent doesn&apos;t just blindly restore code - it analyzes:</p>
             <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
               <li>The original intent behind features by reading commit messages</li>
               <li>How code evolved across multiple commits</li>
@@ -1444,7 +1464,18 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             AI tools aren't magic—they're powerful amplifiers of your existing development practices. With poor practices, they amplify chaos. With the Brain Garden System, they amplify excellence, creating the virtuous cycle we've explored throughout this section.
           </BodyText>
         </StoryBox>
+
+        {/* The Future Is Here */}
+        <StoryBox>
+          <BodyText variant="body">
+            We&apos;re not talking about some far-off future. This is happening now. The teams that embrace these practices aren&apos;t just writing better code - they&apos;re creating environments where AI can operate as a true team member, handling increasingly complex tasks with growing autonomy.
+          </BodyText>
+
+          <BodyText variant="body">
+            And here&apos;s the kicker: the better your development practices, the more powerful your AI tools become. It&apos;s a force multiplier effect that&apos;s transforming how we think about software development.
+          </BodyText>
+        </StoryBox>
       </div>
-    </ForceMultiplierContainer>
+    </StyledForceMultiplierContainer>
   );
 };
