@@ -4,7 +4,6 @@ import { SpinnerLoader } from '../../../components';
 
 export const PageLoader: React.FC<PageLoaderProps> = ({ 
   className,
-  minHeight = '100vh',
   spinnerSize = 'large',
   spinnerColor
 }) => {

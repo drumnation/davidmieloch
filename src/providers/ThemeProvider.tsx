@@ -4,7 +4,6 @@ import React, { useState, useContext } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import '@mantine/core/styles.css';
 import { MantineProvider } from './MantineProvider';
-import { theme as styledTheme } from '../styles/theme/styled-theme';
 import '../styles/globals.css';
 import ClientOnly from '../utils/ClientOnly';
 import { ThemeContext } from '../contexts/ThemeContext';
@@ -125,14 +124,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setColorScheme(colorScheme === 'dark' ? 'light' : 'dark');
   };
 
-  // Always use light theme
-  const defaultLightTheme = {
-    ...styledTheme,
-    colors: {
-      ...styledTheme.colors,
-    },
-  };
-  
   // Static content safe for both server and client 
   const content = (
     <StyledThemeProvider theme={theme}>

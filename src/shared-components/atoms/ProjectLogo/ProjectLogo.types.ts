@@ -1,5 +1,3 @@
-import { SVGProps } from 'react';
-
 export type LabelPosition = 'bottom' | 'right' | 'left' | 'top';
 
 export interface ProjectLogoProps {

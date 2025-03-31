@@ -1,15 +1,11 @@
 import React, { ReactNode } from 'react';
 import { animated } from '@react-spring/web';
-import type { SpringValue, AnimatedProps } from '@react-spring/web';
+import type { SpringValue } from '@react-spring/web';
 
 interface StyledAnimatedDivProps {
   children: ReactNode;
   className?: string;
-  style: {
-    opacity?: SpringValue<number>;
-    transform?: SpringValue<string>;
-    [key: string]: any;
-  };
+  style: Record<string, SpringValue<unknown> | string | number | undefined>;
 }
 
 /**

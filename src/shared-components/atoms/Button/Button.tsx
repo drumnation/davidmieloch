@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { ButtonProps } from './Button.types';
 import { StyledButton, IconWrapper } from './Button.styles';
 import styled from 'styled-components';

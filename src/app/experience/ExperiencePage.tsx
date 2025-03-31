@@ -1,10 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Container, Title } from '@mantine/core';
 import { motion } from 'framer-motion';
 import { SEO } from '@/shared-components/SEO';
-import { PageTitle } from '@/shared-components/atoms/PageTitle/PageTitle';
-import { AnimatedPage } from '@/shared-components/atoms/AnimatedPage/AnimatedPage';
 import { Header } from '@/shared-components/molecules/Header';
 import { ExperienceList } from './components/ExperienceList';
 import { ExperienceItem } from './components/ExperienceItem';
@@ -20,8 +17,39 @@ import positionsData from '@/data/positions.json';
 import educationData from '@/data/education.json';
 import skillsData from '@/data/skills.json';
 
+// Define an interface for education data from the JSON file
+interface EducationItemData {
+  school: string;
+  degree: string;
+  fieldOfStudy: string;
+  startDate: string;
+  endDate: string;
+  description?: string;
+  activities?: string; // This is a string in the source JSON
+  logoPath?: string;
+  mediaUrl?: string;
+  mediaType?: string; // This is a string in the source JSON
+  media?: {
+    type: string;
+    url: string;
+    title?: string;
+    description?: string;
+    thumbnailUrl?: string;
+    width?: string | number;
+    height?: number;
+  }[];
+}
+
 // Helper function to validate and transform media items
-const validateMediaItems = (mediaItems: any[] | undefined): MediaItem[] | undefined => {
+const validateMediaItems = (mediaItems: Array<{
+  type: string;
+  url: string;
+  title?: string;
+  description?: string;
+  thumbnailUrl?: string;
+  width?: string | number;
+  height?: number;
+}> | undefined): MediaItem[] | undefined => {
   if (!mediaItems) return undefined;
   
   return mediaItems.map(item => {
@@ -35,8 +63,9 @@ const validateMediaItems = (mediaItems: any[] | undefined): MediaItem[] | undefi
       type: validType,
       // Ensure width and height are of the correct type
       width: item.width || '100%',
-      height: typeof item.height === 'number' ? item.height : 300
-    };
+      height: typeof item.height === 'number' ? item.height : 300,
+      url: item.url || ''
+    } as MediaItem;
   });
 };
 
@@ -77,7 +106,7 @@ const enhancedSkills: Array<Skill | string> = skillsData.slice(0, 20).map(skill 
 });
 
 // Helper function to sort education items by date (most recent first)
-const sortEducationByDate = (items: any[]) => {
+const sortEducationByDate = (items: EducationItemData[]) => {
   return [...items].sort((a, b) => {
     // Convert string years to numbers
     const endYearA = parseInt(a.endDate.split(' ')[0], 10) || 0;
@@ -105,9 +134,6 @@ export function ExperiencePage() {
   const olderPositions = positionsData.filter(position => 
     !['Scala', 'DrayNow, Inc.', 'OTG Management', 'Gramercy Tech'].includes(position.company)
   );
-  
-  // Extract profile and positions data
-  const { headline, summary } = profileData;
 
   // Animation variants for page transitions
   const pageVariants = {
@@ -214,7 +240,7 @@ export function ExperiencePage() {
                   activities={education.activities}
                   logo={education.logoPath}
                   mediaUrl={education.mediaUrl}
-                  mediaType={education.mediaType}
+                  mediaType={education.mediaType as 'video' | 'image' | undefined}
                   media={validateMediaItems(education.media)}
                 />
               ))}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { TechIconProps } from './TechIcon.types';
 import * as S from './TechIcon.styles';
 import { IconType } from 'react-icons'; // Import IconType
@@ -11,7 +12,7 @@ import * as Tb from 'react-icons/tb';  // Tabler Icons
 import * as Bs from 'react-icons/bs';  // Bootstrap Icons
 
 // Custom Speechify Icon Component
-const SpeechifyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = '#FF6B00' }) => {
+const SpeechifyIcon: React.FC<{ size?: number }> = ({ size = 24 }) => {
   return (
     <div style={{ 
       width: `${size}px`, 
@@ -21,7 +22,7 @@ const SpeechifyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24,
       justifyContent: 'center',
       backgroundColor: 'transparent' // Using transparent background to show the icon clearly
     }}>
-      <img 
+      <Image 
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Speechify_Icon.png/480px-Speechify_Icon.png" 
         alt="Speechify" 
         width={size} 
@@ -303,9 +304,9 @@ const RenderIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, co
       justifyContent: 'center',
       backgroundColor: 'transparent'
     }}>
-      <img 
-        src="/media/icons/render-icon.svg" 
-        alt="Render.com" 
+      <Image 
+        src="/tech-icons/render.png" 
+        alt="Render" 
         width={size} 
         height={size} 
         style={{ objectFit: 'contain' }}
@@ -934,8 +935,8 @@ const TECH_ICON_MAP: Record<string, {
   'speechify': { icon: SpeechifyIcon, color: '#FF6B00' }, 
   'deepseek': { icon: DeepseekIcon, color: '#2563EB' }, 
   'google ai': { icon: GoogleAIIcon, color: '#1A73E8' }, 
-  'google gemini': { icon: GoogleAIIcon, color: '#1A73E8' }, 
-  'gemini': { icon: GoogleAIIcon, color: '#1A73E8' }, 
+  'google gemini': { icon: GoogleGeminiIcon, color: '#1A73E8' }, 
+  'gemini': { icon: GoogleGeminiIcon, color: '#1A73E8' }, 
   'openai vision api': { icon: OpenAIVisionIcon, color: '#10A37F' },
   'suno': { icon: SunoIcon, color: '#2374E1' },
   

@@ -1,5 +1,3 @@
-import { SVGProps } from 'react';
-
 /**
  * Position options for the label relative to the icon
  */
