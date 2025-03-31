@@ -6,7 +6,7 @@
 
 - I do not want to get to the end of fixing this considerable amount of lint errors and have the app be broken, regressions, content missing, styling that were once working now broken.  AVOID THIS AT ALL COSTS.  The current configuration may have lint errors, but it's 95% current from a UI perspective. Making any kind of changes would only serve to create more work redoing the code you may have removed or tweaked to a state that actually requires us to remake it, fix it, etc...
 
-#@ Lint Errors to Fix
+# Lint Errors to Fix
 
 RUN `npm run lint` to doublecheck the current state of linting errors in the app
 
@@ -80,17 +80,17 @@ These changes allow us to focus on fixing the most important and potentially pro
 - [ ] BestPractices components: Multiple ref cleanup issues
 
 #### Next.js Image Component
-- [ ] PrivateWorkCard.tsx: Using <img> instead of Next.js Image
-- [ ] EducationSection.tsx: Multiple instances of <img> usage
-- [ ] SideProjectsSection.tsx: Multiple instances of <img> usage
-- [ ] SystemOverview.tsx: Using <img> instead of Next.js Image
+- [x] PrivateWorkCard.tsx: Using <img> instead of Next.js Image
+- [x] EducationSection.tsx: Multiple instances of <img> usage
+- [x] SideProjectsSection.tsx: Multiple instances of <img> usage
+- [x] SystemOverview.tsx: Using <img> instead of Next.js Image
 
 #### TypeScript 'any' Type Usage
 - [x] ExperiencePage.tsx: Line 45
 - [x] StyledAnimatedDiv/index.tsx: Line 11
-- [ ] FlowchartDiagram.styles.ts: Line 32
-- [ ] FeaturePreview.tsx: Line 32
-- [ ] ReactFlowDiagram: Multiple instances
+- [x] FlowchartDiagram.styles.ts: Line 32
+- [x] FeaturePreview.tsx: Line 32
+- [x] ReactFlowDiagram: Multiple instances
 - [ ] Multiple components in shared-components/sections: Various 'any' type usage
 
 ### React JSX Issues
