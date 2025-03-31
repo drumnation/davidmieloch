@@ -8,7 +8,7 @@
 4. After each completed task, update .brain/github-projects-plan.md and start a new task
 5. Use the `browser-use` tool to check your work both in storybook at localhost:6006 and in the main app at localhost:3001
 6. ALWAYS use `execute_mcp_client` tool before coding to architect a coding plan
-7. ALWAYS update the @changelog.md after any significant changes are made, then bump the version number according to semantic versioning rules in the @package.json
+7. ALWAYS update the CHANGELOG.md after any significant changes are made, then bump the version number according to semantic versioning rules in the @package.json
 
 ## !! Important
 
@@ -489,3 +489,52 @@ function spawnClaudeProcess(id, prompt, options = {}) {
       claudeProcess.stdin.write(`/${command}\n`);
     }
   };
+```
+
+module.exports = {
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
+  ],
+  "rules": {
+    // Error for unused variables and imports
+    "@typescript-eslint/no-unused-vars": "error",
+    
+    // Error for unescaped entities to enforce proper escaping
+    "react/no-unescaped-entities": "error",
+    
+    // Warn about any types to encourage more specific typing
+    "@typescript-eslint/no-explicit-any": "warn",
+    
+    // Encourage proper hook usage
+    "react-hooks/rules-of-hooks": "error", 
+    "react-hooks/exhaustive-deps": "warn",
+    
+    // Warn about using img instead of Next.js Image
+    "@next/next/no-img-element": "warn",
+    
+    // Enforce consistent component naming
+    "react/function-component-definition": ["warn", {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
+    
+    // Enforce JSX closing bracket location
+    "react/jsx-closing-bracket-location": ["warn", "line-aligned"],
+    
+    // Prevent adding props that don't exist in component definition
+    "react/no-unknown-property": "error",
+    
+    // Enforce curly braces
+    "curly": ["error", "all"],
+    
+    // Ensure equality comparisons are strict
+    "eqeqeq": ["error", "always"],
+    
+    // Prevent accidentally forgetting to await a Promise
+    "require-await": "error",
+    
+    // Prefer const over let where possible
+    "prefer-const": "warn"
+  }
+}

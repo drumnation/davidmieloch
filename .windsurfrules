@@ -8,7 +8,7 @@
 4. After each completed task, update .brain/github-projects-plan.md and start a new task
 5. Use the `browser-use` tool to check your work both in storybook at localhost:6006 and in the main app at localhost:3001
 6. ALWAYS use `execute_mcp_client` tool before coding to architect a coding plan
-7. ALWAYS update the @changelog.md after any significant changes are made, then bump the version number according to semantic versioning rules in the @package.json
+7. ALWAYS update the CHANGELOG.md after any significant changes are made, then bump the version number according to semantic versioning rules in the @package.json
 
 ## !! Important
 

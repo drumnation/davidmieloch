@@ -7,10 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [0.21.2] - 2025-03-31
+
+#### Added
+- Created update-changelog.sh script for simplified changelog management- Created standardized changelog structure with Keep a Changelog format
 ### [0.21.1] - 2025-03-31
 
 #### Added
-- Added modular Cursor rules system with `.brain/rules/` directory
+- Created update-changelog.sh script for simplified changelog management- Added modular Cursor rules system with `.brain/rules/` directory
 - Created separate rule files for different aspects of the project:
   - `project-initialization.mdc`: Core workflow and initialization steps
   - `component-standards.mdc`: React component structure standards
@@ -26,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Created cursor rules workaround documentation
 
 #### Changed
-- Refactored monolithic `.cursorrules` into a minimal file 
+- Consolidated multiple changelog files (@changelog.md, changelog.md) into single CHANGELOG.md- Refactored monolithic `.cursorrules` into a minimal file 
 - Improved rule organization with proper typing (Always Apply, Auto Attach, Agent Requested)
 - Enhanced file metadata with descriptions and appropriate glob patterns
 
