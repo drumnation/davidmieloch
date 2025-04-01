@@ -7,12 +7,9 @@ const meta = {
   parameters: {
     layout: 'padded',
     docs: {
-      description: {
-        component: 'Flow diagram illustrating the AI integration process flow for development workflows'
-      }
+      autodocs: false
     }
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof AiIntegrationFlowDiagram>;
 
 export default meta;
@@ -22,32 +19,6 @@ export const Default: Story = {
   args: {
     width: '100%',
     height: '700px',
-    showZoomControls: true,
-  },
-};
-
-export const DarkTheme: Story = {
-  args: {
-    width: '100%',
-    height: '700px',
-    showZoomControls: true,
-    theme: 'dark',
-  },
-};
-
-export const ForestTheme: Story = {
-  args: {
-    width: '100%',
-    height: '700px',
-    showZoomControls: true,
-    theme: 'forest',
-  },
-};
-
-export const CustomSized: Story = {
-  args: {
-    width: '800px',
-    height: '600px',
     showZoomControls: true,
   },
 }; 

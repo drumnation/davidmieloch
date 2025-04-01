@@ -24,8 +24,8 @@ The following diagrams have been identified for migration from Mermaid to React 
 | 3 | Agent System Diagram | In Progress | src/shared-components/diagrams/AgentSystemDiagram | Basic diagram implemented, needs integration with section |
 | 4 | System Overview Diagram | In Progress | src/shared-components/diagrams/SystemOverviewDiagram | Basic diagram implemented, needs integration with section |
 | 5 | Integration System Diagram | In Progress | src/shared-components/diagrams/IntegrationSystemDiagram | Basic diagram implemented, needs integration with section |
-| 6 | AI Integration Process Diagram | Completed | src/components/diagrams/AiIntegrationProcessDiagram | First diagram migrated as POC |
-| 7 | Brain Garden Components Diagram | Completed | src/shared-components/diagrams/BrainGardenComponentsDiagram | Second diagram migrated successfully |
+| 6 | AI Integration Process Diagram | Completed | src/shared-components/diagrams/AiIntegrationFlowDiagram | Refined with improved spacing and responsive layout |
+| 7 | Brain Garden Components Diagram | Completed | src/shared-components/diagrams/BrainGardenComponentsDiagram | Refined with improved visual hierarchy and color coding |
 | 8 | Garden Metaphor Diagram | Completed | src/shared-components/diagrams/GardenMetaphorDiagram | Implementation completed, needs integration with section |
 
 ## Reference Implementation
@@ -45,9 +45,10 @@ Once all diagrams have been migrated, we should:
 1. ✅ Start with one diagram as a proof of concept
 2. ✅ Create a shared utility for converting Mermaid syntax to React Flow definitions
 3. ✅ Implement the remaining diagrams with consistent styling
-4. Test all diagrams in all supported themes
-5. Update all components to use the new diagram components
-6. Remove the Mermaid dependency 
+4. ✅ Begin refinement of diagrams to improve layout and styling (in progress)
+5. Test all diagrams in all supported themes
+6. Update all components to use the new diagram components
+7. Remove the Mermaid dependency 
 
 ## Component Structure
 
@@ -81,4 +82,14 @@ This structure ensures clean separation of concerns and prevents code duplicatio
   - Used top-down (TD) layout with properly styled nodes
   - Added theming support for all four themes
   - Implemented multi-path flow with branches and merges
-  - Still needs to be integrated with the AgentSystemSection component 
+  - Still needs to be integrated with the AgentSystemSection component
+- **2023-06-18**: Completed Garden Metaphor Diagram implementation
+  - Created component, types, and stories
+  - Used horizontal (LR) layout with properly styled nodes
+  - Added theming support
+  - Used capsule nodes for main phases
+- **2023-06-19**: Refined AI Integration Flow and Brain Garden Components diagrams
+  - Improved spacing and alignment in AI Integration Flow diagram
+  - Added container width limits for better responsive behavior
+  - Enhanced visual hierarchy in Brain Garden Components diagram with color coding
+  - Optimized layout of both diagrams for better readability 

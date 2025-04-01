@@ -25,148 +25,148 @@ export const AiIntegrationFlowDiagram: React.FC<AiIntegrationFlowDiagramProps> =
         label: 'Assess Current Workflow',
         icon: '🔍',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'B',
       type: 'default',
-      position: { x: 400, y: 150 },
+      position: { x: 400, y: 140 },
       data: { 
         label: 'Identify AI Opportunities',
         icon: '💡',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'C',
       type: 'default',
-      position: { x: 400, y: 250 },
+      position: { x: 400, y: 230 },
       data: { 
         label: 'Define Human/AI Roles',
         icon: '👥',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'D1',
       type: 'default',
-      position: { x: 400, y: 350 },
+      position: { x: 400, y: 320 },
       data: { 
         label: 'Knowledge Integration',
         icon: '🧠',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'D2',
       type: 'default',
-      position: { x: 400, y: 450 },
+      position: { x: 400, y: 410 },
       data: { 
         label: 'Implement Prompt Engineering',
         icon: '⌨️',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'D3',
       type: 'default',
-      position: { x: 400, y: 550 },
+      position: { x: 400, y: 500 },
       data: { 
         label: 'Build Validation Frameworks',
         icon: '✓',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'E',
       type: 'default',
-      position: { x: 400, y: 650 },
+      position: { x: 400, y: 590 },
       data: { 
         label: 'Optimize Development Workflow',
         icon: '⚙️',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'F',
       type: 'default',
-      position: { x: 400, y: 750 },
+      position: { x: 400, y: 680 },
       data: { 
         label: 'Train Teams on AI Collaboration',
         icon: '🧑‍🏫',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'G',
       type: 'default',
-      position: { x: 400, y: 850 },
+      position: { x: 400, y: 770 },
       data: { 
         label: 'Define Quality-Focused Metrics',
         icon: '📊',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'H',
       type: 'default',
-      position: { x: 400, y: 950 },
+      position: { x: 400, y: 860 },
       data: { 
         label: 'Measure Results',
         icon: '📏',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
     {
       id: 'I',
       type: 'pill',
-      position: { x: 400, y: 1050 },
+      position: { x: 400, y: 950 },
       data: { 
         label: 'Successful?',
-        style: { borderColor: '#4a6bff', fontWeight: 'bold', width: '180px' }
+        style: { borderColor: '#4a6bff', fontWeight: 'bold', width: '140px' }
       },
     },
     {
       id: 'J',
       type: 'default',
-      position: { x: 600, y: 1150 },
+      position: { x: 550, y: 1030 },
       data: { 
         label: 'Scale Integration',
         icon: '📈',
         iconPosition: 'left',
-        style: { width: '200px' }
+        style: { width: '180px' }
       },
     },
     {
       id: 'K',
       type: 'default',
-      position: { x: 200, y: 1150 },
+      position: { x: 250, y: 1030 },
       data: { 
         label: 'Refine Approach',
         icon: '🔄',
         iconPosition: 'left',
-        style: { width: '200px' }
+        style: { width: '180px' }
       },
     },
     {
       id: 'L',
       type: 'default',
-      position: { x: 600, y: 1250 },
+      position: { x: 550, y: 1120 },
       data: { 
         label: 'Continuous Improvement',
         icon: '♾️',
         iconPosition: 'left',
-        style: { width: '240px' }
+        style: { width: '220px' }
       },
     },
   ], []);
@@ -260,39 +260,44 @@ export const AiIntegrationFlowDiagram: React.FC<AiIntegrationFlowDiagramProps> =
     },
   ], []);
 
-  // Create the diagram definition object
+  // Create the flow definition
   const flowDefinition: ReactFlowDefinition = useMemo(() => ({
     nodes,
-    edges,
+    edges
   }), [nodes, edges]);
 
-  // Set custom options for fixed, non-interactive diagram
-  const customOptions = {
-    nodesDraggable: false,
-    nodesConnectable: false,
-    elementsSelectable: false,
-    zoomOnScroll: false,
-    panOnScroll: false,
-    panOnDrag: false,
-    preventScrolling: true,
-  };
+  // Container style for responsive width
+  const containerStyle = useMemo(() => ({
+    width: '100%',
+    maxWidth: '1000px',
+    margin: '0 auto',
+  }), []);
 
   return (
-    <div className={className}>
+    <div className={className} style={containerStyle}>
       {title && <h3>{title}</h3>}
       {description && <p>{description}</p>}
       
       <ReactFlowDiagram
+        definition={flowDefinition}
+        theme={theme}
         width={width}
         height={height}
-        theme={theme}
-        backgroundColor="#ffffff"
+        className=""
         showZoomControls={showZoomControls}
-        showBackground={false}
         accessibilityDescription={accessibilityDescription}
-        definition={flowDefinition}
-        parseMode="reactflow"
-        customOptions={customOptions}
+        showBackground={true}
+        customOptions={{
+          nodesDraggable: false,
+          nodesConnectable: false,
+          elementsSelectable: false,
+          fitView: true,
+          fitViewOptions: {
+            padding: 0.2,
+            minZoom: 0.8,
+            maxZoom: 1,
+          },
+        }}
       />
     </div>
   );
