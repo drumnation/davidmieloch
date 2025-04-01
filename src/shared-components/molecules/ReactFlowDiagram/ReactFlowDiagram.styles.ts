@@ -8,6 +8,7 @@ export const ReactFlowGlobalStyles = createGlobalStyle`
   /* Global React Flow overrides */
   .react-flow__node {
     overflow: visible !important;
+    width: 200% !important; /* Double the width of all node containers */
   }
   
   .react-flow__handle {
@@ -49,6 +50,7 @@ export const StyledReactFlow = styled(ReactFlow as React.ComponentType<ReactFlow
   /* Ensure nodes can overflow their boundaries for icons */
   .react-flow__node {
     overflow: visible !important;
+    width: 200% !important; /* Double the width of all node containers */
   }
   
   /* Add additional spacing for handles */
