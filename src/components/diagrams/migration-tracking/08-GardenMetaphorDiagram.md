@@ -40,10 +40,10 @@ flowchart LR
 ```
 
 ## Migration Tasks
-- [ ] Create new `GardenMetaphorDiagram` component in `src/shared-components/diagrams/GardenMetaphorDiagram/`
-- [ ] Implement ReactFlow nodes and edges based on the Mermaid diagram above
-- [ ] Ensure consistent styling with the AiIntegrationFlowDiagram
-- [ ] Add appropriate stories for the component
+- [x] Create new `GardenMetaphorDiagram` component in `src/shared-components/diagrams/GardenMetaphorDiagram/`
+- [x] Implement ReactFlow nodes and edges based on the Mermaid diagram above
+- [x] Ensure consistent styling with the AiIntegrationFlowDiagram
+- [x] Add appropriate stories for the component
 - [ ] Update the `GardenMetaphorSection` component to use the new diagram component
 - [ ] Test the diagram's appearance in all supported themes
 - [ ] Remove Mermaid dependency if no longer used elsewhere
@@ -53,3 +53,9 @@ flowchart LR
 - The diagram has custom theme variables for specific coloring
 - Uses special node shapes (Seed, Sprout, and Mature nodes use the slash-node syntax)
 - Background should be transparent to fit within the green background in the component 
+
+## Implementation
+- The ReactFlow implementation uses the `capsule` node type for the phase nodes (Seed, Sprout, Mature)
+- Standard node types are used for the aspect nodes, styled with green background to match the Mermaid styling
+- Custom positioning is used to create a visually appealing layout
+- The diagram is designed to work with a transparent background to match the original green section background 

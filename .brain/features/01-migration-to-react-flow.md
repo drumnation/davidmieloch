@@ -19,7 +19,7 @@ We have identified 8 diagrams to be converted from Mermaid.js to React Flow. See
 
 ## Task List
 
-### Phase 1: Setup and Research (1-2 days)
+### Phase 1: Setup and Research (1-2 days) - COMPLETED
 
 - [x] Install React Flow and dependencies
   ```bash
@@ -42,7 +42,7 @@ We have identified 8 diagrams to be converted from Mermaid.js to React Flow. See
 - [x] Research and document React Flow's node and edge customization capabilities
 - [x] Study the current theme and styling requirements for diagrams
 
-### Phase 2: Proof of Concept (2-3 days)
+### Phase 2: Proof of Concept (2-3 days) - COMPLETED
 
 - [x] Create a basic ReactFlowDiagram component with the same props interface as MermaidDiagram
 - [x] Implement a parser utility to convert Mermaid syntax to React Flow nodes and edges
@@ -54,83 +54,128 @@ We have identified 8 diagrams to be converted from Mermaid.js to React Flow. See
 - [x] Add zoom controls similar to the current implementation
 - [x] Implement accessibility features
 
-### Phase 3: Implementation (3-4 days)
+### Phase 3: Diagram Conversion - First Pass (Current Phase)
 
-- [x] Finalize the ReactFlowDiagram component
+The goal of this phase is to convert all diagrams to React Flow with basic functionality, focusing on:
+1. Creating the diagram components with proper node/edge structure
+2. Ensuring they render in Storybook
+3. Implementing basic layout and connections
+
+- [x] ~~Finalize the ReactFlowDiagram component~~ (Sufficient for initial conversion)
 - [x] Create comprehensive Storybook stories for all diagram types
-- [x] Implement a consistent color scheme for all 8 diagram types
-- [x] Add CSS variable support to match current styling
-- [x] Reference implementation: [AiIntegrationFlowDiagram](../src/shared-components/diagrams/AiIntegrationFlowDiagram/AiIntegrationFlowDiagram.tsx)
+- [x] Configure Storybook for diagram testing
 - [x] Create tracking files for each diagram that needs to be migrated
-  - [x] [Knowledge System Diagram](../src/shared-components/diagrams/migration-tracking/01-KnowledgeSystemDiagram.md)
-  - [x] [Performance Scalability Diagram](../src/shared-components/diagrams/migration-tracking/02-PerformanceScalabilityDiagram.md)
-  - [x] [Agent System Diagram](../src/shared-components/diagrams/migration-tracking/03-AgentSystemDiagram.md)
-  - [x] [System Overview Diagram](../src/shared-components/diagrams/migration-tracking/04-SystemOverviewDiagram.md)
-  - [x] [Integration System Diagram](../src/shared-components/diagrams/migration-tracking/05-IntegrationSystemDiagram.md)
-  - [x] [AI Integration Process Diagram](../src/shared-components/diagrams/migration-tracking/06-AiAutopilotAnalogy.md)
-  - [x] [Brain Garden Components Diagram](../src/shared-components/diagrams/migration-tracking/07-CoreComponentsDiagram.md)
-  - [x] [Garden Metaphor Diagram](../src/shared-components/diagrams/migration-tracking/08-GardenMetaphorDiagram.md)
-- [ ] Implement each diagram component
-  - [ ] Knowledge System Diagram
-  - [ ] Performance Scalability Diagram
-  - [ ] Agent System Diagram
-  - [ ] System Overview Diagram
-  - [ ] Integration System Diagram
-  - [x] AI Integration Process Diagram 
+- [ ] CURRENT TASK: Implement the basic conversion of all remaining diagrams
+  - [x] Knowledge System Diagram
+    - [x] Create component structure
+    - [x] Define nodes and connections
+    - [x] Create simple Storybook story
+  - [x] Performance Scalability Diagram
+    - [x] Create component structure
+    - [x] Define nodes and connections
+    - [x] Create simple Storybook story
+  - [x] Agent System Diagram
+    - [x] Create component structure
+    - [x] Define nodes and connections
+    - [x] Create simple Storybook story
+  - [x] System Overview Diagram
+    - [x] Create component structure
+    - [x] Define nodes and connections
+    - [x] Create simple Storybook story
+  - [x] Integration System Diagram
+    - [x] Create component structure
+    - [x] Define nodes and connections
+    - [x] Create simple Storybook story
+  - [x] AI Integration Process Diagram *(Working in Storybook, minor spacing/sizing issues to fix)*
+  - [x] Brain Garden Components Diagram *(Working in Storybook, minor spacing/sizing issues to fix)*
+  - [x] Garden Metaphor Diagram *(Working in Storybook, minor spacing/sizing issues to fix)*
+    - [x] Create component structure
+    - [x] Define nodes and connections
+    - [x] Create simple Storybook story
+
+### Phase 4: Diagram Refinement - Second Pass
+
+Once all diagrams are converted and working in Storybook, we'll make a second pass to:
+1. Fix spacing, sizing, and layout issues
+2. Apply consistent styling across all diagrams
+3. Ensure proper theme compatibility
+4. Address any performance issues
+
+- [ ] Refine the existing diagrams:
+  - [ ] AI Integration Flow Diagram
+    - [ ] Fix container width issues
+    - [ ] Adjust spacing between nodes
+    - [ ] Ensure optimal flow layout
   - [ ] Brain Garden Components Diagram
-  - [ ] Garden Metaphor Diagram
-- [ ] Ensure all features of the current MermaidDiagram are supported:
-  - [x] Responsive design
-  - [x] Themes
-  - [x] Zoom controls
-  - [x] Accessibility
-  - [x] Custom styling
+    - [ ] Refine node positioning
+    - [ ] Fix layout and spacing issues
+    - [ ] Improve visual hierarchy
+  - [ ] Complete remaining diagram refinement
+- [ ] Apply consistent styling across all diagrams
+- [ ] Ensure responsive behavior on all screen sizes
+- [ ] Optimize performance for complex diagrams
+- [ ] Verify accessibility features
 
-### Phase 4: Testing and Migration (2-3 days)
+### Phase 5: Testing and Migration
 
+- [x] Configure Storybook for diagram testing
 - [ ] Write tests for the ReactFlowDiagram component
 - [ ] Create a migration strategy document for component users
 - [x] Update one diagram implementation as a test case
 - [ ] Address any issues or edge cases
 - [ ] Gradually replace all MermaidDiagram instances with ReactFlowDiagram
 
-### Phase 5: Documentation and Finalization (1-2 days)
+### Phase 6: Documentation and Finalization
 
 - [ ] Document the new component usage
 - [ ] Update any relevant documentation
 - [ ] Write migration guide for other developers
 - [ ] Clean up any deprecated code
 
+## Current Progress
+
+As of now, we have successfully migrated 2 out of 8 diagrams to React Flow:
+
+1. **AI Integration Process Diagram (AiIntegrationFlowDiagram)**: 
+   - Renders correctly in Storybook
+   - Minor styling adjustments needed for container width
+   - Need to resolve box layout and spacing issues
+
+2. **Brain Garden Components Diagram (BrainGardenComponentsDiagram)**: 
+   - Renders correctly in Storybook after fixing position issues
+   - Some node positioning refinements needed
+   - Layout adjustments required for optimal display
+
+The remaining 6 diagrams are still pending migration. We've established a solid foundation with the ReactFlowDiagram base component that makes adding the remaining diagrams more straightforward.
+
+## Next Steps - Two-Pass Approach
+
+1. **First Pass - Basic Conversion**: Focus on converting all diagrams to React Flow with basic functionality
+   - Use the same component structure as the existing ReactFlowDiagram implementations
+   - Define nodes and edges directly in code rather than parsing Mermaid syntax
+   - Create simple stories for Storybook testing
+   - Ensure each diagram renders with the correct structure
+
+2. **Second Pass - Refinement**: Once all diagrams are converted, focus on:
+   - Fixing layout and spacing issues
+   - Improving styling and visual appearance
+   - Ensuring responsive behavior
+   - Optimizing performance
+   - Adding any missing features
+
+This approach allows us to quickly get all diagrams working in React Flow before spending time on fine-tuning the details.
+
 ## Design Considerations
 
 1. **Color Scheme**: Ensure all 8 diagram types follow a consistent color scheme while preserving their unique characteristics.
 
-2. **Theme Support**: React Flow should support the same themes as Mermaid ('default', 'dark', 'forest', 'neutral') with matching colors.
+2. **Theme Support**: React Flow should support the same themes as Mermaid ('default', 'dark', 'forest', and 'neutral') with matching colors.
 
 3. **Customization**: Allow for the same level of customization that Mermaid currently provides.
 
 4. **Performance**: React Flow should provide better performance, especially for complex diagrams.
 
 5. **Accessibility**: Maintain or improve the current accessibility features.
-
-## Proof of Concept Approach
-
-For the proof of concept, we will:
-
-1. Create a simple React Flow implementation
-2. Test it with one of each diagram type
-3. Compare performance and visual fidelity with the Mermaid implementation
-4. Gather feedback before proceeding with full implementation
-
-## Technical Challenges
-
-1. **Parsing Mermaid Syntax**: Converting Mermaid syntax to React Flow's node/edge model will be complex.
-
-2. **Custom Node Types**: We'll need to create custom node types to match the current visual style.
-
-3. **Styling**: Ensuring consistent styling across different diagram types while supporting themes.
-
-4. **Migration**: Ensuring a smooth migration path for existing diagram implementations.
 
 ## Component Structure
 
