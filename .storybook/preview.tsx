@@ -8,6 +8,14 @@ import { viewports } from '../src/styles/theme/viewports'
 import './storybook.css'
 import '../src/styles/globals.css'
 
+// Import our page structure decorators
+import {
+  brainGardenPageDecorator,
+  technicalImplementationDecorator,
+  aiIntegrationDecorator,
+  genericPageDecorator
+} from '../src/shared-components/diagrams/.storybook/decorators/PageStructureDecorator';
+
 // Helper function to parse numeric prefixes
 const getNumericPrefix = (title: string): number => {
   const match = title.match(/^(\d+)-/)
@@ -52,12 +60,16 @@ const preview: Preview = {
       viewports,
       defaultViewport: 'desktop',
     },
-    layout: 'fullscreen',
+    layout: 'padded',
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    docs: {
+      autodocs: false,
+      disabled: true
     },
     options: {
       storySort: {
@@ -66,6 +78,13 @@ const preview: Preview = {
         includeNames: true,
         locales: 'en-US',
       },
+    },
+    backgrounds: {
+      default: 'light',
+      values: [
+        { name: 'garden-light-green', value: '#f0fff4' },
+        { name: 'technical-light-blue', value: 'rgba(74, 158, 255, 0.05)' },
+      ],
     },
   },
   decorators: [
@@ -78,7 +97,43 @@ const preview: Preview = {
         </div>
       </StyledThemeProvider>
     ),
+    (Story, context) => {
+      // Apply the appropriate page structure decorator based on the selection
+      const pageStructure = context.globals.pageStructure;
+      
+      switch (pageStructure) {
+        case 'garden':
+          return brainGardenPageDecorator(Story);
+        case 'technical':
+          return technicalImplementationDecorator(Story);
+        case 'integration':
+          return aiIntegrationDecorator(Story);
+        case 'generic':
+          return genericPageDecorator(Story);
+        default:
+          return <Story />;
+      }
+    },
   ],
 }
+
+// Add global decorators that can be used in stories
+export const globalTypes = {
+  pageStructure: {
+    name: 'Page Structure',
+    description: 'Structure of the page where the diagram is used',
+    defaultValue: 'none',
+    toolbar: {
+      icon: 'browser',
+      items: [
+        { value: 'none', title: 'None' },
+        { value: 'garden', title: 'Brain Garden Overview' },
+        { value: 'technical', title: 'Technical Implementation' },
+        { value: 'integration', title: 'AI Integration Process' },
+        { value: 'generic', title: 'Generic Page' },
+      ],
+    },
+  },
+};
 
 export default preview
