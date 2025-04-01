@@ -104,7 +104,7 @@ export const brainGardenPageDecorator = (Story: StoryFn) => (
 
 export const technicalImplementationDecorator = (Story: StoryFn) => (
   <div style={{ padding: '2rem 0', backgroundColor: '#ffffff' }}>
-    <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
+    <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto', padding: '0 2rem' }}>
       <SectionTitle>Knowledge System Flow</SectionTitle>
       <Typography>
         The Knowledge System is like your team's collective brain, but better. It captures knowledge automatically, makes it actionable, and ensures it flows to everyone who needs it.
@@ -114,7 +114,7 @@ export const technicalImplementationDecorator = (Story: StoryFn) => (
         Instead of knowledge being trapped in individual team members' minds or scattered across different documents, it becomes a shared resource that grows more valuable over time.
       </Typography>
 
-      <div style={{ margin: '2rem 0', padding: '1rem', backgroundColor: 'rgba(74, 158, 255, 0.05)', borderRadius: '8px' }}>
+      <div style={{ margin: '2rem 0', padding: '1rem', backgroundColor: 'rgba(74, 158, 255, 0.05)', borderRadius: '8px', maxWidth: '700px' }}>
         <Story />
       </div>
 
