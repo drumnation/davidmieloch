@@ -5,8 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 /**
  * Storybook configuration for the GardenMetaphorDiagram component
  * 
- * For the most realistic preview, select "Brain Garden Overview" in the Page Structure toolbar option.
- * This will display the diagram in a context similar to where it's actually used in the application.
+ * The Default story shows the diagram in its actual page context.
  */
 const meta = {
   title: 'Diagrams/GardenMetaphorDiagram',
@@ -22,7 +21,7 @@ const meta = {
     },
     docs: {
       description: {
-        component: 'A diagram showing the three phases of a Brain Garden project\'s growth - from initial setup to self-improving system. To see how this diagram looks in its actual page context, select "Brain Garden Overview" from the Page Structure toolbar option.',
+        component: 'A diagram showing the three phases of a Brain Garden project\'s growth - from initial setup to self-improving system.',
       },
     },
   },
@@ -34,22 +33,24 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Default display of the Garden Metaphor Diagram with transparent background.
- * For the most realistic preview, select "Brain Garden Overview" in the Page Structure toolbar.
+ * Default display showing the Garden Metaphor Diagram in its actual page context.
+ * This matches how the diagram appears in the Brain Garden Overview section.
  */
 export const Default: Story = {
   args: {
     width: '100%',
-    height: '600px',
-    showZoomControls: true,
+    height: '500px',
+    showZoomControls: false,
+    backgroundColor: 'transparent',
   },
   parameters: {
     backgrounds: { default: 'light-green' },
+    pageStructure: 'garden',
   },
 };
 
 /**
- * Garden Metaphor Diagram with white background
+ * Garden Metaphor Diagram with white background, no page context
  */
 export const WithWhiteBackground: Story = {
   args: {
@@ -58,10 +59,13 @@ export const WithWhiteBackground: Story = {
     showZoomControls: true,
     backgroundColor: '#ffffff',
   },
+  parameters: {
+    pageStructure: 'none',
+  },
 };
 
 /**
- * Garden Metaphor Diagram with dark theme
+ * Garden Metaphor Diagram with dark theme, no page context
  */
 export const DarkTheme: Story = {
   args: {
@@ -72,23 +76,6 @@ export const DarkTheme: Story = {
   },
   parameters: {
     backgrounds: { default: 'dark' },
-  },
-};
-
-/**
- * Garden Metaphor Diagram displayed in its actual page context.
- * This matches how the diagram appears in the Brain Garden Overview section.
- */
-export const InPageContext: Story = {
-  args: {
-    width: '100%',
-    height: '500px',
-    showZoomControls: false,
-    backgroundColor: 'transparent',
-  },
-  parameters: {
-    backgrounds: { default: 'light-green' },
-    // This story always uses the brain garden page structure
-    pageStructure: 'garden',
+    pageStructure: 'none',
   },
 }; 
