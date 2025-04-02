@@ -3,8 +3,9 @@
 import React, { useState, useContext } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import '@mantine/core/styles.css';
-import { MantineProvider } from './MantineProvider';
+import '@xyflow/react/dist/style.css';
 import '../styles/globals.css';
+import { MantineProvider } from './MantineProvider';
 import ClientOnly from '../utils/ClientOnly';
 import { ThemeContext } from '../contexts/ThemeContext';
 

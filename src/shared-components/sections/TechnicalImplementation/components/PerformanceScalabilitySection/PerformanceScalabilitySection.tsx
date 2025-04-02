@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Typography } from '../../../../../shared-components/atoms/Typography';
-import { MermaidDiagram } from '../../../../../shared-components/molecules/MermaidDiagram';
+import { PerformanceScalabilityDiagram } from '../../../../../shared-components/diagrams/PerformanceScalabilityDiagram/PerformanceScalabilityDiagram';
 import { ContentBlock, DiagramContainer, SectionTitle, SubsectionTitle } from '../../TechnicalImplementation.styles';
 import { PerformanceScalabilitySectionProps } from './PerformanceScalabilitySection.types';
 
@@ -17,7 +17,14 @@ export const PerformanceScalabilitySection: FC<PerformanceScalabilitySectionProp
       </Typography>
 
       <DiagramContainer>
-        <MermaidDiagram definition={performanceScalabilityDiagram} />
+        <PerformanceScalabilityDiagram
+          title=""
+          theme="default"
+          width="100%"
+          height="400px"
+          showZoomControls={false}
+          accessibilityDescription="Performance Scalability Diagram showing how the system scales with increasing demands"
+        />
       </DiagramContainer>
 
       <SubsectionTitle>Enterprise-Scale Benefits</SubsectionTitle>

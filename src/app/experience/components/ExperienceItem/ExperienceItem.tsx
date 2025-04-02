@@ -34,6 +34,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
           alt={`${company} logo`}
           width={64}
           height={64}
+          data-testid="experience-logo"
         />
       </Logo>
       <CompanyInfo>
@@ -74,6 +75,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
                       height={450}
                       style={{ width: '100%', height: 'auto' }}
                       loading="lazy"
+                      data-testid="experience-media-image"
                     />
                     {mediaItem.description && (
                       <div className="media-caption">

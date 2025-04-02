@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { useSpring, useTrail, animated, config } from '@react-spring/web';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Hero } from '../../organisms/Hero';
 import { QuoteGrid } from '../../organisms/QuoteGrid';
@@ -11,13 +11,14 @@ import { Typography } from '../../atoms/Typography';
 import * as S from './AiSkepticToExpert.styles';
 import { defaultContent } from './AiSkepticToExpert.constants';
 import { enhanceHeroProps, enhanceQuotesProps, RedditIcon } from './AiSkepticToExpert.logic';
+import { AnimationDebugger, AnimationErrorBoundary } from '../../../utils/animations/debug-tools';
 
-// Create animated components
-const AnimatedContentSection = animated(S.ContentSection);
-const AnimatedContentContainer = animated(S.ContentContainer);
-const AnimatedBackgroundSection = animated(S.BackgroundSection);
-const AnimatedAccentBackgroundSection = animated(S.AccentBackgroundSection);
-const AnimatedCardGrid = animated(S.CardGrid);
+// Define motion components
+const MotionContentSection = motion(S.ContentSection);
+const MotionContentContainer = motion(S.ContentContainer);
+const MotionBackgroundSection = motion(S.BackgroundSection);
+const MotionAccentBackgroundSection = motion(S.AccentBackgroundSection);
+const MotionCardGrid = motion(S.CardGrid);
 
 export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   className,
@@ -25,6 +26,8 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   quotesProps = defaultContent.quotes,
   problemSolutionCardsProps = defaultContent.problemSolutions,
 }) => {
+  const componentName = "AiSkepticToExpert";
+  
   // Enhance props with consistent styling and defaults
   const enhancedHeroProps = React.useMemo(() => enhanceHeroProps(heroProps), [heroProps]);
   const enhancedQuotesProps = React.useMemo(() => enhanceQuotesProps(quotesProps), [quotesProps]);
@@ -34,35 +37,67 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
     threshold: 0.1,
     triggerOnce: true
   });
-  
-  // Main content animation
-  const contentSpring = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0px)' : 'translateY(20px)',
-    config: { ...config.gentle },
-    immediate: !inView
-  });
-  
-  // Card animations
-  const cardsTrail = useTrail(problemSolutionCardsProps.cards.length, {
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0px)' : 'translateY(20px)',
-    config: { ...config.gentle },
-    delay: 200,
-    immediate: !inView
-  });
+
+  // Animation variants
+  const contentVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20
+      }
+    }
+  };
+
+  const cardContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const cardItemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20
+      }
+    }
+  };
 
   const heroComponent = React.useMemo(() => (
     <Hero {...enhancedHeroProps} />
   ), [enhancedHeroProps]);
 
-  return (
+  const renderContent = () => (
     <S.Container className={className} key="ai-skeptic-content">
       <S.GlobalStyles />
       {heroComponent}
     
-      <AnimatedContentSection ref={ref} style={contentSpring}>
-        <AnimatedContentContainer style={contentSpring}>
+      <MotionContentSection
+        ref={ref}
+        variants={contentVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+      >
+        <MotionContentContainer variants={contentVariants}>
           <div className="text-left" style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="h2" className="mb-4">
               The Reality of AI Tools in Development Teams
@@ -76,7 +111,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
             </Typography>
           </div>
           
-          <animated.div style={contentSpring}>
+          <motion.div variants={contentVariants}>
             <S.RedditLink 
               href="https://www.reddit.com/r/ExperiencedDevs/comments/1j7aqsx/ai_coding_mandates_at_work/?share_id=Dhejf8gsX_-YUsuIH1nNE&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1" 
               target="_blank" 
@@ -104,7 +139,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
                 </S.RedditContentColumn>
               </S.RedditLinkContent>
             </S.RedditLink>
-          </animated.div>
+          </motion.div>
           
           <div>
             <Typography variant="body" className="mb-0" weight="regular">
@@ -112,15 +147,15 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
               about mandatory AI tool adoption. The problems are systemic and deeply concerning:
             </Typography>
           </div>
-        </AnimatedContentContainer>
+        </MotionContentContainer>
         
-        <AnimatedBackgroundSection style={contentSpring}>
+        <MotionBackgroundSection variants={contentVariants}>
           <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', padding: `0 ${S.SPACING.container}` }}>
             <QuoteGrid {...enhancedQuotesProps} />
           </div>
-        </AnimatedBackgroundSection>
+        </MotionBackgroundSection>
         
-        <AnimatedContentContainer style={contentSpring}>
+        <MotionContentContainer variants={contentVariants}>
           <div style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="body" weight="regular">
               These quotes highlight a disturbing trend: companies implementing AI tools without proper systems, leading to metrics that
@@ -135,9 +170,9 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
               A systematic approach to implementation.
             </Typography>
           </div>
-        </AnimatedContentContainer>
+        </MotionContentContainer>
         
-        <AnimatedAccentBackgroundSection style={contentSpring}>
+        <MotionAccentBackgroundSection variants={contentVariants}>
           <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', padding: `0 ${S.SPACING.container}` }}>
             <div style={{ marginBottom: S.SPACING.paragraph }} className="text-left">
               <Typography variant="h2" className="mb-4">
@@ -145,9 +180,10 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
               </Typography>
             </div>
             
-            <AnimatedCardGrid style={contentSpring}>
-              {cardsTrail.map((style, index) => {
-                const card = problemSolutionCardsProps.cards[index];
+            <MotionCardGrid
+              variants={cardContainerVariants}
+            >
+              {problemSolutionCardsProps.cards.map((card, index) => {
                 const formattedImpact = typeof card.impact === 'string' 
                   ? { value: card.impact } 
                   : card.impact;
@@ -157,7 +193,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
                   : card.variant;
                 
                 return (
-                  <animated.div key={index} style={style}>
+                  <motion.div key={index} variants={cardItemVariants}>
                     <ProblemSolutionCard 
                       slug={card.slug || 'Feature'}
                       problem={card.problem}
@@ -166,14 +202,14 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
                       icon={card.icon}
                       variant={cardVariant as 'blue' | 'white'}
                     />
-                  </animated.div>
+                  </motion.div>
                 );
               })}
-            </AnimatedCardGrid>
+            </MotionCardGrid>
           </div>
-        </AnimatedAccentBackgroundSection>
+        </MotionAccentBackgroundSection>
         
-        <AnimatedContentContainer style={contentSpring}>
+        <MotionContentContainer variants={contentVariants}>
           <div style={{ marginBottom: S.SPACING.paragraph }}>
             <Typography variant="body" weight="regular">
               Through my journey from skeptic to innovator, I&apos;ve developed a comprehensive system that addresses these challenges head-on.
@@ -188,8 +224,20 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
               and how my perspective as a principal engineer can transform everything.
             </Typography>
           </div>
-        </AnimatedContentContainer>
-      </AnimatedContentSection>
+        </MotionContentContainer>
+      </MotionContentSection>
     </S.Container>
+  );
+  
+  return (
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
+        logLifecycle={true}
+      >
+        {renderContent()}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
   );
 };

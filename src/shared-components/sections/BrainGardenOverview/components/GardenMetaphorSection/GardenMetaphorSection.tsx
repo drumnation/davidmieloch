@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '../../../../atoms/Typography';
-import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
+import { GardenMetaphorDiagram } from '../../../../diagrams/GardenMetaphorDiagram/GardenMetaphorDiagram';
 import { GardenMetaphorSectionProps } from './GardenMetaphorSection.types';
 import {
   BackgroundSection,
@@ -67,12 +67,13 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
           
           <div style={{ backgroundColor: '#f0fff4', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>
             <MermaidContainer>
-              <MermaidDiagram
-                definition={GARDEN_METAPHOR_DIAGRAM}
+              <GardenMetaphorDiagram
+                title=""
                 theme="default"
                 width="100%"
-                height="auto"
-                backgroundColor="transparent"
+                height="350px"
+                showZoomControls={false}
+                accessibilityDescription="Garden Metaphor Diagram showing the three phases of a Brain Garden project's growth: Seed Phase (Initial Setup, Knowledge Structure, Core Prompts), Sprout Phase (Cultivating Patterns, Testing & Refining, Expanding Capabilities), and Mature Phase (Self-Improving, Context-Aware, Continuously Adapting)"
               />
             </MermaidContainer>
             

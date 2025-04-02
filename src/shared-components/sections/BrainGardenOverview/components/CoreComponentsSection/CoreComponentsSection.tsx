@@ -1,6 +1,6 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Typography } from '../../../../atoms/Typography';
-import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
 import { FeatureGrid } from '../../../../organisms/FeatureGrid/FeatureGrid';
 import { CoreComponentsSectionProps } from './CoreComponentsSection.types';
 import {
@@ -14,28 +14,18 @@ import {
   CTAButtonWithIcon
 } from '../../BrainGardenOverview.logic';
 
-// Default diagram definition
+// Import BrainGardenComponentsDiagram with SSR disabled
+const BrainGardenComponentsDiagram = dynamic(
+  () => import('../../../../diagrams/BrainGardenComponentsDiagram').then(mod => mod.BrainGardenComponentsDiagram),
+  { ssr: false, loading: () => <div>Loading diagram...</div> }
+);
+
+// Default diagram definition - simple text to avoid complex Mermaid processing
 const DEFAULT_DIAGRAM = `
   graph LR
-    %% Brain Garden main components
     BG[".brain Directory"] --> KS["Knowledge System"]
     BG --> PS["Prompt System"]
     BG --> SD["Structured Documentation"]
-    
-    %% Knowledge System details
-    KS --> K1["Project Info"]
-    KS --> K2["Architecture"]
-    KS --> K3["Skill-Jacks"]
-    
-    %% Prompt System details
-    PS --> P1["Workflow Prompts"]
-    PS --> P2["Debugging Prompts"]
-    PS --> P3["Context Handoff"]
-    
-    %% Structured Documentation details
-    SD --> D1["Requirements"]
-    SD --> D2["Components"]
-    SD --> D3["Implementation Guides"]
 `;
 
 export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
@@ -90,12 +80,13 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
           </div>
 
           <MermaidContainer>
-            <MermaidDiagram 
-              definition={DEFAULT_DIAGRAM}
+            <BrainGardenComponentsDiagram 
               theme="default"
               width="100%"
-              height="auto"
+              height="400px"
               backgroundColor="transparent"
+              showZoomControls={true}
+              accessibilityDescription="Brain Garden Core Components Diagram showing the three main components: Knowledge System, Prompt System, and Structured Documentation"
             />
           </MermaidContainer>
           

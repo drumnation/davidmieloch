@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fixed image path errors in Experience page by adding leading slashes to relative image paths [#BugFix]
+- Fixed React props warning in LanguageDot component by properly handling the showName prop [#BugFix]
+- Improved validation for node positions in ReactFlowDiagram to prevent "Cannot read properties of undefined" errors [#BugFix]
+- Added error handling in AiAutopilotAnalogy component to prevent crashes when rendering diagrams [#BugFix]
+- Added Medium domains to Next.js image configuration to allow external images from Medium blogs [#BugFix]
+- Fixed all relative image paths in SideProjectsSection, including logoPath and thumbnail properties for project items (game-sage-logo.png, prompt-forge-logo.png, etc.) [#BugFix]
+- Added upload.wikimedia.org to next.config.js image domains to allow Wikipedia image loading [#BugFix]
+- Added VSCode Gallery domain (drumnation.gallerycdn.vsassets.io) to next.config.js for extension images [#BugFix]
+
 ### [0.21.10] - 2025-03-31
 
 #### Removed

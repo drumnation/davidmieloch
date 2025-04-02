@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, useTrail } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { Typography } from '../../atoms/Typography/Typography';
 import { ImpactGridProps, ImpactCategory } from './ImpactGrid.types';
 import * as S from './ImpactGrid.styles';
@@ -11,7 +11,9 @@ import {
   FaThumbsUp
 } from 'react-icons/fa';
 import styled from 'styled-components';
-import { springToCss } from '../../../utils/animations/typed-components';
+import { AnimationDebugger, AnimationErrorBoundary } from '../../../utils/animations/debug-tools';
+import { FadeIn, Trail } from '../../../utils/animations/framer-patterns';
+import { MotionSafe } from '../../../utils/animations/ssr-safe';
 
 const CategoryTitle = styled.div`
   margin-bottom: 0.25rem;
@@ -35,56 +37,62 @@ export const ImpactGrid: React.FC<ImpactGridProps> = ({
   position = 'full-width',
   className,
 }) => {
-  // Container animation
-  const containerSpring = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    config: { duration: 800 }
-  });
+  const componentName = "ImpactGrid";
 
-  // Card animations with trail effect
-  const cardsTrail = useTrail(impacts.length, {
-    from: { opacity: 0, y: 20 },
-    to: { opacity: 1, y: 0 },
-    config: { mass: 1, tension: 280, friction: 60 },
-    delay: 200
-  });
+  const renderContent = () => (
+    <S.Container className={className} $position={position}>
+      <FadeIn componentName={componentName} duration={0.8}>
+        <S.GridContainer>
+          <Trail 
+            componentName={componentName} 
+            staggerDelay={0.1}
+            initialDelay={0.2}
+          >
+            {impacts.map((impact: ImpactCategory, index: number) => (
+              <motion.div 
+                key={index}
+                variants={{
+                  initial: { opacity: 0, y: 20 },
+                  animate: { opacity: 1, y: 0 }
+                }}
+                transition={{ mass: 1, tension: 280, friction: 60 }}
+              >
+                <S.Card 
+                  $style={style}
+                >
+                  <S.CardHeader>
+                    <CategoryTitle>
+                      <Typography variant="h3">
+                        {impact.category}
+                      </Typography>
+                    </CategoryTitle>
+                  </S.CardHeader>
+                  <S.CardBody>
+                    <S.MetricsList>
+                      {impact.metrics.map((metric: string, metricIndex: number) => (
+                        <S.MetricItem key={metricIndex}>
+                          <span style={{ marginRight: '8px', display: 'inline-flex', alignItems: 'center' }}>
+                            {getMetricIcon(metricIndex)}
+                          </span>
+                          {metric}
+                        </S.MetricItem>
+                      ))}
+                    </S.MetricsList>
+                  </S.CardBody>
+                </S.Card>
+              </motion.div>
+            ))}
+          </Trail>
+        </S.GridContainer>
+      </FadeIn>
+    </S.Container>
+  );
 
   return (
-    <S.Container className={className} $position={position}>
-      <div
-        style={springToCss(containerSpring as any)}
-      >
-        <S.GridContainer>
-          {impacts.map((impact: ImpactCategory, index: number) => (
-            <S.Card 
-              key={index} 
-              $style={style}
-              style={springToCss(cardsTrail[index] as any)}
-            >
-              <S.CardHeader>
-                <CategoryTitle>
-                  <Typography variant="h3">
-                    {impact.category}
-                  </Typography>
-                </CategoryTitle>
-              </S.CardHeader>
-              <S.CardBody>
-                <S.MetricsList>
-                  {impact.metrics.map((metric: string, metricIndex: number) => (
-                    <S.MetricItem key={metricIndex}>
-                      <span style={{ marginRight: '8px', display: 'inline-flex', alignItems: 'center' }}>
-                        {getMetricIcon(metricIndex)}
-                      </span>
-                      {metric}
-                    </S.MetricItem>
-                  ))}
-                </S.MetricsList>
-              </S.CardBody>
-            </S.Card>
-          ))}
-        </S.GridContainer>
-      </div>
-    </S.Container>
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger componentName={componentName} trackRenders={true} logLifecycle={true}>
+        {renderContent()}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
   );
 }; 

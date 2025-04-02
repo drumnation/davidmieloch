@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '../../../../atoms/Typography';
-import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
+import { BrainGardenComponentsDiagram } from '../../../../diagrams/BrainGardenComponentsDiagram/BrainGardenComponentsDiagram';
 import { TeamCustomizationSectionProps } from './TeamCustomizationSection.types';
 import {
   ContentContainer,
@@ -69,55 +69,13 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
           style={{ backgroundColor: '#ebf5ff', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
         >
           <div>
-            <MermaidDiagram
-              definition={`
-                flowchart LR
-                    classDef root fill:#2D3748,stroke:none,color:white,font-weight:bold,padding:10px
-                    classDef domain fill:#5A67D8,stroke:none,color:white,font-weight:bold,padding:10px
-                    classDef file fill:#38A169,stroke:none,color:white,padding:8px
-                    classDef benefit fill:#ED8936,stroke:none,color:white,font-weight:bold,padding:10px
-                    classDef docs fill:#4A5568,stroke:none,color:white,font-weight:bold,padding:8px
-                    
-                    %% Main Directory with domains as a vertical column
-                    BrainDir[".brain Directory"]:::root
-                    
-                    %% Domains as a vertical stack
-                    BrainDir --> Auth["Authentication"]:::domain
-                    BrainDir --> Profile["User Profile"]:::domain
-                    BrainDir --> Payment["Payment System"]:::domain
-                    BrainDir --> Benefits["Key Benefits"]:::root
-                    
-                    %% Files for Authentication
-                    Auth --> AuthFiles["Documentation"]:::docs
-                    AuthFiles --> AuthReq["requirements.md"]:::file
-                    AuthFiles --> AuthArch["architecture.md"]:::file
-                    AuthFiles --> AuthAPI["api.md"]:::file
-                    AuthFiles --> AuthComp["components.md"]:::file
-                    
-                    %% Files for User Profile
-                    Profile --> ProfileFiles["Documentation"]:::docs
-                    ProfileFiles --> ProfileReq["requirements.md"]:::file
-                    ProfileFiles --> ProfileArch["architecture.md"]:::file
-                    ProfileFiles --> ProfileAPI["api.md"]:::file
-                    ProfileFiles --> ProfileComp["components.md"]:::file
-                    
-                    %% Files for Payment System
-                    Payment --> PayFiles["Documentation"]:::docs
-                    PayFiles --> PayReq["requirements.md"]:::file
-                    PayFiles --> PayArch["architecture.md"]:::file
-                    PayFiles --> PayAPI["api.md"]:::file
-                    PayFiles --> PayComp["components.md"]:::file
-                    
-                    %% Benefits arranged vertically
-                    Benefits --> B1["No Overlapping Responsibilities"]:::benefit
-                    Benefits --> B2["Complete Project Coverage"]:::benefit
-                    Benefits --> B3["Prevents Merge Conflicts"]:::benefit
-                    Benefits --> B4["Easier Context Management"]:::benefit
-              `}
+            <BrainGardenComponentsDiagram
+              title=""
               theme="default"
               width="100%"
-              height="auto"
-              backgroundColor="transparent"
+              height="400px"
+              showZoomControls={false}
+              accessibilityDescription="MECE organization divides projects into distinct domains with consistent documentation structure, preventing conflicts while ensuring complete coverage"
             />
           </div>
           <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>

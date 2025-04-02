@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Typography } from '../../../../shared-components/atoms/Typography';
 import { SystemOverviewContainer, DiagramWrapper } from './SystemOverview.styles';
 import { SystemOverviewProps } from './SystemOverview.types';
-import { MermaidDiagram } from '../../../../shared-components/molecules/MermaidDiagram';
+import { SystemOverviewDiagram } from '../../../../shared-components/diagrams/SystemOverviewDiagram/SystemOverviewDiagram';
 import { ContentBlock, SectionTitle, SubsectionTitle } from '../TechnicalImplementation.styles';
 
 const IntroText = styled(Typography)`
@@ -84,24 +84,6 @@ const SystemOverview: FC<SystemOverviewProps> = ({
   taskExample,
   githubExample
 }) => {
-  const defaultDefinition = `
-    graph TD
-      BG[Brain Garden System] --> PB[Project-Specific Brains]
-      BG --> DCM[Dynamic Context Management]
-      BG --> IDSM[Intelligent Directory Structure]
-      BG --> MAC[Multi-Agent Collaboration]
-      BG --> ADP[Atomic Design for Prompts]
-      BG --> TM[Task Management]
-      BG --> AVT[Automated Validation & Testing]
-      BG --> CLI[CLI & Standards System]
-      
-      classDef system fill:#f96,stroke:#333
-      classDef component fill:#58f,stroke:#333
-      
-      class BG system
-      class PB,DCM,IDSM,MAC,ADP,TM,AVT,CLI component
-  `;
-
   const defaultAccessibilityDescription = 
     "Brain Garden System Architecture diagram showing the main system connected to various subsystems including Knowledge System, " +
     "Prompt System, Agent System, Integration System, and Documentation System. " +
@@ -115,12 +97,13 @@ const SystemOverview: FC<SystemOverviewProps> = ({
         </IntroText>
       )}
       <DiagramWrapper>
-        <MermaidDiagram 
-          definition={diagram || defaultDefinition}
+        <SystemOverviewDiagram
+          title=""
+          theme="default"
+          width="100%"
+          height="400px"
           showZoomControls={showZoomControls}
           accessibilityDescription={accessibilityDescription || defaultAccessibilityDescription}
-          responsive={true}
-          height="auto"
         />
       </DiagramWrapper>
 

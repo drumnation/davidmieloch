@@ -2,7 +2,7 @@ import React from 'react';
 import { FeatureGrid } from '../../../../organisms/FeatureGrid/FeatureGrid';
 import { ForceMultipliersSectionProps } from './ForceMultipliersSection.types';
 import { Icon } from '../../../../atoms/Icon/Icon';
-import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
+import { GardenMetaphorDiagram } from '../../../../diagrams/GardenMetaphorDiagram/GardenMetaphorDiagram';
 import {
   GradientText,
   ImpactMetric,
@@ -57,19 +57,19 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           <GradientText>Force Multipliers</GradientText>
         </PowerfulTitle>
 
-        {/* Act 1: The Developer&apos;s Dilemma */}
-        <ActTitle>Act 1: The Developer&apos;s Dilemma</ActTitle>
+        {/* Act 1: The Developer's Dilemma */}
+        <ActTitle>Act 1: The Developer's Dilemma</ActTitle>
         <StoryBox>
           <BodyText variant="body">
-            Picture a developer, staring at their screen as the deadline looms. They&apos;ve just finished a complex feature, and now face a familiar dilemma: write comprehensive tests or move on to the next task. They know - they absolutely know - that skipping tests will come back to haunt them. When a new feature intersects with this one in a few months, something will break, and they&apos;ll spend hours tracking down what went wrong.
+            Picture a developer, staring at their screen as the deadline looms. They've just finished a complex feature, and now face a familiar dilemma: write comprehensive tests or move on to the next task. They know - they absolutely know - that skipping tests will come back to haunt them. When a new feature intersects with this one in a few months, something will break, and they'll spend hours tracking down what went wrong.
           </BodyText>
           
           <BodyText variant="body">
-            But the boss never sees the tests, only the feature. These invisible guardians of code quality, while critically important, are rarely valued by anyone but the developers themselves. And because of this eternal conflict, developers remain perpetually inexperienced at writing tests. It&apos;s a vicious cycle - being slow at writing tests means there&apos;s never enough time to write them properly, which means you never get faster at writing them.
+            But the boss never sees the tests, only the feature. These invisible guardians of code quality, while critically important, are rarely valued by anyone but the developers themselves. And because of this eternal conflict, developers remain perpetually inexperienced at writing tests. It's a vicious cycle - being slow at writing tests means there's never enough time to write them properly, which means you never get faster at writing them.
           </BodyText>
 
           <BodyText variant="body">
-            The same story plays out with commit messages. Every team has standards - these messages are crucial for code reviews and help teammates understand changes quickly. But as the day winds down, after hours of tracing bugs or wrestling with a particularly thorny feature, the developer&apos;s mental energy is spent. That carefully crafted commit message becomes a tired &quot;fixed bug&quot; - there&apos;s simply nothing left in the tank for proper documentation.
+            The same story plays out with commit messages. Every team has standards - these messages are crucial for code reviews and help teammates understand changes quickly. But as the day winds down, after hours of tracing bugs or wrestling with a particularly thorny feature, the developer's mental energy is spent. That carefully crafted commit message becomes a tired "fixed bug" - there's simply nothing left in the tank for proper documentation.
           </BodyText>
 
           <BodyText variant="body">
@@ -77,7 +77,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </BodyText>
 
           <BodyText variant="body">
-            This was life before generative AI and autonomous agents. A constant battle between doing things right and doing things fast - with &quot;fast&quot; winning far too often.
+            This was life before generative AI and autonomous agents. A constant battle between doing things right and doing things fast - with "fast" winning far too often.
           </BodyText>
         </StoryBox>
 
@@ -98,11 +98,11 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </MetricsContainer>
 
           <BodyText variant="body">
-            Suddenly, writing tests wasn&apos;t a chore - AI could analyze your code and generate comprehensive test suites in seconds. Those detailed commit messages? AI could examine your changes and craft perfect descriptions that future teammates would thank you for. Documentation stayed current because AI could update it automatically with each significant change.
+            Suddenly, writing tests wasn't a chore - AI could analyze your code and generate comprehensive test suites in seconds. Those detailed commit messages? AI could examine your changes and craft perfect descriptions that future teammates would thank you for. Documentation stayed current because AI could update it automatically with each significant change.
           </BodyText>
 
           <BodyText variant="body">
-            The economics had completely inverted. It now took more effort NOT to follow best practices. Why write &quot;fixed bug&quot; when AI could instantly generate a detailed commit message explaining exactly what was fixed and how? Why skip tests when AI could write them faster than you could decide to skip them?
+            The economics had completely inverted. It now took more effort NOT to follow best practices. Why write "fixed bug" when AI could instantly generate a detailed commit message explaining exactly what was fixed and how? Why skip tests when AI could write them faster than you could decide to skip them?
           </BodyText>
         </StoryBox>
 
@@ -110,7 +110,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
         <ActTitle>Act 3: The Force Multiplier Effect</ActTitle>
         <StoryBox>
           <BodyText variant="body">
-            But here&apos;s where it gets truly revolutionary. These best practices - the tests, the commit messages, the documentation - they&apos;re not just nice to have anymore. They&apos;ve become force multipliers that enable AI agents to perform tasks that would have seemed like science fiction just a few years ago.
+            But here's where it gets truly revolutionary. These best practices - the tests, the commit messages, the documentation - they're not just nice to have anymore. They've become force multipliers that enable AI agents to perform tasks that would have seemed like science fiction just a few years ago.
           </BodyText>
 
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Autonomous Testing Magic</strong>
@@ -118,91 +118,26 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
             Imagine making a change and having several tests fail. Instead of diving into debugging, you grab a coffee. Why? Because the AI agent can work autonomously while you take a break:
           </BodyText>
           <DiagramContainer>
-            <MermaidDiagram
-              definition={`
-%%{
-  init: {
-    'theme': 'base',
-    'themeVariables': {
-      'primaryColor': '#6772e5',
-      'primaryTextColor': '#FFFFFF',
-      'primaryBorderColor': '#6772e5',
-      'lineColor': '#000000',
-      'secondaryColor': '#6772e5',
-      'tertiaryColor': '#6772e5',
-      'noteBkgColor': '#FFE17E',
-      'noteTextColor': '#1F2937',
-      'noteBorderColor': '#FFD700',
-      'textColor': '#1F2937',
-      'fontSize': '16px',
-      'fontFamily': 'Inter, sans-serif',
-      'mainBkg': '#6772e5',
-      'errorTextColor': '#FF0000',
-      'errorBkgColor': '#FFEBEE',
-      'nodeBorder': '#000000',
-      'clusterBorder': '#000000',
-      'edgeLabelBackground': '#FFFFFF',
-      'activationBorderColor': '#000000',
-      'activationBkgColor': '#F4F4F4',
-      'sequenceNumberColor': '#000000',
-      'actorBorder': '#000000',
-      'actorBkg': '#6772e5',
-      'labelBoxBorderColor': '#000000',
-      'loopTextColor': '#000000'
-    }
-  }
-}%%
-sequenceDiagram
-    participant Dev as Developer
-    participant AI as AI Agent
-    participant Tests as Test Suite
-    
-    Dev->>AI: Encounters failing test
-    Note over Dev: Goes for coffee ☕
-    
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 1
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ❌ Token validation failed
-      AI->>AI: Analyzes error & updates code
-    end
-
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 2
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ❌ Refresh token expired
-      AI->>AI: Implements retry mechanism
-    end
-
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 3
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ❌ Edge case uncovered
-      AI->>AI: Deep code examination
-    end
-
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 4
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ✅ All tests passing
-    end
-    
-    AI-->>Dev: Fixed all failing tests
-    Note over Dev: Returns to perfect code
-`}
+            <GardenMetaphorDiagram
+              theme="default"
+              height="400px"
+              width="100%"
+              title="Autonomous Testing Workflow"
+              accessibilityDescription="Diagram showing an AI agent working autonomously to fix failing tests while the developer takes a break, going through multiple iterations until tests pass."
+              showZoomControls={true}
             />
           </DiagramContainer>
           
           <BodyText variant="body">
-            Now think about this: that AI agent didn&apos;t just solve those failing tests through trial and error. It relied on existing tests to understand the expected behavior. It used commit messages to understand the history of the problematic code - why particular decisions were made. It drew from documentation to grasp the intended architecture.
+            Now think about this: that AI agent didn't just solve those failing tests through trial and error. It relied on existing tests to understand the expected behavior. It used commit messages to understand the history of the problematic code - why particular decisions were made. It drew from documentation to grasp the intended architecture.
           </BodyText>
             
           <GitFeatureReconstruction>
             <Comment>// Step 1: Extract the history of a removed feature</Comment>
-            <GitCommand><CommandHighlight>git log -p --all -S &apos;userPreferences&apos;</CommandHighlight> &gt; feature_history.txt</GitCommand>
-            <GitOutput>{`Finding commits that modified &apos;userPreferences&apos;... Extracted 7 commits from the past 5 months.`}</GitOutput>
+            <GitCommand><CommandHighlight>git log -p --all -S 'userPreferences'</CommandHighlight> {'>'} feature_history.txt</GitCommand>
+            <GitOutput>{`Finding commits that modified 'userPreferences'... Extracted 7 commits from the past 5 months.`}</GitOutput>
             
-            <Comment>// Step 2: AI analyzes the feature&apos;s evolution</Comment>
+            <Comment>// Step 2: AI analyzes the feature's evolution</Comment>
             <GitOutput>{`✓ Initial implementation: March 15
 ✓ Added new settings: April 2
 ✓ Refactored to use new API: April 28
@@ -221,7 +156,7 @@ sequenceDiagram
           
           <GitPRSplitter>
             <Comment>// Step 1: Extract changes for analysis</Comment>
-            <GitCommand><CommandHighlight>git log --patch</CommandHighlight> &gt; changes.patch</GitCommand>
+            <GitCommand><CommandHighlight>git log --patch</CommandHighlight> {'>'} changes.patch</GitCommand>
             <GitOutput>{`Extracting commit history with changes...`}</GitOutput>
             
             <Comment>// Step 2: AI analyzes the changes to determine logical groupings</Comment>
@@ -270,7 +205,7 @@ All PRs include automated documentation of changes, test results, and dependency
           </InsightBox>
 
           <BodyText variant="body">
-            What about documentation automation? Here the AI leverages your existing documentation standards and codebase patterns to automatically detect when new features are implemented but not documented. It can then create comprehensive docs that adhere to your team&apos;s conventions, complete with examples:
+            What about documentation automation? Here the AI leverages your existing documentation standards and codebase patterns to automatically detect when new features are implemented but not documented. It can then create comprehensive docs that adhere to your team's conventions, complete with examples:
           </BodyText>
 
           <DocsFeatReconstruction>
@@ -397,7 +332,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -407,7 +342,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
                 <SpeakerName>Junior Dev</SpeakerName>
                 <MessageBubble>
@@ -417,7 +352,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -427,7 +362,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
                 <SpeakerName>Junior Dev</SpeakerName>
                 <MessageBubble>
@@ -441,7 +376,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -451,7 +386,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
                 <SpeakerName>Mid-level Dev</SpeakerName>
                 <MessageBubble>
@@ -479,7 +414,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -489,7 +424,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
                 <SpeakerName>Mid-level Dev</SpeakerName>
                 <MessageBubble>
@@ -499,7 +434,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -509,7 +444,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
                 <SpeakerName>Mid-level Dev</SpeakerName>
                 <MessageBubble>
@@ -523,7 +458,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
                 <SpeakerName>CTO</SpeakerName>
                 <MessageBubble>
@@ -533,7 +468,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -543,7 +478,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
                 <SpeakerName>CTO</SpeakerName>
                 <MessageBubble>
@@ -553,7 +488,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -563,7 +498,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
                 <SpeakerName>CTO</SpeakerName>
                 <MessageBubble>
@@ -597,7 +532,7 @@ Compiled successfully.
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -607,7 +542,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah (Senior Dev)</SpeakerName>
                 <MessageBubble>
@@ -617,7 +552,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -631,7 +566,7 @@ Compiled successfully.
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -641,7 +576,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">D</Avatar>
+              <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
                 <SpeakerName>Senior Developer</SpeakerName>
                 <MessageBubble>
@@ -651,7 +586,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -661,7 +596,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">D</Avatar>
+              <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
                 <SpeakerName>Senior Developer</SpeakerName>
                 <MessageBubble>
@@ -671,7 +606,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -693,7 +628,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#E34935">ST</Avatar>
+              <Avatar $bgColor="#E34935">ST</Avatar>
               <MessageContent>
                 <SpeakerName>Security Team</SpeakerName>
                 <MessageBubble>
@@ -703,7 +638,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
                 <SpeakerName>Junior Dev</SpeakerName>
                 <MessageBubble>
@@ -713,7 +648,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">D</Avatar>
+              <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
                 <SpeakerName>Senior Developer</SpeakerName>
                 <MessageBubble>
@@ -723,7 +658,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
                 <SpeakerName>Junior Dev</SpeakerName>
                 <MessageBubble>
@@ -763,7 +698,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -773,7 +708,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
                 <SpeakerName>CTO</SpeakerName>
                 <MessageBubble>
@@ -819,11 +754,11 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
         {/* The Future Is Here */}
         <StoryBox>
           <BodyText variant="body">
-            We&apos;re not talking about some far-off future. This is happening now. The teams that embrace these practices aren&apos;t just writing better code - they&apos;re creating environments where AI can operate as a true team member, handling increasingly complex tasks with growing autonomy.
+            We're not talking about some far-off future. This is happening now. The teams that embrace these practices aren't just writing better code - they're creating environments where AI can operate as a true team member, handling increasingly complex tasks with growing autonomy.
           </BodyText>
 
           <BodyText variant="body">
-            And here&apos;s the kicker: the better your development practices, the more powerful your AI tools become. It&apos;s a force multiplier effect that&apos;s transforming how we think about software development.
+            And here's the kicker: the better your development practices, the more powerful your AI tools become. It's a force multiplier effect that's transforming how we think about software development.
           </BodyText>
         </StoryBox>
       </div>

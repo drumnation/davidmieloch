@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { animated } from '@react-spring/web';
 
 export const Grid = styled.div<{ $layout: string; $background: string }>`
   display: grid;
@@ -69,11 +68,4 @@ export const QuoteNote = styled.p`
   font-size: 0.875rem;
   color: ${({ theme }) => theme.colors?.text?.secondary || '#718096'};
   margin: 0;
-`;
-
-// Animated versions
-export const AnimatedQuoteCard = animated(QuoteCard);
-export const AnimatedQuoteText = animated(QuoteText);
-export const AnimatedQuoteAuthor = animated(QuoteAuthor);
-export const AnimatedQuoteNote = animated(QuoteNote);
-export const AnimatedIconWrapper = animated(IconWrapper); 
+`; 

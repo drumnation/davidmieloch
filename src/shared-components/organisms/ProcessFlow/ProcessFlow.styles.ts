@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { animated } from '@react-spring/web';
 
 interface ContainerProps {
   $position: 'left' | 'right' | 'center' | 'full-width';
@@ -59,7 +58,7 @@ export const StepsContainer = styled.div<StepProps>`
   `}
 `;
 
-export const Step = styled(animated.div)<StepProps>`
+export const Step = styled.div<StepProps>`
   display: flex;
   flex-direction: row;
   align-items: flex-start;

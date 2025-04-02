@@ -28,12 +28,12 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
     media: [
       {
         type: "image",
-        url: "media/scala-designer-cloud.jpeg",
+        url: "/media/scala-designer-cloud.jpeg",
         title: "Scala Designer Cloud - Menu Sign Board Design",
         width: "100%",
         foldable: true,
         showLogo: true,
-        titleLogoPath: "media/scala-bang-logo.png",
+        titleLogoPath: "/media/scala-bang-logo.png",
         description: `Scala Designer Cloud offers Photoshop-like functionality in a browser, specifically tailored for digital signage creation. Key features visible in the interface include:
 
 ## Content Creation Tools
@@ -65,19 +65,19 @@ Perfect for creating professional digital menu boards, promotional displays, and
       },
       {
         type: "image",
-        url: "media/screenshots/portals/portals2.png",
+        url: "/media/screenshots/portals/portals2.png",
         title: "Airport Portal",
         width: "49%",
         showLogo: true,
-        titleLogoPath: "media/scala-bang-logo.png"
+        titleLogoPath: "/media/scala-bang-logo.png"
       },
       {
         type: "image",
-        url: "media/screenshots/portals/portals3.png",
+        url: "/media/screenshots/portals/portals3.png",
         title: "Airport Portal",
         width: "49%",
         showLogo: true,
-        titleLogoPath: "media/scala-bang-logo.png"
+        titleLogoPath: "/media/scala-bang-logo.png"
       },
       {
         type: "link",

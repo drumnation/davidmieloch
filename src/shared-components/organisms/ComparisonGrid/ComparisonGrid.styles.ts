@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { animated } from '@react-spring/web';
 
 export const Container = styled.div<{ position?: string }>`
   width: 100%;
@@ -33,8 +32,6 @@ export const Grid = styled.div`
   }
 `;
 
-export const AnimatedGrid = animated(Grid);
-
 export const Card = styled.div<{ styleType?: string }>`
   border-radius: 12px;
   padding: 1.5rem;
@@ -60,8 +57,6 @@ export const Card = styled.div<{ styleType?: string }>`
     color: white;
   }
 `;
-
-export const AnimatedCard = animated(Card);
 
 export const AspectTitle = styled.h3`
   font-size: 1.25rem;

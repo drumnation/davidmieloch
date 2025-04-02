@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { animated } from '@react-spring/web';
+import { motion } from 'framer-motion';
 
 interface CardProps {
   $style: 'gradient-card' | 'accent-card' | 'default';
@@ -35,7 +35,7 @@ export const Card = styled.div<CardProps>`
   `}
 `;
 
-export const AnimatedCard = animated(Card);
+export const AnimatedCard = motion(Card);
 
 export const CardContent = styled.div`
   padding: 2rem;

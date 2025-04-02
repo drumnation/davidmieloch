@@ -1,9 +1,11 @@
 import React from 'react';
-import { useSpring, useTrail } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { Typography } from '../../atoms/Typography/Typography';
 import { ProblemSolutionProps } from './ProblemSolution.types';
 import * as S from './ProblemSolution.styles';
-import { springToCss } from '../../../utils/animations/typed-components';
+import { AnimationDebugger, AnimationErrorBoundary } from '../../../utils/animations/debug-tools';
+import { FadeIn, Trail } from '../../../utils/animations/framer-patterns';
+import { MotionSafe } from '../../../utils/animations/ssr-safe';
 
 export const ProblemSolution: React.FC<ProblemSolutionProps> = ({
   problem,
@@ -13,29 +15,13 @@ export const ProblemSolution: React.FC<ProblemSolutionProps> = ({
   position = 'right',
   className,
 }) => {
-  // Container animation
-  const containerSpring = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    config: { duration: 800 }
-  });
+  const componentName = "ProblemSolution";
 
-  // Metrics animation with trail effect
-  const metricsTrail = useTrail(metrics?.length || 0, {
-    from: { opacity: 0, y: 20 },
-    to: { opacity: 1, y: 0 },
-    config: { mass: 1, tension: 280, friction: 60 },
-    delay: 300
-  });
-
-  return (
+  const renderContent = () => (
     <S.Container className={`problem-solution-container ${className || ''}`} $position={position}>
-      <div
-        className="problem-solution-motion-container"
-        style={{ 
-          ...springToCss(containerSpring as any),
-          width: '100%' 
-        }}
+      <FadeIn 
+        componentName={componentName} 
+        duration={0.8}
       >
         <S.Card $style={style} className="problem-solution-card">
           <S.ProblemSection className="problem-section">
@@ -53,20 +39,43 @@ export const ProblemSolution: React.FC<ProblemSolutionProps> = ({
             
             {metrics && metrics.length > 0 && (
               <S.MetricsList className="metrics-list">
-                {metrics.map((metric, index) => (
-                  <li 
-                    key={index} 
-                    className="metric-item"
-                    style={springToCss(metricsTrail[index] as any)}
-                  >
-                    {metric}
-                  </li>
-                ))}
+                <Trail 
+                  componentName={componentName}
+                  staggerDelay={0.1}
+                  initialDelay={0.3}
+                >
+                  {metrics.map((metric, index) => (
+                    <motion.li 
+                      key={index} 
+                      className="metric-item"
+                      variants={{
+                        initial: { opacity: 0, y: 20 },
+                        animate: { opacity: 1, y: 0 }
+                      }}
+                      transition={{ mass: 1, tension: 280, friction: 60 }}
+                    >
+                      {metric}
+                    </motion.li>
+                  ))}
+                </Trail>
               </S.MetricsList>
             )}
           </S.ConsequenceSection>
         </S.Card>
-      </div>
+      </FadeIn>
     </S.Container>
+  );
+
+  return (
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
+        logLifecycle={true}
+        detectCircular={true}
+      >
+        {renderContent()}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
   );
 }; 

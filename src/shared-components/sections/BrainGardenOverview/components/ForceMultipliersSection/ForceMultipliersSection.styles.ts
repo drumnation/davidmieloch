@@ -153,11 +153,11 @@ export const ChatMessage = styled.div`
   max-width: 100%;
 `;
 
-export const Avatar = styled.div<{ bgColor?: string }>`
+export const Avatar = styled.div<{ $bgColor?: string }>`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${props => props.bgColor || '#4a9eff'};
+  background-color: ${props => props.$bgColor || '#4a9eff'};
   color: white;
   display: flex;
   align-items: center;
@@ -167,12 +167,12 @@ export const Avatar = styled.div<{ bgColor?: string }>`
   flex-shrink: 0;
 `;
 
-export const MessageBubble = styled.div<{ bgColor?: string, textColor?: string }>`
-  background-color: ${props => props.bgColor || '#f5f5f5'};
-  color: ${props => props.textColor || '#1F2937'};
+export const MessageBubble = styled.div<{ $bgColor?: string, $textColor?: string }>`
+  background-color: ${props => props.$bgColor || '#f5f5f5'};
+  color: ${props => props.$textColor || '#1F2937'};
   padding: 0.75rem 1rem;
   border-radius: 1rem;
-  border-top-left-radius: ${props => props.bgColor ? '1rem' : '0.25rem'};
+  border-top-left-radius: ${props => props.$bgColor ? '1rem' : '0.25rem'};
   max-width: calc(100% - 50px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 `;

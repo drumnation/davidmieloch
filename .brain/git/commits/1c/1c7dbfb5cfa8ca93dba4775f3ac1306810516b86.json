@@ -1,0 +1,27 @@
+{
+  "hash": "1c7dbfb5cfa8ca93dba4775f3ac1306810516b86",
+  "messageSubject": "feat(diagrams): migrate diagram components to React Flow",
+  "messageBody": "Migrate diagram components from static SVG to interactive React Flow implementation.\nThis change improves interactivity, maintainability, and allows for more complex diagram visualizations.\n\nKey changes:\n- Refactored AiIntegrationFlowDiagram to use ReactFlowDiagram\n- Updated AgentSystemDiagram to use new component structure\n- Added new type definitions for node and edge configurations\n- Updated BrainGardenComponentsDiagram to use ReactFlow",
+  "messageFooter": "Refs: #42",
+  "files": [
+    "app/ai-integration-flow-diagram/page.tsx",
+    "src/components/diagrams/AiIntegrationFlowDiagram/AiIntegrationFlowDiagram.tsx",
+    "src/components/diagrams/AiIntegrationFlowDiagram/AiIntegrationFlowDiagram.types.ts",
+    "src/components/diagrams/AiIntegrationProcessDiagram/AiIntegrationProcessDiagram.tsx",
+    "src/components/diagrams/AiIntegrationProcessDiagram/AiIntegrationProcessDiagram.types.ts",
+    "src/components/diagrams/AiIntegrationProcessDiagram/index.ts",
+    "src/shared-components/diagrams/AiIntegrationFlowDiagram/AiIntegrationFlowDiagram.tsx",
+    "src/shared-components/diagrams/AgentSystemDiagram/AgentSystemDiagram.tsx",
+    "src/shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.stories.tsx",
+    "src/shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.styles.ts",
+    "src/shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.tsx",
+    "src/shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types.ts",
+    "src/shared-components/molecules/ReactFlowDiagram/index.ts",
+    "src/shared-components/diagrams/BrainGardenComponentsDiagram/BrainGardenComponentsDiagram.tsx",
+    "src/shared-components/diagrams/BrainGardenComponentsDiagram/BrainGardenComponentsDiagram.types.ts"
+  ],
+  "timestamp": "2024-04-04T02:51:43Z",
+  "branch": "feature/mermaid-reactflow-integration",
+  "planFile": ".brain/git/plans/migration-react-flow-plan.md",
+  "planCommitId": 1
+} 

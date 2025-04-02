@@ -1,10 +1,12 @@
 import React from 'react';
-import { useSpring, useTrail } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { Typography } from '../../atoms/Typography/Typography';
 import { DebtAnalysisProps, DebtCategory } from './DebtAnalysis.types';
 import * as S from './DebtAnalysis.styles';
 import styled from 'styled-components';
-import { springToCss } from '../../../utils/animations/typed-components';
+import { AnimationDebugger, AnimationErrorBoundary } from '../../../utils/animations/debug-tools';
+import { FadeIn, Trail } from '../../../utils/animations/framer-patterns';
+import { MotionSafe } from '../../../utils/animations/ssr-safe';
 
 const TitleContainer = styled.div`
   width: 100%;
@@ -19,22 +21,9 @@ export const DebtAnalysis: React.FC<DebtAnalysisProps> = ({
   position = 'full-width',
   className,
 }) => {
-  // Container animation
-  const containerSpring = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    config: { duration: 800 }
-  });
+  const componentName = "DebtAnalysis";
 
-  // Card animations with trail effect
-  const cardsTrail = useTrail(categories.length, {
-    from: { opacity: 0, y: 30 },
-    to: { opacity: 1, y: 0 },
-    config: { mass: 1, tension: 280, friction: 60 },
-    delay: 100
-  });
-
-  return (
+  const renderContent = () => (
     <S.Container className={className} $position={position}>
       {title && (
         <TitleContainer>
@@ -43,36 +32,60 @@ export const DebtAnalysis: React.FC<DebtAnalysisProps> = ({
           </Typography>
         </TitleContainer>
       )}
-      <div
-        style={{ 
-          ...springToCss(containerSpring as any), 
-          width: '100%' 
-        }}
+      <FadeIn
+        componentName={componentName}
+        duration={0.8}
       >
         <S.CardsContainer>
-          {categories.map((category: DebtCategory, index: number) => (
-            <S.Card 
-              key={index} 
-              $style={style}
-              style={springToCss(cardsTrail[index] as any)}
-            >
-              <S.CardHeader>
-                <Typography variant="h3">
-                  {category.title}
-                </Typography>
-              </S.CardHeader>
-              <S.CardBody>
-                <S.CurrentState>
-                  {category.current_state}
-                </S.CurrentState>
-                <S.Impact>
-                  <strong>Impact:</strong> {category.impact}
-                </S.Impact>
-              </S.CardBody>
-            </S.Card>
-          ))}
+          <Trail
+            componentName={componentName}
+            staggerDelay={0.1}
+            initialDelay={0.1}
+          >
+            {categories.map((category: DebtCategory, index: number) => (
+              <motion.div 
+                key={index} 
+                variants={{
+                  initial: { opacity: 0, y: 30 },
+                  animate: { opacity: 1, y: 0 }
+                }}
+                transition={{ mass: 1, tension: 280, friction: 60 }}
+              >
+                <S.Card 
+                  $style={style}
+                >
+                  <S.CardHeader>
+                    <Typography variant="h3">
+                      {category.title}
+                    </Typography>
+                  </S.CardHeader>
+                  <S.CardBody>
+                    <S.CurrentState>
+                      {category.current_state}
+                    </S.CurrentState>
+                    <S.Impact>
+                      <strong>Impact:</strong> {category.impact}
+                    </S.Impact>
+                  </S.CardBody>
+                </S.Card>
+              </motion.div>
+            ))}
+          </Trail>
         </S.CardsContainer>
-      </div>
+      </FadeIn>
     </S.Container>
+  );
+
+  return (
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
+        logLifecycle={true}
+        detectCircular={true}
+      >
+        {renderContent()}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
   );
 }; 

@@ -1,13 +1,14 @@
 "use client";
 
 import { FC } from 'react';
-import { useSpring, useTrail, config, SpringValue } from '@react-spring/web';
+import { useSpring, useTrail, config, SpringValue, animated } from '@react-spring/web';
 import { useInView } from 'react-intersection-observer';
 import { Hero } from '../../../shared-components/organisms/Hero';
 import * as S from './TechnicalImplementation.styles';
 import { TechnicalImplementationProps } from './TechnicalImplementation.types';
 import { useTechnicalImplementation } from './TechnicalImplementation.hook';
 import SystemOverview from './SystemOverview';
+import { AnimationDebugger, AnimationErrorBoundary } from '../../../utils/animations/debug-tools';
 
 // Import components directly instead of from barrel
 import { KnowledgeSystemSection } from './components/KnowledgeSystemSection';
@@ -26,19 +27,16 @@ type AnimatedDivProps = {
   children: React.ReactNode;
 };
 
-// Create a properly typed animated div component
+// Create a properly typed animated div component - now using animated.div
 const AnimatedDiv: FC<AnimatedDivProps> = ({ style, children }) => {
   return (
-    <div style={{ 
-      opacity: style.opacity.get(), 
-      transform: style.transform?.get() 
-    }}>
+    <animated.div style={style}>
       {children}
-    </div>
+    </animated.div>
   );
 };
 
-const TechnicalImplementation: FC<TechnicalImplementationProps> = (props) => {
+const TechnicalImplementationComponent: FC<TechnicalImplementationProps> = (props) => {
   const {
     className,
     title,
@@ -76,7 +74,7 @@ const TechnicalImplementation: FC<TechnicalImplementationProps> = (props) => {
     config: { mass: 1, tension: 280, friction: 60 }
   });
 
-  return (
+  const renderContent = () => (
     <S.Container className={className}>
       {/* Hero Section */}
       <Hero 
@@ -93,7 +91,7 @@ const TechnicalImplementation: FC<TechnicalImplementationProps> = (props) => {
       
       {/* Content Section with White Background */}
       <div ref={contentRef}>
-        <div 
+        <animated.div 
           style={{
             width: '100%',
             backgroundColor: '#fff',
@@ -108,8 +106,7 @@ const TechnicalImplementation: FC<TechnicalImplementationProps> = (props) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'stretch',
-            opacity: contentInView ? 1 : 0,
-            transition: 'opacity 800ms ease-out'
+            opacity: contentAnimation.opacity
           }}
         >
           <S.SectionContent>
@@ -159,10 +156,27 @@ const TechnicalImplementation: FC<TechnicalImplementationProps> = (props) => {
               <ResultSection result={result} />
             </AnimatedDiv>
           </S.SectionContent>
-        </div>
+        </animated.div>
       </div>
     </S.Container>
   );
+
+  return (
+    <AnimationErrorBoundary componentName="TechnicalImplementation">
+      <AnimationDebugger
+        componentName="TechnicalImplementation"
+        trackRenders={true}
+        logLifecycle={true}
+        detectCircular={true}
+      >
+        {renderContent()}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
+  );
+};
+
+const TechnicalImplementation: FC<TechnicalImplementationProps> = (props) => {
+  return <TechnicalImplementationComponent {...props} />;
 };
 
 export default TechnicalImplementation;

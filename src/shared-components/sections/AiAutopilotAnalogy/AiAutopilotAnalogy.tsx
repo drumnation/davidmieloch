@@ -6,8 +6,9 @@ import { FeatureGrid } from '../../organisms/FeatureGrid/FeatureGrid';
 import { ComparisonTable } from '../../molecules/ComparisonTable';
 import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';
 import { Typography } from '../../atoms/Typography';
-import { AiIntegrationProcessDiagram } from '../../../components/diagrams/AiIntegrationProcessDiagram';
+import { AiIntegrationProcessDiagram } from '../../../components/diagrams/AiIntegrationProcessDiagram/AiIntegrationProcessDiagram';
 import { useAiAutopilotAnalogy } from './AiAutopilotAnalogy.hook';
+import { ErrorBoundary } from '../../components/ErrorBoundary';
 import {
   GlobalStyles,
   containerStyle,
@@ -548,19 +549,62 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
             }}>
               <div style={{ 
                 width: '100%',
-                maxWidth: '800px', 
+                maxWidth: '900px', 
                 margin: '0 auto',
                 textAlign: 'center'
               }}>
-                <AiIntegrationProcessDiagram
-                  theme={mermaidDiagramProps.theme as 'default' | 'dark' | 'forest' | 'neutral' | undefined}
-                  height="auto"
-                  width="100%"
-                  className="centered-diagram"
-                  title=""
-                  description=""
-                  showZoomControls={false}
-                />
+                <ErrorBoundary fallback={
+                  <div style={{ 
+                    padding: '20px', 
+                    border: '1px solid #e0e0e0', 
+                    borderRadius: '8px',
+                    backgroundColor: '#f9f9f9'
+                  }}>
+                    <Typography variant="body" weight="medium">
+                      Process flow diagram could not be rendered.
+                    </Typography>
+                    <div className="mt-2" style={{ fontSize: '0.875rem' }}>
+                      Please refresh the page or view on desktop for best experience.
+                    </div>
+                  </div>
+                }>
+                  <React.Suspense fallback={
+                    <div style={{ padding: '20px', textAlign: 'center' }}>
+                      <Typography>Loading diagram...</Typography>
+                    </div>
+                  }>
+                    {(() => {
+                      try {
+                        return (
+                          <AiIntegrationProcessDiagram
+                            theme={mermaidDiagramProps.theme as 'default' | 'dark' | 'forest' | 'neutral' | undefined}
+                            height={600}
+                            width="100%"
+                            className="centered-diagram"
+                            title={mermaidDiagramProps.title}
+                            showZoomControls={true}
+                            accessibilityDescription="AI Integration Process Flow diagram showing the systematic approach to implementing AI tools in development workflows. The diagram illustrates knowledge integration as the foundation, followed by implementation steps, team alignment, measurement processes, and continuous feedback loops."
+                            backgroundColor="#f9f9f9"
+                          />
+                        );
+                      } catch (error) {
+                        console.error('Failed to render AiIntegrationProcessDiagram:', error);
+                        return (
+                          <div style={{ 
+                            padding: '20px', 
+                            border: '1px solid #e0e0e0', 
+                            borderRadius: '8px',
+                            backgroundColor: '#f9f9f9'
+                          }}>
+                            <Typography variant="body" weight="medium">
+                              Process flow diagram could not be rendered due to an error.
+                            </Typography>
+                          </div>
+                        );
+                      }
+                    })()}
+                  </React.Suspense>
+                </ErrorBoundary>
               </div>
             </div>
             
