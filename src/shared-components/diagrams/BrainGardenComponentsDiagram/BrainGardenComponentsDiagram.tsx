@@ -1,11 +1,13 @@
+'use client';
+
 import React, { useMemo } from 'react';
 import '@xyflow/react/dist/style.css';
 
 // Import types
 import { BrainGardenComponentsDiagramProps } from './BrainGardenComponentsDiagram.types';
 
-// Import the ReactFlowDiagram component and related types
-import { ReactFlowDiagram } from '../../molecules/ReactFlowDiagram/ReactFlowDiagram';
+// Import the EnhancedReactFlowDiagram component and related types
+import { EnhancedReactFlowDiagram } from '../../molecules/ReactFlowDiagram';
 import { 
   ReactFlowNode, 
   ReactFlowEdge,
@@ -28,6 +30,7 @@ export const BrainGardenComponentsDiagram: React.FC<BrainGardenComponentsDiagram
   height = '600px', // Set a fixed height instead of auto
   showZoomControls = true,
   accessibilityDescription = 'Brain Garden Core Components Diagram showing Knowledge System, Prompt System, and Structured Documentation',
+  debug = false,
 }) => {
   // Define the nodes for the diagram
   const nodes: ReactFlowNode[] = useMemo(() => [
@@ -301,38 +304,34 @@ export const BrainGardenComponentsDiagram: React.FC<BrainGardenComponentsDiagram
     edges
   }), [nodes, edges]);
 
-  // Container style for responsive width
-  const containerStyle = useMemo(() => ({
-    width: '100%',
-    maxWidth: '1000px',
-    margin: '0 auto'
+  // Set custom options for fixed, non-interactive diagram
+  const customOptions = useMemo(() => ({
+    nodesDraggable: false,
+    nodesConnectable: false,
+    elementsSelectable: false,
+    fitView: true,
+    fitViewOptions: {
+      padding: 0.2,
+      minZoom: 0.7,
+      maxZoom: 1,
+    },
   }), []);
 
   return (
-    <div style={containerStyle}>
-      {title && <h3>{title}</h3>}
-      
-      <ReactFlowDiagram
-        definition={flowDefinition}
-        theme={theme}
-        width={width}
-        height={height}
-        showZoomControls={showZoomControls}
-        accessibilityDescription={accessibilityDescription}
-        showBackground={true}
-        customOptions={{
-          nodesDraggable: false,
-          nodesConnectable: false,
-          elementsSelectable: false,
-          fitView: true,
-          fitViewOptions: {
-            padding: 0.2,
-            minZoom: 0.7,
-            maxZoom: 1,
-          },
-        }}
-      />
-    </div>
+    <EnhancedReactFlowDiagram
+      definition={flowDefinition}
+      title={title}
+      className={className}
+      theme={theme}
+      width={width}
+      height={height}
+      showZoomControls={showZoomControls}
+      accessibilityDescription={accessibilityDescription}
+      showBackground={true}
+      customOptions={customOptions}
+      debug={debug}
+      maxWidth="1000px"
+    />
   );
 };
 

@@ -46,4 +46,34 @@ export interface AiIntegrationProcessDiagramProps {
    * Accessibility description for screen readers
    */
   accessibilityDescription?: string;
+  
+  /**
+   * Optional class name for the container element
+   */
+  containerClassName?: string;
+  
+  /**
+   * Optional class name for the graph element
+   */
+  graphClassName?: string;
+  
+  /**
+   * Optional custom nodes to override default nodes
+   */
+  nodes?: any[];
+  
+  /**
+   * Optional custom edges to override default edges
+   */
+  edges?: any[];
+  
+  /**
+   * Enable validation of node positions
+   */
+  nodeValidationEnabled?: boolean;
+  
+  /**
+   * Callback when node positions change
+   */
+  onNodePositionsChange?: (nodes: any[]) => void;
 } 

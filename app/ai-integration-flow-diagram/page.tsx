@@ -11,15 +11,6 @@ const PageContainer = styled.div`
   padding: 2rem 1rem;
 `;
 
-const DiagramContainer = styled.div`
-  width: 100%;
-  margin: 2rem 0;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: white;
-`;
-
 const Header = styled.div`
   margin-bottom: 2rem;
   
@@ -57,16 +48,15 @@ export default function AiIntegrationFlowDiagramPage() {
           text="Loading AI Integration Flow Diagram..."
         />
       }>
-        <DiagramContainer>
-          <AiIntegrationFlowDiagram 
-            title="Enterprise AI Integration Process"
-            description="A structured approach to integrating AI technologies into development workflows"
-            height="1000px"
-            width="100%"
-            theme="default"
-            showZoomControls={false}
-          />
-        </DiagramContainer>
+        <AiIntegrationFlowDiagram 
+          title="Enterprise AI Integration Process"
+          description="A structured approach to integrating AI technologies into development workflows"
+          height="1000px"
+          width="100%"
+          theme="default"
+          showZoomControls={false}
+          debug={true}
+        />
       </Suspense>
     </PageContainer>
   );

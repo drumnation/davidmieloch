@@ -17,13 +17,13 @@ export interface BrainGardenComponentsDiagramProps {
    * Optional width for the diagram container
    * @default '100%'
    */
-  width?: string;
+  width?: string | number;
   
   /**
    * Optional height for the diagram container
    * @default 'auto'
    */
-  height?: string;
+  height?: string | number;
   
   /**
    * Optional background color for the diagram container
@@ -47,4 +47,10 @@ export interface BrainGardenComponentsDiagramProps {
    * @default 'Brain Garden Core Components'
    */
   title?: string;
+
+  /**
+   * Enable debug mode with console logging
+   * @default false
+   */
+  debug?: boolean;
 }

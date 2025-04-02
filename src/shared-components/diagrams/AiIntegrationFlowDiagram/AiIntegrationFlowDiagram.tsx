@@ -69,7 +69,7 @@ export const AiIntegrationFlowDiagram: React.FC<AiIntegrationFlowDiagramProps> =
         label: 'Implement Prompt Engineering',
         icon: '⌨️',
         iconPosition: 'left',
-        style: { width: '440px' }
+        style: { width: '220px' }
       },
     },
     {

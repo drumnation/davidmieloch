@@ -1,2 +1,3 @@
-export * from './AiIntegrationProcessDiagram';
-export * from './AiIntegrationProcessDiagram.types'; 
+export * from './AiIntegrationProcessDiagram.types';
+export { AiIntegrationProcessDiagram } from './AiIntegrationProcessDiagram';
+export { default } from './AiIntegrationProcessDiagram';

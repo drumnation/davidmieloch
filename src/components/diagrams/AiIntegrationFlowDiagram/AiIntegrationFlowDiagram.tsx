@@ -1,9 +1,11 @@
+'use client';
+
 import React, { useMemo } from 'react';
 import '@xyflow/react/dist/style.css';
 
 import { AiIntegrationFlowDiagramProps } from './AiIntegrationFlowDiagram.types';
-import { ReactFlowDiagram } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram';
-import { ReactFlowDefinition, ReactFlowNode, ReactFlowEdge } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types';
+import { EnhancedReactFlowDiagram } from '../../../shared-components/molecules/ReactFlowDiagram';
+import { ReactFlowNode, ReactFlowEdge, ReactFlowDefinition } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types';
 
 export const AiIntegrationFlowDiagram: React.FC<AiIntegrationFlowDiagramProps> = ({
   title = "AI Integration Process Flow",
@@ -14,6 +16,7 @@ export const AiIntegrationFlowDiagram: React.FC<AiIntegrationFlowDiagramProps> =
   height = '1000px',
   showZoomControls = false,
   accessibilityDescription = 'Flow diagram showing the AI integration process from workflow assessment to continuous improvement',
+  debug = false,
 }) => {
   // Define the nodes for the AI Integration Process Flow
   const nodes: ReactFlowNode[] = useMemo(() => [
@@ -278,23 +281,21 @@ export const AiIntegrationFlowDiagram: React.FC<AiIntegrationFlowDiagramProps> =
   };
 
   return (
-    <div className={className}>
-      {title && <h3>{title}</h3>}
-      {description && <p>{description}</p>}
-      
-      <ReactFlowDiagram
-        width={width}
-        height={height}
-        theme={theme}
-        backgroundColor="#ffffff"
-        showZoomControls={showZoomControls}
-        showBackground={false}
-        accessibilityDescription={accessibilityDescription}
-        definition={flowDefinition}
-        parseMode="reactflow"
-        customOptions={customOptions}
-      />
-    </div>
+    <EnhancedReactFlowDiagram
+      className={className}
+      definition={flowDefinition}
+      title={title}
+      description={description}
+      width={width}
+      height={height}
+      theme={theme}
+      backgroundColor="#ffffff"
+      showZoomControls={showZoomControls}
+      showBackground={false}
+      accessibilityDescription={accessibilityDescription}
+      customOptions={customOptions}
+      debug={debug}
+    />
   );
 };
 

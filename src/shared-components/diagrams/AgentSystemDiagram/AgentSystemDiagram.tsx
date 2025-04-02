@@ -1,11 +1,13 @@
+'use client';
+
 import React, { useMemo } from 'react';
 import '@xyflow/react/dist/style.css';
 
 // Import types
 import { AgentSystemDiagramProps } from './AgentSystemDiagram.types';
 
-// Import the ReactFlowDiagram component and related types
-import { ReactFlowDiagram } from '../../molecules/ReactFlowDiagram/ReactFlowDiagram';
+// Import the EnhancedReactFlowDiagram component and related types
+import { EnhancedReactFlowDiagram } from '../../molecules/ReactFlowDiagram';
 import { 
   ReactFlowNode, 
   ReactFlowEdge,
@@ -52,6 +54,7 @@ export const AgentSystemDiagram: React.FC<AgentSystemDiagramProps> = ({
   height = '500px',
   showZoomControls = true,
   accessibilityDescription = 'Agent System Diagram showing the workflow from Task to Integration through Analysis, Planning, Distribution, and Results',
+  debug = false,
 }) => {
   // Define the nodes for the diagram
   const nodes: ReactFlowNode[] = useMemo(() => [
@@ -294,37 +297,33 @@ export const AgentSystemDiagram: React.FC<AgentSystemDiagramProps> = ({
     edges
   }), [nodes, edges]);
 
-  // Container style to constrain width and center the diagram
-  const containerStyle = useMemo(() => ({
-    width: '100%',
-    maxWidth: '650px',
-    margin: '0 auto'
+  // Define custom options
+  const customOptions = useMemo(() => ({
+    nodesDraggable: false,
+    nodesConnectable: false,
+    elementsSelectable: false,
+    fitView: true,
+    fitViewOptions: {
+      padding: 0.2,
+      minZoom: 0.85,
+      maxZoom: 1,
+    },
   }), []);
 
   return (
-    <div style={containerStyle} className={className}>
-      {title && <h3>{title}</h3>}
-      
-      <ReactFlowDiagram
-        definition={flowDefinition}
-        theme={theme}
-        width={width}
-        height={height}
-        showZoomControls={showZoomControls}
-        accessibilityDescription={accessibilityDescription}
-        showBackground={true}
-        customOptions={{
-          nodesDraggable: false,
-          nodesConnectable: false,
-          elementsSelectable: false,
-          fitView: true,
-          fitViewOptions: {
-            padding: 0.2,
-            minZoom: 0.85,
-            maxZoom: 1,
-          },
-        }}
-      />
-    </div>
+    <EnhancedReactFlowDiagram
+      definition={flowDefinition}
+      title={title}
+      className={className}
+      theme={theme}
+      width={width}
+      height={height}
+      showZoomControls={showZoomControls}
+      accessibilityDescription={accessibilityDescription}
+      showBackground={true}
+      customOptions={customOptions}
+      debug={debug}
+      maxWidth="650px"
+    />
   );
 }; 

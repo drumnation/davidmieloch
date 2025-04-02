@@ -1,18 +1,75 @@
-import React, { useMemo } from 'react';
-import { Background, Controls, useNodesState, useEdgesState } from '@xyflow/react';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import {
+  Background,
+  BackgroundVariant,
+  Controls,
+  ReactFlow,
+  Node,
+  Edge,
+  ReactFlowProvider,
+  NodeTypes,
+  EdgeTypes,
+  useNodesState,
+  useEdgesState,
+} from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-
-import { ReactFlowDiagramProps, ReactFlowDefinition } from './ReactFlowDiagram.types';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Button } from '../../atoms/Button/Button';
+import { BasicNode } from './nodes/BasicNode';
+import { AnimationDebugger, AnimationErrorBoundary, logSpringInteraction } from '../../../utils/animations/debug-tools';
 import { 
-  DiagramWrapper, 
-  DiagramContainer, 
-  AccessibilityDescription, 
+  disableReactFlowAnimations, 
+  getNoAnimationOptions, 
+  diagnoseReactFlowIssues,
+  getLayoutedElements
+} from '../../../utils/animations/disable-react-flow-animations';
+
+import {
+  ReactFlowDiagramProps,
+  ReactFlowDefinition,
+  FitViewOptions,
+} from './ReactFlowDiagram.types';
+import {
+  DiagramWrapper,
+  DiagramContainer,
+  AccessibilityDescription,
   StyledReactFlow,
-  ReactFlowGlobalStyles 
+  ReactFlowGlobalStyles,
+  LoadingContainer,
+  Container,
+  ResetButton,
 } from './ReactFlowDiagram.styles';
 import { nodeTypes, themeMapperUtils } from './utils';
 
-export const ReactFlowDiagram: React.FC<ReactFlowDiagramProps> = ({
+// Create isomorphic layout effect to work in both browser and SSR
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+
+// Initialize the diagnostics only in development mode
+if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+  // This is called once at module load time
+  disableReactFlowAnimations();
+}
+
+// Default node type to ensure type safety
+const defaultNodeTypes: NodeTypes = {
+  default: (props) => (
+    <div style={{ 
+      padding: '10px',
+      borderRadius: '3px',
+      width: '150px',
+      fontSize: '12px',
+      color: '#222',
+      textAlign: 'center',
+      border: '1px solid #1a192b'
+    }}>
+      {props.data?.label || 'Default Node'}
+    </div>
+  ),
+};
+
+const ReactFlowDiagramContent: React.FC<ReactFlowDiagramProps & { isClient: boolean }> = ({
   definition,
   className = '',
   theme = 'default',
@@ -22,131 +79,195 @@ export const ReactFlowDiagram: React.FC<ReactFlowDiagramProps> = ({
   showZoomControls = false,
   showBackground = false,
   accessibilityDescription = '',
-  parseMode = 'auto',
-  customOptions = {}
+  customOptions = {},
+  isClient,
 }) => {
-  // Parse the definition based on parseMode
-  const { initialNodes, initialEdges } = useMemo(() => {
-    // If the definition is an object with nodes and edges, use it directly
-    if (typeof definition === 'object' && definition !== null) {
-      return {
-        initialNodes: (definition as ReactFlowDefinition).nodes || [],
-        initialEdges: (definition as ReactFlowDefinition).edges || [],
-      };
-    }
+  const componentName = "ReactFlowDiagram";
+  
+  const { nodes, edges } = useMemo(() => {
+    console.log('Processing definition:', definition);
     
-    // For this proof of concept, if definition is undefined or a string (mermaid),
-    // return some default nodes and edges
+    if (typeof definition === 'object' && definition !== null) {
+      try {
+        const validNodes = ((definition as ReactFlowDefinition).nodes || []).map(
+          (node) => {
+            if (
+              !node.position ||
+              typeof node.position.x !== 'number' ||
+              typeof node.position.y !== 'number'
+            ) {
+              console.warn(
+                `Node ${node.id} has invalid position, using fallback`,
+                node.position,
+              );
+              return {
+                ...node,
+                position: { x: 0, y: 0 },
+                data: node.data || { label: `Node ${node.id}` },
+              };
+            }
+            return node;
+          },
+        );
+        return {
+          nodes: validNodes as Node[],
+          edges: ((definition as ReactFlowDefinition).edges as Edge[]) || [],
+        };
+      } catch (error) {
+        console.error('Error parsing ReactFlow definition:', error);
+        return { nodes: [], edges: [] };
+      }
+    }
     return {
-      initialNodes: [
+      nodes: [
         {
           id: '1',
           type: 'default',
           position: { x: 100, y: 100 },
-          data: { 
-            label: 'Node 1', 
-            icon: '🚀',
-            iconPosition: 'left',
-          },
-        },
-        {
-          id: '2',
-          type: 'pill',
-          position: { x: 300, y: 100 },
-          data: { 
-            label: 'Seed',
-            icon: '🌱',
-            iconPosition: 'left',
-          },
-        },
-        {
-          id: '3',
-          type: 'default',
-          position: { x: 500, y: 100 },
-          data: { 
-            label: 'Node 3',
-            icon: '⚙️',
-            iconPosition: 'right', 
-          },
-        },
-        {
-          id: '4',
-          type: 'default',
-          position: { x: 300, y: 200 },
-          data: { 
-            label: 'Node 4',
-            style: { backgroundColor: '#4a6bff', color: 'white' }
-          },
+          data: { label: 'Default Node' },
         },
       ],
-      initialEdges: [
-        {
-          id: 'e1-2',
-          source: '1',
-          target: '2',
-        },
-        {
-          id: 'e2-3',
-          source: '2',
-          target: '3',
-        },
-        {
-          id: 'e2-4',
-          source: '2',
-          target: '4',
-          animated: true,
-          style: { stroke: '#4a6bff' },
-        },
-      ],
+      edges: [],
     };
   }, [definition]);
 
-  // Set up nodes and edges state
-  const [nodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, onEdgesChange] = useEdgesState(initialEdges);
-  
-  // Get theme configuration
-  const themeConfig = useMemo(() => themeMapperUtils.getThemeConfig(theme), [theme]);
-  
-  // Custom background color or from theme
+  const themeConfig = useMemo(() => themeMapperUtils.getThemeConfig(theme), [
+    theme,
+  ]);
   const bgColor = backgroundColor || themeConfig.backgroundColor;
-  
-  // Combine default class with user-provided class and conditional background class
   const combinedClassName = `${className} ${showBackground ? 'react-flow--with-background' : ''}`.trim();
-  
-  return (
-    <>
-      {/* Apply global styles for ReactFlow */}
-      <ReactFlowGlobalStyles />
-      
-      <DiagramWrapper $width={width}>
-        {accessibilityDescription && (
-          <AccessibilityDescription role="note" aria-label="Diagram description">
-            {accessibilityDescription}
-          </AccessibilityDescription>
-        )}
-        
-        <DiagramContainer 
-          $width={width} 
-          $height={height} 
-          $backgroundColor={bgColor}
-        >
-          <StyledReactFlow
-            nodes={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            nodeTypes={nodeTypes}
-            fitView
-            className={combinedClassName}
-            {...customOptions}
+
+  // Static key based on theme to prevent re-renders
+  const reactFlowKey = useMemo(() => {
+    return `flow-static-${theme}-${new Date().getTime()}`; // Add timestamp to force remounting
+  }, [theme]);
+
+  // Get animation-safe options
+  const noAnimationOptions = useMemo(() => getNoAnimationOptions(), []);
+
+  // Ensure nodeTypes is properly defined with type safety
+  const safeNodeTypes = useMemo(() => {
+    if (nodeTypes && Object.keys(nodeTypes).length > 0) {
+      return nodeTypes as NodeTypes;
+    }
+    
+    if (customOptions.nodeTypes && Object.keys(customOptions.nodeTypes).length > 0) {
+      return customOptions.nodeTypes as NodeTypes;
+    }
+    
+    return defaultNodeTypes;
+  }, [customOptions.nodeTypes]);
+
+  // Prepare final options, ensuring animations are disabled
+  const finalOptions = useMemo(() => {
+    return {
+      ...noAnimationOptions,
+      // Only include essential custom options that won't interfere with animation disabling
+      ...(customOptions.edgeTypes ? { edgeTypes: customOptions.edgeTypes } : {}),
+    };
+  }, [noAnimationOptions, customOptions.edgeTypes]);
+
+  // Run diagnostics in development mode
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development' && isClient) {
+      const diagnostics = diagnoseReactFlowIssues();
+      return () => {
+        diagnostics.cleanup();
+      };
+    }
+  }, [isClient]);
+
+  // Animation variants for fade-in
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const content = (
+    <DiagramWrapper $width={width}>
+      {accessibilityDescription && (
+        <AccessibilityDescription role="note" aria-label="Diagram description">
+          {accessibilityDescription}
+        </AccessibilityDescription>
+      )}
+      <DiagramContainer
+        $width={width}
+        $height={height}
+        $backgroundColor={bgColor}
+      >
+        {!isClient ? (
+          <LoadingContainer>Loading diagram...</LoadingContainer>
+        ) : (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            style={{ width: '100%', height: '100%' }}
           >
-            {showBackground && <Background />}
-            {showZoomControls && <Controls />}
-          </StyledReactFlow>
-        </DiagramContainer>
-      </DiagramWrapper>
-    </>
+            <StyledReactFlow
+              nodes={nodes}
+              edges={edges}
+              nodeTypes={safeNodeTypes}
+              fitView
+              className={combinedClassName}
+              key={reactFlowKey}
+              {...finalOptions}
+            >
+              {showBackground && <Background />}
+              {showZoomControls && <Controls />}
+            </StyledReactFlow>
+          </motion.div>
+        )}
+      </DiagramContainer>
+    </DiagramWrapper>
+  );
+
+  return (
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
+        logLifecycle={true}
+        detectCircular={true}
+      >
+        {content}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
+  );
+};
+
+// Wrap the main component with ReactFlowProvider and client-side check
+export const ReactFlowDiagram: React.FC<ReactFlowDiagramProps> = (props) => {
+  const componentName = "ReactFlowDiagram";
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+
+    // Apply animation disabling when component mounts
+    if (typeof window !== 'undefined') {
+      disableReactFlowAnimations();
+    }
+  }, []);
+
+  return (
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
+        logLifecycle={true}
+      >
+        <ReactFlowDiagramContent
+          {...props}
+          isClient={isClient}
+        />
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
   );
 };
 

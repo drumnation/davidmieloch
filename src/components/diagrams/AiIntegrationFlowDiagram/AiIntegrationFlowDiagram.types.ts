@@ -25,12 +25,12 @@ export interface AiIntegrationFlowDiagramProps {
   /**
    * Width of the diagram container
    */
-  width?: string;
+  width?: string | number;
   
   /**
    * Height of the diagram container
    */
-  height?: string;
+  height?: string | number;
   
   /**
    * Whether to show zoom controls
@@ -41,4 +41,9 @@ export interface AiIntegrationFlowDiagramProps {
    * Description for accessibility
    */
   accessibilityDescription?: string;
+  
+  /**
+   * Enable debug mode with console logging
+   */
+  debug?: boolean;
 } 

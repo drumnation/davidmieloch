@@ -4,15 +4,38 @@ import '@xyflow/react/dist/style.css';
 // Import types
 import { AiIntegrationProcessDiagramProps } from './AiIntegrationProcessDiagram.types';
 
-// Import the ReactFlowDiagram component and related types
-import { ReactFlowDiagram } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram';
-import { 
-  ReactFlowDefinition, 
-  ReactFlowNode, 
-  ReactFlowEdge 
-} from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types';
+// Import the ReactFlowDiagramClient component and related types
+import { ReactFlowDiagramClient } from '../../../shared-components/molecules/ReactFlowDiagram';
+import { ReactFlowNode, ReactFlowEdge, ReactFlowDefinition } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types';
 
-const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramProps> = ({
+// Enhanced helper function to validate node positions
+const isValidNodePosition = (node: ReactFlowNode): boolean => {
+  // Check if node and position exist
+  if (!node || !node.position) {
+    console.warn('Invalid node: missing position', node);
+    return false;
+  }
+  
+  const { x, y } = node.position;
+  
+  // Check if x and y are valid numbers
+  const isValid = (
+    typeof x === 'number' && 
+    !isNaN(x) &&
+    isFinite(x) &&
+    typeof y === 'number' && 
+    !isNaN(y) &&
+    isFinite(y)
+  );
+  
+  if (!isValid) {
+    console.warn(`Node ${node.id} has invalid position:`, node.position);
+  }
+  
+  return isValid;
+};
+
+export const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramProps> = ({
   title = "AI Integration Process Flow",
   description = "The following diagram illustrates the ideal process flow for integrating AI into development workflows",
   className = '',
@@ -22,6 +45,12 @@ const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramProps> = 
   backgroundColor,
   showZoomControls = true,
   accessibilityDescription = 'Flow diagram showing the AI integration process from workflow assessment to continuous improvement',
+  containerClassName,
+  graphClassName,
+  nodes: initialNodes,
+  edges: initialEdges,
+  nodeValidationEnabled,
+  onNodePositionsChange,
 }) => {
   // Define the nodes for the AI Integration Process Flow
   const nodes: ReactFlowNode[] = useMemo(() => [
@@ -179,6 +208,12 @@ const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramProps> = 
     },
   ], []);
 
+  // Filter out any nodes with invalid positions before returning
+  const validatedNodes: ReactFlowNode[] = useMemo(() => {
+    // First, validate each node's position
+    return nodes.filter(isValidNodePosition);
+  }, [nodes]);
+
   // Define the edges connecting the nodes
   const edges: ReactFlowEdge[] = useMemo(() => [
     {
@@ -268,43 +303,30 @@ const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramProps> = 
     },
   ], []);
 
-  // Create the diagram definition object
+  // Convert width and height to strings if they are numbers
+  const widthStr = typeof width === 'number' ? `${width}px` : width;
+  const heightStr = typeof height === 'number' ? `${height}px` : height;
+  
+  // Define the flow definition for the React Flow component
   const flowDefinition: ReactFlowDefinition = useMemo(() => ({
-    nodes,
+    nodes: validatedNodes,
     edges,
-  }), [nodes, edges]);
-
-  // Set custom options for fixed, non-interactive diagram
-  const customOptions = {
-    nodesDraggable: false,
-    nodesConnectable: false,
-    elementsSelectable: false,
-    zoomOnScroll: false,
-    panOnScroll: false,
-    panOnDrag: false,
-    preventScrolling: true,
-  };
+  }), [validatedNodes, edges]);
 
   return (
-    <div className={className}>
-      {title && <h3>{title}</h3>}
-      {description && <p>{description}</p>}
-      
-      <ReactFlowDiagram
-        width={typeof width === 'number' ? `${width}px` : width}
-        height={typeof height === 'number' ? `${height}px` : height}
-        theme={theme}
-        backgroundColor={backgroundColor || "#ffffff"}
-        showZoomControls={showZoomControls}
-        showBackground={true}
-        accessibilityDescription={accessibilityDescription}
-        definition={flowDefinition}
-        parseMode="reactflow"
-        customOptions={customOptions}
-      />
-    </div>
+    <ReactFlowDiagramClient
+      definition={flowDefinition}
+      className={className}
+      theme={theme}
+      width={widthStr}
+      height={heightStr}
+      backgroundColor={backgroundColor}
+      showZoomControls={showZoomControls}
+      showBackground={true}
+      accessibilityDescription={accessibilityDescription}
+      customOptions={{}}
+    />
   );
 };
 
-export { AiIntegrationProcessDiagram };
 export default AiIntegrationProcessDiagram; 
