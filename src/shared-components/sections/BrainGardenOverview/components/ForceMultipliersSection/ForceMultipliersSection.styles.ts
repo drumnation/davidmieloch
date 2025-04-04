@@ -14,11 +14,51 @@ export const ForceMultiplierContainer = styled(BaseContentContainer)`
   display: block; /* Force block display */
 `;
 
-export const ActTitle = styled(SectionSubtitle)`
-  color: #6772e5; 
-  margin-top: 3rem;
+export const StyledForceMultiplierContainer = styled.div`
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+`;
+
+export const PowerfulTitle = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 1.5rem;
+  padding-top: 1rem;
+`;
+
+export const GradientText = styled.h2`
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4361ee;
+  margin: 0;
+`;
+
+export const ActTitle = styled.h3`
   font-size: 1.8rem;
+  font-weight: 600;
+  color: #4361ee;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+`;
+
+export const StoryBox = styled.blockquote`
+  border-left: 4px solid #e0e7ff;
+  padding-left: 1.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+`;
+
+export const BodyText = styled(Typography)`
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 `;
 
 export const HighlightBox = styled.div`
@@ -51,12 +91,6 @@ export const IntroText = styled(Typography)`
   line-height: 1.6;
 `;
 
-export const BodyText = styled(Typography)`
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-`;
-
 export const ExplanationText = styled(BodyText)`
   margin-top: 1rem;
   margin-bottom: 0;
@@ -76,25 +110,6 @@ export const CodeBlock = styled.pre`
   word-wrap: break-word;
   font-size: 0.9rem;
   line-height: 1.4;
-`;
-
-export const StoryBox = styled.div`
-  padding: 2rem;
-  background: linear-gradient(135deg, rgba(74, 158, 255, 0.05) 0%, rgba(157, 78, 255, 0.05) 100%);
-  border-radius: 16px;
-  margin: 2rem 0;
-  position: relative;
-
-  &:before {
-    content: '\\"';
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    font-size: 4rem;
-    color: #4a9eff;
-    font-family: Georgia, serif;
-    opacity: 0.2;
-  }
 `;
 
 export const DiagramContainer = styled.div`

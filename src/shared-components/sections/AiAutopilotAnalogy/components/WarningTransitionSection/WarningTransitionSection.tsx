@@ -24,7 +24,7 @@ export const WarningTransitionSection: React.FC<WarningTransitionSectionProps> =
       style={{
         width: '100%',
         padding: '2rem',
-        marginTop: '3rem',
+        marginTop: '0',
         backgroundColor: '#ffebee',
         borderLeft: '4px solid #f44336',
         transition: 'all 0.3s ease',

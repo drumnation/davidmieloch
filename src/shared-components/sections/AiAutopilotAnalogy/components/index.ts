@@ -4,4 +4,5 @@ export { RealityVsHollywoodSection } from './RealityVsHollywoodSection';
 export { StrategicFocusSection } from './StrategicFocusSection';
 export { MermaidDiagramSection } from './MermaidDiagramSection';
 export { WarningTransitionSection } from './WarningTransitionSection';
-export { LeadershipBlueprintSection } from './LeadershipBlueprintSection'; 
+export { LeadershipBlueprintSection } from './LeadershipBlueprintSection';
+export { DunningKrugerSection } from './DunningKrugerSection'; 

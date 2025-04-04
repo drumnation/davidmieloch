@@ -119,9 +119,13 @@ export const Footer = ({
       setLastScrollTop(scrollTop);
       
       // Automatically minimize when scrolling down, restore when scrolling up
-      if (isScrollingDown && !isMiniMode) {
+      // Use a small threshold to prevent flickering near breakpoints
+      const scrollThreshold = 10;
+      const scrollDistance = Math.abs(scrollTop - lastScrollTop);
+      
+      if (isScrollingDown && !isMiniMode && scrollDistance > scrollThreshold) {
         setIsMiniMode(true);
-      } else if (!isScrollingDown && isMiniMode) {
+      } else if (!isScrollingDown && isMiniMode && scrollDistance > scrollThreshold) {
         setIsMiniMode(false);
       }
     };
@@ -209,7 +213,8 @@ export const Footer = ({
       style={{ 
         backgroundColor: colors.background,
         borderTop: `1px solid ${colors.border}`,
-        color: colors.text
+        color: colors.text,
+        boxShadow: isMiniMode ? '0 -1px 3px rgba(0,0,0,0.1)' : '0 -2px 10px rgba(0,0,0,0.15)'
       }}
       $isExpanded={isExpanded}
       $isMiniMode={isMiniMode}

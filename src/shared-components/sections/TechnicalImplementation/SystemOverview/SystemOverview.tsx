@@ -152,7 +152,6 @@ const SystemOverview: FC<SystemOverviewProps> = ({
                   }}
                   onError={(e) => {
                     // Fallback for missing image
-                    // @ts-expect-error - Next.js Image doesn't have the same onError type but this works
                     e.currentTarget.src = "https://via.placeholder.com/800x400?text=GitHub+Integration+Example";
                   }}
                 />

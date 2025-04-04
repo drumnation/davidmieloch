@@ -59,7 +59,7 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
                     {feature.title}
                   </S.Title>
                 )}
-                <Body color="primary">
+                <Body color="primary" mt="auto">
                   {feature.description}
                 </Body>
               </S.Content>

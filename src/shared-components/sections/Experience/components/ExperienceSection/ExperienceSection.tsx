@@ -405,12 +405,20 @@ const getBulletIcon = (text: string) => {
 };
 
 // Function to render an experience item
-const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo?: (company: string) => React.ReactNode, setModalImage?: (image: {url: string, title?: string}) => void) => {
+const renderExperienceItem = (
+  job: ExperienceItemType, 
+  index: number, 
+  renderLogo?: (company: string) => React.ReactNode, 
+  setModalImage?: (image: {url: string, title?: string}) => void,
+  setPinnedJob?: (company: string) => void
+): JSX.Element => {
   const logoSrc = job.logoPath; // Keep original path for iframe check
 
   const handlePinClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setPinnedJob(job.company);
+    if (setPinnedJob) {
+      setPinnedJob(job.company);
+    }
   };
 
   return (
@@ -1103,6 +1111,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
 }) => {
   const hasOlderExperience = OLDER_EXPERIENCE && OLDER_EXPERIENCE.length > 0;
   const [modalImage, setModalImage] = useState<{url: string, title?: string} | null>(null);
+  const [pinnedJob, setPinnedJob] = useState<string | null>(null);
 
   console.log('Experience items with media:', experiences.filter(exp => exp.media?.length).map(exp => ({ company: exp.company, mediaCount: exp.media?.length || 0 })));
 
@@ -1118,7 +1127,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
 
       {experiences.map((job, index) => (
         <React.Fragment key={`job-${index}`}>
-          {renderExperienceItem(job, index, renderLogo, setModalImage)}
+          {renderExperienceItem(job, index, renderLogo, setModalImage, setPinnedJob)}
         </React.Fragment>
       ))}
 
@@ -1154,7 +1163,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
             return bMonth - aMonth;
           }).map((job, index) => (
             <React.Fragment key={`older-job-${index}`}>
-              {renderExperienceItem(job as ExperienceItemType, index, renderLogo, setModalImage)} {/* Cast job to ExperienceItemType */}
+              {renderExperienceItem(job as ExperienceItemType, index, renderLogo, setModalImage, setPinnedJob)} {/* Cast job to ExperienceItemType */}
             </React.Fragment>
           ))}
         </Accordion>

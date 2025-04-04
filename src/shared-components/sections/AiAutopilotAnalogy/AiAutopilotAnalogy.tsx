@@ -15,7 +15,8 @@ import {
   StrategicFocusSection,
   MermaidDiagramSection,
   WarningTransitionSection,
-  LeadershipBlueprintSection
+  LeadershipBlueprintSection,
+  DunningKrugerSection
 } from './components';
 
 export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({ 
@@ -74,16 +75,19 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
           <StrategicFocusSection 
             features={strategicFocusAreasProps.features}
           />
+          
+          {/* Dunning-Kruger Effect Section */}
+          <div style={sectionContainerStyle}>
+            <DunningKrugerSection />
+          </div>
 
           {/* Mermaid Diagram Section */}
-          <div style={sectionContainerStyle}>
-            <MermaidDiagramSection
-              title={mermaidDiagramProps.title}
-              description={mermaidDiagramProps.description}
-              definition={mermaidDiagramProps.definition}
-              theme={diagramTheme}
-            />
-          </div>
+          <MermaidDiagramSection
+            title={mermaidDiagramProps.title}
+            description={mermaidDiagramProps.description}
+            definition={mermaidDiagramProps.definition}
+            theme={diagramTheme}
+          />
 
           {/* Critical Warning Transition */}
           <WarningTransitionSection

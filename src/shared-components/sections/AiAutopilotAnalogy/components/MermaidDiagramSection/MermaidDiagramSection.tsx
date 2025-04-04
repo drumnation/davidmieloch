@@ -25,19 +25,30 @@ export const MermaidDiagramSection: React.FC<MermaidDiagramSectionProps> = ({
   className
 }) => {
   return (
-    <div className={className}>
-      <div style={titleContainerStyle}>
-        <SectionTitle title={title} />
-      </div>
-      
-      <div style={paragraphContainerStyle}>
-        <SectionParagraph>
-          {description}
-        </SectionParagraph>
-      </div>
-      
-      <div style={mermaidContainerStyle}>
-        <AiIntegrationProcessDiagramClient />
+    <div 
+      className={className} 
+      style={{ 
+        width: '100%',
+        margin: 0,
+        padding: 0,
+        position: 'relative',
+        marginBottom: '-20px'
+      }}
+    >
+      <div style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        <AiIntegrationProcessDiagramClient 
+          backgroundColor="white"
+          initialZoom={1.8}
+          width="100%"
+          height="1000px"
+          title={title}
+          description={description}
+        />
       </div>
     </div>
   );

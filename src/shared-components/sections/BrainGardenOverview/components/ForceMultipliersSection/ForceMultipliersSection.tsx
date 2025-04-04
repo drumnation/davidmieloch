@@ -14,7 +14,8 @@ import {
   MetricsContainer
 } from '../../BrainGardenOverview.styles';
 import { 
-  ForceMultiplierContainer as StyledForceMultiplierContainer,
+  ForceMultiplierContainer,
+  StyledForceMultiplierContainer,
   BodyText,
   StoryBox,
   ActTitle,
@@ -53,8 +54,8 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
   ];
 
   return (
-    <StyledForceMultiplierContainer className={className} id="force-multipliers-section">
-      <div>
+    <ForceMultiplierContainer className={className} id="force-multipliers-section">
+      <StyledForceMultiplierContainer>
         <PowerfulTitle>
           <Icon name="bolt" source="tabler" size={32} />
           <GradientText>Force Multipliers</GradientText>
@@ -764,7 +765,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             And here's the kicker: the better your development practices, the more powerful your AI tools become. It's a force multiplier effect that's transforming how we think about software development.
           </BodyText>
         </StoryBox>
-      </div>
-    </StyledForceMultiplierContainer>
+      </StyledForceMultiplierContainer>
+    </ForceMultiplierContainer>
   );
 };
