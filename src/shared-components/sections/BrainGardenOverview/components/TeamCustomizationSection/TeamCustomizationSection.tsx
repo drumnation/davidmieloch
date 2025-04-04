@@ -23,6 +23,7 @@ import {
   StyledDivider
 } from './TeamCustomizationSection.styles';
 import { BackgroundSection } from '../../BrainGardenOverview.styles';
+import SoftwareEngineeringMeceDiagram from '@/components/diagrams/SoftwareEngineeringMeceDiagram/SoftwareEngineeringMeceDiagram';
 
 export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> = ({
   className
@@ -62,7 +63,7 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
           </ContentCard>
         </SectionWrapper>
 
-        <BackgroundAccent>
+        <SectionWrapper>
           <ContentCard>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
               <Icon name="layers" size={24} style={{ marginRight: '0.75rem', color: '#4C51BF' }} />
@@ -72,37 +73,63 @@ export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> =
               For example, in one project I worked on, we needed to build a real-time data visualization platform. Using the MECE approach, we created specialized teams for:
             </Typography>
             <FeatureList>
-              <li><b>Data Pipeline Architecture</b> - Designing efficient data flows and processing</li>
-              <li><b>Visualization Design</b> - Creating intuitive, interactive charts and graphs</li>
-              <li><b>Performance Optimization</b> - Ensuring real-time responsiveness</li>
-              <li><b>UX Flow Engineering</b> - Crafting seamless user experiences</li>
+              <li>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon name="database" size={16} style={{ marginRight: '0.5rem', color: '#4C51BF', flexShrink: 0 }} />
+                  <b>Data Pipeline Architecture</b> - Designing efficient data flows and processing
+                </div>
+              </li>
+              <li>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon name="bar-chart" size={16} style={{ marginRight: '0.5rem', color: '#4C51BF', flexShrink: 0 }} />
+                  <b>Visualization Design</b> - Creating intuitive, interactive charts and graphs
+                </div>
+              </li>
+              <li>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon name="zap" size={16} style={{ marginRight: '0.5rem', color: '#4C51BF', flexShrink: 0 }} />
+                  <b>Performance Optimization</b> - Ensuring real-time responsiveness
+                </div>
+              </li>
+              <li>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon name="users" size={16} style={{ marginRight: '0.5rem', color: '#4C51BF', flexShrink: 0 }} />
+                  <b>UX Flow Engineering</b> - Crafting seamless user experiences
+                </div>
+              </li>
             </FeatureList>
             <Typography variant="body" mb="1.5rem">
               This structure allowed us to tackle complex challenges in parallel while maintaining clear boundaries between responsibilities.
             </Typography>
           </ContentCard>
-        </BackgroundAccent>
+        </SectionWrapper>
         
-        <DiagramCard>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
-            <Typography variant="h3" className="underlined-title">MECE Organization Approach</Typography>
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-4">Brain Garden Components</h3>
+          <div className="bg-white shadow rounded-lg p-6" style={{ height: '400px' }}>
+            <BrainGardenComponentsDiagram 
+              height="100%" 
+              width="100%" 
+              nodesDraggable={false} 
+              showZoomControls={false}
+            />
           </div>
-          <BrainGardenComponentsDiagram
-            title=""
-            theme="default"
-            width="100%"
-            height="400px"
-            showZoomControls={false}
-            accessibilityDescription="MECE organization divides projects into distinct domains with consistent documentation structure, preventing conflicts while ensuring complete coverage"
-          />
-          <div style={{ textAlign: 'center', marginTop: '1.5rem', padding: '0 1.5rem' }}>
-            <Typography variant="body" color="secondary" className="italic-text">
-              MECE organization divides projects into distinct domains with consistent documentation structure, preventing conflicts while ensuring complete coverage
-            </Typography>
+        </div>
+
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-4">MECE Organization</h3>
+          <div className="bg-white shadow rounded-lg p-6" style={{ height: '500px' }}>
+            <SoftwareEngineeringMeceDiagram 
+              height="100%" 
+              width="100%" 
+              nodesDraggable={false} 
+              showZoomControls={true}
+              title="Software Engineering MECE Organization"
+            />
           </div>
-        </DiagramCard>
+        </div>
         
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem', marginTop: '4rem', paddingTop: '2rem' }}>
           <Typography variant="h2" className="section-title">Implementation Process</Typography>
           <Typography variant="body" className="section-description">
             A systematic approach to customizing AI teams based on your project's specific needs:

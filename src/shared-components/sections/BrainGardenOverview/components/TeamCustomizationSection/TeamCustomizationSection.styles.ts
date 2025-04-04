@@ -80,31 +80,37 @@ export const CardsGrid = styled.div`
 `;
 
 export const FeatureCard = styled.div`
+  background-color: white;
+  border-radius: 0.5rem;
   padding: 1.5rem;
-  background-color: #f7fafc;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
 `;
 
 export const FeatureItem = styled.li`
+  display: flex;
+  align-items: flex-start;
   margin-bottom: 0.75rem;
-  padding-left: 1.5rem;
   position: relative;
+  padding-left: 1.5rem;
   
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
-    top: 0.4rem;
+    top: 0.5rem;
     width: 0.5rem;
     height: 0.5rem;
-    background-color: ${({ theme }) => theme.colors.primary.main};
+    background-color: #4299e1;
     border-radius: 50%;
   }
 `;
