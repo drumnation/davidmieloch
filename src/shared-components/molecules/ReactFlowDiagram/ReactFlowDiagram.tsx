@@ -16,7 +16,6 @@ import '@xyflow/react/dist/style.css';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Button } from '../../atoms/Button/Button';
-import { BasicNode } from './nodes/BasicNode';
 import { AnimationDebugger, AnimationErrorBoundary, logSpringInteraction } from '../../../utils/animations/debug-tools';
 import { 
   disableReactFlowAnimations, 
@@ -69,6 +68,9 @@ const defaultNodeTypes: NodeTypes = {
   ),
 };
 
+// Default edge types to ensure type safety
+const defaultEdgeTypes: EdgeTypes = {};
+
 const ReactFlowDiagramContent: React.FC<ReactFlowDiagramProps & { isClient: boolean }> = ({
   definition,
   className = '',
@@ -83,6 +85,10 @@ const ReactFlowDiagramContent: React.FC<ReactFlowDiagramProps & { isClient: bool
   isClient,
 }) => {
   const componentName = "ReactFlowDiagram";
+  
+  // Convert width and height to string if they are numbers
+  const widthValue = typeof width === 'number' ? `${width}px` : width;
+  const heightValue = typeof height === 'number' ? `${height}px` : height;
   
   const { nodes, edges } = useMemo(() => {
     console.log('Processing definition:', definition);
@@ -158,14 +164,23 @@ const ReactFlowDiagramContent: React.FC<ReactFlowDiagramProps & { isClient: bool
     return defaultNodeTypes;
   }, [customOptions.nodeTypes]);
 
+  // Ensure edgeTypes is properly defined with type safety
+  const safeEdgeTypes = useMemo(() => {
+    if (customOptions.edgeTypes && Object.keys(customOptions.edgeTypes).length > 0) {
+      return customOptions.edgeTypes as EdgeTypes;
+    }
+    
+    return defaultEdgeTypes;
+  }, [customOptions.edgeTypes]);
+
   // Prepare final options, ensuring animations are disabled
   const finalOptions = useMemo(() => {
     return {
       ...noAnimationOptions,
       // Only include essential custom options that won't interfere with animation disabling
-      ...(customOptions.edgeTypes ? { edgeTypes: customOptions.edgeTypes } : {}),
+      ...(safeEdgeTypes ? { edgeTypes: safeEdgeTypes } : {})
     };
-  }, [noAnimationOptions, customOptions.edgeTypes]);
+  }, [noAnimationOptions, safeEdgeTypes]);
 
   // Run diagnostics in development mode
   useEffect(() => {
@@ -189,15 +204,15 @@ const ReactFlowDiagramContent: React.FC<ReactFlowDiagramProps & { isClient: bool
   };
 
   const content = (
-    <DiagramWrapper $width={width}>
+    <DiagramWrapper $width={widthValue}>
       {accessibilityDescription && (
         <AccessibilityDescription role="note" aria-label="Diagram description">
           {accessibilityDescription}
         </AccessibilityDescription>
       )}
       <DiagramContainer
-        $width={width}
-        $height={height}
+        $width={widthValue}
+        $height={heightValue}
         $backgroundColor={bgColor}
       >
         {!isClient ? (
@@ -213,6 +228,7 @@ const ReactFlowDiagramContent: React.FC<ReactFlowDiagramProps & { isClient: bool
               nodes={nodes}
               edges={edges}
               nodeTypes={safeNodeTypes}
+              edgeTypes={safeEdgeTypes} 
               fitView
               className={combinedClassName}
               key={reactFlowKey}

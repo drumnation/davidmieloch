@@ -8,6 +8,7 @@ import {
   applyNodeChanges,
   EdgeChange,
   applyEdgeChanges,
+  OnInit,
 } from '@xyflow/react';
 import { nodeTypes } from './SoftwareEngineeringMeceDiagram.nodes';
 import { DiagramFlowProps, CustomNode, CustomEdge } from './SoftwareEngineeringMeceDiagram.types';
@@ -58,7 +59,7 @@ const DiagramFlow: React.FC<DiagramFlowProps> = ({
   );
 
   // Set ReactFlow instance after initialization
-  const onInit = useCallback((instance: ReactFlowInstance) => {
+  const onInit: OnInit = useCallback((instance: ReactFlowInstance) => {
     setReactFlowInstance(instance);
     // Center the view after a short delay to ensure the graph is fully rendered
     setTimeout(() => {

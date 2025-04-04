@@ -50,23 +50,23 @@ export const nodes: Node<BaseDiagramNodeData>[] = [
 
 export const edges: Edge[] = [
   // Left to middle connections
-  { id: 'e1-2', source: 'start', target: 'assess', type: 'smoothstep' },
-  { id: 'e2-3', source: 'assess', target: 'identify', type: 'smoothstep' },
-  { id: 'e3-4', source: 'identify', target: 'defineRoles', type: 'smoothstep' },
+  { id: 'e1-2', source: 'start', target: 'assess', type: 'smoothstep', style: { stroke: '#e74c3c', strokeWidth: 2 } },
+  { id: 'e2-3', source: 'assess', target: 'identify', type: 'smoothstep', style: { stroke: '#9b59b6', strokeWidth: 2 } },
+  { id: 'e3-4', source: 'identify', target: 'defineRoles', type: 'smoothstep', style: { stroke: '#3498db', strokeWidth: 2 } },
   
   // Middle vertical flow
-  { id: 'e4-5', source: 'defineRoles', target: 'integrateKnowledge', type: 'smoothstep' },
-  { id: 'e5-6', source: 'integrateKnowledge', target: 'promptEngineering', type: 'smoothstep' },
-  { id: 'e6-7', source: 'promptEngineering', target: 'validateFrameworks', type: 'smoothstep' },
-  { id: 'e7-8', source: 'validateFrameworks', target: 'optimizeWorkflow', type: 'smoothstep' },
+  { id: 'e4-5', source: 'defineRoles', target: 'integrateKnowledge', type: 'smoothstep', style: { stroke: '#1abc9c', strokeWidth: 2 } },
+  { id: 'e5-6', source: 'integrateKnowledge', target: 'promptEngineering', type: 'smoothstep', style: { stroke: '#34495e', strokeWidth: 2 } },
+  { id: 'e6-7', source: 'promptEngineering', target: 'validateFrameworks', type: 'smoothstep', style: { stroke: '#2ecc71', strokeWidth: 2 } },
+  { id: 'e7-8', source: 'validateFrameworks', target: 'optimizeWorkflow', type: 'smoothstep', style: { stroke: '#7f8c8d', strokeWidth: 2 } },
   
   // Middle to right connections
-  { id: 'e8-9', source: 'optimizeWorkflow', target: 'trainTeams', type: 'smoothstep' },
+  { id: 'e8-9', source: 'optimizeWorkflow', target: 'trainTeams', type: 'smoothstep', style: { stroke: '#e67e22', strokeWidth: 2 } },
   
   // Right vertical flow
-  { id: 'e9-10', source: 'trainTeams', target: 'defineMetrics', type: 'smoothstep' },
-  { id: 'e10-11', source: 'defineMetrics', target: 'measureResults', type: 'smoothstep' },
-  { id: 'e11-12', source: 'measureResults', target: 'successful', type: 'smoothstep' },
+  { id: 'e9-10', source: 'trainTeams', target: 'defineMetrics', type: 'smoothstep', style: { stroke: '#8e44ad', strokeWidth: 2 } },
+  { id: 'e10-11', source: 'defineMetrics', target: 'measureResults', type: 'smoothstep', style: { stroke: '#16a085', strokeWidth: 2 } },
+  { id: 'e11-12', source: 'measureResults', target: 'successful', type: 'smoothstep', style: { stroke: '#f39c12', strokeWidth: 2 } },
   
   // Decision paths
   { 
@@ -75,8 +75,8 @@ export const edges: Edge[] = [
     target: 'scaleIntegration', 
     label: 'Yes', 
     type: 'smoothstep',
-    style: { stroke: '#4a6bff', strokeWidth: 3 }, 
-    labelStyle: { fontSize: '16px', fontWeight: 'bold', fill: '#4a6bff' },
+    style: { stroke: '#2980b9', strokeWidth: 3 }, 
+    labelStyle: { fontSize: '14px', fontWeight: 'bold', fill: '#2980b9' },
     labelBgStyle: { fill: 'white', fillOpacity: 0.8, borderRadius: 5 },
     labelShowBg: true,
     labelBgPadding: [8, 4],
@@ -87,8 +87,8 @@ export const edges: Edge[] = [
     target: 'refineApproach', 
     label: 'No', 
     type: 'smoothstep',
-    style: { stroke: '#ff4a4a', strokeWidth: 4 },
-    labelStyle: { fontSize: '16px', fontWeight: 'bold', fill: '#ff4a4a' },
+    style: { stroke: '#c0392b', strokeWidth: 3 },
+    labelStyle: { fontSize: '14px', fontWeight: 'bold', fill: '#c0392b' },
     labelBgStyle: { fill: 'white', fillOpacity: 0.9, borderRadius: 5 },
     labelShowBg: true,
     labelBgPadding: [8, 4],
@@ -100,21 +100,21 @@ export const edges: Edge[] = [
     source: 'refineApproach', 
     target: 'defineRoles', 
     type: 'smoothstep', 
-    style: { stroke: '#ff4a4a', strokeWidth: 3 } 
+    style: { stroke: '#c0392b', strokeWidth: 2 } 
   },
   { 
     id: 'e13-15', 
     source: 'scaleIntegration', 
     target: 'continuousImprovement', 
     type: 'smoothstep', 
-    style: { stroke: '#4a6bff', strokeWidth: 3 } 
+    style: { stroke: '#2980b9', strokeWidth: 2 } 
   },
   { 
     id: 'e15-11', 
     source: 'continuousImprovement', 
     target: 'measureResults', 
     type: 'smoothstep', 
-    style: { stroke: '#4a6bff', strokeWidth: 3 }, 
+    style: { stroke: '#2980b9', strokeWidth: 2 }, 
     animated: true 
   },
   { 
@@ -122,7 +122,7 @@ export const edges: Edge[] = [
     source: 'continuousImprovement', 
     target: 'end', 
     type: 'smoothstep', 
-    style: { stroke: '#4a6bff', strokeWidth: 3 } 
+    style: { stroke: '#27ae60', strokeWidth: 2 } 
   },
 ];
 
@@ -252,7 +252,7 @@ export const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramPr
     showZoomControls = false, // Changed to false to match the "Without Controls" story
     showEditControls = false,
     isStorybook = false,
-    width = '898px',
+    width = '100%',
     height = '798px',
     backgroundColor = '#f9f9f9',
     className,
@@ -358,9 +358,7 @@ export const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramPr
                 position: 'relative',
                 width: width,
                 height: height,
-                border: error ? '2px solid red' : '1px solid #ccc',
                 overflow: 'hidden',
-                padding: '4px',
                 background: backgroundColor
             }}
         >
@@ -403,9 +401,6 @@ export const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramPr
                     minZoom={minZoom}
                 />
             )}
-            
-            {/* Dimensions indicator */}
-            <DimensionsIndicator width={width} height={height} />
         </div>
     );
 };
@@ -421,21 +416,6 @@ const LoadingIndicator = () => (
         background: 'rgba(0,0,0,0.05)'
     }}>
         Loading diagram...
-    </div>
-);
-
-const DimensionsIndicator = ({ width, height }: { width: string | number, height: string | number }) => (
-    <div style={{
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        background: 'rgba(0,0,0,0.6)',
-        color: 'white',
-        padding: '2px 5px',
-        fontSize: '10px',
-        zIndex: 5
-    }}>
-        {width} × {height}
     </div>
 );
 
@@ -471,7 +451,6 @@ const DiagramContent = (props: DiagramContentProps) => {
                 width: '100%',
                 height: '100%',
                 position: 'relative',
-                border: '1px dashed #aaa'
             }}
         >
             <DiagramEditor

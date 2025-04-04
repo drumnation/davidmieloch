@@ -4,6 +4,7 @@ import React from 'react';
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import styled from 'styled-components';
 import type { BaseDiagramNodeData } from '../DiagramEditor/DiagramEditor.types';
+import { FaFlagCheckered } from 'react-icons/fa';
 
 // --- Type Definitions ---
 export interface EndNodeData extends BaseDiagramNodeData {
@@ -12,16 +13,27 @@ export interface EndNodeData extends BaseDiagramNodeData {
 
 // --- Styled Components ---
 const StyledEndNode = styled.div`
-    padding: 10px 20px;
-    border: 2px solid #4caf50;
-    background-color: #e8f5e9;
+    padding: 10px 15px;
+    border: 2px solid #27ae60;
+    background-color: #ffffff;
     text-align: center;
-    font-size: 16px;
-    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-width: 100px;
+
+    &:hover {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
     .node-icon {
-        margin-right: 8px;
+        margin-bottom: 6px;
         font-size: 1.1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #27ae60;
     }
 `;
 
@@ -36,7 +48,9 @@ const EndNode = (props: NodeProps) => {
     
     return (
         <StyledEndNode style={data.style}>
-            {data.icon && <div className="node-icon">{data.icon}</div>}
+            <div className="node-icon">
+                <FaFlagCheckered size={24} />
+            </div>
             {data.label}
             <Handle type="target" position={Position.Top} id="top" />
         </StyledEndNode>

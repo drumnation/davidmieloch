@@ -1,7 +1,7 @@
 'use client';
 
 import React, { FC, memo } from 'react';
-import { NodeProps, Handle, Position } from '@xyflow/react';
+import { NodeProps, Handle, Position, NodeTypes } from '@xyflow/react';
 import { CustomNodeData } from './SoftwareEngineeringMeceDiagram.types';
 import { 
   StyledMainComponentNode, 
@@ -10,11 +10,12 @@ import {
 } from './SoftwareEngineeringMeceDiagram.styles';
 
 // Main Component Node (Software Engineering)
-export const MainComponentNode: FC<NodeProps<CustomNodeData>> = memo(({ data }) => {
+export const MainComponentNode: FC<NodeProps> = memo(({ data }) => {
+  const nodeData = data as CustomNodeData;
   return (
     <StyledMainComponentNode>
-      {data.icon && <span className="node-icon">{data.icon}</span>}
-      <div>{data.label}</div>
+      {nodeData.icon && <span className="node-icon">{nodeData.icon}</span>}
+      <div>{nodeData.label}</div>
       <Handle
         type="source"
         position={Position.Bottom}
@@ -28,7 +29,8 @@ export const MainComponentNode: FC<NodeProps<CustomNodeData>> = memo(({ data }) 
 MainComponentNode.displayName = 'MainComponentNode';
 
 // Category Node (UI Layer, Business Logic, etc.)
-export const CategoryNode: FC<NodeProps<CustomNodeData>> = memo(({ data }) => {
+export const CategoryNode: FC<NodeProps> = memo(({ data }) => {
+  const nodeData = data as CustomNodeData;
   return (
     <StyledCategoryNode>
       <Handle
@@ -37,8 +39,8 @@ export const CategoryNode: FC<NodeProps<CustomNodeData>> = memo(({ data }) => {
         id="category-input"
         style={{ background: '#4c51bf' }}
       />
-      {data.icon && <span className="node-icon">{data.icon}</span>}
-      <div>{data.label}</div>
+      {nodeData.icon && <span className="node-icon">{nodeData.icon}</span>}
+      <div>{nodeData.label}</div>
       <Handle
         type="source"
         position={Position.Bottom}
@@ -52,7 +54,8 @@ export const CategoryNode: FC<NodeProps<CustomNodeData>> = memo(({ data }) => {
 CategoryNode.displayName = 'CategoryNode';
 
 // Item Node (Components, Services, etc.)
-export const ItemNode: FC<NodeProps<CustomNodeData>> = memo(({ data }) => {
+export const ItemNode: FC<NodeProps> = memo(({ data }) => {
+  const nodeData = data as CustomNodeData;
   return (
     <StyledItemNode>
       <Handle
@@ -61,7 +64,7 @@ export const ItemNode: FC<NodeProps<CustomNodeData>> = memo(({ data }) => {
         id="item-input"
         style={{ background: '#4299e1' }}
       />
-      <div>{data.label}</div>
+      <div>{nodeData.label}</div>
     </StyledItemNode>
   );
 });
@@ -69,7 +72,7 @@ export const ItemNode: FC<NodeProps<CustomNodeData>> = memo(({ data }) => {
 ItemNode.displayName = 'ItemNode';
 
 // Export node types for use in React Flow
-export const nodeTypes = {
+export const nodeTypes: NodeTypes = {
   mainComponent: MainComponentNode,
   category: CategoryNode,
   item: ItemNode,

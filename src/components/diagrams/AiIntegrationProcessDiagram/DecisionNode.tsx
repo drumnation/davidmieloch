@@ -4,6 +4,7 @@ import React from 'react';
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import styled from 'styled-components';
 import type { BaseDiagramNodeData } from '../DiagramEditor/DiagramEditor.types';
+import { FaQuestion } from 'react-icons/fa';
 
 // --- Type Definitions ---
 export interface DecisionNodeData extends BaseDiagramNodeData {
@@ -12,21 +13,32 @@ export interface DecisionNodeData extends BaseDiagramNodeData {
 
 // --- Styled Components ---
 const StyledDecisionNode = styled.div`
-    padding: 10px 20px;
-    border: 2px solid #4a90e2;
-    background-color: #e6f7ff;
+    padding: 10px;
+    border: 2px solid #f39c12;
+    background-color: #ffffff;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 500;
     border-radius: 50%; // Circle for decision
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
     .node-icon {
-        margin-right: 8px;
+        margin-bottom: 6px;
         font-size: 1.1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f39c12;
     }
 `;
 
@@ -41,7 +53,9 @@ const DecisionNode = (props: NodeProps) => {
     
     return (
         <StyledDecisionNode style={data.style}>
-            {data.icon && <div className="node-icon">{data.icon}</div>}
+            <div className="node-icon">
+                <FaQuestion size={24} />
+            </div>
             {data.label}
             <Handle type="target" position={Position.Top} id="top" />
             <Handle type="source" position={Position.Bottom} id="bottom" />
