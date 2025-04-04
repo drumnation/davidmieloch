@@ -65,12 +65,12 @@ export interface SoftwareEngineeringMeceDiagramProps {
 }
 
 /**
- * Custom node data interface with index signature
+ * Custom node data interface for node data
  */
 export interface CustomNodeData {
   label: string;
   icon?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -92,11 +92,11 @@ export interface ThemeStyles {
   itemColor: string;
 }
 
-// Custom node type as an extension of the standard Node type
+// Custom node type with custom data
 export type CustomNode = Node<CustomNodeData>;
 
 // Custom edge type extending the React Flow Edge type
 export type CustomEdge = Edge;
 
 // Props for node components
-export type CustomNodeProps = NodeProps<CustomNodeData>; 
+export type CustomNodeProps = NodeProps; 

@@ -10,19 +10,15 @@ export const DiagramContainer = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 `;
 
 /**
  * Header for the diagram
  */
 export const DiagramHeader = styled.div`
-  padding: 12px 16px;
-  background-color: #1e293b;
-  border-bottom: 1px solid #e5e7eb;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  padding: 24px 30px;
+  background-color: #2c3e50;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
 /**
@@ -36,20 +32,24 @@ export const DiagramBody = styled.div`
 /**
  * Title for the diagram
  */
-export const DiagramTitle = styled.h3`
-  font-size: 18px;
-  font-weight: 600;
+export const DiagramTitle = styled.h2`
+  font-size: 32px;
+  font-weight: 700;
   margin: 0;
   color: #ffffff;
+  letter-spacing: -0.02em;
 `;
 
 /**
  * Description for the diagram
  */
 export const DiagramDescription = styled.p`
-  font-size: 14px;
-  margin: 4px 0 0;
-  color: #94a3b8;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 12px 0 0;
+  color: #cbd5e1;
+  font-weight: 400;
+  max-width: 90%;
 `;
 
 /**

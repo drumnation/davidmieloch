@@ -52,7 +52,7 @@ import {
 /**
  * Main component for the diagram editor
  */
-const DiagramEditor: React.FC<DiagramEditorProps> = ({
+export const DiagramEditor: React.FC<DiagramEditorProps> = ({
   nodes,
   edges,
   nodeTypes,
@@ -225,9 +225,25 @@ const DiagramEditor: React.FC<DiagramEditorProps> = ({
   
   return (
     <DiagramContainer className={className} style={{ width, height, backgroundColor }} role="region" aria-label={accessibilityDescription || 'Interactive diagram'}>
-      <DiagramHeader style={{ backgroundColor: headerBackgroundColor }}>
-        {title && <DiagramTitle>{title}</DiagramTitle>}
-        {description && <DiagramDescription>{description}</DiagramDescription>}
+      <DiagramHeader style={{ 
+        backgroundColor: headerBackgroundColor,
+        padding: '24px 30px',
+        borderRadius: '0',
+        borderTopLeftRadius: '0',
+        borderTopRightRadius: '0'
+      }}>
+        {title && <DiagramTitle style={{ 
+          fontSize: '32px', 
+          fontWeight: 700,
+          letterSpacing: '-0.02em'
+        }}>{title}</DiagramTitle>}
+        {description && <DiagramDescription style={{ 
+          fontSize: '18px',
+          lineHeight: 1.6,
+          marginTop: '12px',
+          color: '#cbd5e1',
+          maxWidth: '90%'
+        }}>{description}</DiagramDescription>}
       </DiagramHeader>
       <DiagramBody>
         <ReactFlowProvider>
@@ -241,43 +257,20 @@ const DiagramEditor: React.FC<DiagramEditorProps> = ({
               onConnect={onConnect}
               onMove={onMove}
               fitView
-              fitViewOptions={{ padding: 0.1 }}
+              fitViewOptions={{ padding: 0.05 }}
               defaultViewport={{ x: initialPosition.x, y: initialPosition.y, zoom: initialZoom }}
               minZoom={minZoom}
               maxZoom={maxZoom}
               nodesDraggable={!isStorybook}
               nodesConnectable={!isStorybook}
               elementsSelectable={!isStorybook}
-              proOptions={{ hideAttribution: true }}
-              style={{ background: 'transparent' }}
+              zoomOnScroll={false}
+              panOnScroll={false}
+              panOnDrag={false}
+              zoomOnPinch={false}
+              zoomOnDoubleClick={false}
             >
-              {!isStorybook && <Background variant={BackgroundVariant.Dots} gap={12} size={1} />}
-              
-              {!isStorybook && showEditControls && (
-                <Panel position="top-right">
-                  <ButtonGroup>
-                    <ZoomButton onClick={handleFitView}>Fit View</ZoomButton>
-                  </ButtonGroup>
-                </Panel>
-              )}
-              
-              {!isStorybook && (
-                <Panel position="bottom-right">
-                  <ButtonGroup>
-                    <ZoomButton onClick={handleZoomOut}>-</ZoomButton>
-                    <ZoomSlider
-                      type="range"
-                      min={minZoom * 100}
-                      max={maxZoom * 100}
-                      value={sliderValue}
-                      onChange={handleSliderChange}
-                    />
-                    <ZoomButton onClick={handleZoomIn}>+</ZoomButton>
-                  </ButtonGroup>
-                </Panel>
-              )}
-              
-              {!isStorybook && <Controls showZoom={false} showInteractive={false} />}
+              {showEditControls && <Controls />}
             </ReactFlowComponent>
           </DiagramWrapper>
         </ReactFlowProvider>

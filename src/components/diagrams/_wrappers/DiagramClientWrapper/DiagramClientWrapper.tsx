@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ClientDiagramWrapper } from '../../../shared-components/molecules/ReactFlowDiagram';
+import ClientDiagramWrapper from '../../../../shared-components/molecules/ReactFlowDiagram/ClientDiagramWrapper';
 import { DiagramClientWrapperProps } from './DiagramClientWrapper.types';
 import { DiagramContainer } from './DiagramClientWrapper.styles';
 
