@@ -11,6 +11,22 @@ alwaysApply: true
 - SOLID Principles
 - DRY (Don't Repeat Yourself)
 
+ALWAYS SPLIT REACT COMPONENTS INTO THIS PATTERN
+
+- [Component].utils.ts
+- [Component].flow.ts
+- [Component].nodes.ts - positional data for the nodes
+- [Component].hook.ts - all stateful component logic
+- [Component].logic.ts - non-stateful business logic and static variables
+- [Component].styles.ts - styled components styles and other
+- [Component].tsx - main component skeleton
+- index.ts - barrel exports
+
+ALWAYS REFACTOR FILES LARGER THAN 500 lines.
+
+- If [Component.tsx] begins to get large, immediately break out a components folder inside the main folder
+- If you are NOT proactive with refactored when a file is larger than 500 lines, the file will get so long it will be impossible to refactor later.
+
 ## Process Steps
 
 ### 1. Analysis
@@ -47,4 +63,48 @@ alwaysApply: true
 - Keep components focused and small
 - Avoid prop drilling
 - Use proper naming conventions
-- Maintain consistent formatting
+- Maintain consistent formatting# Refactoring Guidelines
+
+## Core Principles
+- KISS (Keep It Simple, Stupid)
+- YAGNI (You Aren't Gonna Need It)
+- SOLID Principles
+- DRY (Don't Repeat Yourself)
+
+## Process Steps
+
+### 1. Analysis
+- Review component purpose and functionality
+- Identify code smells and technical debt
+- Document current behavior for testing
+
+### 2. Component Structure
+- Extract inline functions to handlers
+- Move complex logic to .logic.ts
+- Create subcomponents for reusable pieces
+- Use hooks for stateful logic
+- Follow component folder structure
+
+### 3. Error Handling
+- Implement error boundaries
+- Add try-catch for async operations
+- Provide user feedback
+- Set up logging mechanisms
+
+### 4. Type Safety
+- Ensure strict TypeScript usage
+- Add/update type definitions
+- Use proper generics
+- Avoid type assertions
+
+### 5. Testing & Documentation
+- Maintain test coverage
+- Update documentation
+- Add JSDoc comments
+- Update Storybook stories
+
+## Best Practices
+- Keep components focused and small
+- Avoid prop drilling
+- Use proper naming conventions
+- Maintain consistent formattinglocallocalhostlocalasdlasllsald

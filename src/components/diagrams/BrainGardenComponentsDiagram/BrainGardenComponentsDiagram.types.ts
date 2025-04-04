@@ -1,3 +1,6 @@
+import { Node as ReactFlowNode, Edge as ReactFlowEdge } from '@xyflow/react';
+import React from 'react';
+
 /**
  * Props for the BrainGardenComponentsDiagram component
  */
@@ -21,7 +24,7 @@ export interface BrainGardenComponentsDiagramProps {
   
   /**
    * Optional height for the diagram container
-   * @default 'auto'
+   * @default '600px'
    */
   height?: string | number;
   
@@ -35,6 +38,12 @@ export interface BrainGardenComponentsDiagramProps {
    * @default true
    */
   showZoomControls?: boolean;
+
+  /**
+   * Whether nodes can be dragged by the user
+   * @default false
+   */
+  nodesDraggable?: boolean;
 
   /**
    * Description for screen readers to describe the diagram
@@ -54,3 +63,29 @@ export interface BrainGardenComponentsDiagramProps {
    */
   debug?: boolean;
 }
+
+/**
+ * Custom node data interface with index signature
+ */
+export interface CustomNodeData extends Record<string, unknown> { 
+  label: string;
+  icon?: string;
+  style?: React.CSSProperties;
+}
+
+/**
+ * Internal props for the DiagramFlow component
+ */
+export interface DiagramFlowProps extends BrainGardenComponentsDiagramProps {}
+
+/**
+ * Theme style configuration
+ */
+export interface ThemeStyles {
+  backgroundColor?: string;
+  color?: string;
+}
+
+// Export custom node and edge types for better type safety across files
+export type CustomNode = ReactFlowNode<CustomNodeData>;
+export type CustomEdge = ReactFlowEdge;
