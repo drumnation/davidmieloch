@@ -1,42 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { RedditIcon } from '../../AiSkepticToExpert.logic';
-import { Typography } from '../../../../atoms/Typography';
-
-// Create a simple component to display the Reddit section
-const RedditSection = () => {
-  return (
-    <div style={{ 
-      maxWidth: '600px', 
-      margin: '0 auto', 
-      padding: '20px', 
-      borderRadius: '8px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-      background: 'white',
-      display: 'flex',
-      transition: 'transform 0.2s ease-in-out',
-      cursor: 'pointer'
-    }}>
-      <div style={{ marginRight: '16px' }}>
-        <RedditIcon />
-      </div>
-      <div>
-        <div style={{ color: '#000000' }}>
-          <Typography variant="caption" weight="bold" className="mb-1">
-            🔥 Trending on r/ExperiencedDevs
-          </Typography>
-        </div>
-        <div style={{ color: '#0066CC' }}>
-          <Typography variant="body" weight="bold" className="mb-1">
-            &ldquo;AI coding mandates at work?&rdquo;
-          </Typography>
-        </div>
-        <Typography variant="caption" color="secondary">
-          💬 286 comments &nbsp;&nbsp; ⬆️ 283 upvotes
-        </Typography>
-      </div>
-    </div>
-  );
-};
+import { RedditSection } from './RedditSection';
 
 const meta = {
   title: 'Pages/01-WhitePaper/01-AiSkepticToExpert/01-RedditSection',
@@ -44,11 +7,22 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  args: {
+    url: "https://www.reddit.com/r/ExperiencedDevs/comments/1j7aqsx/ai_coding_mandates_at_work/?share_id=Dhejf8gsX_-YUsuIH1nNE&utm_medium=ios_app&utm_name=ioscss&utm_content=share&utm_term=1",
+    title: "AI coding mandates at work?",
+    commentCount: 286,
+    upvoteCount: 283,
+    subreddit: "ExperiencedDevs"
+  }
 } satisfies Meta<typeof RedditSection>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {},
+export const Default: Story = {};
+
+export const CustomSubreddit: Story = {
+  args: {
+    subreddit: "programming"
+  }
 }; 

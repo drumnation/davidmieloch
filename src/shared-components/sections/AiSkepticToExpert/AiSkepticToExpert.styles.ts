@@ -1,30 +1,13 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import { AnimationVariants } from '../../../utils/animations/migration-helpers';
+import { SPACING, COLORS } from './AiSkepticToExpert.shared';
 
-// Define consistent spacing variables that can be reused across components
-export const SPACING = {
-  section: '4rem',
-  paragraph: '1.5rem',
-  paragraphBreak: '2rem', // Added specific spacing for paragraph breaks
-  element: '1rem',
-  container: '1.5rem',
-  
-  // Responsive spacing for mobile
-  mobile: {
-    section: '2.5rem',
-    paragraph: '1.25rem',
-    paragraphBreak: '1.5rem',
-    element: '0.75rem',
-    container: '1rem'
-  }
-};
-
-// Global styles for animation classes
+// Global styles for the component
 export const GlobalStyles = createGlobalStyle`
   .ai-skeptic-content-section {
     width: 100%;
-    background-color: #fff;
+    background-color: ${COLORS.background.light};
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     margin-top: -24px;
@@ -38,23 +21,11 @@ export const GlobalStyles = createGlobalStyle`
     align-items: stretch;
     
     @media (max-width: 576px) {
-      padding-top: calc(${SPACING.section} * 0.75);
-      padding-bottom: calc(${SPACING.section} * 0.75);
+      padding-top: ${SPACING.mobile.section};
+      padding-bottom: ${SPACING.mobile.section};
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
       margin-top: -16px;
-    }
-  }
-
-  .ai-skeptic-content-container {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto ${SPACING.section};
-    padding: 0 ${SPACING.container};
-    
-    @media (max-width: 576px) {
-      margin-bottom: calc(${SPACING.section} * 0.75);
-      padding: 0 ${SPACING.container};
     }
   }
 `;
@@ -69,7 +40,7 @@ export const Container = styled.div`
 
 export const ContentSection = styled.div`
   width: 100%;
-  background-color: #fff;
+  background-color: ${COLORS.background.light};
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   margin-top: -24px;
@@ -83,8 +54,8 @@ export const ContentSection = styled.div`
   align-items: stretch;
   
   @media (max-width: 576px) {
-    padding-top: calc(${SPACING.section} * 0.75);
-    padding-bottom: calc(${SPACING.section} * 0.75);
+    padding-top: ${SPACING.mobile.section};
+    padding-bottom: ${SPACING.mobile.section};
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     margin-top: -16px;

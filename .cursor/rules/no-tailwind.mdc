@@ -1,0 +1,15 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# We aren't using tailwind - using it will break the styling
+
+DON'T DO THIS:
+
+<Typography className="mb-4">
+
+The tailwind class just WILL NOT WORK.  
+
+IT IS NOT INSTALLED AND WE DON'T LIKE TAILWIND!

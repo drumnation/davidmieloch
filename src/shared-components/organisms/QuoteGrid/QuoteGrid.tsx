@@ -16,8 +16,13 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
   const componentName = "QuoteGrid";
   const isBlueTheme = background === 'blue';
 
-  // Skip animations if animation is set to none
-  if (animation === 'none') {
+  // Check for reduced motion preference
+  const prefersReducedMotion = 
+    typeof window !== 'undefined' ? 
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+
+  // Skip animations if animation is set to none or reduced motion is preferred
+  if (animation === 'none' || prefersReducedMotion) {
     return (
       <div className={className}>
         <Grid $layout={layout} $background="light">
@@ -49,7 +54,7 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
     visible: { 
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         staggerChildren: 0.1,
         delayChildren: 0.2
       }
@@ -63,11 +68,32 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
       y: 0,
       transition: {
         type: "spring",
-        mass: 1,
-        tension: 280,
-        friction: 60
+        stiffness: 50,
+        damping: 20
+      }
+    },
+    hover: {
+      y: -8,
+      boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 20
       }
     }
+  };
+
+  const iconVariants = {
+    initial: { scale: 1 },
+    hover: { 
+      scale: 1.15, 
+      transition: { type: "spring", stiffness: 400, damping: 10 } 
+    }
+  };
+
+  const textVariants = {
+    initial: { opacity: 0.95 },
+    hover: { opacity: 1 }
   };
 
   const renderContent = () => (
@@ -82,14 +108,24 @@ export const QuoteGrid: React.FC<QuoteGridProps> = ({
           <motion.div 
             key={index}
             variants={cardVariants}
+            whileHover="hover"
+            whileTap={{ scale: 0.98 }}
           >
-            <QuoteCard $style={style} $background={isBlueTheme ? 'blue' : background}>
+            <QuoteCard 
+              $style={style} 
+              $background={isBlueTheme ? 'blue' : background}
+              variants={cardVariants}
+              initial="initial"
+            >
               {quote.icon && (
-                <IconWrapper $background={isBlueTheme ? 'blue' : background}>
+                <IconWrapper 
+                  $background={isBlueTheme ? 'blue' : background}
+                  variants={iconVariants}
+                >
                   {quote.icon}
                 </IconWrapper>
               )}
-              <QuoteText>&ldquo;{quote.text}&rdquo;</QuoteText>
+              <QuoteText variants={textVariants}>&ldquo;{quote.text}&rdquo;</QuoteText>
               <QuoteAuthor>
                 — {quote.author}
                 {quote.role && `, ${quote.role}`}

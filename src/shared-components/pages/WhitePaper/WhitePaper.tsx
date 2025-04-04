@@ -41,15 +41,22 @@ const ContentContainer = styled.div`
 export const WhitePaper: React.FC<WhitePaperProps> = ({
   className,
 }) => {
-  const [isClient, setIsClient] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
-  // Fix for hydration issues
+  // Fix for hydration issues and ensure content is loaded
   useEffect(() => {
-    setIsClient(true);
+    // Use requestAnimationFrame to ensure the browser has painted before removing loader
+    const loadTimer = setTimeout(() => {
+      requestAnimationFrame(() => {
+        setIsLoading(false);
+      });
+    }, 300); // Small delay to ensure transition is smooth
+
+    return () => clearTimeout(loadTimer);
   }, []);
 
-  // Only render on client-side to prevent hydration mismatch
-  if (!isClient) {
+  // Show spinner while loading
+  if (isLoading) {
     return <SpinnerLoader type="hash" color="#2196f3" size={70} fullPage={true} />;
   }
 
