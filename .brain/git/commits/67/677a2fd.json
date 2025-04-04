@@ -1,0 +1,17 @@
+{
+  "hash": "677a2fd",
+  "messageSubject": "feat(diagrams): update component architecture for ReactFlow and Mermaid integration",
+  "messageBody": "Update the fundamental diagram components to support both ReactFlow and\nMermaid rendering capabilities. Modify DiagramEditor, DiagramClientWrapper\nand related components to handle both visualization formats seamlessly.\n\nKey changes:\n- Update DiagramEditor.tsx to support dynamic rendering\n- Modify DiagramClientWrapper for better integration\n- Update component types to support both formats",
+  "messageFooter": "",
+  "files": [
+    "src/components/diagrams/DiagramEditor/DiagramEditor.styles.ts",
+    "src/components/diagrams/DiagramEditor/DiagramEditor.tsx",
+    "src/components/diagrams/_wrappers/DiagramClientWrapper/DiagramClientWrapper.tsx",
+    "src/components/diagrams/SoftwareEngineeringMeceDiagram/SoftwareEngineeringMeceDiagram.types.ts",
+    "src/utils/animations/disable-react-flow-animations.ts"
+  ],
+  "timestamp": "2025-04-04T00:00:00Z",
+  "branch": "feature/mermaid-reactflow-integration",
+  "planFile": ".brain/git/plans/mermaid-reactflow-integration-plan.md",
+  "planCommitId": 1
+}
