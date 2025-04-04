@@ -6,6 +6,8 @@ import {
   paragraphContainerStyle,
   paragraphContainerTopMarginStyle
 } from '../../AiAutopilotAnalogy.styles';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer } from '../../AiAutopilotAnalogy.styles';
 
 interface BlueprintItem {
   name: string;
@@ -37,7 +39,7 @@ export const LeadershipBlueprintSection: React.FC<LeadershipBlueprintSectionProp
   className
 }) => {
   return (
-    <div className={className}>
+    <div className={className} style={{ marginTop: '3rem' }}>
       <div className="text-left" style={titleContainerStyle}>
         <SectionTitle title={title} />
       </div>
@@ -49,7 +51,15 @@ export const LeadershipBlueprintSection: React.FC<LeadershipBlueprintSectionProp
       </div>
       
       {/* Quotes Section */}
-      <div style={{...paragraphContainerStyle, marginLeft: '1.5rem', borderLeft: '3px solid #e0e0e0', paddingLeft: '1.5rem'}}>
+      <div style={{
+        ...paragraphContainerStyle, 
+        marginLeft: '1.5rem', 
+        borderLeft: '3px solid #3b82f6', 
+        paddingLeft: '1.5rem',
+        backgroundColor: '#f0f7ff',
+        borderRadius: '0 8px 8px 0',
+        padding: '1rem 1.5rem'
+      }}>
         {narrative.quotes.map((quote, index) => (
           <div key={`quote-${index}`} style={index > 0 ? {marginTop: '1rem'} : {}}>
             <SectionParagraph>
@@ -66,41 +76,76 @@ export const LeadershipBlueprintSection: React.FC<LeadershipBlueprintSectionProp
       </div>
       
       {/* Blueprint Items */}
-      {blueprint.map((section, sectionIndex) => (
-        <div key={`section-${sectionIndex}`} style={{marginTop: '2rem'}}>
-          <Typography variant="h3" weight="semibold" className="mb-3">
-            {section.title}
-          </Typography>
-          
-          <ul style={{listStyle: 'none', padding: 0}}>
-            {section.items.map((item, itemIndex) => (
-              <li 
-                key={`item-${sectionIndex}-${itemIndex}`} 
-                style={{
-                  marginBottom: '1.5rem',
-                  padding: '1.5rem',
-                  backgroundColor: '#f8f9fa',
-                  borderRadius: '8px',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-                }}
-              >
-                <Typography variant="h3" className="mb-2" weight="medium">
-                  {item.name}
+      <motion.div 
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        {blueprint.map((section, sectionIndex) => (
+          <motion.div 
+            key={`section-${sectionIndex}`} 
+            variants={fadeInUp}
+            style={{marginTop: '2rem'}}
+          >
+            <div style={{
+              backgroundColor: '#3b82f6',
+              color: 'white',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '8px 8px 0 0',
+              marginBottom: '0',
+              display: 'flex',
+              alignItems: 'center'
+            }}>
+              <div style={{margin: 0}}>
+                <Typography variant="h3" weight="semibold" color="light">
+                  {section.title}
                 </Typography>
-                <Typography variant="body">
-                  {item.description}
-                </Typography>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+              </div>
+            </div>
+            
+            <ul style={{
+              listStyle: 'none', 
+              padding: '0',
+              borderRadius: '0 0 8px 8px',
+              overflow: 'hidden',
+              border: '1px solid #e5e7eb',
+              borderTop: 'none',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              marginTop: '0'
+            }}>
+              {section.items.map((item, itemIndex) => (
+                <motion.li 
+                  key={`item-${sectionIndex}-${itemIndex}`} 
+                  variants={fadeInUp}
+                  style={{
+                    padding: '1.5rem',
+                    backgroundColor: itemIndex % 2 === 0 ? '#f8f9fa' : 'white',
+                    borderBottom: itemIndex !== section.items.length - 1 ? '1px solid #e5e7eb' : 'none'
+                  }}
+                >
+                  <div style={{marginBottom: '0.5rem'}}>
+                    <Typography variant="h3" weight="medium">
+                      {item.name}
+                    </Typography>
+                  </div>
+                  <Typography variant="body">
+                    {item.description}
+                  </Typography>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
+      </motion.div>
       
       {/* Bottom Line */}
-      <div style={paragraphContainerTopMarginStyle}>
-        <Typography variant="body" weight="bold" className="mb-2">
-          The Bottom Line:
-        </Typography>
+      <div style={{...paragraphContainerTopMarginStyle, marginBottom: '0'}}>
+        <div style={{marginBottom: '0.5rem'}}>
+          <Typography variant="body" weight="bold">
+            The Bottom Line:
+          </Typography>
+        </div>
         <SectionParagraph>
           {bottomLine}
         </SectionParagraph>

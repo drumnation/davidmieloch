@@ -169,6 +169,18 @@ export const BackgroundSection = styled.div`
   }
 `;
 
+export const WhiteBackgroundSection = styled.div`
+  width: 100%;
+  background-color: #fff;
+  padding: ${SPACING.section} 0;
+  margin-bottom: ${SPACING.section};
+  
+  @media (max-width: 576px) {
+    padding: calc(${SPACING.section} * 0.75) 0;
+    margin-bottom: calc(${SPACING.section} * 0.75);
+  }
+`;
+
 export const AccentBackgroundSection = styled.div`
   width: 100%;
   background-color: #f0f7ff;

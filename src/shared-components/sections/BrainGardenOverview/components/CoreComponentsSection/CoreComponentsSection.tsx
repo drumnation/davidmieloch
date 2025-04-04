@@ -4,7 +4,7 @@ import { Typography } from '../../../../atoms/Typography';
 import { FeatureGrid } from '../../../../organisms/FeatureGrid/FeatureGrid';
 import { CoreComponentsSectionProps } from './CoreComponentsSection.types';
 import {
-  BackgroundSection,
+  WhiteBackgroundSection,
   ContentContainerNoMargin,
   MermaidContainer,
   SectionSubtitle
@@ -40,7 +40,7 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
   console.log('CoreComponentsSection rendering with layout=row');
 
   return (
-    <BackgroundSection
+    <WhiteBackgroundSection
       className={className}
       id="core-components"
     >
@@ -103,6 +103,6 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
           </div>
         </div>
       </ContentContainerNoMargin>
-    </BackgroundSection>
+    </WhiteBackgroundSection>
   );
 };

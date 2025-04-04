@@ -1,6 +1,8 @@
 import React from 'react';
 import { SectionTitle, SectionParagraph } from '../ui-components';
 import { paragraphContainerStyle, paragraphContainerStyle as additionalStyle } from '../../AiAutopilotAnalogy.styles';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer } from '../../AiAutopilotAnalogy.styles';
 
 interface IntroductionSectionProps {
   className?: string;
@@ -10,18 +12,36 @@ export const IntroductionSection: React.FC<IntroductionSectionProps> = ({
   className,
 }) => {
   return (
-    <div className={className}>
-      <div className="text-left" style={additionalStyle}>
+    <motion.div 
+      className={className}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      <motion.div variants={fadeInUp} style={additionalStyle}>
         <SectionTitle title="Reframing AI: The Autopilot Analogy" />
-      </div>
+      </motion.div>
       
-      <div style={paragraphContainerStyle}>
+      <motion.div variants={fadeInUp} style={paragraphContainerStyle}>
         <SectionParagraph>
           As one experienced developer in the Reddit thread eloquently explained:
         </SectionParagraph>
-      </div>
+      </motion.div>
       
-      <div style={{...paragraphContainerStyle, marginLeft: '1.5rem', borderLeft: '3px solid #e0e0e0', paddingLeft: '1.5rem'}}>
+      <motion.div 
+        variants={fadeInUp}
+        style={{
+          ...paragraphContainerStyle, 
+          marginLeft: '1.5rem', 
+          borderLeft: '3px solid #3b82f6', 
+          paddingLeft: '1.5rem',
+          backgroundColor: '#f0f7ff',
+          borderRadius: '0 8px 8px 0',
+          padding: '1rem 1.5rem',
+          boxShadow: '0 2px 6px rgba(0,0,0,0.05)'
+        }}
+      >
         <SectionParagraph>
           &quot;There&apos;s a &apos;Hollywood view&apos; of autopilot where it&apos;s a magical tool that the pilot just flicks on after takeoff, then they sit back and let it fly them to their destination. This view bleeds into other domains such as self-driving cars and AI programming tools.
         </SectionParagraph>
@@ -43,13 +63,13 @@ export const IntroductionSection: React.FC<IntroductionSectionProps> = ({
             The autopilot may do the stick, rudder, and throttle work, but it does nothing that isn&apos;t actively monitored by the pilot as part of their higher-level duties.&quot;
           </SectionParagraph>
         </div>
-      </div>
+      </motion.div>
       
-      <div style={paragraphContainerStyle}>
+      <motion.div variants={fadeInUp} style={paragraphContainerStyle}>
         <SectionParagraph>
           This analogy perfectly captures how we should view AI in software development - not as a replacement for human developers, but as a tool that reduces cognitive load so developers can focus on more strategic concerns.
         </SectionParagraph>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }; 

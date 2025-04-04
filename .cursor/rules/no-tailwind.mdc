@@ -13,3 +13,7 @@ DON'T DO THIS:
 The tailwind class just WILL NOT WORK.  
 
 IT IS NOT INSTALLED AND WE DON'T LIKE TAILWIND!
+
+Do not use the className prop. If you see it, remove it and substitute for the most logical substitute.
+
+We use styled components in this app.

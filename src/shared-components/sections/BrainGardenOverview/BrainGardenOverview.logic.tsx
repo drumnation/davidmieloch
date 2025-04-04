@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { HeroProps } from '../../organisms/Hero/Hero.types';
 import { BrainGardenOverviewProps } from './BrainGardenOverview.types';
 import { defaultContent } from './BrainGardenOverview.constants';
@@ -12,6 +12,31 @@ import {
   CTAButton,
   IntroText
 } from './BrainGardenOverview.styles';
+import { UseSectionVisibilityResult } from './hooks/useSectionVisibility';
+
+/**
+ * A reusable animated section component that applies visibility styles
+ */
+export const AnimatedSection: React.FC<{
+  visibilityProps: UseSectionVisibilityResult;
+  children: ReactNode;
+  id?: string;
+  className?: string;
+}> = ({ visibilityProps, children, id, className }) => {
+  const { ref, style, inView } = visibilityProps;
+  
+  return (
+    <div 
+      ref={ref} 
+      style={style} 
+      id={id} 
+      className={className}
+      data-inview={inView}
+    >
+      {children}
+    </div>
+  );
+};
 
 /**
  * Enhances the hero props with consistent styling and defaults
