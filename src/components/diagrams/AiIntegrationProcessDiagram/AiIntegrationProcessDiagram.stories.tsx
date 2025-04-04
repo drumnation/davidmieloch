@@ -1,66 +1,85 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { AiIntegrationProcessDiagram } from './AiIntegrationProcessDiagram';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
+import DiagramEditor from '../DiagramEditor';
+import { AiIntegrationProcessDiagram, nodes, edges } from '.';
 
-const meta = {
-  title: 'Diagrams/AiIntegrationProcessDiagram',
+/**
+ * Storybook configuration for the AiIntegrationProcessDiagram component.
+ * This diagram illustrates the process flow for integrating AI into development workflows.
+ */
+
+// Using the exact app dimensions (898x798) to ensure consistency with the actual app
+const APP_DIAGRAM_DIMENSIONS = {
+  width: '898px',
+  height: '798px',
+};
+
+// This ensures all diagrams show the edit controls in Storybook only
+const meta: Meta<typeof AiIntegrationProcessDiagram> = {
+  title: 'Diagrams/AI Integration Process',
   component: AiIntegrationProcessDiagram,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
+    chromatic: { disableSnapshot: true },
+    viewport: { defaultViewport: 'responsive' },
     docs: {
       description: {
-        component: 'A diagram showing the AI integration process flow using React Flow.'
+        component: 'Interactive diagram showing the AI integration process flow. Includes controls for editing and capturing node positions in Storybook environment only.',
       },
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof AiIntegrationProcessDiagram>;
+  args: {
+    ...APP_DIAGRAM_DIMENSIONS,
+    showZoomControls: true, // Always enable in Storybook
+    initialZoom: 0.65,
+  },
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof AiIntegrationProcessDiagram>;
 
+/**
+ * Default display showing the AI Integration Process Flow diagram
+ * Uses the exact app dimensions (898x798) to ensure consistency with the actual app
+ */
 export const Default: Story = {
   args: {
-    title: 'AI Integration Process Flow',
-    description: 'The following diagram illustrates the ideal process flow for integrating AI into development workflows',
     width: '100%',
-    height: '800px',
-    showZoomControls: true,
+    height: '100%',
+    isStorybook: true
+  },
+  parameters: {
+    layout: 'fullscreen',
   },
 };
 
-export const DarkTheme: Story = {
+/**
+ * Compact view of the diagram with a smaller size but maintaining proportions
+ */
+export const CompactView: Story = {
   args: {
-    ...Default.args,
-    theme: 'dark',
-    backgroundColor: '#1a1a1a',
+    title: 'AI Integration Process (Compact)',
+    width: '700px',
+    height: '620px',
+    initialZoom: 0.45,
   },
 };
 
-export const ForestTheme: Story = {
+/**
+ * Diagram view without editing controls, as it would appear in production
+ */
+export const WithoutControls: Story = {
   args: {
-    ...Default.args,
-    theme: 'forest',
-  },
-};
-
-export const NeutralTheme: Story = {
-  args: {
-    ...Default.args,
-    theme: 'neutral',
-  },
-};
-
-export const NoZoomControls: Story = {
-  args: {
-    ...Default.args,
     showZoomControls: false,
+    title: 'AI Integration Process (View Only)',
   },
 };
 
-export const CustomTitle: Story = {
+export const WithCustomDimensions: Story = {
   args: {
-    ...Default.args,
-    title: 'Custom AI Integration Flow',
-    description: 'A custom implementation of the AI integration process',
+    width: '800px',
+    height: '700px',
+    isStorybook: true
   },
 }; 

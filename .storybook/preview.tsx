@@ -3,6 +3,13 @@ import type { Preview } from '@storybook/react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { theme as styledTheme } from '../src/styles/theme/styled-theme'
 import { viewports } from '../src/styles/theme/viewports'
+import { ThemeProvider } from 'styled-components'
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
+import { GlobalStyle } from '../src/theme/GlobalStyle'
+import { themes } from '../src/theme/theme'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { queryClient } from '../src/lib/react-query'
+import { RootLayoutClient } from '../src/app/RootLayoutClient'
 
 // Add global styles for fonts
 import './storybook.css'
@@ -14,7 +21,10 @@ import {
   technicalImplementationDecorator,
   aiIntegrationDecorator,
   genericPageDecorator
-} from '../src/shared-components/diagrams/.storybook/decorators/PageStructureDecorator';
+} from '../src/components/diagrams/.storybook/decorators/PageStructureDecorator';
+
+// Import our custom decorators
+import { ReactFlowDecorator } from './decorators';
 
 // Helper function to parse numeric prefixes
 const getNumericPrefix = (title: string): number => {
@@ -97,6 +107,15 @@ const preview: Preview = {
         </div>
       </StyledThemeProvider>
     ),
+    // Apply React Flow decorator to all Diagram stories
+    (Story, context) => {
+      // Apply React Flow decorator for all diagram stories
+      if (context.kind.includes('Diagrams/')) {
+        return ReactFlowDecorator(Story);
+      }
+      return <Story />;
+    },
+    // Apply page structure decorator based on selection
     (Story, context) => {
       // Apply the appropriate page structure decorator based on the selection
       const pageStructure = context.globals.pageStructure;

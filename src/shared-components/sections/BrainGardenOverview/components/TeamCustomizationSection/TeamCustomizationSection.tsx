@@ -1,6 +1,8 @@
 import React from 'react';
 import { Typography } from '../../../../atoms/Typography';
-import { BrainGardenComponentsDiagram } from '../../../../diagrams/BrainGardenComponentsDiagram/BrainGardenComponentsDiagram';
+import { FeatureGrid } from '../../../../organisms/FeatureGrid/FeatureGrid';
+import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
+import { BrainGardenComponentsDiagram } from '../../../../../components/diagrams/BrainGardenComponentsDiagram/BrainGardenComponentsDiagram';
 import { TeamCustomizationSectionProps } from './TeamCustomizationSection.types';
 import {
   ContentContainer,

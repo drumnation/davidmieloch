@@ -21,7 +21,6 @@ const FadeInContainer = styled.div`
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
   animation-delay: 100ms;
-  overflow-x: hidden;
   position: relative;
   
   @keyframes fadeIn {
@@ -37,7 +36,6 @@ const FadeInContainer = styled.div`
 const ContentContainer = styled.div`
   width: 100%;
   position: relative;
-  overflow-x: hidden;
 `;
 
 export const WhitePaper: React.FC<WhitePaperProps> = ({

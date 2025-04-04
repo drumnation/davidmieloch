@@ -4,6 +4,8 @@ import path from 'path';
 const config: StorybookConfig = {
   "stories": [
     "../src/shared-components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../src/components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../src/components/diagrams/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../src/app/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../src/**/*.mdx"
   ],

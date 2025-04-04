@@ -3,47 +3,55 @@
  */
 export interface AiIntegrationFlowDiagramProps {
   /**
-   * The title of the diagram
+   * Optional title for the diagram
+   * @default "AI Integration Process Flow"
    */
   title?: string;
   
   /**
-   * Description text for the diagram
+   * Optional description for the diagram
+   * @default "The following diagram illustrates the ideal process flow for integrating AI into development workflows"
    */
   description?: string;
   
   /**
-   * CSS class name for the diagram container
+   * Optional CSS class name for styling the container
+   * @default ''
    */
   className?: string;
   
   /**
-   * Visual theme for the diagram
+   * Optional theme for the diagram
+   * @default 'default'
    */
   theme?: 'default' | 'dark' | 'forest' | 'neutral';
   
   /**
-   * Width of the diagram container
+   * Optional width for the diagram container
+   * @default '100%'
    */
-  width?: string | number;
+  width?: string;
   
   /**
-   * Height of the diagram container
+   * Optional height for the diagram container
+   * @default '1000px'
    */
-  height?: string | number;
+  height?: string;
+  
+  /**
+   * Optional background color for the diagram container
+   */
+  backgroundColor?: string;
   
   /**
    * Whether to show zoom controls
+   * @default false
    */
   showZoomControls?: boolean;
   
   /**
-   * Description for accessibility
+   * Description for screen readers to describe the diagram
+   * @default 'Flow diagram showing the AI integration process from workflow assessment to continuous improvement'
    */
   accessibilityDescription?: string;
-  
-  /**
-   * Enable debug mode with console logging
-   */
-  debug?: boolean;
 } 

@@ -43,6 +43,17 @@ export interface AiIntegrationProcessDiagramProps {
   showZoomControls?: boolean;
 
   /**
+   * Whether to show edit controls
+   */
+  showEditControls?: boolean;
+
+  /**
+   * Whether this is being used in Storybook
+   * When true, it will disable editing features and render a cleaner view
+   */
+  isStorybook?: boolean;
+
+  /**
    * Accessibility description for screen readers
    */
   accessibilityDescription?: string;
@@ -76,4 +87,39 @@ export interface AiIntegrationProcessDiagramProps {
    * Callback when node positions change
    */
   onNodePositionsChange?: (nodes: any[]) => void;
+
+  /**
+   * Whether to use custom positions (true) or automatic layout (false)
+   */
+  useCustomLayout?: boolean;
+  
+  /**
+   * Initial zoom level for the diagram
+   */
+  initialZoom?: number;
+  
+  /**
+   * Callback when zoom level changes
+   */
+  onZoomChange?: (zoom: number) => void;
+  
+  /**
+   * Callback when view state (zoom + position) changes
+   */
+  onViewStateChange?: (viewState: { zoom: number, position: { x: number, y: number } }) => void;
+  
+  /**
+   * Maximum zoom level allowed
+   */
+  maxZoom?: number;
+  
+  /**
+   * Minimum zoom level allowed
+   */
+  minZoom?: number;
+  
+  /**
+   * Initial position for the viewport
+   */
+  initialPosition?: { x: number, y: number };
 } 

@@ -1,332 +1,528 @@
-import React, { useMemo } from 'react';
+'use client';
+
+import React, { useMemo, useEffect, useRef, useState } from 'react';
+import { ReactFlow, Node, Edge } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-// Import types
+// Import types and components
 import { AiIntegrationProcessDiagramProps } from './AiIntegrationProcessDiagram.types';
+import DiagramEditor from '../DiagramEditor';
+import type { NodePosition, BaseDiagramNodeData } from '../DiagramEditor/DiagramEditor.types';
 
-// Import the ReactFlowDiagramClient component and related types
-import { ReactFlowDiagramClient } from '../../../shared-components/molecules/ReactFlowDiagram';
-import { ReactFlowNode, ReactFlowEdge, ReactFlowDefinition } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types';
+// Import custom node components
+import ProcessNode from './ProcessNode';
+import DecisionNode from './DecisionNode';
+import EndNode from './EndNode';
 
-// Enhanced helper function to validate node positions
-const isValidNodePosition = (node: ReactFlowNode): boolean => {
-  // Check if node and position exist
-  if (!node || !node.position) {
-    console.warn('Invalid node: missing position', node);
-    return false;
-  }
-  
-  const { x, y } = node.position;
-  
-  // Check if x and y are valid numbers
-  const isValid = (
-    typeof x === 'number' && 
-    !isNaN(x) &&
-    isFinite(x) &&
-    typeof y === 'number' && 
-    !isNaN(y) &&
-    isFinite(y)
-  );
-  
-  if (!isValid) {
-    console.warn(`Node ${node.id} has invalid position:`, node.position);
-  }
-  
-  return isValid;
+// Define nodeTypes using imported components
+export const nodeTypes = {
+    process: ProcessNode,
+    decision: DecisionNode,
+    end: EndNode,
+    start: ProcessNode, // Reuse ProcessNode for start nodes
 };
 
+// Define node data directly in this file since we're having import issues
+// Once the import issues are resolved, these can be moved back to diagramData.ts
+export const nodes: Node<BaseDiagramNodeData>[] = [
+  // Left column
+  { id: 'start', type: 'start', position: { x: 43.7, y: 62.3 }, data: { label: 'Start', icon: '🏁', type: 'process' } },
+  { id: 'assess', type: 'process', position: { x: 43.7, y: 162.3 }, data: { label: 'Assess Current Workflow', icon: '🔍', type: 'process' } },
+  { id: 'identify', type: 'process', position: { x: 43.7, y: 262.3 }, data: { label: 'Identify AI Opportunities', icon: '💡', type: 'process' } },
+  
+  // Middle column
+  { id: 'defineRoles', type: 'process', position: { x: 343.7, y: 262.3 }, data: { label: 'Define Human/AI Roles', icon: '👥', type: 'process' } },
+  { id: 'integrateKnowledge', type: 'process', position: { x: 343.7, y: 362.3 }, data: { label: 'Integrate Knowledge Base', icon: '🧠', type: 'process' } },
+  { id: 'promptEngineering', type: 'process', position: { x: 343.7, y: 462.3 }, data: { label: 'Implement Prompt Engineering', icon: '⌨️', type: 'process' } },
+  { id: 'validateFrameworks', type: 'process', position: { x: 343.7, y: 562.3 }, data: { label: 'Validate AI Frameworks', icon: '✓', type: 'process' } },
+  { id: 'optimizeWorkflow', type: 'process', position: { x: 343.7, y: 662.3 }, data: { label: 'Optimize AI/Human Workflow', icon: '⚙️', type: 'process' } },
+  
+  // Right column
+  { id: 'trainTeams', type: 'process', position: { x: 643.7, y: 462.3 }, data: { label: 'Train Teams', icon: '🧑‍🏫', type: 'process' } },
+  { id: 'defineMetrics', type: 'process', position: { x: 643.7, y: 562.3 }, data: { label: 'Define Success Metrics', icon: '📊', type: 'process' } },
+  { id: 'measureResults', type: 'process', position: { x: 643.7, y: 662.3 }, data: { label: 'Measure Results', icon: '📏', type: 'process' } },
+  { id: 'successful', type: 'decision', position: { x: 643.7, y: 762.3 }, data: { label: 'Successful?', type: 'decision' } },
+  { id: 'scaleIntegration', type: 'process', position: { x: 843.7, y: 862.3 }, data: { label: 'Scale AI Integration', icon: '📈', type: 'process' } },
+  { id: 'refineApproach', type: 'process', position: { x: 443.7, y: 862.3 }, data: { label: 'Refine Approach', icon: '🔄', type: 'process' } },
+  { id: 'continuousImprovement', type: 'process', position: { x: 843.7, y: 962.3 }, data: { label: 'Continuous Improvement', icon: '♾️', type: 'process' } },
+  { id: 'end', type: 'end', position: { x: 843.7, y: 1062.3 }, data: { label: 'End', icon: '🏁', type: 'end' } },
+];
+
+export const edges: Edge[] = [
+  // Left to middle connections
+  { id: 'e1-2', source: 'start', target: 'assess', type: 'smoothstep' },
+  { id: 'e2-3', source: 'assess', target: 'identify', type: 'smoothstep' },
+  { id: 'e3-4', source: 'identify', target: 'defineRoles', type: 'smoothstep' },
+  
+  // Middle vertical flow
+  { id: 'e4-5', source: 'defineRoles', target: 'integrateKnowledge', type: 'smoothstep' },
+  { id: 'e5-6', source: 'integrateKnowledge', target: 'promptEngineering', type: 'smoothstep' },
+  { id: 'e6-7', source: 'promptEngineering', target: 'validateFrameworks', type: 'smoothstep' },
+  { id: 'e7-8', source: 'validateFrameworks', target: 'optimizeWorkflow', type: 'smoothstep' },
+  
+  // Middle to right connections
+  { id: 'e8-9', source: 'optimizeWorkflow', target: 'trainTeams', type: 'smoothstep' },
+  
+  // Right vertical flow
+  { id: 'e9-10', source: 'trainTeams', target: 'defineMetrics', type: 'smoothstep' },
+  { id: 'e10-11', source: 'defineMetrics', target: 'measureResults', type: 'smoothstep' },
+  { id: 'e11-12', source: 'measureResults', target: 'successful', type: 'smoothstep' },
+  
+  // Decision paths
+  { 
+    id: 'e12-13', 
+    source: 'successful', 
+    target: 'scaleIntegration', 
+    label: 'Yes', 
+    type: 'smoothstep',
+    style: { stroke: '#4a6bff', strokeWidth: 3 }, 
+    labelStyle: { fontSize: '16px', fontWeight: 'bold', fill: '#4a6bff' },
+    labelBgStyle: { fill: 'white', fillOpacity: 0.8, borderRadius: 5 },
+    labelShowBg: true,
+    labelBgPadding: [8, 4],
+  },
+  { 
+    id: 'e12-14', 
+    source: 'successful', 
+    target: 'refineApproach', 
+    label: 'No', 
+    type: 'smoothstep',
+    style: { stroke: '#ff4a4a', strokeWidth: 4 },
+    labelStyle: { fontSize: '16px', fontWeight: 'bold', fill: '#ff4a4a' },
+    labelBgStyle: { fill: 'white', fillOpacity: 0.9, borderRadius: 5 },
+    labelShowBg: true,
+    labelBgPadding: [8, 4],
+  },
+  
+  // Feedback and completion paths
+  { 
+    id: 'e14-4', 
+    source: 'refineApproach', 
+    target: 'defineRoles', 
+    type: 'smoothstep', 
+    style: { stroke: '#ff4a4a', strokeWidth: 3 } 
+  },
+  { 
+    id: 'e13-15', 
+    source: 'scaleIntegration', 
+    target: 'continuousImprovement', 
+    type: 'smoothstep', 
+    style: { stroke: '#4a6bff', strokeWidth: 3 } 
+  },
+  { 
+    id: 'e15-11', 
+    source: 'continuousImprovement', 
+    target: 'measureResults', 
+    type: 'smoothstep', 
+    style: { stroke: '#4a6bff', strokeWidth: 3 }, 
+    animated: true 
+  },
+  { 
+    id: 'e15-16', 
+    source: 'continuousImprovement', 
+    target: 'end', 
+    type: 'smoothstep', 
+    style: { stroke: '#4a6bff', strokeWidth: 3 } 
+  },
+];
+
+// Add the fixed node positions from the "Without Controls" story which looks better
+const customNodePositions: NodePosition[] = [
+  {
+    "id": "start",
+    "position": {
+      "x": -301.12355680111966,
+      "y": 834.3934230187162
+    }
+  },
+  {
+    "id": "assess",
+    "position": {
+      "x": -233.16013768273223,
+      "y": 664.3472539867361
+    }
+  },
+  {
+    "id": "identify",
+    "position": {
+      "x": -103.47748221131127,
+      "y": 447.4150355919406
+    }
+  },
+  {
+    "id": "defineRoles",
+    "position": {
+      "x": 71.53254018287868,
+      "y": 570.9263795143307
+    }
+  },
+  {
+    "id": "integrateKnowledge",
+    "position": {
+      "x": 80.08656663280024,
+      "y": 704.0605966429603
+    }
+  },
+  {
+    "id": "promptEngineering",
+    "position": {
+      "x": -0.2596998984007257,
+      "y": 841.9653733468799
+    }
+  },
+  {
+    "id": "validateFrameworks",
+    "position": {
+      "x": 94.14716327576042,
+      "y": 979.8701500507996
+    }
+  },
+  {
+    "id": "optimizeWorkflow",
+    "position": {
+      "x": 15.809553407839473,
+      "y": 1135.8528367242395
+    }
+  },
+  {
+    "id": "trainTeams",
+    "position": {
+      "x": 144.36357985776104,
+      "y": 1285.8095534078393
+    }
+  },
+  {
+    "id": "defineMetrics",
+    "position": {
+      "x": 64.01731332656004,
+      "y": 1415.679703458639
+    }
+  },
+  {
+    "id": "measureResults",
+    "position": {
+      "x": 932.8719687771988,
+      "y": 942.9528545254311
+    }
+  },
+  {
+    "id": "successful",
+    "position": {
+      "x": 956.2026480187702,
+      "y": 1076.9189222603045
+    }
+  },
+  {
+    "id": "scaleIntegration",
+    "position": {
+      "x": 1048.0887772526266,
+      "y": 1241.1860606498872
+    }
+  },
+  {
+    "id": "refineApproach",
+    "position": {
+      "x": 434.5367131233615,
+      "y": 1251.8966250619003
+    }
+  },
+  {
+    "id": "continuousImprovement",
+    "position": {
+      "x": 640.7405408220062,
+      "y": 1361.2708068469833
+    }
+  },
+  {
+    "id": "end",
+    "position": {
+      "x": 1036.7373016292427,
+      "y": 1545.7020839662814
+    }
+  }
+];
+
+/**
+ * AI Integration Process Diagram component
+ * Displays a flow diagram showing the AI integration process
+ */
 export const AiIntegrationProcessDiagram: React.FC<AiIntegrationProcessDiagramProps> = ({
-  title = "AI Integration Process Flow",
-  description = "The following diagram illustrates the ideal process flow for integrating AI into development workflows",
-  className = '',
-  theme = 'default',
-  width = '100%',
-  height = '800px',
-  backgroundColor,
-  showZoomControls = true,
-  accessibilityDescription = 'Flow diagram showing the AI integration process from workflow assessment to continuous improvement',
-  containerClassName,
-  graphClassName,
-  nodes: initialNodes,
-  edges: initialEdges,
-  nodeValidationEnabled,
-  onNodePositionsChange,
+    title = 'AI Integration Process Flow',
+    description = 'Interactive diagram showing the process of integrating AI into existing workflows',
+    showZoomControls = false, // Changed to false to match the "Without Controls" story
+    showEditControls = false,
+    isStorybook = false,
+    width = '898px',
+    height = '798px',
+    backgroundColor = '#f9f9f9',
+    className,
+    accessibilityDescription = 'Flow diagram showing the AI integration process from workflow assessment to continuous improvement',
+    initialZoom = 0.65,
+    initialPosition = { x: 0, y: 0 },
+    maxZoom = 5,
+    minZoom = 0.1,
 }) => {
-  // Define the nodes for the AI Integration Process Flow
-  const nodes: ReactFlowNode[] = useMemo(() => [
-    {
-      id: 'A',
-      type: 'default',
-      position: { x: 400, y: 50 },
-      data: { 
-        label: 'Assess Current Workflow',
-        icon: '🔍',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'B',
-      type: 'default',
-      position: { x: 400, y: 150 },
-      data: { 
-        label: 'Identify AI Opportunities',
-        icon: '💡',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'C',
-      type: 'default',
-      position: { x: 400, y: 250 },
-      data: { 
-        label: 'Define Human/AI Roles',
-        icon: '👥',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'D1',
-      type: 'default',
-      position: { x: 400, y: 350 },
-      data: { 
-        label: 'Knowledge Integration',
-        icon: '🧠',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'D2',
-      type: 'default',
-      position: { x: 400, y: 450 },
-      data: { 
-        label: 'Implement Prompt Engineering',
-        icon: '⌨️',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'D3',
-      type: 'default',
-      position: { x: 400, y: 550 },
-      data: { 
-        label: 'Build Validation Frameworks',
-        icon: '✓',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'E',
-      type: 'default',
-      position: { x: 400, y: 650 },
-      data: { 
-        label: 'Optimize Development Workflow',
-        icon: '⚙️',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'F',
-      type: 'default',
-      position: { x: 400, y: 750 },
-      data: { 
-        label: 'Train Teams on AI Collaboration',
-        icon: '🧑‍🏫',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'G',
-      type: 'default',
-      position: { x: 400, y: 850 },
-      data: { 
-        label: 'Define Quality-Focused Metrics',
-        icon: '📊',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'H',
-      type: 'default',
-      position: { x: 400, y: 950 },
-      data: { 
-        label: 'Measure Results',
-        icon: '📏',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'I',
-      type: 'pill',
-      position: { x: 400, y: 1050 },
-      data: { 
-        label: 'Successful?',
-        style: { borderColor: '#4a6bff', fontWeight: 'bold', width: '180px' }
-      },
-    },
-    {
-      id: 'J',
-      type: 'default',
-      position: { x: 600, y: 1150 },
-      data: { 
-        label: 'Scale Integration',
-        icon: '📈',
-        iconPosition: 'left',
-        style: { width: '200px' }
-      },
-    },
-    {
-      id: 'K',
-      type: 'default',
-      position: { x: 200, y: 1150 },
-      data: { 
-        label: 'Refine Approach',
-        icon: '🔄',
-        iconPosition: 'left',
-        style: { width: '200px' }
-      },
-    },
-    {
-      id: 'L',
-      type: 'default',
-      position: { x: 600, y: 1250 },
-      data: { 
-        label: 'Continuous Improvement',
-        icon: '♾️',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-  ], []);
+    // Create refs and state
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [viewport, setViewport] = useState({
+        x: initialPosition.x,
+        y: initialPosition.y,
+        zoom: initialZoom
+    });
 
-  // Filter out any nodes with invalid positions before returning
-  const validatedNodes: ReactFlowNode[] = useMemo(() => {
-    // First, validate each node's position
-    return nodes.filter(isValidNodePosition);
-  }, [nodes]);
+    // Apply custom node positions if they're available
+    const positionedNodes = useMemo(() => {
+        // Create a map of node positions for quick lookup
+        const positionMap = new Map(
+            customNodePositions.map(item => [item.id, item.position])
+        );
+        
+        // Return nodes with updated positions
+        return nodes.map(node => {
+            const customPosition = positionMap.get(node.id);
+            if (customPosition) {
+                return {
+                    ...node,
+                    position: customPosition
+                };
+            }
+            return node;
+        });
+    }, []);
 
-  // Define the edges connecting the nodes
-  const edges: ReactFlowEdge[] = useMemo(() => [
-    {
-      id: 'e-A-B',
-      source: 'A',
-      target: 'B',
-    },
-    {
-      id: 'e-B-C',
-      source: 'B',
-      target: 'C',
-    },
-    {
-      id: 'e-C-D1',
-      source: 'C',
-      target: 'D1',
-    },
-    {
-      id: 'e-D1-D2',
-      source: 'D1',
-      target: 'D2',
-    },
-    {
-      id: 'e-D2-D3',
-      source: 'D2',
-      target: 'D3',
-    },
-    {
-      id: 'e-D3-E',
-      source: 'D3',
-      target: 'E',
-    },
-    {
-      id: 'e-E-F',
-      source: 'E',
-      target: 'F',
-    },
-    {
-      id: 'e-F-G',
-      source: 'F',
-      target: 'G',
-    },
-    {
-      id: 'e-G-H',
-      source: 'G',
-      target: 'H',
-    },
-    {
-      id: 'e-H-I',
-      source: 'H',
-      target: 'I',
-    },
-    {
-      id: 'e-I-J',
-      source: 'I',
-      target: 'J',
-      label: 'Yes',
-      style: { stroke: '#4a6bff' },
-    },
-    {
-      id: 'e-I-K',
-      source: 'I',
-      target: 'K',
-      label: 'No',
-      style: { stroke: '#ff4a4a' },
-    },
-    {
-      id: 'e-K-C',
-      source: 'K',
-      target: 'C',
-      type: 'step',
-      style: { stroke: '#ff4a4a' },
-    },
-    {
-      id: 'e-J-L',
-      source: 'J',
-      target: 'L',
-      style: { stroke: '#4a6bff' },
-    },
-    {
-      id: 'e-L-H',
-      source: 'L',
-      target: 'H',
-      type: 'step',
-      style: { stroke: '#4a6bff' },
-      animated: true,
-    },
-  ], []);
+    // Validate container dimensions
+    useEffect(() => {
+        if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            
+            if (rect.width === 0 || rect.height === 0) {
+                setError('Container has zero dimension');
+            } else {
+                setIsLoading(false);
+            }
+        }
+    }, []);
 
-  // Convert width and height to strings if they are numbers
-  const widthStr = typeof width === 'number' ? `${width}px` : width;
-  const heightStr = typeof height === 'number' ? `${height}px` : height;
-  
-  // Define the flow definition for the React Flow component
-  const flowDefinition: ReactFlowDefinition = useMemo(() => ({
-    nodes: validatedNodes,
-    edges,
-  }), [validatedNodes, edges]);
+    // Validate nodes and edges
+    useEffect(() => {
+        if (!nodes?.length) {
+            setError('No nodes data');
+            return;
+        }
+        
+        if (!edges?.length) {
+            setError('No edges data');
+            return;
+        }
+        
+        // Check for node type and position issues
+        const nodeIssues = nodes.filter((node: Node<BaseDiagramNodeData>) => !node.type || !node.position || !node.id);
+        if (nodeIssues.length) {
+            setError('Invalid node definitions');
+            return;
+        }
+        
+        // Check for edge connection issues
+        const edgeIssues = edges.filter((edge: Edge) => !edge.source || !edge.target || !edge.id);
+        if (edgeIssues.length) {
+            setError('Invalid edge definitions');
+        }
+    }, []);
 
-  return (
-    <ReactFlowDiagramClient
-      definition={flowDefinition}
-      className={className}
-      theme={theme}
-      width={widthStr}
-      height={heightStr}
-      backgroundColor={backgroundColor}
-      showZoomControls={showZoomControls}
-      showBackground={true}
-      accessibilityDescription={accessibilityDescription}
-      customOptions={{}}
-    />
-  );
+    // Memoize nodeTypes to prevent unnecessary re-renders
+    const memoizedNodeTypes = useMemo(() => nodeTypes, []);
+
+    // Add effect to check if React Flow elements appear
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            const diagramEl = document.querySelector('.react-flow');
+            const fallbackEl = document.getElementById('fallback-diagram');
+            
+            if (!diagramEl && fallbackEl) {
+                fallbackEl.style.display = 'block';
+                fallbackEl.style.zIndex = '1';
+            }
+        }, 1000);
+        
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Render diagram with debug UI
+    return (
+        <div 
+            ref={containerRef}
+            className={`ai-integration-diagram-container ${className || ''}`}
+            style={{
+                position: 'relative',
+                width: width,
+                height: height,
+                border: error ? '2px solid red' : '1px solid #ccc',
+                overflow: 'hidden',
+                padding: '4px',
+                background: backgroundColor
+            }}
+        >
+            {/* Error message */}
+            {error && (
+                <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    padding: '8px',
+                    background: 'rgba(255,0,0,0.1)',
+                    color: 'red',
+                    zIndex: 10,
+                    fontSize: '12px'
+                }}>
+                    Error: {error}
+                </div>
+            )}
+            
+            {isLoading ? (
+                <LoadingIndicator />
+            ) : (
+                <DiagramContent 
+                    nodes={positionedNodes}
+                    edges={edges}
+                    nodeTypes={memoizedNodeTypes}
+                    title={title}
+                    description={description}
+                    width={width}
+                    height={height}
+                    backgroundColor={backgroundColor}
+                    showEditControls={showEditControls}
+                    isStorybook={isStorybook}
+                    className={className}
+                    accessibilityDescription={accessibilityDescription}
+                    initialZoom={initialZoom}
+                    initialPosition={initialPosition}
+                    maxZoom={maxZoom}
+                    minZoom={minZoom}
+                />
+            )}
+            
+            {/* Dimensions indicator */}
+            <DimensionsIndicator width={width} height={height} />
+        </div>
+    );
 };
+
+// Extracted pure functional components
+const LoadingIndicator = () => (
+    <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+        background: 'rgba(0,0,0,0.05)'
+    }}>
+        Loading diagram...
+    </div>
+);
+
+const DimensionsIndicator = ({ width, height }: { width: string | number, height: string | number }) => (
+    <div style={{
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        background: 'rgba(0,0,0,0.6)',
+        color: 'white',
+        padding: '2px 5px',
+        fontSize: '10px',
+        zIndex: 5
+    }}>
+        {width} × {height}
+    </div>
+);
+
+interface DiagramContentProps extends AiIntegrationProcessDiagramProps {
+    nodes: Node<BaseDiagramNodeData>[];
+    edges: Edge[];
+    nodeTypes: Record<string, React.ComponentType<any>>;
+}
+
+const DiagramContent = (props: DiagramContentProps) => {
+    const {
+        nodes,
+        edges,
+        nodeTypes,
+        title,
+        description,
+        width,
+        height,
+        backgroundColor,
+        showEditControls,
+        isStorybook,
+        className,
+        accessibilityDescription,
+        initialZoom,
+        initialPosition,
+        maxZoom,
+        minZoom
+    } = props;
+    
+    return (
+        <div 
+            style={{
+                width: '100%',
+                height: '100%',
+                position: 'relative',
+                border: '1px dashed #aaa'
+            }}
+        >
+            <DiagramEditor
+                key={`diagram-${Date.now()}`}
+                nodes={nodes}
+                edges={edges}
+                nodeTypes={nodeTypes}
+                title={title}
+                description={description}
+                width={width}
+                height={height}
+                backgroundColor={backgroundColor}
+                showEditControls={showEditControls}
+                isStorybook={isStorybook}
+                className={className}
+                accessibilityDescription={accessibilityDescription}
+                initialZoom={initialZoom}
+                initialPosition={initialPosition}
+                maxZoom={maxZoom}
+                minZoom={minZoom}
+            />
+            
+            <FallbackDiagram nodes={nodes} />
+        </div>
+    );
+};
+
+const FallbackDiagram = ({ nodes }: { nodes: Node<BaseDiagramNodeData>[] }) => (
+    <div 
+        id="fallback-diagram" 
+        style={{
+            display: 'none',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: '#f0f0f0',
+            padding: '20px',
+            boxSizing: 'border-box',
+            zIndex: -1
+        }}
+    >
+        <h3>AI Integration Process Flow (Fallback View)</h3>
+        <p>The interactive diagram failed to load. This is a simplified fallback.</p>
+        <ul style={{ textAlign: 'left' }}>
+            {nodes.map(node => (
+                <li key={node.id}>{node.data.label}</li>
+            ))}
+        </ul>
+    </div>
+);
 
 export default AiIntegrationProcessDiagram; 

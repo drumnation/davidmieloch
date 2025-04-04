@@ -8,7 +8,6 @@ import styled from 'styled-components';
 const LoadingContainer = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +20,6 @@ const LoadingContainer = styled.div`
 const WrapperContainer = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 400px;
   position: relative;
 `;
 

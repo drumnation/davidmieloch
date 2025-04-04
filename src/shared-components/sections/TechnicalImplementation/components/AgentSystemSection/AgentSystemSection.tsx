@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Typography } from '../../../../../shared-components/atoms/Typography';
-import { AgentSystemDiagram } from '../../../../../shared-components/diagrams/AgentSystemDiagram/AgentSystemDiagram';
+import { AgentSystemDiagram } from '../../../../../components/diagrams/AgentSystemDiagram/AgentSystemDiagram';
+import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
 import { ContentBlock, DiagramContainer, SectionTitle, SubsectionTitle } from '../../TechnicalImplementation.styles';
 import { AgentSystemSectionProps } from './AgentSystemSection.types';
 

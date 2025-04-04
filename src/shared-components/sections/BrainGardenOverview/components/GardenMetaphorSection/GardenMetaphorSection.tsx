@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '../../../../atoms/Typography';
-import { GardenMetaphorDiagram } from '../../../../diagrams/GardenMetaphorDiagram/GardenMetaphorDiagram';
+import { GardenMetaphorDiagramClient } from '../../../../../components/diagrams/GardenMetaphorDiagram';
 import { GardenMetaphorSectionProps } from './GardenMetaphorSection.types';
 import {
   BackgroundSection,
@@ -12,6 +12,7 @@ import {
   SectionTitleComponent,
   CTAButtonWithIcon
 } from '../../BrainGardenOverview.logic';
+import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
 
 // Default diagram definition
 const GARDEN_METAPHOR_DIAGRAM = `
@@ -67,12 +68,13 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
           
           <div style={{ backgroundColor: '#f0fff4', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>
             <MermaidContainer>
-              <GardenMetaphorDiagram
+              <GardenMetaphorDiagramClient
                 title=""
                 theme="default"
                 width="100%"
-                height="350px"
+                height="600px"
                 showZoomControls={false}
+                backgroundColor="transparent"
                 accessibilityDescription="Garden Metaphor Diagram showing the three phases of a Brain Garden project's growth: Seed Phase (Initial Setup, Knowledge Structure, Core Prompts), Sprout Phase (Cultivating Patterns, Testing & Refining, Expanding Capabilities), and Mature Phase (Self-Improving, Context-Aware, Continuously Adapting)"
               />
             </MermaidContainer>

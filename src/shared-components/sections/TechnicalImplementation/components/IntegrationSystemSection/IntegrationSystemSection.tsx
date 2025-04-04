@@ -1,6 +1,7 @@
 import { FC } from 'react';
+import { IntegrationSystemDiagram } from '../../../../../components/diagrams/IntegrationSystemDiagram/IntegrationSystemDiagram';
+import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
 import { Typography } from '../../../../../shared-components/atoms/Typography';
-import { IntegrationSystemDiagram } from '../../../../../shared-components/diagrams/IntegrationSystemDiagram/IntegrationSystemDiagram';
 import { ContentBlock, DiagramContainer, SectionTitle, SubsectionTitle } from '../../TechnicalImplementation.styles';
 import { IntegrationSystemSectionProps } from './IntegrationSystemSection.types';
 

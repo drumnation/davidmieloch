@@ -7,15 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Created comprehensive Storybook story for AiIntegrationProcessDiagram with multiple height/theme variants [#DevEx]
+- Added `scripts/storybook-diagram-dev.sh` for streamlined diagram development with auto-reload [#DevEx]
+
 ### Fixed
+- Fixed Client-Side Rendering issues with diagrams by implementing client wrapper components for GardenMetaphorDiagram, PerformanceScalabilityDiagram, and AiIntegrationProcessDiagram [#BugFix]
+- Updated all diagram references in sections to use client-side wrapped versions [#BugFix]
+- Improved Storybook compatibility by updating stories to use client-wrapped components [#DevEx]
 - Fixed image path errors in Experience page by adding leading slashes to relative image paths [#BugFix]
 - Fixed React props warning in LanguageDot component by properly handling the showName prop [#BugFix]
 - Improved validation for node positions in ReactFlowDiagram to prevent "Cannot read properties of undefined" errors [#BugFix]
+- Fixed node box sizing issues in AiIntegrationProcessDiagram where text was larger than containing boxes [#BugFix]
+- Removed accidental `/ai-integration-flow-diagram` route that was not part of the intended site structure [#Cleanup]
+- Fixed node box sizing issues in AiIntegrationFlowDiagram where text was larger than containing boxes [#BugFix]
+- Fixed rendering issues with AiIntegrationFlowDiagram by completely refactoring the component [#BugFix]
 - Added error handling in AiAutopilotAnalogy component to prevent crashes when rendering diagrams [#BugFix]
 - Added Medium domains to Next.js image configuration to allow external images from Medium blogs [#BugFix]
 - Fixed all relative image paths in SideProjectsSection, including logoPath and thumbnail properties for project items (game-sage-logo.png, prompt-forge-logo.png, etc.) [#BugFix]
 - Added upload.wikimedia.org to next.config.js image domains to allow Wikipedia image loading [#BugFix]
 - Added VSCode Gallery domain (drumnation.gallerycdn.vsassets.io) to next.config.js for extension images [#BugFix]
+
+### Improved
+- Further enhanced AiIntegrationProcessDiagram readability by increasing node sizes, adding bold text, and thicker connection lines [#UX]
+- Significantly increased diagram height from 800px to 1400px in AiAutopilotAnalogy section for better visibility of the entire flow [#Accessibility]
+- Improved AiIntegrationProcessDiagram with fitView, defaultZoom, and padding options for better layout [#UX]
+- Enhanced AiIntegrationProcessDiagram readability by increasing node sizes and adding proper padding and font sizing [#UX]
+- Increased diagram height from 600px to 800px in AiAutopilotAnalogy section for better visibility [#Accessibility]
+- Enhanced AiIntegrationFlowDiagram readability by increasing diagram height to 1600px and enlarging node sizes with better spacing [#UX]
+- Improved text legibility in diagram nodes by increasing font size and adding padding [#Accessibility]
+- Simplified AiIntegrationFlowDiagram implementation to use styled components instead of ReactFlow for better reliability [#Refactor]
 
 ### [0.21.10] - 2025-03-31
 

@@ -24,7 +24,6 @@ import { ReactFlowNode, ReactFlowEdge } from './ReactFlowDiagram.types';
 const DiagramContainer = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 400px;
   position: relative;
 `;
 

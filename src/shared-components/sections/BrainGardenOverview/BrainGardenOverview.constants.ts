@@ -5,7 +5,7 @@ export const defaultContent = {
     subtitle: "A Revolutionary Approach to AI Integration",
     background: "image" as const,
     backgroundImage: "/brain-garden.png",
-    backgroundOverlay: true,
+    backgroundOverlay: false,
     overlayOpacity: 0,
     pattern: "dots" as const,
     textColor: "light" as const,

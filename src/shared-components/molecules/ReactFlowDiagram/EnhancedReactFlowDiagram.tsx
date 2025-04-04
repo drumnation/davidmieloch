@@ -11,9 +11,11 @@ import { nodeTypes, CustomNodeData } from './nodeTypes';
 import { ReactFlowNode, ReactFlowEdge, ReactFlowDiagramProps, ReactFlowDefinition } from './ReactFlowDiagram.types';
 
 // Styled components for the diagram
-const DiagramOuterContainer = styled.div<{ $maxWidth?: string }>`
+const DiagramOuterContainer = styled.div<{ $maxWidth?: string; $height: string }>`
   width: 100%;
   max-width: ${props => props.$maxWidth || '100%'};
+  height: ${props => props.$height || '600px'};
+  min-height: ${props => props.$height || '600px'};
   margin: 0 auto;
   position: relative;
 `;
@@ -37,6 +39,7 @@ const TitleContainer = styled.div`
 interface EnhancedReactFlowDiagramProps extends Omit<ReactFlowDiagramProps, 'parseMode'> {
   debug?: boolean;
   maxWidth?: string;
+  style?: React.CSSProperties;
 }
 
 /**
@@ -65,6 +68,7 @@ export const EnhancedReactFlowDiagram: React.FC<EnhancedReactFlowDiagramProps> =
   customOptions = {},
   debug = false,
   maxWidth,
+  style,
 }) => {
   const [error, setError] = useState<Error | null>(null);
   const [nodes, setNodes] = useState<ReactFlowNode[]>([]);
@@ -127,8 +131,11 @@ export const EnhancedReactFlowDiagram: React.FC<EnhancedReactFlowDiagramProps> =
     );
   }
 
+  // Get height value as string
+  const heightValue = typeof height === 'number' ? `${height}px` : height;
+
   return (
-    <DiagramOuterContainer className={className} $maxWidth={maxWidth}>
+    <DiagramOuterContainer className={className} $maxWidth={maxWidth} $height={heightValue} style={style}>
       {(title || description) && (
         <TitleContainer>
           {title && <h3>{title}</h3>}
@@ -138,7 +145,7 @@ export const EnhancedReactFlowDiagram: React.FC<EnhancedReactFlowDiagramProps> =
       
       <div style={{ 
         width: typeof width === 'number' ? `${width}px` : width,
-        height: typeof height === 'number' ? `${height}px` : height,
+        height: '100%',
       }}>
         <ReactFlowClientWrapper debug={debug} loadingMessage="Initializing diagram...">
           <DiagramRenderer
@@ -151,6 +158,7 @@ export const EnhancedReactFlowDiagram: React.FC<EnhancedReactFlowDiagramProps> =
             debug={debug}
             interactive={customOptions.interactive !== false}
             fitView={customOptions.fitView !== false}
+            style={{ height: '100%' }}
           />
         </ReactFlowClientWrapper>
       </div>

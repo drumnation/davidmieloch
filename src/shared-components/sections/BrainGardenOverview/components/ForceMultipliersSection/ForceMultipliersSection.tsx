@@ -2,7 +2,10 @@ import React from 'react';
 import { FeatureGrid } from '../../../../organisms/FeatureGrid/FeatureGrid';
 import { ForceMultipliersSectionProps } from './ForceMultipliersSection.types';
 import { Icon } from '../../../../atoms/Icon/Icon';
-import { GardenMetaphorDiagram } from '../../../../diagrams/GardenMetaphorDiagram/GardenMetaphorDiagram';
+import { SectionSubtitle } from '../../BrainGardenOverview.styles';
+import { SectionTitleComponent } from '../../BrainGardenOverview.logic';
+import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
+import { GardenMetaphorDiagram } from '../../../../../components/diagrams/GardenMetaphorDiagram/GardenMetaphorDiagram';
 import {
   GradientText,
   ImpactMetric,
