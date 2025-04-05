@@ -12,10 +12,13 @@ import DiagramFlow from './BrainGardenComponentsDiagram.flow';
  * A component that renders the Brain Garden Core Components diagram using React Flow
  * with automatic layout using the Dagre algorithm
  * 
- * This diagram shows the three main components of the Brain Garden system:
- * - Knowledge System
+ * This diagram shows the six main components of the Brain Garden system:
+ * - Skill Jack System
  * - Prompt System
  * - Structured Documentation
+ * - Rules System
+ * - Project Management
+ * - Watchers System
  */
 export const BrainGardenComponentsDiagram: React.FC<BrainGardenComponentsDiagramProps> = (props) => {
   const {
@@ -23,12 +26,19 @@ export const BrainGardenComponentsDiagram: React.FC<BrainGardenComponentsDiagram
     className = '',
     theme = 'default',
     width = '100%', // Use 100% to fill available space
-    height = '600px', // Increased height
+    height = '800px', // Increased height for better visibility
     showZoomControls = true,
     nodesDraggable = false,
-    accessibilityDescription = 'Brain Garden Core Components Diagram showing Knowledge System, Prompt System, and Structured Documentation',
+    accessibilityDescription = 'Brain Garden Core Components Diagram showing Skill Jack System, Prompt System, Structured Documentation, Rules System, Project Management, and Watchers System',
     debug = false,
     backgroundColor = '#f9f9f9',
+    initialNodePositions,
+    customEdges,
+    onNodeClick,
+    multiSelectionMode = false,
+    selectionOnDrag = false,
+    selectionKeys = ['shift'],
+    isEdgeCreationMode = false,
     ...restProps
   } = props;
 
@@ -45,6 +55,13 @@ export const BrainGardenComponentsDiagram: React.FC<BrainGardenComponentsDiagram
         accessibilityDescription={accessibilityDescription}
         debug={debug}
         backgroundColor={backgroundColor}
+        initialNodePositions={initialNodePositions}
+        customEdges={customEdges}
+        onNodeClick={onNodeClick}
+        multiSelectionMode={multiSelectionMode}
+        selectionOnDrag={selectionOnDrag}
+        selectionKeys={selectionKeys}
+        isEdgeCreationMode={isEdgeCreationMode}
         {...restProps}
       />
     </ReactFlowProvider>

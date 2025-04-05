@@ -26,8 +26,9 @@ export const SubComponentNode = ({ data }: NodeProps) => {
   const nodeData = data as CustomNodeData; // Type assertion
   return (
     <StyledSubComponentNode style={nodeData.style}>
+      <Handle type="source" position={Position.Top} id="top" style={{ top: -5 }} />
       {nodeData.label}
-      <Handle type="target" position={Position.Top} />
+      <Handle type="target" position={Position.Top} id="target" style={{ top: 0 }} />
     </StyledSubComponentNode>
   );
 };
@@ -37,6 +38,7 @@ export const SystemNode = ({ data }: NodeProps) => {
   const nodeData = data as CustomNodeData; // Type assertion
   return (
     <StyledSystemNode style={nodeData.style}>
+      <Handle type="source" position={Position.Top} id="top" style={{ top: -5 }} />
       {nodeData.icon && <div className="node-icon">{nodeData.icon}</div>}
       {nodeData.label}
       <Handle type="source" position={Position.Bottom} />

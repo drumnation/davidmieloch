@@ -1,5 +1,32 @@
 import { Node as ReactFlowNode, Edge as ReactFlowEdge } from '@xyflow/react';
-import React from 'react';
+import React, { CSSProperties } from 'react';
+
+// Define node types
+export type NodeType = 'mainComponent' | 'subComponent' | 'system';
+
+/**
+ * Custom node data interface with index signature
+ */
+export interface CustomNodeData extends Record<string, unknown> { 
+  label: string;
+  icon?: string;
+  style?: React.CSSProperties;
+}
+
+// Export custom node and edge types for better type safety across files
+export type CustomNode = ReactFlowNode<CustomNodeData>;
+export type CustomEdge = ReactFlowEdge;
+
+/**
+ * Node position type for saving layout
+ */
+export interface NodePosition {
+  id: string;
+  position: {
+    x: number;
+    y: number;
+  };
+}
 
 /**
  * Props for the BrainGardenComponentsDiagram component
@@ -62,15 +89,45 @@ export interface BrainGardenComponentsDiagramProps {
    * @default false
    */
   debug?: boolean;
-}
 
-/**
- * Custom node data interface with index signature
- */
-export interface CustomNodeData extends Record<string, unknown> { 
-  label: string;
-  icon?: string;
-  style?: React.CSSProperties;
+  /**
+   * Initial node positions for saving layout
+   */
+  initialNodePositions?: NodePosition[];
+
+  /**
+   * Custom edges for the diagram
+   */
+  customEdges?: Array<{id: string, source: string, target: string, style?: CSSProperties}>;
+
+  /**
+   * Callback function when a node is clicked
+   */
+  onNodeClick?: (nodeId: string) => void;
+
+  /**
+   * Enable selection of multiple nodes
+   * @default false
+   */
+  multiSelectionMode?: boolean;
+
+  /**
+   * Enable selection by dragging
+   * @default false
+   */
+  selectionOnDrag?: boolean;
+
+  /**
+   * Keys to use for selection (shift, meta, alt, ctrl)
+   * @default 'shift'
+   */
+  selectionKeys?: string[];
+  
+  /**
+   * Whether the diagram is in edge creation mode, allowing nodes to be connected
+   * @default false
+   */
+  isEdgeCreationMode?: boolean;
 }
 
 /**
@@ -85,7 +142,3 @@ export interface ThemeStyles {
   backgroundColor?: string;
   color?: string;
 }
-
-// Export custom node and edge types for better type safety across files
-export type CustomNode = ReactFlowNode<CustomNodeData>;
-export type CustomEdge = ReactFlowEdge;
