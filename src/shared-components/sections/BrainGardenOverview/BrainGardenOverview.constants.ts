@@ -19,7 +19,7 @@ export const defaultContent = {
   coreComponents: {
     features: [
       {
-        title: "Knowledge System",
+        title: "Skill Jack System",
         description: "Living documentation with Skill-Jacks that prime agents with specialized expertise",
         icon: "brain",
         link: "./knowledge-management"
@@ -35,6 +35,24 @@ export const defaultContent = {
         description: "MECE-organized project artifacts with clear boundaries and complete coverage",
         icon: "file-text",
         link: "./parallel-development"
+      },
+      {
+        title: "Rules System",
+        description: "Standardized guidelines for code, git workflows, and testing practices",
+        icon: "shield",
+        link: "./rules-system"
+      },
+      {
+        title: "Project Management",
+        description: "Task planning, feature breakdown, and GitHub issues integration",
+        icon: "trello",
+        link: "./project-management"
+      },
+      {
+        title: "Watchers System",
+        description: "Automated monitoring and synchronization between components and tools",
+        icon: "eye",
+        link: "./watchers-system"
       }
     ]
   },
@@ -167,10 +185,28 @@ export const defaultContent = {
         link: "./integration-system"
       },
       {
-        title: "Knowledge System",
+        title: "Skill Jack System",
         description: "How project knowledge is managed and utilized",
         icon: "brain",
         link: "./knowledge-system"
+      },
+      {
+        title: "Rules System",
+        description: "Standardized guidelines for code, git, and testing",
+        icon: "shield",
+        link: "./rules-system"
+      },
+      {
+        title: "Project Management",
+        description: "Task planning and GitHub issues integration",
+        icon: "trello",
+        link: "./project-management"
+      },
+      {
+        title: "Watchers System",
+        description: "Synchronization and monitoring between components",
+        icon: "eye",
+        link: "./watchers-system"
       }
     ]
   },

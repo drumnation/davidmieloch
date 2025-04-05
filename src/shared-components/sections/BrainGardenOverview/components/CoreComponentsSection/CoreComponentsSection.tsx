@@ -28,9 +28,12 @@ const BrainGardenComponentsDiagram = dynamic(
 // Default diagram definition - simple text to avoid complex Mermaid processing
 const DEFAULT_DIAGRAM = `
   graph LR
-    BG[".brain Directory"] --> KS["Knowledge System"]
+    BG[".brain Directory"] --> KS["Skill Jack System"]
     BG --> PS["Prompt System"]
     BG --> SD["Structured Documentation"]
+    BG --> RS["Rules System"]
+    BG --> PM["Project Management"]
+    BG --> WS["Watchers System"]
 `;
 
 export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
@@ -54,7 +57,7 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
             <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
               <SectionSubtitle style={{ marginBottom: '1.5rem' }}>The Foundation of the System</SectionSubtitle>
               <Typography variant="body" mb="1.5rem">
-                Just as aviation systems have evolved sophisticated documentation and structure to reduce pilot cognitive load, the Brain Garden System consists of three core components that function together to enhance AI capabilities. These practical foundational elements directly address the key challenges we explored earlier—providing structure for knowledge, workflows, and adaptable templates that help AI agents maintain context and follow best practices. The system doesn't magically solve all problems, but it provides a systematic approach that makes AI significantly more effective at handling complex development tasks.
+                Just as aviation systems have evolved sophisticated documentation and structure to reduce pilot cognitive load, the Brain Garden System consists of six core components that function together to enhance AI capabilities. These practical foundational elements directly address the key challenges we explored earlier—providing structure for knowledge, workflows, rules, project planning, monitoring, and adaptable templates that help AI agents maintain context and follow best practices. The system doesn't magically solve all problems, but it provides a systematic approach that makes AI significantly more effective at handling complex development tasks.
               </Typography>
             </div>
             
@@ -72,39 +75,64 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
         </ContentContainerNoMargin>
       </BackgroundSection>
       
-      {/* The Brain Garden Architecture section with white background */}
-      <WhiteBackgroundSection style={{ paddingTop: '3rem', marginBottom: 0, paddingBottom: '6rem' }}>
-        <ContentContainerNoMargin>
+      {/* The Brain Garden Architecture section with diagram in blue header */}
+      <div style={{ 
+        backgroundColor: '#1a365d', 
+        color: 'white',
+        padding: '30px 0',
+        marginBottom: '0',  // Remove bottom margin
+        width: '100%'       // Ensure full width
+      }}>
+        <ContentContainerNoMargin style={{ width: '100%', maxWidth: '100%' }}>
           <div>
-            {/* The Core Components Narrative */}
-            <div style={{ marginBottom: '2rem' }}>
-              <SectionSubtitle style={{ marginBottom: '1.5rem' }}>The Brain Garden Architecture</SectionSubtitle>
-              <Typography variant="body" mb="1.5rem">
-                The diagram below illustrates how these three core components interconnect to create a context-aware system that grows more valuable over time—like a well-tended garden.
-              </Typography>
-            </div>
-
-            <MermaidContainer>
-              <BrainGardenComponentsDiagram 
-                theme="default"
-                width="100%"
-                height="400px"
-                backgroundColor="transparent"
-                showZoomControls={true}
-                accessibilityDescription="Brain Garden Core Components Diagram showing the three main components: Knowledge System, Prompt System, and Structured Documentation"
-              />
-            </MermaidContainer>
+            <h2 style={{
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              marginBottom: '1rem',
+              textAlign: 'left'
+            }}>
+              The Brain Garden Architecture
+            </h2>
             
-            <div style={{ marginTop: '3rem', textAlign: 'center', paddingBottom: '1rem' }}>
-              <CTAButtonWithIcon 
-                text="Explore the System" 
-                icon="arrow-right" 
-                link="#ai-system"
-              />
-            </div>
+            <p style={{ 
+              fontSize: '1rem', 
+              lineHeight: '1.6',
+              marginBottom: '2rem',
+              textAlign: 'left'
+            }}>
+              The following diagram illustrates how these six core components interconnect to create a context-aware system that grows more valuable over time—like a well-tended garden.
+            </p>
           </div>
         </ContentContainerNoMargin>
-      </WhiteBackgroundSection>
+      </div>
+
+      {/* Diagram container taking full width with no margins */}
+      <div style={{ 
+        width: '100%', 
+        padding: 0, 
+        margin: 0,
+        backgroundColor: 'white'
+      }}>
+        <BrainGardenComponentsDiagram 
+          theme="default"
+          width="100%"
+          height="800px"
+          backgroundColor="white"
+          showZoomControls={true}
+          title=""
+          accessibilityDescription="Brain Garden Core Components Diagram showing the six main components: Skill Jack System, Prompt System, Structured Documentation, Rules System, Project Management, and Watchers System"
+        />
+      </div>
+            
+      <ContentContainerNoMargin>
+        <div style={{ marginTop: '2rem', textAlign: 'center', marginBottom: '3rem' }}>
+          <CTAButtonWithIcon 
+            text="Explore the System" 
+            icon="arrow-right" 
+            link="#ai-system"
+          />
+        </div>
+      </ContentContainerNoMargin>
     </>
   );
 };
