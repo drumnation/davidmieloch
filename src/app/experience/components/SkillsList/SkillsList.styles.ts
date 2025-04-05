@@ -8,8 +8,8 @@ export const StyledSkillsList = styled.div`
 `;
 
 export const SkillItem = styled.div`
-  background-color: ${({ theme }) => theme.background?.paper || '#f8f8f8'};
-  color: ${({ theme }) => theme.text?.primary || '#333'};
+  background-color: ${({ theme }) => theme.colors.background.paper || '#f8f8f8'};
+  color: ${({ theme }) => theme.colors.text.primary || '#333'};
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.9rem;
