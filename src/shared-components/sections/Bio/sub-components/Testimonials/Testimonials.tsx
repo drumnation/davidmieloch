@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, useInView, animated } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { 
   BioSection, 
   BioSectionTitle
@@ -23,123 +23,108 @@ import {
   IconBrandLinkedin, 
   IconMusic, 
   IconBusinessplan, 
-  IconCode 
+  IconCode
 } from '@tabler/icons-react';
 
-// Create animated components
-const AnimatedBioSectionTitle = animated(BioSectionTitle);
-const AnimatedCategoryHeading = animated(CategoryHeading);
-const AnimatedTestimonialCard = animated(TestimonialCard);
-const AnimatedLinkedInButton = animated(LinkedInButton);
+// Framer Motion variants
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.6, 
+      ease: "easeOut" 
+    } 
+  }
+};
+
+// Define type for icon components using 'typeof' to infer the type from the existing components
+type IconComponent = typeof IconCode;
 
 // Map of category icons
-const CATEGORY_ICONS = {
+const CATEGORY_ICONS: Record<string, IconComponent> = {
   'Music': IconMusic,
   'Sales/Marketing': IconBusinessplan,
   'Software': IconCode
 };
 
 export const Testimonials: React.FC<TestimonialsProps> = ({ className }) => {
-  // Heading animation
-  const [headingRef, headingInView] = useInView({
-    once: true,
-    rootMargin: '0px 0px -100px 0px'
-  });
-
-  const headingAnimation = useSpring({
-    opacity: headingInView ? 1 : 0,
-    transform: headingInView ? 'translateY(0)' : 'translateY(20px)',
-    config: { tension: 280, friction: 60 }
-  });
-
-  // LinkedIn button animation
-  const [buttonRef, buttonInView] = useInView({
-    once: true,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  const buttonAnimation = useSpring({
-    opacity: buttonInView ? 1 : 0,
-    transform: buttonInView ? 'translateY(0)' : 'translateY(20px)',
-    config: { tension: 280, friction: 60 },
-    delay: 300
-  });
-
   return (
     <BioSection className={className} id="testimonials">
       <TestimonialsContainer>
-        <AnimatedBioSectionTitle ref={headingRef} style={headingAnimation}>
-          Testimonials
-        </AnimatedBioSectionTitle>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px 0px" }}
+          variants={fadeInVariants}
+        >
+          <BioSectionTitle>
+            Testimonials
+          </BioSectionTitle>
+        </motion.div>
         
         {TESTIMONIALS_DATA.map((categoryData, categoryIndex) => {
-          const [categoryRef, categoryInView] = useInView({
-            once: true,
-            rootMargin: '0px 0px -100px 0px'
-          });
-
-          const categoryAnimation = useSpring({
-            opacity: categoryInView ? 1 : 0,
-            transform: categoryInView ? 'translateY(0)' : 'translateY(20px)',
-            config: { tension: 280, friction: 60 },
-            delay: categoryIndex * 100
-          });
-
           // Get the appropriate icon component
-          const IconComponent = CATEGORY_ICONS[categoryData.category as keyof typeof CATEGORY_ICONS];
-
+          const Icon = CATEGORY_ICONS[categoryData.category] || IconCode;
+          
           return (
             <div key={categoryData.category}>
               <CategoryHeadingWrapper>
                 <CategoryIcon>
-                  <IconComponent stroke={1.5} />
+                  <Icon stroke={1.5} />
                 </CategoryIcon>
-                <AnimatedCategoryHeading ref={categoryRef} style={categoryAnimation}>
-                  {categoryData.category}
-                </AnimatedCategoryHeading>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px 0px" }}
+                  variants={fadeInVariants}
+                  transition={{ delay: categoryIndex * 0.1 }}
+                >
+                  <CategoryHeading>
+                    {categoryData.category}
+                  </CategoryHeading>
+                </motion.div>
               </CategoryHeadingWrapper>
               
               <TestimonialCardsContainer>
-                {categoryData.testimonials.map((testimonial, testimonialIndex) => {
-                  const [testimonialRef, testimonialInView] = useInView({
-                    once: true,
-                    rootMargin: '0px 0px -50px 0px'
-                  });
-
-                  const testimonialAnimation = useSpring({
-                    opacity: testimonialInView ? 1 : 0,
-                    transform: testimonialInView ? 'translateY(0)' : 'translateY(20px)',
-                    config: { tension: 280, friction: 60 },
-                    delay: testimonialIndex * 200
-                  });
-
-                  return (
-                    <AnimatedTestimonialCard 
-                      key={testimonialIndex}
-                      ref={testimonialRef}
-                      style={testimonialAnimation}
-                    >
+                {categoryData.testimonials.map((testimonial, testimonialIndex) => (
+                  <motion.div
+                    key={testimonialIndex}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px 0px" }}
+                    variants={fadeInVariants}
+                    transition={{ delay: testimonialIndex * 0.2 }}
+                  >
+                    <TestimonialCard>
                       <TestimonialText dangerouslySetInnerHTML={{ __html: testimonial.text }} />
                       <TestimonialAuthor>{testimonial.author}</TestimonialAuthor>
-                    </AnimatedTestimonialCard>
-                  );
-                })}
+                    </TestimonialCard>
+                  </motion.div>
+                ))}
               </TestimonialCardsContainer>
             </div>
           );
         })}
 
         <LinkedInButtonContainer>
-          <AnimatedLinkedInButton 
-            ref={buttonRef}
-            style={buttonAnimation}
-            href="https://www.linkedin.com/in/davidmieloch/details/recommendations/?detailScreenTabIndex=0"
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px 0px" }}
+            variants={fadeInVariants}
+            transition={{ delay: 0.3 }}
           >
-            <IconBrandLinkedin />
-            View more Testimonials on LinkedIn
-          </AnimatedLinkedInButton>
+            <LinkedInButton
+              href="https://www.linkedin.com/in/davidmieloch/details/recommendations/?detailScreenTabIndex=0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconBrandLinkedin />
+              View more Testimonials on LinkedIn
+            </LinkedInButton>
+          </motion.div>
         </LinkedInButtonContainer>
       </TestimonialsContainer>
     </BioSection>

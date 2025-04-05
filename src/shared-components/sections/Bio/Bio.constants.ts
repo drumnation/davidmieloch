@@ -211,7 +211,7 @@ export const MEDIA_ITEMS: MediaItem[] = [
   {
     type: 'youtube',
     url: 'https://www.youtube.com/embed/KSgeRQJn_Tw',
-    title: 'Scarlet Harvest (Contemporary Dance Performance)',
+    title: 'Scarlet Harvest',
     description: 'Original composition for contemporary dance, demonstrating David\'s collaborative work across artistic disciplines.'
   },
   {

@@ -651,7 +651,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 )}
               </S.ProjectHeader>
               
-              <S.ProjectDescription className="project-description">
+              <S.ProjectDescription 
+                className={`project-description ${project.title === 'Prompt Forge' ? 'prompt-forge-description' : ''}`}
+              >
                 <MarkdownRenderer content={project.description} compact={true} />
               </S.ProjectDescription>
               
@@ -727,7 +729,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               
               <div className="project-content">
                 <div className="project-main">
-                  <S.ProjectDescription className="project-description">
+                  <S.ProjectDescription 
+                    className={`project-description ${project.title === 'Prompt Forge' ? 'prompt-forge-description' : ''}`}
+                  >
                     <MarkdownRenderer content={project.description} compact={true} />
                   </S.ProjectDescription>
                   

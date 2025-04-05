@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, useInView, animated } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { 
   BioSection, 
   BioSectionTitle
@@ -14,48 +14,56 @@ import {
 } from './TechnicalExpertise.styles';
 import { TechIcon } from '../../../../atoms/TechIcon';
 
-// Create animated components
-const AnimatedBioSectionTitle = animated(BioSectionTitle);
-const AnimatedCategoryContainer = animated(CategoryContainer);
+// Framer Motion variants for animations
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.6, 
+      ease: "easeOut" 
+    } 
+  }
+};
+
+const scaleInVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { 
+      duration: 0.5, 
+      ease: "easeOut" 
+    } 
+  }
+};
 
 export const TechnicalExpertise: React.FC<TechnicalExpertiseProps> = ({ className }) => {
-  // Heading animation
-  const [headingRef, headingInView] = useInView({
-    once: true,
-    rootMargin: '0px 0px -100px 0px'
-  });
-
-  const headingAnimation = useSpring({
-    opacity: 1,
-    transform: 'translateY(0)',
-    config: { tension: 280, friction: 60 }
-  });
-
   return (
     <BioSection className={className} id="technical-expertise">
-      <AnimatedBioSectionTitle ref={headingRef} style={headingAnimation}>
-        Technical Expertise
-      </AnimatedBioSectionTitle>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px 0px" }}
+        variants={fadeInVariants}
+      >
+        <BioSectionTitle>
+          Technical Expertise
+        </BioSectionTitle>
+      </motion.div>
+      
       <CategoryGrid>
-        {SKILL_CATEGORIES.map((category, index) => {
-          const [ref, inView] = useInView({
-            once: true,
-            rootMargin: '0px 0px -50px 0px'
-          });
-
-          const animation = useSpring({
-            opacity: 1,
-            transform: 'scale(1)',
-            config: { tension: 280, friction: 60 },
-            delay: index * 100
-          });
-
-          return (
-            <AnimatedCategoryContainer 
-              key={category.name}
-              ref={ref}
-              style={animation}
-            >
+        {SKILL_CATEGORIES.map((category, index) => (
+          <motion.div
+            key={category.name}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px 0px" }}
+            variants={scaleInVariants}
+            transition={{ delay: index * 0.1 }}
+          >
+            <CategoryContainer>
               <CategoryTitle>{category.name}</CategoryTitle>
               <CategorySkills>
                 {category.skills.map((skill) => (
@@ -68,9 +76,9 @@ export const TechnicalExpertise: React.FC<TechnicalExpertiseProps> = ({ classNam
                   />
                 ))}
               </CategorySkills>
-            </AnimatedCategoryContainer>
-          );
-        })}
+            </CategoryContainer>
+          </motion.div>
+        ))}
       </CategoryGrid>
     </BioSection>
   );
