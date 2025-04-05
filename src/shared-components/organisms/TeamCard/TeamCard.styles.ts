@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import { animated } from '@react-spring/web';
 import { Card } from '../../atoms/Card/Card';
 import { StyledTeamCardProps } from './TeamCard.types';
-import { AnimatedDiv } from '../../../utils/animations/typed-components';
 
 export const StyledTeamCard = styled(Card)`
   display: flex;
@@ -17,7 +15,7 @@ export const Header = styled.div<StyledTeamCardProps>`
   align-items: center;
 `;
 
-export const IconWrapper = styled(AnimatedDiv)`
+export const IconWrapper = styled.div`
   width: 48px;
   height: 48px;
   display: flex;
@@ -34,16 +32,7 @@ export const Content = styled.div`
   gap: 1rem;
 `;
 
-export const List = styled(AnimatedDiv).attrs({ as: 'ul' })`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
-export const ListItem = styled(AnimatedDiv).attrs({ as: 'li' })`
+export const ListItemContent = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -60,7 +49,7 @@ export const SkillsContainer = styled.div`
   gap: 0.5rem;
 `;
 
-export const Skill = styled(AnimatedDiv).attrs({ as: 'span' })`
+export const SkillItem = styled.span`
   padding: 0.25rem 0.75rem;
   border-radius: 16px;
   background: var(--bg-light);

@@ -1,6 +1,6 @@
 ---
 description: Guide for using the browser-use CLI tool. Request when performing browser automation tasks.
-globs:
+globs: 
 alwaysApply: false
 ---
 # Browser Automation (browser-use) Guide
@@ -8,7 +8,7 @@ alwaysApply: false
 
 ## Browser Automation with browser-use
 
-The browser-use CLI tool allows you to control a browser using natural language instructions.
+The browser-use CLI terminal cli tool allows you to control a browser using natural language instructions.
 
 ### Key Commands
 

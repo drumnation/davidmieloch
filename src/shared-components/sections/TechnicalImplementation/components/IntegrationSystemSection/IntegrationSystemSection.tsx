@@ -1,6 +1,7 @@
 import { FC } from 'react';
+import { IntegrationSystemDiagram } from '../../../../../components/diagrams/IntegrationSystemDiagram/IntegrationSystemDiagram';
+import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
 import { Typography } from '../../../../../shared-components/atoms/Typography';
-import { MermaidDiagram } from '../../../../../shared-components/molecules/MermaidDiagram';
 import { ContentBlock, DiagramContainer, SectionTitle, SubsectionTitle } from '../../TechnicalImplementation.styles';
 import { IntegrationSystemSectionProps } from './IntegrationSystemSection.types';
 
@@ -17,7 +18,14 @@ export const IntegrationSystemSection: FC<IntegrationSystemSectionProps> = ({
       </Typography>
 
       <DiagramContainer>
-        <MermaidDiagram definition={integrationSystemDiagram} />
+        <IntegrationSystemDiagram
+          title=""
+          theme="default"
+          width="100%"
+          height="400px"
+          showZoomControls={false}
+          accessibilityDescription="Integration System Diagram showing the workflow between development, agent, and integration components"
+        />
       </DiagramContainer>
 
       <SubsectionTitle>Real-World Integration Example</SubsectionTitle>

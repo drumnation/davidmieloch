@@ -1,0 +1,26 @@
+{
+  "hash": "5572d6c",
+  "messageSubject": "feat(ui): update UI components to use integrated diagram system",
+  "messageBody": "Update UI components to utilize the newly integrated diagram system. Modify\nsections, layouts, and styling to accommodate both Mermaid and ReactFlow\ndiagrams in a consistent, responsive manner.\n\nKey changes:\n- Update AiAutopilotAnalogy and related components\n- Enhance BrainGardenOverview component styling\n- Update Experience and TechnicalImplementation sections\n- Improve Footer and FeatureGrid components",
+  "messageFooter": "",
+  "files": [
+    "src/shared-components/sections/AiAutopilotAnalogy/AiAutopilotAnalogy.tsx",
+    "src/shared-components/sections/AiAutopilotAnalogy/components/MermaidDiagramSection/MermaidDiagramSection.tsx",
+    "src/shared-components/sections/AiAutopilotAnalogy/components/WarningTransitionSection/WarningTransitionSection.tsx",
+    "src/shared-components/sections/AiAutopilotAnalogy/components/index.ts",
+    "src/shared-components/sections/BrainGardenOverview/components/CoreComponentsSection/CoreComponentsSection.styles.ts",
+    "src/shared-components/sections/BrainGardenOverview/components/CoreComponentsSection/CoreComponentsSection.tsx",
+    "src/shared-components/sections/BrainGardenOverview/components/ForceMultipliersSection/ForceMultipliersSection.styles.ts",
+    "src/shared-components/sections/BrainGardenOverview/components/ForceMultipliersSection/ForceMultipliersSection.tsx",
+    "src/shared-components/sections/Experience/components/ExperienceSection/ExperienceSection.tsx",
+    "src/shared-components/sections/TechnicalImplementation/SystemOverview/SystemOverview.tsx",
+    "src/shared-components/organisms/FeatureGrid/FeatureGrid.styles.ts",
+    "src/shared-components/organisms/FeatureGrid/FeatureGrid.tsx",
+    "src/shared-components/organisms/Footer/Footer.styles.ts",
+    "src/shared-components/organisms/Footer/Footer.tsx"
+  ],
+  "timestamp": "2025-04-04T00:00:00Z",
+  "branch": "feature/mermaid-reactflow-integration",
+  "planFile": ".brain/git/plans/mermaid-reactflow-integration-plan.md",
+  "planCommitId": 3
+}

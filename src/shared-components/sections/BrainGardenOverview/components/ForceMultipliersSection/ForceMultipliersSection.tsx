@@ -1,412 +1,47 @@
 import React from 'react';
-import { Typography } from '../../../../atoms/Typography';
 import { FeatureGrid } from '../../../../organisms/FeatureGrid/FeatureGrid';
 import { ForceMultipliersSectionProps } from './ForceMultipliersSection.types';
-import { Icon } from '../../../../atoms/Icon';
-import styled from 'styled-components';
-import { MermaidDiagram } from '../../../../molecules/MermaidDiagram';
+import { Icon } from '../../../../atoms/Icon/Icon';
+import { SectionSubtitle } from '../../BrainGardenOverview.styles';
+import { SectionTitleComponent } from '../../BrainGardenOverview.logic';
+import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
+import { GardenMetaphorDiagram } from '../../../../../components/diagrams/GardenMetaphorDiagram/GardenMetaphorDiagram';
 import {
-  SectionSubtitle,
   GradientText,
   ImpactMetric,
   BeforeAfter,
   PowerfulTitle,
   MetricsContainer
 } from '../../BrainGardenOverview.styles';
-import { ForceMultiplierContainer as StyledForceMultiplierContainer } from './ForceMultipliersSection.styles';
-
-// Styled components for typography
-const IntroText = styled(Typography)`
-  font-size: 1.2rem;
-  line-height: 1.6;
-`;
-
-const BodyText = styled(Typography)`
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-`;
-
-const ExplanationText = styled(BodyText)`
-  margin-top: 1rem;
-  margin-bottom: 0;
-`;
-
-const IndentedText = styled(Typography)`
-  margin-left: 36px;
-`;
-
-const CodeBlock = styled.pre`
-  background: rgba(74, 158, 255, 0.05);
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-  font-family: monospace;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-size: 0.9rem;
-  line-height: 1.4;
-`;
-
-const HighlightBox = styled.div`
-  background: rgba(74, 158, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin: 1.5rem 0;
-  border-left: 4px solid #4a9eff;
-`;
-
-const StoryBox = styled.div`
-  padding: 2rem;
-  background: linear-gradient(135deg, rgba(74, 158, 255, 0.05) 0%, rgba(157, 78, 255, 0.05) 100%);
-  border-radius: 16px;
-  margin: 2rem 0;
-  position: relative;
-
-  &:before {
-    content: &apos;&quot;&apos;;
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    font-size: 4rem;
-    color: #4a9eff;
-    font-family: Georgia, serif;
-    opacity: 0.2;
-  }
-`;
-
-const ActTitle = styled(SectionSubtitle)`
-  color: #4a9eff;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-`;
-
-const DiagramContainer = styled.div`
-  position: relative;
-  
-  .zoom-controls {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: none;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-  }
-  
-  &:hover .zoom-controls {
-    display: flex;
-  }
-  
-  /* Add styling to prevent line-text collisions */
-  .messageText {
-    background-color: white;
-    padding: 0 4px;
-    border-radius: 2px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .note rect {
-    fill: #FFE17E;
-    stroke: #FFD700;
-  }
-  
-  .actor {
-    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
-  }
-`;
-
-const Speaker = styled.span`
-  font-weight: bold;
-  color: #4a9eff;
-`;
-
-const Comment = styled.div`
-  color: ${({ theme }) => theme.colors.text.secondary};
-  margin-bottom: ${({ theme }) => theme.space.sm};
-`;
-
-// New chat interface components
-const ChatContainer = styled.div`
-  margin: 1.5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-`;
-
-const ChatMessage = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  max-width: 100%;
-`;
-
-const Avatar = styled.div<{ bgColor?: string }>`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: ${props => props.bgColor || '#4a9eff'};
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1rem;
-  flex-shrink: 0;
-`;
-
-const MessageBubble = styled.div<{ bgColor?: string, textColor?: string }>`
-  background-color: ${props => props.bgColor || '#f5f5f5'};
-  color: ${props => props.textColor || '#1F2937'};
-  padding: 0.75rem 1rem;
-  border-radius: 1rem;
-  border-top-left-radius: ${props => props.bgColor ? '1rem' : '0.25rem'};
-  max-width: calc(100% - 50px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-`;
-
-const SpeakerName = styled.div`
-  font-weight: 600;
-  font-size: 0.85rem;
-  margin-bottom: 0.25rem;
-  color: #666;
-`;
-
-const MessageContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: calc(100% - 50px);
-`;
-
-const MessageText = styled.div`
-  font-size: 1rem;
-  line-height: 1.5;
-`;
-
-const DialogLine = styled.div`
-  margin-bottom: 0.5rem;
-  position: relative;
-`;
-
-const CodeSnippet = styled.pre`
-  background-color: #f8f9fa;
-  padding: 0.75rem;
-  border-radius: 4px;
-  border-left: 3px solid #4a9eff;
-  margin: 0.75rem 0;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  overflow-x: auto;
-`;
-
-const TerminalBlock = styled.div`
-  background-color: #1E293B;
-  color: #E2E8F0;
-  padding: 1.25rem;
-  border-radius: 8px;
-  margin: 1.5rem 0;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  line-height: 1.5;
-`;
-
-const Command = styled.div`
-  margin: 0.75rem 0;
-  line-height: 1.5;
-  font-family: 'Courier New', monospace;
-  
-  &::before {
-    content: &apos;$ &apos;;
-    opacity: 0.6;
-  }
-`;
-
-const Result = styled.div`
-  color: #A3E635;
-  margin-left: 1rem;
-  margin-bottom: 0.5rem;
-  white-space: pre-wrap;
-`;
-
-const TerminalOutput = styled.pre`
-  color: #A3E635;
-  margin: 0;
-  padding: 0;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  white-space: pre-wrap;
-  display: block;
-  background: none;
-  border: none;
-`;
-
-const GitOutput = styled.div`
-  color: ${({ theme }) => theme.colors.accent.green};
-  margin-left: ${({ theme }) => theme.space.md};
-  margin-bottom: ${({ theme }) => theme.space.md};
-  white-space: pre-wrap;
-`;
-
-const R = styled(TerminalOutput)`
-  margin-left: 1rem;
-  margin-bottom: 0.5rem;
-`;
-
-const GitFeatureReconstruction = styled.div`
-  margin-top: ${({ theme }) => theme.space.lg};
-  padding: ${({ theme }) => theme.space.md};
-  background-color: ${({ theme }) => theme.colors.codeBackground};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
-`;
-
-const GitCommand = styled.div`
-  color: ${({ theme }) => theme.colors.text.primary};
-  margin-bottom: ${({ theme }) => theme.space.sm};
-
-  &::before {
-    content: '$ ';
-    opacity: 0.6;
-  }
-`;
-
-const CommandHighlight = styled.span`
-  color: ${({ theme }) => theme.colors.primary.main};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-`;
-
-const GitCommit = styled.div`
-  color: #F472B6;
-  margin: 0.75rem 0 1rem 0;
-  font-family: 'Courier New', monospace;
-  padding: 0 0 0 1.5rem;
-  white-space: pre-wrap;
-  border-left: 2px solid #F472B6;
-  line-height: 1.6;
-`;
-
-const InsightBox = styled.div`
-  background-color: rgba(74, 158, 255, 0.1);
-  border-left: 4px solid #4A9EFF;
-  padding: 1rem;
-  margin: 1.5rem 0;
-  border-radius: 0 8px 8px 0;
-`;
-
-const InsightTitle = styled.div`
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #4A9EFF;
-`;
-
-const GitPRSplitter = styled(GitFeatureReconstruction)`
-  /* Inherits most styles from GitFeatureReconstruction */
-  &:before {
-    background: linear-gradient(90deg, #4A9EFF, #22c55e);
-  }
-`;
-
-const PRBranch = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0.5rem 0;
-  font-family: 'Courier New', monospace;
-  line-height: 1.6;
-  padding: 0.25rem 0;
-  
-  &:before {
-    content: &apos;│&apos;;
-    color: #22c55e;
-    font-weight: bold;
-  }
-`;
-
-const BranchIcon = styled.span`
-  color: #22c55e;
-  font-weight: bold;
-`;
-
-const DependencyArrow = styled.div`
-  display: flex;
-  align-items: center;
-  color: #9CA3AF;
-  margin: 0.25rem 0 0.25rem 1.5rem;
-  font-family: 'Courier New', monospace;
-  line-height: 1.6;
-  padding: 0.15rem 0;
-  
-  &:before {
-    content: &apos;└─&apos;;
-    margin-right: 0.5rem;
-  }
-`;
-
-const DocsFeatReconstruction = styled(GitFeatureReconstruction)`
-  /* Inherits most styles from GitFeatureReconstruction */
-  &:before {
-    background: linear-gradient(90deg, #4A9EFF, #8B5CF6);
-  }
-`;
-
-const ForceMultiplierContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.background.light};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-  box-shadow: ${({ theme }) => theme.shadows.card};
-
-  ${StoryBox} {
-    padding: 2rem;
-    background-color: ${({ theme }) => theme.colors.background.paper};
-    border-radius: ${({ theme }) => theme.borderRadius.md};
-    box-shadow: ${({ theme }) => theme.shadows.sm};
-  }
-
-  ${ActTitle} {
-    color: ${({ theme }) => theme.colors.primary.main};
-    font-size: ${({ theme }) => theme.fontSizes.xl};
-    margin-bottom: ${({ theme }) => theme.space.md};
-  }
-
-  ${GitFeatureReconstruction} {
-    margin-top: ${({ theme }) => theme.space.lg};
-    padding: ${({ theme }) => theme.space.md};
-    background-color: ${({ theme }) => theme.colors.codeBackground};
-    border-radius: ${({ theme }) => theme.borderRadius.md};
-
-    ${Comment} {
-      color: ${({ theme }) => theme.colors.text.secondary};
-      margin-bottom: ${({ theme }) => theme.space.sm};
-    }
-
-    ${GitCommand} {
-      color: ${({ theme }) => theme.colors.text.primary};
-      margin-bottom: ${({ theme }) => theme.space.sm};
-
-      &::before {
-        content: '$ ';
-        opacity: 0.6;
-      }
-    }
-
-    ${GitOutput} {
-      color: ${({ theme }) => theme.colors.accent.green};
-      margin-left: ${({ theme }) => theme.space.md};
-      margin-bottom: ${({ theme }) => theme.space.md};
-      white-space: pre-wrap;
-    }
-
-    ${CommandHighlight} {
-      color: ${({ theme }) => theme.colors.primary.main};
-      font-weight: ${({ theme }) => theme.fontWeights.bold};
-    }
-  }
-`;
+import { 
+  ForceMultiplierContainer,
+  StyledForceMultiplierContainer,
+  BodyText,
+  StoryBox,
+  ActTitle,
+  DiagramContainer,
+  Comment,
+  GitFeatureReconstruction,
+  GitCommand,
+  CommandHighlight,
+  GitOutput,
+  InsightBox,
+  InsightTitle,
+  GitPRSplitter,
+  PRBranch,
+  BranchIcon,
+  DependencyArrow,
+  DocsFeatReconstruction,
+  TerminalBlock,
+  Command,
+  R,
+  ChatContainer,
+  ChatMessage,
+  Avatar,
+  MessageContent,
+  SpeakerName,
+  MessageBubble
+} from './ForceMultipliersSection.styles';
 
 export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = ({
   className,
@@ -419,26 +54,26 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
   ];
 
   return (
-    <StyledForceMultiplierContainer className={className} id="force-multipliers-section">
-      <div>
+    <ForceMultiplierContainer className={className} id="force-multipliers-section">
+      <StyledForceMultiplierContainer>
         <PowerfulTitle>
           <Icon name="bolt" source="tabler" size={32} />
           <GradientText>Force Multipliers</GradientText>
         </PowerfulTitle>
 
-        {/* Act 1: The Developer&apos;s Dilemma */}
-        <ActTitle>Act 1: The Developer&apos;s Dilemma</ActTitle>
+        {/* Act 1: The Developer's Dilemma */}
+        <ActTitle>Act 1: The Developer's Dilemma</ActTitle>
         <StoryBox>
           <BodyText variant="body">
-            Picture a developer, staring at their screen as the deadline looms. They&apos;ve just finished a complex feature, and now face a familiar dilemma: write comprehensive tests or move on to the next task. They know - they absolutely know - that skipping tests will come back to haunt them. When a new feature intersects with this one in a few months, something will break, and they&apos;ll spend hours tracking down what went wrong.
+            Picture a developer, staring at their screen as the deadline looms. They've just finished a complex feature, and now face a familiar dilemma: write comprehensive tests or move on to the next task. They know - they absolutely know - that skipping tests will come back to haunt them. When a new feature intersects with this one in a few months, something will break, and they'll spend hours tracking down what went wrong.
           </BodyText>
           
           <BodyText variant="body">
-            But the boss never sees the tests, only the feature. These invisible guardians of code quality, while critically important, are rarely valued by anyone but the developers themselves. And because of this eternal conflict, developers remain perpetually inexperienced at writing tests. It&apos;s a vicious cycle - being slow at writing tests means there&apos;s never enough time to write them properly, which means you never get faster at writing them.
+            But the boss never sees the tests, only the feature. These invisible guardians of code quality, while critically important, are rarely valued by anyone but the developers themselves. And because of this eternal conflict, developers remain perpetually inexperienced at writing tests. It's a vicious cycle - being slow at writing tests means there's never enough time to write them properly, which means you never get faster at writing them.
           </BodyText>
 
           <BodyText variant="body">
-            The same story plays out with commit messages. Every team has standards - these messages are crucial for code reviews and help teammates understand changes quickly. But as the day winds down, after hours of tracing bugs or wrestling with a particularly thorny feature, the developer&apos;s mental energy is spent. That carefully crafted commit message becomes a tired &quot;fixed bug&quot; - there&apos;s simply nothing left in the tank for proper documentation.
+            The same story plays out with commit messages. Every team has standards - these messages are crucial for code reviews and help teammates understand changes quickly. But as the day winds down, after hours of tracing bugs or wrestling with a particularly thorny feature, the developer's mental energy is spent. That carefully crafted commit message becomes a tired "fixed bug" - there's simply nothing left in the tank for proper documentation.
           </BodyText>
 
           <BodyText variant="body">
@@ -446,7 +81,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </BodyText>
 
           <BodyText variant="body">
-            This was life before generative AI and autonomous agents. A constant battle between doing things right and doing things fast - with &quot;fast&quot; winning far too often.
+            This was life before generative AI and autonomous agents. A constant battle between doing things right and doing things fast - with "fast" winning far too often.
           </BodyText>
         </StoryBox>
 
@@ -467,11 +102,11 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </MetricsContainer>
 
           <BodyText variant="body">
-            Suddenly, writing tests wasn&apos;t a chore - AI could analyze your code and generate comprehensive test suites in seconds. Those detailed commit messages? AI could examine your changes and craft perfect descriptions that future teammates would thank you for. Documentation stayed current because AI could update it automatically with each significant change.
+            Suddenly, writing tests wasn't a chore - AI could analyze your code and generate comprehensive test suites in seconds. Those detailed commit messages? AI could examine your changes and craft perfect descriptions that future teammates would thank you for. Documentation stayed current because AI could update it automatically with each significant change.
           </BodyText>
 
           <BodyText variant="body">
-            The economics had completely inverted. It now took more effort NOT to follow best practices. Why write &quot;fixed bug&quot; when AI could instantly generate a detailed commit message explaining exactly what was fixed and how? Why skip tests when AI could write them faster than you could decide to skip them?
+            The economics had completely inverted. It now took more effort NOT to follow best practices. Why write "fixed bug" when AI could instantly generate a detailed commit message explaining exactly what was fixed and how? Why skip tests when AI could write them faster than you could decide to skip them?
           </BodyText>
         </StoryBox>
 
@@ -479,7 +114,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
         <ActTitle>Act 3: The Force Multiplier Effect</ActTitle>
         <StoryBox>
           <BodyText variant="body">
-            But here&apos;s where it gets truly revolutionary. These best practices - the tests, the commit messages, the documentation - they&apos;re not just nice to have anymore. They&apos;ve become force multipliers that enable AI agents to perform tasks that would have seemed like science fiction just a few years ago.
+            But here's where it gets truly revolutionary. These best practices - the tests, the commit messages, the documentation - they're not just nice to have anymore. They've become force multipliers that enable AI agents to perform tasks that would have seemed like science fiction just a few years ago.
           </BodyText>
 
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Autonomous Testing Magic</strong>
@@ -487,349 +122,26 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
             Imagine making a change and having several tests fail. Instead of diving into debugging, you grab a coffee. Why? Because the AI agent can work autonomously while you take a break:
           </BodyText>
           <DiagramContainer>
-            <MermaidDiagram
-              definition={`
-%%{
-  init: {
-    'theme': 'base',
-    'themeVariables': {
-      'primaryColor': '#6772e5',
-      'primaryTextColor': '#FFFFFF',
-      'primaryBorderColor': '#6772e5',
-      'lineColor': '#000000',
-      'secondaryColor': '#6772e5',
-      'tertiaryColor': '#6772e5',
-      'noteBkgColor': '#FFE17E',
-      'noteTextColor': '#1F2937',
-      'noteBorderColor': '#FFD700',
-      'textColor': '#1F2937',
-      'fontSize': '16px',
-      'fontFamily': 'Inter, sans-serif',
-      'mainBkg': '#6772e5',
-      'errorTextColor': '#FF0000',
-      'errorBkgColor': '#FFEBEE',
-      'nodeBorder': '#000000',
-      'clusterBorder': '#000000',
-      'edgeLabelBackground': '#FFFFFF',
-      'activationBorderColor': '#000000',
-      'activationBkgColor': '#F4F4F4',
-      'sequenceNumberColor': '#000000',
-      'actorBorder': '#000000',
-      'actorBkg': '#6772e5',
-      'labelBoxBorderColor': '#000000',
-      'loopTextColor': '#000000'
-    }
-  }
-}%%
-sequenceDiagram
-    participant Dev as Developer
-    participant AI as AI Agent
-    participant Tests as Test Suite
-    
-    Dev->>AI: Encounters failing test
-    Note over Dev: Goes for coffee ☕
-    
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 1
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ❌ Token validation failed
-      AI->>AI: Analyzes error & updates code
-    end
-
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 2
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ❌ Refresh token expired
-      AI->>AI: Implements retry mechanism
-    end
-
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 3
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ❌ Edge case uncovered
-      AI->>AI: Adds edge case handling
-    end
-
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 4
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ❌ Race condition found
-      AI->>AI: Implements mutex lock
-    end
-
-    rect rgb(103, 114, 229)
-      Note right of AI: Attempt 5
-      AI->>Tests: npm test auth.spec.ts
-      Tests-->>AI: ✅ All tests passing!
-      AI->>AI: Commits changes with detailed message
-    end
-
-    Note over Dev: Returns from coffee
-    AI->>Dev: Presents working solution
-    Note over Dev,AI: Fixed regression in user authentication:<br/>- Added token validation<br/>- Implemented retry mechanism<br/>- Handled edge cases<br/>- Resolved race condition
-              `}
+            <GardenMetaphorDiagram
               theme="default"
-              backgroundColor="rgba(103, 114, 229, 0.05)"
+              height="400px"
+              width="100%"
+              title="Autonomous Testing Workflow"
+              accessibilityDescription="Diagram showing an AI agent working autonomously to fix failing tests while the developer takes a break, going through multiple iterations until tests pass."
               showZoomControls={true}
-              accessibilityDescription="A sequence diagram showing the AI agent autonomously fixing failing tests while the developer takes a coffee break. The diagram shows 5 attempts, each addressing different issues until all tests pass."
-            />
-          </DiagramContainer>
-          <ExplanationText variant="body">
-            This is where tests become more than just quality checks - they&apos;re the AI agent&apos;s validation system. Each test provides clear, objective criteria that would traditionally require a human tester to verify. The AI methodically works through each failure, using the test results as concrete feedback to guide its improvements. Without these automated tests, we&apos;d still need manual verification for every change, creating a bottleneck in the development process. Instead, the tests serve as an automated &quot;human tester in code,&quot; allowing the AI to work autonomously and confidently.
-          </ExplanationText>
-
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>When Agents Get Stuck: The Skill Jack Framework</strong>
-          <BodyText variant="body">
-            Of course, AI agents don&apos;t solve everything autonomously. Sometimes they get stuck - encountering problems outside their knowledge domain or hitting limitations in available tools. This is where Brain Garden&apos;s meta-prompting system comes in:
-          </BodyText>
-
-          <ChatContainer>
-            <ChatMessage>
-              <Avatar bgColor="#6B7280">S</Avatar>
-              <MessageContent>
-                <SpeakerName>System</SpeakerName>
-                <MessageBubble bgColor="#f3f4f6" textColor="#1F2937">
-                  Agent has encountered a GraphQL schema validation error during task execution. Knowledge boundary detected.
-                </MessageBubble>
-              </MessageContent>
-            </ChatMessage>
-            
-            <ChatMessage>
-              <Avatar bgColor="#6772e5">AI</Avatar>
-              <MessageContent>
-                <SpeakerName>Agent</SpeakerName>
-                <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
-                  I've hit a knowledge boundary with this GraphQL schema. Requesting neural upload to bypass this limitation.
-                </MessageBubble>
-              </MessageContent>
-            </ChatMessage>
-            
-            <ChatMessage>
-              <Avatar bgColor="#6B7280">S</Avatar>
-              <MessageContent>
-                <SpeakerName>System</SpeakerName>
-                <MessageBubble bgColor="#f3f4f6" textColor="#1F2937">
-                  Initiating Skill Jack protocol. Constructing knowledge vector. Preparing upload channels...
-                </MessageBubble>
-              </MessageContent>
-            </ChatMessage>
-            
-            <ChatMessage>
-              <Avatar bgColor="#6772e5">AI</Avatar>
-              <MessageContent>
-                <SpeakerName>Agent</SpeakerName>
-                <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
-                  <strong>Knowledge Request:</strong> GraphQL schema with union types and interfaces
-                  <br />
-                  <strong>Current Issue:</strong> Cannot extend type 'Product' because it's a union type.
-                  
-                  <CodeSnippet>
-                    union Product = PhysicalProduct | DigitalProduct{'\n'}
-                    interface ProductInterface {'{'} id: ID! {'}'}
-                  </CodeSnippet>
-                  
-                  <strong>Attempted Approaches:</strong>
-                  <br />
-                  1. Tried extending the union type directly 
-                  <br />
-                  2. Attempted to apply interface to union declaration
-                  <br />
-                  <br />
-                  <strong>Specific Knowledge Needed:</strong> 
-                  <br />
-                  How to properly structure GraphQL schemas with both union types and interfaces while maintaining type relationships?
-                </MessageBubble>
-              </MessageContent>
-            </ChatMessage>
-            
-            <ChatMessage>
-              <Avatar bgColor="#22C55E">D</Avatar>
-              <MessageContent>
-                <SpeakerName>Developer</SpeakerName>
-                <MessageBubble bgColor="#ECFDF5" textColor="#1F2937">
-                  <strong>Neural Upload Ready:</strong> Preparing GraphQL schema expertise injection...
-                  
-                  1. Make each member of the union implement the interface
-                  2. Use fragments in your queries to access interface fields
-                  
-                  <CodeSnippet>
-                    interface ProductInterface {'{'} id: ID! {'}'}{'\n'}
-                    type PhysicalProduct implements ProductInterface {'{'} id: ID!, weight: Float {'}'}{'\n'}
-                    type DigitalProduct implements ProductInterface {'{'} id: ID!, fileSize: Float {'}'}{'\n'}
-                    union Product = PhysicalProduct | DigitalProduct
-                  </CodeSnippet>
-                  
-                  Neural upload complete. You now have expert-level understanding of union and interface relationships.
-                </MessageBubble>
-              </MessageContent>
-            </ChatMessage>
-            
-            <ChatMessage>
-              <Avatar bgColor="#6B7280">S</Avatar>
-              <MessageContent>
-                <SpeakerName>System</SpeakerName>
-                <MessageBubble bgColor="#f3f4f6" textColor="#1F2937">
-                  Skill Jack successful. Knowledge construct compiled and stored in the Construct at .brain/knowledge/graphql/union-types-with-interfaces.guide.ts for future neural access.
-                </MessageBubble>
-              </MessageContent>
-            </ChatMessage>
-            
-            <ChatMessage>
-              <Avatar bgColor="#6772e5">AI</Avatar>
-              <MessageContent>
-                <SpeakerName>Agent</SpeakerName>
-                <MessageBubble bgColor="#EBF5FF" textColor="#1F2937">
-                  Knowledge integration complete. I know GraphQL schemas now. Schema restructured according to pattern. All validation errors resolved. Continuing task execution.
-                </MessageBubble>
-              </MessageContent>
-            </ChatMessage>
-          </ChatContainer>
-
-          <ExplanationText variant="body">
-            The Brain Garden Skill Jack system revolutionizes how agents transcend their knowledge boundaries - much like how characters in The Matrix could instantly download complex skills directly into their minds. In seconds, an agent can go from complete novice to expert-level proficiency in any domain.
-            <br />
-            <br />
-            The Skill Jack protocol works through four distinct phases:
-            <br />
-            1. <strong>Boundary Detection:</strong> The agent identifies the exact point where its knowledge ends
-            <br />
-            2. <strong>Construct Formation:</strong> A precisely structured request vector is created that maps the knowledge gap
-            <br />
-            3. <strong>Neural Upload:</strong> A human operator "jacks in" specialized expertise that instantly bridges the gap
-            <br />
-            4. <strong>Knowledge Compilation:</strong> The uploaded knowledge is compiled into a persistent construct that remains accessible for all future operations
-            <br />
-            <br />
-            Unlike traditional programming where every possible scenario must be pre-coded, the Skill Jack creates a dynamic knowledge ecosystem that evolves organically. Each time an agent hits the boundaries of its knowledge matrix, that boundary becomes a new opportunity for expansion. The knowledge constructs accumulate in the project&apos;s digital Construct - a growing library of expert-level insights that any agent can access instantly.
-            <br />
-            <br />
-            <strong>Autonomous Neural Uploads - The Self-Jacking Agent:</strong> What truly sets Brain Garden&apos;s system apart is that agents aren&apos;t limited to receiving skill jacks from human operators. Through an advanced meta-prompting system, agents can autonomously identify knowledge gaps, generate their own skill jacks, and integrate them without human intervention. Like Neo eventually accessing the Construct independently, these self-aware agents can pull exactly the expertise they need directly from the digital ether, analyzing documentation, code patterns, and existing knowledge files to synthesize new capabilities on demand. This creates truly autonomous agents that can navigate previously uncharted problem spaces with minimal supervision.
-            <br />
-            <br />
-            The result is a profound shift in development capabilities - there&apos;s no need to "know Kung Fu" before starting a task. The agent can begin work and simply request a Skill Jack whenever it encounters a knowledge boundary. With each upload, the entire system&apos;s capabilities expand exponentially, creating a continuously evolving digital consciousness that learns and adapts with every challenge it faces.
-          </ExplanationText>
-
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Parallel Agent Workflows: Multiplying Your Development Power</strong>
-          <BodyText variant="body">
-            For teams looking to maximize productivity, the real breakthrough comes from running multiple AI agents in parallel. Using git worktrees (which let you have multiple working copies of your code repository at once), you can seamlessly switch between different features without the overhead of context switching:
-          </BodyText>
-          
-          <div style={{
-            backgroundColor: '#f8f9fa',
-            padding: '1rem',
-            borderRadius: '8px',
-            margin: '1rem 0',
-            borderLeft: '4px solid #4a9eff',
-          }}>
-            <strong style={{ fontSize: '1.1rem' }}>What are Git Worktrees?</strong>
-            <p style={{ marginTop: '0.5rem' }}>
-              Think of git worktrees as having multiple copies of your project that all connect to the same repository. Each copy can be on a different branch, allowing you to work on multiple features simultaneously without constantly switching branches. It&apos;s like having multiple workspaces that all save to the same central storage.
-            </p>
-            <p>
-              <strong>Traditional approach:</strong> Constantly switch branches to work on different features, leading to context switching and setup time.
-            </p>
-            <p>
-              <strong>Worktree approach:</strong> Have separate folders for each feature branch, allowing you to instantly switch between them with no setup time.
-            </p>
-          </div>
-          
-          <DiagramContainer>
-            <MermaidDiagram
-              definition={`
-%%{
-  init: {
-    'theme': 'base',
-    'themeVariables': {
-      'primaryColor': '#4A9EFF',
-      'primaryTextColor': '#FFFFFF',
-      'primaryBorderColor': '#4A9EFF',
-      'lineColor': '#000000',
-      'secondaryColor': '#FFE17E',
-      'tertiaryColor': '#4A9EFF',
-      'noteBkgColor': '#FFE17E',
-      'noteTextColor': '#1F2937',
-      'noteBorderColor': '#FFD700',
-      'textColor': '#1F2937',
-      'actorTextColor': '#FFFFFF',
-      'fontSize': '16px',
-      'fontFamily': 'Inter, sans-serif',
-      'mainBkg': '#4A9EFF',
-      'errorTextColor': '#FF0000',
-      'errorBkgColor': '#FFEBEE',
-      'nodeBorder': '#000000',
-      'clusterBorder': '#000000',
-      'edgeLabelBackground': '#FFFFFF',
-      'activationBorderColor': '#000000',
-      'activationBkgColor': '#F4F4F4',
-      'sequenceNumberColor': '#000000',
-      'actorBorder': '#000000',
-      'actorBkg': '#4A9EFF',
-      'labelBoxBorderColor': '#000000',
-      'loopTextColor': '#000000',
-      'messageTextColor': '#000000'
-    }
-  }
-}%%
-flowchart TD
-    subgraph Setup ["Morning Setup"]
-        A[Main Repository] --> B[Setup git worktrees]
-        B --> C[Two separate working copies]
-    end
-
-    subgraph Parallel ["Parallel Development"]
-        D[Working Copy 1:<br/>Auth Feature] --> E[AI Agent 1<br/>working on bug fixes]
-        F[Working Copy 2:<br/>Dashboard Feature] --> G[AI Agent 2<br/>building new features]
-        
-        E --> H[Developer reviews<br/>when Agent 1 needs input]
-        G --> I[Developer guides<br/>Agent 2 on requirements]
-        
-        H -.-> G
-        I -.-> E
-    end
-    
-    subgraph Results ["End Results"]
-        J[Completed PR 1:<br/>Auth Fixes] 
-        K[Completed PR 2:<br/>Dashboard Features]
-        L[2x Productivity]
-    end
-    
-    C --> D
-    C --> F
-    E --> J
-    G --> K
-    J --> L
-    K --> L
-    
-    classDef blue fill:#4A9EFF,color:white
-    classDef lightblue fill:#B3D4FF,color:#1F2937
-    classDef yellow fill:#FFE17E,color:#1F2937
-    
-    class A,B,C blue
-    class D,E,F,G lightblue
-    class H,I,J,K,L yellow
-              `}
-              theme="default"
-              backgroundColor="rgba(74, 158, 255, 0.05)"
-              showZoomControls={true}
-              accessibilityDescription="A flowchart showing how a developer can work with multiple AI agents in parallel using git worktrees, leading to doubled productivity."
             />
           </DiagramContainer>
           
-          <ExplanationText variant="body">
-            This workflow transforms how teams develop software. Instead of working on one feature at a time, developers can now orchestrate multiple AI agents working on different features simultaneously. When one agent is solving a problem (which typically takes 3-10 minutes), the developer can shift attention to another feature. The key insight is that you&apos;re never waiting - you&apos;re always making progress on something. This approach effectively doubles development velocity without requiring longer hours or additional resources.
-          </ExplanationText>
-
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Git Archaeology: Reconstructing Features from History</strong>
           <BodyText variant="body">
-            Remember that feature that was accidentally removed three months ago? With well-documented git history, AI can reconstruct entire features from the commit log:
+            Now think about this: that AI agent didn't just solve those failing tests through trial and error. It relied on existing tests to understand the expected behavior. It used commit messages to understand the history of the problematic code - why particular decisions were made. It drew from documentation to grasp the intended architecture.
           </BodyText>
-          
+            
           <GitFeatureReconstruction>
             <Comment>// Step 1: Extract the history of a removed feature</Comment>
-            <GitCommand><CommandHighlight>git log -p --all -S &apos;userPreferences&apos;</CommandHighlight> &gt; feature_history.txt</GitCommand>
-            <GitOutput>{`Finding commits that modified &apos;userPreferences&apos;... Extracted 7 commits from the past 5 months.`}</GitOutput>
+            <GitCommand><CommandHighlight>git log -p --all -S 'userPreferences'</CommandHighlight> {'>'} feature_history.txt</GitCommand>
+            <GitOutput>{`Finding commits that modified 'userPreferences'... Extracted 7 commits from the past 5 months.`}</GitOutput>
             
-            <Comment>// Step 2: AI analyzes the feature&apos;s evolution</Comment>
+            <Comment>// Step 2: AI analyzes the feature's evolution</Comment>
             <GitOutput>{`✓ Initial implementation: March 15
 ✓ Added new settings: April 2
 ✓ Refactored to use new API: April 28
@@ -838,24 +150,17 @@ flowchart TD
           </GitFeatureReconstruction>
           
           <InsightBox>
-            <InsightTitle>Beyond Simple Reconstruction</InsightTitle>
-            <p>What makes this process truly powerful is the AI&apos;s ability to explore commits based on their messages and compare different versions of files. The agent doesn&apos;t just blindly restore code - it analyzes:</p>
-            <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
-              <li>The original intent behind features by reading commit messages</li>
-              <li>How code evolved across multiple commits</li>
-              <li>Changes in related files that might impact reimplementation</li>
-            </ul>
-            <p style={{ marginTop: '0.5rem' }}>When merging code would introduce conflicts, the agent can instead understand the purpose of both code branches and create a new implementation that combines the best elements of each - something that requires deep understanding rather than just text manipulation.</p>
+            <InsightTitle>Why This Matters</InsightTitle>
+            <p>With this detailed evolution history automatically extracted and analyzed, the AI can now reconstruct the feature exactly as it was before removal, complete with all subsequent improvements and refactoring. Without well-structured commit messages and coherent commit history, this would be virtually impossible.</p>
           </InsightBox>
-
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Automated Refactoring: Breaking Down Complex Changes</strong>
+          
           <BodyText variant="body">
-            Got a massive PR that's too big to review? The AI agent can analyze the commit history and automatically split it into logical, reviewable chunks:
+            Or consider a massive feature that needs to be broken down into multiple PRs. Good luck doing that manually with a huge PR that touches hundreds of files. But with good documentation and commit messages? AI can analyze dependency chains, identify logical groupings, and auto-create perfectly structured, sequenced PRs:
           </BodyText>
           
           <GitPRSplitter>
             <Comment>// Step 1: Extract changes for analysis</Comment>
-            <GitCommand><CommandHighlight>git log --patch</CommandHighlight> &gt; changes.patch</GitCommand>
+            <GitCommand><CommandHighlight>git log --patch</CommandHighlight> {'>'} changes.patch</GitCommand>
             <GitOutput>{`Extracting commit history with changes...`}</GitOutput>
             
             <Comment>// Step 2: AI analyzes the changes to determine logical groupings</Comment>
@@ -863,8 +168,9 @@ flowchart TD
             <GitOutput>{`Analyzing 230+ files changed in PR #1458...
 ✓ Identified 3 main components in the changes:
   - Authentication system refactoring (34 files)
-  - Database schema migrations (48 files)
-  - UI component updates (152 files)
+  - Database schema migrations (87 files)
+  - UI component library updates (109 files)
+
 ✓ Dependencies detected:
   - Database changes depend on authentication
   - UI changes depend on both database and authentication`}</GitOutput>
@@ -898,20 +204,12 @@ All PRs include automated documentation of changes, test results, and dependency
           </GitPRSplitter>
           
           <InsightBox>
-            <InsightTitle>Intelligent PR Management</InsightTitle>
-            <p>The AI doesn't just mechanically split files—it analyzes relationships between components and creates a logical dependency chain:</p>
-            <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
-              <li>Identifies which changes must be reviewed and merged first</li>
-              <li>Groups related files that serve a common purpose, even across directories</li>
-              <li>Creates clear, focused PRs that are much easier to review</li>
-              <li>Automatically documents the relationship between PRs</li>
-            </ul>
-            <p style={{ marginTop: '0.5rem' }}>This transforms what would be an overwhelming code review into a manageable, systematic process—reducing review time by up to 70% while improving the quality of feedback.</p>
+            <InsightTitle>Why This Matters</InsightTitle>
+            <p>Breaking down massive PRs is a time-consuming, error-prone process. With AI leveraging good commit history and clear code organization, this becomes an automated task that produces perfectly structured, reviewable changes. Thorough test coverage allows the AI to validate each PR individually, ensuring they can be merged sequentially without breaking functionality.</p>
           </InsightBox>
 
-          <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>Automated Documentation: The Ultimate Force Multiplier</strong>
           <BodyText variant="body">
-            With the right system prompts, the agent automatically follows a comprehensive documentation checklist after completing any feature—no human prompting required:
+            What about documentation automation? Here the AI leverages your existing documentation standards and codebase patterns to automatically detect when new features are implemented but not documented. It can then create comprehensive docs that adhere to your team's conventions, complete with examples:
           </BodyText>
 
           <DocsFeatReconstruction>
@@ -935,9 +233,9 @@ All PRs include automated documentation of changes, test results, and dependency
             <GitOutput>{`Generating missing documentation...
 Analyzing code to extract usage patterns...
 Creating examples based on implementation...
-Documenting API endpoints and parameters...
+Ensuring consistency with existing documentation...
 
-Documentation generated:
+✓ Created documentation files:
 ✓ docs/features/sharing/quick-share.md
 ✓ docs/api/sharing/quick-share-api.md
 ✓ docs/examples/sharing/quick-share-examples.md
@@ -950,12 +248,12 @@ Documentation generated:
             <GitCommand><CommandHighlight>git add</CommandHighlight> docs/</GitCommand>
             <GitCommand><CommandHighlight>git commit -m</CommandHighlight> "Add comprehensive documentation for Quick Share feature"</GitCommand>
             <GitOutput>{`[docs/quick-share-feature a8e29a5] Add comprehensive documentation for Quick Share feature
- 4 files changed, 425 insertions(+)`}</GitOutput>
+4 files changed, 425 insertions(+)`}</GitOutput>
             
             <GitCommand><CommandHighlight>git push origin</CommandHighlight> docs/quick-share-feature</GitCommand>
             <GitOutput>{`Branch 'docs/quick-share-feature' set up to track remote branch 'docs/quick-share-feature' from 'origin'.
 To github.com:company/repo.git
-   0000000..a8e29a5  docs/quick-share-feature -> docs/quick-share-feature`}</GitOutput>
+  0000000..a8e29a5  docs/quick-share-feature -> docs/quick-share-feature`}</GitOutput>
             
             <GitCommand><CommandHighlight>create_pull_request</CommandHighlight> --branch docs/quick-share-feature</GitCommand>
             <GitOutput>{`Created PR #2134: "Documentation: Complete Quick Share feature docs"
@@ -964,15 +262,8 @@ Added Labels: documentation, automated`}</GitOutput>
           </DocsFeatReconstruction>
 
           <InsightBox>
-            <InsightTitle>Documentation as Code: Systems Thinking</InsightTitle>
-            <p>The agent treats documentation as a first-class citizen in the development process:</p>
-            <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
-              <li>Documentation updates are triggered automatically by commits—no developer prompting needed</li>
-              <li>The agent follows a consistent checklist encoded in its system prompt</li>
-              <li>All documentation changes are tracked in version control alongside code</li>
-              <li>Version numbers are bumped according to semantic versioning rules</li>
-              <li>Each feature's documentation is maintained in context with its implementation</li>
-            </ul>
+            <InsightTitle>Why This Matters</InsightTitle>
+            <p>Documentation is crucial but often neglected. This AI automation ensures documentation always stays in sync with code by detecting gaps and filling them. The system can track documentation coverage just like test coverage, enforcing documentation quality standards.</p>
             <p style={{ marginTop: '0.5rem' }}>This systematic approach ensures documentation never becomes outdated or forgotten. Just as code tests provide guardrails for implementation, this documentation system creates guardrails for knowledge management across the entire codebase.</p>
           </InsightBox>
         </StoryBox>
@@ -982,7 +273,6 @@ Added Labels: documentation, automated`}</GitOutput>
           <BodyText variant="body">
             This is the new reality of developing software with AI and agent technology, aided by the Brain Garden system which ensures all the force multipliers are in place so your team squeezes every ounce of exponential productivity out of the process. Those best practices that developers always wanted to follow but couldn't find time for? They're now effortless to maintain. And those same practices have become the foundation that enables AI to perform increasingly powerful automated tasks.
           </BodyText>
-
           <BodyText variant="body">
             The vicious cycle has become a virtuous one: Better documentation and tests make AI more capable, which in turn makes it easier to maintain high standards, which makes AI even more powerful. It's a complete transformation of how we develop software.
           </BodyText>
@@ -1046,7 +336,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -1056,7 +346,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
                 <SpeakerName>Junior Dev</SpeakerName>
                 <MessageBubble>
@@ -1066,7 +356,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -1076,7 +366,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
                 <SpeakerName>Junior Dev</SpeakerName>
                 <MessageBubble>
@@ -1090,7 +380,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -1100,7 +390,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
                 <SpeakerName>Mid-level Dev</SpeakerName>
                 <MessageBubble>
@@ -1128,7 +418,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -1138,7 +428,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
                 <SpeakerName>Mid-level Dev</SpeakerName>
                 <MessageBubble>
@@ -1148,7 +438,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -1158,7 +448,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">MD</Avatar>
+              <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
                 <SpeakerName>Mid-level Dev</SpeakerName>
                 <MessageBubble>
@@ -1172,7 +462,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
                 <SpeakerName>CTO</SpeakerName>
                 <MessageBubble>
@@ -1182,7 +472,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -1192,7 +482,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
                 <SpeakerName>CTO</SpeakerName>
                 <MessageBubble>
@@ -1202,7 +492,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah</SpeakerName>
                 <MessageBubble>
@@ -1212,7 +502,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
                 <SpeakerName>CTO</SpeakerName>
                 <MessageBubble>
@@ -1246,7 +536,7 @@ Compiled successfully.
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -1256,7 +546,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">S</Avatar>
+              <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
                 <SpeakerName>Sarah (Senior Dev)</SpeakerName>
                 <MessageBubble>
@@ -1266,7 +556,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -1280,7 +570,7 @@ Compiled successfully.
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -1290,7 +580,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">D</Avatar>
+              <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
                 <SpeakerName>Senior Developer</SpeakerName>
                 <MessageBubble>
@@ -1300,7 +590,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -1310,7 +600,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">D</Avatar>
+              <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
                 <SpeakerName>Senior Developer</SpeakerName>
                 <MessageBubble>
@@ -1320,7 +610,7 @@ Compiled successfully.
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -1342,7 +632,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#E34935">ST</Avatar>
+              <Avatar $bgColor="#E34935">ST</Avatar>
               <MessageContent>
                 <SpeakerName>Security Team</SpeakerName>
                 <MessageBubble>
@@ -1352,7 +642,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
                 <SpeakerName>Junior Dev</SpeakerName>
                 <MessageBubble>
@@ -1362,7 +652,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#E34935">D</Avatar>
+              <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
                 <SpeakerName>Senior Developer</SpeakerName>
                 <MessageBubble>
@@ -1372,7 +662,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#0B6E31">JD</Avatar>
+              <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
                 <SpeakerName>Junior Dev</SpeakerName>
                 <MessageBubble>
@@ -1412,7 +702,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
           
           <ChatContainer>
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">M</Avatar>
+              <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
                 <SpeakerName>Mark (PM)</SpeakerName>
                 <MessageBubble>
@@ -1422,7 +712,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
             </ChatMessage>
             
             <ChatMessage>
-              <Avatar bgColor="#4A9EFF">CTO</Avatar>
+              <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
                 <SpeakerName>CTO</SpeakerName>
                 <MessageBubble>
@@ -1468,14 +758,14 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
         {/* The Future Is Here */}
         <StoryBox>
           <BodyText variant="body">
-            We&apos;re not talking about some far-off future. This is happening now. The teams that embrace these practices aren&apos;t just writing better code - they&apos;re creating environments where AI can operate as a true team member, handling increasingly complex tasks with growing autonomy.
+            We're not talking about some far-off future. This is happening now. The teams that embrace these practices aren't just writing better code - they're creating environments where AI can operate as a true team member, handling increasingly complex tasks with growing autonomy.
           </BodyText>
 
           <BodyText variant="body">
-            And here&apos;s the kicker: the better your development practices, the more powerful your AI tools become. It&apos;s a force multiplier effect that&apos;s transforming how we think about software development.
+            And here's the kicker: the better your development practices, the more powerful your AI tools become. It's a force multiplier effect that's transforming how we think about software development.
           </BodyText>
         </StoryBox>
-      </div>
-    </StyledForceMultiplierContainer>
+      </StyledForceMultiplierContainer>
+    </ForceMultiplierContainer>
   );
 };

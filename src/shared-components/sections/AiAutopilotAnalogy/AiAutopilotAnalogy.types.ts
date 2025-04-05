@@ -27,19 +27,19 @@ export interface AiAutopilotAnalogyProps {
     realityItems: Array<{
       title: string;
       description: string;
-      icon: ReactNode;
+      iconName: string;
     }>;
     hollywoodItems: Array<{
       title: string;
       description: string;
-      icon: ReactNode;
+      iconName: string;
     }>;
   };
   strategicFocusAreasProps?: {
     features: Array<{
       title: string;
       description: string;
-      icon: ReactNode;
+      iconName: string;
     }>;
   };
   mermaidDiagramProps?: {

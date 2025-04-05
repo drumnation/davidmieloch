@@ -1,23 +1,23 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { useSpring, useTrail, animated, config } from '@react-spring/web';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Hero } from '../../organisms/Hero';
-import { QuoteGrid } from '../../organisms/QuoteGrid';
-import ProblemSolutionCard from '../../organisms/ProblemSolutionCard';
-import { AiSkepticToExpertProps } from './AiSkepticToExpert.types';
 import { Typography } from '../../atoms/Typography';
+import { AiSkepticToExpertProps } from './AiSkepticToExpert.types';
 import * as S from './AiSkepticToExpert.styles';
 import { defaultContent } from './AiSkepticToExpert.constants';
-import { enhanceHeroProps, enhanceQuotesProps, RedditIcon } from './AiSkepticToExpert.logic';
-
-// Create animated components
-const AnimatedContentSection = animated(S.ContentSection);
-const AnimatedContentContainer = animated(S.ContentContainer);
-const AnimatedBackgroundSection = animated(S.BackgroundSection);
-const AnimatedAccentBackgroundSection = animated(S.AccentBackgroundSection);
-const AnimatedCardGrid = animated(S.CardGrid);
+import { enhanceHeroProps, enhanceQuotesProps } from './AiSkepticToExpert.logic';
+import { AnimationDebugger, AnimationErrorBoundary } from '../../../utils/animations/debug-tools';
+import { contentVariants } from './AiSkepticToExpert.animations';
+import { SPACING } from './AiSkepticToExpert.shared';
+import { 
+  ContentSection, 
+  RedditSection, 
+  QuotesSection, 
+  ProblemSolutionSection 
+} from './components';
 
 export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   className,
@@ -25,171 +25,110 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   quotesProps = defaultContent.quotes,
   problemSolutionCardsProps = defaultContent.problemSolutions,
 }) => {
+  const componentName = "AiSkepticToExpert";
+  
   // Enhance props with consistent styling and defaults
   const enhancedHeroProps = React.useMemo(() => enhanceHeroProps(heroProps), [heroProps]);
-  const enhancedQuotesProps = React.useMemo(() => enhanceQuotesProps(quotesProps), [quotesProps]);
+  const enhancedQuotesProps = React.useMemo(() => {
+    console.log("Input quotesProps:", quotesProps);
+    const enhanced = enhanceQuotesProps(quotesProps);
+    console.log("Enhanced quotesProps:", enhanced);
+    return enhanced;
+  }, [quotesProps]);
   
   // Setup intersection observer
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
-  
-  // Main content animation
-  const contentSpring = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0px)' : 'translateY(20px)',
-    config: { ...config.gentle },
-    immediate: !inView
-  });
-  
-  // Card animations
-  const cardsTrail = useTrail(problemSolutionCardsProps.cards.length, {
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0px)' : 'translateY(20px)',
-    config: { ...config.gentle },
-    delay: 200,
-    immediate: !inView
-  });
 
   const heroComponent = React.useMemo(() => (
     <Hero {...enhancedHeroProps} />
   ), [enhancedHeroProps]);
 
-  return (
+  const renderContent = () => (
     <S.Container className={className} key="ai-skeptic-content">
       <S.GlobalStyles />
       {heroComponent}
     
-      <AnimatedContentSection ref={ref} style={contentSpring}>
-        <AnimatedContentContainer style={contentSpring}>
-          <div className="text-left" style={{ marginBottom: S.SPACING.paragraph }}>
-            <Typography variant="h2" className="mb-4">
-              The Reality of AI Tools in Development Teams
-            </Typography>
-          </div>
+      <S.ContentSection
+        ref={ref}
+        variants={contentVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        as={motion.div}
+      >
+        <ContentSection title="The Reality of AI Tools in Development Teams">
+          <Typography variant="body" weight="regular" className="mb-4">
+            Let me guess: your team just got access to AI coding tools, and the reactions range from skeptical eye-rolls to outright hostility.
+            I&apos;ve been there—both as the skeptic and later as the solution architect.
+          </Typography>
           
-          <div style={{ marginBottom: S.SPACING.paragraph }}>
-            <Typography variant="body" weight="regular">
-              Let me guess: your team just got access to AI coding tools, and the reactions range from skeptical eye-rolls to outright hostility.
-              I&apos;ve been there—both as the skeptic and later as the solution architect.
-            </Typography>
-          </div>
+          <RedditSection 
+            url="https://www.reddit.com/r/ExperiencedDevs/comments/1j7aqsx/ai_coding_mandates_at_work/?share_id=Dhejf8gsX_-YUsuIH1nNE&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1" 
+            title="AI coding mandates at work?"
+            commentCount={286}
+            upvoteCount={283}
+            subreddit="ExperiencedDevs"
+          />
           
-          <animated.div style={contentSpring}>
-            <S.RedditLink 
-              href="https://www.reddit.com/r/ExperiencedDevs/comments/1j7aqsx/ai_coding_mandates_at_work/?share_id=Dhejf8gsX_-YUsuIH1nNE&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <S.RedditLinkContent>
-                <S.RedditIconColumn>
-                  <RedditIcon />
-                </S.RedditIconColumn>
-                
-                <S.RedditContentColumn>
-                  <div style={{ color: '#000000' }}>
-                    <Typography variant="caption" weight="bold" className={`mb-${S.SPACING.element}`}>
-                      🔥 Trending on r/ExperiencedDevs
-                    </Typography>
-                  </div>
-                  <div style={{ color: '#6772e5' }}>
-                    <Typography variant="body" weight="bold" className={`mb-${S.SPACING.element}`}>
-                      &ldquo;AI coding mandates at work?&rdquo;
-                    </Typography>
-                  </div>
-                  <Typography variant="caption" color="secondary" className="text-gray-600">
-                    💬 286 comments &nbsp;&nbsp; ⬆️ 283 upvotes
-                  </Typography>
-                </S.RedditContentColumn>
-              </S.RedditLinkContent>
-            </S.RedditLink>
-          </animated.div>
-          
-          <div>
-            <Typography variant="body" className="mb-0" weight="regular">
-              A recent thread on r/ExperiencedDevs caught my eye, where hundreds of senior developers shared their frustrations 
-              about mandatory AI tool adoption. The problems are systemic and deeply concerning:
-            </Typography>
-          </div>
-        </AnimatedContentContainer>
+          <Typography variant="body" weight="regular" className="mb-5">
+            A recent thread on r/ExperiencedDevs caught my eye, where hundreds of senior developers shared their frustrations 
+            about mandatory AI tool adoption. The problems are systemic and deeply concerning:
+          </Typography>
+        </ContentSection>
         
-        <AnimatedBackgroundSection style={contentSpring}>
-          <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', padding: `0 ${S.SPACING.container}` }}>
-            <QuoteGrid {...enhancedQuotesProps} />
-          </div>
-        </AnimatedBackgroundSection>
+        {enhancedQuotesProps && (
+          <QuotesSection quotesProps={enhancedQuotesProps} />
+        )}
         
-        <AnimatedContentContainer style={contentSpring}>
-          <div style={{ marginBottom: S.SPACING.paragraph }}>
-            <Typography variant="body" weight="regular">
-              These quotes highlight a disturbing trend: companies implementing AI tools without proper systems, leading to metrics that
-              incentivize accepting AI suggestions regardless of quality, management viewing AI as primarily a cost-cutting measure,
-              and the ironic situation where AI is both causing problems and being proposed as the solution.
-            </Typography>
-          </div>
+        <ContentSection>
+          <Typography variant="body" weight="regular" mb="1.5rem">
+            These quotes highlight a disturbing trend: companies implementing AI tools without proper systems, leading to metrics that
+            incentivize accepting AI suggestions regardless of quality, management viewing AI as primarily a cost-cutting measure,
+            and the ironic situation where AI is both causing problems and being proposed as the solution.
+          </Typography>
           
-          <div>
-            <Typography variant="body" className="mb-0" weight="regular">
-              But there&apos;s another side to this story. When implemented thoughtfully, AI tools can be genuinely transformative. The key difference?
-              A systematic approach to implementation.
-            </Typography>
-          </div>
-        </AnimatedContentContainer>
+          <Typography variant="body" weight="regular" mb="1.5rem">
+            But there&apos;s another side to this story. When implemented thoughtfully, AI tools can be genuinely transformative. The key difference?
+            A systematic approach to implementation.
+          </Typography>
+        </ContentSection>
         
-        <AnimatedAccentBackgroundSection style={contentSpring}>
-          <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', padding: `0 ${S.SPACING.container}` }}>
-            <div style={{ marginBottom: S.SPACING.paragraph }} className="text-left">
-              <Typography variant="h2" className="mb-4">
-                Common Problems &amp; My Solutions
-              </Typography>
-            </div>
-            
-            <AnimatedCardGrid style={contentSpring}>
-              {cardsTrail.map((style, index) => {
-                const card = problemSolutionCardsProps.cards[index];
-                const formattedImpact = typeof card.impact === 'string' 
-                  ? { value: card.impact } 
-                  : card.impact;
-                
-                const cardVariant = card.variant === 'gradient' || card.variant === 'accent' 
-                  ? 'blue' 
-                  : card.variant;
-                
-                return (
-                  <animated.div key={index} style={style}>
-                    <ProblemSolutionCard 
-                      slug={card.slug || 'Feature'}
-                      problem={card.problem}
-                      solution={card.solution}
-                      impact={formattedImpact}
-                      icon={card.icon}
-                      variant={cardVariant as 'blue' | 'white'}
-                    />
-                  </animated.div>
-                );
-              })}
-            </AnimatedCardGrid>
-          </div>
-        </AnimatedAccentBackgroundSection>
+        <div style={{ marginTop: SPACING.paragraphBreak }}>
+          <ProblemSolutionSection 
+            title="Common Problems & My Solutions"
+            cards={problemSolutionCardsProps.cards}
+          />
+        </div>
         
-        <AnimatedContentContainer style={contentSpring}>
-          <div style={{ marginBottom: S.SPACING.paragraph }}>
-            <Typography variant="body" weight="regular">
-              Through my journey from skeptic to innovator, I&apos;ve developed a comprehensive system that addresses these challenges head-on.
-              My approach, combined with carefully crafted development practices and custom tools I&apos;ve built,
-              creates an environment where both human expertise and AI capabilities can flourish.
-            </Typography>
-          </div>
+        <ContentSection>
+          <Typography variant="body" weight="regular" className="mb-4">
+            Through my journey from skeptic to innovator, I&apos;ve developed a comprehensive system that addresses these challenges head-on.
+            My approach, combined with carefully crafted development practices and custom tools I&apos;ve built,
+            creates an environment where both human expertise and AI capabilities can flourish.
+          </Typography>
           
-          <div>
-            <Typography variant="body" className="mb-0" weight="regular">
-              But before we dive into these solutions, let&apos;s understand why the current approach to AI integration often fails,
-              and how my perspective as a principal engineer can transform everything.
-            </Typography>
-          </div>
-        </AnimatedContentContainer>
-      </AnimatedContentSection>
+          <Typography variant="body" weight="regular" className="mb-0">
+            But before we dive into these solutions, let&apos;s understand why the current approach to AI integration often fails,
+            and how my perspective as a principal engineer can transform everything.
+          </Typography>
+        </ContentSection>
+      </S.ContentSection>
     </S.Container>
   );
+  
+  return (
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
+        logLifecycle={true}
+      >
+        {renderContent()}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
+  );
 };
+
+export default AiSkepticToExpert;

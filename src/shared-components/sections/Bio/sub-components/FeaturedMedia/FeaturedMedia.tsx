@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, useInView, animated } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { 
   BioSection, 
   BioSectionTitle, 
@@ -13,80 +13,87 @@ import { MEDIA_ITEMS } from '../../Bio.constants';
 import { FeaturedMediaProps } from './FeaturedMedia.types';
 import { MediaItem as MediaItemType } from '../../Bio.types';
 
-const AnimatedMediaItem = animated(MediaItem);
+// Framer Motion variants
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.6, 
+      ease: "easeOut" 
+    } 
+  }
+};
+
+const scaleInVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { 
+      duration: 0.5, 
+      ease: "easeOut" 
+    } 
+  }
+};
 
 // Separate component for media item to reduce serialization overhead
 const LazyMediaItem = ({ item, index }: { item: MediaItemType, index: number }) => {
-  // Use React Spring's useInView hook for intersection observation
-  const [ref, inView] = useInView({
-    once: true,
-    rootMargin: '0px 0px 100px 0px'
-  });
-  
-  // Define animations with initial opacity 1
-  const animations = useSpring({
-    opacity: 1, // Always visible
-    transform: 'scale(1)', // Always in final position
-    config: { tension: 280, friction: 60 },
-    delay: index * 150
-  });
-
   return (
-    <AnimatedMediaItem 
-      ref={ref} 
-      style={animations}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+      variants={scaleInVariants}
+      transition={{ delay: index * 0.15 }}
     >
-      <MediaTitle>{item.title}</MediaTitle>
-      <MediaDescription>
-        {item.description}
-      </MediaDescription>
-      <EmbedContainer>
-        {item.type === 'youtube' && (
-          <iframe
-            width="100%"
-            height="200"
-            src={item.url}
-            title={item.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        )}
-        {item.type === 'soundcloud' && (
-          <iframe
-            width="100%"
-            height="200"
-            scrolling="no"
-            frameBorder="no"
-            allow="autoplay"
-            src={item.url}
-          />
-        )}
-      </EmbedContainer>
-    </AnimatedMediaItem>
+      <MediaItem>
+        <MediaTitle>{item.title}</MediaTitle>
+        <MediaDescription>
+          {item.description}
+        </MediaDescription>
+        <EmbedContainer>
+          {item.type === 'youtube' && (
+            <iframe
+              width="100%"
+              height="200"
+              src={item.url}
+              title={item.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          )}
+          {item.type === 'soundcloud' && (
+            <iframe
+              width="100%"
+              height="200"
+              scrolling="no"
+              frameBorder="no"
+              allow="autoplay"
+              src={item.url}
+            />
+          )}
+        </EmbedContainer>
+      </MediaItem>
+    </motion.div>
   );
 };
 
 export const FeaturedMedia: React.FC<FeaturedMediaProps> = ({ className }) => {
-  // Heading animation
-  const [headingRef, headingInView] = useInView({
-    once: true,
-    rootMargin: '0px 0px -100px 0px'
-  });
-
-  const headingAnimation = useSpring({
-    opacity: 1, // Always visible
-    transform: 'translateY(0)', // Always in final position
-    config: { tension: 280, friction: 60 }
-  });
-
-  const AnimatedBioSectionTitle = animated(BioSectionTitle);
-
   return (
     <BioSection className={className} id="featured-media">
-      <AnimatedBioSectionTitle ref={headingRef} style={headingAnimation}>
-        Featured Media
-      </AnimatedBioSectionTitle>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+        variants={fadeInVariants}
+      >
+        <BioSectionTitle>
+          Featured Media
+        </BioSectionTitle>
+      </motion.div>
       <MediaContainer>
         {MEDIA_ITEMS.map((item, index) => (
           <LazyMediaItem key={`media-${index}`} item={item} index={index} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, useTrail } from '@react-spring/web';
+import { useSpring, useTrail, animated } from '@react-spring/web';
 import { Card } from '../../atoms/Card';
 import { Icon } from '../../atoms/Icon';
 import { FeaturePreviewProps } from './FeaturePreview.types';
@@ -27,50 +27,37 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
     config: { mass: 1, tension: 280, friction: 60 },
     delay: 100
   });
-  
-  // Helper function to convert spring values to regular CSS
-  const springToCss = (springObj: Record<string, { get: () => number }>) => {
-    if (!animation || animation === 'none') return {};
-    
-    const result: Record<string, string | number> = {};
-    
-    // Handle opacity
-    if (springObj.opacity !== undefined) {
-      result.opacity = springObj.opacity.get();
-    }
-    
-    // Handle transform values
-    if (springObj.y !== undefined) {
-      result.transform = `translateY(${springObj.y.get()}px)`;
-    }
-    
-    return result;
-  };
+
+  // Create animated versions of styled components
+  const AnimatedFeatureGrid = animated(S.FeatureGrid);
+  const AnimatedDiv = animated.div;
 
   return (
-    <S.FeatureGrid
+    <AnimatedFeatureGrid
       className={className}
-      style={animation !== 'none' ? springToCss(containerProps) : undefined}
+      style={animation !== 'none' ? containerProps : undefined}
     >
-      {features.map((feature, index) => {
-        const cardStyle = animation !== 'none' ? springToCss(featureTrail[index]) : undefined;
-        
-        return (
-          <div key={index} style={cardStyle}>
-            <Card
-              variant={cardVariant}
-            >
-              <S.FeatureContent>
-                <S.IconWrapper>
-                  <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
-                </S.IconWrapper>
-                <S.Title>{feature.title}</S.Title>
-                <S.Description>{feature.description}</S.Description>
-              </S.FeatureContent>
-            </Card>
-          </div>
-        );
-      })}
-    </S.FeatureGrid>
+      {features.map((feature, index) => (
+        <AnimatedDiv 
+          key={index} 
+          style={animation !== 'none' ? 
+            { ...featureTrail[index], transform: featureTrail[index].y.to(y => `translateY(${y}px)`) } : 
+            undefined
+          }
+        >
+          <Card
+            variant={cardVariant}
+          >
+            <S.FeatureContent>
+              <S.IconWrapper>
+                <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
+              </S.IconWrapper>
+              <S.Title>{feature.title}</S.Title>
+              <S.Description>{feature.description}</S.Description>
+            </S.FeatureContent>
+          </Card>
+        </AnimatedDiv>
+      ))}
+    </AnimatedFeatureGrid>
   );
 }; 

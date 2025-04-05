@@ -119,9 +119,13 @@ export const Footer = ({
       setLastScrollTop(scrollTop);
       
       // Automatically minimize when scrolling down, restore when scrolling up
-      if (isScrollingDown && !isMiniMode) {
+      // Use a small threshold to prevent flickering near breakpoints
+      const scrollThreshold = 10;
+      const scrollDistance = Math.abs(scrollTop - lastScrollTop);
+      
+      if (isScrollingDown && !isMiniMode && scrollDistance > scrollThreshold) {
         setIsMiniMode(true);
-      } else if (!isScrollingDown && isMiniMode) {
+      } else if (!isScrollingDown && isMiniMode && scrollDistance > scrollThreshold) {
         setIsMiniMode(false);
       }
     };
@@ -198,295 +202,296 @@ export const Footer = ({
     return (
       <Box 
         w="100%"
-        style={{
-          borderTop: `1px solid ${colors.border}`,
-          height: "80px" // Minimum height to prevent layout shift
-        }}
+        h="0"
+        data-testid="footer-hydrating"
       />
     );
   }
 
   return (
-    <Box 
-      w="100%"
-      style={{
-        borderTop: `1px solid ${colors.border}`
+    <FooterContainer 
+      style={{ 
+        backgroundColor: colors.background,
+        borderTop: `1px solid ${colors.border}`,
+        color: colors.text,
+        boxShadow: isMiniMode ? '0 -1px 3px rgba(0,0,0,0.1)' : '0 -2px 10px rgba(0,0,0,0.15)'
       }}
-      data-print-hidden="true"
-      aria-hidden="true"
-      className="audio-player-container"
+      $isExpanded={isExpanded}
+      $isMiniMode={isMiniMode}
+      data-testid="footer"
+      data-loaded="true"
+      className="Footer-loaded"
     >
-      <FooterContainer data-print-hidden="true" className="audio-player-wrapper">
-        <GradientBorder style={{ background: colors.border }} />
-        
-        {/* Mini Mode Player */}
-        {isMiniMode ? (
-          <MiniModeContainer>
-            {/* Track artwork */}
-            <div 
-              style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                height: '100%', 
-                cursor: 'pointer', 
-                position: 'relative'
-              }} 
-              onClick={() => {
-                startUserInteraction();
-                togglePlay();
-              }}
-              aria-label={isPlaying ? "Pause" : "Play"}
-            >
-              {currentTrack?.artwork ? (
-                <ArtworkContainer style={{ display: 'flex', alignItems: 'center' }}>
-                  <TrackArtwork 
-                    src={currentTrack.artwork} 
-                    alt={`${currentTrack.title} artwork`} 
-                    style={{ width: '30px', height: '30px', margin: 0 }}
-                  />
-                  <ArtworkOverlay>
-                    {isPlaying ? (
-                      <Pause size={12} style={{ color: '#fff' }} />
-                    ) : (
-                      <Play size={12} style={{ color: '#fff' }} />
-                    )}
-                  </ArtworkOverlay>
-                </ArtworkContainer>
-              ) : (
-                <div style={{ 
-                  width: '30px', 
-                  height: '30px', 
-                  backgroundColor: 'rgba(67, 97, 238, 0.2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: '4px',
-                  margin: 0
-                }}>
-                  <Music size={15} style={{ color: '#4361EE' }} />
-                </div>
-              )}
-            </div>
-            
-            {/* Progress bar */}
-            <div style={{ 
-              flex: 1, 
-              margin: '0 0.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              height: '100%'
-            }}>
-              <ProgressBar ref={progressBarRef} style={{ margin: 0, width: '100%' }}>
-                <ProgressFill style={{ width: `${progress}%` }} />
-              </ProgressBar>
-            </div>
-            
-            {/* Tri-state chevron button (mini mode -> normal mode) */}
-            <ControlButton 
-              onClick={handleTriStateButton}
-              aria-label="Expand player"
-              style={{ 
-                padding: 0, 
-                margin: 0,
+      {/* Gradient border */}
+      <GradientBorder />
+      
+      {/* Mini Mode Player */}
+      {isMiniMode ? (
+        <MiniModeContainer>
+          {/* Track artwork */}
+          <div 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              height: '100%', 
+              cursor: 'pointer', 
+              position: 'relative'
+            }} 
+            onClick={() => {
+              startUserInteraction();
+              togglePlay();
+            }}
+            aria-label={isPlaying ? "Pause" : "Play"}
+          >
+            {currentTrack?.artwork ? (
+              <ArtworkContainer style={{ display: 'flex', alignItems: 'center' }}>
+                <TrackArtwork 
+                  src={currentTrack.artwork} 
+                  alt={`${currentTrack.title} artwork`} 
+                  style={{ width: '30px', height: '30px', margin: 0 }}
+                />
+                <ArtworkOverlay>
+                  {isPlaying ? (
+                    <Pause size={12} style={{ color: '#fff' }} />
+                  ) : (
+                    <Play size={12} style={{ color: '#fff' }} />
+                  )}
+                </ArtworkOverlay>
+              </ArtworkContainer>
+            ) : (
+              <div style={{ 
+                width: '30px', 
+                height: '30px', 
+                backgroundColor: 'rgba(67, 97, 238, 0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                height: '100%'
-              }}
-            >
-              <ChevronUp size={14} style={{ color: colors.text }} />
-            </ControlButton>
-          </MiniModeContainer>
-        ) : (
-          // Regular Player
-          <MiniPlayerContainer>
-            <div style={{ 
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%',
-              padding: '0.75rem 1rem'
-            }}>
-              {/* Top row: Track info and controls */}
-              <div style={{
-                display: 'flex',
-                width: '100%',
-                marginBottom: '0.375rem',
-                alignItems: 'center'
+                borderRadius: '4px',
+                margin: 0
               }}>
-                {/* Track artwork */}
-                <div style={{ marginRight: '1.5rem' }}>
-                  {currentTrack?.artwork ? (
-                    <ArtworkContainer 
-                      style={{ cursor: 'pointer' }} 
-                      onClick={() => {
-                        startUserInteraction();
-                        togglePlay();
-                      }}
-                    >
-                      <TrackArtwork 
-                        src={currentTrack.artwork} 
-                        alt={`${currentTrack.title} artwork`} 
-                        style={{ width: '6.25rem', height: '6.25rem' }}
-                      />
-                      <ArtworkOverlay>
-                        {isPlaying ? (
-                          <Pause size={24} style={{ color: '#fff' }} />
-                        ) : (
-                          <Play size={24} style={{ color: '#fff' }} />
-                        )}
-                      </ArtworkOverlay>
-                    </ArtworkContainer>
-                  ) : (
-                    <div style={{ 
-                      width: '6.25rem', 
-                      height: '6.25rem', 
-                      backgroundColor: 'rgba(67, 97, 238, 0.2)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: '4px'
-                    }}>
-                      <Music size={50} style={{ color: '#4361EE' }} />
-                    </div>
-                  )}
-                </div>
-                
-                {/* Track info and controls */}
-                <div style={{ 
-                  flex: 1,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  paddingRight: '2rem'
-                }}>
-                  {/* Track title and artist */}
-                  <div style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
-                    <TrackTitle style={{ fontSize: '1.1rem' }}>{currentTrack?.title || 'My Music'}</TrackTitle>
-                    {currentTrack && <TrackArtist>{currentTrack.artist}</TrackArtist>}
-                  </div>
-                  
-                  {/* Playback controls */}
-                  <ControlsContainer style={{ alignSelf: 'center' }}>
-                    <ControlButton 
-                      onClick={() => {
-                        startUserInteraction();
-                        prevTrack();
-                      }}
-                      aria-label="Previous track"
-                      disabled={!currentTrack}
-                    >
-                      <SkipBack size={18} style={{ color: colors.text }} />
-                    </ControlButton>
-                    
-                    <ControlButton 
-                      onClick={() => {
-                        startUserInteraction();
-                        togglePlay();
-                      }}
-                      aria-label={isPlaying ? "Pause" : "Start playing"}
-                      disabled={!currentTrack}
-                      style={{ margin: '0 0.75rem' }}
-                    >
-                      {isPlaying ? (
-                        <Pause size={24} style={{ color: colors.text }} />
-                      ) : (
-                        <Play size={24} style={{ color: colors.text }} />
-                      )}
-                    </ControlButton>
-                    
-                    <ControlButton 
-                      onClick={() => {
-                        startUserInteraction();
-                        nextTrack();
-                      }}
-                      aria-label="Next track"
-                      disabled={!currentTrack}
-                    >
-                      <SkipForward size={18} style={{ color: colors.text }} />
-                    </ControlButton>
-                  </ControlsContainer>
-                </div>
-                
-                {/* Tri-state chevron button (normal mode -> expanded or mini mode) */}
-                <ControlButton 
-                  onClick={handleTriStateButton}
-                  aria-label={isExpanded ? "Minimize player" : "Expand player"}
-                >
-                  {isExpanded ? (
-                    <ChevronDown size={18} style={{ color: colors.text }} />
-                  ) : (
-                    <ChevronUp size={18} style={{ color: colors.text }} />
-                  )}
-                </ControlButton>
+                <Music size={15} style={{ color: '#4361EE' }} />
               </div>
-              
-              {/* Bottom row: Timeline */}
-              {currentTrack ? (
-                <div style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-                  <Text size="xs" style={{ color: colors.textMuted, marginRight: '0.5rem', whiteSpace: 'nowrap' }}>
-                    {formatTime(currentTime)}
-                  </Text>
-                  <div 
-                    style={{ 
-                      flex: 1, 
-                      position: 'relative',
-                      padding: '10px 0',
-                      margin: '-10px 0'
+            )}
+          </div>
+          
+          {/* Progress bar */}
+          <div style={{ 
+            flex: 1, 
+            margin: '0 0.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            height: '100%'
+          }}>
+            <ProgressBar ref={progressBarRef} style={{ margin: 0, width: '100%' }}>
+              <ProgressFill style={{ width: `${progress}%` }} />
+            </ProgressBar>
+          </div>
+          
+          {/* Tri-state chevron button (mini mode -> normal mode) */}
+          <ControlButton 
+            onClick={handleTriStateButton}
+            aria-label="Expand player"
+            style={{ 
+              padding: 0, 
+              margin: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%'
+            }}
+          >
+            <ChevronUp size={14} style={{ color: colors.text }} />
+          </ControlButton>
+        </MiniModeContainer>
+      ) : (
+        // Regular Player
+        <MiniPlayerContainer>
+          <div style={{ 
+            display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            padding: '0.75rem 1rem'
+          }}>
+            {/* Top row: Track info and controls */}
+            <div style={{
+              display: 'flex',
+              width: '100%',
+              marginBottom: '0.375rem',
+              alignItems: 'center'
+            }}>
+              {/* Track artwork */}
+              <div style={{ marginRight: '1.5rem' }}>
+                {currentTrack?.artwork ? (
+                  <ArtworkContainer 
+                    style={{ cursor: 'pointer' }} 
+                    onClick={() => {
+                      startUserInteraction();
+                      togglePlay();
                     }}
                   >
-                    <ProgressBar ref={progressBarRef}>
-                      <ProgressFill style={{ width: `${progress}%` }} />
-                    </ProgressBar>
-                  </div>
-                  <Text size="xs" style={{ color: colors.textMuted, marginLeft: '0.5rem', whiteSpace: 'nowrap', width: '2.5rem', textAlign: 'center' }}>
-                    {formatTime(duration)}
-                  </Text>
-                </div>
-              ) : (
-                <div style={{ width: '100%', height: '4px', backgroundColor: colors.progressBackground, borderRadius: '2px' }} />
-              )}
-            </div>
-          </MiniPlayerContainer>
-        )}
-        
-        {/* Expanded Player */}
-        {isExpanded && !isMiniMode && (
-          <ExpandedPlayerContainer>
-            <Text size="sm" fw={600} style={{ color: colors.textSecondary, marginBottom: "0.5rem" }}>My Tracks</Text>
-            
-            {/* Track list */}
-            <TrackList>
-              {displayTracks && displayTracks.length > 0 ? (
-                displayTracks.map((track) => (
-                  <TrackItem 
-                    key={track.id}
-                    onClick={() => handleTrackSelect(track.id)}
-                    $isActive={currentTrack?.id === track.id}
-                  >
-                    <TrackItemContent>
-                      {track.artwork && (
-                        <TrackArtwork 
-                          src={track.artwork} 
-                          alt={`${track.title} artwork`} 
-                          style={{ width: '2rem', height: '2rem' }}
-                        />
+                    <TrackArtwork 
+                      src={currentTrack.artwork} 
+                      alt={`${currentTrack.title} artwork`} 
+                      style={{ width: '6.25rem', height: '6.25rem' }}
+                    />
+                    <ArtworkOverlay>
+                      {isPlaying ? (
+                        <Pause size={24} style={{ color: '#fff' }} />
+                      ) : (
+                        <Play size={24} style={{ color: '#fff' }} />
                       )}
-                      <TrackDetails>
-                        <TrackItemTitle>{track.title}</TrackItemTitle>
-                        <TrackItemArtist>{track.artist}</TrackItemArtist>
-                      </TrackDetails>
-                    </TrackItemContent>
-                  </TrackItem>
-                ))
-              ) : (
-                <Text size="sm" style={{ color: colors.textMuted, padding: "0.5rem" }}>
-                  No tracks available
+                    </ArtworkOverlay>
+                  </ArtworkContainer>
+                ) : (
+                  <div style={{ 
+                    width: '6.25rem', 
+                    height: '6.25rem', 
+                    backgroundColor: 'rgba(67, 97, 238, 0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '4px'
+                  }}>
+                    <Music size={50} style={{ color: '#4361EE' }} />
+                  </div>
+                )}
+              </div>
+              
+              {/* Track info and controls */}
+              <div style={{ 
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                paddingRight: '2rem'
+              }}>
+                {/* Track title and artist */}
+                <div style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
+                  <TrackTitle style={{ fontSize: '1.1rem' }}>{currentTrack?.title || 'My Music'}</TrackTitle>
+                  {currentTrack && <TrackArtist>{currentTrack.artist}</TrackArtist>}
+                </div>
+                
+                {/* Playback controls */}
+                <ControlsContainer style={{ alignSelf: 'center' }}>
+                  <ControlButton 
+                    onClick={() => {
+                      startUserInteraction();
+                      prevTrack();
+                    }}
+                    aria-label="Previous track"
+                    disabled={!currentTrack}
+                  >
+                    <SkipBack size={18} style={{ color: colors.text }} />
+                  </ControlButton>
+                  
+                  <ControlButton 
+                    onClick={() => {
+                      startUserInteraction();
+                      togglePlay();
+                    }}
+                    aria-label={isPlaying ? "Pause" : "Start playing"}
+                    disabled={!currentTrack}
+                    style={{ margin: '0 0.75rem' }}
+                  >
+                    {isPlaying ? (
+                      <Pause size={24} style={{ color: colors.text }} />
+                    ) : (
+                      <Play size={24} style={{ color: colors.text }} />
+                    )}
+                  </ControlButton>
+                  
+                  <ControlButton 
+                    onClick={() => {
+                      startUserInteraction();
+                      nextTrack();
+                    }}
+                    aria-label="Next track"
+                    disabled={!currentTrack}
+                  >
+                    <SkipForward size={18} style={{ color: colors.text }} />
+                  </ControlButton>
+                </ControlsContainer>
+              </div>
+              
+              {/* Tri-state chevron button (normal mode -> expanded or mini mode) */}
+              <ControlButton 
+                onClick={handleTriStateButton}
+                aria-label={isExpanded ? "Minimize player" : "Expand player"}
+              >
+                {isExpanded ? (
+                  <ChevronDown size={18} style={{ color: colors.text }} />
+                ) : (
+                  <ChevronUp size={18} style={{ color: colors.text }} />
+                )}
+              </ControlButton>
+            </div>
+            
+            {/* Bottom row: Timeline */}
+            {currentTrack ? (
+              <div style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
+                <Text size="xs" style={{ color: colors.textMuted, marginRight: '0.5rem', whiteSpace: 'nowrap' }}>
+                  {formatTime(currentTime)}
                 </Text>
-              )}
-            </TrackList>
-          </ExpandedPlayerContainer>
-        )}
-      </FooterContainer>
-    </Box>
+                <div 
+                  style={{ 
+                    flex: 1, 
+                    position: 'relative',
+                    padding: '10px 0',
+                    margin: '-10px 0'
+                  }}
+                >
+                  <ProgressBar ref={progressBarRef}>
+                    <ProgressFill style={{ width: `${progress}%` }} />
+                  </ProgressBar>
+                </div>
+                <Text size="xs" style={{ color: colors.textMuted, marginLeft: '0.5rem', whiteSpace: 'nowrap', width: '2.5rem', textAlign: 'center' }}>
+                  {formatTime(duration)}
+                </Text>
+              </div>
+            ) : (
+              <div style={{ width: '100%', height: '4px', backgroundColor: colors.progressBackground, borderRadius: '2px' }} />
+            )}
+          </div>
+        </MiniPlayerContainer>
+      )}
+      
+      {/* Expanded Player */}
+      {isExpanded && !isMiniMode && (
+        <ExpandedPlayerContainer>
+          <Text size="sm" fw={600} style={{ color: colors.textSecondary, marginBottom: "0.5rem" }}>My Tracks</Text>
+          
+          {/* Track list */}
+          <TrackList>
+            {displayTracks && displayTracks.length > 0 ? (
+              displayTracks.map((track) => (
+                <TrackItem 
+                  key={track.id}
+                  onClick={() => handleTrackSelect(track.id)}
+                  $isActive={currentTrack?.id === track.id}
+                >
+                  <TrackItemContent>
+                    {track.artwork && (
+                      <TrackArtwork 
+                        src={track.artwork} 
+                        alt={`${track.title} artwork`} 
+                        style={{ width: '2rem', height: '2rem' }}
+                      />
+                    )}
+                    <TrackDetails>
+                      <TrackItemTitle>{track.title}</TrackItemTitle>
+                      <TrackItemArtist>{track.artist}</TrackItemArtist>
+                    </TrackDetails>
+                  </TrackItemContent>
+                </TrackItem>
+              ))
+            ) : (
+              <Text size="sm" style={{ color: colors.textMuted, padding: "0.5rem" }}>
+                No tracks available
+              </Text>
+            )}
+          </TrackList>
+        </ExpandedPlayerContainer>
+      )}
+    </FooterContainer>
   );
 }; 

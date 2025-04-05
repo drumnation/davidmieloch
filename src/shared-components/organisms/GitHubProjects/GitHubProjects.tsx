@@ -69,11 +69,12 @@ export const GitHubProjects: React.FC<GitHubProjectsProps> = ({
         )}
         
         {isLoading ? (
-          <LoadingIndicator>Loading repositories...</LoadingIndicator>
+          <LoadingIndicator data-testid="github-projects-loading">Loading repositories...</LoadingIndicator>
         ) : selectedRepository ? (
           <RepoDetails
             repository={selectedRepository}
             onBack={handleBackClick}
+            data-testid="repo-details-loaded"
           />
         ) : (
           <RepoGrid
@@ -85,6 +86,7 @@ export const GitHubProjects: React.FC<GitHubProjectsProps> = ({
                 ? "No repositories match your filters"
                 : "No repositories found"
             }
+            data-testid="repo-grid-loaded"
           />
         )}
       </ContentArea>

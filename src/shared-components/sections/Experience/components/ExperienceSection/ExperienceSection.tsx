@@ -405,8 +405,21 @@ const getBulletIcon = (text: string) => {
 };
 
 // Function to render an experience item
-const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo?: (company: string) => React.ReactNode, setModalImage?: (image: {url: string, title?: string}) => void) => {
+const renderExperienceItem = (
+  job: ExperienceItemType, 
+  index: number, 
+  renderLogo?: (company: string) => React.ReactNode, 
+  setModalImage?: (image: {url: string, title?: string}) => void,
+  setPinnedJob?: (company: string) => void
+): JSX.Element => {
   const logoSrc = job.logoPath; // Keep original path for iframe check
+
+  const handlePinClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (setPinnedJob) {
+      setPinnedJob(job.company);
+    }
+  };
 
   return (
     <ExperienceItem key={`job-${index}`}>
@@ -435,9 +448,12 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
               <Image
                 src={logoSrc} // Use checked logoSrc
                 alt={`${job.company} logo`}
-                layout="fill"
-                objectFit="contain"
+                width={60}
+                height={60}
                 style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
                   borderRadius: '6px',
                   ...(job.showBorder && {
                     border: '1px solid rgba(0, 0, 0, 0.2)',
@@ -545,11 +561,16 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                         <Image
                           src={mediaItem.url}
                           alt={mediaItem.title || `${job.company} image`}
-                          layout="fill"
-                          objectFit="cover" // Or "contain" depending on desired behavior
-                          loading="lazy"
-                          style={{ cursor: 'pointer' }}
-                          onClick={() => {
+                          width={800}
+                          height={450}
+                          style={{ 
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover', // Or "contain" depending on desired behavior
+                            position: 'absolute',
+                            cursor: 'pointer'
+                          }}
+                          onClick={(e: React.MouseEvent<HTMLImageElement>) => {
                             if (setModalImage && mediaItem.url) { // Check url inside handler
                               setModalImage({
                                 url: mediaItem.url,
@@ -576,8 +597,10 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                             alt={`${job.company} logo`}
                             width={20}
                             height={20}
-                            objectFit="contain"
                             style={{
+                              width: '20px',
+                              height: '20px',
+                              objectFit: 'contain',
                               marginRight: '8px',
                               borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                               overflow: 'visible',
@@ -628,8 +651,16 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                         <Image
                           src={mediaItem.thumbnailUrl}
                           alt={mediaItem.title || "PDF Document"}
-                          layout="fill"
-                          objectFit="cover"
+                          width={300}
+                          height={225}
+                          style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover'
+                          }}
                           loading="lazy"
                         />
                       ) : (
@@ -657,8 +688,10 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                               alt={`${job.company} logo`}
                               width={20}
                               height={20}
-                              objectFit="contain"
                               style={{
+                                width: '20px',
+                                height: '20px',
+                                objectFit: 'contain',
                                 marginRight: '8px',
                                 borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                                 overflow: 'visible',
@@ -742,8 +775,10 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                             alt={`${job.company} logo`}
                             width={20}
                             height={20}
-                            objectFit="contain"
                             style={{
+                              width: '20px',
+                              height: '20px',
+                              objectFit: 'contain',
                               marginRight: '8px',
                               borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                               overflow: 'visible',
@@ -794,8 +829,16 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                           <Image
                             src={mediaItem.thumbnailUrl}
                             alt={mediaItem.title || "Blog post"}
-                            layout="fill"
-                            objectFit="cover"
+                            width={300}
+                            height={225}
+                            style={{
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover'
+                            }}
                             loading="lazy"
                           />
                         </a>
@@ -823,8 +866,10 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                             alt={`${job.company} logo`}
                             width={20}
                             height={20}
-                            objectFit="contain"
                             style={{
+                              width: '20px',
+                              height: '20px',
+                              objectFit: 'contain',
                               marginRight: '8px',
                               borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                               overflow: 'visible',
@@ -915,7 +960,7 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                               display: 'block',
                               borderRadius: 0
                             }}
-                            onClick={() => {
+                            onClick={(e: React.MouseEvent<HTMLImageElement>) => {
                               if (setModalImage && nestedItem.url) { // Check url inside handler
                                 setModalImage({
                                   url: nestedItem.url,
@@ -942,8 +987,10 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                                 alt={`${job.company} logo`}
                                 width={20}
                                 height={20}
-                                objectFit="contain"
                                 style={{
+                                  width: '20px',
+                                  height: '20px',
+                                  objectFit: 'contain',
                                   marginRight: '8px',
                                   borderRadius: nestedItem.logoHasBorderRadius === false ? '0' : '6px', // Use nestedItem here
                                   overflow: 'visible',
@@ -1009,8 +1056,10 @@ const renderExperienceItem = (job: ExperienceItemType, index: number, renderLogo
                             alt={`${job.company} logo`}
                             width={20}
                             height={20}
-                            objectFit="contain"
                             style={{
+                              width: '20px',
+                              height: '20px',
+                              objectFit: 'contain',
                               marginRight: '8px',
                               borderRadius: mediaItem.logoHasBorderRadius === false ? '0' : '6px',
                               overflow: 'visible',
@@ -1062,6 +1111,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
 }) => {
   const hasOlderExperience = OLDER_EXPERIENCE && OLDER_EXPERIENCE.length > 0;
   const [modalImage, setModalImage] = useState<{url: string, title?: string} | null>(null);
+  const [pinnedJob, setPinnedJob] = useState<string | null>(null);
 
   console.log('Experience items with media:', experiences.filter(exp => exp.media?.length).map(exp => ({ company: exp.company, mediaCount: exp.media?.length || 0 })));
 
@@ -1077,7 +1127,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
 
       {experiences.map((job, index) => (
         <React.Fragment key={`job-${index}`}>
-          {renderExperienceItem(job, index, renderLogo, setModalImage)}
+          {renderExperienceItem(job, index, renderLogo, setModalImage, setPinnedJob)}
         </React.Fragment>
       ))}
 
@@ -1113,7 +1163,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
             return bMonth - aMonth;
           }).map((job, index) => (
             <React.Fragment key={`older-job-${index}`}>
-              {renderExperienceItem(job as ExperienceItemType, index, renderLogo, setModalImage)} {/* Cast job to ExperienceItemType */}
+              {renderExperienceItem(job as ExperienceItemType, index, renderLogo, setModalImage, setPinnedJob)} {/* Cast job to ExperienceItemType */}
             </React.Fragment>
           ))}
         </Accordion>
@@ -1131,8 +1181,15 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
               <Image
                 src={modalImage.url} // url is guaranteed here because setModalImage checks it
                 alt={modalImage.title || "Full size image"}
-                layout="fill"
-                objectFit="contain"
+                width={1200}
+                height={800}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  maxWidth: '100%',
+                  maxHeight: '90vh',
+                }}
               />
             </div>
             {modalImage.title && <div className="modal-caption">{modalImage.title}</div>}

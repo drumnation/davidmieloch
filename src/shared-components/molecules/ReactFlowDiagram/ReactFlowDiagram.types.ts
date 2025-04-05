@@ -7,6 +7,16 @@ export interface ReactFlowDiagramProps {
   definition?: string | ReactFlowDefinition;
   
   /**
+   * Optional title to display above the diagram
+   */
+  title?: string;
+  
+  /**
+   * Optional description to display above the diagram
+   */
+  description?: string;
+  
+  /**
    * Optional CSS class name for styling the container
    */
   className?: string;
@@ -21,13 +31,13 @@ export interface ReactFlowDiagramProps {
    * Optional width for the diagram container
    * @default '100%'
    */
-  width?: string;
+  width?: string | number;
   
   /**
    * Optional height for the diagram container
    * @default 'auto'
    */
-  height?: string;
+  height?: string | number;
   
   /**
    * Optional background color for the diagram container
@@ -75,7 +85,10 @@ export interface ReactFlowDiagramProps {
     panOnScroll?: boolean;
     panOnDrag?: boolean;
     preventScrolling?: boolean;
-    [key: string]: any;
+    interactive?: boolean | string;
+    fitView?: boolean;
+    fitViewOptions?: FitViewOptions;
+    [key: string]: unknown;
   };
 }
 
@@ -88,7 +101,7 @@ export interface ReactFlowNode {
   position: { x: number; y: number };
   data: {
     label: string;
-    [key: string]: any;
+    [key: string]: unknown;
   };
   style?: React.CSSProperties;
   className?: string;
@@ -131,4 +144,15 @@ export interface DiagramContainerProps {
   $width?: string;
   $height?: string;
   $backgroundColor?: string;
+}
+
+/**
+ * FitViewOptions for ReactFlow
+ */
+export interface FitViewOptions {
+  padding?: number;
+  includeHiddenNodes?: boolean;
+  minZoom?: number;
+  maxZoom?: number;
+  duration?: number;
 } 

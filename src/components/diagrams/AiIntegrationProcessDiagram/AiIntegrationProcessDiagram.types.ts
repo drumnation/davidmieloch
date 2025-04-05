@@ -43,7 +43,83 @@ export interface AiIntegrationProcessDiagramProps {
   showZoomControls?: boolean;
 
   /**
+   * Whether to show edit controls
+   */
+  showEditControls?: boolean;
+
+  /**
+   * Whether this is being used in Storybook
+   * When true, it will disable editing features and render a cleaner view
+   */
+  isStorybook?: boolean;
+
+  /**
    * Accessibility description for screen readers
    */
   accessibilityDescription?: string;
+  
+  /**
+   * Optional class name for the container element
+   */
+  containerClassName?: string;
+  
+  /**
+   * Optional class name for the graph element
+   */
+  graphClassName?: string;
+  
+  /**
+   * Optional custom nodes to override default nodes
+   */
+  nodes?: any[];
+  
+  /**
+   * Optional custom edges to override default edges
+   */
+  edges?: any[];
+  
+  /**
+   * Enable validation of node positions
+   */
+  nodeValidationEnabled?: boolean;
+  
+  /**
+   * Callback when node positions change
+   */
+  onNodePositionsChange?: (nodes: any[]) => void;
+
+  /**
+   * Whether to use custom positions (true) or automatic layout (false)
+   */
+  useCustomLayout?: boolean;
+  
+  /**
+   * Initial zoom level for the diagram
+   */
+  initialZoom?: number;
+  
+  /**
+   * Callback when zoom level changes
+   */
+  onZoomChange?: (zoom: number) => void;
+  
+  /**
+   * Callback when view state (zoom + position) changes
+   */
+  onViewStateChange?: (viewState: { zoom: number, position: { x: number, y: number } }) => void;
+  
+  /**
+   * Maximum zoom level allowed
+   */
+  maxZoom?: number;
+  
+  /**
+   * Minimum zoom level allowed
+   */
+  minZoom?: number;
+  
+  /**
+   * Initial position for the viewport
+   */
+  initialPosition?: { x: number, y: number };
 } 

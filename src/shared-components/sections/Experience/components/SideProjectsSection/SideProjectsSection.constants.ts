@@ -18,7 +18,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['Electron', 'React.js', 'TypeScript', 'OpenAI Vision API'],
     startDate: '2024',
     endDate: '2024',
-    logoPath: 'media/game-sage-logo.png',
+    logoPath: '/media/game-sage-logo.png',
     showBorder: true,
     repoUrl: 'https://github.com/drumnation/game-sage',
     impact: '**Transforms gaming experiences** by delivering AI-powered real-time analysis and commentary that helps players improve their skills while adding a new dimension of entertainment.',
@@ -44,7 +44,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['React.js', 'TypeScript', 'Openai', 'Web Audio API', 'SSML', 'IndexedDB', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
-    logoPath: 'media/hypnosis-logo.png',
+    logoPath: '/media/hypnosis-logo.png',
     showBorder: true,
     impact: 'Combined AI script generation with audio technology to create a personal hypnotherapy experience. The system delivers deeply personalized content that incorporates the user\'s name, specific goals, and individual scenarios, then speaks them aloud with natural intonation—effectively simulating a one-on-one session with a hypnotherapist.',
     media: [
@@ -54,7 +54,7 @@ export const SIDE_PROJECTS: SideProject[] = [
         title: 'Confidence and Creativity Hypnosis Session',
         description: 'An AI-generated hypnosis script created with the generator, featuring AI generated meditative music, and spoken by my voice clone using text-to-speech.',
         buttonText: 'Listen to Hypnosis Session',
-        thumbnail: 'media/hypnosis-thumbnail.png',
+        thumbnail: '/media/hypnosis-thumbnail.png',
         showLogo: true,
         logoHasBorderRadius: true,
         logoHasBorder: true,
@@ -147,7 +147,7 @@ export const SIDE_PROJECTS: SideProject[] = [
     technologies: ['Next.js', 'TypeScript', 'OpenAI', 'Speechify API', 'ElevenLabs Voice Cloning', 'React Audio Player', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
-    logoPath: 'media/story-time-logo.png',
+    logoPath: '/media/story-time-logo.png',
     showBorder: true,
     impact: '**Transforms** the complex process of audiobook production into an **accessible creative experience**, enabling storytellers to bring their narratives to life with rich character voices and professional-quality audio.',
     media: [
@@ -236,7 +236,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         url: 'media/life-guidance.mp3',
         title: 'Life Guidance Audio Sample',
         description: 'Listen to a sample of the AI-generated guidance audio',
-        thumbnail: 'media/misc/life-guidance-sample.png',
+        thumbnail: '/media/misc/life-guidance-sample.png',
         thumbnailWidth: '80px',
         width: '100%'
       }
@@ -249,7 +249,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
     technologies: ['React.js', 'TypeScript', 'WaveSurfer.js', 'OpenAI', 'Render.com'],
     startDate: '2024',
     endDate: '2024',
-    logoPath: 'media/screenshots/mpm-logo-crop.png',
+    logoPath: '/media/screenshots/mpm-logo-crop.png',
     showBorder: true,
     repoUrl: 'https://github.com/drumnation/mpm',
     impact: 'Transformed how music professionals collaborate by providing precise, time-stamped feedback on audio tracks, enabling more effective communication and accelerating the music production workflow.',
@@ -264,7 +264,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         title: 'Music Project Management System',
         buttonText: 'Try Demo',
         description: 'A music project management system for music licensing, built with React.js.',
-        thumbnail: 'media/misc/render.png',
+        thumbnail: '/media/misc/render.png',
         thumbnailWidth: '240px',
         width: '100%'
       }
@@ -278,7 +278,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
     technologies: ['Node', 'TypeScript', 'Gemini', 'CLI'],
     startDate: '2024',
     endDate: 'Present',
-    logoPath: 'media/misc/brain-garden.png',
+    logoPath: '/media/misc/brain-garden.png',
     impact: '**Created a framework** that enhances structure for Enterprise AI-assisted development workflows'
   },
   {
@@ -316,7 +316,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
     startDate: '2024',
     endDate: 'Present',
     showBorder: true,
-    logoPath: 'media/prompt-forge-logo.png',
+    logoPath: '/media/prompt-forge-logo.png',
     repoUrl: 'https://github.com/drumnation/prompt-forge',
     impact: 'Empowers users to create, manage, and automatically enhance AI prompts across multiple platforms, streamlining the process of prompt engineering for maximum AI performance.',
     media: [
@@ -333,7 +333,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         title: 'Prompt Forge',
         description: 'A minimalist tool for developers to craft and test LLM prompts with your own API keys. Stores frequently used prompts and securely keeps credentials in localStorage. Built for personal use but shared among developers, it focuses on functionality over user management—perfect for quick prompt experimentation.',
         buttonText: 'Try Prompt Forge',
-        thumbnail: 'media/prompt-forge-logo.png',
+        thumbnail: '/media/prompt-forge-logo.png',
         thumbnailWidth: '200px',
         customHeight: '200px',
         width: '100%',
@@ -377,7 +377,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
     technologies: ['Node', 'TypeScript', 'CLI', 'Gemini'],
     startDate: '2024',
     endDate: '2024',
-    logoPath: 'media/cursor.png',
+    logoPath: '/media/cursor.png',
     repoUrl: 'https://github.com/drumnation/cursor-directory-structure-ts',
     impact: 'Streamlines development workflows by creating intelligent, self-updating documentation that gives developers and AI assistants deeper understanding of complex codebases.',
     media: [
@@ -424,7 +424,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         title: 'AI Context Generator',
         buttonText: 'VSCode Marketplace',
         description: 'Generate AI context for selected directories. Generate AI context for the root folder of your workspace. Easily copy generated context to the clipboard. Install the extension from the VSCode marketplace.',
-        thumbnail: 'media/screenshots/ai-context-generator.png',
+        thumbnail: '/media/screenshots/ai-context-generator.png',
         thumbnailWidth: '200px',
         customHeight: '200px'
       },
@@ -467,7 +467,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
     technologies: ['Next.js', 'TypeScript', 'Openai', 'Supabase', 'PostgreSQL', 'Vercel'],
     startDate: '2023',
     endDate: 'Present',
-    logoPath: 'media/misc/coparenting-copilot.png',
+    logoPath: '/media/misc/coparenting-copilot.png',
     showBorder: true,
     impact: 'Developed a SaaS application that helps co-parents communicate.',
     media: [
@@ -531,7 +531,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
         title: 'SaaS Application',
         description: 'Co-parenting comm. tool.',
         buttonText: 'Try Coparenting Copilot',
-        thumbnail: 'media/misc/cc-logo.svg',
+        thumbnail: '/media/misc/cc-logo.svg',
         width: '100%',
         thumbnailWidth: '700px',
         customHeight: '150px',
@@ -557,7 +557,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
     technologies: ['React.js', 'React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Plaid API', 'Chart.js', 'Styled Components', 'Date-fns'],
     startDate: '2022',
     endDate: 'Present',
-    logoPath: 'media/misc/cheddar.png',
+    logoPath: '/media/misc/cheddar.png',
     impact: 'Transforms financial uncertainty into confidence through intelligent forecasting that visualizes your future balance in real-time. By revealing upcoming cash flow patterns and allowing scenario testing, users gain both peace of mind and practical financial control.',
     media: [
       {
@@ -618,7 +618,7 @@ This dynamic system maintains accuracy between your actual and projected finance
     technologies: ['React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Web Audio API'],
     startDate: '2024',
     endDate: 'present',
-    logoPath: 'media/welearn-logo.png',
+    logoPath: '/media/welearn-logo.png',
     showBorder: true, 
     impact: '**WLMT revolutionizes emotional intelligence education** by transforming abstract musical concepts into engaging, game-based learning experiences that help users recognize and distinguish emotional tones.',
     media: [

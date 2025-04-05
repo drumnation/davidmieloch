@@ -1,0 +1,2 @@
+export { default as BrainGardenComponentsDiagram } from './BrainGardenComponentsDiagram/BrainGardenComponentsDiagram';
+export { default as SoftwareEngineeringMeceDiagram } from './SoftwareEngineeringMeceDiagram/SoftwareEngineeringMeceDiagram'; 

@@ -34,7 +34,10 @@ const defaultColors = {
   }
 };
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.div<{ 
+  $isExpanded?: boolean; 
+  $isMiniMode?: boolean;
+}>`
   position: fixed;
   bottom: 0;
   left: 0;
@@ -47,6 +50,10 @@ export const FooterContainer = styled.div`
     theme.colorScheme === 'dark' 
       ? defaultColors.dark.background 
       : defaultColors.light.background};
+  height: ${props => props.$isExpanded ? '300px' : props.$isMiniMode ? '50px' : 'auto'};
+  transition: height 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  transform: translateY(${props => props.$isMiniMode ? '0' : '0'});
+  will-change: height, transform, opacity;
 `;
 
 export const GradientBorder = styled.div`

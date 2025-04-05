@@ -1,14 +1,15 @@
 "use client";
 
-import React, { CSSProperties, useEffect } from 'react';
+import React from 'react';
 import { Hero } from '../../organisms/Hero';
 import { useBrainGardenOverview } from './BrainGardenOverview.hook';
 import {
   Container,
   ContentSection,
 } from './BrainGardenOverview.styles';
-import { useInView } from 'react-intersection-observer';
 import { BrainGardenOverviewProps } from './BrainGardenOverview.types';
+import { AnimatedSection } from './BrainGardenOverview.logic';
+import { useSectionVisibility } from './hooks';
 
 // Import all the section components
 import { SystemOverviewSection } from './components/SystemOverviewSection';
@@ -62,88 +63,69 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
     }
   };
 
-  // Create separate intersection observers for each section
-  const [systemRef, systemInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [coreRef, coreInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [teamRef, teamInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [forceRef, forceInView] = useInView({ 
-    triggerOnce: true, 
+  // Create section visibility hooks for each section
+  const systemVisibility = useSectionVisibility();
+  const coreVisibility = useSectionVisibility();
+  const teamVisibility = useSectionVisibility();
+  const forceVisibility = useSectionVisibility({ 
     threshold: 0,
     rootMargin: '0px 0px -10% 0px'
   });
-  const [gardenRef, gardenInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [architectureRef, architectureInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [evolutionRef, evolutionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [transitionRef, transitionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
-  // Debug useEffect to log intersection observer state
-  useEffect(() => {
-    if (forceInView) {
-      console.log('Force Multipliers section is now in view!');
-    }
-  }, [forceInView]);
-
-  const fadeInStyle = (inView: boolean): CSSProperties => ({
-    opacity: inView ? 1 : 0,
-    visibility: inView ? 'visible' : 'hidden',
-    position: inView ? 'relative' : 'absolute',
-    pointerEvents: inView ? 'auto' : 'none',
-    transform: `translateY(${inView ? 0 : 30}px)`,
-    willChange: 'opacity, transform',
-    transition: inView 
-      ? 'visibility 0s, opacity 0.6s ease-out, transform 0.8s ease-out, position 0s' 
-      : 'opacity 0.6s ease-out, transform 0.8s ease-out, visibility 0s 0.6s, position 0s 0.6s'
-  });
+  const gardenVisibility = useSectionVisibility();
+  const architectureVisibility = useSectionVisibility();
+  const evolutionVisibility = useSectionVisibility();
+  const transitionVisibility = useSectionVisibility();
 
   return (
-    <div>
-      <Container className={className}>
-        {/* Hero Section */}
-        <Hero {...enhancedHeroProps} />
+    <Container className={className}>
+      {/* Hero Section */}
+      <Hero {...enhancedHeroProps} />
+      
+      {/* Content Section with White Background */}
+      <ContentSection>
+        {/* Introduction Section */}
+        <AnimatedSection visibilityProps={systemVisibility}>
+          <SystemOverviewSection introProps={introProps} />
+        </AnimatedSection>
         
-        {/* Content Section with White Background */}
-        <ContentSection>
-          {/* Introduction Section */}
-          <div ref={systemRef} style={fadeInStyle(systemInView)}>
-            <SystemOverviewSection introProps={introProps} />
-          </div>
-          
-          {/* Core Components Section */}
-          <div ref={coreRef} style={fadeInStyle(coreInView)}>
-            <CoreComponentsSection coreComponentsProps={safeData.coreComponents} />
-          </div>
-          
-          {/* Team Customization Section */}
-          <div ref={teamRef} style={fadeInStyle(teamInView)}>
-            <TeamCustomizationSection />
-          </div>
-          
-          {/* Force Multipliers Section */}
-          <div ref={forceRef} style={fadeInStyle(forceInView)} id="force-multiplier-debug-container" data-inview={forceInView}>
-            <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
-          </div>
-          
-          {/* The Garden Metaphor Section */}
-          <div ref={gardenRef} style={fadeInStyle(gardenInView)}>
-            <GardenMetaphorSection />
-          </div>
-          
-          {/* System Architecture Section */}
-          <div ref={architectureRef} style={fadeInStyle(architectureInView)}>
-            <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
-          </div>
-          
-          {/* The Next Evolution Section */}
-          <div ref={evolutionRef} style={fadeInStyle(evolutionInView)}>
-            <NextEvolutionSection />
-          </div>
-          
-          {/* Transition to Technical Implementation Section */}
-          <div ref={transitionRef} style={fadeInStyle(transitionInView)}>
-            <TransitionSection {...transitionProps} />
-          </div>
-        </ContentSection>
-      </Container>
-    </div>
+        {/* Core Components Section */}
+        <AnimatedSection visibilityProps={coreVisibility}>
+          <CoreComponentsSection coreComponentsProps={safeData.coreComponents} />
+        </AnimatedSection>
+        
+        {/* Team Customization Section */}
+        <AnimatedSection visibilityProps={teamVisibility}>
+          <TeamCustomizationSection />
+        </AnimatedSection>
+        
+        {/* Force Multipliers Section */}
+        <AnimatedSection 
+          visibilityProps={forceVisibility} 
+          id="force-multiplier-debug-container"
+        >
+          <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
+        </AnimatedSection>
+        
+        {/* The Garden Metaphor Section */}
+        <AnimatedSection visibilityProps={gardenVisibility}>
+          <GardenMetaphorSection />
+        </AnimatedSection>
+        
+        {/* System Architecture Section */}
+        <AnimatedSection visibilityProps={architectureVisibility}>
+          <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
+        </AnimatedSection>
+        
+        {/* The Next Evolution Section */}
+        <AnimatedSection visibilityProps={evolutionVisibility}>
+          <NextEvolutionSection />
+        </AnimatedSection>
+        
+        {/* Transition to Technical Implementation Section */}
+        <AnimatedSection visibilityProps={transitionVisibility}>
+          <TransitionSection {...transitionProps} />
+        </AnimatedSection>
+      </ContentSection>
+    </Container>
   );
 };

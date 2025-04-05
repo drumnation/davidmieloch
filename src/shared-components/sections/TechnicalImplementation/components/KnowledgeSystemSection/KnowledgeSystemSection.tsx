@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { Typography } from '../../../../../shared-components/atoms/Typography';
-import { MermaidDiagram } from '../../../../../shared-components/molecules/MermaidDiagram';
+import { KnowledgeSystemDiagram } from '../../../../../components/diagrams/KnowledgeSystemDiagram/KnowledgeSystemDiagram';
+import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
 import { ContentBlock, DiagramContainer, SectionTitle, SubsectionTitle } from '../../TechnicalImplementation.styles';
 import { KnowledgeSystemSectionProps } from './KnowledgeSystemSection.types';
 
@@ -175,7 +176,14 @@ export const KnowledgeSystemSection: FC<KnowledgeSystemSectionProps> = ({
       )}
 
       <DiagramContainer>
-        <MermaidDiagram definition={knowledgeFlowDiagram} />
+        <KnowledgeSystemDiagram
+          title="" 
+          theme="default"
+          width="100%"
+          height="400px"
+          showZoomControls={false}
+          accessibilityDescription="Knowledge System Diagram showing the flow from Developer Action to Team Benefits through Knowledge Capture, Analysis, and Shared Understanding"
+        />
       </DiagramContainer>
 
       {knowledgeSystem.flowDescription && (

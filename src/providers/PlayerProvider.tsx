@@ -349,7 +349,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       
       {/* Only render the player if we have a current track */}
       {currentTrack && (
-        <div style={{ display: 'none' }}>
+        <div style={{ display: 'none' }} className="PlayerProvider" data-testid="player-provider" data-playerready={playerReady.toString()}>
           <ReactPlayer
             ref={playerRef}
             url={getFormattedUrl(currentTrack)}

@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
 
         <S.NavLinks $isOpen={isMenuOpen}>
           {navItems.map((item) => (
-            <S.NavItem key={item.path} $isActive={isActive(item.path)}>
+            <S.NavItem key={item.path} $isActive={isActive(item.path) || false}>
               <Link href={item.path} passHref>
                 <S.NavLink>{item.name}</S.NavLink>
               </Link>

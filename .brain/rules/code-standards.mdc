@@ -1,1 +1,109 @@
- 
+---
+description: 
+globs: 
+alwaysApply: true
+---
+**Ruleset (Node.js/TypeScript) with Design Principles:**
+
+**1. File Length and Refactoring (KISS, YAGNI):**
+
+* **Rule:** "Monitor all `.ts` and `.js` files. When a file exceeds 500 lines, initiate a refactoring process, adhering to the **KISS (Keep It Simple, Stupid)** principle. Break down the file into smaller, more focused modules or classes. Avoid adding unnecessary complexity, as per **YAGNI (You Ain't Gonna Need It)**. Prioritize extracting logically related code blocks into separate files or functions."
+* **Action:**
+    * "Analyze the file, identifying logical units of functionality and applying the KISS principle."
+    * "Create new files or modules for these units, ensuring clear separation of concerns."
+    * "Update import/export statements to maintain functionality."
+    * "Ensure all extracted code is thoroughly tested."
+    * "Provide a summary of the refactoring steps taken and the rationale behind them, emphasizing simplification and necessity."
+
+**2. Module Structure and Organization (SRP, SoC):**
+
+* **Rule:** "Organize code into logical modules based on functionality, adhering to the **Single Responsibility Principle (SRP)**. Utilize the `src/` directory for source code and `test/` for tests. Create subdirectories within `src/` to represent different features or components, promoting **Separation of Concerns (SoC)**."
+* **Action:**
+    * "Ensure related files are grouped together in subdirectories."
+    * "Use `index.ts` files to aggregate exports from subdirectories, providing a clean API for other modules."
+    * "Maintain a clear and consistent file naming convention."
+
+Yes, absolutely! Explicitly stating your preference for pure functions and functional programming principles is a valuable addition to your Cursor ruleset, especially if that aligns with your team's coding philosophy. Here's how you can incorporate it:
+
+**Revised Cursor Ruleset (Node.js/TypeScript) with Functional Programming Preference:**
+
+**3. Function and Class Design (SRP, DRY, SOLID, Functional Emphasis):**
+
+* **Rule:** "Functions and classes should have a single responsibility (SRP). Keep functions short and focused. Classes should encapsulate related data and behavior, applying principles from **SOLID**, particularly SRP and the **DRY (Don't Repeat Yourself)** principle. **Prefer pure functions and functional programming paradigms over class-based OOP whenever possible.**"
+* **Action:**
+    * "Refactor long functions into smaller, more manageable pure functions."
+    * "Extract common logic into reusable pure functions or higher-order functions (DRY)."
+    * "Adhere to the Single Responsibility Principle (SRP)."
+    * "Use descriptive names for functions and classes."
+    * "Use TypeScript interfaces and type aliases to define the shape of objects and data structures, favoring immutability."
+    * "Minimize the use of mutable state and side effects. Favor immutable data structures and pure functions."
+    * "Utilize higher-order functions (e.g., `map`, `filter`, `reduce`) for data transformations."
+    * "Use typescript types to enforce the shape of data."
+    * "Use composition over inheritance."
+
+**Explanation of the Functional Preference:**
+
+* **Pure Functions:** These functions produce the same output for the same input and have no side effects. This makes code more predictable and testable.
+* **Immutability:** Avoiding changes to existing data structures can prevent unexpected behavior and make code easier to reason about.
+* **Higher-Order Functions:** These functions can take other functions as arguments or return functions, enabling powerful data transformations and code reuse.
+* **Composition:** Building complex functionality by combining simpler functions.
+
+**Cursor Prompts (Examples):**
+
+* "Refactor the `calculateTotal` function in `src/cart.ts` to be a pure function. Ensure it has no side effects and returns the same output for the same input."
+* "Convert the `userDataService` class in `src/services/` to a module with pure functions and immutable data structures. Avoid using class-based OOP if possible."
+* "Use higher-order functions like `map`, `filter`, and `reduce` to transform the `users` array in `src/utils.ts`. Ensure that the transformations are performed using pure functions."
+
+**Benefits of Adding This Preference:**
+
+* **Clarity:** It explicitly communicates your team's preferred coding style.
+* **Consistency:** Cursor will be guided to produce code that aligns with your functional programming approach.
+* **Maintainability:** Pure functions and immutable data structures can lead to more maintainable and testable code.
+
+By incorporating this preference, you'll ensure that Cursor generates code that is not only well-structured and maintainable but also adheres to your team's functional programming principles.
+
+**4. Error Handling (Fail Fast):**
+
+* **Rule:** "Implement robust error handling using `try...catch` blocks and custom error classes. Log errors with sufficient context for debugging, and implement the **Fail Fast** principle, catching and addressing issues early."
+* **Action:**
+    * "Wrap potentially error-prone code in `try...catch` blocks."
+    * "Create custom error classes for specific error scenarios."
+    * "Log errors with timestamps, file names, and line numbers."
+    * "Avoid throwing generic errors, provide useful error messages."
+
+**5. Asynchronous Operations (KISS):**
+
+* **Rule:** "Use `async/await` for asynchronous operations, keeping the code simple (KISS). Avoid callback hell. Implement proper error handling for asynchronous code."
+* **Action:**
+    * "Prefer `async/await` over callbacks or promises."
+    * "Use `try...catch` blocks within `async` functions to handle errors."
+    * "Validate inputs and outputs of async functions."
+
+**6. Testing (DRY):**
+
+* **Rule:** "Write comprehensive unit tests for all code. Use a testing framework like Jest or Mocha. Aim for 100% test coverage, especially for critical modules. Apply the DRY principle to test code, avoiding redundant test setups."
+* **Action:**
+    * "Create test files in the `test/` directory, mirroring the `src/` directory structure."
+    * "Use mocking and stubbing to isolate units of code."
+    * "Write tests for edge cases and error scenarios."
+    * "Use code coverage tools to measure test effectiveness."
+    * "Utilize setup and teardown functions to avoid repeating test initialization."
+
+**7. Code Style and Linting (Consistency):**
+
+* **Rule:** "Adhere to a consistent code style using ESLint and Prettier. Configure these tools to enforce coding standards and automatically format code, promoting consistency."
+* **Action:**
+    * "Install and configure ESLint and Prettier with appropriate rules."
+    * "Integrate linting and formatting into the development workflow (e.g., using Git hooks or CI/CD pipelines)."
+    * "Use a consistent indentation style, and consistent use of semicolons."
+
+**8. Documentation (Clarity):**
+
+* **Rule:** "Document code using JSDoc comments. Provide clear and concise explanations for functions, classes, and modules, emphasizing clarity."
+* **Action:**
+    * "Add JSDoc comments to all public functions, classes, and interfaces."
+    * "Explain the purpose, parameters, and return values of functions."
+    * "Document complex logic and algorithms."
+    * "Create README files for modules and projects."
+
+By integrating these well-established design principles and acronyms, you'll guide Cursor towards producing cleaner, more maintainable, and robust code.

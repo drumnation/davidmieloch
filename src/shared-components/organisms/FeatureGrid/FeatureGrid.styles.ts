@@ -19,7 +19,13 @@ export const Grid = styled.div<StyledFeatureGridProps>`
     
     /* Desktop - specified number of columns */
     @media (min-width: 1024px) {
-      grid-template-columns: repeat(${$columns}, 1fr);
+      grid-template-columns: repeat(${$columns}, minmax(0, 1fr));
+    }
+    
+    /* Ensure all cards have the same height and width */
+    & > div {
+      height: 100%;
+      width: 100%;
     }
   ` : css`
     display: flex;
@@ -92,8 +98,8 @@ export const IconWrapper = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   flex: 1;
+  min-height: 0; /* Needed for Firefox */
 `;
 
 export const CardWrapper = styled.div`
@@ -105,9 +111,12 @@ export const CardWrapper = styled.div`
 `;
 
 export const Title = styled.h4<{ $isKeyword?: boolean }>`
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 1rem 0;
   font-size: ${({ $isKeyword }) => $isKeyword ? '1.2rem' : '1rem'};
   font-weight: bold;
   color: white;
   line-height: 1.3;
+  min-height: 3rem; /* Ensure consistent height for titles */
+  display: flex;
+  align-items: flex-start;
 `; 

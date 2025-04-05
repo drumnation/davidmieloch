@@ -1,5 +1,5 @@
 import React from 'react';
-import { animated, SpringValue, AnimatedComponent } from '@react-spring/web';
+import { animated, SpringValue, AnimatedComponent, to } from '@react-spring/web';
 
 // Define our simplified types
 export type AnimatedProp<T> = SpringValue<T> | T;
@@ -23,11 +23,20 @@ const filterFramerProps = (props: any) => {
   return rest;
 };
 
+// DEPRECATED: This approach causes Maximum Call Stack Size Exceeded errors
+// Use the exported animated components below with direct spring values instead
 // Helper function to convert spring values to regular CSS styles
 // This is useful for incremental migration where we can't use animated components directly
 export const springToCss = (
   springStyles: Record<string, AnimatedProp<string | number>> | undefined
 ): Record<string, string | number> => {
+  console.warn(
+    '[DEPRECATED] springToCss causes infinite recursion issues. Use animated components with direct spring values instead. See .brain/knowledge/react-spring-guide.md'
+  );
+  
+  // Add stack trace to identify which component is calling this
+  console.trace('springToCss called from:');
+  
   if (!springStyles) return {};
   
   const cssStyles: Record<string, string | number> = {};
@@ -51,6 +60,41 @@ export const springToCss = (
   });
   
   return cssStyles;
+};
+
+// New utility for handling transforms properly
+export const combineTransforms = (
+  transforms: Record<string, SpringValue<number>>
+) => {
+  const { x, y, scale, rotate } = transforms;
+  const transformArray: SpringValue<number>[] = [];
+  const transformFns: ((val: number) => string)[] = [];
+  
+  if (x) {
+    transformArray.push(x);
+    transformFns.push((x: number) => `translateX(${x}px)`);
+  }
+  if (y) {
+    transformArray.push(y);
+    transformFns.push((y: number) => `translateY(${y}px)`);
+  }
+  if (scale) {
+    transformArray.push(scale);
+    transformFns.push((scale: number) => `scale(${scale})`);
+  }
+  if (rotate) {
+    transformArray.push(rotate);
+    transformFns.push((rotate: number) => `rotate(${rotate}deg)`);
+  }
+  
+  if (transformArray.length === 0) return undefined;
+  if (transformArray.length === 1) {
+    return transformArray[0].to(transformFns[0]);
+  }
+  
+  return to(transformArray, (...values) => {
+    return values.map((value, index) => transformFns[index](value)).join(' ');
+  });
 };
 
 // Animated components with proper type handling

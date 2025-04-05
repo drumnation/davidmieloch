@@ -1,5 +1,6 @@
 import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';
-import { defaultContent, enhanceHeroProps } from './AiAutopilotAnalogy.logic';
+import { enhanceHeroProps } from './AiAutopilotAnalogy.logic';
+import { defaultContent } from './data';
 
 export const useAiAutopilotAnalogy = (props: AiAutopilotAnalogyProps) => {
   const {

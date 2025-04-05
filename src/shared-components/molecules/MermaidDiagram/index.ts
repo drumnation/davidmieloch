@@ -1,5 +1,3 @@
-export * from './MermaidDiagram';
-export * from './MermaidDiagram.types';
-
-export { default as MermaidDiagram } from './MermaidDiagram';
+export { MermaidDiagram } from './MermaidDiagram';
+export type { MermaidDiagramProps } from './MermaidDiagram.types';
 export { default } from './MermaidDiagram';

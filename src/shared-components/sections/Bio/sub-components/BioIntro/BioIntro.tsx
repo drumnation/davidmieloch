@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSpring, animated } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { BioContent as StyledBioContent } from '../../Bio.styles';
 import { HeadingWrapper, BioTextContent } from './BioIntro.styles';
 import {
@@ -26,9 +26,32 @@ interface BioIntroProps {
   className?: string;
 }
 
-// Create properly typed animated components
-const AnimatedDiv = animated.div;
-const AnimatedBioContent = animated(StyledBioContent);
+// The fadeIn variants for framer-motion
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.6, 
+      ease: "easeOut" 
+    } 
+  }
+};
+
+// The delayed fadeIn variants for the second section
+const delayedFadeInVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.6, 
+      ease: "easeOut",
+      delay: 0.3
+    } 
+  }
+};
 
 // Map of icon components for dynamic rendering
 const IconMap = {
@@ -45,22 +68,6 @@ const IconMap = {
 };
 
 export const BioIntro: React.FC<BioIntroProps> = ({ className }) => {
-  // Create fade-in animation with React Spring - start with opacity 1
-  const [fadeInStyles, fadeInApi] = useSpring(() => ({
-    from: { opacity: 1, y: 0 }, // Changed from opacity: 0, y: 20
-    to: { opacity: 1, y: 0 },
-    config: { tension: 280, friction: 60 },
-    delay: 200
-  }));
-
-  // Create animation for icons section - start with opacity 1
-  const [iconsStyles, iconsApi] = useSpring(() => ({
-    from: { opacity: 1, y: 0 }, // Changed from opacity: 0, y: 30
-    to: { opacity: 1, y: 0 },
-    config: { tension: 280, friction: 60 },
-    delay: 500
-  }));
-
   // Helper function to get the right icon component
   const getIconComponent = (iconName: string) => {
     return IconMap[iconName as keyof typeof IconMap] || IconCode;
@@ -68,11 +75,10 @@ export const BioIntro: React.FC<BioIntroProps> = ({ className }) => {
 
   return (
     <StyledBioContent className={className}>
-      <AnimatedDiv 
-        style={{
-          opacity: fadeInStyles.opacity,
-          transform: fadeInStyles.y.to(y => `translateY(${y}px)`)
-        }}
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariants}
       >
         <HeadingWrapper>
           <h2>Introduction</h2>
@@ -83,17 +89,16 @@ export const BioIntro: React.FC<BioIntroProps> = ({ className }) => {
           {/* Add the detailed bio content from constants */}
           {BIO_CONTENT}
         </BioTextContent>
-      </AnimatedDiv>
+      </motion.div>
 
-      <AnimatedDiv 
-        style={{
-          opacity: iconsStyles.opacity,
-          transform: iconsStyles.y.to(y => `translateY(${y}px)`)
-        }}
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={delayedFadeInVariants}
       >
         {/* Closing paragraphs from constants */}
         {CLOSING_PARAGRAPHS}
-      </AnimatedDiv>
+      </motion.div>
     </StyledBioContent>
   );
 };

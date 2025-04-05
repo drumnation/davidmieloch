@@ -1,0 +1,6 @@
+# Project Features
+
+Index of feature documentation.
+
+* [Diagram Consolidation and Cleanup](./diagram-consolidation/diagram-consolidation.index.md): Audit, consolidate, and update references for duplicate React Flow diagram components.
+* [Floating Video Player](./floating-video-player/floating-video-player.index.md): A component that allows YouTube videos to follow the user when scrolling to testimonials. 

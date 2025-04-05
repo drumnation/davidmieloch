@@ -12,7 +12,7 @@ export const LanguageDot: React.FC<LanguageDotProps> = ({
   const color = getLanguageColor(language);
 
   return (
-    <Container className={className} showName={showName}>
+    <Container className={className} data-show-name={showName}>
       <Dot color={color} size={size} />
       {showName && <LanguageName>{language}</LanguageName>}
     </Container>

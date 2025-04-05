@@ -339,6 +339,11 @@ export const ProjectDescription = styled.div`
   .markdown-container {
     padding: 0;
   }
+  
+  /* Smaller text for Prompt Forge specifically to make button fit */
+  &.prompt-forge-description {
+    font-size: 0.75rem;
+  }
 `;
 
 export const ProjectMeta = styled.div`

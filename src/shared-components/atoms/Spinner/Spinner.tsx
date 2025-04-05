@@ -7,5 +7,11 @@ export const Spinner: React.FC<SpinnerProps> = ({
   color,
   className
 }) => {
-  return <SpinnerContainer $size={size} $color={color} className={className} />;
+  return <SpinnerContainer 
+    $size={size} 
+    $color={color} 
+    className={className} 
+    data-testid="spinner-component"
+    data-size={size}
+  />;
 }; 

@@ -31,19 +31,51 @@ export const enhanceHeroProps = (heroProps: AiSkepticToExpertProps['heroProps'] 
  * Enhances the quotes props with consistent styling and defaults
  */
 export const enhanceQuotesProps = (quotesProps: AiSkepticToExpertProps['quotesProps'] = defaultContent.quotes): QuoteGridProps => {
-  return {
-    ...quotesProps,
-    className: `${quotesProps.className || ''} mb-0`, // No margin needed with the new container
-    quotes: quotesProps.quotes.map(quote => ({
-      ...quote,
-      icon: typeof quote.icon === 'string' 
-        ? <Icon name={quote.icon as string} size={24} /> as ReactElement 
-        : quote.icon as ReactElement | undefined
-    })) as Quote[],
-    layout: quotesProps.layout === 'grid' ? '3-column' : quotesProps.layout,
-    animation: 'stagger-fade',
-    background: 'gradient' // Use theme gradient instead of blue
-  };
+  // Safety check for undefined or malformed props
+  if (!quotesProps || !quotesProps.quotes) {
+    console.warn('enhanceQuotesProps: Invalid quotesProps provided, using defaults');
+    quotesProps = defaultContent.quotes;
+  }
+
+  try {
+    return {
+      ...quotesProps,
+      className: `${quotesProps.className || ''} mb-0`, // No margin needed with the new container
+      quotes: quotesProps.quotes.map(quote => {
+        try {
+          return {
+            ...quote,
+            icon: typeof quote.icon === 'string' 
+              ? <Icon name={quote.icon as string} size={24} /> as ReactElement 
+              : quote.icon as ReactElement | undefined
+          };
+        } catch (err) {
+          console.error('Error processing quote:', err);
+          // Return the quote without processing the icon
+          return quote;
+        }
+      }) as Quote[],
+      layout: quotesProps.layout === 'grid' ? '3-column' : quotesProps.layout || '3-column',
+      animation: 'stagger-fade',
+      background: 'gradient' // Use theme gradient instead of blue
+    };
+  } catch (err) {
+    console.error('Error in enhanceQuotesProps:', err);
+    // Return a safe fallback
+    return {
+      ...defaultContent.quotes,
+      className: 'mb-0',
+      quotes: defaultContent.quotes.quotes.map(quote => ({
+        ...quote,
+        icon: typeof quote.icon === 'string' 
+          ? <Icon name={quote.icon as string} size={24} /> as ReactElement 
+          : quote.icon as ReactElement | undefined
+      })) as Quote[],
+      layout: '3-column',
+      animation: 'stagger-fade',
+      background: 'gradient'
+    };
+  }
 };
 
 /**

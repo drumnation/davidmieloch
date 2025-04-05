@@ -14,9 +14,9 @@ export const PROFILE = {
     INDUSTRY: 'Software Development'
   },
   SUMMARY: {
-    INTRO: 'Senior Full Stack Developer and Engineering Team Lead specializing in React.js and React Native, with a proven track record in architecting complex web and mobile applications while managing cross-functional development teams.',
-    EXPERIENCE: 'Experienced in spearheading technology adoption strategies, including TypeScript, automated code quality, testing and AI development tooling. Proficient in both frontend and backend development, with expertise in Node.js, Express, and various databases.',
-    SKILLS_OVERVIEW: 'Skilled in implementing best practices such as Atomic Design, CI/CD pipelines, and monorepo architectures, while mentoring junior developers and fostering a culture of technical excellence. Adept at delivering high-impact commercial projects that drive organizational success.'
+    INTRO: 'Innovative Full Stack Developer and Engineering Leader specializing in React.js, React Native, and Enterprise AI solutions.  Architect of the Brain Garden system, driving AI transformation and optimizing development workflows.  Proven success in building complex applications, leading teams, and implementing modern development practices to deliver high-impact results.',
+    EXPERIENCE: '',
+    SKILLS_OVERVIEW: ''
   },
   SOCIAL_LINKS: {
     LINKEDIN: {

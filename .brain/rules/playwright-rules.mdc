@@ -6,6 +6,9 @@ alwaysApply: false
 # Playwright MCP Configuration
 # Last Updated: 2025-03-31 10:05:53 AM - Editable via .brain/rules
 
+! Important
+  - The `browser_take_screenshot` tool is not compatible with Cursor, so avoid using it and use the other tools instead. Save the tool calls.
+
 ## Server Configuration
 SERVER_URL="http://localhost:3003"  # Using port 3003 to avoid conflicts with dev (3001), dev:alt (3002), and dev:turbo (4000)
 SERVER_STATUS="stopped"  # running | stopped | error

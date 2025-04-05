@@ -128,9 +128,11 @@ export function SpinnerLoader({
   };
 
   return (
-    <LoaderContainer $fullPage={fullPage} className={className}>
-      {renderSpinner()}
-      {text && <LoadingText>{text}</LoadingText>}
+    <LoaderContainer $fullPage={fullPage} className={className} data-testid="spinner-loader" data-loading={true}>
+      <div data-testid="spinner-container">
+        {renderSpinner()}
+      </div>
+      {text && <LoadingText data-testid="loading-text">{text}</LoadingText>}
     </LoaderContainer>
   );
 } 

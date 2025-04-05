@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { 
   SectionContainer,
   EducationItem,
@@ -80,9 +81,11 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
             {renderLogo ? (
               renderLogo(edu.school)
             ) : edu.logoPath && isImageFile(edu.logoPath) ? (
-              <img 
+              <Image 
                 src={edu.logoPath} 
                 alt={`${edu.school} logo`}
+                width={64}
+                height={64}
                 style={{ 
                   width: '100%', 
                   height: '100%', 
@@ -138,9 +141,11 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
                           }}
                           onClick={() => openImageModal(mediaItem.url, mediaItem.title)}
                         >
-                          <img 
+                          <Image 
                             src={mediaItem.url} 
                             alt={mediaItem.title || `${edu.school} image`} 
+                            width={350}
+                            height={200}
                             style={{ 
                               position: 'absolute',
                               top: 0,
@@ -178,9 +183,11 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
                           className="pdf-thumbnail"
                         >
                           {mediaItem.thumbnailUrl ? (
-                            <img 
+                            <Image 
                               src={mediaItem.thumbnailUrl} 
                               alt={mediaItem.title || "PDF Document"} 
+                              width={350}
+                              height={200}
                               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
                               loading="lazy"
                             />
@@ -269,9 +276,11 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
           onClick={closeModal}
         >
           <div style={{ position: 'relative', maxWidth: '90%', maxHeight: '90%' }}>
-            <img 
+            <Image 
               src={currentImage.url} 
               alt={currentImage.title || 'Full size image'} 
+              width={1200}
+              height={800}
               style={{ 
                 maxWidth: '100%', 
                 maxHeight: '90vh', 

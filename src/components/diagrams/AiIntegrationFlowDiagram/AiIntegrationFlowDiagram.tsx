@@ -1,301 +1,392 @@
-import React, { useMemo } from 'react';
+'use client';
+
+import React, {
+  useMemo,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from 'react';
+import { 
+  ReactFlow,
+  ReactFlowProvider,
+  useNodesState,
+  useEdgesState,
+  Handle,
+  Position,
+  NodeProps,
+  EdgeProps,
+  Edge,
+  Node,
+  useReactFlow,
+} from '@xyflow/react';
+import dagre from 'dagre';
+import styled from 'styled-components';
 import '@xyflow/react/dist/style.css';
 
-import { AiIntegrationFlowDiagramProps } from './AiIntegrationFlowDiagram.types';
-import { ReactFlowDiagram } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram';
-import { ReactFlowDefinition, ReactFlowNode, ReactFlowEdge } from '../../../shared-components/molecules/ReactFlowDiagram/ReactFlowDiagram.types';
+// --- Type Definitions ---
 
-export const AiIntegrationFlowDiagram: React.FC<AiIntegrationFlowDiagramProps> = ({
-  title = "AI Integration Process Flow",
-  description = "The following diagram illustrates the ideal process flow for integrating AI into development workflows",
-  className = '',
-  theme = 'default',
-  width = '100%',
-  height = '1000px',
-  showZoomControls = false,
-  accessibilityDescription = 'Flow diagram showing the AI integration process from workflow assessment to continuous improvement',
-}) => {
-  // Define the nodes for the AI Integration Process Flow
-  const nodes: ReactFlowNode[] = useMemo(() => [
-    {
-      id: 'A',
-      type: 'default',
-      position: { x: 400, y: 50 },
-      data: { 
-        label: 'Assess Current Workflow',
-        icon: '🔍',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'B',
-      type: 'default',
-      position: { x: 400, y: 150 },
-      data: { 
-        label: 'Identify AI Opportunities',
-        icon: '💡',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'C',
-      type: 'default',
-      position: { x: 400, y: 250 },
-      data: { 
-        label: 'Define Human/AI Roles',
-        icon: '👥',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'D1',
-      type: 'default',
-      position: { x: 400, y: 350 },
-      data: { 
-        label: 'Knowledge Integration',
-        icon: '🧠',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'D2',
-      type: 'default',
-      position: { x: 400, y: 450 },
-      data: { 
-        label: 'Implement Prompt Engineering',
-        icon: '⌨️',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'D3',
-      type: 'default',
-      position: { x: 400, y: 550 },
-      data: { 
-        label: 'Build Validation Frameworks',
-        icon: '✓',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'E',
-      type: 'default',
-      position: { x: 400, y: 650 },
-      data: { 
-        label: 'Optimize Development Workflow',
-        icon: '⚙️',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'F',
-      type: 'default',
-      position: { x: 400, y: 750 },
-      data: { 
-        label: 'Train Teams on AI Collaboration',
-        icon: '🧑‍🏫',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'G',
-      type: 'default',
-      position: { x: 400, y: 850 },
-      data: { 
-        label: 'Define Quality-Focused Metrics',
-        icon: '📊',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'H',
-      type: 'default',
-      position: { x: 400, y: 950 },
-      data: { 
-        label: 'Measure Results',
-        icon: '📏',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-    {
-      id: 'I',
-      type: 'pill',
-      position: { x: 400, y: 1050 },
-      data: { 
-        label: 'Successful?',
-        style: { borderColor: '#4a6bff', fontWeight: 'bold', width: '180px' }
-      },
-    },
-    {
-      id: 'J',
-      type: 'default',
-      position: { x: 600, y: 1150 },
-      data: { 
-        label: 'Scale Integration',
-        icon: '📈',
-        iconPosition: 'left',
-        style: { width: '200px' }
-      },
-    },
-    {
-      id: 'K',
-      type: 'default',
-      position: { x: 200, y: 1150 },
-      data: { 
-        label: 'Refine Approach',
-        icon: '🔄',
-        iconPosition: 'left',
-        style: { width: '200px' }
-      },
-    },
-    {
-      id: 'L',
-      type: 'default',
-      position: { x: 600, y: 1250 },
-      data: { 
-        label: 'Continuous Improvement',
-        icon: '♾️',
-        iconPosition: 'left',
-        style: { width: '240px' }
-      },
-    },
-  ], []);
+interface NodeData {
+  label: string;
+  description?: string;
+  style?: React.CSSProperties;
+  [key: string]: any; // Using any to simplify typing
+}
 
-  // Define the edges connecting the nodes
-  const edges: ReactFlowEdge[] = useMemo(() => [
-    {
-      id: 'e-A-B',
-      source: 'A',
-      target: 'B',
-    },
-    {
-      id: 'e-B-C',
-      source: 'B',
-      target: 'C',
-    },
-    {
-      id: 'e-C-D1',
-      source: 'C',
-      target: 'D1',
-    },
-    {
-      id: 'e-D1-D2',
-      source: 'D1',
-      target: 'D2',
-    },
-    {
-      id: 'e-D2-D3',
-      source: 'D2',
-      target: 'D3',
-    },
-    {
-      id: 'e-D3-E',
-      source: 'D3',
-      target: 'E',
-    },
-    {
-      id: 'e-E-F',
-      source: 'E',
-      target: 'F',
-    },
-    {
-      id: 'e-F-G',
-      source: 'F',
-      target: 'G',
-    },
-    {
-      id: 'e-G-H',
-      source: 'G',
-      target: 'H',
-    },
-    {
-      id: 'e-H-I',
-      source: 'H',
-      target: 'I',
-    },
-    {
-      id: 'e-I-J',
-      source: 'I',
-      target: 'J',
-      label: 'Yes',
-      style: { stroke: '#4a6bff' },
-    },
-    {
-      id: 'e-I-K',
-      source: 'I',
-      target: 'K',
-      label: 'No',
-      style: { stroke: '#ff4a4a' },
-    },
-    {
-      id: 'e-K-C',
-      source: 'K',
-      target: 'C',
-      type: 'step',
-      style: { stroke: '#ff4a4a' },
-    },
-    {
-      id: 'e-J-L',
-      source: 'J',
-      target: 'L',
-      style: { stroke: '#4a6bff' },
-    },
-    {
-      id: 'e-L-H',
-      source: 'L',
-      target: 'H',
-      type: 'step',
-      style: { stroke: '#4a6bff' },
-      animated: true,
-    },
-  ], []);
+interface EdgeData {
+  animated?: boolean;
+  [key: string]: any; // Using any to simplify typing
+}
 
-  // Create the diagram definition object
-  const flowDefinition: ReactFlowDefinition = useMemo(() => ({
-    nodes,
-    edges,
-  }), [nodes, edges]);
+// --- Custom Node Components ---
 
-  // Set custom options for fixed, non-interactive diagram
-  const customOptions = {
-    nodesDraggable: false,
-    nodesConnectable: false,
-    elementsSelectable: false,
-    zoomOnScroll: false,
-    panOnScroll: false,
-    panOnDrag: false,
-    preventScrolling: true,
-  };
+const ApiNode = ({ data }: any) => {
+  return (
+    <StyledApiNode style={data?.style}>
+      {data?.label}
+      <Handle type="target" position={Position.Top} />
+      <Handle type="source" position={Position.Bottom} />
+    </StyledApiNode>
+  );
+};
+
+const AiModelNode = ({ data }: any) => {
+  return (
+    <StyledAiModelNode style={data?.style}>
+      {data?.label}
+      <Handle type="target" position={Position.Left} />
+      <Handle type="source" position={Position.Right} />
+    </StyledAiModelNode>
+  );
+};
+
+const DataStoreNode = ({ data }: any) => {
+  return (
+    <StyledDataStoreNode style={data?.style}>
+      {data?.label}
+      <Handle type="target" position={Position.Left} />
+      <Handle type="source" position={Position.Right} />
+    </StyledDataStoreNode>
+  );
+};
+
+const UiNode = ({ data }: any) => {
+  return (
+    <StyledUiNode style={data?.style}>
+      {data?.label}
+      <Handle type="target" position={Position.Top} />
+      <Handle type="source" position={Position.Bottom} />
+    </StyledUiNode>
+  );
+};
+
+// --- Custom Edge Component ---
+
+const AnimatedEdge = (props: EdgeProps) => {
+  const { id, sourceX, sourceY, targetX, targetY } = props;
+  
+  // Create a smooth path between source and target
+  const centerX = (sourceX + targetX) / 2;
+  const edgePath = `M${sourceX},${sourceY} C${centerX},${sourceY} ${centerX},${targetY} ${targetX},${targetY}`;
 
   return (
-    <div className={className}>
+    <path
+      id={id}
+      className="react-flow__edge-path"
+      d={edgePath}
+      stroke="#888"
+      strokeWidth={2}
+      markerEnd="url(#arrowhead)"
+    />
+  );
+};
+
+// --- Styled Components ---
+
+const StyledApiNode = styled.div`
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid #4a90e2;
+  background-color: #e6f7ff;
+  text-align: center;
+  font-size: 14px;
+`;
+
+const StyledAiModelNode = styled.div`
+  padding: 10px 20px;
+  border: 2px solid #9c27b0;
+  background-color: #f3e5f5;
+  text-align: center;
+  font-size: 14px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+`;
+
+const StyledDataStoreNode = styled.div`
+  padding: 10px 20px;
+  border: 2px solid #4caf50;
+  background-color: #e8f5e9;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 50%;
+`;
+
+const StyledUiNode = styled.div`
+  padding: 10px 20px;
+  border: 2px solid #ff9800;
+  background-color: #fff3e0;
+  text-align: center;
+  font-size: 14px;
+`;
+
+// --- Layout Function ---
+
+const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
+  const dagreGraph = new dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
+
+  dagreGraph.setGraph({ rankdir: 'LR', ranksep: 70, nodesep: 50 });
+
+  nodes.forEach((node) => {
+    let width = 150;
+    let height = 50;
+
+    if (node.type === 'aiModel') {
+      width = 120;
+      height = 80;
+    } else if (node.type === 'dataStore') {
+      width = 80;
+      height = 80;
+    } else if (node.type === 'ui') {
+      width = 120;
+      height = 50;
+    }
+
+    dagreGraph.setNode(node.id, { width, height });
+  });
+
+  edges.forEach((edge) => {
+    dagreGraph.setEdge(edge.source, edge.target);
+  });
+
+  dagre.layout(dagreGraph);
+
+  const layoutedNodes = nodes.map((node) => {
+    const nodeWithPosition = dagreGraph.node(node.id);
+    return {
+      ...node,
+      position: {
+        x: nodeWithPosition.x - nodeWithPosition.width / 2,
+        y: nodeWithPosition.y - nodeWithPosition.height / 2,
+      },
+    };
+  });
+
+  return { nodes: layoutedNodes, edges };
+};
+
+// --- Main Component ---
+
+interface AIIntegrationFlowDiagramProps {
+  /** Title displayed above the diagram */
+  title?: string;
+  /** Optional description text below the title */
+  description?: string;
+  /** Width of the diagram container */
+  width?: string | number;
+  /** Height of the diagram container */
+  height?: string | number;
+  /** CSS class name for additional styling */
+  className?: string;
+  /** Description for screen readers */
+  accessibilityDescription?: string;
+  /** Whether to display zoom controls */
+  showZoomControls?: boolean;
+  /** Visual theme for the diagram */
+  theme?: 'default' | 'dark' | 'forest' | 'neutral';
+  /** Custom nodes to override the default nodes */
+  nodes?: Node<NodeData>[];
+  /** Custom edges to override the default connections */
+  edges?: Edge<EdgeData>[];
+}
+
+const AiIntegrationFlowDiagram: React.FC<AIIntegrationFlowDiagramProps> = ({
+  title = 'AI Integration Flow',
+  description,
+  width = '100%',
+  height = '500px',
+  className = '',
+  accessibilityDescription = 'Diagram showing AI integration flow with components like API Gateway, Query Processor, and LLM Service.',
+  showZoomControls = true,
+  theme = 'default',
+  nodes: customNodes,
+  edges: customEdges,
+}) => {
+  const nodeTypes = useMemo(
+    () => ({
+      api: ApiNode,
+      aiModel: AiModelNode,
+      dataStore: DataStoreNode,
+      ui: UiNode,
+    }),
+    []
+  );
+
+  const edgeTypes = useMemo(
+    () => ({
+      animated: AnimatedEdge,
+    }),
+    []
+  );
+
+  const initialNodes: Node<NodeData>[] = useMemo(
+    () => [
+      {
+        id: 'userRequest',
+        type: 'ui',
+        position: { x: 50, y: 50 },
+        data: { label: 'User Request' },
+      },
+      {
+        id: 'apiGateway',
+        type: 'api',
+        position: { x: 50, y: 150 },
+        data: { label: 'API Gateway' },
+      },
+      {
+        id: 'queryProcessor',
+        type: 'aiModel',
+        position: { x: 200, y: 100 },
+        data: { label: 'Query Processor' },
+      },
+      {
+        id: 'knowledgeBase',
+        type: 'dataStore',
+        position: { x: 350, y: 50 },
+        data: { label: 'Knowledge Base' },
+      },
+      {
+        id: 'llmService',
+        type: 'aiModel',
+        position: { x: 350, y: 150 },
+        data: { label: 'LLM Service' },
+      },
+      {
+        id: 'responseGenerator',
+        type: 'aiModel',
+        position: { x: 500, y: 100 },
+        data: { label: 'Response Generator' },
+      },
+      {
+        id: 'userInterface',
+        type: 'ui',
+        position: { x: 650, y: 100 },
+        data: { label: 'User Interface' },
+      },
+    ],
+    []
+  );
+
+  const initialEdges: Edge<EdgeData>[] = useMemo(
+    () => [
+      { id: 'e1-2', source: 'userRequest', target: 'apiGateway' },
+      { id: 'e2-3', source: 'apiGateway', target: 'queryProcessor' },
+      { id: 'e3-4', source: 'queryProcessor', target: 'knowledgeBase' },
+      { id: 'e3-5', source: 'queryProcessor', target: 'llmService' },
+      { id: 'e5-6', source: 'llmService', target: 'responseGenerator' },
+      { id: 'e6-2', source: 'responseGenerator', target: 'apiGateway' },
+      { id: 'e2-7', source: 'apiGateway', target: 'userInterface' },
+    ],
+    []
+  );
+
+  const [nodes, setNodes, onNodesChange] = useNodesState(customNodes || initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(customEdges || initialEdges);
+  const reactFlowWrapper = useRef<HTMLDivElement>(null);
+  const { setCenter } = useReactFlow();
+
+  useEffect(() => {
+    // Only apply layout if we're not in Storybook
+    const isStorybook = window?.location?.href?.includes('localhost:7010');
+    
+    if (!isStorybook) {
+      try {
+        const { nodes: layoutedNodes, edges: layoutedEdges } =
+          getLayoutedElements(nodes, edges);
+
+        // Use type assertion to avoid type errors
+        setNodes(layoutedNodes as any);
+        setEdges(layoutedEdges as any);
+      } catch (error) {
+        console.error('Error applying layout:', error);
+      }
+    }
+
+    if (reactFlowWrapper.current) {
+      setTimeout(() => {
+        setCenter(
+          reactFlowWrapper.current?.clientWidth ? reactFlowWrapper.current.clientWidth / 2 : 0,
+          reactFlowWrapper.current?.clientHeight ? reactFlowWrapper.current.clientHeight / 2 : 0,
+          { zoom: 0.8, duration: 500 }
+        );
+      }, 50);
+    }
+  }, [setNodes, setEdges, setCenter]);
+
+  const onNodeClick = useCallback(
+    (event: React.MouseEvent, node: Node) => {
+      alert(`Node "${node.data.label}" clicked!`);
+    },
+    []
+  );
+
+  // Container style for responsive width
+  const containerStyle = useMemo(() => ({
+    width: width,
+    maxWidth: '1000px',
+    margin: '0 auto',
+  }), [width]);
+
+  return (
+    <div className={className} style={containerStyle}>
       {title && <h3>{title}</h3>}
       {description && <p>{description}</p>}
       
-      <ReactFlowDiagram
-        width={width}
-        height={height}
-        theme={theme}
-        backgroundColor="#ffffff"
-        showZoomControls={showZoomControls}
-        showBackground={false}
-        accessibilityDescription={accessibilityDescription}
-        definition={flowDefinition}
-        parseMode="reactflow"
-        customOptions={customOptions}
-      />
+      <div 
+        style={{ width: '100%', height }} 
+        ref={reactFlowWrapper}
+        aria-label={accessibilityDescription}
+      >
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          nodeTypes={nodeTypes}
+          edgeTypes={edgeTypes}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onNodeClick={onNodeClick}
+          fitView
+          fitViewOptions={{ padding: 0.1 }}
+          nodesDraggable={false}
+          nodesConnectable={false}
+          elementsSelectable={true}
+        >
+          <defs>
+            <marker
+              id="arrowhead"
+              viewBox="0 0 10 10"
+              refX="10"
+              refY="5"
+              markerWidth="5"
+              markerHeight="5"
+              orient="auto"
+            >
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#888" />
+            </marker>
+          </defs>
+        </ReactFlow>
+      </div>
     </div>
   );
 };
 
+export { AiIntegrationFlowDiagram };
 export default AiIntegrationFlowDiagram; 

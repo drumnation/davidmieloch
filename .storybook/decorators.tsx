@@ -1,6 +1,8 @@
 import React from 'react';
 import { MantineProvider, createTheme } from '@mantine/core';
 import '@mantine/core/styles.css';
+import { ReactFlowProvider } from '@xyflow/react';
+import { StoryFn } from '@storybook/react';
 
 // Mock Next.js router
 const mockRouter = {
@@ -55,4 +57,18 @@ export const withNextRouter = (StoryFn: React.ComponentType) => {
       </MantineProvider>
     </RouterContext.Provider>
   );
-}; 
+};
+
+export const ReactFlowDecorator = (Story: StoryFn) => (
+  <ReactFlowProvider>
+    <div style={{ 
+      height: '100%', 
+      width: '100%',
+      minHeight: '500px',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      <Story />
+    </div>
+  </ReactFlowProvider>
+); 

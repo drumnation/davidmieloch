@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import Image from 'next/image';
 import { FaGlobe, FaGithub, FaChevronDown } from 'react-icons/fa';
 import { PROJECT_CATEGORIES, SECTION_TITLE, SIDE_PROJECTS } from './SideProjectsSection.constants';
 import { SideProject, SideProjectsSectionProps } from './SideProjectsSection.types';
@@ -186,16 +187,24 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               <div style={{ display: 'flex', flex: 1 }}>
                 {thumbnail && (
                   <div className="link-thumbnail" style={{ width: item.thumbnailWidth || '150px' }}>
-                    <img src={thumbnail} alt={title || 'Link thumbnail'} />
+                    <Image 
+                      src={thumbnail} 
+                      alt={title || 'Link thumbnail'} 
+                      width={150}
+                      height={100}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
                   </div>
                 )}
                 <div className="link-content">
                   {title && (
                     <div className="link-title">
                       {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
-                        <img 
-                          src={item.titleLogoPath || project?.logoPath} 
+                        <Image 
+                          src={item.titleLogoPath || project?.logoPath || ''} 
                           alt={`Logo for ${title}`}
+                          width={20}
+                          height={20}
                           style={{ 
                             width: '20px', 
                             height: '20px', 
@@ -246,9 +255,11 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
             {title && (
               <S.MediaTitle>
                 {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
-                  <img 
-                    src={item.titleLogoPath || project?.logoPath} 
+                  <Image 
+                    src={item.titleLogoPath || project?.logoPath || ''} 
                     alt={`Logo for ${title}`}
+                    width={20}
+                    height={20}
                     style={{ 
                       width: '20px', 
                       height: '20px', 
@@ -299,9 +310,11 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
             {title && (
               <S.MediaTitle>
                 {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
-                  <img 
-                    src={item.titleLogoPath || project?.logoPath} 
+                  <Image 
+                    src={item.titleLogoPath || project?.logoPath || ''} 
                     alt={`Logo for ${title}`}
+                    width={20}
+                    height={20}
                     style={{ 
                       width: '20px', 
                       height: '20px', 
@@ -344,16 +357,24 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
             <S.AudioInfoContainer>
               {thumbnail && (
                 <S.AudioThumbnailContainer style={{ maxWidth: item.thumbnailWidth || '100px' }}>
-                  <img src={thumbnail} alt={title || 'Audio thumbnail'} />
+                  <Image 
+                    src={thumbnail} 
+                    alt={title || 'Audio thumbnail'} 
+                    width={100}
+                    height={100}
+                    style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                  />
                 </S.AudioThumbnailContainer>
               )}
               <div className="audio-text-content">
                 {title && (
                   <S.MediaTitle style={{ marginTop: 0 }}>
                     {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
-                      <img 
-                        src={item.titleLogoPath || project?.logoPath} 
+                      <Image 
+                        src={item.titleLogoPath || project?.logoPath || ''} 
                         alt={`Logo for ${title}`}
+                        width={20}
+                        height={20}
                         style={{ 
                           width: '20px', 
                           height: '20px', 
@@ -415,9 +436,11 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
             {title && (
               <S.MediaTitle>
                 {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
-                  <img 
-                    src={item.titleLogoPath || project?.logoPath} 
+                  <Image 
+                    src={item.titleLogoPath || project?.logoPath || ''} 
                     alt={`Logo for ${title}`}
+                    width={20}
+                    height={20}
                     style={{ 
                       width: '20px', 
                       height: '20px', 
@@ -469,9 +492,11 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
             {title && (
               <S.MediaTitle>
                 {item.showLogo && (item.titleLogoPath || project?.logoPath) && (
-                  <img 
-                    src={item.titleLogoPath || project?.logoPath} 
+                  <Image 
+                    src={item.titleLogoPath || project?.logoPath || ''} 
                     alt={`Logo for ${title}`}
+                    width={20}
+                    height={20}
                     style={{ 
                       width: '20px', 
                       height: '20px', 
@@ -626,7 +651,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 )}
               </S.ProjectHeader>
               
-              <S.ProjectDescription className="project-description">
+              <S.ProjectDescription 
+                className={`project-description ${project.title === 'Prompt Forge' ? 'prompt-forge-description' : ''}`}
+              >
                 <MarkdownRenderer content={project.description} compact={true} />
               </S.ProjectDescription>
               
@@ -702,7 +729,9 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
               
               <div className="project-content">
                 <div className="project-main">
-                  <S.ProjectDescription className="project-description">
+                  <S.ProjectDescription 
+                    className={`project-description ${project.title === 'Prompt Forge' ? 'prompt-forge-description' : ''}`}
+                  >
                     <MarkdownRenderer content={project.description} compact={true} />
                   </S.ProjectDescription>
                   
@@ -743,7 +772,13 @@ export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({
                 <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="white"/>
               </svg>
             </S.CloseButton>
-            <img src={modalImage.url} alt={modalImage.title || "Full size image"} />
+            <Image 
+              src={modalImage.url} 
+              alt={modalImage.title || "Full size image"} 
+              width={1200}
+              height={800}
+              style={{ maxWidth: '100%', height: 'auto', objectFit: 'contain' }}
+            />
             {modalImage.title && <div className="modal-caption">{modalImage.title}</div>}
           </S.ModalContent>
         </S.ModalOverlay>

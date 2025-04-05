@@ -55,4 +55,43 @@ export const NeutralTheme: Story = {
     theme: 'neutral',
     accessibilityDescription: 'Demo diagram with neutral theme',
   },
+};
+
+// This story is for debugging purposes only
+export const DebugReactSpringIssue: Story = {
+  args: {
+    width: '100%',
+    height: '600px',
+    showZoomControls: true,
+    showBackground: true,
+    theme: 'default',
+    accessibilityDescription: 'Debugging diagram to help isolate React Spring maximum call stack issues',
+    definition: {
+      nodes: [
+        {
+          id: 'node-1',
+          type: 'default',
+          position: { x: 100, y: 100 },
+          data: { label: 'Node 1' },
+        },
+        {
+          id: 'node-2',
+          type: 'default',
+          position: { x: 300, y: 100 },
+          data: { label: 'Node 2' },
+        },
+        {
+          id: 'node-3',
+          type: 'default',
+          position: { x: 200, y: 250 },
+          data: { label: 'Node 3' },
+        },
+      ],
+      edges: [
+        { id: 'edge-1-2', source: 'node-1', target: 'node-2' },
+        { id: 'edge-1-3', source: 'node-1', target: 'node-3' },
+        { id: 'edge-2-3', source: 'node-2', target: 'node-3' },
+      ],
+    },
+  },
 }; 

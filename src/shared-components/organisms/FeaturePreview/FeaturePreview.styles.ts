@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { animated } from '@react-spring/web';
 
-export const FeatureGrid = styled(animated.div)`
+export const FeatureGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;

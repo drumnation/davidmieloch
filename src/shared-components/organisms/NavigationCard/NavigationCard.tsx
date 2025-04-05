@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSpring, config } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Typography } from '../../atoms/Typography/Typography';
 import { Icon } from '../../atoms/Icon';
 import { NavigationCardProps } from './NavigationCard.types';
 import * as S from './NavigationCard.styles';
+import { AnimationDebugger, AnimationErrorBoundary } from '../../../utils/animations/debug-tools';
 
 export const NavigationCard: React.FC<NavigationCardProps> = ({
   content,
@@ -17,6 +18,8 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
   animation = 'fade-up',
   className,
 }) => {
+  const componentName = "NavigationCard";
+  
   // Support both content object and direct props
   const cardText = content?.text || title || '';
   const cardDescription = description || '';
@@ -30,21 +33,31 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
     rootMargin: '-100px 0px',
   });
   
-  const springProps = useSpring({
-    opacity: inView ? 1 : 0,
-    y: inView ? 0 : 20,
-    config: config.gentle,
-    delay: 100,
-  });
+  // Animation variants
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+        delay: 0.1
+      }
+    }
+  };
 
-  return (
+  const renderContent = () => (
     <S.Container className={className} ref={ref}>
       <S.AnimatedCard 
         $style={style}
-        style={{
-          opacity: springProps.opacity,
-          transform: springProps.y.to(y => `translateY(${y}px)`)
-        }}
+        variants={cardVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
       >
         <S.CardContent>
           {cardIcon && (
@@ -74,5 +87,17 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
         </S.CardContent>
       </S.AnimatedCard>
     </S.Container>
+  );
+  
+  return (
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
+        logLifecycle={true}
+      >
+        {renderContent()}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
   );
 }; 

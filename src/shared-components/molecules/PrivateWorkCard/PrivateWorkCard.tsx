@@ -1,5 +1,6 @@
 import React from 'react';
 import { Building } from 'lucide-react';
+import Image from 'next/image';
 import { PrivateWorkCardProps } from './PrivateWorkCard.types';
 import {
   Card,
@@ -31,7 +32,17 @@ export const PrivateWorkCard: React.FC<PrivateWorkCardProps> = ({
       <Header>
         <ImageContainer>
           {imageUrl ? (
-            <img src={imageUrl} alt={`${company} logo`} />
+            <Image 
+              src={imageUrl} 
+              alt={`${company} logo`} 
+              width={64}
+              height={64}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+            />
           ) : (
             <Building size={32} color="#9CA3AF" />
           )}

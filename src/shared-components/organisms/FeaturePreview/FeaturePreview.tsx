@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSpring, useTrail } from '@react-spring/web';
+import { motion } from 'framer-motion';
 import { Card } from '../../atoms/Card';
 import { Icon } from '../../atoms/Icon';
 import { FeaturePreviewProps } from './FeaturePreview.types';
 import * as S from './FeaturePreview.styles';
-import { animated } from '@react-spring/web';
+import { AnimationDebugger, AnimationErrorBoundary } from '../../../utils/animations/debug-tools';
+import { MotionSafe } from '../../../utils/animations/ssr-safe';
 
 export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
   features,
@@ -12,62 +13,94 @@ export const FeaturePreview: React.FC<FeaturePreviewProps> = ({
   animation = 'stagger-fade',
   className,
 }) => {
+  const componentName = "FeaturePreview";
   const cardVariant = style === 'gradient-cards' ? 'gradient' : 'accent';
   
-  // Container animation
-  const containerProps = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    config: { duration: 800 }
-  });
+  // If animation is disabled, render without animation
+  if (!animation || animation === 'none') {
+    return (
+      <S.FeatureGrid className={className}>
+        {features.map((feature, index) => (
+          <div key={index}>
+            <Card variant={cardVariant}>
+              <S.FeatureContent>
+                <S.IconWrapper>
+                  <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
+                </S.IconWrapper>
+                <S.Title>{feature.title}</S.Title>
+                <S.Description>{feature.description}</S.Description>
+              </S.FeatureContent>
+            </Card>
+          </div>
+        ))}
+      </S.FeatureGrid>
+    );
+  }
 
-  // Feature card animation with trail effect
-  const featureTrail = useTrail(features.length, {
-    from: { opacity: 0, y: 20 },
-    to: { opacity: 1, y: 0 },
-    config: { mass: 1, tension: 280, friction: 60 },
-    delay: 100
-  });
-  
-  // Helper function to convert spring values to regular CSS
-  const springToCss = (springObj: any) => {
-    if (!animation || animation === 'none') return {};
-    
-    const result: Record<string, string | number> = {};
-    
-    // Handle opacity
-    if (springObj.opacity !== undefined) {
-      result.opacity = springObj.opacity.get();
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: {
+        duration: 0.8
+      }
     }
-    
-    // Handle transform values
-    if (springObj.y !== undefined) {
-      result.transform = `translateY(${springObj.y.get()}px)`;
-    }
-    
-    return result;
   };
 
-  return (
-    <S.FeatureGrid className={className} style={animation !== 'none' ? springToCss(containerProps) : undefined}>
-      {features.map((feature, index) => (
-        <animated.div
-          key={index}
-          style={animation !== 'none' ? springToCss(featureTrail[index]) : undefined}
-        >
-          <Card
-            variant={cardVariant}
+  const featureVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.1 + (i * 0.05),
+        duration: 0.6,
+        mass: 1,
+        tension: 280,
+        friction: 60
+      }
+    })
+  };
+
+  const renderContent = () => (
+    <MotionSafe
+      componentName={componentName}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <S.FeatureGrid className={className}>
+        {features.map((feature, index) => (
+          <motion.div
+            key={index}
+            custom={index}
+            variants={featureVariants}
           >
-            <S.FeatureContent>
-              <S.IconWrapper>
-                <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
-              </S.IconWrapper>
-              <S.Title>{feature.title}</S.Title>
-              <S.Description>{feature.description}</S.Description>
-            </S.FeatureContent>
-          </Card>
-        </animated.div>
-      ))}
-    </S.FeatureGrid>
+            <Card variant={cardVariant}>
+              <S.FeatureContent>
+                <S.IconWrapper>
+                  <Icon name={feature.icon} size={32} color={cardVariant === 'gradient' ? 'white' : '#6366F1'} />
+                </S.IconWrapper>
+                <S.Title>{feature.title}</S.Title>
+                <S.Description>{feature.description}</S.Description>
+              </S.FeatureContent>
+            </Card>
+          </motion.div>
+        ))}
+      </S.FeatureGrid>
+    </MotionSafe>
+  );
+  
+  return (
+    <AnimationErrorBoundary componentName={componentName}>
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
+        logLifecycle={true}
+      >
+        {renderContent()}
+      </AnimationDebugger>
+    </AnimationErrorBoundary>
   );
 }; 

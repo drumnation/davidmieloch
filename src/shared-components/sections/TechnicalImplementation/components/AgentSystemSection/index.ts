@@ -1,1 +1,2 @@
-export { default as AgentSystemSection } from './AgentSystemSection'; 
+export { AgentSystemSection } from './AgentSystemSection';
+export { default } from './AgentSystemSection'; 
