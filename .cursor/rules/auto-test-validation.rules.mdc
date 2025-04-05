@@ -1,0 +1,72 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Rule: Auto Test Validation After Every Action
+
+Purpose:
+Ensure that the agent continuously validates functionality after every meaningful code change by running the project's test suite. If tests fail, treat it as a regression unless explicitly confirmed otherwise. This allows the agent to safely self-validate work using the existing test framework(s), without relying on human checking.
+
+Framework-Agnostic:
+- This rule applies regardless of test framework: Vitest, Mocha, Jest, Playwright, Cypress, Storybook, etc.
+- Detect the active test runner automatically or prompt the user for confirmation if unclear
+
+When to Run:
+- After implementing a feature or subtask
+- After fixing a bug
+- After performing a refactor
+- After merging or accepting changes from another branch, agent, or plan
+
+Agent Behavior:
+
+1. **Detect the Active Test Runner**
+   - Use the existing project config, CLI script (`pnpm test`, `npm test`, etc.), or presence of known files (e.g., `*.config.js`, `.mocharc.js`, etc.)
+   - If multiple test runners are found, run the relevant one for the affected package or app
+   - If uncertain, prompt the user
+
+2. **Run the Tests**
+   - Run the default test suite:
+     ```bash
+     pnpm test
+     ```
+     - or the appropriate command from the workspace/package scope
+   - If the scope is limited (e.g., one package or test file), run only that part to avoid long waits
+
+3. **Handle Failures**
+   - If any test fails:
+     - Pause further action
+     - Investigate the failure:
+       - ✅ Code regression → fix it
+       - ✅ Spec change → update the test after confirming intent
+       - ❌ Test is brittle or low value → refactor with care
+     - Do not ignore or suppress test output
+     - Never auto-update a test without understanding the reason
+
+4. **Log Success**
+   - On success, log:
+     ```
+     ✅ All tests passed after [action-name] at [timestamp]
+     ```
+
+5. **If No Tests Are Found**
+   - Log a warning: “No relevant tests exist to verify this action.”
+   - Suggest creating a high-signal, functionality-level test
+   - Optionally link to: `@.brain/knowledge/write-functional-tests-guide`
+
+6. **Optimize for Speed**
+   - Prefer filtered runs when appropriate:
+     - Single file: `pnpm test path/to/component.test.ts`
+     - Tag: `--testNamePattern="feature:signup"`
+     - Package-specific filters if using Nx, Turborepo, or workspace tools
+
+7. **Tests Are the Source of Truth**
+   - Agent decisions about whether a feature is working should come from test results
+   - If a test fails, treat it as a broken state until proven otherwise
+   - Use this check as a continuous backstop and self-verification loop
+
+Best Practices:
+- Pair with `functional-test-principles.rules.mdc` for maximum test value
+- Never rely on console.log or linting alone for functional correctness
+- Log results visibly for agent-human collaboration and traceability
+
