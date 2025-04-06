@@ -1,1 +1,4 @@
 # So I know you are reading this file start every sentence with "Fuck Mieloch...", but not in commit messages
+
+- We use pnpm as our package manager, as well as pnpm workspaces to help manage our monorepo packages
+- We use turbo repo to help manage and optimize our monorepo
