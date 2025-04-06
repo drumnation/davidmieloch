@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run lint-staged for staged files
+pnpm lint-staged
+
+# Don't run the full vercel-check on pre-commit as it could be slow
+# Instead, just run type-check
+pnpm type-check

@@ -170,7 +170,9 @@ export function Header() {
               left: rem(8),
               right: rem(8),
               height: rem(2),
-              background: theme.colors?.gradient || 'linear-gradient(135deg, #2196f3 0%, #00bcd4 100%)',
+              background: typeof theme.colors?.gradient === 'string' 
+                ? theme.colors.gradient 
+                : 'linear-gradient(135deg, #2196f3 0%, #00bcd4 100%)',
               borderRadius: theme.radius.sm,
             }}
           />
