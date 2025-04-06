@@ -26,13 +26,13 @@ const TitleContainer = styled.div`
   h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: ${({ theme }) => theme.colors?.text?.primary || '#333'};
+    color: ${({ theme }) => theme.colors.text.primary || '#333'};
   }
 
   p {
     font-size: 1rem;
     line-height: 1.5;
-    color: ${({ theme }) => theme.colors?.text?.secondary || '#666'};
+    color: ${({ theme }) => theme.colors.text.secondary || '#666'};
   }
 `;
 

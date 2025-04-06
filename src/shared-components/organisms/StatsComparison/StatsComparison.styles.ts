@@ -51,7 +51,7 @@ export const Card = styled.div<CardProps>`
   min-width: 250px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   background: ${({ theme }) => theme.colors.accent.blue};
   color: white;
   

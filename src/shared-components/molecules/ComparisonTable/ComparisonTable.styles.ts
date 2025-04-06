@@ -16,7 +16,7 @@ export const Table = styled.table<StyledTableProps>`
   border-spacing: 0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   opacity: 0;
   transition: opacity 0.6s ease-out;
   

@@ -42,7 +42,7 @@ export const CardsContainer = styled.div`
 export const Card = styled.div<CardProps>`
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ export const Card = styled.div<CardProps>`
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: ${({ theme }) => theme.shadows.large};
+    box-shadow: ${({ theme }) => theme.shadows.lg};
   }
   
   ${({ $style, theme }) => $style === 'gradient-cards' && css`

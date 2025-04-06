@@ -35,9 +35,14 @@ const defaultColors = {
 };
 
 // Helper function to determine if theme is dark
-// We check if theme.colors exists and if dark[7] color exists which is typically present in Mantine dark themes
+// Check if theme has a dark color property that indicates it's a dark theme
 const isDarkTheme = (theme: any) => {
-  return theme.colors?.dark?.[7] === '#1A1B1E' || false;
+  // Since we're dealing with a potentially unknown theme structure,
+  // we need to safely check if this property exists
+  if (theme && theme.colors && theme.colors.dark) {
+    return theme.colors.dark[7] === '#1A1B1E';
+  }
+  return false;
 };
 
 export const FooterContainer = styled.div<{ 

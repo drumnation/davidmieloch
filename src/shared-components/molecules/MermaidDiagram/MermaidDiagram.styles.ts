@@ -12,7 +12,7 @@ export const DiagramContainer = styled.div<DiagramContainerProps>`
   background-color: ${({ $backgroundColor, theme }) => $backgroundColor || theme.colors.background.light};
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.small};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   display: flex;
   justify-content: center;
   align-items: center;

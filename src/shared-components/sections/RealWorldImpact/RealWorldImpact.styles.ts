@@ -134,7 +134,7 @@ export const InsightCard = styled.div`
   background-color: ${({ theme }) => theme.colors.background.paper};
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   height: 100%;
   
   h3 {
@@ -216,7 +216,7 @@ export const ActionButton = styled.a`
   &:hover {
     background: ${({ theme }) => theme.colors.primary.dark};
     transform: translateY(-2px);
-    box-shadow: ${({ theme }) => theme.shadows.button};
+    box-shadow: ${({ theme }) => theme.shadows.sm};
   }
 
   &:active {
@@ -278,13 +278,13 @@ export const BlueprintCard = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  box-shadow: ${({ theme }) => theme.shadows.lg};
   border: 1px solid #e0e0e0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: ${({ theme }) => theme.shadows.elevated};
+    box-shadow: ${({ theme }) => theme.shadows.lg};
   }
 `;
 
@@ -352,14 +352,14 @@ export const GridContainer = styled.div`
 export const Card = styled(motion.div)`
   background: ${({ theme }) => theme.colors.background.paper};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  box-shadow: ${({ theme }) => theme.shadows.lg};
   padding: 2rem;
   border: 1px solid ${({ theme }) => theme.colors.border.light};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: ${({ theme }) => theme.shadows.elevated};
+    box-shadow: ${({ theme }) => theme.shadows.lg};
   }
 `;
 
@@ -698,7 +698,7 @@ export const AccentCard = styled.div`
   color: ${({ theme }) => theme.colors.text.light};
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   margin-bottom: 2rem;
   
   h3 {
@@ -721,7 +721,7 @@ export const GradientCard = styled.div`
   color: ${({ theme }) => theme.colors.text.light};
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   margin-bottom: 2rem;
   
   h2, h3 {

@@ -46,7 +46,7 @@ export const GridContainer = styled.div`
 export const Card = styled.div<CardProps>`
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   height: 100%;
   display: flex;
   flex-direction: column;

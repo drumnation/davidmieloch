@@ -82,7 +82,7 @@ export const StepNumber = styled.div<StepNumberProps>`
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
 `;
 
 export const StepContent = styled.div`

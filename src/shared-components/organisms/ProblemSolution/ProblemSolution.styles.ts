@@ -34,7 +34,7 @@ export const Card = styled.div<CardProps>`
   max-width: 800px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   display: flex;
   flex-direction: ${({ $style }) => $style === 'split-card' ? 'row' : 'column'};
   

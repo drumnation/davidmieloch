@@ -58,7 +58,7 @@ export const DiagramContainer = styled.div<DiagramContainerProps>`
   background-color: ${props => props.$backgroundColor || 'rgba(74, 158, 255, 0.05)'};
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows?.small || '0px 2px 4px rgba(0, 0, 0, 0.1)'};
+  box-shadow: ${({ theme }) => theme.shadows.sm || '0px 2px 4px rgba(0, 0, 0, 0.1)'};
   
   .react-flow__viewport {
     transition: transform 0.2s ease;

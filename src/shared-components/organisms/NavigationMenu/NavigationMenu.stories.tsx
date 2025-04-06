@@ -131,7 +131,7 @@ export const RightPosition: Story = {
 const DemoContent = styled.div`
   padding: 2rem;
   margin: 2rem;
-  background: ${({ theme }) => theme.colors?.background?.paper || '#fff'};
+  background: ${({ theme }) => theme.colors.background.paper || '#fff'};
   border-radius: 12px;
   min-height: 400px;
 `;

@@ -18,12 +18,12 @@ export const QuoteCard = styled(motion.div)<{ $style: string; $background: strin
     if ($style !== 'card') return 'transparent';
     
     if ($background === 'blue') {
-      return theme.colors?.primary?.main || '#4A72FF';
+      return theme.colors.primary.main || '#4A72FF';
     }
     
     return $background === 'dark' 
-      ? theme.colors?.background?.dark || '#2D3748' 
-      : theme.colors?.background?.light || '#FFFFFF';
+      ? theme.colors.background.dark || '#2D3748' 
+      : theme.colors.background.light || '#FFFFFF';
   }};
   border-radius: 12px;
   box-shadow: ${({ $style }) => $style === 'card' ? '0 4px 10px rgba(0, 0, 0, 0.08)' : 'none'};
@@ -42,10 +42,10 @@ export const IconWrapper = styled(motion.div)<{
   margin-bottom: 16px;
   color: ${({ $background, theme }) => {
     if ($background === 'blue') {
-      return theme.colors?.text?.light || '#FFFFFF';
+      return theme.colors.text.light || '#FFFFFF';
     }
     
-    return theme.colors?.primary?.main || '#4A72FF';
+    return theme.colors.primary.main || '#4A72FF';
   }};
   
   svg {
@@ -70,6 +70,6 @@ export const QuoteAuthor = styled(motion.p)`
 
 export const QuoteNote = styled(motion.p)`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors?.text?.secondary || '#718096'};
+  color: ${({ theme }) => theme.colors.text.secondary || '#718096'};
   margin: 0;
 `; 

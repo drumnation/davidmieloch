@@ -36,7 +36,7 @@ export const SkillsGrid = styled.div`
 `;
 
 export const SkillTag = styled.div`
-  background-color: ${({ theme }) => theme.background?.paper || '#f5f5f5'};
+  background-color: ${({ theme }) => theme.colors.background.paper || '#f5f5f5'};
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   font-size: 0.875rem;

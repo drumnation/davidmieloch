@@ -16,7 +16,7 @@ export const Card = styled.div<CardProps>`
   height: 100%;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  box-shadow: ${({ theme }) => theme.shadows.md};
   
   ${({ $style, theme }) => $style === 'gradient-card' && css`
     background: linear-gradient(135deg, ${theme.colors.primary.main}, ${theme.colors.secondary.main});
