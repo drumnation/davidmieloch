@@ -31,7 +31,7 @@ graph LR
 ```
 
 ## Migration Tasks
-- [ ] Create new `BrainGardenComponentsDiagram` component in `src/shared-components/diagrams/BrainGardenComponentsDiagram/`
+- [ ] Create new `BrainGardenComponentsDiagram` component in `src/shared-components/Diagrams/BrainGardenComponentsDiagram/`
 - [ ] Implement ReactFlow nodes and edges based on the Mermaid diagram above
 - [ ] Ensure consistent styling with the AiIntegrationFlowDiagram
 - [ ] Add appropriate stories for the component

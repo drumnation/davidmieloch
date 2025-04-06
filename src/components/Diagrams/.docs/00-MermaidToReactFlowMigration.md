@@ -19,14 +19,14 @@ The following diagrams have been identified for migration from Mermaid to React 
 
 | # | Diagram Name | Status | Implementation | Notes |
 |---|-------------|--------|----------------|-------|
-| 1 | Knowledge System Diagram | In Progress | src/shared-components/diagrams/KnowledgeSystemDiagram | Basic diagram implemented, needs integration with section |
-| 2 | Performance Scalability Diagram | In Progress | src/shared-components/diagrams/PerformanceScalabilityDiagram | Basic diagram implemented, needs integration with section |
-| 3 | Agent System Diagram | In Progress | src/shared-components/diagrams/AgentSystemDiagram | Basic diagram implemented, needs integration with section |
-| 4 | System Overview Diagram | In Progress | src/shared-components/diagrams/SystemOverviewDiagram | Basic diagram implemented, needs integration with section |
-| 5 | Integration System Diagram | In Progress | src/shared-components/diagrams/IntegrationSystemDiagram | Basic diagram implemented, needs integration with section |
-| 6 | AI Integration Process Diagram | Completed | src/shared-components/diagrams/AiIntegrationFlowDiagram | Refined with improved spacing and responsive layout |
-| 7 | Brain Garden Components Diagram | Completed | src/shared-components/diagrams/BrainGardenComponentsDiagram | Refined with improved visual hierarchy and color coding |
-| 8 | Garden Metaphor Diagram | Completed | src/shared-components/diagrams/GardenMetaphorDiagram | Implementation completed, needs integration with section |
+| 1 | Knowledge System Diagram | In Progress | src/shared-components/Diagrams/KnowledgeSystemDiagram | Basic diagram implemented, needs integration with section |
+| 2 | Performance Scalability Diagram | In Progress | src/shared-components/Diagrams/PerformanceScalabilityDiagram | Basic diagram implemented, needs integration with section |
+| 3 | Agent System Diagram | In Progress | src/shared-components/Diagrams/AgentSystemDiagram | Basic diagram implemented, needs integration with section |
+| 4 | System Overview Diagram | In Progress | src/shared-components/Diagrams/SystemOverviewDiagram | Basic diagram implemented, needs integration with section |
+| 5 | Integration System Diagram | In Progress | src/shared-components/Diagrams/IntegrationSystemDiagram | Basic diagram implemented, needs integration with section |
+| 6 | AI Integration Process Diagram | Completed | src/shared-components/Diagrams/AiIntegrationFlowDiagram | Refined with improved spacing and responsive layout |
+| 7 | Brain Garden Components Diagram | Completed | src/shared-components/Diagrams/BrainGardenComponentsDiagram | Refined with improved visual hierarchy and color coding |
+| 8 | Garden Metaphor Diagram | Completed | src/shared-components/Diagrams/GardenMetaphorDiagram | Implementation completed, needs integration with section |
 
 ## Reference Implementation
 
@@ -58,7 +58,7 @@ We follow a specific pattern for our diagram components:
    - The ReactFlowDiagram component provides the foundation that all specific diagrams use
    - Includes shared utilities like node types and styling in the molecules directory
 
-2. **Specific Diagrams**: Implementations of specific diagrams live in `src/shared-components/diagrams/` or `src/components/diagrams/`
+2. **Specific Diagrams**: Implementations of specific diagrams live in `src/shared-components/Diagrams/` or `src/components/Diagrams/`
    - Each specific diagram (like KnowledgeSystemDiagram or AiIntegrationProcessDiagram) has its own directory
    - These use the base ReactFlowDiagram component from molecules
    - No utilities should be duplicated between molecules and diagrams

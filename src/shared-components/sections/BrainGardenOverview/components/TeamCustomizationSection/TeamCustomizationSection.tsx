@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '../../../../atoms/Typography';
 import { Icon } from '../../../../atoms/Icon';
-import { BrainGardenComponentsDiagram } from '../../../../../components/diagrams/BrainGardenComponentsDiagram/BrainGardenComponentsDiagram';
+import { BrainGardenComponentsDiagram } from '../../../../../components/Diagrams/BrainGardenComponentsDiagram/BrainGardenComponentsDiagram';
 import { TeamCustomizationSectionProps } from './TeamCustomizationSection.types';
 import {
   SectionTitleComponent,
@@ -23,7 +23,7 @@ import {
   StyledDivider
 } from './TeamCustomizationSection.styles';
 import { BackgroundSection } from '../../BrainGardenOverview.styles';
-import SoftwareEngineeringMeceDiagram from '@/components/diagrams/SoftwareEngineeringMeceDiagram/SoftwareEngineeringMeceDiagram';
+import SoftwareEngineeringMeceDiagram from '@/components/Diagrams/SoftwareEngineeringMeceDiagram/SoftwareEngineeringMeceDiagram';
 
 export const TeamCustomizationSection: React.FC<TeamCustomizationSectionProps> = ({
   className

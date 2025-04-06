@@ -1,8 +1,8 @@
 import React from 'react';
 import { FC } from 'react';
 import { Typography } from '../../../../../shared-components/atoms/Typography';
-import { PerformanceScalabilityDiagramClient } from '../../../../../components/diagrams/PerformanceScalabilityDiagram';
-import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
+import { PerformanceScalabilityDiagramClient } from '../../../../../components/Diagrams/PerformanceScalabilityDiagram';
+import { DiagramClientWrapper } from '../../../../../components/Diagrams/_wrappers/DiagramClientWrapper';
 import { ContentBlock, DiagramContainer, SectionTitle, SubsectionTitle } from '../../TechnicalImplementation.styles';
 import { PerformanceScalabilitySectionProps } from './PerformanceScalabilitySection.types';
 

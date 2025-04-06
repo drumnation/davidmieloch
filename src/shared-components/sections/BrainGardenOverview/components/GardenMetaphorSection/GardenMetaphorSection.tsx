@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '../../../../atoms/Typography';
-import { GardenMetaphorDiagramClient } from '../../../../../components/diagrams/GardenMetaphorDiagram';
+import { GardenMetaphorDiagramClient } from '../../../../../components/Diagrams/GardenMetaphorDiagram';
 import { GardenMetaphorSectionProps } from './GardenMetaphorSection.types';
 import {
   BackgroundSection,
@@ -12,7 +12,7 @@ import {
   SectionTitleComponent,
   CTAButtonWithIcon
 } from '../../BrainGardenOverview.logic';
-import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
+import { DiagramClientWrapper } from '../../../../../components/Diagrams/_wrappers/DiagramClientWrapper';
 
 // Default diagram definition
 const GARDEN_METAPHOR_DIAGRAM = `

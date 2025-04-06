@@ -25,7 +25,7 @@ These dimensions ensure that when you design and capture positions in Storybook,
 ### Basic Usage
 
 ```tsx
-import { DiagramEditor } from '@/components/diagrams/DiagramEditor';
+import { DiagramEditor } from '@/components/Diagrams/DiagramEditor';
 
 const MyDiagram = () => {
   // Define your nodes, edges, and node types
@@ -105,7 +105,7 @@ For Next.js applications, use the client-side wrapper to avoid SSR issues:
 
 ```tsx
 // In your page component
-import { DiagramEditorClient } from '@/components/diagrams/DiagramEditor';
+import { DiagramEditorClient } from '@/components/Diagrams/DiagramEditor';
 
 const DiagramPage = () => {
   // Define your diagram data

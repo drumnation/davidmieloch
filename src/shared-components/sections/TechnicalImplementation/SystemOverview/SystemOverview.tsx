@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { Typography } from '../../../../shared-components/atoms/Typography';
 import { SystemOverviewContainer, DiagramWrapper } from './SystemOverview.styles';
 import { SystemOverviewProps } from './SystemOverview.types';
-import { SystemOverviewDiagram } from '../../../../components/diagrams/SystemOverviewDiagram/SystemOverviewDiagram';
+import { SystemOverviewDiagram } from '../../../../components/Diagrams/SystemOverviewDiagram/SystemOverviewDiagram';
 import { ContentBlock, SectionTitle, SubsectionTitle } from '../TechnicalImplementation.styles';
-import { DiagramClientWrapper } from '../../../../components/diagrams/_wrappers/DiagramClientWrapper';
+import { DiagramClientWrapper } from '../../../../components/Diagrams/_wrappers/DiagramClientWrapper';
 
 const IntroText = styled(Typography)`
   margin-bottom: 2rem;

@@ -7,7 +7,7 @@
 - **Usage**: Integration System diagram showing how the system integrates with development workflows
 
 ## Migration Tasks
-- [x] Create new `IntegrationSystemDiagram` component in `src/shared-components/diagrams/IntegrationSystemDiagram/`
+- [x] Create new `IntegrationSystemDiagram` component in `src/shared-components/Diagrams/IntegrationSystemDiagram/`
 - [x] Implement ReactFlow nodes and edges based on the original Mermaid diagram
 - [x] Create simple stories for Storybook testing
 - [ ] Ensure consistent styling with the other diagrams
@@ -16,7 +16,7 @@
 - [ ] Remove Mermaid dependency if no longer used elsewhere
 
 ## Implementation Details
-- Component implemented at `src/shared-components/diagrams/IntegrationSystemDiagram/IntegrationSystemDiagram.tsx`
+- Component implemented at `src/shared-components/Diagrams/IntegrationSystemDiagram/IntegrationSystemDiagram.tsx`
 - Follows same pattern as other diagram implementations
 - Node layout matches original Mermaid diagram structure
 - Basic Storybook stories added to demonstrate each theme

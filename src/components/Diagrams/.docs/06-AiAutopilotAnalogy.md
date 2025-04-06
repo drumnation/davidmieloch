@@ -29,7 +29,7 @@ graph TD
 ```
 
 ## Migration Tasks
-- [x] Create new `AiIntegrationProcessDiagram` component in `src/shared-components/diagrams/AiIntegrationProcessDiagram/`
+- [x] Create new `AiIntegrationProcessDiagram` component in `src/shared-components/Diagrams/AiIntegrationProcessDiagram/`
 - [x] Implement ReactFlow nodes and edges based on the Mermaid diagram above
 - [x] Ensure consistent styling with the AiIntegrationFlowDiagram
 - [x] Add appropriate stories for the component

@@ -7,7 +7,7 @@
 - **Usage**: System Overview diagram showing the Brain Garden system architecture
 
 ## Migration Tasks
-- [x] Create new `SystemOverviewDiagram` component in `src/shared-components/diagrams/SystemOverviewDiagram/`
+- [x] Create new `SystemOverviewDiagram` component in `src/shared-components/Diagrams/SystemOverviewDiagram/`
 - [x] Implement ReactFlow nodes and edges based on the original Mermaid diagram
 - [x] Ensure consistent styling with the AiIntegrationFlowDiagram
 - [x] Add appropriate stories for the component

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { Typography } from '../../../../../shared-components/atoms/Typography';
-import { KnowledgeSystemDiagram } from '../../../../../components/diagrams/KnowledgeSystemDiagram/KnowledgeSystemDiagram';
-import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
+import { KnowledgeSystemDiagram } from '../../../../../components/Diagrams/KnowledgeSystemDiagram/KnowledgeSystemDiagram';
+import { DiagramClientWrapper } from '../../../../../components/Diagrams/_wrappers/DiagramClientWrapper';
 import { ContentBlock, DiagramContainer, SectionTitle, SubsectionTitle } from '../../TechnicalImplementation.styles';
 import { KnowledgeSystemSectionProps } from './KnowledgeSystemSection.types';
 

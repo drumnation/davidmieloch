@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiIntegrationProcessDiagramClient } from '../../../../../components/diagrams/AiIntegrationProcessDiagram';
+import { AiIntegrationProcessDiagramClient } from '../../../../../components/Diagrams/AiIntegrationProcessDiagram';
 import { SectionTitle, SectionParagraph } from '../ui-components';
 import { 
   titleContainerStyle, 

@@ -40,7 +40,7 @@ flowchart LR
 ```
 
 ## Migration Tasks
-- [x] Create new `GardenMetaphorDiagram` component in `src/shared-components/diagrams/GardenMetaphorDiagram/`
+- [x] Create new `GardenMetaphorDiagram` component in `src/shared-components/Diagrams/GardenMetaphorDiagram/`
 - [x] Implement ReactFlow nodes and edges based on the Mermaid diagram above
 - [x] Ensure consistent styling with the AiIntegrationFlowDiagram
 - [x] Add appropriate stories for the component

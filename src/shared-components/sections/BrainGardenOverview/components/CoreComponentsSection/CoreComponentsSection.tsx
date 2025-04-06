@@ -17,11 +17,11 @@ import {
 import { Card } from '../../../../../shared-components/atoms/Card';
 import { ContentBlock, SectionTitle, SubsectionTitle } from '../../../../sections/TechnicalImplementation/TechnicalImplementation.styles';
 import { DiagramContainer } from './CoreComponentsSection.styles';
-import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
+import { DiagramClientWrapper } from '../../../../../components/Diagrams/_wrappers/DiagramClientWrapper';
 
 // Import BrainGardenComponentsDiagram with SSR disabled
 const BrainGardenComponentsDiagram = dynamic(
-  () => import('../../../../../components/diagrams/BrainGardenComponentsDiagram').then(mod => mod.BrainGardenComponentsDiagram),
+  () => import('../../../../../components/Diagrams/BrainGardenComponentsDiagram').then(mod => mod.BrainGardenComponentsDiagram),
   { ssr: false, loading: () => <div>Loading diagram...</div> }
 );
 

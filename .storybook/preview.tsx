@@ -23,7 +23,7 @@ import {
   technicalImplementationDecorator,
   aiIntegrationDecorator,
   genericPageDecorator
-} from '../src/components/diagrams/.storybook/decorators/PageStructureDecorator';
+} from '../src/components/Diagrams/.storybook/decorators/PageStructureDecorator';
 
 // Import our custom decorators
 import { ReactFlowDecorator } from './decorators';

@@ -4,8 +4,8 @@ import { ForceMultipliersSectionProps } from './ForceMultipliersSection.types';
 import { Icon } from '../../../../atoms/Icon/Icon';
 import { SectionSubtitle } from '../../BrainGardenOverview.styles';
 import { SectionTitleComponent } from '../../BrainGardenOverview.logic';
-import { DiagramClientWrapper } from '../../../../../components/diagrams/_wrappers/DiagramClientWrapper';
-import { GardenMetaphorDiagram } from '../../../../../components/diagrams/GardenMetaphorDiagram/GardenMetaphorDiagram';
+import { DiagramClientWrapper } from '../../../../../components/Diagrams/_wrappers/DiagramClientWrapper';
+import { GardenMetaphorDiagram } from '../../../../../components/Diagrams/GardenMetaphorDiagram/GardenMetaphorDiagram';
 import {
   GradientText,
   ImpactMetric,

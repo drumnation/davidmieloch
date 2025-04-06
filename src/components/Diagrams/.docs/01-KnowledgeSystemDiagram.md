@@ -7,7 +7,7 @@
 - **Usage**: Knowledge Flow Diagram showing the system architecture for knowledge management
 
 ## Migration Tasks
-- [x] Create new `KnowledgeSystemDiagram` component in `src/shared-components/diagrams/KnowledgeSystemDiagram/`
+- [x] Create new `KnowledgeSystemDiagram` component in `src/shared-components/Diagrams/KnowledgeSystemDiagram/`
 - [x] Implement ReactFlow nodes and edges based on the original Mermaid diagram
 - [x] Ensure consistent styling with the AiIntegrationFlowDiagram
 - [x] Add appropriate stories for the component
