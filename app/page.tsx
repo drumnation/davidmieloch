@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import './home.css';
 import testClarityFeatures from '../src/utils/analytics-test';
+import PerfectFitAnalyzer from '../src/components/PerfectFitAnalyzer';
 
 // Styled components for the home page
 const HomePageContainer = styled.div`
@@ -475,6 +476,11 @@ export default function HomePage() {
               <p className="connect-context">Open to discussing strategic partnerships and leadership opportunities.</p>
             </div>
           </div>
+        </div>
+        
+        {/* Perfect Fit Analyzer Section */}
+        <div id="perfect-fit" className="perfect-fit-section">
+          <PerfectFitAnalyzer />
         </div>
       </HomePageContainer>
     </>

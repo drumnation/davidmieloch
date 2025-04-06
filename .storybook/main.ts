@@ -6,8 +6,10 @@ const config: StorybookConfig = {
     "../src/shared-components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../src/components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../src/components/diagrams/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../src/app/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../src/**/*.mdx"
+    "../src/pages/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../src/utils/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../src/providers/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../src/contexts/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-essentials",

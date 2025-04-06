@@ -10,6 +10,8 @@ import { themes } from '../src/theme/theme'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from '../src/lib/react-query'
 import { RootLayoutClient } from '../src/app/RootLayoutClient'
+import { MantineProvider } from '@mantine/core'
+import '@mantine/core/styles.css'
 
 // Add global styles for fonts
 import './storybook.css'
@@ -103,7 +105,9 @@ const preview: Preview = {
       <StyledThemeProvider theme={styledTheme}>
         <GlobalStyles />
         <div className="storybook-container" style={{ minHeight: '100vh', width: '100%' }}>
-          <Story />
+          <MantineProvider>
+            <Story />
+          </MantineProvider>
         </div>
       </StyledThemeProvider>
     ),

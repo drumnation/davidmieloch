@@ -1005,4 +1005,29 @@
   .cta-group:nth-child(2) .button-group {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Perfect Fit Analyzer Section */
+.perfect-fit-section {
+  padding: 2rem 0;
+  margin: 3rem 0;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .perfect-fit-section {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+  }
+}
+
+.loading-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.25rem;
+  color: #6c757d;
 } 

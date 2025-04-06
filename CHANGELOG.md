@@ -8,6 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Created InputContainer component with tabbed interface to switch between file upload and text input [#Feature] [#UI]
+- Created UI components for Perfect Fit Analyzer following Storybook-First approach (FileDropzone and JobDescriptionTextInput) [#Feature] [#UI]
+- Created OpenAI API integration for Perfect Fit Analyzer with rate limiting and response formatting [#Feature]
+- Implemented resume data utility to format portfolio data for AI analysis [#Feature]
+- Implemented document parser utilities for Perfect Fit Analyzer that handle PDF, DOCX, and text files [#Feature]
+- Added comprehensive test suite for document parsing functionality [#Testing]
+
+### Changed
+
+### Fixed
+
+### Improved
+
+## [0.21.6] - 2025-04-05
+
+### Added
+- Added dependencies for Perfect Fit Analyzer feature: pdfjs-dist, mammoth, html2pdf.js, tesseract.js [#Feature]
 - Created comprehensive Storybook story for AiIntegrationProcessDiagram with multiple height/theme variants [#DevEx]
 - Added `scripts/storybook-diagram-dev.sh` for streamlined diagram development with auto-reload [#DevEx]
 
@@ -44,60 +61,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added visual hierarchy with section headers, consistent typography, and better content structure [#Design]
 - Changed CoreComponentsSection background to white for proper visual alternation between sections [#Design]
 
-### [0.21.10] - 2025-03-31
+## [0.21.5] - 2025-03-31
 
-#### Removed
+### Removed
 - Deleted redundant script files from the `scripts/` directory after confirming they work correctly in `.brain/scripts/` [#Cleanup]
 
-### [0.21.9] - 2025-03-31
-
-#### Changed
+### Changed
 - Reorganized Braingarden scripts by moving them from `scripts/` to `.brain/scripts/` directory [#Structure]
 - Updated all references to scripts in rules and documentation to use the new paths [#Refactor]
 - Created clear separation between Braingarden system scripts and project-specific scripts [#Architecture]
 
-### [0.21.8] - 2025-03-31
-
-#### Enhanced
+### Enhanced
 - Expanded `.brain/docs/cursor-rules-system.md` to include detailed changelog management system documentation [#Documentation]
 - Added Braingarden CLI integration plan for both rule and changelog management [#Planning]
 - Incorporated changelog scripts as a core component of the rule system architecture [#Integration]
 
-### [0.21.7] - 2025-03-31
-
-#### Added
+### Added
 - Created `.brain/docs/cursor-rules-system.md` with comprehensive documentation of the entire rules system [#Documentation]
 - Added detailed plans for Braingarden CLI integration for rule management [#Planning]
 
-#### Changed
+### Changed
 - Removed redundant `.brain/code-standards.md` file since it has been converted to a Cursor rule [#Cleanup]
 
-### [0.21.6] - 2025-03-31
-
-#### Changed
+### Changed
 - Converted `.brain/code-standards.md` to a Cursor rule (`.brain/rules/code-standards.mdc`) [#Refactor]
 - Updated project initialization workflow to reference the new code-standards rule instead of the standalone file [#Process]
 
-### [0.21.5] - 2025-03-31
-
-#### Fixed
+### Fixed
 - Removed duplicate update-rule-symlinks.sh from .brain/rules/ directory [#Cleanup]
-### [0.21.4] - 2025-03-31
 
-#### Changed
+### Changed
 - Moved update-rule-symlinks.sh from .brain/rules/ to scripts/ directory for better organization [#Refactor]
-### [0.21.3] - 2025-03-31
 
-#### Added
-- Created changelog-summary.sh for generating component-specific history reports [#DevEx]- Created changelog-search.sh for finding specific entries in the changelog [#DevEx]- Added changelog integration to the Cursor rules workflow [#DevEx]
-### [0.21.2] - 2025-03-31
+### Added
+- Created changelog-summary.sh for generating component-specific history reports [#DevEx]
+- Created changelog-search.sh for finding specific entries in the changelog [#DevEx]
+- Added changelog integration to the Cursor rules workflow [#DevEx]
 
-#### Added
-- Created changelog-summary.sh for generating component-specific history reports [#DevEx]- Created changelog-search.sh for finding specific entries in the changelog [#DevEx]- Created update-changelog.sh script for simplified changelog management- Created standardized changelog structure with Keep a Changelog format
-### [0.21.1] - 2025-03-31
+### Added
+- Created changelog-summary.sh for generating component-specific history reports [#DevEx]
+- Created changelog-search.sh for finding specific entries in the changelog [#DevEx]
+- Created update-changelog.sh script for simplified changelog management
+- Created standardized changelog structure with Keep a Changelog format
 
-#### Added
-- Created changelog-summary.sh for generating component-specific history reports [#DevEx]- Created changelog-search.sh for finding specific entries in the changelog [#DevEx]- Created update-changelog.sh script for simplified changelog management- Added modular Cursor rules system with `.brain/rules/` directory
+### Added
+- Created changelog-summary.sh for generating component-specific history reports [#DevEx]
+- Created changelog-search.sh for finding specific entries in the changelog [#DevEx]
+- Created update-changelog.sh script for simplified changelog management
+- Added modular Cursor rules system with `.brain/rules/` directory
 - Created separate rule files for different aspects of the project:
   - `project-initialization.mdc`: Core workflow and initialization steps
   - `component-standards.mdc`: React component structure standards
@@ -112,13 +123,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added date/time standards with formatted timestamps (YYYY-MM-DD HH:MM:SS AM/PM)
 - Created cursor rules workaround documentation
 
-#### Changed
-- Updated project initialization workflow to include reading the changelog [#Process]- Consolidated multiple changelog files (@changelog.md, changelog.md) into single CHANGELOG.md- Refactored monolithic `.cursorrules` into a minimal file 
+### Changed
+- Updated project initialization workflow to include reading the changelog [#Process]
+- Consolidated multiple changelog files (@changelog.md, changelog.md) into single CHANGELOG.md
+- Refactored monolithic `.cursorrules` into a minimal file 
 - Improved rule organization with proper typing (Always Apply, Auto Attach, Agent Requested)
 - Enhanced file metadata with descriptions and appropriate glob patterns
 
-#### Improved
-- Updated cursor-rules-workaround.mdc to reference the script in its new location [#Documentation]- Enhanced changelog entries with tags for better categorization and searchability [#Organization]- Improved context efficiency by applying rules only when needed
+### Improved
+- Updated cursor-rules-workaround.mdc to reference the script in its new location [#Documentation]
+- Enhanced changelog entries with tags for better categorization and searchability [#Organization]
+- Improved context efficiency by applying rules only when needed
 - Added proper version control for cursor rules by storing in `.brain/rules/`
 
 ### Changed

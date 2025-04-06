@@ -34,6 +34,12 @@ const defaultColors = {
   }
 };
 
+// Helper function to determine if theme is dark
+// We check if theme.colors exists and if dark[7] color exists which is typically present in Mantine dark themes
+const isDarkTheme = (theme: any) => {
+  return theme.colors?.dark?.[7] === '#1A1B1E' || false;
+};
+
 export const FooterContainer = styled.div<{ 
   $isExpanded?: boolean; 
   $isMiniMode?: boolean;
@@ -47,7 +53,7 @@ export const FooterContainer = styled.div<{
   width: 100%;
   z-index: 50;
   background-color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.background 
       : defaultColors.light.background};
   height: ${props => props.$isExpanded ? '300px' : props.$isMiniMode ? '50px' : 'auto'};
@@ -70,15 +76,15 @@ export const FooterInfo = styled.div`
   justify-content: space-between;
   padding: 1rem;
   background-color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.background 
       : defaultColors.light.background};
   border-top: 1px solid ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.border 
       : defaultColors.light.border};
   color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.text 
       : defaultColors.light.text};
 `;
@@ -87,7 +93,7 @@ export const SocialAnchor = styled.a`
   text-decoration: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
   color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.textSecondary 
       : defaultColors.light.textSecondary};
   
@@ -106,7 +112,7 @@ export const MiniPlayerContainer = styled.div`
   margin: 0 auto;
   width: 100%;
   background-color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.background 
       : defaultColors.light.background};
 `;
@@ -121,7 +127,7 @@ export const MiniModeContainer = styled.div`
   width: 100%;
   height: 50px;
   background-color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.background 
       : defaultColors.light.background};
       
@@ -162,7 +168,7 @@ export const ArtworkContainer = styled.div`
 
 export const TrackTitle = styled.div`
   color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.text 
       : defaultColors.light.text};
   font-weight: 500;
@@ -171,7 +177,7 @@ export const TrackTitle = styled.div`
 
 export const TrackArtist = styled.div`
   color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.textMuted 
       : defaultColors.light.textMuted};
   font-size: 0.75rem;
@@ -216,7 +222,7 @@ export const ProgressBar = styled.div`
   width: 100%;
   height: 4px;
   background-color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.progressBackground 
       : defaultColors.light.progressBackground};
   border-radius: 2px;
@@ -236,7 +242,7 @@ export const TimeDisplay = styled.div`
   justify-content: space-between;
   font-size: 0.75rem;
   color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.textMuted 
       : defaultColors.light.textMuted};
 `;
@@ -258,13 +264,13 @@ export const ControlButton = styled.button`
   justify-content: center;
   transition: background-color 0.2s;
   color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme) 
       ? defaultColors.dark.text 
       : defaultColors.light.text};
   
   &:hover {
     background-color: ${({ theme }) => 
-      theme.colorScheme === 'dark' 
+      isDarkTheme(theme) 
         ? defaultColors.dark.hoverBackground 
         : defaultColors.light.hoverBackground};
   }
@@ -289,7 +295,7 @@ export const VolumeSlider = styled.input`
   height: 4px;
   -webkit-appearance: none;
   background: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme) 
       ? defaultColors.dark.progressBackground 
       : defaultColors.light.progressBackground};
   border-radius: 2px;
@@ -317,14 +323,14 @@ export const VolumeSlider = styled.input`
 export const ExpandedPlayerContainer = styled.div`
   padding: 1rem 1.5rem;
   border-top: 1px solid ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme)
       ? defaultColors.dark.border 
       : defaultColors.light.border};
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
   background-color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme) 
       ? defaultColors.dark.background 
       : defaultColors.light.background};
 `;
@@ -343,7 +349,7 @@ export const TrackList = styled.div`
   
   &::-webkit-scrollbar-track {
     background: ${({ theme }) => 
-      theme.colorScheme === 'dark' 
+      isDarkTheme(theme) 
         ? defaultColors.dark.scrollTrack 
         : defaultColors.light.scrollTrack};
     border-radius: 4px;
@@ -351,7 +357,7 @@ export const TrackList = styled.div`
   
   &::-webkit-scrollbar-thumb {
     background: ${({ theme }) => 
-      theme.colorScheme === 'dark' 
+      isDarkTheme(theme) 
         ? defaultColors.dark.scrollThumb 
         : defaultColors.light.scrollThumb};
     border-radius: 4px;
@@ -365,7 +371,7 @@ export const TrackItem = styled.div<{ $isActive?: boolean }>`
   border-radius: 4px;
   cursor: pointer;
   background-color: ${props => props.$isActive 
-    ? props.theme.colorScheme === 'dark' 
+    ? isDarkTheme(props.theme) 
       ? defaultColors.dark.activeTrackBackground
       : defaultColors.light.activeTrackBackground
     : 'transparent'};
@@ -373,10 +379,10 @@ export const TrackItem = styled.div<{ $isActive?: boolean }>`
   
   &:hover {
     background-color: ${props => props.$isActive 
-      ? props.theme.colorScheme === 'dark' 
+      ? isDarkTheme(props.theme) 
         ? defaultColors.dark.activeTrackHoverBackground
         : defaultColors.light.activeTrackHoverBackground
-      : props.theme.colorScheme === 'dark' 
+      : isDarkTheme(props.theme) 
         ? defaultColors.dark.inactiveTrackHoverBackground
         : defaultColors.light.inactiveTrackHoverBackground};
   }
@@ -384,7 +390,7 @@ export const TrackItem = styled.div<{ $isActive?: boolean }>`
 
 export const TrackItemTitle = styled.div`
   color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme) 
       ? defaultColors.dark.text 
       : defaultColors.light.text};
   font-weight: 500;
@@ -394,7 +400,7 @@ export const TrackItemTitle = styled.div`
 
 export const TrackItemArtist = styled.div`
   color: ${({ theme }) => 
-    theme.colorScheme === 'dark' 
+    isDarkTheme(theme) 
       ? defaultColors.dark.textMuted 
       : defaultColors.light.textMuted};
   font-size: 0.75rem;

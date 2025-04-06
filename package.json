@@ -1,6 +1,6 @@
 {
   "name": "david-portfolio",
-  "version": "0.21.5",
+  "version": "0.21.6",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -25,6 +25,7 @@
     "@emotion/react": "^11.14.0",
     "@mantine/core": "^7.17.1",
     "@mantine/dates": "^7.17.1",
+    "@mantine/dropzone": "^7.17.3",
     "@mantine/form": "^7.17.1",
     "@mantine/hooks": "^7.17.1",
     "@microsoft/clarity": "^1.0.0",
@@ -44,9 +45,12 @@
     "dagre": "^0.8.5",
     "dayjs": "^1.11.13",
     "framer-motion": "10.18.0",
+    "html2pdf.js": "^0.10.3",
     "lucide-react": "^0.479.0",
+    "mammoth": "^1.9.0",
     "mermaid": "^11.6.0",
     "next": "15.2.1",
+    "pdfjs-dist": "^5.1.91",
     "phosphor-react": "^1.4.1",
     "puppeteer": "^21.0.0",
     "react": "^18.2.0",
@@ -59,6 +63,7 @@
     "react-syntax-highlighter": "^15.6.1",
     "recharts": "^2.15.1",
     "styled-components": "^6.1.16",
+    "tesseract.js": "^6.0.0",
     "vscode-languageserver-types": "^3.17.5",
     "wavesurfer.js": "^7.9.1"
   },
