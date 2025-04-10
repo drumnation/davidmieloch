@@ -8,6 +8,11 @@ const meta = {
   component: FeatureCard,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Feature card component with mobile-first design that adapts to different screen sizes. Used for highlighting key features or services.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -40,10 +45,67 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Mobile view of the default feature card
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default feature card as viewed on mobile devices. The card adapts its layout and spacing for optimal mobile viewing.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the default feature card
+ */
+export const DefaultTablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Default feature card as viewed on tablet devices. Shows the responsive design between mobile and desktop sizes.',
+      },
+    },
+  },
+};
+
 export const GradientCard: Story = {
   args: {
     ...Default.args,
     style: 'gradient-card',
+  },
+};
+
+/**
+ * Mobile view of the gradient feature card
+ */
+export const GradientCardMobile: Story = {
+  args: {
+    ...GradientCard.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Gradient style feature card as viewed on mobile devices.',
+      },
+    },
   },
 };
 
@@ -58,5 +120,24 @@ export const NoIcon: Story = {
   args: {
     ...Default.args,
     icon: undefined,
+  },
+};
+
+/**
+ * Mobile view of a feature card without an icon
+ */
+export const NoIconMobile: Story = {
+  args: {
+    ...NoIcon.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Feature card without an icon as viewed on mobile devices.',
+      },
+    },
   },
 }; 

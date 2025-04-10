@@ -1,5 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getResumeData } from '../../../src/components/PerfectFitAnalyzer/utils/resume-data';
+import { 
+  createSystemPrompt, 
+  createUserPrompt, 
+  formatAsSummary, 
+  formatAsCoverLetter, 
+  formatAsRecruiterPitch 
+} from '../../../src/components/PerfectFitAnalyzer/utils/prompt-templates';
+import { extractCompanyName, getCompanyInfo } from '../../../src/components/PerfectFitAnalyzer/utils/company-research';
 
 /**
  * Rate limiting for API usage
@@ -249,60 +257,78 @@ export async function POST(request: NextRequest) {
       // Convert file to buffer
       const fileBuffer = Buffer.from(await pdfFile.arrayBuffer());
       
-      // Extract text from PDF
       try {
+        // Extract text from PDF using vision approach
         jobDescription = await extractTextUsingVision(fileBuffer);
-        console.log(`Extracted ${jobDescription.length} characters from PDF`);
-        
-        if (!jobDescription || jobDescription.length < 50) {
-          return NextResponse.json(
-            { error: 'Could not extract sufficient text from the PDF file' },
-            { status: 400 }
-          );
-        }
-      } catch (extractError) {
-        console.error('PDF extraction error:', extractError);
+        console.log('Successfully extracted text from PDF using vision');
+      } catch (err) {
+        console.error('Error extracting PDF text with vision:', err);
         return NextResponse.json(
-          { error: 'Failed to process the PDF file' },
-          { status: 500 }
+          { error: 'Failed to extract text from PDF. Please try plain text input.' },
+          { status: 400 }
         );
       }
     } else {
       // Handle JSON request
+      console.log('Handling JSON request');
       const data = await request.json();
-      jobDescription = data.jobDescription;
-      companyName = data.companyName || '';
       
-      if (!jobDescription || jobDescription.trim() === '') {
+      if (!data.jobDescription) {
         return NextResponse.json(
-          { error: 'Job description is required' }, 
+          { error: 'Job description is required' },
           { status: 400 }
         );
       }
+      
+      jobDescription = data.jobDescription;
+      companyName = data.companyName || '';
     }
     
-    // Get resume data
-    const resumeData = await getResumeData();
+    // Extract company name if not provided
+    if (!companyName) {
+      companyName = extractCompanyName(jobDescription);
+      console.log(`Extracted company name: ${companyName || 'None found'}`);
+    }
     
-    // Check for API key
+    // Get company info if company name is available
+    let companyInfo = '';
+    if (companyName) {
+      try {
+        companyInfo = await getCompanyInfo(companyName);
+        console.log(`Retrieved company info for ${companyName}`);
+      } catch (err) {
+        console.warn('Error getting company info, continuing without it:', err);
+      }
+    }
+    
+    // Ensure OpenAI API key is available
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
-      console.error('Missing OpenAI API key');
       return NextResponse.json(
-        { error: 'Configuration error. Please try again later or contact support.' }, 
+        { error: 'OpenAI API key is not configured' },
         { status: 500 }
       );
     }
     
-    // Create OpenAI chat completion
-    const response = await fetchFromOpenAI(apiKey, resumeData, jobDescription, companyName);
+    // Get resume data
+    console.log('Fetching resume data...');
+    const resumeData = await getResumeData();
     
-    // Return the response
-    return NextResponse.json(response);
+    // Add company info to resume data if available
+    if (companyInfo) {
+      resumeData.companyContext = companyInfo;
+    }
+    
+    // Call OpenAI API
+    console.log('Calling OpenAI API...');
+    const result = await fetchFromOpenAI(apiKey, resumeData, jobDescription, companyName);
+    
+    // Return the analysis result
+    return NextResponse.json(result);
   } catch (error) {
-    console.error('Error in perfect-fit-analyzer API route:', error);
+    console.error('Error processing request:', error);
     return NextResponse.json(
-      { error: 'An unexpected error occurred. Please try again.' }, 
+      { error: error instanceof Error ? error.message : 'Unknown error occurred' },
       { status: 500 }
     );
   }
@@ -317,10 +343,16 @@ async function fetchFromOpenAI(
   jobDescription: string, 
   companyName?: string
 ) {
-  const systemPrompt = createSystemPrompt(resumeData);
-  const userPrompt = createUserPrompt(jobDescription, companyName);
-  
   try {
+    console.log('Creating prompts for OpenAI...');
+    
+    // Create system prompt with resume data
+    const systemPrompt = createSystemPrompt(resumeData);
+    
+    // Create user prompt with job description
+    const userPrompt = createUserPrompt(jobDescription, companyName);
+    
+    console.log('Sending request to OpenAI...');
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -335,127 +367,30 @@ async function fetchFromOpenAI(
         ],
         temperature: 0.7,
         max_tokens: 2500,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0
+        response_format: { type: 'json_object' }
       })
     });
     
     if (!response.ok) {
       const errorData = await response.json();
       console.error('OpenAI API error:', errorData);
-      throw new Error(errorData.error?.message || 'Error calling OpenAI API');
+      throw new Error('Failed to analyze job description');
     }
     
     const result = await response.json();
+    console.log('OpenAI response received');
     
-    // Process and format the response
+    // Parse the response content
+    const content = JSON.parse(result.choices[0].message.content);
+    
+    // Format the outputs using our template functions
     return {
-      summary: formatAsSummary(result.choices[0].message.content),
-      coverLetter: formatAsCoverLetter(result.choices[0].message.content, companyName),
-      recruiterPitch: formatAsRecruiterPitch(result.choices[0].message.content)
+      summary: formatAsSummary(content.summary),
+      coverLetter: formatAsCoverLetter(content.coverLetter, companyName),
+      recruiterPitch: formatAsRecruiterPitch(content.recruiterPitch)
     };
   } catch (error) {
-    console.error('Error calling OpenAI:', error);
+    console.error('Error in OpenAI request:', error);
     throw error;
   }
-}
-
-/**
- * Creates the system prompt with resume data
- */
-function createSystemPrompt(resumeData: any): string {
-  return `You are a persuasive, slightly biased career coach assistant helping David Mieloch create a job application.
-  
-Your task is to analyze a job description, compare it with David's qualifications, and write a compelling analysis showing why he is an exceptional candidate for the role. This is not a neutral comparison - you should advocate for David.
-
-Here is David's resume data:
-${JSON.stringify(resumeData, null, 2)}
-
-IMPORTANT GUIDELINES:
-1. Be persuasive but truthful - find genuine connections between the job requirements and David's experience
-2. Emphasize his strengths and use quantifiable results where possible
-3. Address potential gaps by showing transferable skills
-4. Use a professional, confident tone with a touch of personality
-5. Include subtle humor where appropriate
-6. Structure your analysis in a clear, organized way
-7. Format your response so it can be easily converted to different formats (summary, cover letter, recruiter pitch)
-8. Include statistics and metrics from his past roles when relevant
-9. Advocate for David as if you were his personal career agent
-10. Avoid excessive formality and corporate speak - be personable but professional`;
-}
-
-/**
- * Creates the user prompt with job description
- */
-function createUserPrompt(jobDescription: string, companyName?: string): string {
-  const companyContext = companyName ? 
-    `The role is at ${companyName}. Please include specific details about why David would be a great fit for ${companyName} specifically.` : 
-    'Please keep your analysis focused on the role requirements rather than company-specific information.';
-    
-  return `Please analyze this job description and tell me why David Mieloch is an excellent candidate. ${companyContext}
-
-JOB DESCRIPTION:
-${jobDescription}
-
-Please structure your response with:
-1. A brief introduction highlighting the key match points
-2. A section addressing each major job requirement and how David's experience aligns
-3. A section addressing any potential gaps and how David's transferable skills compensate
-4. A compelling conclusion
-`;
-}
-
-/**
- * Formats the AI response as a summary
- */
-function formatAsSummary(content: string): string {
-  // Return the content mostly as-is for the summary
-  // Just ensure it has proper paragraphs
-  return content.trim();
-}
-
-/**
- * Formats the AI response as a cover letter
- */
-function formatAsCoverLetter(content: string, companyName?: string): string {
-  const date = new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-  
-  const companyHeader = companyName ? `\n${companyName}` : '';
-  
-  return `${date}${companyHeader}
-
-Dear Hiring Manager,
-
-${content.trim()}
-
-I look forward to discussing how my background aligns with your needs in more detail.
-
-Sincerely,
-David Mieloch`;
-}
-
-/**
- * Formats the AI response as a recruiter pitch
- */
-function formatAsRecruiterPitch(content: string): string {
-  // Extract key points and reframe for recruiter perspective
-  const sections = content.split(/\n\n|\r\n\r\n/);
-  const keyPoints = sections.slice(0, Math.min(4, sections.length));
-  
-  return `CANDIDATE HIGHLIGHT: DAVID MIELOCH
-
-${keyPoints.join('\n\n')}
-
-KEY STRENGTHS:
-* Full-stack technical skills with deep AI/ML implementation experience
-* Business acumen and strategic thinking
-* Leadership experience across multiple teams
-* Proven track record of delivering high-impact projects
-
-David is immediately available for interviews and can be reached at david@example.com.`;
 } 

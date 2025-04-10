@@ -21,7 +21,7 @@ const meta = {
       },
     },
     viewport: {
-      defaultViewport: 'mobile1',
+      defaultViewport: 'mobile',
       viewports: {
         mobile1: {
           name: 'Small mobile',
@@ -120,7 +120,7 @@ export const MobileView: Story = {
   },
   parameters: {
     viewport: {
-      defaultViewport: 'mobile1',
+      defaultViewport: 'mobile',
     },
   },
 };

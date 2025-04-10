@@ -8,6 +8,11 @@ const meta = {
   component: Footer,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'Footer component with mobile-first design that adapts to different screen sizes. Contains social links, music tracks, and copyright information.',
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Footer>;
@@ -47,10 +52,67 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Mobile view of the default footer
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default footer as viewed on mobile devices. Layout stacks vertically for smaller screens, with touch-friendly spacing for links.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the default footer
+ */
+export const DefaultTablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Default footer as viewed on tablet devices. Shows the responsive design between mobile and desktop sizes.',
+      },
+    },
+  },
+};
+
 export const WithoutMusic: Story = {
   args: {
     socialLinks,
     soundCloudTracks: [],
+  },
+};
+
+/**
+ * Mobile view of the footer without music tracks
+ */
+export const WithoutMusicMobile: Story = {
+  args: {
+    ...WithoutMusic.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Footer without music tracks as viewed on mobile devices.',
+      },
+    },
   },
 };
 
@@ -60,5 +122,24 @@ export const CustomSocialLinks: Story = {
       { name: 'GitHub', icon: <IconBrandGithub size={20} />, url: 'https://github.com/dmieloch' },
     ],
     soundCloudTracks,
+  },
+};
+
+/**
+ * Mobile view of the footer with custom social links
+ */
+export const CustomSocialLinksMobile: Story = {
+  args: {
+    ...CustomSocialLinks.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Footer with custom social links as viewed on mobile devices.',
+      },
+    },
   },
 }; 

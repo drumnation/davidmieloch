@@ -6,6 +6,11 @@ const meta = {
   component: LanguageDot,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Language dot component with mobile-first design that adapts to different screen sizes. Displays programming language indicators with corresponding colors.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -34,6 +39,25 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Mobile view of the default language dot
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default language dot as viewed on mobile devices. The dot and text scale appropriately for smaller screens.',
+      },
+    },
+  },
+};
+
 export const Small: Story = {
   args: {
     language: 'JavaScript',
@@ -58,11 +82,57 @@ export const Large: Story = {
   },
 };
 
+/**
+ * Mobile view of language dot sizes
+ */
+export const SizesMobile: Story = {
+  args: {
+    language: 'TypeScript',
+    showName: true,
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <LanguageDot {...args} size="sm" />
+      <LanguageDot {...args} size="md" />
+      <LanguageDot {...args} size="lg" />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Different language dot sizes as viewed on mobile devices, showing the appropriate scaling for touch targets.',
+      },
+    },
+  },
+};
+
 export const DotOnly: Story = {
   args: {
     language: 'Go',
     size: 'md',
     showName: false,
+  },
+};
+
+/**
+ * Mobile view of dot only (without name)
+ */
+export const DotOnlyMobile: Story = {
+  args: {
+    ...DotOnly.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Language dot without name as viewed on mobile devices.',
+      },
+    },
   },
 };
 
@@ -90,4 +160,24 @@ export const AllLanguages: Story = {
       <LanguageDot language="C++" />
     </div>
   ),
+};
+
+/**
+ * Mobile view of all language dots
+ */
+export const AllLanguagesMobile: Story = {
+  args: {
+    ...AllLanguages.args,
+  },
+  render: AllLanguages.render,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'All language dots displayed in a vertical list as viewed on mobile devices.',
+      },
+    },
+  },
 }; 

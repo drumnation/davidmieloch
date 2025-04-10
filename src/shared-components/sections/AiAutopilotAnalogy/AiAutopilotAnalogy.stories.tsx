@@ -24,3 +24,63 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {}
 };
+
+/**
+ * Desktop view of the AiAutopilotAnalogy section.
+ * Shows the component optimized for desktop screens.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'AiAutopilotAnalogy section as viewed on desktop devices. Shows the full experience with optimal spacing and layout for larger screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the AiAutopilotAnalogy section.
+ * Shows the component adapted for mobile devices.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'AiAutopilotAnalogy section as viewed on mobile devices. The comparison tables and content sections adapt for smaller screens with appropriate spacing and typography.'
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the AiAutopilotAnalogy section.
+ * Shows the component adapted for tablet screens.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'AiAutopilotAnalogy section as viewed on tablet devices. Provides an intermediate responsive experience between mobile and desktop layouts.'
+      },
+    },
+  },
+};

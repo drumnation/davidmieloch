@@ -33,4 +33,61 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {},
+};
+
+/**
+ * Desktop view of the DetailedContent component.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'DetailedContent as viewed on desktop devices. Shows the complete layout with optimal spacing and typography.',
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the DetailedContent component.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'DetailedContent as viewed on mobile devices. Text formatting and spacing adjust to maintain readability on smaller screens.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the DetailedContent component.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'DetailedContent as viewed on tablet devices. Shows the responsive behavior between mobile and desktop sizes.',
+      },
+    },
+  },
 }; 

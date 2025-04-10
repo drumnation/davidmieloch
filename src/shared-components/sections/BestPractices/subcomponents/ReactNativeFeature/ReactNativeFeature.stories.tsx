@@ -7,10 +7,10 @@ const meta = {
   title: 'Pages/02-BestPractices/03-ReactNativeFeature',
   component: ReactNativeFeature,
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A feature section highlighting React Native & Expo development capabilities.'
+        component: 'The React Native feature section highlights Expo and React Native capabilities within the BestPractices page.'
       }
     }
   },
@@ -26,14 +26,71 @@ const meta = {
 } satisfies Meta<typeof ReactNativeFeature>;
 
 export default meta;
-type Story = StoryObj<typeof ReactNativeFeature>;
+type Story = StoryObj<typeof meta>;
 
 /**
- * The default story shows the ReactNativeFeature component with default content.
+ * The default story shows the ReactNativeFeature component.
  */
 export const Default: Story = {
   args: {
     isVisible: true,
+  },
+};
+
+/**
+ * Desktop view of the ReactNativeFeature component.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'ReactNativeFeature as viewed on desktop devices. Shows the full-width layout with optimal spacing and content presentation.',
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the ReactNativeFeature component.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'ReactNativeFeature as viewed on mobile devices. Layout adapts to single column with adjusted spacing and typography for mobile screens.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the ReactNativeFeature component.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'ReactNativeFeature as viewed on tablet devices. Shows the responsive behavior between mobile and desktop layouts.',
+      },
+    },
   },
 };
 

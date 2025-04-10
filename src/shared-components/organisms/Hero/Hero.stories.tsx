@@ -8,7 +8,7 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A full-width hero section with background patterns.',
+        component: 'A full-width hero section with background patterns. Implements mobile-first design principles with responsive typography and spacing.',
       },
     },
   },
@@ -45,6 +45,44 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Default hero section as viewed on mobile devices
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default hero section as viewed on mobile devices. Typography and padding adjust for smaller screens.',
+      },
+    },
+  },
+};
+
+/**
+ * Default hero section as viewed on tablet devices
+ */
+export const DefaultTablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Default hero section as viewed on tablet devices. Shows the responsive design between mobile and desktop sizes.',
+      },
+    },
+  },
+};
+
 export const LightBackground: Story = {
   args: {
     title: 'Building Better Solutions',
@@ -55,6 +93,25 @@ export const LightBackground: Story = {
   },
 };
 
+/**
+ * Light background hero section as viewed on mobile devices
+ */
+export const LightBackgroundMobile: Story = {
+  args: {
+    ...LightBackground.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Light background hero section as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
 export const DarkMinimal: Story = {
   args: {
     title: 'Engineering Excellence',
@@ -62,5 +119,24 @@ export const DarkMinimal: Story = {
     background: 'dark',
     pattern: 'none',
     textColor: 'light',
+  },
+};
+
+/**
+ * Dark minimal hero section as viewed on mobile devices
+ */
+export const DarkMinimalMobile: Story = {
+  args: {
+    ...DarkMinimal.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Dark minimal hero section as viewed on mobile devices.',
+      },
+    },
   },
 }; 

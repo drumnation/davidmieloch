@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import { Button, CenteredButton } from '../../../shared-components/atoms/Button';
+import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 
 export interface FoldableContentProps {
   children: React.ReactNode;
@@ -39,27 +41,6 @@ const ButtonContainer = styled.div<{ $position: 'right' | 'center' }>`
   display: flex;
   justify-content: ${({ $position }) => ($position === 'right' ? 'flex-end' : 'center')};
   margin-top: 8px;
-`;
-
-const ToggleButton = styled.button`
-  background: none;
-  border: none;
-  color: #2196f3;
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-  display: flex;
-  align-items: center;
-  
-  &:hover {
-    background-color: rgba(33, 150, 243, 0.1);
-  }
-  
-  svg {
-    margin-left: 4px;
-  }
 `;
 
 export const FoldableContent: React.FC<FoldableContentProps> = ({
@@ -104,9 +85,7 @@ export const FoldableContent: React.FC<FoldableContentProps> = ({
     }
   }, [children, maxHeight, customMaxHeight]);
 
-  const toggleExpand = (e: React.MouseEvent) => {
-    // Stop event propagation to prevent triggering parent onClick handlers
-    e.stopPropagation();
+  const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
@@ -123,20 +102,29 @@ export const FoldableContent: React.FC<FoldableContentProps> = ({
       </ContentWrapper>
       
       {shouldShow && (
-        <ButtonContainer $position={buttonPosition}>
-          <ToggleButton onClick={toggleExpand}>
+        buttonPosition === 'center' ? (
+          <CenteredButton 
+            variant="ghost" 
+            size="sm" 
+            onClick={toggleExpand}
+            icon={isExpanded ? <IconChevronUp size={16} /> : <IconChevronDown size={16} />}
+            iconPosition="right"
+          >
             {isExpanded ? showLessText : showMoreText}
-            {isExpanded ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 14l5-5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            )}
-          </ToggleButton>
-        </ButtonContainer>
+          </CenteredButton>
+        ) : (
+          <ButtonContainer $position="right">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={toggleExpand}
+              icon={isExpanded ? <IconChevronUp size={16} /> : <IconChevronDown size={16} />}
+              iconPosition="right"
+            >
+              {isExpanded ? showLessText : showMoreText}
+            </Button>
+          </ButtonContainer>
+        )
       )}
     </Container>
   );

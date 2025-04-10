@@ -6,6 +6,11 @@ const meta = {
   component: Tag,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Tag component with mobile-first design that adapts to different screen sizes. Used for displaying keywords, categories, or labels.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -32,6 +37,25 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Mobile view of the default tag
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default tag as viewed on mobile devices. Touch-friendly sizing ensures good usability on smaller screens.',
+      },
+    },
+  },
+};
+
 export const Primary: Story = {
   args: {
     label: 'Primary Tag',
@@ -45,6 +69,35 @@ export const Secondary: Story = {
     label: 'Secondary Tag',
     variant: 'secondary',
     size: 'md',
+  },
+};
+
+/**
+ * Mobile view of tag variants
+ */
+export const VariantsMobile: Story = {
+  args: {
+    label: 'Mobile Variants',
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+      <Tag label="Default" variant="default" size="md" />
+      <Tag label="Primary" variant="primary" size="md" />
+      <Tag label="Secondary" variant="secondary" size="md" />
+      <Tag label="Success" variant="success" size="md" />
+      <Tag label="Warning" variant="warning" size="md" />
+      <Tag label="Danger" variant="danger" size="md" />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'All tag variants as viewed on mobile devices, showing how they wrap and adjust for smaller screens.',
+      },
+    },
   },
 };
 
@@ -96,11 +149,56 @@ export const Large: Story = {
   },
 };
 
+/**
+ * Mobile view of tag sizes
+ */
+export const SizesMobile: Story = {
+  args: {
+    label: 'Mobile Sizes',
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+      <Tag label="Small" variant="primary" size="sm" />
+      <Tag label="Medium" variant="primary" size="md" />
+      <Tag label="Large" variant="primary" size="lg" />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Different tag sizes as viewed on mobile devices, demonstrating touch-friendly sizing options.',
+      },
+    },
+  },
+};
+
 export const Clickable: Story = {
   args: {
     label: 'Clickable Tag',
     variant: 'primary',
     size: 'md',
     onClick: () => alert('Tag clicked!'),
+  },
+};
+
+/**
+ * Mobile view of a clickable tag
+ */
+export const ClickableMobile: Story = {
+  args: {
+    ...Clickable.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Clickable tag as viewed on mobile devices. Touch target is sized appropriately for mobile interaction.',
+      },
+    },
   },
 }; 

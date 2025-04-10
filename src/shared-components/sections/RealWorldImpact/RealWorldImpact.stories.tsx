@@ -49,3 +49,63 @@ export const Default: Story = {
     // to avoid type issues
   },
 }; 
+
+/**
+ * Desktop view of the RealWorldImpact section.
+ * Shows the full-width layout optimized for desktop screens.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'RealWorldImpact section as viewed on desktop devices. Shows detailed impact analysis data, charts, and case studies in an optimal layout for larger screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the RealWorldImpact section.
+ * Shows the responsive layout optimized for mobile screens.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'RealWorldImpact section as viewed on mobile devices. All data visualizations, flow diagrams, and statistics adapt to a single-column layout with optimized spacing and font sizing for smaller screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the RealWorldImpact section.
+ * Shows the responsive layout optimized for tablet screens.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'RealWorldImpact section as viewed on tablet devices. Charts, diagrams, and data visualizations adapt to an intermediate layout optimized for medium-sized screens.'
+      },
+    },
+  },
+}; 

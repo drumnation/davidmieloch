@@ -4,7 +4,7 @@ import { defaultContent } from '../../BrainGardenOverview.constants';
 import { Icon } from '../../../../atoms/Icon';
 
 const meta = {
-  title: 'sections/BrainGardenOverview/ForceMultipliersSection',
+  title: 'Pages/01-WhitePaper/03-BrainGardenOverview/ForceMultipliers',
   component: ForceMultipliersSection,
   parameters: {
     layout: 'fullscreen',

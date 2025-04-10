@@ -52,12 +52,77 @@ const meta = {
   component: ComparisonTableSection,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'A section that visually compares human developer strengths with AI assistant strengths, using a responsive table format that adapts to all device sizes.'
+      }
+    }
   },
 } satisfies Meta<typeof ComparisonTableSection>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/**
+ * The default story shows the ComparisonTableSection without specifying a viewport.
+ */
 export const Default: Story = {
   args: {},
+};
+
+/**
+ * Desktop view of the ComparisonTableSection
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'ComparisonTableSection as viewed on desktop devices. Shows the full-width experience with optimal spacing for larger screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the ComparisonTableSection
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'ComparisonTableSection as viewed on mobile devices. The underlying ComparisonTable component adapts with horizontal scrolling to ensure all content is accessible on smaller screens. Typography scales appropriately for better readability.'
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the ComparisonTableSection
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'ComparisonTableSection as viewed on tablet devices. Shows intermediate responsive layout between mobile and desktop views, with optimized spacing and font sizing.'
+      },
+    },
+  },
 }; 

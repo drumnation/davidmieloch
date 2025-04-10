@@ -15,6 +15,11 @@ const meta: Meta<typeof SideNavigation> = {
   component: SideNavigation,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Side navigation component with mobile-first design that adapts to different screen sizes. Provides hierarchical navigation with collapsible sections.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -127,12 +132,48 @@ const Template = (args: SideNavigationProps) => (
   </div>
 );
 
+// Template for mobile stories
+const MobileTemplate = (args: SideNavigationProps) => (
+  <div style={{ 
+    padding: '20px', 
+    backgroundColor: args.style === 'dark' ? '#1A1B1E' : '#ffffff',
+    height: '600px',
+    // The width here is restricted to simulate a mobile device width
+    width: '100%',
+    maxWidth: '320px',
+  }}>
+    <SideNavigation {...args} />
+  </div>
+);
+
 export const Light: Story = {
   render: (args) => Template({ ...args, style: 'light' }),
   args: {
     items: navigationItems,
     activeId: 'section-1',
     style: 'light',
+  },
+};
+
+/**
+ * Mobile view of light side navigation
+ */
+export const LightMobile: Story = {
+  render: (args) => MobileTemplate({ ...args, style: 'light' }),
+  args: {
+    items: navigationItems,
+    activeId: 'section-1',
+    style: 'light',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Light theme side navigation as viewed on mobile devices. The navigation adapts to the narrower screen width with optimized touch targets.',
+      },
+    },
   },
 };
 
@@ -145,11 +186,55 @@ export const Dark: Story = {
   },
 };
 
+/**
+ * Mobile view of dark side navigation
+ */
+export const DarkMobile: Story = {
+  render: (args) => MobileTemplate({ ...args, style: 'dark' }),
+  args: {
+    items: navigationItems,
+    activeId: 'section-3-3',
+    style: 'dark',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Dark theme side navigation as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
 export const WithActiveSubsection: Story = {
   render: (args) => Template(args),
   args: {
     items: navigationItems,
     activeId: 'section-3-3',
     style: 'light',
+  },
+};
+
+/**
+ * Mobile view of side navigation with active subsection
+ */
+export const WithActiveSubsectionMobile: Story = {
+  render: (args) => MobileTemplate(args),
+  args: {
+    items: navigationItems,
+    activeId: 'section-3-3',
+    style: 'light',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Side navigation with an active subsection as viewed on mobile devices. Shows how nested items are displayed in the mobile view.',
+      },
+    },
   },
 }; 

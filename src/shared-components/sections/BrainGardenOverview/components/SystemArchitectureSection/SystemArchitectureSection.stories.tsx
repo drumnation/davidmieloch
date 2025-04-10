@@ -18,3 +18,35 @@ export const Default: Story = {
     systemArchitectureProps: defaultContent.systemArchitecture
   },
 }; 
+
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Mobile viewport version of the SystemArchitectureSection component to test responsive behavior at mobile sizes.',
+      },
+    },
+  },
+};
+
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Tablet viewport version of the SystemArchitectureSection component to test responsive behavior at tablet sizes.',
+      },
+    },
+  },
+}; 

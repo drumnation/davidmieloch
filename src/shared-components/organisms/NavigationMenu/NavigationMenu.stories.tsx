@@ -95,6 +95,46 @@ export const Default: Story = {
   ],
 };
 
+/**
+ * Mobile view of the default navigation menu
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  decorators: Default.decorators,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default navigation menu as viewed on mobile devices. The navigation adapts to smaller screens with optimized touch targets and collapsed sections.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the default navigation menu
+ */
+export const DefaultTablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  decorators: Default.decorators,
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Default navigation menu as viewed on tablet devices, showing the responsive behavior between mobile and desktop.',
+      },
+    },
+  },
+};
+
 export const DarkMode: Story = {
   args: {
     items: defaultItems,
@@ -111,6 +151,26 @@ export const DarkMode: Story = {
   ],
 };
 
+/**
+ * Mobile view of the dark mode navigation menu
+ */
+export const DarkModeMobile: Story = {
+  args: {
+    ...DarkMode.args,
+  },
+  decorators: DarkMode.decorators,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Dark mode navigation menu as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
 export const RightPosition: Story = {
   args: {
     items: defaultItems,
@@ -125,6 +185,26 @@ export const RightPosition: Story = {
       </StoryContainer>
     ),
   ],
+};
+
+/**
+ * Mobile view of right-positioned navigation menu
+ */
+export const RightPositionMobile: Story = {
+  args: {
+    ...RightPosition.args,
+  },
+  decorators: RightPosition.decorators,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Right-positioned navigation menu as viewed on mobile devices.',
+      },
+    },
+  },
 };
 
 // Create sections for demonstrating smooth scroll
@@ -168,4 +248,21 @@ export const WithSmoothScroll = () => {
       </div>
     </StoryContainer>
   );
+};
+
+/**
+ * Mobile view of WithSmoothScroll example
+ */
+export const WithSmoothScrollMobile: Story = {
+  render: WithSmoothScroll,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Navigation menu with smooth scroll functionality as viewed on mobile devices.',
+      },
+    },
+  },
 }; 

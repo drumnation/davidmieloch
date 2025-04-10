@@ -21,10 +21,15 @@ const mockFilters: { languages: Filter[]; topics: Filter[]; types: Filter[]; } =
 };
 
 const meta = {
-  title: 'Organisms/FilterBar',
+  title: 'Pages/04-Code-Examples/Components/FilterBar',
   component: FilterBar,
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: 'Filter bar component used in the Code Examples page to filter repositories by language, topic, and type.',
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FilterBar>;

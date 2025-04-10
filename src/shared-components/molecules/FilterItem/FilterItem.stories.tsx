@@ -2,10 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FilterItem } from './FilterItem';
 
 const meta = {
-  title: 'Molecules/FilterItem',
+  title: 'Pages/04-Code-Examples/Components/FilterItem',
   component: FilterItem,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'FilterItem component used in the Code Examples page for filtering repositories by language, topic, or type.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {

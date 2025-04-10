@@ -34,3 +34,63 @@ export const Default: Story = {
     ctaProps: defaultContent.cta,
   },
 };
+
+/**
+ * Desktop view of the BrainGardenOverview section.
+ * Shows the full-width layout optimized for desktop screens.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'BrainGardenOverview section as viewed on desktop devices. Shows the optimal layout with features arranged in multi-column grids and full-width diagrams.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the BrainGardenOverview section.
+ * Shows the responsive layout optimized for mobile screens.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'BrainGardenOverview section as viewed on mobile devices. All components adapt to a single-column layout with appropriate spacing and font sizing for smaller screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the BrainGardenOverview section.
+ * Shows the responsive layout optimized for tablet screens.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'BrainGardenOverview section as viewed on tablet devices. Components adapt to an intermediate layout between mobile and desktop with optimized spacing and organization.'
+      },
+    },
+  },
+};

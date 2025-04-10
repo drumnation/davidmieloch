@@ -43,6 +43,7 @@ export interface ResumeData {
     period: string;
     description?: string;
   }[];
+  companyContext?: string; // Additional company information for personalization
 }
 
 /**

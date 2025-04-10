@@ -82,3 +82,63 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {},
 };
+
+/**
+ * Desktop view of the WhitePaper.
+ * Shows the complete WhitePaper optimized for desktop screens.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'WhitePaper content as viewed on desktop devices. Shows the full experience with optimal spacing and layout for larger screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the WhitePaper.
+ * Shows the complete WhitePaper adapted for mobile devices.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'WhitePaper content as viewed on mobile devices. All sections adapt with appropriate spacing, typography scaling, and content stacking for optimal mobile viewing.'
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the WhitePaper.
+ * Shows the complete WhitePaper adapted for tablet screens.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'WhitePaper content as viewed on tablet devices. Provides an intermediate responsive experience between mobile and desktop layouts.'
+      },
+    },
+  },
+};

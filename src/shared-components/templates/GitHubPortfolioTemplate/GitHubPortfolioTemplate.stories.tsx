@@ -212,16 +212,24 @@ const mockFilters = {
 };
 
 const meta = {
-  title: 'Templates/GitHubPortfolioTemplate',
+  title: 'Pages/04-Code-Examples',
   component: GitHubPortfolioTemplate,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'The Code Examples page showcasing GitHub repositories as a portfolio. This is the main page used for the Code Examples section of the site. Adapts to all screen sizes with appropriate layout changes for mobile and tablet devices.'
+      }
+    }
   },
 } satisfies Meta<typeof GitHubPortfolioTemplate>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/**
+ * The default story shows the GitHubPortfolioTemplate without specifying a viewport.
+ */
 export const Default: Story = {
   args: {
     repositories: mockRepositories,
@@ -237,10 +245,105 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Desktop view of the GitHub Portfolio Template
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'GitHubPortfolioTemplate as viewed on desktop devices. Shows the full-width layout with optimal spacing and multi-column organization for larger screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the GitHub Portfolio Template
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'GitHubPortfolioTemplate as viewed on mobile devices. The template adapts with a single-column layout for repositories, filters that stack vertically, and improved spacing for touch interactions. All content remains accessible with a mobile-optimized reading experience.'
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the GitHub Portfolio Template
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'GitHubPortfolioTemplate as viewed on tablet devices. Shows an intermediate layout between mobile and desktop, with optimized navigation and content organization for medium-sized screens.'
+      },
+    },
+  },
+};
+
 export const Loading: Story = {
   args: {
     ...Default.args,
     isLoading: true,
+  },
+};
+
+/**
+ * Desktop view of the loading state
+ */
+export const LoadingDesktop: Story = {
+  args: {
+    ...Loading.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'Loading state of the GitHubPortfolioTemplate as viewed on desktop devices.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the loading state
+ */
+export const LoadingMobile: Story = {
+  args: {
+    ...Loading.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Loading state of the GitHubPortfolioTemplate as viewed on mobile devices. Loading indicators are properly sized and centered for the mobile viewport.'
+      },
+    },
   },
 };
 
@@ -249,6 +352,44 @@ export const Error: Story = {
     ...Default.args,
     error: 'Failed to load portfolio data. Please try again.',
     onRetry: () => console.log('Retry clicked'),
+  },
+};
+
+/**
+ * Desktop view of the error state
+ */
+export const ErrorDesktop: Story = {
+  args: {
+    ...Error.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'Error state of the GitHubPortfolioTemplate as viewed on desktop devices.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the error state
+ */
+export const ErrorMobile: Story = {
+  args: {
+    ...Error.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Error state of the GitHubPortfolioTemplate as viewed on mobile devices. Error message and retry button are properly sized and positioned for mobile viewing.'
+      },
+    },
   },
 };
 

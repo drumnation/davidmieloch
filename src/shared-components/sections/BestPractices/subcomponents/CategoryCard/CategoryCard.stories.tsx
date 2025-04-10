@@ -5,17 +5,17 @@ import { renderCategory } from '../../BestPractices.logic';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../../../styles/theme/styled-theme';
 
-// Use the same data and rendering logic as the main component
-const renderedCategory = renderCategory(PRACTICE_CATEGORIES[0], 0);
+// Get the first category for demo purposes
+const category = renderCategory(PRACTICE_CATEGORIES[0], 0);
 
 const meta = {
   title: 'Pages/02-BestPractices/04-CategoryCard',
   component: CategoryCard,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A card component that displays a development practice category with its items and descriptions.'
+        component: 'A card component displaying a category of development practices with title, description, and list items.'
       }
     }
   },
@@ -28,7 +28,6 @@ const meta = {
       </ThemeProvider>
     ),
   ],
-  tags: ['autodocs'],
 } satisfies Meta<typeof CategoryCard>;
 
 export default meta;
@@ -39,8 +38,65 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    title: renderedCategory.title,
-    description: renderedCategory.description,
-    items: renderedCategory.items,
+    title: category.title,
+    description: category.description,
+    items: category.items,
+  },
+};
+
+/**
+ * Desktop view of the CategoryCard component.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'CategoryCard as viewed on desktop devices. Shows optimal card layout with proper spacing and typography.',
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the CategoryCard component.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'CategoryCard as viewed on mobile devices. Card adapts to smaller screens with adjusted padding and typography.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the CategoryCard component.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'CategoryCard as viewed on tablet devices. Shows the responsive behavior between mobile and desktop sizes.',
+      },
+    },
   },
 }; 

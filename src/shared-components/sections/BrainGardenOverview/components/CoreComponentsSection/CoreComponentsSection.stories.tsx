@@ -18,3 +18,35 @@ export const Default: Story = {
     coreComponentsProps: defaultContent.coreComponents
   },
 }; 
+
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    docs: {
+      description: {
+        story: 'Mobile view of the Core Components Section. This story tests responsive behavior at mobile viewport sizes.',
+      },
+    },
+  },
+};
+
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Tablet view of the Core Components Section. This story tests responsive behavior at tablet viewport sizes.',
+      },
+    },
+  },
+}; 

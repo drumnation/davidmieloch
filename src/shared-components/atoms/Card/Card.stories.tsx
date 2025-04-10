@@ -7,6 +7,13 @@ const meta: Meta<typeof Card> = {
   title: 'Atoms/Card',
   component: Card,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Card component with mobile-first design that adapts to different screen sizes.',
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',
@@ -40,6 +47,44 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Mobile view of the default card
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default card as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the default card
+ */
+export const DefaultTablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Default card as viewed on tablet devices.',
+      },
+    },
+  },
+};
+
 // Variants Story
 export const Variants = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -53,6 +98,23 @@ export const Variants = () => (
     </Card>
   </div>
 );
+
+/**
+ * Mobile view of the card variants
+ */
+export const VariantsMobile: Story = {
+  render: Variants,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Card variants as viewed on mobile devices.',
+      },
+    },
+  },
+};
 
 // Padding Story
 export const Paddings = () => (
@@ -75,6 +137,23 @@ export const Paddings = () => (
   </div>
 );
 
+/**
+ * Mobile view of padding variants
+ */
+export const PaddingsMobile: Story = {
+  render: Paddings,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Different padding options as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
 // Width Story
 export const Widths = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -85,4 +164,21 @@ export const Widths = () => (
       <Body color="light">Full Width Card</Body>
     </Card>
   </div>
-); 
+);
+
+/**
+ * Mobile view of width variants
+ */
+export const WidthsMobile: Story = {
+  render: Widths,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Width variants as viewed on mobile devices, showing how the card responds to different width settings.',
+      },
+    },
+  },
+}; 

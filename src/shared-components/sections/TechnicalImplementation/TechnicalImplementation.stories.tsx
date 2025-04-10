@@ -39,3 +39,63 @@ export const Default: Story = {
     result: defaultContent.result
   },
 }; 
+
+/**
+ * Desktop view of the TechnicalImplementation section.
+ * Shows the full-width layout optimized for desktop screens.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'TechnicalImplementation section as viewed on desktop devices. Shows the full technical diagrams and detailed descriptions in an optimal layout for larger screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the TechnicalImplementation section.
+ * Shows the responsive layout optimized for mobile screens.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'TechnicalImplementation section as viewed on mobile devices. All technical diagrams and descriptions adapt to a single-column layout with appropriate scaling for optimal viewing on smaller screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the TechnicalImplementation section.
+ * Shows the responsive layout optimized for tablet screens.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'TechnicalImplementation section as viewed on tablet devices. Technical diagrams and descriptions adapt to an intermediate layout between mobile and desktop with optimized dimensions for medium-sized screens.'
+      },
+    },
+  },
+}; 

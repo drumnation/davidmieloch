@@ -1,99 +1,124 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ComparisonTable } from './ComparisonTable';
+import { ComparisonItem } from './ComparisonTable.types';
 
-const meta = {
+const comparisonItems: ComparisonItem[] = [
+  {
+    category: 'Performance',
+    leftContent: 'Good for small-scale applications',
+    rightContent: <span>Excellent for <strong>enterprise-level</strong> applications</span>,
+  },
+  {
+    category: 'Cost',
+    leftContent: 'Low initial investment',
+    rightContent: 'Higher initial investment with better ROI',
+  },
+  {
+    category: 'Scalability',
+    leftContent: 'Limited scaling capabilities',
+    rightContent: 'Highly scalable architecture',
+  },
+  {
+    category: 'Support',
+    leftContent: 'Community support',
+    rightContent: '24/7 dedicated support team',
+  },
+];
+
+const meta: Meta<typeof ComparisonTable> = {
   title: 'Molecules/ComparisonTable',
   component: ComparisonTable,
   parameters: {
-    layout: 'padded',
+    layout: 'centered',
     docs: {
       description: {
-        component: 'A comparison table component that displays two columns of content with category labels.'
-      }
-    }
+        component: `The ComparisonTable component provides a clear way to compare two options side by side.
+        It supports three visual variants and is responsive across all device sizes.
+        
+        ## Mobile-First Design
+        - On mobile devices, the table maintains readability by keeping the most important information visible
+        - Table is horizontally scrollable on smaller screens to ensure all content remains accessible
+        - Row animations are optimized for mobile performance`,
+      },
+    },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ComparisonTable>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    leftTitle: "Option A",
-    rightTitle: "Option B",
-    items: [
-      {
-        category: "Feature 1",
-        leftContent: "Basic implementation",
-        rightContent: "Advanced implementation with additional capabilities"
+    leftTitle: 'Standard Solution',
+    rightTitle: 'Enterprise Solution',
+    items: comparisonItems,
+    variant: 'default',
+  },
+};
+
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'On mobile devices, the table maintains its structure but becomes horizontally scrollable to accommodate the smaller screen width.'
       },
-      {
-        category: "Feature 2",
-        leftContent: "Not included",
-        rightContent: "Fully supported"
-      },
-      {
-        category: "Cost",
-        leftContent: "$10/month",
-        rightContent: "$25/month"
-      }
-    ],
-    variant: 'default'
+    },
   },
 };
 
 export const AccentStyle: Story = {
   args: {
-    leftTitle: "Traditional Approach",
-    rightTitle: "Modern Approach",
-    items: [
-      {
-        category: "Development Speed",
-        leftContent: "Slower, more manual processes",
-        rightContent: "Faster with automation and tooling"
+    leftTitle: 'Basic Package',
+    rightTitle: 'Premium Package',
+    items: comparisonItems,
+    variant: 'accent',
+  },
+};
+
+export const AccentStyleMobile: Story = {
+  args: {
+    ...AccentStyle.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'The accent style maintains its visual appeal on mobile devices while adapting to the smaller viewport.'
       },
-      {
-        category: "Maintenance",
-        leftContent: "Higher effort to maintain",
-        rightContent: "Lower maintenance overhead"
-      },
-      {
-        category: "Scalability",
-        leftContent: "Limited by manual processes",
-        rightContent: "Highly scalable with proper architecture"
-      }
-    ],
-    variant: 'accent'
+    },
   },
 };
 
 export const GradientStyle: Story = {
   args: {
-    leftTitle: "Junior Developer",
-    rightTitle: "Senior Developer",
-    items: [
-      {
-        category: "Problem Solving",
-        leftContent: "Follows established patterns",
-        rightContent: "Creates solutions for novel problems"
+    leftTitle: 'Current Platform',
+    rightTitle: 'Our Solution',
+    items: comparisonItems,
+    variant: 'gradient',
+  },
+};
+
+export const GradientStyleMobile: Story = {
+  args: {
+    ...GradientStyle.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'The gradient style header creates a visually striking design that translates well to mobile devices.'
       },
-      {
-        category: "Code Quality",
-        leftContent: "Focuses on making code work",
-        rightContent: "Balances functionality with maintainability"
-      },
-      {
-        category: "System Design",
-        leftContent: "Implements predefined designs",
-        rightContent: "Architects scalable, robust systems"
-      },
-      {
-        category: "Mentorship",
-        leftContent: "Receives guidance",
-        rightContent: "Provides guidance to others"
-      }
-    ],
-    variant: 'gradient'
+    },
   },
 };

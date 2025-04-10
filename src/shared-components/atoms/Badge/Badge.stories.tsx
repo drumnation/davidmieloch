@@ -6,6 +6,11 @@ const meta = {
   component: Badge,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Badge component with mobile-first design that adapts to different screen sizes. Used for displaying counts, metrics, or status indicators.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -34,6 +39,25 @@ export const Default: Story = {
     count: 42,
     variant: 'default',
     size: 'md',
+  },
+};
+
+/**
+ * Mobile view of the default badge
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default badge as viewed on mobile devices. The badge maintains legibility at smaller screen sizes.',
+      },
+    },
   },
 };
 
@@ -69,12 +93,59 @@ export const PullRequests: Story = {
   },
 };
 
+/**
+ * Mobile view of badge variants
+ */
+export const VariantsMobile: Story = {
+  args: {
+    count: 42,
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      <Badge {...args} variant="default" />
+      <Badge {...args} variant="stars" />
+      <Badge {...args} variant="forks" />
+      <Badge {...args} variant="issues" />
+      <Badge {...args} variant="prs" />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'All badge variants as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
 export const WithLabel: Story = {
   args: {
     count: 1250,
     label: 'stars',
     variant: 'stars',
     size: 'md',
+  },
+};
+
+/**
+ * Mobile view of badge with label
+ */
+export const WithLabelMobile: Story = {
+  args: {
+    ...WithLabel.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Badge with label as viewed on mobile devices.',
+      },
+    },
   },
 };
 
@@ -99,5 +170,32 @@ export const Large: Story = {
     count: 1250,
     variant: 'stars',
     size: 'lg',
+  },
+};
+
+/**
+ * Mobile view of badge sizes
+ */
+export const SizesMobile: Story = {
+  args: {
+    count: 1250,
+    variant: 'stars',
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <Badge {...args} size="sm" />
+      <Badge {...args} size="md" />
+      <Badge {...args} size="lg" />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Different badge sizes as viewed on mobile devices, showing touch-friendly sizing options.',
+      },
+    },
   },
 }; 

@@ -36,10 +36,15 @@ const privateRepo: Repository = {
 };
 
 const meta = {
-  title: 'Molecules/RepoCard',
+  title: 'Pages/04-Code-Examples/Components/RepoCard',
   component: RepoCard,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'RepoCard component used in the Code Examples page with mobile-first design that adapts to different screen sizes. Shows GitHub repository information in a clean card format.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -59,6 +64,44 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Mobile view of the default repository card
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default repository card as viewed on mobile devices. The card layout adjusts to the narrower screen width.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the default repository card
+ */
+export const DefaultTablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Default repository card as viewed on tablet devices.',
+      },
+    },
+  },
+};
+
 export const Compact: Story = {
   args: {
     repo: mockRepo,
@@ -66,10 +109,48 @@ export const Compact: Story = {
   },
 };
 
+/**
+ * Mobile view of the compact repository card
+ */
+export const CompactMobile: Story = {
+  args: {
+    ...Compact.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Compact repository card as viewed on mobile devices. The compact layout is particularly useful for mobile views.',
+      },
+    },
+  },
+};
+
 export const Private: Story = {
   args: {
     repo: privateRepo,
     isCompact: false,
+  },
+};
+
+/**
+ * Mobile view of a private repository card
+ */
+export const PrivateMobile: Story = {
+  args: {
+    ...Private.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Private repository card as viewed on mobile devices.',
+      },
+    },
   },
 };
 

@@ -72,10 +72,15 @@ const mockRepositories: Repository[] = [
 ];
 
 const meta = {
-  title: 'Organisms/RepoGrid',
+  title: 'Pages/04-Code-Examples/Components/RepoGrid',
   component: RepoGrid,
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: 'Repository grid component used in the Code Examples page. This component has a mobile-first design that adapts to different screen sizes. Automatically adjusts the number of columns and spacing based on viewport width.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -100,6 +105,46 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Mobile view of the repository grid
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+    columns: 1, // Force single column for mobile
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Repository grid as viewed on mobile devices. Automatically adjusts to a single column layout for optimal mobile viewing.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the repository grid
+ */
+export const DefaultTablet: Story = {
+  args: {
+    ...Default.args,
+    columns: 2, // Two columns for tablet
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'Repository grid as viewed on tablet devices. Uses a two-column layout that works well on medium-sized screens.',
+      },
+    },
+  },
+};
+
 export const TwoColumns: Story = {
   args: {
     repositories: mockRepositories,
@@ -117,11 +162,51 @@ export const Loading: Story = {
   },
 };
 
+/**
+ * Mobile view of the loading state
+ */
+export const LoadingMobile: Story = {
+  args: {
+    ...Loading.args,
+    columns: 1,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Loading state of the repository grid as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
 export const Empty: Story = {
   args: {
     repositories: [],
     columns: 3,
     gap: 24,
+  },
+};
+
+/**
+ * Mobile view of the empty state
+ */
+export const EmptyMobile: Story = {
+  args: {
+    ...Empty.args,
+    columns: 1,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Empty state of the repository grid as viewed on mobile devices.',
+      },
+    },
   },
 };
 
@@ -132,5 +217,25 @@ export const Error: Story = {
     onRetry: () => console.log('Retry clicked'),
     columns: 3,
     gap: 24,
+  },
+};
+
+/**
+ * Mobile view of the error state
+ */
+export const ErrorMobile: Story = {
+  args: {
+    ...Error.args,
+    columns: 1,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Error state of the repository grid as viewed on mobile devices.',
+      },
+    },
   },
 }; 

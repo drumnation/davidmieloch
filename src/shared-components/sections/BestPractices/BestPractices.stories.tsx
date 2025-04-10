@@ -25,4 +25,61 @@ export const Section: Story = {
   args: {
     id: 'best-practices',
   },
+};
+
+/**
+ * Desktop view of the BestPractices section.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Section.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'BestPractices section as viewed on desktop devices. Shows the complete layout with optimal spacing, multi-column grid, and full content presentation.',
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the BestPractices section.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Section.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'BestPractices section as viewed on mobile devices. Layout adapts to a single column with adjusted spacing, typography, and content organization for optimal mobile viewing.',
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the BestPractices section.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Section.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'BestPractices section as viewed on tablet devices. Shows the responsive behavior between mobile and desktop layouts with appropriate grid adjustments.',
+      },
+    },
+  },
 }; 

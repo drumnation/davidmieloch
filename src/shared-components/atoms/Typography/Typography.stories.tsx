@@ -52,6 +52,25 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Mobile view of the default typography
+ */
+export const DefaultMobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Default typography as viewed on mobile devices. Font sizes adjust for optimal readability on smaller screens.',
+      },
+    },
+  },
+};
+
 // All Variants Story
 export const AllVariants = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -62,6 +81,23 @@ export const AllVariants = () => (
     <Caption>Caption Text - 14px Regular</Caption>
   </div>
 );
+
+/**
+ * Mobile view of all typography variants
+ */
+export const AllVariantsMobile: Story = {
+  render: AllVariants,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'All typography variants as viewed on mobile devices. Font sizes scale down proportionally for smaller screens.',
+      },
+    },
+  },
+};
 
 // Colors Story
 export const Colors = () => (
@@ -75,6 +111,23 @@ export const Colors = () => (
   </div>
 );
 
+/**
+ * Mobile view of typography colors
+ */
+export const ColorsMobile: Story = {
+  render: Colors,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Typography color variations as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
 // Weights Story
 export const Weights = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -85,12 +138,48 @@ export const Weights = () => (
   </div>
 );
 
+/**
+ * Mobile view of typography weights
+ */
+export const WeightsMobile: Story = {
+  render: Weights,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Typography weight variations as viewed on mobile devices.',
+      },
+    },
+  },
+};
+
 // Individual variant stories
 export const Heading1: Story = {
   args: {
     variant: 'h1',
     children: 'Heading 1',
     weight: 'bold',
+  },
+};
+
+/**
+ * Mobile view of Heading1
+ */
+export const Heading1Mobile: Story = {
+  args: {
+    ...Heading1.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'H1 heading as viewed on mobile devices. Font size scales down for optimal display on smaller screens.',
+      },
+    },
   },
 };
 
@@ -102,10 +191,48 @@ export const Heading2: Story = {
   },
 };
 
+/**
+ * Mobile view of Heading2
+ */
+export const Heading2Mobile: Story = {
+  args: {
+    ...Heading2.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'H2 heading as viewed on mobile devices. Font size scales down for optimal display on smaller screens.',
+      },
+    },
+  },
+};
+
 export const Body1: Story = {
   args: {
     variant: 'body',
     children: 'Body 1 text with regular weight',
+  },
+};
+
+/**
+ * Mobile view of Body1
+ */
+export const Body1Mobile: Story = {
+  args: {
+    ...Body1.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Body text as viewed on mobile devices. Maintains readable font size for mobile content.',
+      },
+    },
   },
 };
 
@@ -117,11 +244,49 @@ export const Body2Secondary: Story = {
   },
 };
 
+/**
+ * Mobile view of Body2Secondary
+ */
+export const Body2SecondaryMobile: Story = {
+  args: {
+    ...Body2Secondary.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Secondary body text as viewed on mobile devices. Secondary color maintains proper contrast on smaller screens.',
+      },
+    },
+  },
+};
+
 export const CaptionText: Story = {
   args: {
     variant: 'caption',
     children: 'Caption text',
     color: 'secondary',
+  },
+};
+
+/**
+ * Mobile view of CaptionText
+ */
+export const CaptionTextMobile: Story = {
+  args: {
+    ...CaptionText.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Caption text as viewed on mobile devices. Remains legible at smaller sizes on mobile screens.',
+      },
+    },
   },
 };
 
@@ -133,11 +298,49 @@ export const OverlineText: Story = {
   },
 };
 
+/**
+ * Mobile view of OverlineText
+ */
+export const OverlineTextMobile: Story = {
+  args: {
+    ...OverlineText.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Overline text as viewed on mobile devices. All-caps formatting maintains clarity at mobile sizes.',
+      },
+    },
+  },
+};
+
 export const AccentText: Story = {
   args: {
     variant: 'body',
     children: 'Accent colored text',
     color: 'gradient',
+  },
+};
+
+/**
+ * Mobile view of AccentText
+ */
+export const AccentTextMobile: Story = {
+  args: {
+    ...AccentText.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Accent text with gradient color as viewed on mobile devices. Gradient effect scales appropriately for smaller screens.',
+      },
+    },
   },
 };
 
@@ -158,6 +361,23 @@ export const TypeScale: Story = {
       <Typography variant="caption" weight="medium">CAPTION - ALL CAPS LABEL TEXT</Typography>
     </StoryContainer>
   ),
+};
+
+/**
+ * Mobile view of the typography scale
+ */
+export const TypeScaleMobile: Story = {
+  render: TypeScale.render,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Complete typography scale as viewed on mobile devices. Shows how all text elements scale proportionally on smaller screens.',
+      },
+    },
+  },
 };
 
 // Responsive behavior story

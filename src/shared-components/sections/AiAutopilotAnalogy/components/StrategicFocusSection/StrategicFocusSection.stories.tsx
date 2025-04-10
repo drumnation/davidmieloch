@@ -66,4 +66,64 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {},
+};
+
+/**
+ * Desktop view of the Strategic Focus section.
+ * Shows the full-width grid with optimal spacing for desktop screens.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'StrategicFocusSection as viewed on desktop devices. Shows the feature grid with three columns and optimal spacing for larger screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Mobile view of the Strategic Focus section.
+ * On mobile, the FeatureGrid adjusts to a single column layout.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'StrategicFocusSection as viewed on mobile devices. The feature grid adapts to a single column layout for optimal viewing on smaller screens.'
+      },
+    },
+  },
+};
+
+/**
+ * Tablet view of the Strategic Focus section.
+ * On tablet, the FeatureGrid typically shows two columns.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Default.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'StrategicFocusSection as viewed on tablet devices. The feature grid adapts to a two-column layout for optimal viewing on medium-sized screens.'
+      },
+    },
+  },
 }; 

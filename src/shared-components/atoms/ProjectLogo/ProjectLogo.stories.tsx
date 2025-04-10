@@ -7,6 +7,11 @@ const meta: Meta<typeof ProjectLogo> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'ProjectLogo component with mobile-first design that adapts to different screen sizes. Provides consistent project branding with optional image or text fallback.',
+      },
+    },
   },
   argTypes: {
     name: { control: 'text' },
@@ -39,12 +44,50 @@ export const WithImage: Story = {
   },
 };
 
+/**
+ * Mobile view of logo with image
+ */
+export const WithImageMobile: Story = {
+  args: {
+    ...WithImage.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Project logo with image as viewed on mobile devices. The logo maintains appropriate sizing on smaller screens.',
+      },
+    },
+  },
+};
+
 // Example with fallback (no image)
 export const WithFallback: Story = {
   args: {
     name: 'Test Project',
     size: 64,
     showLabel: true,
+  },
+};
+
+/**
+ * Mobile view of logo with fallback
+ */
+export const WithFallbackMobile: Story = {
+  args: {
+    ...WithFallback.args,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Project logo with text fallback as viewed on mobile devices.',
+      },
+    },
   },
 };
 
@@ -107,6 +150,30 @@ export const LabelOnTop: Story = {
   },
 };
 
+/**
+ * Mobile view of different label positions
+ */
+export const LabelPositionsMobile: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      <ProjectLogo name="Bottom Label" size={48} showLabel labelPosition="bottom" />
+      <ProjectLogo name="Right Label" size={48} showLabel labelPosition="right" />
+      <ProjectLogo name="Left Label" size={48} showLabel labelPosition="left" />
+      <ProjectLogo name="Top Label" size={48} showLabel labelPosition="top" />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Different label positions as viewed on mobile devices. Shows how each position adapts to smaller screens.',
+      },
+    },
+  },
+};
+
 // Different sizes
 export const SmallSize: Story = {
   args: {
@@ -129,5 +196,37 @@ export const LargeSize: Story = {
     name: 'Large',
     size: 96,
     showLabel: true,
+  },
+};
+
+/**
+ * Mobile view of different logo sizes
+ */
+export const SizesMobile: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center' }}>
+      <div>
+        <p style={{ textAlign: 'center', marginBottom: '0.5rem' }}>Small (32px)</p>
+        <ProjectLogo name="Small" size={32} showLabel />
+      </div>
+      <div>
+        <p style={{ textAlign: 'center', marginBottom: '0.5rem' }}>Medium (64px)</p>
+        <ProjectLogo name="Medium" size={64} showLabel />
+      </div>
+      <div>
+        <p style={{ textAlign: 'center', marginBottom: '0.5rem' }}>Large (96px)</p>
+        <ProjectLogo name="Large" size={96} showLabel />
+      </div>
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'Different logo sizes as viewed on mobile devices. Shows how each size appears on smaller screens.',
+      },
+    },
   },
 }; 

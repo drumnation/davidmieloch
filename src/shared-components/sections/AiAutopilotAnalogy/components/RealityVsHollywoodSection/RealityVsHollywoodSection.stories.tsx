@@ -1,82 +1,72 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Typography } from '../../../../atoms/Typography';
 
-// Create a component to display Reality vs. Hollywood comparison
+// Create a component to compare AI reality vs Hollywood
 const RealityVsHollywoodSection = () => {
   const realityItems = [
-    { title: "Context-Dependent", description: "Today's AI tools are contextual assistants - the quality of output directly depends on the quality of input and context provided." },
-    { title: "Pattern Recognition", description: "AI excels at recognizing patterns in data and generating content similar to what it's been trained on." },
-    { title: "Non-Sentient", description: "Modern AI has no consciousness, desires, or understanding - it's a sophisticated pattern-matching system." },
-    { title: "Requires Guidance", description: "AI tools need strategic direction and quality checks from humans to be effectively utilized." }
+    {
+      title: "Tools, Not Replacement",
+      description: "AI provides decision support, data analysis, and process automation while humans maintain creative direction and final judgment.",
+    },
+    {
+      title: "Complementary Skills",
+      description: "AI excels at pattern recognition and data processing, while humans provide intuition, empathy, and ethical reasoning.",
+    },
+    {
+      title: "Constant Evolution",
+      description: "AI systems improve incrementally through ongoing training, feedback loops, and human oversight.",
+    },
   ];
-  
+
   const hollywoodItems = [
-    { title: "Magical Solution", description: "In movies, AI is often portrayed as a magical solution that can solve any problem with minimal human input." },
-    { title: "Human-Like Understanding", description: "Fiction portrays AI with human-like comprehension of nuance, emotions, and abstract concepts." },
-    { title: "Sentient or Conscious", description: "Hollywood AI typically has its own goals, desires, and often develops self-awareness." },
-    { title: "Autonomous Decision-Making", description: "Fictional AI makes complex decisions independently, without human oversight or intervention." }
+    {
+      title: "Sentient Beings",
+      description: "AI portrayed as self-aware entities with consciousness, emotions, and independent motivations.",
+    },
+    {
+      title: "Human Replacement",
+      description: "AI depicted as making humans obsolete through superior capabilities across all domains.",
+    },
+    {
+      title: "Sudden Emergence",
+      description: "AI gaining consciousness or capabilities 'overnight' through some breakthrough or accident.",
+    },
   ];
 
   return (
-    <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
       <Typography variant="h3" weight="bold" className="mb-4">
-        AI Reality vs. Hollywood Fiction
+        AI in Reality vs. Hollywood
       </Typography>
       
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-        {/* Reality Column */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px' }}>
         <div>
-          <Typography variant="h3" weight="bold" color="primary" className="mb-3">
-            Reality: AI Today
+          <Typography variant="heading4" weight="semibold" className="mb-4">
+            AI in Reality
           </Typography>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {realityItems.map((item, index) => (
-              <div 
-                key={index}
-                style={{
-                  padding: '16px',
-                  background: 'white',
-                  borderRadius: '8px',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
-                  borderLeft: '4px solid #4285F4'
-                }}
-              >
-                <Typography variant="h3" weight="bold" className="mb-2">
+              <div key={index} style={{ backgroundColor: '#f3f4f6', padding: '16px', borderRadius: '8px' }}>
+                <Typography variant="heading5" weight="semibold" className="mb-2">
                   {item.title}
                 </Typography>
-                <Typography variant="body">
-                  {item.description}
-                </Typography>
+                <Typography variant="body">{item.description}</Typography>
               </div>
             ))}
           </div>
         </div>
         
-        {/* Hollywood Column */}
         <div>
-          <Typography variant="h3" weight="bold" color="primary" className="mb-3">
-            Hollywood: AI Fiction
+          <Typography variant="heading4" weight="semibold" className="mb-4">
+            AI in Hollywood
           </Typography>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {hollywoodItems.map((item, index) => (
-              <div 
-                key={index}
-                style={{
-                  padding: '16px',
-                  background: 'white',
-                  borderRadius: '8px',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
-                  borderLeft: '4px solid #DB4437'
-                }}
-              >
-                <Typography variant="h3" weight="bold" className="mb-2">
+              <div key={index} style={{ backgroundColor: '#f3f4f6', padding: '16px', borderRadius: '8px' }}>
+                <Typography variant="heading5" weight="semibold" className="mb-2">
                   {item.title}
                 </Typography>
-                <Typography variant="body">
-                  {item.description}
-                </Typography>
+                <Typography variant="body">{item.description}</Typography>
               </div>
             ))}
           </div>
@@ -99,4 +89,58 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {},
+};
+
+/**
+ * Desktop view of the Reality vs Hollywood section.
+ * Shows the full two-column layout with optimal spacing.
+ */
+export const Desktop: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+    docs: {
+      description: {
+        story: 'Desktop view showing the Reality vs Hollywood comparison with a two-column layout optimized for larger screens.'
+      }
+    }
+  }
+};
+
+/**
+ * Mobile view of the Reality vs Hollywood section.
+ * On mobile, the grid changes to a single column layout.
+ */
+export const Mobile: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    docs: {
+      description: {
+        story: 'On mobile devices, the comparison grid changes to a single column layout with AI Reality section displayed first, followed by the Hollywood section.'
+      }
+    }
+  }
+};
+
+/**
+ * Tablet view of the Reality vs Hollywood section.
+ * Maintains the two-column layout but with adjusted spacing.
+ */
+export const Tablet: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    docs: {
+      description: {
+        story: 'On tablet devices, the two-column layout is maintained but with adjusted spacing and padding to fit the screen size.'
+      }
+    }
+  }
 }; 
