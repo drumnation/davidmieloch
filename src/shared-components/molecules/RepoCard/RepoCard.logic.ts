@@ -46,7 +46,9 @@ export const formatDate = (dateString: string): string => {
     timeAgo = 'today';
   }
   
-  return `${formattedDate} (${timeAgo})`;
+  // Insert a non-breaking space after the date and wrap the relative time in its own span
+  // This will allow line breaks to occur between the date and the relative time
+  return `${formattedDate}\u00A0\u200B(${timeAgo})`;
 };
 
 export const truncateDescription = (description: string, maxLength: number = 150): string => {

@@ -81,7 +81,7 @@ export const Description = styled.p<{ $isCompact?: boolean }>`
 
 export const Footer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   margin-top: auto;
 `;
@@ -124,6 +124,8 @@ export const LastUpdated = styled.div`
   line-height: 1.4;
   display: flex;
   flex-direction: column;
+  text-align: right;
+  min-width: 170px; /* Ensure consistent width for alignment */
   
   /* Add some separation between items when there are multiple dates */
   > span {

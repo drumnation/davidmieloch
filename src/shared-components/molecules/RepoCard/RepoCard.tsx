@@ -50,6 +50,68 @@ export const RepoCard: React.FC<RepoCardProps> = ({
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  // Format dates with DOM elements to allow proper line breaks
+  const renderFormattedDate = (dateString: string, label: string) => {
+    const date = new Date(dateString);
+    
+    // Just in case we get an invalid date
+    if (isNaN(date.getTime())) {
+      return <span>{label}: Unknown date</span>;
+    }
+    
+    // Format as "Month Day, Year"
+    const options: Intl.DateTimeFormatOptions = { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    };
+    
+    const formattedDate = date.toLocaleDateString('en-US', options);
+    
+    // Calculate relative time string
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const diffWeeks = Math.floor(diffDays / 7);
+    const diffMonths = (now.getMonth() - date.getMonth()) + 
+                       (now.getFullYear() - date.getFullYear()) * 12;
+    const diffYears = now.getFullYear() - date.getFullYear();
+    
+    // Adjust year difference if the anniversary hasn't occurred yet
+    let adjustedYearDiff = diffYears;
+    if (now.getMonth() < date.getMonth() || 
+        (now.getMonth() === date.getMonth() && now.getDate() < date.getDate())) {
+      adjustedYearDiff--;
+    }
+    
+    // Format the time ago based on the most appropriate unit
+    let timeAgo = '';
+    if (adjustedYearDiff > 0) {
+      timeAgo = `${adjustedYearDiff} ${adjustedYearDiff === 1 ? 'year' : 'years'} ago`;
+    } else if (diffMonths > 0) {
+      timeAgo = `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
+    } else if (diffWeeks > 0) {
+      timeAgo = `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
+    } else if (diffDays > 0) {
+      timeAgo = `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
+    } else {
+      timeAgo = 'today';
+    }
+    
+    // Return the date with label and time ago, allowing line breaks in specific places
+    return (
+      <span>
+        <span style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <span>{label}: </span>
+          <span style={{ whiteSpace: 'nowrap', marginLeft: '4px' }}>{formattedDate}</span>
+        </span>
+        <span style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <span style={{ whiteSpace: 'nowrap' }}>({timeAgo})</span>
+        </span>
+      </span>
+    );
+  };
+
   return (
     <Card 
       $isCompact={isCompact} 
@@ -98,8 +160,8 @@ export const RepoCard: React.FC<RepoCardProps> = ({
             {issues > 0 && <Badge count={issues} variant="issues" size="sm" />}
           </Stats>
           <LastUpdated>
-            {createdAt && <span>Created: {formatDate(createdAt)}</span>}
-            {lastUpdated && <span>Updated: {formatDate(lastUpdated)}</span>}
+            {createdAt && renderFormattedDate(createdAt, 'Created')}
+            {lastUpdated && renderFormattedDate(lastUpdated, 'Updated')}
           </LastUpdated>
         </Footer>
       </MetaInfo>
