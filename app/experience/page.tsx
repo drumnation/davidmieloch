@@ -6,7 +6,7 @@ import { LoadingPortal } from '../../src/components';
 
 // Dynamically import the Experience component with no SSR to prevent hydration issues
 const Experience = dynamic(
-  () => import('../../src/shared-components/sections/Experience/Experience').then(mod => mod.default), 
+  () => import('../../src/shared-components/pages/Experience/Experience/Experience').then(mod => mod.default), 
   { 
     ssr: false,
     loading: () => null

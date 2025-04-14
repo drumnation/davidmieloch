@@ -1,5 +1,5 @@
 import { ExperienceItem } from './ExperienceSection.types';
-import { CustomIcon } from '../../../RealWorldImpact/RealWorldImpact.logic';
+import { CustomIcon } from '../../../../../sections/RealWorldImpact/RealWorldImpact.logic';
 
 export const SECTION_TITLE = 'Professional Experience';
 

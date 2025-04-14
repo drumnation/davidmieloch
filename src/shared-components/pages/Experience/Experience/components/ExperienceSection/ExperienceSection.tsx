@@ -23,9 +23,9 @@ import {
 import { ExperienceSectionProps, ExperienceItem as ExperienceItemType, MediaItem } from './ExperienceSection.types'; // Renamed ExperienceItem to avoid conflict
 import { stringToColor, LetterAvatar } from '../../utils/avatarHelpers';
 import { OLDER_EXPERIENCE } from './ExperienceSection.constants';
-import { MarkdownRenderer } from '../../../../molecules/MarkdownRenderer';
-import { FoldableContent } from '../../../../molecules/FoldableContent';
-import { TechIcon } from '../../../../atoms/TechIcon';
+import { MarkdownRenderer } from '../../../../../molecules/MarkdownRenderer/index';
+import { FoldableContent } from '../../../../../molecules/FoldableContent/index';
+import { TechIcon } from '../../../../../atoms/TechIcon/index';
 // Import icons for bullet points
 import {
   FaCode, FaDatabase, FaCloud, FaUsers, FaTools, FaChartLine,

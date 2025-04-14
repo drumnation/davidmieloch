@@ -4,10 +4,10 @@ import { FaGlobe, FaGithub, FaChevronDown } from 'react-icons/fa';
 import { PROJECT_CATEGORIES, SECTION_TITLE, SIDE_PROJECTS } from './SideProjectsSection.constants';
 import { SideProject, SideProjectsSectionProps } from './SideProjectsSection.types';
 import * as S from './SideProjectsSection.styles';
-import { TechIcon } from '../../../../atoms/TechIcon';
-import { ProjectLogo } from '../../../../atoms/ProjectLogo';
+import { TechIcon } from '../../../../../atoms/TechIcon/index';
+import { ProjectLogo } from '../../../../../atoms/ProjectLogo/index';
 import { MediaItem } from '../../Experience.types';
-import { MarkdownRenderer } from '../../../../molecules/MarkdownRenderer';
+import { MarkdownRenderer } from '../../../../../molecules/MarkdownRenderer/index';
 
 export const SideProjectsSection: React.FC<SideProjectsSectionProps> = ({ 
   projects = SIDE_PROJECTS, 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { SkillsSection } from './components/SkillsSection';
-import { SideProjectsSection } from './components/SideProjectsSection';
-import { TechIcon } from '../../atoms/TechIcon';
+import { SkillsSection } from './components/SkillsSection/index';
+import { SideProjectsSection } from './components/SideProjectsSection/index';
+import { TechIcon } from '../../../atoms/TechIcon/index';
 import { 
   SKILL_CATEGORIES, 
   ADDITIONAL_SKILL_CATEGORIES, 

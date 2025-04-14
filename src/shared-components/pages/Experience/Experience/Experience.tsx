@@ -7,7 +7,7 @@ import {
   fadeIn
 } from './Experience.styles';
 import { ExperienceProps } from './Experience.types';
-import { TransitionDiv, TransitionContainer } from '../../../utils/animations/migration-helpers';
+import { TransitionDiv, TransitionContainer } from '../../../../utils/animations/migration-helpers';
 
 // Import our subcomponents
 import { 
@@ -16,7 +16,7 @@ import {
   EducationSection, 
   SkillsSection,
   SideProjectsSection
-} from './components';
+} from './components/index';
 
 // Import constants
 import { PROFILE } from './components/ProfileSection/ProfileSection.constants';
