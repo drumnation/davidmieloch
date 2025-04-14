@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Loader } from 'lucide-react';
 import { GitHubPortfolioTemplateProps } from './GitHubPortfolioTemplate.types';
-import { SearchInput } from '../../molecules/SearchInput';
-import { FilterBar } from '../../organisms/FilterBar';
-import { RepoGrid } from '../../organisms/RepoGrid';
+import { SearchInput } from '../../../../molecules/SearchInput';
+import { FilterBar } from '../../../../organisms/FilterBar';
+import { RepoGrid } from '../../../../organisms/RepoGrid';
 import {
   Container,
   Header,

@@ -1,4 +1,4 @@
-import { Filter } from '../../organisms/FilterBar';
+import { Filter } from '../../../../organisms/FilterBar';
 
 export interface Repository {
   id: string;

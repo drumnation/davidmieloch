@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { GitHubPortfolioTemplate } from '@/shared-components/templates/GitHubPortfolioTemplate';
+import { GitHubPortfolioTemplate } from '@/shared-components/pages/CodeExamples/components/GitHubPortfolioTemplate';
 import { fetchGitHubRepos, transformGitHubRepo } from './utils/github';
 
 interface Repository {
