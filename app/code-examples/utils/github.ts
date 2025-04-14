@@ -55,6 +55,8 @@ const INCLUDED_REPOS = [
   'browser-use-cli',
   'cursor-directory-structure-ts',
   'game-sage',
+  'unsplash-smart-mcp-server',
+  'ts-import-move',
   'react-native-cross-platform-responsive-dimensions',
   'react-native-reactjs-quiz-challenges',
   'spotify-js-bindings',
@@ -65,7 +67,7 @@ const INCLUDED_REPOS = [
 ];
 
 // Higher priority repositories to display first
-const PRIORITY_REPOS = ['game-sage', 'cursor-directory-structure-ts'];
+const PRIORITY_REPOS = ['game-sage', 'cursor-directory-structure-ts', 'unsplash-smart-mcp-server', 'ts-import-move'];
 
 // Manual date overrides for repositories with incorrect GitHub API dates
 const UPDATE_DATE_OVERRIDES: Record<string, string> = {

@@ -21,7 +21,7 @@ interface Repository {
 }
 
 // Priority repositories to display first
-const PRIORITY_REPOS = ['game-sage', 'cursor-directory-structure-ts'];
+const PRIORITY_REPOS = ['game-sage', 'cursor-directory-structure-ts', 'unsplash-smart-mcp-server', 'ts-import-move'];
 
 // Fallback repositories in case GitHub API fails
 const FALLBACK_REPOS: Repository[] = [
@@ -52,6 +52,34 @@ const FALLBACK_REPOS: Repository[] = [
     lastUpdated: '2024-03-01T12:00:00Z',
     isPrivate: false,
     topics: ['typescript', 'ai', 'gemini', 'developer-tools'],
+  },
+  {
+    id: 'unsplash-smart-mcp-server',
+    name: 'unsplash-smart-mcp-server',
+    description: 'AI-powered FastMCP server for intelligent stock photo search, download, and attribution management from Unsplash.',
+    url: 'https://github.com/drumnation/unsplash-smart-mcp-server',
+    language: 'TypeScript',
+    stars: 3,
+    forks: 0,
+    issues: 1,
+    createdAt: '2024-04-01T12:00:00Z',
+    lastUpdated: '2024-06-15T12:00:00Z',
+    isPrivate: false,
+    topics: ['typescript', 'ai', 'unsplash', 'images', 'mcp'],
+  },
+  {
+    id: 'ts-import-move',
+    name: 'ts-import-move',
+    description: 'TypeScript utility for automatically updating import paths when moving or renaming files or directories.',
+    url: 'https://github.com/drumnation/ts-import-move',
+    language: 'TypeScript',
+    stars: 0,
+    forks: 0,
+    issues: 0,
+    createdAt: '2024-02-01T12:00:00Z',
+    lastUpdated: '2024-05-01T12:00:00Z',
+    isPrivate: false,
+    topics: ['typescript', 'developer-tools', 'refactoring', 'imports'],
   },
   {
     id: 'ts-hot-react-vscode-starter',
