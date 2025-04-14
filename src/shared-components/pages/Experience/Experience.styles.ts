@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-import { AnimationVariants } from '../../../../utils/animations/migration-helpers';
+import { AnimationVariants } from '../../../utils/animations/migration-helpers';
 
 // Global styles for the Experience component
 export const GlobalStyles = createGlobalStyle`

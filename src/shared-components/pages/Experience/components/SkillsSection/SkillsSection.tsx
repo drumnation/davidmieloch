@@ -9,7 +9,7 @@ import {
   SkillTag 
 } from './SkillsSection.styles';
 import { SkillsSectionProps } from './SkillsSection.types';
-import { TechIcon } from '../../../../../atoms/TechIcon/index';
+import { TechIcon } from '../../../../../shared-components/atoms/TechIcon/index';
 
 // Map of Tabler icon names to corresponding technology names that TechIcon supports
 const ICON_TO_TECH_MAP: Record<string, string> = {
