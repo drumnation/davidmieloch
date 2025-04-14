@@ -9,7 +9,7 @@ console.log('Loading fullstack-react-best-practices-integration page');
 
 // Dynamically import the BestPractices component with no SSR to prevent hydration issues
 const BestPractices = dynamic(
-  () => import('../../src/shared-components/sections/BestPractices'), 
+  () => import('../../src/shared-components/pages/BestPractices'), 
   { 
     ssr: false,
     loading: () => null, // Return null in the loading function

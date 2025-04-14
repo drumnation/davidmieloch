@@ -1,2 +1,2 @@
-export { BestPractices } from './BestPractices';
-export type { BestPracticesProps } from './BestPractices.types'; 
+export * from './BestPractices';
+export { default } from './BestPractices'; 

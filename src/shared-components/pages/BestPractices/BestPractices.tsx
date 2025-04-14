@@ -1,52 +1,88 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
-import { BestPractices as BestPracticesSection } from '../../sections/BestPractices';
-import { LetsWorkTogether } from '../../sections/BestPractices/subcomponents/LetsWorkTogether';
-import type { BestPracticesProps } from '@/shared-components/pages/BestPractices/BestPractices.types';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
+import { Hero } from '../../organisms/Hero';
+import { 
+  ContentSection,
+  ContentContainer,
+  Container,
+  GlobalStyles,
+  PageSeparator
+} from './BestPractices.styles';
+import { BestPracticesProps } from './BestPractices.types';
+import { PRACTICE_CATEGORIES } from './BestPractices.constants';
+import { renderCategory } from './BestPractices.logic';
+import { DetailedContent } from './components/DetailedContent/DetailedContent';
+import {
+  Categories,
+  Conclusion,
+  LetsWorkTogether
+} from './components';
 
-// Animation variants
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1,
-    transition: { 
-      duration: 0.8,
-      ease: "easeOut"
+export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practices', className }) => {
+  const [isVisible, setIsVisible] = useState(true);
+  const contentRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { rootMargin: "-100px", threshold: 0.1 }
+    );
+    
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
     }
-  }
-};
+    
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+    };
+  }, []);
+  
+  // Hero props
+  const heroProps = {
+    title: "Best Practices",
+    subtitle: "Modern Enterprise Approaches for Fullstack React and React Native Development",
+    background: 'image' as const,
+    backgroundImage: '/monitors.jpg',
+    pattern: 'none' as const,
+    textColor: 'light' as const,
+    animation: 'fade-up' as const,
+    className: 'best-practices-hero',
+    initialAnimation: 'visible' as 'visible' | 'hidden',
+    overlay: true,
+    overlayOpacity: 0.6
+  };
 
-// Create a motion div component
-const MotionDiv = motion.div;
+  const categories = useMemo(() => {
+    return PRACTICE_CATEGORIES.map((category, index) => renderCategory(category, index));
+  }, []);
 
-// Create a wrapper component that adds padding at the bottom to prevent content from being covered by the music player
-const PageWrapper = styled(MotionDiv)`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  /* Add a margin and padding at the bottom to prevent content from being covered by the music player */
-  margin-bottom: 90px; /* Height of the music player + extra space */
-`;
-
-export const BestPractices: React.FC<BestPracticesProps> = ({
-  className,
-  id = 'best-practices',
-}) => {
   return (
-    <PageWrapper 
-      className={className}
-      initial="hidden"
-      animate="visible"
-      variants={fadeIn}
-    >
-      <BestPracticesSection id={id} />
-      <LetsWorkTogether className="lets-work-together-section" />
-    </PageWrapper>
+    <Container id={id} className={className}>
+      <GlobalStyles />
+      
+      <Hero {...heroProps} />
+      
+      <ContentSection 
+        ref={contentRef}
+        className={`best-practices-content-section ${isVisible ? 'visible' : ''}`}
+      >
+        <ContentContainer className="best-practices-content-container">
+          <DetailedContent />
+          <PageSeparator />
+          <Categories categories={categories} />
+          <Conclusion />
+          <LetsWorkTogether />
+        </ContentContainer>
+      </ContentSection>
+    </Container>
   );
 };
 
-export default BestPractices;
+export default BestPractices; 
