@@ -1,45 +1,72 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Bio as BioSection } from '../../sections/Bio';
-import type { BioPageProps } from './Bio.types';
+import React, { useEffect, useState } from 'react';
+import { Hero } from '../../organisms/Hero';
+import { 
+  BioContainer, 
+  ContentSection,
+  ContentContainer,
+  fadeIn,
+  staggerContainer,
+  GlobalStyles
+} from './Bio.styles';
+import { BioPageProps } from './Bio.types';
+import { TransitionDiv, TransitionContainer } from '../../../utils/animations/migration-helpers';
 
-// Animation variants
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1,
-    transition: { 
-      duration: 0.8,
-      ease: "easeOut"
-    }
-  }
-};
+// Import components
+import BioIntro from './components/BioIntro';
+import TechnicalExpertise from './components/TechnicalExpertise';
+import FeaturedMedia from './components/FeaturedMedia';
+import Testimonials from './components/Testimonials';
 
-// Create a motion div component
-const MotionDiv = motion.div;
+export const BioPage: React.FC<BioPageProps> = ({ id = 'bio', className }) => {
+  const [isVisible, setIsVisible] = useState(true);
+  
+  // Use useEffect to trigger animations after mount
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
-export const BioPage: React.FC<BioPageProps> = ({
-  className,
-  id = 'bio',
-}) => {
+  // Hero props
+  const heroProps = {
+    title: "David Mieloch",
+    subtitle: "Orchestrating Code with Rhythmic Precision",
+    background: 'image' as const,
+    backgroundImage: '/orchestra.jpg',
+    backgroundOverlay: true,
+    overlayOpacity: 0.6,
+    pattern: 'none' as const,
+    textColor: 'light' as const,
+    animation: 'fade-up' as const,
+    className: 'bio-hero-bg'
+  };
+
   return (
-    <MotionDiv 
-      className={className}
-      initial="hidden"
-      animate="visible"
-      variants={fadeIn}
-      style={{ 
-        width: '100%', 
-        display: 'flex', 
-        flexDirection: 'column',
-        alignItems: 'stretch'
-      }}
-    >
-      <BioSection id={id} />
-      {/* Additional sections can be added here if needed */}
-    </MotionDiv>
+    <BioContainer id={id} className={className}>
+      <GlobalStyles />
+      
+      {/* Hero Section */}
+      <Hero {...heroProps} />
+      
+      {/* Content Section with White Background */}
+      <TransitionDiv
+        variants={fadeIn}
+        animate="visible"
+        initial="visible"
+        className="bio-content-section"
+        style={{ opacity: 1 }}
+      >
+        <TransitionContainer
+          className="bio-content-container"
+          style={{ opacity: 1 }}
+        >
+          <BioIntro />
+          <FeaturedMedia />
+          <Testimonials />
+          <TechnicalExpertise />
+        </TransitionContainer>
+      </TransitionDiv>
+    </BioContainer>
   );
 };
 

@@ -6,7 +6,7 @@ import { LoadingPortal } from '../../src/components';
 
 // Dynamically import the Bio component with no SSR to prevent hydration issues
 const Bio = dynamic(
-  () => import('../../src/shared-components/sections/Bio/Bio').then(mod => mod.default), 
+  () => import('../../src/shared-components/pages/Bio/Bio').then(mod => mod.default), 
   { 
     ssr: false,
     loading: () => null
