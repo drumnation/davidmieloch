@@ -1,6 +1,5 @@
-import React, { CSSProperties, ReactElement } from 'react';
+import React, { CSSProperties } from 'react';
 import { SpringValue, useSpring, animated, to } from '@react-spring/web';
-import { safeSpringToCss } from './spring-debug';
 
 // Type definitions for animation variants
 export interface AnimationVariant {
@@ -9,7 +8,16 @@ export interface AnimationVariant {
   y?: number;
   scale?: number;
   rotate?: number;
-  [key: string]: any;
+  transition?: {
+    duration?: number;
+    ease?: string;
+    staggerChildren?: number;
+    type?: string;
+    delayChildren?: number;
+    stiffness?: number;
+    damping?: number;
+  };
+  [key: string]: unknown;
 }
 
 // Main interface for animation variants
@@ -107,7 +115,7 @@ export const useVariantSpring = (
  *   Bad:  <div style={springToCss(spring)}>
  *   Good: <animated.div style={spring}>
  */
-export const springToCss = (springStyles: Record<string, any>) => {
+export const springToCss = () => {
   // Safety check for SSR
   if (typeof window === 'undefined') return {};
   
@@ -117,7 +125,7 @@ export const springToCss = (springStyles: Record<string, any>) => {
       'Use <animated.div> components instead. ' +
       'Stack trace:', new Error().stack
     );
-  } catch (e) {
+  } catch {
     // Ignore errors in warning
   }
   
@@ -137,7 +145,7 @@ export const springToCss = (springStyles: Record<string, any>) => {
  * After:  <SafeAnimated style={spring}>Content</SafeAnimated>
  */
 export const SafeAnimated: React.FC<{
-  style: Record<string, any>;
+  style: Record<string, unknown>;
   className?: string;
   id?: string;
   children: React.ReactNode;
@@ -168,7 +176,7 @@ class ErrorBoundary extends React.Component<{
     return { hasError: true };
   }
 
-  componentDidCatch(error: any) {
+  componentDidCatch(error: unknown) {
     console.error('Animation error caught by boundary:', error);
   }
 
@@ -207,14 +215,12 @@ export const AnimatedSpringDiv: React.FC<{
 // Create a CSS transition component that mimics Framer Motion's motion components
 export const TransitionDiv: React.FC<{
   variants?: AnimationVariantsRecord;
-  initial?: string;
   animate?: string;
   children: React.ReactNode;
   className?: string;
   style?: CSSProperties;
 }> = ({ 
   variants, 
-  initial = 'hidden', 
   animate = 'visible', 
   children, 
   className, 

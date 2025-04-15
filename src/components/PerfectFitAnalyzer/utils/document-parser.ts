@@ -25,7 +25,7 @@ console.log('PDF.js worker configured:', {
 export enum DocumentType {
   PDF = 'pdf',
   DOCX = 'docx',
-  TEXT = 'text',
+  TEXT = 'txt',
   UNKNOWN = 'unknown'
 }
 
@@ -36,7 +36,7 @@ export interface ParseResult {
   text: string;
   type: DocumentType;
   error?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 /**
@@ -56,6 +56,36 @@ const DEFAULT_OPTIONS: ParseOptions = {
   startPage: 1,
   metadata: false
 };
+
+/**
+ * Metadata for a parsed document
+ */
+export interface DocumentMetadata {
+  filename: string;
+  filesize: number;
+  type: DocumentType;
+  lastModified: string;
+}
+
+/**
+ * Represents a successfully parsed document
+ */
+export interface ParsedDocument {
+  text: string;
+  metadata: DocumentMetadata;
+  type: DocumentType;
+}
+
+/**
+ * Represents a text item in a PDF document
+ */
+interface PDFTextItem {
+  str: string;
+  transform: number[];
+  width?: number;
+  height?: number;
+  fontName?: string;
+}
 
 /**
  * Detects the document type from file object
@@ -159,18 +189,22 @@ export async function parsePdf(file: File, options: ParseOptions = DEFAULT_OPTIO
         // Improved text item extraction with position awareness
         // Sort text items by vertical position, then horizontal
         const sortedItems = [...textContent.items]
-          .filter(item => 'str' in item && (item as any).str.trim().length > 0)
+          .filter(item => 'str' in item && item.str.trim().length > 0)
           .sort((a, b) => {
-            const aY = 'transform' in a ? (a as any).transform[5] : 0;
-            const bY = 'transform' in b ? (b as any).transform[5] : 0;
+            // Cast the items to our interface
+            const aItem = a as PDFTextItem;
+            const bItem = b as PDFTextItem;
+            
+            const aY = aItem.transform[5];
+            const bY = bItem.transform[5];
             const yDiff = bY - aY; // Note: PDF coordinates start from bottom left
             
             if (Math.abs(yDiff) > 5) { // If items are in different lines
               return yDiff;
             } else {
               // Same line, sort by x coordinate
-              const aX = 'transform' in a ? (a as any).transform[4] : 0;
-              const bX = 'transform' in b ? (b as any).transform[4] : 0;
+              const aX = aItem.transform[4];
+              const bX = bItem.transform[4];
               return aX - bX;
             }
           });
@@ -181,8 +215,9 @@ export async function parsePdf(file: File, options: ParseOptions = DEFAULT_OPTIO
         
         for (const item of sortedItems) {
           if ('str' in item && 'transform' in item) {
-            const itemText = (item as any).str;
-            const y = (item as any).transform[5];
+            const pdfItem = item as PDFTextItem;
+            const itemText = pdfItem.str;
+            const y = pdfItem.transform[5];
             
             // If we're on a new line
             if (lastY !== -1 && Math.abs(y - lastY) > 5) {
@@ -205,7 +240,7 @@ export async function parsePdf(file: File, options: ParseOptions = DEFAULT_OPTIO
           console.log('Using fallback text extraction method');
           fullText = textContent.items
             .filter(item => 'str' in item)
-            .map(item => 'str' in item ? (item as any).str : '')
+            .map(item => (item as PDFTextItem).str)
             .join(' ');
         }
       } catch (pageErr) {
@@ -262,32 +297,31 @@ export async function parsePdf(file: File, options: ParseOptions = DEFAULT_OPTIO
 }
 
 /**
- * Parses a DOCX document and extracts its text content
- * @param file DOCX file to parse
- * @param options Parsing options
- * @returns Promise resolving to ParseResult
+ * Parse a DOCX file
+ * @param file File object
+ * @returns Parsed document
  */
-export async function parseDocx(file: File, options: ParseOptions = DEFAULT_OPTIONS): Promise<ParseResult> {
+export async function parseDocx(file: File): Promise<ParseResult> {
   try {
     const arrayBuffer = await file.arrayBuffer();
-    
-    // Convert DOCX to HTML
-    const result = await mammoth.extractRawText({
-      arrayBuffer: arrayBuffer
-    });
+    const result = await mammoth.extractRawText({ arrayBuffer });
     
     return {
       text: cleanText(result.value),
-      type: DocumentType.DOCX,
-      // Include any warnings
-      metadata: options.metadata ? { warnings: result.messages } : undefined
+      metadata: {
+        filename: file.name,
+        filesize: file.size,
+        type: DocumentType.DOCX,
+        lastModified: new Date(file.lastModified).toISOString(),
+      },
+      type: DocumentType.DOCX
     };
   } catch (error) {
     console.error('Error parsing DOCX:', error);
     return {
       text: '',
       type: DocumentType.DOCX,
-      error: error instanceof Error ? error.message : 'Unknown error parsing DOCX'
+      error: error instanceof Error ? error.message : String(error)
     };
   }
 }
@@ -328,14 +362,15 @@ export async function parseDocument(file: File, options: ParseOptions = DEFAULT_
     case DocumentType.PDF:
       return parsePdf(file, options);
     case DocumentType.DOCX:
-      return parseDocx(file, options);
+      return parseDocx(file);
     case DocumentType.TEXT:
       return parseText(file);
     default:
       // For unknown types, attempt to parse as text
       try {
-        return await parseText(file);
-      } catch (error) {
+        const result = await parseText(file);
+        return result;
+      } catch {
         return {
           text: '',
           type: DocumentType.UNKNOWN,
@@ -354,12 +389,12 @@ export function cleanText(text: string): string {
   if (!text) return '';
   
   return text
-    // Normalize whitespace
-    .replace(/\s+/g, ' ')
+    // Trim leading/trailing whitespace first
+    .trim()
+    // Replace multiple spaces with a single space
+    .replace(/[ \t]+/g, ' ')
     // Remove excessive newlines (keeping max 2)
-    .replace(/\n{3,}/g, '\n\n')
-    // Trim leading/trailing whitespace
-    .trim();
+    .replace(/\n{3,}/g, '\n\n');
 }
 
 /**

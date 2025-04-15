@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, HTMLMotionProps, Variants, AnimationControls, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useSsrSafeAnimation, createSsrSafeVariants, MotionSafe } from './ssr-safe';
 
 /**
@@ -153,7 +153,7 @@ export function useFramerSpring(initialValues: Record<string, number>) {
   // Initial setup
   React.useEffect(() => {
     controls.set(initialValues);
-  }, []);
+  }, [controls, initialValues]);
   
   return {
     controls,
@@ -171,7 +171,7 @@ export function useAnimationSequence() {
   
   // Create a sequence of animations
   const sequence = async (animations: Array<{
-    values: Record<string, any>;
+    values: Record<string, unknown>;
     options?: { delay?: number; duration?: number };
   }>) => {
     for (const anim of animations) {

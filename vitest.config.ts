@@ -1,33 +1,47 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-
 import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
 
-import { storybookTest } from '@storybook/experimental-addon-test/vitest-plugin';
-
-const dirname =
-  typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
-
-// More info at: https://storybook.js.org/docs/writing-tests/test-addon
 export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, './src/components'),
+      '@shared-components': path.resolve(__dirname, './src/shared-components'),
+      '@styles': path.resolve(__dirname, './src/styles'),
+      '@utils': path.resolve(__dirname, './src/utils'),
+      '@types': path.resolve(__dirname, './src/types'),
+      '@store': path.resolve(__dirname, './src/store'),
+      '@providers': path.resolve(__dirname, './src/providers'),
+      '@data': path.resolve(__dirname, './src/data'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+      '@contexts': path.resolve(__dirname, './src/contexts'),
+    },
+  },
   test: {
     workspace: [
+      // Dedicated workspace for component tests (non-Storybook)
       {
         extends: true,
-        plugins: [
-          // The plugin will run tests for the stories defined in your Storybook config
-          // See options at: https://storybook.js.org/docs/writing-tests/test-addon#storybooktest
-          storybookTest({ configDir: path.join(dirname, '.storybook') }),
-        ],
         test: {
-          name: 'storybook',
-          browser: {
-        enabled: true,
-        headless: true,
-        name: 'chromium',
-        provider: 'playwright'
+          name: 'components',
+          include: ['src/**/*.test.{ts,tsx}'],
+          exclude: ['src/**/*.snapshot.test.{ts,tsx}'],
+          environment: 'jsdom',
+          globals: true,
+          setupFiles: ['.storybook/utils/vitest-setup.ts'],
+        },
       },
-          setupFiles: ['.storybook/vitest.setup.ts'],
+      // Dedicated workspace for snapshot tests
+      {
+        extends: true,
+        test: {
+          name: 'snapshots',
+          include: ['src/**/*.test.{ts,tsx}'],
+          environment: 'jsdom',
+          globals: true,
+          setupFiles: ['.storybook/utils/vitest-setup.ts'],
         },
       },
     ],

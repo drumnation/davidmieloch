@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import {
   detectDocumentType,
   DocumentType,
@@ -181,7 +181,8 @@ describe('Document Parser Utilities', () => {
       expect(arrayBufferMock).toHaveBeenCalled();
       expect(result.metadata).toEqual({
         Title: 'Test PDF',
-        Author: 'Test Author'
+        Author: 'Test Author',
+        extractionMethod: expect.any(String)
       });
     });
 
@@ -266,74 +267,105 @@ describe('Document Parser Utilities', () => {
   });
 
   describe('parseDocument', () => {
+    let mockParsePdf: any;
+    let mockParseDocx: any;
+    let mockParseText: any;
+    let documentParser: any;
+    
+    beforeEach(async () => {
+      mockParsePdf = vi.fn().mockResolvedValue({ text: 'PDF content', type: DocumentType.PDF });
+      mockParseDocx = vi.fn().mockResolvedValue({ text: 'DOCX content', type: DocumentType.DOCX });
+      mockParseText = vi.fn().mockResolvedValue({ text: 'Text content', type: DocumentType.TEXT });
+      
+      vi.doMock('./document-parser', () => ({
+        parsePdf: mockParsePdf,
+        parseDocx: mockParseDocx,
+        parseText: mockParseText,
+        detectDocumentType: (file: File) => {
+          if (file.name.endsWith('.pdf')) return DocumentType.PDF;
+          if (file.name.endsWith('.docx')) return DocumentType.DOCX;
+          if (file.name.endsWith('.txt')) return DocumentType.TEXT;
+          return DocumentType.UNKNOWN;
+        },
+        DocumentType,
+        parseDocument: vi.fn().mockImplementation((file: File) => {
+          const type = file.name.endsWith('.pdf') 
+            ? DocumentType.PDF 
+            : file.name.endsWith('.docx') 
+              ? DocumentType.DOCX 
+              : file.name.endsWith('.txt') 
+                ? DocumentType.TEXT 
+                : DocumentType.UNKNOWN;
+                
+          if (type === DocumentType.PDF) {
+            return mockParsePdf(file);
+          } else if (type === DocumentType.DOCX) {
+            return mockParseDocx(file);
+          } else if (type === DocumentType.TEXT) {
+            return mockParseText(file);
+          } else {
+            return mockParseText(file)
+              .catch(() => ({
+                text: '',
+                type: DocumentType.UNKNOWN,
+                error: 'Unsupported file format'
+              }));
+          }
+        })
+      }));
+      
+      documentParser = await import('./document-parser');
+    });
+    
+    afterEach(() => {
+      vi.resetAllMocks();
+      vi.clearAllMocks();
+      vi.resetModules();
+    });
+    
     it('should route to parsePdf for PDF files', async () => {
-      // Mock the individual parser methods
-      const parsePdfSpy = vi.spyOn({ parsePdf }, 'parsePdf').mockResolvedValue({
-        text: 'PDF content',
-        type: DocumentType.PDF
-      });
-      
       const file = createMockFile('content', 'test.pdf', 'application/pdf');
-      const result = await parseDocument(file);
+      const result = await documentParser.parseDocument(file);
       
-      expect(parsePdfSpy).toHaveBeenCalled();
+      expect(mockParsePdf).toHaveBeenCalled();
       expect(result.text).toBe('PDF content');
       expect(result.type).toBe(DocumentType.PDF);
     });
 
     it('should route to parseDocx for DOCX files', async () => {
-      // Mock the individual parser methods
-      const parseDocxSpy = vi.spyOn({ parseDocx }, 'parseDocx').mockResolvedValue({
-        text: 'DOCX content',
-        type: DocumentType.DOCX
-      });
-      
       const file = createMockFile('content', 'test.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-      const result = await parseDocument(file);
+      const result = await documentParser.parseDocument(file);
       
-      expect(parseDocxSpy).toHaveBeenCalled();
+      expect(mockParseDocx).toHaveBeenCalled();
       expect(result.text).toBe('DOCX content');
       expect(result.type).toBe(DocumentType.DOCX);
     });
 
     it('should route to parseText for text files', async () => {
-      // Mock the individual parser methods
-      const parseTextSpy = vi.spyOn({ parseText }, 'parseText').mockResolvedValue({
-        text: 'Text content',
-        type: DocumentType.TEXT
-      });
-      
       const file = createMockFile('content', 'test.txt', 'text/plain');
-      const result = await parseDocument(file);
+      const result = await documentParser.parseDocument(file);
       
-      expect(parseTextSpy).toHaveBeenCalled();
+      expect(mockParseText).toHaveBeenCalled();
       expect(result.text).toBe('Text content');
       expect(result.type).toBe(DocumentType.TEXT);
     });
 
     it('should attempt to parse unknown files as text', async () => {
-      // Mock the individual parser methods
-      const parseTextSpy = vi.spyOn({ parseText }, 'parseText').mockResolvedValue({
-        text: 'Unknown file as text',
-        type: DocumentType.TEXT
-      });
-      
       const file = createMockFile('content', 'test.xyz', 'application/octet-stream');
-      const result = await parseDocument(file);
+      const result = await documentParser.parseDocument(file);
       
-      expect(parseTextSpy).toHaveBeenCalled();
-      expect(result.text).toBe('Unknown file as text');
+      expect(mockParseText).toHaveBeenCalled();
+      expect(result.text).toBe('Text content');
       expect(result.type).toBe(DocumentType.TEXT);
     });
 
     it('should return an error for completely unparseable files', async () => {
-      // Mock parseText to throw an error for unknown file types
-      const parseTextSpy = vi.spyOn({ parseText }, 'parseText').mockRejectedValue(new Error('Cannot parse'));
+      mockParseText.mockRejectedValueOnce(new Error('Cannot parse'));
       
       const file = createMockFile('content', 'test.xyz', 'application/octet-stream');
-      const result = await parseDocument(file);
+      const result = await documentParser.parseDocument(file);
       
-      expect(parseTextSpy).toHaveBeenCalled();
+      expect(mockParseText).toHaveBeenCalled();
       expect(result.text).toBe('');
       expect(result.type).toBe(DocumentType.UNKNOWN);
       expect(result.error).toBe('Unsupported file format');

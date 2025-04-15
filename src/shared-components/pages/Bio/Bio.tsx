@@ -52,7 +52,6 @@ export const BioPage: React.FC<BioPageProps> = ({ id = 'bio', className }) => {
       <TransitionDiv
         variants={fadeIn}
         animate="visible"
-        initial="visible"
         className="bio-content-section"
         style={{ opacity: 1 }}
       >

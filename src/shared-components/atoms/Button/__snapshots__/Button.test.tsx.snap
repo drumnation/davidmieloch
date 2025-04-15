@@ -1,0 +1,385 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button Component Snapshots > Disabled snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <button
+    class="mantine-focus-auto sc-fYsHOw ftEZbW m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+    data-disabled="true"
+    data-size="md"
+    data-variant="primary"
+    disabled=""
+    style="--button-height: var(--button-height-md); --button-padding-x: var(--button-padding-x-md); --button-fz: var(--mantine-font-size-md);"
+    type="button"
+  >
+    <span
+      class="m_80f1301b mantine-Button-inner"
+    >
+      <span
+        class="m_811560b9 mantine-Button-label"
+      >
+        Disabled Button
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Component Snapshots > Ghost snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-fWnslK gIjZEa"
+  >
+    <button
+      class="mantine-focus-auto mantine-active sc-fYsHOw bjjPVv m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+      data-size="md"
+      data-variant="ghost"
+      style="--button-height: var(--button-height-md); --button-padding-x: var(--button-padding-x-md); --button-fz: var(--mantine-font-size-md);"
+      type="button"
+    >
+      <span
+        class="m_80f1301b mantine-Button-inner"
+      >
+        <span
+          class="m_811560b9 mantine-Button-label"
+        >
+          Ghost Button
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button Component Snapshots > Large snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-dKREkF dLzOXM"
+  >
+    <button
+      class="mantine-focus-auto mantine-active sc-fYsHOw dieUJA m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+      data-size="lg"
+      data-variant="primary"
+      style="--button-height: var(--button-height-lg); --button-padding-x: var(--button-padding-x-lg); --button-fz: var(--mantine-font-size-lg);"
+      type="button"
+    >
+      <span
+        class="m_80f1301b mantine-Button-inner"
+      >
+        <span
+          class="m_811560b9 mantine-Button-label"
+        >
+          Large Button
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button Component Snapshots > Primary snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-dKREkF dLzOXM"
+  >
+    <button
+      class="mantine-focus-auto mantine-active sc-fYsHOw ftEZbW m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+      data-size="md"
+      data-variant="primary"
+      style="--button-height: var(--button-height-md); --button-padding-x: var(--button-padding-x-md); --button-fz: var(--mantine-font-size-md);"
+      type="button"
+    >
+      <span
+        class="m_80f1301b mantine-Button-inner"
+      >
+        <span
+          class="m_811560b9 mantine-Button-label"
+        >
+          Primary Button
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button Component Snapshots > RepoAction snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-fWnslK gIjZEa"
+  >
+    <button
+      class="mantine-focus-auto mantine-active sc-fYsHOw cbejCO m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+      data-variant="repo-action"
+      type="button"
+    >
+      <span
+        class="m_80f1301b mantine-Button-inner"
+      >
+        <span
+          class="m_811560b9 mantine-Button-label"
+        >
+          <span
+            class="sc-Qotzb isZrqS"
+            position="left"
+          >
+            <svg
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </span>
+          Star
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button Component Snapshots > RepoLink snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <button
+    class="mantine-focus-auto mantine-active sc-fYsHOw ieCcro m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+    data-variant="repo-link"
+    href="https://github.com"
+    rel="noopener noreferrer"
+    target="_blank"
+    type="button"
+  >
+    <span
+      class="m_80f1301b mantine-Button-inner"
+    >
+      <span
+        class="m_811560b9 mantine-Button-label"
+      >
+        <span
+          class="sc-Qotzb isZrqS"
+          position="left"
+        >
+          <svg
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            />
+          </svg>
+        </span>
+        View on GitHub
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Component Snapshots > Secondary snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-dKREkF dLzOXM"
+  >
+    <button
+      class="mantine-focus-auto mantine-active sc-fYsHOw kSfdsK m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+      data-size="md"
+      data-variant="secondary"
+      style="--button-height: var(--button-height-md); --button-padding-x: var(--button-padding-x-md); --button-fz: var(--mantine-font-size-md);"
+      type="button"
+    >
+      <span
+        class="m_80f1301b mantine-Button-inner"
+      >
+        <span
+          class="m_811560b9 mantine-Button-label"
+        >
+          Secondary Button
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button Component Snapshots > Small snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-dKREkF dLzOXM"
+  >
+    <button
+      class="mantine-focus-auto mantine-active sc-fYsHOw iPijI m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+      data-size="sm"
+      data-variant="primary"
+      style="--button-height: var(--button-height-sm); --button-padding-x: var(--button-padding-x-sm); --button-fz: var(--mantine-font-size-sm);"
+      type="button"
+    >
+      <span
+        class="m_80f1301b mantine-Button-inner"
+      >
+        <span
+          class="m_811560b9 mantine-Button-label"
+        >
+          Small Button
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button Component Snapshots > WithRightIcon snapshot 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-dKREkF dLzOXM"
+  >
+    <button
+      class="mantine-focus-auto mantine-active sc-fYsHOw ftEZbW m_77c9d27d mantine-Button-root m_87cf2631 mantine-UnstyledButton-root"
+      data-variant="primary"
+      type="button"
+    >
+      <span
+        class="m_80f1301b mantine-Button-inner"
+      >
+        <span
+          class="m_811560b9 mantine-Button-label"
+        >
+          External Link
+          <span
+            class="sc-Qotzb eUZjuh"
+            position="right"
+          >
+            <svg
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              />
+              <polyline
+                points="15 3 21 3 21 9"
+              />
+              <line
+                x1="10"
+                x2="21"
+                y1="14"
+                y2="3"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;

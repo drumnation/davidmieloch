@@ -119,7 +119,6 @@ export const Experience: React.FC<ExperienceProps> = ({
       <TransitionDiv
         variants={fadeIn}
         animate="visible"
-        initial="visible"
         className="experience-content-section"
         style={{ opacity: 1 }}
       >

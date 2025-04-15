@@ -1,12 +1,14 @@
 "use client";
 
-import React, { ReactNode, forwardRef } from 'react';
+import React, { ReactNode, forwardRef, ComponentPropsWithoutRef } from 'react';
 import { animated } from '@react-spring/web';
 
-interface WrapperProps {
+// Extend the div props without ref
+type AnimatedDivProps = ComponentPropsWithoutRef<'div'>;
+
+interface WrapperProps extends AnimatedDivProps {
   children: ReactNode;
   className?: string;
-  [key: string]: any;
 }
 
 /**

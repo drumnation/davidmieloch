@@ -32,13 +32,15 @@ const comparisonTableItems = [
   }
 ];
 
-export default {
-  title: 'WhitePaper/AiAutopilotAnalogy/ComparisonTableSection',
+const meta = {
+  title: 'pages/01-WhitePaper/02-AiAutopilotAnalogy/01-ComparisonTableSection',
   component: ComparisonTable,
   parameters: {
     layout: 'padded',
   },
 };
+
+export default meta;
 
 export const Default = () => (
   <Box style={{ maxWidth: 900, margin: '0 auto' }}>
