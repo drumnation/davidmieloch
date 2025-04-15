@@ -5,7 +5,7 @@ import { ExperienceProps } from './Experience.types';
 import { SideProject } from './components/SideProjectsSection/SideProjectsSection.types';
 
 const meta = {
-  title: 'Sections/Experience',
+  title: 'pages/05-Experience',
   component: Experience,
   parameters: {
     layout: 'fullscreen',

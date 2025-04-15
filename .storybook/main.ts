@@ -34,6 +34,23 @@ const config: StorybookConfig = {
   },
   "docs": {
     "autodocs": false
+  },
+  "babel": {
+    "plugins": [
+      [
+        "babel-plugin-styled-components",
+        {
+          "ssr": true,
+          "displayName": true,
+          "fileName": false,
+          "meaninglessFileNames": ["index", "styles"],
+          "minify": false,
+          "pure": true,
+          "transpileTemplateLiterals": false,
+          "namespace": "sc"
+        }
+      ]
+    ]
   }
 };
 

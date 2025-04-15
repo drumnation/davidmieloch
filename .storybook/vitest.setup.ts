@@ -1,9 +1,13 @@
-import { beforeAll, vi } from 'vitest';
+import { beforeAll, vi, expect } from 'vitest';
 import { setProjectAnnotations } from '@storybook/react';
 import * as previewAnnotations from './preview';
 
-// Setup DOM environment for testing
+// Setup styled-components to use deterministic IDs in tests
 if (typeof global !== 'undefined') {
+  // Configure styled-components for test mode
+  (global as any).SC_DISABLE_SPEEDY = true;
+  (global as any).__JEST__ = true;
+  
   // Mock window.matchMedia for responsive components
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -21,27 +25,20 @@ if (typeof global !== 'undefined') {
   
   // Mock IntersectionObserver for components using it
   class MockIntersectionObserver {
-    root: Element | Document | null = null;
+    root = null;
     rootMargin = '';
-    thresholds: number[] = [];
+    thresholds = [];
     observe = vi.fn();
     unobserve = vi.fn();
     disconnect = vi.fn();
     takeRecords = vi.fn(() => []);
     
-    constructor(callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
-      if (options) {
-        this.root = options.root || null;
-        this.rootMargin = options.rootMargin || '';
-        this.thresholds = Array.isArray(options.threshold) 
-          ? options.threshold 
-          : [options.threshold || 0];
-      }
+    constructor() {
+      // Empty constructor
     }
   }
   
-  // Assign mocks to the global object
-  // @ts-expect-error assigning mock implementation
+  // Assign mock to global
   (global as any).IntersectionObserver = MockIntersectionObserver;
   
   // Mock ResizeObserver for components using it
@@ -50,13 +47,12 @@ if (typeof global !== 'undefined') {
     unobserve = vi.fn();
     disconnect = vi.fn();
     
-    constructor( ) {
-      // Nothing to do with the callback in the mock
+    constructor() {
+      // Empty constructor
     }
   }
   
-  // Assign mocks to the global object
-  // @ts-expect-error assigning mock implementation
+  // Assign mock to global
   (global as any).ResizeObserver = MockResizeObserver;
   
   // Mock DOMMatrix for PDF.js
@@ -67,38 +63,52 @@ if (typeof global !== 'undefined') {
     d = 1;
     e = 0;
     f = 0;
-    constructor(transform?: string) {
-      if (transform) {
-        // Simple implementation - we're just mocking
-        const values = transform.match(/matrix\((.*)\)/)?.[1]?.split(',').map(Number) || [];
-        if (values.length === 6) {
-          [this.a, this.b, this.c, this.d, this.e, this.f] = values;
-        }
-      }
+    
+    constructor() {
+      // Empty constructor
     }
   }
   
   // Mock ImageData for PDF.js
   class MockImageData {
-    data: Uint8ClampedArray;
-    width: number;
-    height: number;
-    constructor(data: Uint8ClampedArray, width: number, height: number) {
-      this.data = data;
-      this.width = width;
-      this.height = height;
+    data = new Uint8ClampedArray();
+    width = 0;
+    height = 0;
+    
+    constructor() {
+      // Empty constructor
     }
   }
   
-  // Add missing DOM APIs needed by PDF.js
-  // @ts-expect-error assigning mock implementation
+  // Add missing DOM APIs
   (global as any).DOMMatrix = MockDOMMatrix;
-  // @ts-expect-error assigning mock implementation
   (global as any).ImageData = MockImageData;
 }
 
-// This is an important step to apply the right configuration when testing your stories.
-// More info at: https://storybook.js.org/docs/api/portable-stories/portable-stories-vitest#setprojectannotations
+// Add custom serializer for strings to normalize styled-component classnames
+expect.addSnapshotSerializer({
+  test: (val: unknown) => typeof val === 'string',
+  print: (val: unknown, _print: any, _indent: any, _options: any, _colors: any) => {
+    if (typeof val !== 'string') return String(val);
+    
+    // Replace all styled-component classes with placeholder
+    return val
+      .replace(/sc-[a-zA-Z0-9-]+/g, 'sc-MOCK')
+      .replace(/(?:class|className)="([^"]*)"/g, (match, classContent) => {
+        // Normalize class attribute content
+        const normalizedClasses = classContent
+          .split(/\s+/)
+          .filter(Boolean)
+          .map((cls: string) => cls.replace(/sc-[a-zA-Z0-9-]+/g, 'sc-MOCK'))
+          .sort()
+          .join(' ');
+        
+        return `class="${normalizedClasses}"`;
+      });
+  }
+});
+
+// Set up Storybook annotations
 const annotations = setProjectAnnotations([previewAnnotations]);
 
 // Run Storybook's beforeAll hook

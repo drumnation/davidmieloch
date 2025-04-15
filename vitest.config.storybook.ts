@@ -4,12 +4,36 @@ import path from 'path';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          [
+            'babel-plugin-styled-components',
+            {
+              displayName: true,
+              fileName: false,
+              pure: true,
+              namespace: 'sc',
+              meaninglessFileNames: ['index', 'styles']
+            }
+          ]
+        ]
+      }
+    }),
+    tsconfigPaths()
+  ],
   test: {
     environment: 'jsdom',
     globals: true,
     include: ['src/storybook.test.tsx', 'src/storybook-all.test.tsx'],
     setupFiles: ['.storybook/vitest.setup.ts'],
+    restoreMocks: true,
+    clearMocks: true,
+    snapshotFormat: {
+      printBasicPrototype: false,
+      escapeString: false,
+    }
   },
   resolve: {
     alias: {
