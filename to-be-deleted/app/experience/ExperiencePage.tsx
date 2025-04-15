@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Title } from '@mantine/core';
 import { motion } from 'framer-motion';
-import { SEO } from '@/shared-components/SEO';
-import { Header } from '@/shared-components/molecules/Header';
+import { SEO } from '@shared-components/molecules/SEO';
+import { Header } from '@shared-components/molecules/Header';
 import { ExperienceList } from './components/ExperienceList';
 import { ExperienceItem } from './components/ExperienceItem';
 import { EducationItem } from './components/EducationItem';
@@ -12,10 +12,10 @@ import { Skill } from './components/SkillsList/SkillsList.types';
 import { MediaItem } from './components/ExperienceItem/ExperienceItem.types';
 
 // Import LinkedIn data
-import profileData from '@/data/profile.json';
-import positionsData from '@/data/positions.json';
-import educationData from '@/data/education.json';
-import skillsData from '@/data/skills.json';
+import profileData from '@data/profile.json';
+import positionsData from '@data/positions.json';
+import educationData from '@data/education.json';
+import skillsData from '@data/skills.json';
 
 // Define an interface for education data from the JSON file
 interface EducationItemData {

@@ -1,22 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-
-export interface SEOProps {
-  title: string;
-  description: string;
-  canonical?: string;
-  openGraph?: {
-    title?: string;
-    description?: string;
-    url?: string;
-    type?: string;
-    image?: string;
-  };
-  twitter?: {
-    cardType?: string;
-    handle?: string;
-  };
-}
+import { SEOProps } from './SEO.types';
+import { getSeoData } from './SEO.utils';
 
 export const SEO: React.FC<SEOProps> = ({
   title,
@@ -25,26 +10,13 @@ export const SEO: React.FC<SEOProps> = ({
   openGraph,
   twitter,
 }) => {
-  const defaultTitle = 'David Mieloch | Senior Software Engineer & Technical Lead';
-  const defaultDescription = 'Portfolio and resume of David Mieloch, Senior Software Engineer and Technical Lead specializing in React, TypeScript, and modern web technologies.';
-  const siteUrl = 'https://davidmieloch.com';
-  
-  const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    canonical: canonical || siteUrl,
-    openGraph: {
-      title: openGraph?.title || title || defaultTitle,
-      description: openGraph?.description || description || defaultDescription,
-      url: openGraph?.url || canonical || siteUrl,
-      type: openGraph?.type || 'website',
-      image: openGraph?.image || `${siteUrl}/images/og-image.jpg`,
-    },
-    twitter: {
-      cardType: twitter?.cardType || 'summary_large_image',
-      handle: twitter?.handle || '@davidmieloch',
-    },
-  };
+  const seo = getSeoData({
+    title,
+    description,
+    canonical,
+    openGraph,
+    twitter,
+  });
 
   return (
     <Head>

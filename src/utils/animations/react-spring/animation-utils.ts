@@ -35,7 +35,7 @@ export const AnimatedH2 = animated.h2;
 export const AnimatedH3 = animated.h3;
 
 // Common animation presets
-export const animations = {
+export const springAnimations = {
   fadeIn: {
     from: { opacity: 0 },
     to: { opacity: 1 },

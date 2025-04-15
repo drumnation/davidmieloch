@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { ErrorBoundary } from '../../components/ErrorBoundary';
+import { ErrorBoundary } from '../../molecules/ErrorBoundary';
 import { WhitePaperProps } from './WhitePaper.types';
 import { SpinnerLoader } from '../../../../src/components/SpinnerLoader';
 
