@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ErrorBoundary } from '../../components/ErrorBoundary';
 import { WhitePaperProps } from './WhitePaper.types';
-import { SpinnerLoader } from '../../../components';
+import { SpinnerLoader } from '../../../../src/components/SpinnerLoader';
 
 // Import components directly
-import { AiSkepticToExpert } from '../../sections/AiSkepticToExpert';
-import { AiAutopilotAnalogy } from '../../sections/AiAutopilotAnalogy';
-import { BrainGardenOverview } from '../../sections/BrainGardenOverview';
-import { RealWorldImpact } from '../../sections/RealWorldImpact';
+import { AiSkepticToExpert } from './components/AiSkepticToExpert/AiSkepticToExpert';
+import { AiAutopilotAnalogy } from './components/AiAutopilotAnalogy/AiAutopilotAnalogy';
+import { BrainGardenOverview } from './components/BrainGardenOverview/BrainGardenOverview';
+import { RealWorldImpact } from './components/RealWorldImpact/RealWorldImpact';
 
 // Create styled components for animation
 const FadeInContainer = styled.div`

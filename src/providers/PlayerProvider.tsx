@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import { SoundCloudTrack } from '../shared-components/organisms/Footer/Footer.types';
+import { SoundCloudTrack } from '@shared-components/organisms/Footer/Footer.types';
 import type ReactPlayerType from 'react-player';
 
 // Dynamically import ReactPlayer with SSR disabled to prevent hydration mismatch

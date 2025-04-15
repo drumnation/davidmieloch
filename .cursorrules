@@ -1,2 +1,18 @@
 - !!! We use pnpm as our package manager, as well as pnpm workspaces to help manage our monorepo packages
 - We use turbo repo to help manage and optimize our monorepo
+
+Use Path Aliases Wherever possible:
+
+```json
+'@components': require.resolve('./src/components'),
+'@shared-components': require.resolve('./src/shared-components'),
+'@utils': require.resolve('./src/utils'),
+'@styles': require.resolve('./src/styles'),
+'@types': require.resolve('./src/types'),
+'@store': require.resolve('./src/store'),
+'@providers': require.resolve('./src/providers'),
+'@data': require.resolve('./src/data'),
+'@pages': require.resolve('./src/pages'),
+'@contexts': require.resolve('./src/contexts'),
+'@analytics': require.resolve('./src/analytics'),
+```

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { AiSkepticToExpert } from '../../sections/AiSkepticToExpert';
-import { AiAutopilotAnalogy } from '../../sections/AiAutopilotAnalogy';
-import { BrainGardenOverview } from '../../sections/BrainGardenOverview';
-import TechnicalImplementation from '../../sections/TechnicalImplementation';
-import { RealWorldImpact } from '../../sections/RealWorldImpact';
-import { defaultContent as skepticContent } from '../../sections/AiSkepticToExpert/AiSkepticToExpert.constants';
-import { defaultContent as brainGardenContent } from '../../sections/BrainGardenOverview/BrainGardenOverview.constants';
-import { defaultContent as impactContent } from '../../sections/RealWorldImpact/RealWorldImpact.constants';
-import { defaultContent as technicalContent } from '../../sections/TechnicalImplementation/TechnicalImplementation.constants';
+import { AiSkepticToExpert } from './components/AiSkepticToExpert/AiSkepticToExpert';
+import { AiAutopilotAnalogy } from './components/AiAutopilotAnalogy/AiAutopilotAnalogy';
+import { BrainGardenOverview } from './components/BrainGardenOverview/BrainGardenOverview';
+import TechnicalImplementation from './components/TechnicalImplementation/TechnicalImplementation';
+import { RealWorldImpact } from './components/RealWorldImpact/RealWorldImpact';
+import { defaultContent as skepticContent } from './components/AiSkepticToExpert/AiSkepticToExpert.constants';
+import { defaultContent as brainGardenContent } from './components/BrainGardenOverview/BrainGardenOverview.constants';
+import { defaultContent as impactContent } from './components/RealWorldImpact/RealWorldImpact.constants';
+import { defaultContent as technicalContent } from './components/TechnicalImplementation/TechnicalImplementation.constants';
 
 // Create a WhitePaper page component that shows all sections
 const WhitePaper = () => {

@@ -3,7 +3,7 @@
 import React from 'react';
 import { MantineProvider as BaseMantineProvider, createTheme } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { theme } from '../styles/theme';
+import { theme } from '@styles/theme';
 
 // Convert the theme to a Mantine theme object using createTheme
 const mantineTheme = createTheme(theme);

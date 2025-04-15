@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -45,6 +47,20 @@ const nextConfig = {
       '@react-spring/animated': require.resolve('./src/utils/animations/force-disable-react-spring.ts'),
       '@react-spring/shared': require.resolve('./src/utils/animations/force-disable-react-spring.ts'),
       '@react-spring/types': require.resolve('./src/utils/animations/force-disable-react-spring.ts'),
+      
+      // Path aliases matching tsconfig.json - both base paths and subpaths with @ prefix
+      '@': path.join(__dirname, './src'),
+      '@components': path.join(__dirname, './src/components'),
+      '@shared-components': path.join(__dirname, './src/shared-components'),
+      '@utils': path.join(__dirname, './src/utils'),
+      '@styles': path.join(__dirname, './src/styles'),
+      '@types': path.join(__dirname, './src/types'),
+      '@store': path.join(__dirname, './src/store'),
+      '@providers': path.join(__dirname, './src/providers'),
+      '@data': path.join(__dirname, './src/data'),
+      '@pages': path.join(__dirname, './src/pages'),
+      '@contexts': path.join(__dirname, './src/contexts'),
+      '@analytics': path.join(__dirname, './src/analytics'),
     };
 
     // Keep original config otherwise
