@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { SystemOverviewDiagram } from './SystemOverviewDiagram';
 import type { Meta, StoryObj } from '@storybook/react';
 

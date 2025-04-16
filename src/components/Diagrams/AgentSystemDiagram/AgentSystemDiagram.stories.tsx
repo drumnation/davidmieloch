@@ -1,4 +1,3 @@
-import React from 'react';
 import { AgentSystemDiagram } from './AgentSystemDiagram';
 import type { Meta, StoryObj } from '@storybook/react';
 

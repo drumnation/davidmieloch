@@ -1,7 +1,5 @@
-import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import DiagramEditor from '../DiagramEditor';
-import { AiIntegrationProcessDiagram, nodes, edges } from '.';
+import { AiIntegrationProcessDiagram } from '.';
 
 /**
  * Storybook configuration for the AiIntegrationProcessDiagram component.

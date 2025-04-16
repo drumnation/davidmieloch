@@ -158,23 +158,28 @@ export const DesktopView: Story = {
  */
 export const WithInteraction: Story = {
   render: (args) => {
-    const [fileName, setFileName] = useState<string | null>(null);
-    
-    const handleFileDrop = (files: File[]) => {
-      if (files.length > 0) {
-        setFileName(files[0].name);
-      }
-      args.onFileDrop?.(files);
+    // Create a proper React component to use hooks
+    const InteractiveDropzone = () => {
+      const [fileName, setFileName] = useState<string | null>(null);
+      
+      const handleFileDrop = (files: File[]) => {
+        if (files.length > 0) {
+          setFileName(files[0].name);
+        }
+        args.onFileDrop?.(files);
+      };
+      
+      return (
+        <div>
+          <p style={{ marginBottom: '1rem' }}>
+            {fileName ? `Selected file: ${fileName}` : 'No file selected yet'}
+          </p>
+          <FileDropzone {...args} onFileDrop={handleFileDrop} />
+        </div>
+      );
     };
     
-    return (
-      <div>
-        <p style={{ marginBottom: '1rem' }}>
-          {fileName ? `Selected file: ${fileName}` : 'No file selected yet'}
-        </p>
-        <FileDropzone {...args} onFileDrop={handleFileDrop} />
-      </div>
-    );
+    return <InteractiveDropzone />;
   },
   args: {
     ...Default.args,

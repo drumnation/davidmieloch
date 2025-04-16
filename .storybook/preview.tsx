@@ -3,7 +3,6 @@ import type { Preview } from '@storybook/react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { theme as styledTheme } from '../src/styles/theme/styled-theme'
 import { viewports } from '../src/styles/theme/viewports'
-import { ThemeProvider } from 'styled-components'
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
 import { GlobalStyle } from '../src/theme/GlobalStyle'
 import { themes } from '../src/theme/theme'
@@ -27,12 +26,6 @@ import {
 
 // Import our custom decorators
 import { ReactFlowDecorator } from './decorators';
-
-// Helper function to parse numeric prefixes
-const getNumericPrefix = (title: string): number => {
-  const match = title.match(/^(\d+)-/)
-  return match ? parseInt(match[1], 10) : 999
-}
 
 // Add CSS variables for the Hero component
 const GlobalStyles = () => (

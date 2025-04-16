@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { KnowledgeSystemDiagram } from './KnowledgeSystemDiagram';
 import type { Meta, StoryObj } from '@storybook/react';
 

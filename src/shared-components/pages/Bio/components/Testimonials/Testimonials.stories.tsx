@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import Testimonials from './Testimonials';

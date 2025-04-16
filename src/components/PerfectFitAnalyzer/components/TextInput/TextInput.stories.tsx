@@ -85,7 +85,7 @@ export const WithValidText: Story = {
   args: {
     ...Default.args,
   },
-  play: async ({ canvasElement, args }) => {
+  play: async ({ canvasElement }) => {
     // Find the textarea in the story and set its value
     const textarea = canvasElement.querySelector('textarea');
     if (textarea) {
@@ -103,7 +103,7 @@ export const WithShortText: Story = {
   args: {
     ...Default.args,
   },
-  play: async ({ canvasElement, args }) => {
+  play: async ({ canvasElement }) => {
     // Find the textarea in the story and set its value
     const textarea = canvasElement.querySelector('textarea');
     if (textarea) {

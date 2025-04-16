@@ -48,6 +48,20 @@ const theme = createTheme({
 // Create a Next.js router context
 export const RouterContext = React.createContext(mockRouter);
 
+// Mock Next.js App Router context and hooks
+// This creates a context to mock the App Router APIs
+export const AppRouterContext = React.createContext({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  push: (_: string) => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  replace: (_: string) => {},
+  refresh: () => {},
+  back: () => {},
+  forward: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  prefetch: (_: string) => Promise.resolve(),
+});
+
 // Decorator for Next.js pages
 export const withNextRouter = (StoryFn: React.ComponentType) => {
   return (
