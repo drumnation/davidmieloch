@@ -1,20 +1,25 @@
-import React from 'react';
-import { SectionHeadingProps } from './SectionHeading.types';
-import { HeadingContainer, Icon, Title } from './SectionHeading.styles';
+'use client';
 
-/**
- * Section Heading Component
- * Used for creating consistent section headings with icons
- */
-export function SectionHeading({
-  icon,
-  title,
-  className
-}: SectionHeadingProps) {
+import React, { ReactNode } from 'react';
+import { HeadingContainer } from './SectionHeading.styles';
+import { Typography } from '../../../../atoms/Typography';
+
+interface SectionHeadingProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export const SectionHeading: React.FC<SectionHeadingProps> = ({ 
+  children, 
+  className 
+}) => {
   return (
     <HeadingContainer className={className}>
-      <Icon>{icon}</Icon>
-      <Title>{title}</Title>
+      <Typography variant="h3" color="primary" mb="1rem" className="section-heading">
+        {children}
+      </Typography>
     </HeadingContainer>
   );
-} 
+};
+
+export default SectionHeading; 

@@ -1,26 +1,188 @@
-import React, { ReactNode } from 'react';
-import { ContentSectionProps } from './ContentSection.types';
-import { SectionContainer, Content, QuoteBlock } from './ContentSection.styles';
+'use client';
 
-/**
- * Content Section Component
- * Used for displaying content sections with consistent styling
- */
-export function ContentSection({
-  children,
-  className,
-  highlightQuote
-}: ContentSectionProps) {
+import React from 'react';
+import { Typography } from '../../../../atoms/Typography';
+import { SectionHeading } from '../SectionHeading';
+import { CharacteristicCard } from '../CharacteristicCard';
+import { CTALink } from '../CTALink';
+import { 
+  FSBPSectionContainer,
+  FSBPHeader,
+  FSBPSubheadline,
+  FSBPHeaderSeparator,
+  FSBPContent,
+  FSBPIntro,
+  FSBPText,
+  FSBPEmphasis,
+  FSBPKeyTerm,
+  ParadigmSection,
+  ParadigmParagraph,
+  ParadigmSubheading,
+  ParadigmIcon,
+  PullQuoteContainer,
+  PullQuote,
+  CharacteristicsSection,
+  CharacteristicsGrid,
+  CTASectionContainer,
+  CTAGroup
+} from './ContentSection.styles';
+import { fsbpContent, getCharacteristicPosition, getCTAPosition } from '../../Home.logic';
+import { useMediaQuery } from '../../ContentSection.hook';
+
+export const FSBPSection: React.FC = () => {
+  const { isMobile, isTablet } = useMediaQuery();
+  const screenSize = isMobile ? 'mobile' : isTablet ? 'tablet' : 'desktop';
+
   return (
-    <SectionContainer className={className}>
-      <Content>
-        {children}
-        {highlightQuote && (
-          <QuoteBlock>
-            {highlightQuote}
-          </QuoteBlock>
-        )}
-      </Content>
-    </SectionContainer>
+    <FSBPSectionContainer id="fsbp" className="fsbp-section">
+      <FSBPHeader className="fsbp-header">
+        <Typography variant="h2" color="primary" as="h1" className="fsbp-title">
+          {fsbpContent.title}
+        </Typography>
+        <FSBPSubheadline className="fsbp-subheadline">
+          <Typography variant="body" color="secondary">
+            {fsbpContent.subtitle}
+          </Typography>
+        </FSBPSubheadline>
+        <FSBPHeaderSeparator className="fsbp-header-separator" />
+      </FSBPHeader>
+      
+      <FSBPContent className="fsbp-content">
+        <FSBPIntro className="fsbp-intro">
+          <FSBPText variant="body" mb="1.5rem" className="fsbp-text">
+            We&apos;re already witnessing the dawn of <FSBPEmphasis>hyper-efficient organizations</FSBPEmphasis> – AI-native companies achieving <FSBPEmphasis>unprecedented results with remarkably small teams</FSBPEmphasis>.
+            The <FSBPKeyTerm>Full-Stack Business Person</FSBPKeyTerm> is someone who combines deep technical expertise with broad business 
+            acumen, leveraging AI to perform roles that previously required several specialists.
+          </FSBPText>
+        </FSBPIntro>
+        
+        <SectionHeading>{fsbpContent.paradigmSection.title}</SectionHeading>
+        
+        <ParadigmSection className="paradigm-section">
+          {fsbpContent.paradigmSection.items.map((item, index) => (
+            <ParadigmParagraph key={index} className="paradigm-paragraph">
+              <ParadigmSubheading className="paradigm-subheading">
+                <ParadigmIcon className="paradigm-icon" aria-hidden="true">
+                  {item.icon === 'trend' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4361ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2v6M12 22v-6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M22 12h-6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"></path>
+                    </svg>
+                  )}
+                  {item.icon === 'users' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4361ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                  )}
+                  {item.icon === 'layers' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4361ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                      <polyline points="2 17 12 22 22 17"></polyline>
+                      <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                  )}
+                </ParadigmIcon>
+                {item.title}
+              </ParadigmSubheading>
+              
+              <div 
+                className="fsbp-text-content" 
+                dangerouslySetInnerHTML={{ __html: item.content }}
+                style={{ 
+                  lineHeight: '1.7', 
+                  fontSize: '1.05rem', 
+                  marginBottom: '1.5rem' 
+                }}
+              />
+            </ParadigmParagraph>
+          ))}
+          
+          {/* Pull quote */}
+          <PullQuoteContainer className="pull-quote-container">
+            <PullQuote className="pull-quote">
+              AI&apos;s power is unlocked not just by technical skill, but by asking the right questions.
+            </PullQuote>
+          </PullQuoteContainer>
+        </ParadigmSection>
+        
+        {/* Characteristics Section */}
+        <CharacteristicsSection>
+          <SectionHeading>{fsbpContent.characteristics.title}</SectionHeading>
+          
+          <CharacteristicsGrid className="characteristics-grid">
+            {fsbpContent.characteristics.items.map((item, index) => {
+              const position = getCharacteristicPosition(index, screenSize);
+              return (
+                <CharacteristicCard 
+                  key={index}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                  style={{
+                    gridRow: position.row,
+                    gridColumn: position.column
+                  }}
+                />
+              );
+            })}
+          </CharacteristicsGrid>
+        </CharacteristicsSection>
+        
+        {/* CTA Section */}
+        <CTASectionContainer className="cta-section">
+          {/* Frameworks */}
+          <CTAGroup style={{ order: getCTAPosition('frameworks').order }}>
+            <SectionHeading>{fsbpContent.ctaSection.frameworks.title}</SectionHeading>
+            <Typography variant="body" mb="1rem">{fsbpContent.ctaSection.frameworks.description}</Typography>
+            <div>
+              {fsbpContent.ctaSection.frameworks.links.map((link, index) => (
+                <CTALink 
+                  key={index}
+                  href={link.href}
+                  text={link.text}
+                  variant={link.variant}
+                />
+              ))}
+            </div>
+          </CTAGroup>
+          
+          {/* Background */}
+          <CTAGroup style={{ order: getCTAPosition('background').order }}>
+            <SectionHeading>{fsbpContent.ctaSection.background.title}</SectionHeading>
+            <Typography variant="body" mb="1rem">{fsbpContent.ctaSection.background.description}</Typography>
+            <div>
+              {fsbpContent.ctaSection.background.links.map((link, index) => (
+                <CTALink 
+                  key={index}
+                  href={link.href}
+                  text={link.text}
+                  variant={link.variant}
+                />
+              ))}
+            </div>
+          </CTAGroup>
+          
+          {/* Connect */}
+          <CTAGroup style={{ order: getCTAPosition('connect').order }}>
+            <SectionHeading>{fsbpContent.ctaSection.connect.title}</SectionHeading>
+            <Typography variant="body" mb="1rem">{fsbpContent.ctaSection.connect.description}</Typography>
+            <div>
+              {fsbpContent.ctaSection.connect.links.map((link, index) => (
+                <CTALink 
+                  key={index}
+                  href={link.href}
+                  text={link.text}
+                  variant={link.variant}
+                />
+              ))}
+            </div>
+          </CTAGroup>
+        </CTASectionContainer>
+      </FSBPContent>
+    </FSBPSectionContainer>
   );
-} 
+};
+
+export default FSBPSection; 

@@ -1,29 +1,26 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { CTALinkProps } from './CTALink.types';
-import { Icon } from '../Icon';
-import { LinkContainer, IconWrapper } from './CTALink.styles';
+import { StyledCTALink } from './CTALink.styles';
+import { CTALinkProps } from '../../Home.types';
 
 /**
  * Call to Action Link Component
  * Used for action buttons throughout the home page
  */
-export function CTALink({
-  href,
-  iconType,
-  label,
-  className,
-  children,
-  ...props
-}: CTALinkProps) {
+export const CTALink: React.FC<CTALinkProps> = ({ 
+  href, 
+  text, 
+  variant 
+}) => {
   return (
-    <Link href={href} passHref legacyBehavior>
-      <LinkContainer className={className} {...props}>
-        <IconWrapper>
-          <Icon iconType={iconType} />
-        </IconWrapper>
-        {label || children}
-      </LinkContainer>
+    <Link href={href} passHref>
+      <StyledCTALink variant={variant}>
+        {text}
+      </StyledCTALink>
     </Link>
   );
-} 
+};
+
+export default CTALink; 

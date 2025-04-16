@@ -4,13 +4,8 @@ import styled from 'styled-components';
  * Container for the section heading
  */
 export const HeadingContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  
-  @media (max-width: 767px) {
-    margin-bottom: 1.25rem;
-  }
+  margin: 2rem 0 1rem;
+  text-align: center;
 `;
 
 /**

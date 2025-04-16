@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { CTALinkProps } from '../../Home.types';
 
 /**
  * Main container for the CTA link
@@ -51,4 +52,38 @@ export const IconWrapper = styled.span`
   flex-shrink: 0;
   stroke-width: 2px;
   stroke: white;
+`;
+
+export const StyledCTALink = styled.a<Pick<CTALinkProps, 'variant'>>`
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  
+  ${props => props.variant === 'primary' && css`
+    background: #4361ee;
+    color: white;
+    border: 2px solid #4361ee;
+    
+    &:hover {
+      background: #3a0ca3;
+      border-color: #3a0ca3;
+      transform: translateY(-2px);
+    }
+  `}
+  
+  ${props => props.variant === 'secondary' && css`
+    background: transparent;
+    color: #4361ee;
+    border: 2px solid #4361ee;
+    
+    &:hover {
+      background: rgba(67, 97, 238, 0.1);
+      transform: translateY(-2px);
+    }
+  `}
 `; 

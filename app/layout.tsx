@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { lexend, inter, manrope, workSans, ibmPlex } from '../src/styles/fonts';
-import ClientLayout from '../src/components/ClientLayout';
+import ClientLayout from '@components/ClientLayout';
 import { PlayerProvider } from '../src/providers/PlayerProvider';
 import '../src/styles/loading-utils.css';
 import '../src/styles/print.css';

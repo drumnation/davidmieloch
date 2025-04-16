@@ -1,31 +1,32 @@
+'use client';
+
 import React from 'react';
-import { CharacteristicCardProps } from './CharacteristicCard.types';
-import { Icon } from '../Icon';
-import {
-  CardContainer,
-  IconContainer,
-  Title,
-  Description
+import { 
+  CardContainer, 
+  IconWrapper, 
+  Title, 
+  Description 
 } from './CharacteristicCard.styles';
+import { CharacteristicCardProps } from '../../Home.types';
 
 /**
  * Characteristic Card Component
  * Displays a card with an icon, title and description.
  * Used in the Full-Stack Business Person section.
  */
-export function CharacteristicCard({ 
-  iconType, 
-  title, 
+export const CharacteristicCard: React.FC<CharacteristicCardProps & { style?: React.CSSProperties }> = ({
+  icon,
+  title,
   description,
-  ...props
-}: CharacteristicCardProps) {
+  style
+}) => {
   return (
-    <CardContainer {...props}>
-      <IconContainer>
-        <Icon iconType={iconType} />
-      </IconContainer>
+    <CardContainer className="characteristic-card" style={style}>
+      <IconWrapper>{icon}</IconWrapper>
       <Title>{title}</Title>
       <Description>{description}</Description>
     </CardContainer>
   );
-} 
+};
+
+export default CharacteristicCard; 

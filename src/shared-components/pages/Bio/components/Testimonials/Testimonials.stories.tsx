@@ -5,7 +5,7 @@ import Testimonials from './Testimonials';
 import { theme } from '../../../../../styles/theme/styled-theme';
 
 const meta: Meta<typeof Testimonials> = {
-  title: 'Sections/Bio/Testimonials',
+  title: 'pages/03-Bio/Sections/Testimonials',
   component: Testimonials,
   decorators: [
     (Story) => (

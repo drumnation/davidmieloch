@@ -4,26 +4,19 @@ import styled from 'styled-components';
  * Main container for the characteristic card
  */
 export const CardContainer = styled.div`
-  background: #14213d;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  text-align: center;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    
-    &::before {
-      transform: scaleX(1);
-    }
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   }
   
   &::before {
@@ -150,11 +143,11 @@ export const IconContainer = styled.div`
 /**
  * Title of the characteristic
  */
-export const Title = styled.div`
+export const Title = styled.h3`
   font-size: 1.25rem;
+  color: #333;
+  margin: 0 0 0.75rem 0;
   font-weight: 600;
-  color: #e2e8f0;
-  margin-bottom: 0.75rem;
   
   @media (max-width: 767px) {
     font-size: 1.1rem;
@@ -173,10 +166,11 @@ export const Title = styled.div`
 /**
  * Description of the characteristic
  */
-export const Description = styled.div`
+export const Description = styled.p`
   font-size: 0.95rem;
-  color: #a0aec0;
-  line-height: 1.6;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
   
   @media (max-width: 767px) {
     font-size: 0.9rem;
@@ -185,4 +179,9 @@ export const Description = styled.div`
   @media (forced-colors: active) {
     color: CanvasText;
   }
+`;
+
+export const IconWrapper = styled.div`
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 `; 
