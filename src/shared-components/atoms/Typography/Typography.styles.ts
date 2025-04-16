@@ -46,7 +46,7 @@ const colorStyles = {
     color: ${({ theme }) => theme.colors.text.primary};
   `,
   secondary: css`
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.secondary || '#e2e8f0'};
   `,
   light: css`
     color: ${({ theme }) => theme.colors.text.light};

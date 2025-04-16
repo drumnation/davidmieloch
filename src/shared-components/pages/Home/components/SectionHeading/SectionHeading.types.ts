@@ -5,17 +5,22 @@ import { ReactNode } from 'react';
  */
 export interface SectionHeadingProps {
   /**
-   * Icon element to display
+   * Content of the heading
    */
-  icon: ReactNode;
-  
-  /**
-   * Section title text
-   */
-  title: string;
+  children?: ReactNode;
   
   /**
    * Optional CSS class name
    */
   className?: string;
+
+  /**
+   * Optional icon to display before the heading
+   */
+  icon?: string;
+
+  /**
+   * Optional title text (alternative to using children)
+   */
+  title?: string;
 } 

@@ -12,9 +12,11 @@ export const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s, color 0.3s;
   
   &:hover {
+    background: #23263a;
+    color: #fff;
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   }
@@ -79,6 +81,15 @@ export const CardContainer = styled.div`
       border: 1px solid rgba(255, 255, 255, 0.15);
       background-color: #1a2234;
     }
+  }
+
+  h3, p {
+    transition: color 0.3s;
+  }
+
+  &:hover h3,
+  &:hover p {
+    color: #fff;
   }
 `;
 

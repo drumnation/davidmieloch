@@ -81,20 +81,27 @@ export const FSBPSectionContainer = styled.section`
   padding: 2rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
+  color: #fff !important;
   
   @media (min-width: 768px) {
     padding: 3rem 2rem;
+  }
+  
+  .fsbp-text-content {
+    color: #fff !important;
   }
 `;
 
 export const FSBPHeader = styled.div`
   text-align: center;
   margin-bottom: 2.5rem;
+  color: #fff !important;
 `;
 
 export const FSBPSubheadline = styled.div`
   max-width: 700px;
   margin: 1rem auto 1.5rem;
+  color: #fff !important;
 `;
 
 export const FSBPHeaderSeparator = styled.span`
@@ -117,19 +124,20 @@ export const FSBPIntro = styled.div`
 export const FSBPText = styled(Typography)`
   line-height: 1.7;
   font-size: 1.05rem;
+  color: #fff !important;
 `;
 
 export const FSBPEmphasis = styled.span`
   font-weight: 600;
-  color: #4361ee;
+  color: #5e81ff;
 `;
 
 export const FSBPKeyTerm = styled.span`
-  background-color: rgba(67, 97, 238, 0.1);
+  background-color: rgba(67, 97, 238, 0.2);
   padding: 0.15rem 0.4rem;
   border-radius: 4px;
   font-weight: 600;
-  color: #3a0ca3;
+  color: #a2b6ff;
 `;
 
 export const ParadigmSection = styled.div`
@@ -144,7 +152,7 @@ export const ParadigmSubheading = styled.h4`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  color: #333;
+  color: #e2e8f0;
   margin-bottom: 1rem;
   font-weight: 600;
 `;
@@ -162,7 +170,7 @@ export const PullQuoteContainer = styled.div`
 export const PullQuote = styled.div`
   font-size: 1.5rem;
   line-height: 1.4;
-  color: #3a0ca3;
+  color: #a2b6ff;
   font-weight: 500;
   font-style: italic;
   text-align: center;

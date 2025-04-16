@@ -36,11 +36,11 @@ export const FSBPSection: React.FC = () => {
   return (
     <FSBPSectionContainer id="fsbp" className="fsbp-section">
       <FSBPHeader className="fsbp-header">
-        <Typography variant="h2" color="primary" as="h1" className="fsbp-title">
+        <Typography variant="h2" color="light" as="h1" className="fsbp-title">
           {fsbpContent.title}
         </Typography>
         <FSBPSubheadline className="fsbp-subheadline">
-          <Typography variant="body" color="secondary">
+          <Typography variant="body" color="light">
             {fsbpContent.subtitle}
           </Typography>
         </FSBPSubheadline>
@@ -131,55 +131,6 @@ export const FSBPSection: React.FC = () => {
         </CharacteristicsSection>
         
         {/* CTA Section */}
-        <CTASectionContainer className="cta-section">
-          {/* Frameworks */}
-          <CTAGroup style={{ order: getCTAPosition('frameworks').order }}>
-            <SectionHeading>{fsbpContent.ctaSection.frameworks.title}</SectionHeading>
-            <Typography variant="body" mb="1rem">{fsbpContent.ctaSection.frameworks.description}</Typography>
-            <div>
-              {fsbpContent.ctaSection.frameworks.links.map((link, index) => (
-                <CTALink 
-                  key={index}
-                  href={link.href}
-                  text={link.text}
-                  variant={link.variant}
-                />
-              ))}
-            </div>
-          </CTAGroup>
-          
-          {/* Background */}
-          <CTAGroup style={{ order: getCTAPosition('background').order }}>
-            <SectionHeading>{fsbpContent.ctaSection.background.title}</SectionHeading>
-            <Typography variant="body" mb="1rem">{fsbpContent.ctaSection.background.description}</Typography>
-            <div>
-              {fsbpContent.ctaSection.background.links.map((link, index) => (
-                <CTALink 
-                  key={index}
-                  href={link.href}
-                  text={link.text}
-                  variant={link.variant}
-                />
-              ))}
-            </div>
-          </CTAGroup>
-          
-          {/* Connect */}
-          <CTAGroup style={{ order: getCTAPosition('connect').order }}>
-            <SectionHeading>{fsbpContent.ctaSection.connect.title}</SectionHeading>
-            <Typography variant="body" mb="1rem">{fsbpContent.ctaSection.connect.description}</Typography>
-            <div>
-              {fsbpContent.ctaSection.connect.links.map((link, index) => (
-                <CTALink 
-                  key={index}
-                  href={link.href}
-                  text={link.text}
-                  variant={link.variant}
-                />
-              ))}
-            </div>
-          </CTAGroup>
-        </CTASectionContainer>
       </FSBPContent>
     </FSBPSectionContainer>
   );

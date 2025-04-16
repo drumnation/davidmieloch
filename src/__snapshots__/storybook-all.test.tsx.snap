@@ -67790,6 +67790,275 @@ exports[`Storybook Snapshots > pages/00-Home > Default 1`] = `
         </a>
       </div>
       <section
+        class=SectionContainer-sc__sc-MOCK icXvNg
+      >
+        <div
+          class=SectionContent-sc__sc-MOCK eKKgAy
+        >
+          <div
+            class=HeadingContainer-sc__sc-MOCK iBcBbb
+          >
+            <h3
+              class=StyledTypography-sc__sc-MOCK kgdvf section-heading
+            >
+              <span
+                class=section-icon
+                style=margin-right: 0.5rem;
+              >
+                💡
+              </span>
+              Why This Site Exists
+            </h3>
+          </div>
+          <p>
+            This isn't just a portfolio—it's a live demonstration of the Full-Stack Business Person (FSBP) principle in action. Every aspect of this site, from design to copy to automation, was built solo and amplified by AI tools I architected or wrote myself.
+          </p>
+          <p>
+            <strong>
+              Why?
+            </strong>
+             To prove that a single, AI-native developer can deliver the velocity, quality, and narrative clarity that modern teams need. This site is both my product and my proof: a working example of how engineering, business, and digital marketing can converge in one adaptive, agent-augmented workflow.
+          </p>
+          <div
+            style=margin-top: 1rem; font-size: 0.95em; color: rgb(136, 136, 136);
+          >
+            Built with AI  |  React  |  Content Strategy
+          </div>
+        </div>
+      </section>
+      <section
+        class=SectionContainer-sc__sc-MOCK icXvNg
+      >
+        <div
+          class=SectionContent-sc__sc-MOCK eKKgAy
+        >
+          <div
+            class=HeadingContainer-sc__sc-MOCK iBcBbb
+          >
+            <h3
+              class=StyledTypography-sc__sc-MOCK kgdvf section-heading
+            >
+              <span
+                class=section-icon
+                style=margin-right: 0.5rem;
+              >
+                🧩
+              </span>
+              Frameworks in Action
+            </h3>
+          </div>
+          <p>
+            These whitepapers distill how I guide engineering orgs through complexity and AI disruption.
+          </p>
+          <div
+            class=FrameworksGrid-sc__sc-MOCK bOYsTR
+          >
+            <div
+              class=Card-sc__sc-MOCK brRoGG
+            >
+              <h3>
+                AI Transformation
+              </h3>
+              <p>
+                How to orchestrate dev teams in the age of agents
+              </p>
+              <a
+                href=#
+                style=color: rgb(67, 97, 238); font-weight: 600;
+              >
+                Read →
+              </a>
+            </div>
+            <div
+              class=Card-sc__sc-MOCK brRoGG
+            >
+              <h3>
+                React Best Practices
+              </h3>
+              <p>
+                How I clean up and future-proof maturing codebases
+              </p>
+              <a
+                href=#
+                style=color: rgb(67, 97, 238); font-weight: 600;
+              >
+                Read →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class=SectionContainer-sc__sc-MOCK icXvNg
+      >
+        <div
+          class=SectionContent-sc__sc-MOCK eKKgAy
+        >
+          <div
+            class=HeadingContainer-sc__sc-MOCK iBcBbb
+          >
+            <h3
+              class=StyledTypography-sc__sc-MOCK kgdvf section-heading
+            >
+              <span
+                class=section-icon
+                style=margin-right: 0.5rem;
+              >
+                🚀
+              </span>
+              Live Proof: Projects in Action
+            </h3>
+          </div>
+          <p>
+            A selection of systems I've built—each demonstrating AI-native, full-stack engineering in the wild.
+          </p>
+          <div
+            class=ProjectsGrid-sc__sc-MOCK jzspmN
+          >
+            <div
+              class=Card-sc__sc-MOCK brRoGG
+            >
+              <h3>
+                ai-context-generator
+              </h3>
+              <div
+                style=margin-bottom: 8px;
+              >
+                <span
+                  bg=#e0e7ff
+                  class=Badge-sc__sc-MOCK cseuYA
+                  color=#3730a3
+                >
+                  🧠 AI
+                </span>
+                <span
+                  bg=#fef9c3
+                  class=Badge-sc__sc-MOCK bCmMrY
+                  color=#92400e
+                >
+                  ⚡️ DevX
+                </span>
+              </div>
+              <p>
+                VSCode extension that uses GPT to write instant, navigable summaries for directories and codebases.
+              </p>
+              <a
+                href=#
+                style=color: rgb(67, 97, 238); font-weight: 600;
+              >
+                View →
+              </a>
+            </div>
+            <div
+              class=Card-sc__sc-MOCK brRoGG
+            >
+              <h3>
+                prompt-forge
+              </h3>
+              <div
+                style=margin-bottom: 8px;
+              >
+                <span
+                  bg=#e0e7ff
+                  class=Badge-sc__sc-MOCK cseuYA
+                  color=#3730a3
+                >
+                  🛠️ PromptOps
+                </span>
+                <span
+                  bg=#fef9c3
+                  class=Badge-sc__sc-MOCK bCmMrY
+                  color=#92400e
+                >
+                  🧩 Modular
+                </span>
+              </div>
+              <p>
+                A toolkit for designing, testing, and deploying prompt chains and agent workflows.
+              </p>
+              <a
+                href=#
+                style=color: rgb(67, 97, 238); font-weight: 600;
+              >
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class=SectionContainer-sc__sc-MOCK icXvNg
+      >
+        <div
+          class=SectionContent-sc__sc-MOCK eKKgAy
+        >
+          <div
+            class=HeadingContainer-sc__sc-MOCK iBcBbb
+          >
+            <h3
+              class=StyledTypography-sc__sc-MOCK kgdvf section-heading
+            >
+              <span
+                class=section-icon
+                style=margin-right: 0.5rem;
+              >
+                🔑
+              </span>
+              What Makes a Full-Stack Business Person Different
+            </h3>
+          </div>
+          <p>
+            The core capabilities of an AI-native technical leader
+          </p>
+          <div
+            class=CharacteristicsGrid-sc__sc-MOCK fOFWZE
+          >
+            <div>
+              <strong>
+                🧠 Systems Thinking
+              </strong>
+              <br />
+              Sees the full stack—tech, product, marketing, business—as one interconnected landscape.
+            </div>
+            <div>
+              <strong>
+                ⚙️ Code & Automation
+              </strong>
+              <br />
+              Builds robust systems, modern tooling, and AI-powered workflows.
+            </div>
+            <div>
+              <strong>
+                📣 Strategic Communication
+              </strong>
+              <br />
+              Distills chaos into clarity. Aligns stakeholders and agents through precision writing.
+            </div>
+            <div>
+              <strong>
+                🎨 Cross-Domain Fluency
+              </strong>
+              <br />
+              Fluent in multiple disciplines. Directs AI tools across dev, design, content, and ops.
+            </div>
+            <div>
+              <strong>
+                🎯 Outcome Obsession
+              </strong>
+              <br />
+              Focuses on results, not rituals. Measures success by value created.
+            </div>
+            <div>
+              <strong>
+                🧪 Innovation Under Constraints
+              </strong>
+              <br />
+              Thrives in lean environments. Turns constraints into leverage.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
         class=FSBPSectionContainer-sc__sc-MOCK hJxdPN fsbp-section
         id=fsbp
       >
@@ -68151,7 +68420,7 @@ exports[`Storybook Snapshots > pages/00-Home > Default 1`] = `
                   href=/enterprise-ai-development-framework
                 >
                   <a
-                    class=StyledCTALink-sc__sc-MOCK hpzkR
+                    class=StyledCTALink-sc__sc-MOCK dsviZV
                     variant=secondary
                   >
                     Enterprise AI Development Framework
@@ -68161,7 +68430,7 @@ exports[`Storybook Snapshots > pages/00-Home > Default 1`] = `
                   href=/fullstack-react-best-practices-integration
                 >
                   <a
-                    class=StyledCTALink-sc__sc-MOCK hpzkR
+                    class=StyledCTALink-sc__sc-MOCK dsviZV
                     variant=secondary
                   >
                     React & Node.js Integration Practices
@@ -68192,7 +68461,7 @@ exports[`Storybook Snapshots > pages/00-Home > Default 1`] = `
                   href=/bio
                 >
                   <a
-                    class=StyledCTALink-sc__sc-MOCK bkyLRX
+                    class=StyledCTALink-sc__sc-MOCK hujdew
                     variant=primary
                   >
                     Read My Bio
@@ -68202,7 +68471,7 @@ exports[`Storybook Snapshots > pages/00-Home > Default 1`] = `
                   href=/projects
                 >
                   <a
-                    class=StyledCTALink-sc__sc-MOCK hpzkR
+                    class=StyledCTALink-sc__sc-MOCK dsviZV
                     variant=secondary
                   >
                     View Projects
@@ -68233,7 +68502,7 @@ exports[`Storybook Snapshots > pages/00-Home > Default 1`] = `
                   href=/contact
                 >
                   <a
-                    class=StyledCTALink-sc__sc-MOCK bkyLRX
+                    class=StyledCTALink-sc__sc-MOCK hujdew
                     variant=primary
                   >
                     Contact Me
@@ -68243,7 +68512,7 @@ exports[`Storybook Snapshots > pages/00-Home > Default 1`] = `
                   href=https://www.linkedin.com/in/dmieloch/
                 >
                   <a
-                    class=StyledCTALink-sc__sc-MOCK hpzkR
+                    class=StyledCTALink-sc__sc-MOCK dsviZV
                     variant=secondary
                   >
                     LinkedIn Profile
