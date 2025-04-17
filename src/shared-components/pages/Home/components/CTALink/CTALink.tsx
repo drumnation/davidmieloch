@@ -9,58 +9,48 @@ import { CTALinkProps } from '../../Home.types';
  * Call to Action Link Component
  * Used for action buttons throughout the home page
  */
-export const CTALink: React.FC<CTALinkProps> = ({ 
-  href, 
+const iconMap: Record<string, string> = {
+  github: '🚀',
+  linkedin: '👥',
+  twitter: '🐦',
+  blog: '📝',
+  download: '📄',
+  mail: '✉️',
+  portfolio: '💼',
+  experience: '⏱️',
+  projects: '💻',
+};
+
+const CTALink: React.FC<CTALinkProps> = ({
+  href,
   text,
   label,
   variant = 'primary',
   iconType,
-  size = 'md'
+  size = 'md',
+  ...rest
 }) => {
-  const displayText = label || text || '';
-  
-  // Simple icon mapping - in a real project, you would use a more sophisticated icon system
-  const getIcon = () => {
-    if (!iconType) return null;
-    
-    switch (iconType) {
-      case 'file-text':
-        return '📄';
-      case 'arrow-right':
-        return '→';
-      case 'external-link':
-        return '↗';
-      case 'github':
-        return '🔗';
-      case 'mail':
-        return '✉️';
-      case 'list':
-        return '📋';
-      case 'user':
-        return '👤';
-      case 'code':
-        return '💻';
-      default:
-        return iconType; // Assume it's an emoji if not matched
-    }
-  };
-  
-  const linkContent = (
-    <>
-      {iconType && (
-        <IconWrapper>
-          {getIcon()}
-        </IconWrapper>
-      )}
-      {displayText}
-    </>
+  const isExternal = href.startsWith('http');
+  const icon = iconType ? iconMap[iconType] || '🔗' : null;
+
+  const LinkContent = (
+    <StyledCTALink $variant={variant} $size={size} {...rest}>
+      {icon && <IconWrapper>{icon}</IconWrapper>}
+      {text || label}
+    </StyledCTALink>
   );
-  
+
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+        {LinkContent}
+      </a>
+    );
+  }
+
   return (
-    <Link href={href} legacyBehavior={false}>
-      <StyledCTALink as="span" variant={variant} size={size}>
-        {linkContent}
-      </StyledCTALink>
+    <Link href={href} aria-label={label}>
+      {LinkContent}
     </Link>
   );
 };

@@ -4,7 +4,7 @@ import React from 'react';
 import { Typography } from '../../../../atoms/Typography';
 import { SectionHeading } from '../SectionHeading';
 import { CharacteristicCard } from '../CharacteristicCard';
-import { CTALink } from '../CTALink';
+import CTALink from '../CTALink';
 import { 
   FSBPSectionContainer,
   FSBPHeader,

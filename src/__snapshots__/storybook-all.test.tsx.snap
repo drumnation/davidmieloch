@@ -10120,7 +10120,7 @@ exports[`Storybook Snapshots > Organisms/Footer > CustomSocialLinks 1`] = `
     @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
   </style>
   <div
-    class="sc-dYcByZ jrxgIE Footer-loaded"
+    class="sc-dYcByZ hLUKpx Footer-loaded"
     data-loaded="true"
     data-testid="footer"
     style="background-color: rgb(240, 240, 240); border-top: 1px solid rgba(0, 0, 0, 0.1); color: rgb(20, 21, 23); box-shadow: 0 -2px 10px rgba(0,0,0,0.15);"
@@ -10179,8 +10179,7 @@ exports[`Storybook Snapshots > Organisms/Footer > CustomSocialLinks 1`] = `
               style="margin-bottom: 0.75rem; text-align: center;"
             >
               <div
-                class="sc-izXThL citkkD"
-                style="font-size: 1.1rem;"
+                class="sc-izXThL cGhuhd"
               >
                 My Music
               </div>
@@ -10318,7 +10317,7 @@ exports[`Storybook Snapshots > Organisms/Footer > Default 1`] = `
     @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
   </style>
   <div
-    class="sc-dYcByZ jrxgIE Footer-loaded"
+    class="sc-dYcByZ hLUKpx Footer-loaded"
     data-loaded="true"
     data-testid="footer"
     style="background-color: rgb(240, 240, 240); border-top: 1px solid rgba(0, 0, 0, 0.1); color: rgb(20, 21, 23); box-shadow: 0 -2px 10px rgba(0,0,0,0.15);"
@@ -10377,8 +10376,7 @@ exports[`Storybook Snapshots > Organisms/Footer > Default 1`] = `
               style="margin-bottom: 0.75rem; text-align: center;"
             >
               <div
-                class="sc-izXThL citkkD"
-                style="font-size: 1.1rem;"
+                class="sc-izXThL cGhuhd"
               >
                 My Music
               </div>
@@ -10516,7 +10514,7 @@ exports[`Storybook Snapshots > Organisms/Footer > WithoutMusic 1`] = `
     @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
   </style>
   <div
-    class="sc-dYcByZ jrxgIE Footer-loaded"
+    class="sc-dYcByZ hLUKpx Footer-loaded"
     data-loaded="true"
     data-testid="footer"
     style="background-color: rgb(240, 240, 240); border-top: 1px solid rgba(0, 0, 0, 0.1); color: rgb(20, 21, 23); box-shadow: 0 -2px 10px rgba(0,0,0,0.15);"
@@ -10575,8 +10573,7 @@ exports[`Storybook Snapshots > Organisms/Footer > WithoutMusic 1`] = `
               style="margin-bottom: 0.75rem; text-align: center;"
             >
               <div
-                class="sc-izXThL citkkD"
-                style="font-size: 1.1rem;"
+                class="sc-izXThL cGhuhd"
               >
                 My Music
               </div>
@@ -140240,7 +140237,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
     @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
   </style>
   <div
-    class="sc-kEroSx hCIzHx"
+    class="sc-kEroSx jkPklI"
   >
     <div
       class="sc-hHWEmw bAawJM with-glow"
@@ -141356,7 +141353,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
     @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
   </style>
   <div
-    class="sc-kEroSx hCIzHx"
+    class="sc-kEroSx jkPklI"
   >
     <div
       class="sc-hHWEmw bAawJM with-glow"
@@ -142472,7 +142469,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
     @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
   </style>
   <div
-    class="sc-kEroSx hCIzHx"
+    class="sc-kEroSx jkPklI"
   >
     <div
       class="sc-hHWEmw bAawJM with-glow"

@@ -2,6 +2,9 @@
 
 import styled from 'styled-components';
 
+// Define color scheme type
+type ColorScheme = 'light' | 'dark';
+
 // Define default colors to use during server-side rendering
 const defaultColors = {
   light: {
@@ -34,18 +37,16 @@ const defaultColors = {
   }
 };
 
-// Helper function to determine if theme is dark
-// Check if theme has a dark color property that indicates it's a dark theme
-const isDarkTheme = (theme: any) => {
-  // Since we're dealing with a potentially unknown theme structure,
-  // we need to safely check if this property exists
-  if (theme && theme.colors && theme.colors.dark) {
-    return theme.colors.dark[7] === '#1A1B1E';
-  }
-  return false;
-};
+// Helper to get colors based on scheme
+const getColors = (scheme: ColorScheme | undefined) => 
+  scheme === 'dark' ? defaultColors.dark : defaultColors.light;
 
-export const FooterContainer = styled.div<{ 
+// Define prop type for components needing colorScheme
+interface ColorSchemeProps {
+  $colorScheme?: ColorScheme;
+}
+
+export const FooterContainer = styled.div<ColorSchemeProps & { 
   $isExpanded?: boolean; 
   $isMiniMode?: boolean;
 }>`
@@ -57,14 +58,12 @@ export const FooterContainer = styled.div<{
   flex-direction: column;
   width: 100%;
   z-index: 50;
-  background-color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.background 
-      : defaultColors.light.background};
+  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
   height: ${props => props.$isExpanded ? '300px' : props.$isMiniMode ? '50px' : 'auto'};
   transition: height 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
   transform: translateY(${props => props.$isMiniMode ? '0' : '0'});
   will-change: height, transform, opacity;
+  color: ${({ $colorScheme }) => getColors($colorScheme).text};
 `;
 
 export const GradientBorder = styled.div`
@@ -75,32 +74,20 @@ export const GradientBorder = styled.div`
   height: 1px;
 `;
 
-export const FooterInfo = styled.div`
+export const FooterInfo = styled.div<ColorSchemeProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.background 
-      : defaultColors.light.background};
-  border-top: 1px solid ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.border 
-      : defaultColors.light.border};
-  color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.text 
-      : defaultColors.light.text};
+  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
+  border-top: 1px solid ${({ $colorScheme }) => getColors($colorScheme).border};
+  color: ${({ $colorScheme }) => getColors($colorScheme).text};
 `;
 
-export const SocialAnchor = styled.a`
+export const SocialAnchor = styled.a<ColorSchemeProps>`
   text-decoration: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
-  color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.textSecondary 
-      : defaultColors.light.textSecondary};
+  color: ${({ $colorScheme }) => getColors($colorScheme).textSecondary};
   
   &:hover {
     transform: translateY(-2px);
@@ -108,7 +95,7 @@ export const SocialAnchor = styled.a`
   }
 `;
 
-export const MiniPlayerContainer = styled.div`
+export const MiniPlayerContainer = styled.div<ColorSchemeProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,13 +103,10 @@ export const MiniPlayerContainer = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
-  background-color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.background 
-      : defaultColors.light.background};
+  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
 `;
 
-export const MiniModeContainer = styled.div`
+export const MiniModeContainer = styled.div<ColorSchemeProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -131,10 +115,7 @@ export const MiniModeContainer = styled.div`
   margin: 0 auto;
   width: 100%;
   height: 50px;
-  background-color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.background 
-      : defaultColors.light.background};
+  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
       
   /* Ensure all direct children are perfectly centered */
   & > * {
@@ -171,20 +152,14 @@ export const ArtworkContainer = styled.div`
   }
 `;
 
-export const TrackTitle = styled.div`
-  color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.text 
-      : defaultColors.light.text};
+export const TrackTitle = styled.div<ColorSchemeProps>`
+  color: ${({ $colorScheme }) => getColors($colorScheme).text};
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 1.1rem;
 `;
 
-export const TrackArtist = styled.div`
-  color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.textMuted 
-      : defaultColors.light.textMuted};
+export const TrackArtist = styled.div<ColorSchemeProps>`
+  color: ${({ $colorScheme }) => getColors($colorScheme).textMuted};
   font-size: 0.75rem;
 `;
 
@@ -223,13 +198,10 @@ export const ProgressContainer = styled.div`
   }
 `;
 
-export const ProgressBar = styled.div`
+export const ProgressBar = styled.div<ColorSchemeProps>`
   width: 100%;
   height: 4px;
-  background-color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.progressBackground 
-      : defaultColors.light.progressBackground};
+  background-color: ${({ $colorScheme }) => getColors($colorScheme).progressBackground};
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: 0.25rem;
@@ -242,14 +214,11 @@ export const ProgressFill = styled.div<{ width?: string }>`
   width: ${props => props.width || '0%'};
 `;
 
-export const TimeDisplay = styled.div`
+export const TimeDisplay = styled.div<ColorSchemeProps>`
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
-  color: ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.textMuted 
-      : defaultColors.light.textMuted};
+  color: ${({ $colorScheme }) => getColors($colorScheme).textMuted};
 `;
 
 export const ControlsContainer = styled.div`
@@ -257,7 +226,7 @@ export const ControlsContainer = styled.div`
   align-items: center;
 `;
 
-export const ControlButton = styled.button`
+export const ControlButton = styled.button<ColorSchemeProps>`
   padding: 0.25rem;
   margin-right: 0.5rem;
   border-radius: 9999px;
@@ -268,16 +237,10 @@ export const ControlButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
-  color: ${({ theme }) => 
-    isDarkTheme(theme) 
-      ? defaultColors.dark.text 
-      : defaultColors.light.text};
+  color: ${({ $colorScheme }) => getColors($colorScheme).text};
   
   &:hover {
-    background-color: ${({ theme }) => 
-      isDarkTheme(theme) 
-        ? defaultColors.dark.hoverBackground 
-        : defaultColors.light.hoverBackground};
+    background-color: ${({ $colorScheme }) => getColors($colorScheme).hoverBackground};
   }
   
   &:focus {
@@ -295,14 +258,11 @@ export const VolumeContainer = styled.div`
   align-items: center;
 `;
 
-export const VolumeSlider = styled.input`
+export const VolumeSlider = styled.input<ColorSchemeProps>`
   width: 80px;
   height: 4px;
   -webkit-appearance: none;
-  background: ${({ theme }) => 
-    isDarkTheme(theme) 
-      ? defaultColors.dark.progressBackground 
-      : defaultColors.light.progressBackground};
+  background: ${({ $colorScheme }) => getColors($colorScheme).progressBackground};
   border-radius: 2px;
   outline: none;
   
@@ -325,22 +285,16 @@ export const VolumeSlider = styled.input`
   }
 `;
 
-export const ExpandedPlayerContainer = styled.div`
+export const ExpandedPlayerContainer = styled.div<ColorSchemeProps>`
   padding: 1rem 1.5rem;
-  border-top: 1px solid ${({ theme }) => 
-    isDarkTheme(theme)
-      ? defaultColors.dark.border 
-      : defaultColors.light.border};
+  border-top: 1px solid ${({ $colorScheme }) => getColors($colorScheme).border};
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
-  background-color: ${({ theme }) => 
-    isDarkTheme(theme) 
-      ? defaultColors.dark.background 
-      : defaultColors.light.background};
+  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
 `;
 
-export const TrackList = styled.div`
+export const TrackList = styled.div<ColorSchemeProps>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -353,61 +307,43 @@ export const TrackList = styled.div`
   }
   
   &::-webkit-scrollbar-track {
-    background: ${({ theme }) => 
-      isDarkTheme(theme) 
-        ? defaultColors.dark.scrollTrack 
-        : defaultColors.light.scrollTrack};
+    background: ${({ $colorScheme }) => getColors($colorScheme).scrollTrack};
     border-radius: 4px;
   }
   
   &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => 
-      isDarkTheme(theme) 
-        ? defaultColors.dark.scrollThumb 
-        : defaultColors.light.scrollThumb};
+    background: ${({ $colorScheme }) => getColors($colorScheme).scrollThumb};
     border-radius: 4px;
   }
 `;
 
-export const TrackItem = styled.div<{ $isActive?: boolean }>`
+export const TrackItem = styled.div<ColorSchemeProps & { $isActive?: boolean }>`
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
   background-color: ${props => props.$isActive 
-    ? isDarkTheme(props.theme) 
-      ? defaultColors.dark.activeTrackBackground
-      : defaultColors.light.activeTrackBackground
+    ? getColors(props.$colorScheme).activeTrackBackground
     : 'transparent'};
   transition: background-color 0.2s;
   
   &:hover {
     background-color: ${props => props.$isActive 
-      ? isDarkTheme(props.theme) 
-        ? defaultColors.dark.activeTrackHoverBackground
-        : defaultColors.light.activeTrackHoverBackground
-      : isDarkTheme(props.theme) 
-        ? defaultColors.dark.inactiveTrackHoverBackground
-        : defaultColors.light.inactiveTrackHoverBackground};
+      ? getColors(props.$colorScheme).activeTrackHoverBackground
+      : getColors(props.$colorScheme).inactiveTrackHoverBackground};
   }
 `;
 
-export const TrackItemTitle = styled.div`
-  color: ${({ theme }) => 
-    isDarkTheme(theme) 
-      ? defaultColors.dark.text 
-      : defaultColors.light.text};
+export const TrackItemTitle = styled.div<ColorSchemeProps>`
+  color: ${({ $colorScheme }) => getColors($colorScheme).text};
   font-weight: 500;
   font-size: 0.875rem;
   margin-bottom: 0.25rem;
 `;
 
-export const TrackItemArtist = styled.div`
-  color: ${({ theme }) => 
-    isDarkTheme(theme) 
-      ? defaultColors.dark.textMuted 
-      : defaultColors.light.textMuted};
+export const TrackItemArtist = styled.div<ColorSchemeProps>`
+  color: ${({ $colorScheme }) => getColors($colorScheme).textMuted};
   font-size: 0.75rem;
 `;
 

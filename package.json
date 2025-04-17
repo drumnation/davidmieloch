@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
+    "dev:port": "next dev -p",
     "dev:alt": "next dev -p 3002",
     "dev:turbo": "next dev -p 4000 --turbo",
     "dev:fast": "NODE_OPTIONS='--max-old-space-size=4096' next dev -p 4000",
@@ -38,6 +39,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@mantine/core": "^7.17.1",
     "@mantine/dates": "^7.17.1",
     "@mantine/dropzone": "^7.17.3",

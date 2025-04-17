@@ -2,9 +2,9 @@
 
 import React, { useEffect } from 'react';
 import { AppShell, Container } from '@mantine/core';
-import { ThemeProvider } from '../providers/ThemeProvider';
+import { ThemeProvider, useTheme } from '../providers/ThemeProvider';
 import { ClarityProvider } from '../providers/ClarityProvider';
-import Header from '../shared-components/organisms/Header';
+import { Header } from '../shared-components/organisms/Header';
 import { PersistentFooter } from '../shared-components/organisms/PersistentFooter';
 import { setupSpringDebugger } from '../utils/animations/spring-debug';
 
@@ -13,6 +13,9 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { colorScheme } = useTheme();
+  const isDark = colorScheme === 'dark';
+
   // Initialize spring debugger in both dev and production
   useEffect(() => {
     // Skip in SSR context
@@ -41,15 +44,23 @@ export default function ClientLayout({
         <AppShell
           header={{ height: 60 }}
           padding="md"
+          styles={() => ({
+            main: {
+              backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
+              transition: 'background-color 200ms ease',
+            },
+            root: {
+              backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
+              transition: 'background-color 200ms ease',
+            }
+          })}
         >
           <AppShell.Header>
             <Header />
           </AppShell.Header>
           
           <AppShell.Main>
-            <Container size="lg" py="md">
-              {children}
-            </Container>
+            {children}
           </AppShell.Main>
           
           <PersistentFooter data-print-hidden="true" />

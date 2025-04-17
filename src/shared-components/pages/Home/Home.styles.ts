@@ -28,8 +28,8 @@ export const theme = {
 
 export const HomePageContainer = styled.div`
   width: 100%;
-  background-color: ${theme.background.primary};
-  color: ${theme.text.primary};
+  // background-color: ${theme.background.primary}; // Removed background
+  // color: ${theme.text.primary}; // Removed default text color
   min-height: 100vh;
 `;
 
@@ -226,6 +226,13 @@ export const SectionBodyText = styled.p`
   margin-right: auto;
 `;
 
+export const ContentContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+`;
+
 export const Badge = styled.span<{ color: string, bg: string }>`
   background: ${props => props.bg};
   color: ${props => props.color};
@@ -358,4 +365,52 @@ export const HighlightBox = styled.span`
   margin: 0 0.1em;
   font-size: 1em;
   display: inline-block;
+`;
+
+// Why I Stand Out Section
+export const StandOutSection = styled.div`
+  background: linear-gradient(to bottom, rgba(16, 19, 31, 0.7), rgba(10, 12, 30, 0.5));
+  padding: 2.5rem;
+  border-radius: 12px;
+  margin: 3rem auto;
+  max-width: 900px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+`;
+
+export const StandOutTitle = styled.h2`
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: ${theme.text.primary};
+  display: flex;
+  align-items: center;
+  
+  &::before {
+    content: '✅';
+    margin-right: 0.75rem;
+    font-size: 1.5rem;
+  }
+`;
+
+export const StandOutList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+export const StandOutItem = styled.li`
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  color: ${theme.text.secondary};
+  font-size: 1.1rem;
+  line-height: 1.6;
+  
+  &::before {
+    content: '•';
+    color: ${theme.accent.primary};
+    font-weight: bold;
+    margin-right: 0.75rem;
+  }
 `; 

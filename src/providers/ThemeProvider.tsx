@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import '@mantine/core/styles.css';
 import '@xyflow/react/dist/style.css';
 import '../styles/globals.css';
 import { MantineProvider } from './MantineProvider';
-import ClientOnly from '../utils/ClientOnly';
 import { ThemeContext } from '../contexts/ThemeContext';
+import { usePathname } from 'next/navigation';
 
 // Export the useTheme hook
 export const useTheme = () => {
@@ -117,29 +117,42 @@ const theme = {
 };
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Always start with light mode
-  const [colorScheme, setColorScheme] = useState<'dark' | 'light'>('light');
-  
-  // Toggle function
+  // Determine color scheme based on route
+  const pathname = usePathname();
+  // Set dark mode only for homepage, light mode for all other routes
+  const colorScheme = pathname === '/' ? 'dark' : 'light';
+
+  // Dummy toggle function (can be implemented later if needed)
   const toggleColorScheme = () => {
-    setColorScheme(colorScheme === 'dark' ? 'light' : 'dark');
+    console.warn('toggleColorScheme is not implemented for route-based theme');
   };
 
-  // Static content safe for both server and client 
-  const content = (
-    <StyledThemeProvider theme={theme}>
-      <MantineProvider colorScheme="light">
-        {children}
-      </MantineProvider>
-    </StyledThemeProvider>
-  );
-  
-  // Wrap with ClientOnly to prevent hydration mismatch
+  // Apply theme class to body when component mounts or theme changes
+  React.useEffect(() => {
+    // Remove any existing theme classes
+    document.body.classList.remove('light-theme', 'dark-theme');
+    document.documentElement.classList.remove('light-theme', 'dark-theme');
+    
+    // Add appropriate theme class
+    const themeClass = colorScheme === 'dark' ? 'dark-theme' : 'light-theme';
+    document.body.classList.add(themeClass);
+    document.documentElement.classList.add(themeClass);
+    
+    // Setting the color-scheme attribute helps browsers with their own dark mode features
+    document.documentElement.style.colorScheme = colorScheme;
+    
+    console.log('[ThemeProvider] Applied theme:', colorScheme);
+  }, [colorScheme]);
+
   return (
-    <ThemeContext.Provider value={{ colorScheme: 'light', toggleColorScheme }}>
-      <ClientOnly fallback={content}>
-        {content}
-      </ClientOnly>
+    // Use the determined color scheme for context and Mantine
+    <ThemeContext.Provider value={{ colorScheme, toggleColorScheme }}>
+      <StyledThemeProvider theme={theme}>
+        {/* Pass determined scheme to MantineProvider */}
+        <MantineProvider colorScheme={colorScheme}> 
+          {children}
+        </MantineProvider>
+      </StyledThemeProvider>
     </ThemeContext.Provider>
   );
 }; 

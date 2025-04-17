@@ -62,7 +62,7 @@ export const HeroContainer = styled.section<{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2rem;
+  padding: 0 0 3rem 0;
   overflow: hidden;
   will-change: transform;
   transform: translateZ(0);
@@ -121,7 +121,7 @@ export const HeroContainer = styled.section<{
 
   ${media.up('md')} {
     min-height: 70vh;
-    padding: 4rem 3rem;
+    padding: 0 0 4rem 0;
   }
 `;
 

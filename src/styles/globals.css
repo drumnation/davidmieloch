@@ -31,8 +31,38 @@
   --background-light: #ffffff;
   --background-dark: #1A1B1E;
   color-scheme: light;
-  color: var(--text-primary) !important;
-  background-color: var(--background-light) !important;
+  color: var(--text-primary);
+  background-color: var(--background-light);
+}
+
+/* Dark theme class */
+.dark-theme {
+  --text-primary: #ffffff;
+  --text-secondary: #ADB5BD;
+  --text-light: #ffffff;
+  --background-light: #25262b;
+  --background-dark: #1A1B1E;
+  color-scheme: dark;
+  color: var(--text-primary);
+  background-color: var(--background-dark);
+}
+
+/* Home page specific dark theme */
+body.dark-theme {
+  background-color: var(--background-dark);
+}
+
+/* Make sure the entire viewport is dark on homepage */
+html.dark-theme {
+  background-color: var(--background-dark);
+}
+
+/* Apply dark background to all main containers on homepage */
+.dark-theme #__next,
+.dark-theme .mantine-AppShell-root,
+.dark-theme main,
+.dark-theme .mantine-Container-root {
+  background-color: var(--background-dark);
 }
 
 /* Global styles */
@@ -41,39 +71,38 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-lexend);
-  color: var(--text-primary) !important;
-  background-color: var(--background-light) !important;
 }
 
-/* Forcing light theme for all app components */
+/* Remove the !important flags that were causing issues */
 #__next, 
 [data-rk] {
-  color: var(--text-primary) !important; 
-  background-color: var(--background-light) !important;
+  min-height: 100vh;
 }
 
-/* Add universal light mode overrides for common components */
+/* Remove the !important flags from these component styles */
 .mantine-AppShell-main {
-  background-color: var(--background-light) !important;
-  color: var(--text-primary) !important;
+  background-color: var(--background-light);
 }
 
 .mantine-Paper-root {
-  background-color: var(--background-light) !important;
-  color: var(--text-primary) !important;
+  background-color: var(--background-light);
 }
 
-.mantine-Text-root {
-  color: var(--text-primary) !important;
+/* Remove the !important from text color */
+.mantine-Text-root:not([class*='mantine-Header']) {
+  /* Keep default text styling from Mantine */
 }
 
 .mantine-AppShell-header {
-  background-color: var(--background-light) !important;
-  color: var(--text-primary) !important;
-  border-bottom: none !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
-  z-index: 1000 !important;
-  backdrop-filter: blur(8px) !important;
+  /* Base styles that can be overridden by component styles */
+  z-index: 1000;
+}
+
+/* Apply !important only for print styles and light/dark mode toggle */
+@media print {
+  .mantine-AppShell-header {
+    display: none !important;
+  }
 }
 
 /* Default all text to Lexend */
@@ -105,7 +134,6 @@ body, button, input, select, textarea {
   }
   
   /* Hide non-essential elements */
-  .mantine-AppShell-header,
   nav,
   button {
     display: none !important;

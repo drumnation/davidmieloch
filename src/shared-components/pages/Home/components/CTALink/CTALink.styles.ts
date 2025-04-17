@@ -73,10 +73,9 @@ export const IconWrapper = styled.span`
   width: 24px;
   height: 24px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.15);
 `;
 
-export const StyledCTALink = styled.span<Pick<CTALinkProps, 'variant' | 'size'>>`
+export const StyledCTALink = styled.span<{ $variant?: CTALinkProps['variant']; $size?: CTALinkProps['size'] }>`
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
@@ -87,11 +86,15 @@ export const StyledCTALink = styled.span<Pick<CTALinkProps, 'variant' | 'size'>>
   transition: all 0.3s ease;
   cursor: pointer;
   
-  ${props => props.variant === 'primary' && css`
+  ${props => props.$variant === 'primary' && css`
     background: ${theme.accent.gradient};
     color: ${theme.text.primary};
     border: none;
     box-shadow: 0 4px 14px rgba(67, 97, 238, 0.25);
+    
+    ${IconWrapper} {
+      background: transparent;
+    }
     
     &:hover {
       transform: translateY(-4px);
@@ -106,7 +109,7 @@ export const StyledCTALink = styled.span<Pick<CTALinkProps, 'variant' | 'size'>>
     }
   `}
   
-  ${props => props.variant === 'secondary' && css`
+  ${props => props.$variant === 'secondary' && css`
     background: rgba(67, 97, 238, 0.1);
     color: ${theme.text.primary};
     border: 1px solid rgba(67, 97, 238, 0.5);
@@ -124,7 +127,7 @@ export const StyledCTALink = styled.span<Pick<CTALinkProps, 'variant' | 'size'>>
     }
   `}
   
-  ${props => props.variant === 'text' && css`
+  ${props => props.$variant === 'text' && css`
     background: transparent;
     color: ${theme.accent.primary};
     border: none;
@@ -153,19 +156,19 @@ export const StyledCTALink = styled.span<Pick<CTALinkProps, 'variant' | 'size'>>
     }
   `}
   
-  ${props => props.size === 'sm' && css`
+  ${props => props.$size === 'sm' && css`
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     border-radius: 8px;
   `}
   
-  ${props => props.size === 'md' && css`
+  ${props => props.$size === 'md' && css`
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     border-radius: 10px;
   `}
   
-  ${props => props.size === 'lg' && css`
+  ${props => props.$size === 'lg' && css`
     padding: 1rem 2rem;
     font-size: 1.125rem;
     border-radius: 12px;

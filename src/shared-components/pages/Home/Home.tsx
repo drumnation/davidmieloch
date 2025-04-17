@@ -9,19 +9,23 @@ import { FSBPSection } from './components/ContentSection/ContentSection';
 import { GenericSection } from './components/ContentSection';
 import { SectionHeading } from './components/SectionHeading';
 import { PersonaCard } from './components/PersonaCard/PersonaCard';
-import { CTALink } from './components/CTALink';
+import CTALink from './components/CTALink';
 import { Card } from './components/Card';
 import { TechIcon } from '../../atoms/TechIcon';
 import { formatTechList } from './Home.utils';
+// Import all styles from our combined file
 import {
   Badge,
   ButtonGroup,
   CTADescription,
+  ContentContainer,
   FadeInSection,
   FrameworksGrid,
+  FullWidthBackgroundWrapper, // From Home.styles.tsx
   Highlight,
   HighlightBox,
-  HomePageContainer,
+  HomeContainer, // From Home.styles.tsx
+  HomePageContainer, // From Home.styles.ts
   HeroSection,
   PersonaNav,
   ProjectsGrid,
@@ -29,9 +33,13 @@ import {
   SectionDivider,
   SectionTitle,
   SectionWrapper,
+  StandOutSection,
+  StandOutTitle,
+  StandOutList,
+  StandOutItem,
   StyledGenericSection,
   ViewAllContainer
-} from './Home.styles';
+} from './Home.styles.combined';
 
 export const Home = () => {
   const { 
@@ -60,7 +68,9 @@ export const Home = () => {
         <meta name="twitter:description" content={metaData.twitterDescription} />
       </Head>
     
-      <HomePageContainer>
+      <FullWidthBackgroundWrapper />
+      
+      <HomeContainer>
         {/* Hero Section with Cylindrical Glow */}
         <HeroSection className="with-glow">
           <div className="cylinder-backdrop" />
@@ -68,6 +78,42 @@ export const Home = () => {
             <Hero {...heroProps} />
           </div>
         </HeroSection>
+        
+        {/* Full-Stack Business Person Concept Block */}
+        <StyledGenericSection id="fsbp-concept">
+          <SectionHeading icon="💡" title="The Full-Stack Business Person Model" />
+          <SectionBodyText>
+            AI isn&apos;t just changing how we code — it&apos;s redefining what kind of developers teams need.
+          </SectionBodyText>
+          <SectionBodyText>
+            As teams shrink and AI handles more tasks, the highest-leverage contributors are <Highlight>multi-disciplinary builders</Highlight> who combine:
+          </SectionBodyText>
+          <StandOutList style={{ marginTop: '0.5rem', marginBottom: '1rem' }}> {/* Reusing StandOutList for styling */} 
+            <StandOutItem>Deep technical skills</StandOutItem>
+            <StandOutItem>Product intuition</StandOutItem>
+            <StandOutItem>Business awareness</StandOutItem>
+            <StandOutItem>Clear communication</StandOutItem>
+            <StandOutItem>AI-assisted workflows</StandOutItem>
+          </StandOutList>
+          <SectionBodyText>
+            I call this the <strong>Full-Stack Business Person</strong> — an engineer who thinks in systems, ships with speed, and understands the "why" behind every feature.
+          </SectionBodyText>
+          <SectionBodyText style={{ marginTop: '1rem', fontStyle: 'italic' }}>
+            🧠 This site exists to show what that looks like in practice.
+          </SectionBodyText>
+        </StyledGenericSection>
+        
+        {/* Why I Stand Out Section */}
+        <StandOutSection>
+          <StandOutTitle>Why I Stand Out</StandOutTitle>
+          <StandOutList>
+            <StandOutItem>Led AI-integrated platform architecture at scale</StandOutItem>
+            <StandOutItem>Expert in React, TypeScript, Node, and system design</StandOutItem>
+            <StandOutItem>Created high-leverage tools & agent workflows used in real-world apps</StandOutItem>
+            <StandOutItem>Strong communicator, mentor, and thought leader with product vision</StandOutItem>
+            <StandOutItem>Deep understanding of modern dev culture, testing, documentation, and delivery</StandOutItem>
+          </StandOutList>
+        </StandOutSection>
         
         {/* Persona-Targeted Navigation */}
         <PersonaNav className="persona-nav">
@@ -229,7 +275,7 @@ export const Home = () => {
             </ButtonGroup>
           </StyledGenericSection>
         </SectionWrapper>
-      </HomePageContainer>
+      </HomeContainer>
     </>
   );
 };

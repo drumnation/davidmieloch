@@ -221,13 +221,14 @@ export const Footer = ({
       data-testid="footer"
       data-loaded="true"
       className="Footer-loaded"
+      $colorScheme={colorScheme}
     >
       {/* Gradient border */}
       <GradientBorder />
       
       {/* Mini Mode Player */}
       {isMiniMode ? (
-        <MiniModeContainer>
+        <MiniModeContainer $colorScheme={colorScheme}>
           {/* Track artwork */}
           <div 
             style={{ 
@@ -300,13 +301,14 @@ export const Footer = ({
               justifyContent: 'center',
               height: '100%'
             }}
+            $colorScheme={colorScheme}
           >
             <ChevronUp size={14} style={{ color: colors.text }} />
           </ControlButton>
         </MiniModeContainer>
       ) : (
         // Regular Player
-        <MiniPlayerContainer>
+        <MiniPlayerContainer $colorScheme={colorScheme}>
           <div style={{ 
             display: 'flex',
             flexDirection: 'column',
@@ -367,8 +369,8 @@ export const Footer = ({
               }}>
                 {/* Track title and artist */}
                 <div style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
-                  <TrackTitle style={{ fontSize: '1.1rem' }}>{currentTrack?.title || 'My Music'}</TrackTitle>
-                  {currentTrack && <TrackArtist>{currentTrack.artist}</TrackArtist>}
+                  <TrackTitle $colorScheme={colorScheme}>{currentTrack?.title || 'My Music'}</TrackTitle>
+                  {currentTrack && <TrackArtist $colorScheme={colorScheme}>{currentTrack.artist}</TrackArtist>}
                 </div>
                 
                 {/* Playback controls */}
@@ -380,6 +382,7 @@ export const Footer = ({
                     }}
                     aria-label="Previous track"
                     disabled={!currentTrack}
+                    $colorScheme={colorScheme}
                   >
                     <SkipBack size={18} style={{ color: colors.text }} />
                   </ControlButton>
@@ -392,6 +395,7 @@ export const Footer = ({
                     aria-label={isPlaying ? "Pause" : "Start playing"}
                     disabled={!currentTrack}
                     style={{ margin: '0 0.75rem' }}
+                    $colorScheme={colorScheme}
                   >
                     {isPlaying ? (
                       <Pause size={24} style={{ color: colors.text }} />
@@ -407,6 +411,7 @@ export const Footer = ({
                     }}
                     aria-label="Next track"
                     disabled={!currentTrack}
+                    $colorScheme={colorScheme}
                   >
                     <SkipForward size={18} style={{ color: colors.text }} />
                   </ControlButton>
@@ -417,6 +422,7 @@ export const Footer = ({
               <ControlButton 
                 onClick={handleTriStateButton}
                 aria-label={isExpanded ? "Minimize player" : "Expand player"}
+                $colorScheme={colorScheme}
               >
                 {isExpanded ? (
                   <ChevronDown size={18} style={{ color: colors.text }} />
@@ -440,7 +446,7 @@ export const Footer = ({
                     margin: '-10px 0'
                   }}
                 >
-                  <ProgressBar ref={progressBarRef}>
+                  <ProgressBar ref={progressBarRef} $colorScheme={colorScheme}>
                     <ProgressFill style={{ width: `${progress}%` }} />
                   </ProgressBar>
                 </div>
@@ -457,17 +463,18 @@ export const Footer = ({
       
       {/* Expanded Player */}
       {isExpanded && !isMiniMode && (
-        <ExpandedPlayerContainer>
+        <ExpandedPlayerContainer $colorScheme={colorScheme}>
           <Text size="sm" fw={600} style={{ color: colors.textSecondary, marginBottom: "0.5rem" }}>My Tracks</Text>
           
           {/* Track list */}
-          <TrackList>
+          <TrackList $colorScheme={colorScheme}>
             {displayTracks && displayTracks.length > 0 ? (
               displayTracks.map((track) => (
                 <TrackItem 
                   key={track.id}
                   onClick={() => handleTrackSelect(track.id)}
                   $isActive={currentTrack?.id === track.id}
+                  $colorScheme={colorScheme}
                 >
                   <TrackItemContent>
                     {track.artwork && (
@@ -478,8 +485,8 @@ export const Footer = ({
                       />
                     )}
                     <TrackDetails>
-                      <TrackItemTitle>{track.title}</TrackItemTitle>
-                      <TrackItemArtist>{track.artist}</TrackItemArtist>
+                      <TrackItemTitle $colorScheme={colorScheme}>{track.title}</TrackItemTitle>
+                      <TrackItemArtist $colorScheme={colorScheme}>{track.artist}</TrackItemArtist>
                     </TrackDetails>
                   </TrackItemContent>
                 </TrackItem>

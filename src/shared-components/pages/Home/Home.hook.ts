@@ -84,20 +84,21 @@ const initializeAnalytics = () => {
 const getHeroProps = () => {
   return {
     title: "David Mieloch",
-    subtitle: "Full-Stack Business Person / Developer",
-    tagline: "Building AI-powered systems with deep technical expertise in React, Node.js, and modern frameworks",
+    subtitle: "Staff-Level Full-Stack Engineer · AI-Native Systems Thinker",
+    tagline: "I help engineering teams unlock 10x efficiency through scalable architectures, agentic workflows, and AI-native product design.",
     background: "image" as const,
     backgroundImage: "/connected-dots.jpg",
+    backgroundOverlay: false,
     textColor: 'light' as const,
     animation: 'fade-up' as const,
     cta: {
       primary: {
-        text: 'View My Experience',
+        text: '🔍 View My Experience',
         link: '/experience'
       },
       secondary: {
-        text: 'Explore the FSBP Concept',
-        link: '/#fsbp'
+        text: '💡 Discover How I Work',
+        link: '#fsbp-concept'
       }
     }
   };
