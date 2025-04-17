@@ -67,6 +67,53 @@ export const FrameworksGrid = styled.div`
   gap: 2rem;
   flex-wrap: wrap;
   margin-top: 2rem;
+  justify-content: center;
+  
+  /* Ensure consistent card heights */
+  & > div {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    min-height: 280px;
+    
+    /* Improved card background gradient */
+    background: linear-gradient(to right, #1e1e2f, #232342);
+    transition: all 0.3s ease;
+    
+    /* Enhance contrast on hover without affecting legibility */
+    &:hover {
+      background: linear-gradient(to right, #2f2f48, #363656);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Ensure consistent spacing inside cards */
+    padding: 2rem;
+    
+    /* Consistent title heights */
+    h3, .card-title {
+      min-height: 3.5rem;
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    /* Consistent description heights */
+    p, .card-description {
+      min-height: 3rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    
+    & > div {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 `;
 
 export const ProjectsGrid = styled.div`

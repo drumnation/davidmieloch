@@ -1,3 +1,4 @@
 export * from './ContentSection';
 export * from './ContentSection.types';
-export * from './GenericSection'; 
+export * from './GenericSection';
+export * from './GenericSection.types'; 

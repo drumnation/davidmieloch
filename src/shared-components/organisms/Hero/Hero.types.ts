@@ -9,6 +9,7 @@ export interface HeroProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  tagline?: string;
   background?: 'gradient' | 'light' | 'dark' | 'image';
   backgroundImage?: string;
   backgroundOverlay?: boolean;

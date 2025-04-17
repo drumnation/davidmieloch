@@ -11,6 +11,7 @@ import { SectionHeading } from './components/SectionHeading';
 import { PersonaCard } from './components/PersonaCard/PersonaCard';
 import { CTALink } from './components/CTALink';
 import { Card } from './components/Card';
+import { TechIcon } from '../../atoms/TechIcon';
 import { formatTechList } from './Home.utils';
 import {
   Badge,
@@ -28,7 +29,6 @@ import {
   SectionDivider,
   SectionTitle,
   SectionWrapper,
-  StickyFooter,
   StyledGenericSection,
   ViewAllContainer
 } from './Home.styles';
@@ -41,14 +41,6 @@ export const Home = () => {
     hasScrolled
   } = useHomeData();
   
-  // Use hasScrolled state for sticky CTA visibility
-  const [showStickyCTA, setShowStickyCTA] = useState(false);
-  
-  // Update sticky CTA based on scroll state
-  useEffect(() => {
-    setShowStickyCTA(hasScrolled);
-  }, [hasScrolled]);
-
   // Technologies list for footer section
   const technologies = ['✨ Built with AI', '🧠 React', '📊 Content Strategy'];
   const techListFormatted = formatTechList(technologies);
@@ -106,18 +98,25 @@ export const Home = () => {
         
         <SectionDivider />
         
-        {/* Frameworks in Action Section */}
-        <StyledGenericSection>
+        {/* Full-Stack Business Person Section - Moved up earlier in the page */}
+        <FSBPSection />
+        
+        <SectionDivider />
+        
+        {/* Frameworks in Action Section - Updated with refined content and links */}
+        <StyledGenericSection id="frameworks">
           <SectionHeading icon="🧩" title="Frameworks in Action" />
-          <SectionBodyText>These whitepapers distill how I guide engineering orgs through <Highlight>complexity and AI disruption</Highlight>.</SectionBodyText>
+          <SectionBodyText>
+            These frameworks demonstrate how I lead engineering teams through real-world complexity—from orchestrating AI systems to modernizing legacy codebases. Each is written as a standalone playbook, rooted in execution.
+          </SectionBodyText>
           <FrameworksGrid>
             <Card 
               variant="framework"
-              icon="📄"
+              icon={<TechIcon name="openai" size={36} color="white" />}
               title="AI Transformation"
               description="How to orchestrate dev teams in the age of agents"
               action={<CTALink 
-                href="/frameworks/ai-transformation" 
+                href="/enterprise-ai-development-framework" 
                 label="Read Framework"
                 iconType="file-text"
                 variant="primary"
@@ -125,42 +124,34 @@ export const Home = () => {
             />
             <Card 
               variant="framework"
-              icon="⚙️"
+              icon={<TechIcon name="react" size={36} />}
               title="React Best Practices"
               description="How I clean up and future-proof maturing codebases"
               action={<CTALink 
-                href="/frameworks/react-best-practices" 
+                href="/fullstack-react-best-practices-integration" 
                 label="Read Framework"
                 iconType="file-text"
                 variant="primary"
               />}
             />
           </FrameworksGrid>
-          <ViewAllContainer>
-            <CTALink 
-              href="/frameworks" 
-              label="View All Frameworks 📚"
-              iconType="list"
-              variant="text"
-            />
-          </ViewAllContainer>
         </StyledGenericSection>
         
         <SectionDivider />
         
-        {/* Live Proof Projects Section */}
-        <StyledGenericSection>
-          <SectionHeading icon="🚀" title="Live Proof: Projects in Action" />
-          <SectionBodyText>A selection of systems I&apos;ve built—each demonstrating <Highlight>AI-native, full-stack engineering</Highlight> in the wild.</SectionBodyText>
+        {/* Live Proof Projects Section - Moved to the end of the content */}
+        <StyledGenericSection id="projects">
+          <SectionHeading icon="🚀" title="Live Proof Projects in Action" />
+          <SectionBodyText>These systems reflect how I design and ship AI-native workflows—modular, developer-focused, and built for real-world use.</SectionBodyText>
           <ProjectsGrid>
             <Card 
               variant="project"
               icon="🧠"
               title="ai-context-generator"
-              description="VSCode extension that uses GPT to write instant, navigable summaries for directories and codebases."
+              description="VS Code extension that generates smart summaries for codebases using GPT."
               action={<CTALink 
-                href="/projects/ai-context-generator" 
-                label="View Project"
+                href="https://marketplace.visualstudio.com/items?itemName=drumnation.ai-context-generator" 
+                label="View on VS Marketplace"
                 iconType="external-link"
                 variant="primary"
                 size="sm"
@@ -175,35 +166,49 @@ export const Home = () => {
               variant="project"
               icon="🛠️"
               title="prompt-forge"
-              description="A toolkit for designing, testing, and deploying prompt chains and agent workflows."
+              description="Modular prompt and template engine for chaining GPT workflows and tooling."
               action={<CTALink 
-                href="/projects/prompt-forge" 
-                label="View Project"
+                href="https://github.com/dmieloch/prompt-forge" 
+                label="View on GitHub"
                 iconType="external-link"
                 variant="primary"
                 size="sm"
               />}
             >
               <div style={{ marginBottom: 12 }}>
-                <Badge bg="#e0e7ff" color="#3730a3">🛠️ PromptOps</Badge>
-                <Badge bg="#fef9c3" color="#92400e">🧩 Modular</Badge>
+                <Badge bg="#e0e7ff" color="#3730a3">🧩 PromptOps</Badge>
+                <Badge bg="#fef9c3" color="#92400e">⚙️ Templates</Badge>
+              </div>
+            </Card>
+            <Card 
+              variant="project"
+              icon="🌱"
+              title="Brain Garden"
+              description="An internal OS for managing rules, prompts, skill-jacks, and context for AI projects."
+              action={<CTALink 
+                href="#" 
+                label="Coming Soon"
+                iconType="external-link"
+                variant="primary"
+                size="sm"
+              />}
+            >
+              <div style={{ marginBottom: 12 }}>
+                <Badge bg="#e0e7ff" color="#3730a3">🧠 Orchestration</Badge>
+                <Badge bg="#fef9c3" color="#92400e">🛠️ Agent Infra</Badge>
               </div>
             </Card>
           </ProjectsGrid>
-          <ViewAllContainer>
+          <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
             <CTALink 
-              href="/projects" 
-              label="View All Projects 🔍"
-              iconType="list"
-              variant="text"
+              href="/experience" 
+              label="See more Projects"
+              iconType="external-link"
+              variant="secondary"
+              size="sm"
             />
-          </ViewAllContainer>
+          </div>
         </StyledGenericSection>
-        
-        <SectionDivider />
-        
-        {/* Full-Stack Business Person Section */}
-        <FSBPSection />
         
         <SectionDivider />
         
@@ -216,18 +221,6 @@ export const Home = () => {
             </SectionBodyText>
             <ButtonGroup>
               <CTALink 
-                href="/biography" 
-                label="Read Biography"
-                iconType="user"
-                variant="secondary"
-              />
-              <CTALink 
-                href="/experience" 
-                label="View Experience"
-                iconType="code"
-                variant="secondary"
-              />
-              <CTALink 
                 href="https://www.linkedin.com/in/davidmieloch/?msgControlName=message" 
                 label="Let&apos;s Connect"
                 iconType="mail"
@@ -236,17 +229,6 @@ export const Home = () => {
             </ButtonGroup>
           </StyledGenericSection>
         </SectionWrapper>
-        
-        {/* Sticky Footer CTA */}
-        <StickyFooter visible={showStickyCTA}>
-          <div>Ready to level up your org with <Highlight>AI-native engineering</Highlight>?</div>
-          <CTALink 
-            href="https://www.linkedin.com/in/davidmieloch/?msgControlName=message" 
-            label="Let&apos;s Talk ✉️"
-            iconType="mail"
-            variant="primary"
-          />
-        </StickyFooter>
       </HomePageContainer>
     </>
   );

@@ -39,6 +39,15 @@ const patternStyles = {
   none: css``
 };
 
+export const TaglineTypography = styled.p`
+  font-style: italic;
+  opacity: 0.9;
+  font-size: 0.95em;
+  margin-bottom: 1.5rem;
+  color: ${({ theme }) => theme.colors.text.light};
+  line-height: 1.5;
+`;
+
 export const HeroContainer = styled.section<{
   $background: string;
   $textColor: string;

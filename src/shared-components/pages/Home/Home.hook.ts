@@ -78,20 +78,20 @@ const initializeAnalytics = () => {
 const getHeroProps = () => {
   return {
     title: "David Mieloch",
-    subtitle: "Full-Stack Business Person / Lean Tech Leader",
-    description: "Bridging AI, Engineering, and Business Growth with deep technical expertise and broad business acumen to drive efficiency and results in lean, dynamic environments.",
+    subtitle: "Full-Stack Business Person / Developer",
+    tagline: "Building AI-powered systems with deep technical expertise in React, Node.js, and modern frameworks",
     background: "image" as const,
     backgroundImage: "/connected-dots.jpg",
     textColor: 'light' as const,
     animation: 'fade-up' as const,
     cta: {
       primary: {
-        text: 'Explore the FSBP Concept',
-        link: '/#fsbp'
-      },
-      secondary: {
         text: 'View My Experience',
         link: '/experience'
+      },
+      secondary: {
+        text: 'Explore the FSBP Concept',
+        link: '/#fsbp'
       }
     }
   };

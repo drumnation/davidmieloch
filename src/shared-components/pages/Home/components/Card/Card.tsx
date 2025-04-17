@@ -1,26 +1,14 @@
 'use client';
 
 import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
-
-// Theme colors for consistency
-const theme = {
-  background: {
-    primary: '#0a0c1e',
-    card: '#1b1d3a',
-    cardHover: '#21254a'
-  },
-  text: {
-    primary: '#ffffff',
-    secondary: '#c8d2f0',
-    muted: '#94a3b8'
-  },
-  accent: {
-    primary: '#4361ee',
-    secondary: '#7209b7',
-    gradient: 'linear-gradient(90deg, #4361ee, #7209b7)'
-  }
-};
+import {
+  CardContainer,
+  CardIcon,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardAction
+} from './Card.styles';
 
 export interface CardProps {
   /**
@@ -40,8 +28,9 @@ export interface CardProps {
   
   /**
    * Icon to display at the top of the card
+   * Can be a string (emoji) or a ReactNode (component)
    */
-  icon?: string;
+  icon?: ReactNode;
   
   /**
    * Card variant
@@ -63,80 +52,6 @@ export interface CardProps {
    */
   style?: React.CSSProperties;
 }
-
-const CardContainer = styled.div<{ variant?: string }>`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 280px;
-  min-width: 280px;
-  background: ${theme.background.card};
-  color: ${theme.text.primary};
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  padding: 28px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-    background: ${theme.background.cardHover};
-  }
-  
-  ${props => props.variant === 'persona' && css`
-    text-align: center;
-    background: linear-gradient(145deg, #212346, #171933);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  `}
-  
-  ${props => props.variant === 'framework' && css`
-    background: linear-gradient(145deg, #1e214a, #191b38);
-    border-left: 4px solid ${theme.accent.primary};
-  `}
-  
-  ${props => props.variant === 'project' && css`
-    background: linear-gradient(145deg, #232752, #1a1d3d);
-    border-left: 4px solid ${theme.accent.secondary};
-  `}
-`;
-
-const CardIcon = styled.div`
-  font-size: 2.25rem;
-  margin-bottom: 1.5rem;
-  background: rgba(255, 255, 255, 0.08);
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-`;
-
-const CardTitle = styled.h3`
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: ${theme.text.primary};
-  letter-spacing: -0.01em;
-`;
-
-const CardDescription = styled.div`
-  font-size: 1rem;
-  color: ${theme.text.secondary};
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-  line-height: 1.6;
-`;
-
-const CardContent = styled.div`
-  flex-grow: 1;
-  margin-bottom: 1.25rem;
-`;
-
-const CardAction = styled.div`
-  margin-top: auto;
-`;
 
 export const Card: React.FC<CardProps> = ({
   children,
@@ -161,6 +76,4 @@ export const Card: React.FC<CardProps> = ({
       {action && <CardAction>{action}</CardAction>}
     </CardContainer>
   );
-};
-
-export default Card; 
+}; 

@@ -11,6 +11,7 @@ export const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
   description,
+  tagline,
   background = 'gradient',
   backgroundImage,
   backgroundOverlay = true,
@@ -58,10 +59,16 @@ export const Hero: React.FC<HeroProps> = ({
           <Typography 
             variant="body"
             color={textColor === 'light' ? 'light' : 'secondary'}
-            className="mb-6"
+            className="mb-3"
           >
             {description}
           </Typography>
+        )}
+        
+        {tagline && (
+          <S.TaglineTypography>
+            {tagline}
+          </S.TaglineTypography>
         )}
 
         {cta && (
@@ -89,6 +96,14 @@ export const Hero: React.FC<HeroProps> = ({
           </S.ButtonContainer>
         )}
       </S.HeroContent>
+
+      <style jsx global>{`
+        .hero-tagline {
+          font-style: italic;
+          opacity: 0.9;
+          font-size: 0.95em;
+        }
+      `}</style>
     </S.HeroContainer>
   );
 }; 

@@ -146,6 +146,16 @@ export const ParadigmSection = styled.div`
 
 export const ParadigmParagraph = styled.div`
   margin-bottom: 2rem;
+  
+  .fsbp-text-content {
+    line-height: 1.7;
+    font-size: 1.05rem;
+    
+    strong {
+      font-weight: 600;
+      color: #a2b6ff; /* Light blue color to match FSBPEmphasis */
+    }
+  }
 `;
 
 export const ParadigmSubheading = styled.h4`
