@@ -1,0 +1,90 @@
+<!-- .storybook/preview-head.html -->
+<script>
+  // Mock Next.js App Router hooks directly in the iframe
+  // This resolves issues with useRouter() "invariant expected app router to be mounted"
+  
+  // Create debugging logs to trace the issue
+  console.log('📌 Starting preview-head.html script');
+  
+  // Create a complete router mock with all required properties
+  const mockRouter = {
+    // App Router properties
+    push: () => Promise.resolve(true),
+    replace: () => Promise.resolve(true),
+    prefetch: () => Promise.resolve(),
+    refresh: () => {},
+    back: () => {},
+    forward: () => {},
+    
+    // Pages Router properties (for backward compatibility)
+    pathname: '/',
+    route: '/',
+    query: {},
+    asPath: '/',
+    basePath: '',
+    locale: undefined,
+    locales: undefined,
+    defaultLocale: undefined,
+    isReady: true,
+    isFallback: false,
+    isPreview: false,
+    events: {
+      on: () => {},
+      off: () => {},
+      emit: () => {}
+    }
+  };
+  
+  // Check if hooks are already defined - if not, define them
+  if (typeof window !== 'undefined') {
+    // Immediately assign mocks to window to ensure they're available early
+    // This is critical for components that use these hooks during initial render
+    
+    window.useRouter = function mockUseRouter() {
+      console.log('📌 Mock useRouter called');
+      return mockRouter;
+    };
+    
+    window.usePathname = function mockUsePathname() {
+      return '/';
+    };
+    
+    window.useParams = function mockUseParams() {
+      return {};
+    };
+    
+    window.useSelectedLayoutSegment = function mockUseSelectedLayoutSegment() {
+      return null;
+    };
+    
+    window.useSelectedLayoutSegments = function mockUseSelectedLayoutSegments() {
+      return [];
+    };
+    
+    window.useSearchParams = function mockUseSearchParams() {
+      return new URLSearchParams();
+    };
+    
+    // Add a global flag to indicate mocks are loaded
+    window.__NEXT_ROUTER_MOCK_LOADED__ = true;
+    
+    console.log('📌 Next.js App Router hooks successfully mocked');
+  }
+  
+  // Additional setup - create a module-level mock to catch imports from next/navigation
+  // This requires the webpack alias in main.js to work properly
+  if (typeof module !== 'undefined') {
+    try {
+      module.exports = {
+        useRouter: window.useRouter,
+        usePathname: window.usePathname,
+        useParams: window.useParams,
+        useSelectedLayoutSegment: window.useSelectedLayoutSegment,
+        useSelectedLayoutSegments: window.useSelectedLayoutSegments,
+        useSearchParams: window.useSearchParams,
+      };
+    } catch (e) {
+      console.warn('📌 Module-level mock setup failed:', e);
+    }
+  }
+</script> 

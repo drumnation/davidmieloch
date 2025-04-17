@@ -10,7 +10,7 @@ import { GardenMetaphorDiagramClient } from './GardenMetaphorDiagram.client';
  * The Default story shows the diagram in its actual page context.
  */
 const meta = {
-  title: 'Diagrams/GardenMetaphorDiagram',
+  title: 'Components/Diagrams/GardenMetaphorDiagram',
   component: GardenMetaphorDiagramClient,
   parameters: {
     layout: 'padded',

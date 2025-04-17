@@ -1331,6 +1331,321 @@ exports[`Storybook Snapshots > Atoms/Typography > Weights 1`] = `
 </div>
 `;
 
+exports[`Storybook Snapshots > Components/Shared/Molecules/MermaidDiagram > AIProcessFlow 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kiMgGE eKtQYv"
+  >
+    <div
+      class="sc-dCVDEO htFRnl"
+    >
+      <div
+        class="sc-fhPBcz fyDCSv"
+      >
+        Diagram (
+        7
+         nodes)
+      </div>
+      <div
+        class="sc-dNpohg ljXvBl"
+      >
+        Diagrams temporarily disabled while updating visualization libraries.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Components/Shared/Molecules/MermaidDiagram > DarkTheme 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kiMgGE eKtQYv"
+  >
+    <div
+      class="sc-dCVDEO hgseVc"
+    >
+      <div
+        class="sc-fhPBcz fyDCSv"
+      >
+        Diagram (
+        7
+         nodes)
+      </div>
+      <div
+        class="sc-dNpohg ljXvBl"
+      >
+        Diagrams temporarily disabled while updating visualization libraries.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Components/Shared/Molecules/MermaidDiagram > FlowChart 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kiMgGE eKtQYv"
+  >
+    <div
+      class="sc-dCVDEO ljOqJB"
+    >
+      <div
+        class="sc-fhPBcz fyDCSv"
+      >
+        Diagram (
+        3
+         nodes)
+      </div>
+      <div
+        class="sc-dNpohg ljXvBl"
+      >
+        Diagrams temporarily disabled while updating visualization libraries.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Components/Shared/Molecules/MermaidDiagram > SequenceDiagram 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kiMgGE eKtQYv"
+  >
+    <div
+      class="sc-dCVDEO ljOqJB"
+    >
+      <div
+        class="sc-fhPBcz fyDCSv"
+      >
+        Diagram (
+        0
+         nodes)
+      </div>
+      <div
+        class="sc-dNpohg ljXvBl"
+      >
+        Diagrams temporarily disabled while updating visualization libraries.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Components/Shared/Molecules/ReactFlowDiagram > DarkTheme 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kmqAS ktYBJz"
+  >
+    <div
+      aria-label="Diagram description"
+      class="sc-hlDTgW dKYqbn"
+      role="note"
+    >
+      Demo diagram with dark theme
+    </div>
+    <div
+      class="sc-huvZk bhBkAR"
+    >
+      <div
+        class="sc-cLAbsH gLVwvo"
+      >
+        Loading diagram...
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Components/Shared/Molecules/ReactFlowDiagram > DebugReactSpringIssue 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kmqAS ktYBJz"
+  >
+    <div
+      aria-label="Diagram description"
+      class="sc-hlDTgW dKYqbn"
+      role="note"
+    >
+      Debugging diagram to help isolate React Spring maximum call stack issues
+    </div>
+    <div
+      class="sc-huvZk blanab"
+    >
+      <div
+        class="sc-cLAbsH gLVwvo"
+      >
+        Loading diagram...
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Components/Shared/Molecules/ReactFlowDiagram > Default 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kmqAS ktYBJz"
+  >
+    <div
+      aria-label="Diagram description"
+      class="sc-hlDTgW dKYqbn"
+      role="note"
+    >
+      Demo diagram showing different node types with icons
+    </div>
+    <div
+      class="sc-huvZk bhBkAR"
+    >
+      <div
+        class="sc-cLAbsH gLVwvo"
+      >
+        Loading diagram...
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Components/Shared/Molecules/ReactFlowDiagram > ForestTheme 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kmqAS ktYBJz"
+  >
+    <div
+      aria-label="Diagram description"
+      class="sc-hlDTgW dKYqbn"
+      role="note"
+    >
+      Demo diagram with forest theme
+    </div>
+    <div
+      class="sc-huvZk bhBkAR"
+    >
+      <div
+        class="sc-cLAbsH gLVwvo"
+      >
+        Loading diagram...
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Components/Shared/Molecules/ReactFlowDiagram > NeutralTheme 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class="sc-kmqAS ktYBJz"
+  >
+    <div
+      aria-label="Diagram description"
+      class="sc-hlDTgW dKYqbn"
+      role="note"
+    >
+      Demo diagram with neutral theme
+    </div>
+    <div
+      class="sc-huvZk bhBkAR"
+    >
+      <div
+        class="sc-cLAbsH gLVwvo"
+      >
+        Loading diagram...
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storybook Snapshots > Molecules/ComparisonTable > AccentStyle 1`] = `
 <div>
   <style
@@ -2876,146 +3191,6 @@ exports[`Storybook Snapshots > Molecules/FilterItem > Type 1`] = `
 </div>
 `;
 
-exports[`Storybook Snapshots > Molecules/MermaidDiagram > AIProcessFlow 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kiMgGE eKtQYv"
-  >
-    <div
-      class="sc-dCVDEO htFRnl"
-    >
-      <div
-        class="sc-fhPBcz fyDCSv"
-      >
-        Diagram (
-        7
-         nodes)
-      </div>
-      <div
-        class="sc-dNpohg ljXvBl"
-      >
-        Diagrams temporarily disabled while updating visualization libraries.
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storybook Snapshots > Molecules/MermaidDiagram > DarkTheme 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kiMgGE eKtQYv"
-  >
-    <div
-      class="sc-dCVDEO hgseVc"
-    >
-      <div
-        class="sc-fhPBcz fyDCSv"
-      >
-        Diagram (
-        7
-         nodes)
-      </div>
-      <div
-        class="sc-dNpohg ljXvBl"
-      >
-        Diagrams temporarily disabled while updating visualization libraries.
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storybook Snapshots > Molecules/MermaidDiagram > FlowChart 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kiMgGE eKtQYv"
-  >
-    <div
-      class="sc-dCVDEO ljOqJB"
-    >
-      <div
-        class="sc-fhPBcz fyDCSv"
-      >
-        Diagram (
-        3
-         nodes)
-      </div>
-      <div
-        class="sc-dNpohg ljXvBl"
-      >
-        Diagrams temporarily disabled while updating visualization libraries.
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storybook Snapshots > Molecules/MermaidDiagram > SequenceDiagram 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kiMgGE eKtQYv"
-  >
-    <div
-      class="sc-dCVDEO ljOqJB"
-    >
-      <div
-        class="sc-fhPBcz fyDCSv"
-      >
-        Diagram (
-        0
-         nodes)
-      </div>
-      <div
-        class="sc-dNpohg ljXvBl"
-      >
-        Diagrams temporarily disabled while updating visualization libraries.
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Storybook Snapshots > Molecules/PrivateWorkCard > Default 1`] = `
 <div>
   <style
@@ -3818,181 +3993,6 @@ exports[`Storybook Snapshots > Molecules/PrivateWorkCard > WithImage 1`] = `
         Led a team of 5 developers
       </li>
     </ul>
-  </div>
-</div>
-`;
-
-exports[`Storybook Snapshots > Molecules/ReactFlowDiagram > DarkTheme 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kmqAS ktYBJz"
-  >
-    <div
-      aria-label="Diagram description"
-      class="sc-hlDTgW dKYqbn"
-      role="note"
-    >
-      Demo diagram with dark theme
-    </div>
-    <div
-      class="sc-huvZk bhBkAR"
-    >
-      <div
-        class="sc-cLAbsH gLVwvo"
-      >
-        Loading diagram...
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storybook Snapshots > Molecules/ReactFlowDiagram > DebugReactSpringIssue 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kmqAS ktYBJz"
-  >
-    <div
-      aria-label="Diagram description"
-      class="sc-hlDTgW dKYqbn"
-      role="note"
-    >
-      Debugging diagram to help isolate React Spring maximum call stack issues
-    </div>
-    <div
-      class="sc-huvZk blanab"
-    >
-      <div
-        class="sc-cLAbsH gLVwvo"
-      >
-        Loading diagram...
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storybook Snapshots > Molecules/ReactFlowDiagram > Default 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kmqAS ktYBJz"
-  >
-    <div
-      aria-label="Diagram description"
-      class="sc-hlDTgW dKYqbn"
-      role="note"
-    >
-      Demo diagram showing different node types with icons
-    </div>
-    <div
-      class="sc-huvZk bhBkAR"
-    >
-      <div
-        class="sc-cLAbsH gLVwvo"
-      >
-        Loading diagram...
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storybook Snapshots > Molecules/ReactFlowDiagram > ForestTheme 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kmqAS ktYBJz"
-  >
-    <div
-      aria-label="Diagram description"
-      class="sc-hlDTgW dKYqbn"
-      role="note"
-    >
-      Demo diagram with forest theme
-    </div>
-    <div
-      class="sc-huvZk bhBkAR"
-    >
-      <div
-        class="sc-cLAbsH gLVwvo"
-      >
-        Loading diagram...
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storybook Snapshots > Molecules/ReactFlowDiagram > NeutralTheme 1`] = `
-<div>
-  <style
-    data-mantine-styles="true"
-  >
-    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
-  </style>
-  <style
-    data-mantine-styles="classes"
-  >
-    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
-  </style>
-  <div
-    class="sc-kmqAS ktYBJz"
-  >
-    <div
-      aria-label="Diagram description"
-      class="sc-hlDTgW dKYqbn"
-      role="note"
-    >
-      Demo diagram with neutral theme
-    </div>
-    <div
-      class="sc-huvZk bhBkAR"
-    >
-      <div
-        class="sc-cLAbsH gLVwvo"
-      >
-        Loading diagram...
-      </div>
-    </div>
   </div>
 </div>
 `;
@@ -140972,7 +140972,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
               <a
                 href="/enterprise-ai-development-framework"
               >
-                <a
+                <span
                   class="sc-fScmHt RwxlP"
                   variant="primary"
                 >
@@ -140982,7 +140982,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
                     📄
                   </span>
                   Read Framework
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -141039,7 +141039,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
               <a
                 href="/fullstack-react-best-practices-integration"
               >
-                <a
+                <span
                   class="sc-fScmHt RwxlP"
                   variant="primary"
                 >
@@ -141049,7 +141049,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
                     📄
                   </span>
                   Read Framework
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -141136,7 +141136,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
               <a
                 href="https://marketplace.visualstudio.com/items?itemName=drumnation.ai-context-generator"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -141146,7 +141146,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
                     ↗
                   </span>
                   View on VS Marketplace
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -141197,7 +141197,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
               <a
                 href="https://github.com/dmieloch/prompt-forge"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -141207,7 +141207,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
                     ↗
                   </span>
                   View on GitHub
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -141258,7 +141258,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
               <a
                 href="#"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -141268,7 +141268,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
                     ↗
                   </span>
                   Coming Soon
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -141279,7 +141279,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
           <a
             href="/experience"
           >
-            <a
+            <span
               class="sc-fScmHt bsXdzR"
               variant="secondary"
             >
@@ -141289,7 +141289,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
                 ↗
               </span>
               See more Projects
-            </a>
+            </span>
           </a>
         </div>
       </div>
@@ -141323,7 +141323,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
             <a
               href="https://www.linkedin.com/in/davidmieloch/?msgControlName=message"
             >
-              <a
+              <span
                 class="sc-fScmHt RwxlP"
                 variant="primary"
               >
@@ -141333,7 +141333,7 @@ exports[`Storybook Snapshots > pages/00-Home > Desktop 1`] = `
                   ✉️
                 </span>
                 Let's Connect
-              </a>
+              </span>
             </a>
           </div>
         </div>
@@ -142088,7 +142088,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
               <a
                 href="/enterprise-ai-development-framework"
               >
-                <a
+                <span
                   class="sc-fScmHt RwxlP"
                   variant="primary"
                 >
@@ -142098,7 +142098,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
                     📄
                   </span>
                   Read Framework
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -142155,7 +142155,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
               <a
                 href="/fullstack-react-best-practices-integration"
               >
-                <a
+                <span
                   class="sc-fScmHt RwxlP"
                   variant="primary"
                 >
@@ -142165,7 +142165,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
                     📄
                   </span>
                   Read Framework
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -142252,7 +142252,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
               <a
                 href="https://marketplace.visualstudio.com/items?itemName=drumnation.ai-context-generator"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -142262,7 +142262,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
                     ↗
                   </span>
                   View on VS Marketplace
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -142313,7 +142313,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
               <a
                 href="https://github.com/dmieloch/prompt-forge"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -142323,7 +142323,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
                     ↗
                   </span>
                   View on GitHub
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -142374,7 +142374,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
               <a
                 href="#"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -142384,7 +142384,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
                     ↗
                   </span>
                   Coming Soon
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -142395,7 +142395,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
           <a
             href="/experience"
           >
-            <a
+            <span
               class="sc-fScmHt bsXdzR"
               variant="secondary"
             >
@@ -142405,7 +142405,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
                 ↗
               </span>
               See more Projects
-            </a>
+            </span>
           </a>
         </div>
       </div>
@@ -142439,7 +142439,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
             <a
               href="https://www.linkedin.com/in/davidmieloch/?msgControlName=message"
             >
-              <a
+              <span
                 class="sc-fScmHt RwxlP"
                 variant="primary"
               >
@@ -142449,7 +142449,7 @@ exports[`Storybook Snapshots > pages/00-Home > Mobile 1`] = `
                   ✉️
                 </span>
                 Let's Connect
-              </a>
+              </span>
             </a>
           </div>
         </div>
@@ -143204,7 +143204,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
               <a
                 href="/enterprise-ai-development-framework"
               >
-                <a
+                <span
                   class="sc-fScmHt RwxlP"
                   variant="primary"
                 >
@@ -143214,7 +143214,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
                     📄
                   </span>
                   Read Framework
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -143271,7 +143271,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
               <a
                 href="/fullstack-react-best-practices-integration"
               >
-                <a
+                <span
                   class="sc-fScmHt RwxlP"
                   variant="primary"
                 >
@@ -143281,7 +143281,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
                     📄
                   </span>
                   Read Framework
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -143368,7 +143368,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
               <a
                 href="https://marketplace.visualstudio.com/items?itemName=drumnation.ai-context-generator"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -143378,7 +143378,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
                     ↗
                   </span>
                   View on VS Marketplace
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -143429,7 +143429,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
               <a
                 href="https://github.com/dmieloch/prompt-forge"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -143439,7 +143439,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
                     ↗
                   </span>
                   View on GitHub
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -143490,7 +143490,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
               <a
                 href="#"
               >
-                <a
+                <span
                   class="sc-fScmHt UOFaL"
                   variant="primary"
                 >
@@ -143500,7 +143500,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
                     ↗
                   </span>
                   Coming Soon
-                </a>
+                </span>
               </a>
             </div>
           </div>
@@ -143511,7 +143511,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
           <a
             href="/experience"
           >
-            <a
+            <span
               class="sc-fScmHt bsXdzR"
               variant="secondary"
             >
@@ -143521,7 +143521,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
                 ↗
               </span>
               See more Projects
-            </a>
+            </span>
           </a>
         </div>
       </div>
@@ -143555,7 +143555,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
             <a
               href="https://www.linkedin.com/in/davidmieloch/?msgControlName=message"
             >
-              <a
+              <span
                 class="sc-fScmHt RwxlP"
                 variant="primary"
               >
@@ -143565,7 +143565,7 @@ exports[`Storybook Snapshots > pages/00-Home > Tablet 1`] = `
                   ✉️
                 </span>
                 Let's Connect
-              </a>
+              </span>
             </a>
           </div>
         </div>

@@ -6,7 +6,7 @@ import JobDescriptionTextInput from './TextInput';
  * for analysis. It includes character count validation and clipboard functionality.
  */
 const meta = {
-  title: 'PerfectFitAnalyzer/JobDescriptionTextInput',
+  title: 'Components/PerfectFitAnalyzer/Components/TextInput',
   component: JobDescriptionTextInput,
   parameters: {
     layout: 'centered',

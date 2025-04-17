@@ -7,7 +7,7 @@ import React from 'react';
  * and shows why David is the perfect candidate for the role.
  */
 const meta = {
-  title: 'PerfectFitAnalyzer/PerfectFitAnalyzer',
+  title: 'Components/PerfectFitAnalyzer/Main',
   component: PerfectFitAnalyzer,
   parameters: {
     layout: 'fullscreen',

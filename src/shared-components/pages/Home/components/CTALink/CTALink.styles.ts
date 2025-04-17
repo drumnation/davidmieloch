@@ -76,7 +76,7 @@ export const IconWrapper = styled.span`
   background: rgba(255, 255, 255, 0.15);
 `;
 
-export const StyledCTALink = styled.a<Pick<CTALinkProps, 'variant' | 'size'>>`
+export const StyledCTALink = styled.span<Pick<CTALinkProps, 'variant' | 'size'>>`
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 1.5rem;

@@ -3,14 +3,11 @@ import type { Preview } from '@storybook/react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { theme as styledTheme } from '../src/styles/theme/styled-theme'
 import { viewports } from '../src/styles/theme/viewports'
-import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
-import { GlobalStyle } from '../src/theme/GlobalStyle'
-import { themes } from '../src/theme/theme'
-import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClient } from '../src/lib/react-query'
-import { RootLayoutClient } from '../src/app/RootLayoutClient'
 import { MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
+import { ReactFlowProvider } from 'reactflow'
+import 'reactflow/dist/style.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 // Add global styles for fonts
 import './storybook.css'
@@ -24,23 +21,33 @@ import {
   genericPageDecorator
 } from '../src/components/Diagrams/.storybook/decorators/PageStructureDecorator';
 
-// Import our custom decorators
-import { ReactFlowDecorator } from './decorators';
+// Import App Router safety wrapper
+import { withAppRouterSafety } from './decorators/AppRouterSafetyWrapper';
+
+// Create a new QueryClient instance for each story
+const createQueryClient = () => new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      gcTime: 0,
+    },
+  },
+});
 
 // Add CSS variables for the Hero component
 const GlobalStyles = () => (
   <style>
     {`
       :root {
-        --bg-gradient: ${styledTheme.colors.gradient};
-        --bg-light: ${styledTheme.colors.background.light};
-        --bg-dark: ${styledTheme.colors.background.dark};
-        --text-light: ${styledTheme.colors.text.light};
-        --text-primary: ${styledTheme.colors.text.primary};
-        --primary-blue: ${styledTheme.colors.primary.main};
-        --accent-blue: ${styledTheme.colors.accent.blue};
-        --accent-red: ${styledTheme.colors.accent.red};
-        --accent-green: ${styledTheme.colors.accent.green};
+        --bg-gradient: linear-gradient(45deg, #1a1b1e, #2c2e33);
+        --bg-light: #ffffff;
+        --bg-dark: #1a1b1e;
+        --text-light: #ffffff;
+        --text-primary: #1a1b1e;
+        --primary-blue: #228be6;
+        --accent-blue: #4dabf7;
+        --accent-red: #fa5252;
+        --accent-green: #40c057;
       }
 
       /* Add icon-specific styles */
@@ -54,9 +61,42 @@ const GlobalStyles = () => (
         width: 100%;
         height: 100%;
       }
+
+      /* Add React Flow specific styles */
+      .react-flow__container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      .react-flow__node {
+        cursor: default;
+      }
     `}
   </style>
 )
+
+// Main decorator that wraps all providers
+const MainDecorator = (Story: React.ComponentType) => {
+  const queryClient = React.useMemo(() => createQueryClient(), []);
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <StyledThemeProvider theme={styledTheme}>
+        <MantineProvider>
+          <ReactFlowProvider>
+            <GlobalStyles />
+            <div className="storybook-container" style={{ minHeight: '100vh', width: '100%' }}>
+              <Story />
+            </div>
+          </ReactFlowProvider>
+        </MantineProvider>
+      </StyledThemeProvider>
+    </QueryClientProvider>
+  );
+};
 
 // Create a context-aware decorator that ensures consistent styling
 const preview: Preview = {
@@ -93,28 +133,23 @@ const preview: Preview = {
     },
   },
   decorators: [
-    // Main theme decorator
-    (Story) => (
-      <StyledThemeProvider theme={styledTheme}>
-        <GlobalStyles />
-        <div className="storybook-container" style={{ minHeight: '100vh', width: '100%' }}>
-          <MantineProvider>
-            <Story />
-          </MantineProvider>
-        </div>
-      </StyledThemeProvider>
-    ),
+    // App Router safety wrapper to prevent crashes
+    withAppRouterSafety,
+    // Main theme decorator with all providers
+    MainDecorator,
     // Apply React Flow decorator to all Diagram stories
     (Story, context) => {
-      // Apply React Flow decorator for all diagram stories
       if (context.kind.includes('Diagrams/')) {
-        return ReactFlowDecorator(Story);
+        return (
+          <div style={{ height: '100%', width: '100%', minHeight: '500px', display: 'flex', flexDirection: 'column' }}>
+            <Story />
+          </div>
+        );
       }
       return <Story />;
     },
     // Apply page structure decorator based on selection
     (Story, context) => {
-      // Apply the appropriate page structure decorator based on the selection
       const pageStructure = context.globals.pageStructure;
       
       switch (pageStructure) {
@@ -131,7 +166,7 @@ const preview: Preview = {
       }
     },
   ],
-}
+};
 
 // Add global decorators that can be used in stories
 export const globalTypes = {

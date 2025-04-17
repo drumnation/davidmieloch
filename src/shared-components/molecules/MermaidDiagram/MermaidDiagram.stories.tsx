@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MermaidDiagram } from './MermaidDiagram';
 
 const meta = {
-  title: 'Molecules/MermaidDiagram',
+  title: 'Components/Shared/Molecules/MermaidDiagram',
   component: MermaidDiagram,
   parameters: {
     layout: 'padded',

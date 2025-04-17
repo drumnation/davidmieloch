@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react';
  * The Default story shows the diagram in its actual page context.
  */
 const meta = {
-  title: 'Diagrams/AgentSystemDiagram',
+  title: 'Components/Diagrams/AgentSystemDiagram',
   component: AgentSystemDiagram,
   parameters: {
     layout: 'padded',

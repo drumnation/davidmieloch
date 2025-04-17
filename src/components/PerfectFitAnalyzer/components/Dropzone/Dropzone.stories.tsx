@@ -10,7 +10,7 @@ import { useState } from 'react';
  * adaptations for larger screens.
  */
 const meta = {
-  title: 'PerfectFitAnalyzer/FileDropzone',
+  title: 'Components/PerfectFitAnalyzer/Components/Dropzone',
   component: FileDropzone,
   parameters: {
     layout: 'centered',

@@ -2,6 +2,52 @@ import { beforeAll, vi, expect } from 'vitest';
 import { setProjectAnnotations } from '@storybook/react';
 import * as previewAnnotations from './preview';
 
+// Mock Next.js navigation hooks
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+    refresh: vi.fn(),
+    back: vi.fn(),
+    forward: vi.fn(),
+    prefetch: vi.fn(),
+  }),
+  usePathname: () => '/mock-path',
+  useSearchParams: () => new URLSearchParams('foo=bar'),
+  useParams: () => ({}),
+  redirect: vi.fn(),
+  notFound: vi.fn(),
+}));
+
+// Mock Next.js font system
+vi.mock('next/font/google', () => ({
+  Inter: () => ({
+    className: 'mocked-inter-class',
+    style: { fontFamily: 'Inter' },
+    variable: '--font-inter',
+  }),
+  Manrope: () => ({
+    className: 'mocked-manrope-class',
+    style: { fontFamily: 'Manrope' },
+    variable: '--font-manrope',
+  }),
+  Lexend: () => ({
+    className: 'mocked-lexend-class',
+    style: { fontFamily: 'Lexend' },
+    variable: '--font-lexend',
+  }),
+  IBM_Plex_Sans: () => ({
+    className: 'mocked-ibm-plex-class',
+    style: { fontFamily: 'IBM Plex Sans' },
+    variable: '--font-ibm-plex',
+  }),
+  Work_Sans: () => ({
+    className: 'mocked-work-sans-class',
+    style: { fontFamily: 'Work Sans' },
+    variable: '--font-work-sans',
+  }),
+}));
+
 // Setup styled-components to use deterministic IDs in tests
 if (typeof global !== 'undefined') {
   // Configure styled-components for test mode

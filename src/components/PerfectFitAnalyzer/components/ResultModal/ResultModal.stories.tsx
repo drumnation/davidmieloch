@@ -7,7 +7,7 @@ import { useState } from 'react';
  * It allows users to view their analysis in different formats and export as PDF.
  */
 const meta = {
-  title: 'PerfectFitAnalyzer/Components/ResultModal',
+  title: 'Components/PerfectFitAnalyzer/Components/ResultModal',
   component: ResultModal,
   parameters: {
     layout: 'centered',

@@ -45,15 +45,21 @@ export const CTALink: React.FC<CTALinkProps> = ({
     }
   };
   
+  const linkContent = (
+    <>
+      {iconType && (
+        <IconWrapper>
+          {getIcon()}
+        </IconWrapper>
+      )}
+      {displayText}
+    </>
+  );
+  
   return (
-    <Link href={href} passHref>
-      <StyledCTALink variant={variant} size={size}>
-        {iconType && (
-          <IconWrapper>
-            {getIcon()}
-          </IconWrapper>
-        )}
-        {displayText}
+    <Link href={href} legacyBehavior={false}>
+      <StyledCTALink as="span" variant={variant} size={size}>
+        {linkContent}
       </StyledCTALink>
     </Link>
   );

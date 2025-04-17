@@ -7,6 +7,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      // Next.js mocks
+      'next/navigation': path.resolve(__dirname, '.storybook/nextjs-mock-module.js'),
+      'next/router': path.resolve(__dirname, '.storybook/nextjs-mock-module.js'),
+      'next/link': path.resolve(__dirname, '.storybook/nextjs-mock-module.js'),
+      
+      // Path aliases
       '@components': path.resolve(__dirname, './src/components'),
       '@shared-components': path.resolve(__dirname, './src/shared-components'),
       '@styles': path.resolve(__dirname, './src/styles'),

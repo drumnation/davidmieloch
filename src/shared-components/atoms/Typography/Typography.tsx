@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import { TypographyProps } from './Typography.types';
 import { StyledTypography } from './Typography.styles';

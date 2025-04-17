@@ -1,12 +1,7 @@
-import type { StorybookConfig } from "@storybook/nextjs";
-import path from 'path';
-import { fileURLToPath } from 'url';
+const path = require('path');
 
-// Handle ESM module environment
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const config: StorybookConfig = {
+/** @type {import('@storybook/nextjs').StorybookConfig} */
+const config = {
   "stories": [
     "../src/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../src/shared-components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
@@ -74,9 +69,40 @@ const config: StorybookConfig = {
       config.resolve.alias = {};
     }
     
+    // --------------------------------------------------------------------------
+    // Comprehensive Next.js App Router Mocking
+    // --------------------------------------------------------------------------
+    
+    // Mock Next.js modules
     config.resolve.alias = {
       ...config.resolve.alias,
-      // Add path aliases matching your project configuration
+      
+      // Next.js navigation module mocks - handle all possible import paths
+      'next/navigation': path.resolve(__dirname, './nextjs-mock-module.js'),
+      'next/router': path.resolve(__dirname, './nextjs-mock-module.js'),
+      
+      // Handle direct route imports
+      'next/dist/client/router': path.resolve(__dirname, './nextjs-mock-module.js'),
+      'next/dist/shared/lib/router/utils/resolve-href': path.resolve(__dirname, './nextjs-mock-module.js'),
+      
+      // Handle Mantine-specific imports that use Next.js App Router
+      '@mantine/next': path.resolve(__dirname, './mantine-mocks.js'),
+      
+      // Mock router imports used by Mantine
+      '@mantine/router': path.resolve(__dirname, './router-mock.js'),
+      'react-router': path.resolve(__dirname, './router-mock.js'),
+      'react-router-dom': path.resolve(__dirname, './router-mock.js'),
+      
+      // For Link components
+      'next/link': path.resolve(__dirname, './nextjs-mock-module.js'),
+      
+      // Mock problematic components
+      '../app/Header': path.resolve(__dirname, './header-mock.js'),
+      '../../app/Header': path.resolve(__dirname, './header-mock.js'),
+      '../app/layout': path.resolve(__dirname, './header-mock.js'),
+      '../../app/layout': path.resolve(__dirname, './header-mock.js'),
+      
+      // Path aliases matching your project configuration
       '@components': path.resolve(__dirname, '../src/components'),
       '@shared-components': path.resolve(__dirname, '../src/shared-components'),
       '@utils': path.resolve(__dirname, '../src/utils'),
@@ -89,6 +115,24 @@ const config: StorybookConfig = {
       '@contexts': path.resolve(__dirname, '../src/contexts'),
       '@analytics': path.resolve(__dirname, '../src/analytics'),
     };
+    
+    // --------------------------------------------------------------------------
+    // Additional Webpack Optimizations
+    // --------------------------------------------------------------------------
+    
+    // Add global definitions to help with conditional imports
+    config.plugins = config.plugins || [];
+    const { DefinePlugin } = require('webpack');
+    config.plugins.push(
+      new DefinePlugin({
+        'process.env.STORYBOOK': JSON.stringify(true),
+        'process.env.NEXT_PUBLIC_IS_STORYBOOK': JSON.stringify(true),
+        // Prevent NextJS from complaining about missing process.env
+        'process.env.__NEXT_SCROLL_RESTORATION': JSON.stringify(false),
+        'process.env.__NEXT_TRAILING_SLASH': JSON.stringify(false),
+        'process.env.__NEXT_CROSS_ORIGIN': JSON.stringify(''),
+      })
+    );
     
     // Check if we need to disable HMR (to prevent infinite reloading)
     const disableHMR = process.env.STORYBOOK_DISABLE_HMR === 'true' || process.env.CI;
@@ -105,4 +149,4 @@ const config: StorybookConfig = {
   }
 };
 
-export default config;
+module.exports = config; 

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AiIntegrationFlowDiagram } from './AiIntegrationFlowDiagram';
 
 const meta = {
-  title: 'Diagrams/AiIntegrationFlowDiagram',
+  title: 'Components/Diagrams/AiIntegrationFlowDiagram',
   component: AiIntegrationFlowDiagram,
   parameters: {
     layout: 'padded',

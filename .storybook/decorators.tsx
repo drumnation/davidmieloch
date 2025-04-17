@@ -1,7 +1,7 @@
 import React from 'react';
 import { MantineProvider, createTheme } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { ReactFlowProvider } from '@xyflow/react';
+import { ReactFlowProvider } from 'reactflow';
 import { StoryFn } from '@storybook/react';
 
 // Mock Next.js router

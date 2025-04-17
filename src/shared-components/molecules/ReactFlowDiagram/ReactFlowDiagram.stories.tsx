@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ReactFlowDiagram } from './ReactFlowDiagram';
 
 const meta = {
-  title: 'Molecules/ReactFlowDiagram',
+  title: 'Components/Shared/Molecules/ReactFlowDiagram',
   component: ReactFlowDiagram,
   parameters: {
     layout: 'padded',

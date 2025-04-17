@@ -6,7 +6,7 @@ import InputContainer from './InputContainer';
  * either via file upload or text input.
  */
 const meta = {
-  title: 'PerfectFitAnalyzer/InputContainer',
+  title: 'Components/PerfectFitAnalyzer/Components/InputContainer',
   component: InputContainer,
   parameters: {
     layout: 'centered',

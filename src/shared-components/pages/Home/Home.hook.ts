@@ -1,5 +1,8 @@
+"use client";
+
 import { useEffect, useState } from 'react';
 import testClarityFeatures from '../../../utils/analytics-test';
+import { initClarity } from '@analytics/clarity';
 import { PersonaNavItem } from './Home.types';
 import { enhanceMetaDescription } from './Home.utils';
 
@@ -67,7 +70,10 @@ const preloadCriticalResources = () => {
  */
 const initializeAnalytics = () => {
   if (process.env.NODE_ENV === 'development') {
-    testClarityFeatures();
+    const clarityInitialized = initClarity();
+    if (clarityInitialized) {
+      testClarityFeatures();
+    }
   }
 };
 

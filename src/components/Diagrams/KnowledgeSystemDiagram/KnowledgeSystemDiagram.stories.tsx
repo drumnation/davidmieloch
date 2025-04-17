@@ -1,4 +1,3 @@
-
 import { KnowledgeSystemDiagram } from './KnowledgeSystemDiagram';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -8,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react';
  * The Default story shows the diagram in its actual page context.
  */
 const meta = {
-  title: 'Diagrams/KnowledgeSystemDiagram',
+  title: 'Components/Diagrams/KnowledgeSystemDiagram',
   component: KnowledgeSystemDiagram,
   parameters: {
     layout: 'padded',
