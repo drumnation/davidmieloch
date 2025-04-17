@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ReactNativeFeature } from './ReactNativeFeature';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../../../styles/theme/styled-theme';
@@ -8,6 +9,10 @@ const meta = {
   component: ReactNativeFeature,
   parameters: {
     layout: 'padded',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    },
     docs: {
       description: {
         component: 'A feature section highlighting React Native & Expo development capabilities.'
@@ -31,16 +36,39 @@ type Story = StoryObj<typeof ReactNativeFeature>;
 /**
  * The default story shows the ReactNativeFeature component with default content.
  */
-export const Default: Story = {
+export const DefaultDesktop: Story = {
   args: {
     isVisible: true,
   },
+  name: 'Default - Desktop',
+};
+
+export const DefaultMobile: Story = {
+  args: {
+    isVisible: true,
+  },
+  parameters: {
+    viewport: { defaultViewport: 'iphonex' },
+    docs: { disable: true },
+  },
+  name: 'Default - Mobile',
+};
+
+export const DefaultTablet: Story = {
+  args: {
+    isVisible: true,
+  },
+  parameters: {
+    viewport: { defaultViewport: 'ipad' },
+    docs: { disable: true },
+  },
+  name: 'Default - Tablet',
 };
 
 /**
  * This story shows the ReactNativeFeature component with custom content.
  */
-export const CustomContent: Story = {
+export const CustomContentDesktop: Story = {
   args: {
     isVisible: true,
     title: "Custom React Native Section",
@@ -50,6 +78,45 @@ export const CustomContent: Story = {
       { text: "Custom feature item 2" },
       { text: "Custom feature item 3" },
       { text: "Custom feature item 4" },
-    ]
+    ],
   },
+  name: 'Custom Content - Desktop',
+};
+
+export const CustomContentMobile: Story = {
+  args: {
+    isVisible: true,
+    title: "Custom React Native Section",
+    description: "A custom description for the React Native & Expo feature section.",
+    items: [
+      { text: "Custom feature item 1" },
+      { text: "Custom feature item 2" },
+      { text: "Custom feature item 3" },
+      { text: "Custom feature item 4" },
+    ],
+  },
+  parameters: {
+    viewport: { defaultViewport: 'iphonex' },
+    docs: { disable: true },
+  },
+  name: 'Custom Content - Mobile',
+};
+
+export const CustomContentTablet: Story = {
+  args: {
+    isVisible: true,
+    title: "Custom React Native Section",
+    description: "A custom description for the React Native & Expo feature section.",
+    items: [
+      { text: "Custom feature item 1" },
+      { text: "Custom feature item 2" },
+      { text: "Custom feature item 3" },
+      { text: "Custom feature item 4" },
+    ],
+  },
+  parameters: {
+    viewport: { defaultViewport: 'ipad' },
+    docs: { disable: true },
+  },
+  name: 'Custom Content - Tablet',
 }; 

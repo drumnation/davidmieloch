@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { BioPage } from './Bio';
 
 const meta = {
@@ -6,6 +7,10 @@ const meta = {
   component: BioPage,
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    },
   },
 } satisfies Meta<typeof BioPage>;
 
@@ -20,4 +25,46 @@ export const Default: Story = {
   args: {
     id: 'bio',
   },
+};
+
+/**
+ * Desktop view of the Bio page.
+ */
+export const Desktop: Story = {
+  args: {
+    id: 'bio',
+  },
+  name: 'Desktop (Default)',
+};
+
+/**
+ * Mobile view of the Bio page.
+ */
+export const Mobile: Story = {
+  args: {
+    id: 'bio',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
+    docs: { disable: true },
+  },
+  name: 'Mobile (iPhone X)',
+};
+
+/**
+ * Tablet view of the Bio page.
+ */
+export const Tablet: Story = {
+  args: {
+    id: 'bio',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'ipad',
+    },
+    docs: { disable: true },
+  },
+  name: 'Tablet (iPad)',
 }; 

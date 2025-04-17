@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { AiSkepticToExpert } from './components/AiSkepticToExpert/AiSkepticToExpert';
 import { AiAutopilotAnalogy } from './components/AiAutopilotAnalogy/AiAutopilotAnalogy';
 import { BrainGardenOverview } from './components/BrainGardenOverview/BrainGardenOverview';
@@ -69,6 +70,10 @@ const meta = {
   component: WhitePaper,
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    },
   },
 } satisfies Meta<typeof WhitePaper>;
 
@@ -81,4 +86,40 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {},
+};
+
+/**
+ * Desktop view of the WhitePaper.
+ */
+export const Desktop: Story = {
+  args: {},
+  name: 'Desktop (Default)',
+};
+
+/**
+ * Mobile view of the WhitePaper.
+ */
+export const Mobile: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
+    docs: { disable: true },
+  },
+  name: 'Mobile (iPhone X)',
+};
+
+/**
+ * Tablet view of the WhitePaper.
+ */
+export const Tablet: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'ipad',
+    },
+    docs: { disable: true },
+  },
+  name: 'Tablet (iPad)',
 };

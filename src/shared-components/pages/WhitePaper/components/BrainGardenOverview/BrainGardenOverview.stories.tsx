@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { BrainGardenOverview } from './BrainGardenOverview';
 import { defaultContent } from './BrainGardenOverview.constants';
 
@@ -7,6 +8,10 @@ const meta = {
   component: BrainGardenOverview,
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    },
     docs: {
       description: {
         component: 'A section component that explains the Brain Garden System, including core components, force multipliers, system architecture, and navigation.'
@@ -18,19 +23,49 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const defaultArgs = {
+  heroProps: defaultContent.hero,
+  introProps: defaultContent.intro,
+  coreComponentsProps: defaultContent.coreComponents,
+  forceMultipliersProps: defaultContent.forceMultipliers,
+  systemArchitectureProps: defaultContent.systemArchitecture,
+  navigationProps: defaultContent.navigation,
+  keyBenefitsProps: defaultContent.keyBenefits,
+  ctaProps: defaultContent.cta,
+};
+
 /**
- * The default story shows the BrainGardenOverview section with its embedded content.
- * This is exactly how it will appear in the actual application.
+ * Desktop view of the BrainGardenOverview section.
  */
-export const Default: Story = {
-  args: {
-    heroProps: defaultContent.hero,
-    introProps: defaultContent.intro,
-    coreComponentsProps: defaultContent.coreComponents,
-    forceMultipliersProps: defaultContent.forceMultipliers,
-    systemArchitectureProps: defaultContent.systemArchitecture,
-    navigationProps: defaultContent.navigation,
-    keyBenefitsProps: defaultContent.keyBenefits,
-    ctaProps: defaultContent.cta,
+export const Desktop: Story = {
+  args: defaultArgs,
+  name: 'Desktop (Default)',
+};
+
+/**
+ * Mobile view of the BrainGardenOverview section.
+ */
+export const Mobile: Story = {
+  args: defaultArgs,
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
+    docs: { disable: true },
   },
+  name: 'Mobile (iPhone X)',
+};
+
+/**
+ * Tablet view of the BrainGardenOverview section.
+ */
+export const Tablet: Story = {
+  args: defaultArgs,
+  parameters: {
+    viewport: {
+      defaultViewport: 'ipad',
+    },
+    docs: { disable: true },
+  },
+  name: 'Tablet (iPad)',
 };

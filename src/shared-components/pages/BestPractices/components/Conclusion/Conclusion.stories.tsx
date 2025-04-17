@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Conclusion } from './Conclusion';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../../../styles/theme/styled-theme';
@@ -8,6 +9,10 @@ const meta = {
   component: Conclusion,
   parameters: {
     layout: 'padded',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    },
     docs: {
       description: {
         component: 'The conclusion section of the BestPractices page, summarizing key points and future directions.'
@@ -33,4 +38,40 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {},
+};
+
+/**
+ * Desktop view of the Conclusion component.
+ */
+export const Desktop: Story = {
+  args: {},
+  name: 'Desktop (Default)',
+};
+
+/**
+ * Mobile view of the Conclusion component.
+ */
+export const Mobile: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
+    docs: { disable: true },
+  },
+  name: 'Mobile (iPhone X)',
+};
+
+/**
+ * Tablet view of the Conclusion component.
+ */
+export const Tablet: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'ipad',
+    },
+    docs: { disable: true },
+  },
+  name: 'Tablet (iPad)',
 }; 

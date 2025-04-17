@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Experience } from './Experience';
 import { ExperienceProps } from './Experience.types';
 import { SideProject } from './components/SideProjectsSection/SideProjectsSection.types';
@@ -12,6 +13,10 @@ const meta = {
     backgrounds: {
       default: 'light',
     },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Experience>;
@@ -19,11 +24,49 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+/**
+ * Desktop view of the Experience page.
+ */
+export const Desktop: Story = {
   args: {
     id: 'experience',
     className: '',
   },
+  name: 'Desktop (Default)',
+};
+
+/**
+ * Mobile view of the Experience page.
+ */
+export const Mobile: Story = {
+  args: {
+    id: 'experience',
+    className: '',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
+    docs: { disable: true },
+  },
+  name: 'Mobile (iPhone X)',
+};
+
+/**
+ * Tablet view of the Experience page.
+ */
+export const Tablet: Story = {
+  args: {
+    id: 'experience',
+    className: '',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'ipad',
+    },
+    docs: { disable: true },
+  },
+  name: 'Tablet (iPad)',
 };
 
 export const sampleSideProjects: SideProject[] = [

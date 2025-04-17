@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { AiAutopilotAnalogy } from './AiAutopilotAnalogy';
 
 const meta = {
@@ -6,6 +7,10 @@ const meta = {
   component: AiAutopilotAnalogy,
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    },
     docs: {
       description: {
         component: 'A section that explains AI using the autopilot analogy, helping users understand how AI can augment human capabilities without replacing them.'
@@ -23,4 +28,40 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {}
+};
+
+/**
+ * Desktop view of the AiAutopilotAnalogy section.
+ */
+export const Desktop: Story = {
+  args: {},
+  name: 'Desktop (Default)',
+};
+
+/**
+ * Mobile view of the AiAutopilotAnalogy section.
+ */
+export const Mobile: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
+    docs: { disable: true },
+  },
+  name: 'Mobile (iPhone X)',
+};
+
+/**
+ * Tablet view of the AiAutopilotAnalogy section.
+ */
+export const Tablet: Story = {
+  args: {},
+  parameters: {
+    viewport: {
+      defaultViewport: 'ipad',
+    },
+    docs: { disable: true },
+  },
+  name: 'Tablet (iPad)',
 };

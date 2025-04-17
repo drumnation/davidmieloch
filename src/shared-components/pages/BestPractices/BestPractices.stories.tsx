@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { BestPractices } from './BestPractices';
 
 const meta = {
@@ -6,6 +7,10 @@ const meta = {
   component: BestPractices,
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
+    },
     docs: {
       description: {
         component: 'A section component that showcases modern development best practices with detailed content, categories, and conclusions.'
@@ -25,4 +30,46 @@ export const Section: Story = {
   args: {
     id: 'best-practices',
   },
+};
+
+/**
+ * Desktop view of the BestPractices section.
+ */
+export const Desktop: Story = {
+  args: {
+    id: 'best-practices',
+  },
+  name: 'Desktop (Default)',
+};
+
+/**
+ * Mobile view of the BestPractices section.
+ */
+export const Mobile: Story = {
+  args: {
+    id: 'best-practices',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
+    docs: { disable: true },
+  },
+  name: 'Mobile (iPhone X)',
+};
+
+/**
+ * Tablet view of the BestPractices section.
+ */
+export const Tablet: Story = {
+  args: {
+    id: 'best-practices',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'ipad',
+    },
+    docs: { disable: true },
+  },
+  name: 'Tablet (iPad)',
 }; 
