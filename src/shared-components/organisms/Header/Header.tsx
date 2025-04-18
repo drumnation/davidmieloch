@@ -86,7 +86,10 @@ export function Header() {
               David Mieloch
             </Text>
           </StyledLogoButton>
-          {socialIcons}
+          {/* Hide social icons on mobile using visibleFrom */}
+          <Group visibleFrom="sm">
+            {socialIcons}
+          </Group>
         </div>
 
         {/* Right side: Navigation, Experience Button, Burger */}
