@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Text } from '@mantine/core';
-import { Music, ChevronUp, ChevronDown, Play, Pause, SkipBack, SkipForward, X, Plus } from 'lucide-react';
+import { Music, ChevronUp, ChevronDown, Play, Pause, SkipBack, SkipForward, X, Plus, ListMusic } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { 
   FooterContainer, 
@@ -160,26 +160,26 @@ export const Footer = ({
     setInteractionTimeout(timeout);
   };
 
-  const handleTriStateButton = () => {
+  // Renamed from handleTriStateButton - only toggles minimize/maximize
+  const handleMinimizeToggle = () => {
     startUserInteraction();
     
-    // Tri-state cycle:
-    // Mini Mode (35px) -> Normal Mode (player with controls) -> Expanded Mode (with playlist) -> Mini Mode
-    
-    // If we're in mini mode, switch to normal mode
+    // If mini mode, maximize to open state
     if (isMiniMode) {
       setIsMiniMode(false);
       setIsExpanded(false);
     } 
-    // If we're in normal mode but not expanded, expand the playlist
-    else if (!isExpanded) {
-      setIsExpanded(true);
-    } 
-    // If we're in normal mode and expanded, collapse to mini mode
+    // If not mini mode (open or playlist), minimize
     else {
       setIsExpanded(false);
       setIsMiniMode(true);
     }
+  };
+
+  // New handler to exclusively toggle the playlist view
+  const handlePlaylistToggle = () => {
+    startUserInteraction();
+    setIsExpanded(prev => !prev);
   };
 
   const handleTrackSelect = (trackId: number | string) => {
@@ -226,17 +226,15 @@ export const Footer = ({
       {/* Gradient border */}
       <GradientBorder />
       
-      {/* Mini Mode Player */}
-      {isMiniMode ? (
+      {/* --------------- Mini Mode Player --------------- */}
+      {isMiniMode && (
         <MiniModeContainer $colorScheme={colorScheme}>
           {/* Track artwork */}
           <div 
             style={{ 
               display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center',
-              height: '100%', 
-              cursor: 'pointer', 
+              alignItems: 'center',
+              cursor: 'pointer',
               position: 'relative'
             }} 
             onClick={() => {
@@ -277,37 +275,26 @@ export const Footer = ({
           </div>
           
           {/* Progress bar */}
-          <div style={{ 
-            flex: 1, 
-            margin: '0 0.5rem',
-            display: 'flex',
-            alignItems: 'center',
-            height: '100%'
-          }}>
-            <ProgressBar ref={progressBarRef} style={{ margin: 0, width: '100%' }}>
+          <div style={{ flex: 1, margin: '0 0.5rem' }}>
+            <ProgressBar ref={progressBarRef} $colorScheme={colorScheme} style={{ margin: 0, width: '100%' }}>
               <ProgressFill style={{ width: `${progress}%` }} />
             </ProgressBar>
           </div>
           
-          {/* Tri-state chevron button (mini mode -> normal mode) */}
+          {/* Maximize Button (from mini mode) */}
           <ControlButton 
-            onClick={handleTriStateButton}
+            onClick={handleMinimizeToggle}
             aria-label="Expand player"
-            style={{ 
-              padding: 0, 
-              margin: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '100%'
-            }}
+            style={{ padding: 0, margin: 0 }}
             $colorScheme={colorScheme}
           >
             <ChevronUp size={14} style={{ color: colors.text }} />
           </ControlButton>
         </MiniModeContainer>
-      ) : (
-        // Regular Player
+      )}
+
+      {/* --------------- Open State Player (!isMiniMode && !isExpanded) --------------- */}
+      {!isMiniMode && !isExpanded && (
         <MiniPlayerContainer $colorScheme={colorScheme}>
           <div style={{ 
             display: 'flex',
@@ -418,18 +405,26 @@ export const Footer = ({
                 </ControlsContainer>
               </div>
               
-              {/* Tri-state chevron button (normal mode -> expanded or mini mode) */}
-              <ControlButton 
-                onClick={handleTriStateButton}
-                aria-label={isExpanded ? "Minimize player" : "Expand player"}
-                $colorScheme={colorScheme}
-              >
-                {isExpanded ? (
+              {/* Container for Playlist and Minimize buttons */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                {/* Playlist Toggle Button (Added) */}
+                <ControlButton 
+                  onClick={handlePlaylistToggle}
+                  aria-label="Show playlist"
+                  $colorScheme={colorScheme}
+                >
+                  <ListMusic size={18} style={{ color: colors.text }} />
+                </ControlButton>
+
+                {/* Minimize Button (Chevron Down) */}
+                <ControlButton 
+                  onClick={handleMinimizeToggle}
+                  aria-label="Minimize player"
+                  $colorScheme={colorScheme}
+                >
                   <ChevronDown size={18} style={{ color: colors.text }} />
-                ) : (
-                  <ChevronUp size={18} style={{ color: colors.text }} />
-                )}
-              </ControlButton>
+                </ControlButton>
+              </div>
             </div>
             
             {/* Bottom row: Timeline */}
@@ -460,44 +455,121 @@ export const Footer = ({
           </div>
         </MiniPlayerContainer>
       )}
-      
-      {/* Expanded Player */}
-      {isExpanded && !isMiniMode && (
-        <ExpandedPlayerContainer $colorScheme={colorScheme}>
-          <Text size="sm" fw={600} style={{ color: colors.textSecondary, marginBottom: "0.5rem" }}>My Tracks</Text>
-          
-          {/* Track list */}
-          <TrackList $colorScheme={colorScheme}>
-            {displayTracks && displayTracks.length > 0 ? (
-              displayTracks.map((track) => (
-                <TrackItem 
-                  key={track.id}
-                  onClick={() => handleTrackSelect(track.id)}
-                  $isActive={currentTrack?.id === track.id}
-                  $colorScheme={colorScheme}
-                >
-                  <TrackItemContent>
-                    {track.artwork && (
-                      <TrackArtwork 
-                        src={track.artwork} 
-                        alt={`${track.title} artwork`} 
-                        style={{ width: '2rem', height: '2rem' }}
-                      />
-                    )}
-                    <TrackDetails>
-                      <TrackItemTitle $colorScheme={colorScheme}>{track.title}</TrackItemTitle>
-                      <TrackItemArtist $colorScheme={colorScheme}>{track.artist}</TrackItemArtist>
-                    </TrackDetails>
-                  </TrackItemContent>
-                </TrackItem>
-              ))
-            ) : (
-              <Text size="sm" style={{ color: colors.textMuted, padding: "0.5rem" }}>
-                No tracks available
-              </Text>
-            )}
-          </TrackList>
-        </ExpandedPlayerContainer>
+
+      {/* --------------- Playlist State (!isMiniMode && isExpanded) --------------- */}
+      {!isMiniMode && isExpanded && (
+        <>
+          {/* 1. Compact Controls Section (Mimics MiniModeContainer layout) */}
+          <div 
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              boxSizing: 'border-box', // Ensure padding is included in height
+              justifyContent: 'space-between',
+              padding: '0.3rem 0.5rem', // Added top/bottom padding (0.3rem), kept left/right
+              maxWidth: '1000px',
+              margin: '0 auto',
+              width: '100%',
+              height: '55px', // Increased height slightly for padding
+              borderBottom: `1px solid ${colors.border}`,
+              backgroundColor: colors.background // Ensure background matches
+            }}
+          >
+            {/* Compact Controls: Artwork + Play/Pause Overlay */}
+            <div 
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                cursor: 'pointer', 
+                position: 'relative'
+              }} 
+              onClick={() => { startUserInteraction(); togglePlay(); }}
+              aria-label={isPlaying ? "Pause" : "Play"}
+            >
+              {currentTrack?.artwork ? (
+                <ArtworkContainer style={{ display: 'flex', alignItems: 'center' }}>
+                  <TrackArtwork 
+                    src={currentTrack.artwork} 
+                    alt={`${currentTrack.title} artwork`} 
+                    style={{ width: '30px', height: '30px', margin: 0 }} // Mini size
+                  />
+                  <ArtworkOverlay>
+                    {isPlaying ? <Pause size={12} style={{ color: '#fff' }} /> : <Play size={12} style={{ color: '#fff' }} />}
+                  </ArtworkOverlay>
+                </ArtworkContainer>
+              ) : (
+                <div style={{ width: '30px', height: '30px', backgroundColor: 'rgba(67, 97, 238, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px', margin: 0 }}>
+                  <Music size={15} style={{ color: '#4361EE' }} />
+                </div>
+              )}
+            </div>
+
+            {/* Compact Controls: TODO: Add compact title/artist here if needed */}
+
+            {/* Compact Controls: Progress Bar */}
+            <div style={{ flex: 1, margin: '0 0.75rem', display: 'flex', alignItems: 'center', height: '100%' }}>
+              <ProgressBar ref={progressBarRef} $colorScheme={colorScheme} style={{ margin: 0, width: '100%' }}>
+                <ProgressFill style={{ width: `${progress}%` }} />
+              </ProgressBar>
+            </div>
+            
+            {/* Compact Controls: Container for Playlist and Minimize buttons */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+              {/* Playlist Toggle Button (Active) */}
+              <ControlButton 
+                onClick={handlePlaylistToggle}
+                aria-label="Hide playlist"
+                style={{ padding: '0.15rem' }}
+                $colorScheme={colorScheme}
+              >
+                <ListMusic size={14} style={{ color: colors.text }} />
+              </ControlButton>
+              
+              {/* Minimize Button (Chevron Down) - Replaced to ensure correct handler */}
+               <ControlButton 
+                 onClick={handleMinimizeToggle} // Corrected handler
+                 aria-label="Minimize player" // Correct label
+                 style={{ padding: '0.15rem' }} // Match compact style
+                 $colorScheme={colorScheme}
+               >
+                 <ChevronDown size={14} style={{ color: colors.text }} />
+               </ControlButton>
+             </div>
+          </div>
+
+          {/* 2. Expanded Player (Playlist) Section */}
+          <ExpandedPlayerContainer $colorScheme={colorScheme}>
+            <Text size="sm" fw={600} style={{ color: colors.textSecondary, marginBottom: "0.5rem" }}>My Tracks</Text>
+            <TrackList $colorScheme={colorScheme}>
+              {displayTracks && displayTracks.length > 0 ? (
+                displayTracks.map((track) => (
+                  <TrackItem 
+                    key={track.id}
+                    onClick={() => handleTrackSelect(track.id)}
+                    $isActive={currentTrack?.id === track.id}
+                    $colorScheme={colorScheme}
+                  >
+                    <TrackItemContent>
+                      {track.artwork && (
+                        <TrackArtwork 
+                          src={track.artwork} 
+                          alt={`${track.title} artwork`} 
+                          style={{ width: '2rem', height: '2rem' }} // Size for playlist items
+                        />
+                      )}
+                      <TrackDetails>
+                        <TrackItemTitle $colorScheme={colorScheme}>{track.title}</TrackItemTitle>
+                        <TrackItemArtist $colorScheme={colorScheme}>{track.artist}</TrackItemArtist>
+                      </TrackDetails>
+                    </TrackItemContent>
+                  </TrackItem>
+                ))
+              ) : (
+                <Text size="sm" style={{ color: colors.textMuted, padding: "0.5rem" }}>No tracks available</Text>
+              )}
+            </TrackList>
+          </ExpandedPlayerContainer>
+        </>
       )}
     </FooterContainer>
   );
