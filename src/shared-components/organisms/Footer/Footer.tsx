@@ -70,6 +70,7 @@ export const Footer = ({
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const [interactionTimeout, setInteractionTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [userIntentionalMinimize, setUserIntentionalMinimize] = useState(false);
   const { tracks: hookTracks } = useFooter([], soundCloudTracks);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
@@ -107,27 +108,35 @@ export const Footer = ({
       // Skip if user is currently interacting with player controls
       if (isUserInteracting) return;
       
-      // If player is expanded, don't auto-minimize
+      // If player is expanded, don't auto-minimize/maximize via scroll
       if (isExpanded) return;
       
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      // Determine scroll direction
-      const isScrollingDown = scrollTop > lastScrollTop;
-      
-      // Update scroll position
-      setLastScrollTop(scrollTop);
-      
-      // Automatically minimize when scrolling down, restore when scrolling up
-      // Use a small threshold to prevent flickering near breakpoints
-      const scrollThreshold = 10;
+      const scrollThreshold = 10; // Small threshold
       const scrollDistance = Math.abs(scrollTop - lastScrollTop);
-      
-      if (isScrollingDown && !isMiniMode && scrollDistance > scrollThreshold) {
-        setIsMiniMode(true);
-      } else if (!isScrollingDown && isMiniMode && scrollDistance > scrollThreshold) {
-        setIsMiniMode(false);
+
+      // Only act if scroll distance is significant
+      if (scrollDistance > scrollThreshold) {
+          const isScrollingDown = scrollTop > lastScrollTop;
+
+          if (isScrollingDown) {
+              // Scrolling Down: Always minimize if not already mini
+              if (!isMiniMode) {
+                  setIsMiniMode(true);
+                  // Ensure playlist is also closed if open
+                  if (isExpanded) setIsExpanded(false); 
+                  setUserIntentionalMinimize(false); // Scroll caused minimize
+              }
+          } else {
+              // Scrolling Up: Maximize ONLY if currently mini AND not intentionally minimized by user
+              if (isMiniMode && !userIntentionalMinimize) {
+                  setIsMiniMode(false);
+              }
+          }
       }
+      
+      // Update scroll position *after* logic
+      setLastScrollTop(scrollTop);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -135,7 +144,7 @@ export const Footer = ({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isMounted, lastScrollTop, isMiniMode, isUserInteracting, isExpanded]);
+  }, [isMounted, lastScrollTop, isMiniMode, isUserInteracting, isExpanded, userIntentionalMinimize]);
 
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
@@ -164,15 +173,17 @@ export const Footer = ({
   const handleMinimizeToggle = () => {
     startUserInteraction();
     
-    // If mini mode, maximize to open state
     if (isMiniMode) {
+      // User is maximizing FROM mini mode
       setIsMiniMode(false);
-      setIsExpanded(false);
+      setIsExpanded(false); // Go to Open state
+      setUserIntentionalMinimize(false); // User action overrides scroll intention
     } 
-    // If not mini mode (open or playlist), minimize
     else {
-      setIsExpanded(false);
+      // User is minimizing TO mini mode (from Open or Playlist)
+      setIsExpanded(false); // Ensure playlist is closed
       setIsMiniMode(true);
+      setUserIntentionalMinimize(true); // User explicitly chose minimize
     }
   };
 

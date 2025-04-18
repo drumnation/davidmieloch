@@ -125,7 +125,9 @@ export function Header() {
                     background: 'linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)',
                     color: 'white',
                     transform: expBtnHovered ? 'translateY(-3px)' : 'translateY(-1px)',
-                    boxShadow: expBtnHovered ? '0 4px 8px rgba(0,0,0,0.15)' : '0 2px 4px rgba(0,0,0,0.1)',
+                    boxShadow: expBtnHovered 
+                      ? '0 4px 8px rgba(0,0,0,0.15), 0 0 12px 3px rgba(99, 102, 241, 0.6)' 
+                      : '0 2px 4px rgba(0,0,0,0.1), 0 0 8px 2px rgba(99, 102, 241, 0.4)',
                     border: 'none',
                     padding: `${rem(8)} ${rem(12)}`,
                     height: 'auto',
