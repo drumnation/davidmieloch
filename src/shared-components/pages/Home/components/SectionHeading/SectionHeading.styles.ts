@@ -10,7 +10,12 @@ const theme = {
   text: {
     primary: '#ffffff',
     secondary: '#c8d2f0',
-    muted: '#94a3b8'
+    muted: '#94a3b8',
+    dark: {
+      primary: '#111827', // Very dark gray for headings on white background
+      secondary: '#374151', // Dark gray for content on white background
+      muted: '#6B7280' // Medium gray for less important text
+    }
   },
   accent: {
     primary: '#4361ee',
@@ -29,7 +34,7 @@ export const HeadingContainer = styled.div`
   .section-heading {
     font-size: 2.25rem;
     font-weight: 700;
-    color: ${theme.text.primary};
+    color: ${theme.text.primary}; /* Light color for dark background */
     letter-spacing: -0.01em;
     display: flex;
     align-items: center;
@@ -52,9 +57,9 @@ export const HeadingContainer = styled.div`
     height: 3.25rem;
     margin-right: 1.25rem;
     font-size: 1.75rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(67, 97, 238, 0.1); /* Light blue background for contrast */
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
   
   @media (max-width: 767px) {
@@ -89,9 +94,9 @@ export const Icon = styled.div`
   margin-right: 1.25rem;
   color: ${theme.accent.primary};
   font-size: 1.75rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(67, 97, 238, 0.1); /* Light blue background for contrast */
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   
   @media (max-width: 767px) {
     width: 2.5rem;
@@ -107,7 +112,7 @@ export const Icon = styled.div`
 export const Title = styled.h2`
   font-size: 2.25rem;
   font-weight: 700;
-  color: ${theme.text.primary};
+  color: ${theme.text.primary}; /* Light color for dark background */
   margin: 0;
   letter-spacing: -0.01em;
   

@@ -27,15 +27,21 @@ const CTALink: React.FC<CTALinkProps> = ({
   label,
   variant = 'primary',
   iconType,
+  iconNode,
+  iconBackground,
   size = 'md',
   ...rest
 }) => {
   const isExternal = href.startsWith('http');
-  const icon = iconType ? iconMap[iconType] || '🔗' : null;
+  const iconContent = iconNode 
+    ? iconNode 
+    : iconType 
+    ? iconMap[iconType] 
+    : (isExternal ? '��' : null);
 
   const LinkContent = (
     <StyledCTALink $variant={variant} $size={size} {...rest}>
-      {icon && <IconWrapper>{icon}</IconWrapper>}
+      {iconContent && <IconWrapper iconBackground={iconBackground}>{iconContent}</IconWrapper>}
       {text || label}
     </StyledCTALink>
   );

@@ -3,7 +3,46 @@
 import styled, { css } from 'styled-components';
 import { theme } from './Card.logic';
 
-export const CardContainer = styled.div<{ variant?: string }>`
+// Define CardIcon first
+const CardIcon = styled.div<{ $iconBackgroundColor?: string }>` /* Add $ prefix to prop type */
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  /* Use $ prop for background, fallback to default */
+  background: ${props => props.$iconBackgroundColor || 'rgba(255, 255, 255, 0.08)'}; 
+  width: 60px;
+  height: 60px;
+  border-radius: 12px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+  overflow: hidden; /* Ensure overflow is hidden to clip */
+  
+  /* Styling for the child element (icon/image) */
+  & > * {
+    display: block; /* Use block for better image handling */
+    /* Apply blend mode if background is white */
+    mix-blend-mode: ${props => props.$iconBackgroundColor === 'white' ? 'multiply' : 'normal'}; // Use $ prop
+
+    /* Conditional sizing */
+    ${props => props.$iconBackgroundColor // Use $ prop
+      ? css` /* If background color is set (e.g., prompt-forge) */
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Scale up/down to cover the area, cropping if needed */
+        ` 
+      : css` /* Default sizing for other icons */
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain; /* Default behavior: scale down to fit */
+        `
+    }
+  }
+  
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+`;
+
+export const CardContainer = styled.div<{ variant?: string; $fullSizeIcon?: boolean }>`
   display: flex;
   flex-direction: column;
   flex: 1 1 280px;
@@ -41,33 +80,37 @@ export const CardContainer = styled.div<{ variant?: string }>`
   `}
   
   ${props => props.variant === 'project' && css`
-    background: linear-gradient(145deg, #232752, #1a1d3d);
-    border-left: 4px solid ${theme.accent.secondary};
+    background: linear-gradient(to right, #1e1e2f, #232342);
+    border-left: 4px solid ${theme.accent.primary};
+    min-height: 280px;
+    padding: 28px;
+    
+    &:hover {
+      background: linear-gradient(to right, #2f2f48, #363656);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+  `}
+  
+  /* Conditionally apply specific icon styles */
+  ${props => props.$fullSizeIcon && css`
+    ${CardIcon} { 
+      background: none;
+      box-shadow: none;
+      overflow: hidden; 
+
+      img { 
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px; 
+      }
+    }
   `}
 `;
 
-export const CardIcon = styled.div`
-  font-size: 2.25rem;
-  margin-bottom: 1.5rem;
-  background: rgba(255, 255, 255, 0.08);
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  
-  /* Specific styling for TechIcon components */
-  & > * {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Ensure emoji text is centered properly */
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-`;
+export { CardIcon }; // Export the defined component
 
 export const CardTitle = styled.h3`
   font-size: 1.35rem;

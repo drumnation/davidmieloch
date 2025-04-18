@@ -28,8 +28,8 @@ export const theme = {
 
 export const HomePageContainer = styled.div`
   width: 100%;
-  // background-color: ${theme.background.primary}; // Removed background
-  // color: ${theme.text.primary}; // Removed default text color
+  background-color: ${theme.background.primary}; // Restored dark background
+  color: ${theme.text.primary}; // Restored default text color
   min-height: 100vh;
 `;
 
@@ -55,6 +55,26 @@ export const HeroSection = styled.div`
   }
 `;
 
+// Curve overlay for the hero section to create a wave effect
+export const CurveOverlay = styled.div`
+  position: relative;
+  height: 50px;
+  margin-top: -50px;
+  z-index: 10;
+  background-color: ${theme.background.primary};
+  border-top-left-radius: 50% 80px;
+  border-top-right-radius: 50% 80px;
+  transform: translateY(1px); /* Ensure there's no gap */
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3);
+  
+  @media (max-width: 768px) {
+    height: 30px;
+    margin-top: -30px;
+    border-top-left-radius: 50% 50px;
+    border-top-right-radius: 50% 50px;
+  }
+`;
+
 export const PersonaNav = styled.div`
   display: flex;
   justify-content: center;
@@ -65,34 +85,52 @@ export const PersonaNav = styled.div`
 `;
 
 export const FrameworksGrid = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  flex-wrap: wrap;
   margin-top: 2rem;
-  justify-content: center;
+  margin-bottom: 1rem;
   
-  /* Ensure consistent card heights */
   & > div {
-    flex: 1;
-    min-width: 280px;
-    max-width: 400px;
-    min-height: 280px;
-    
-    /* Improved card background gradient */
+    height: 400px;
     background: linear-gradient(to right, #1e1e2f, #232342);
     transition: all 0.3s ease;
     
-    /* Enhance contrast on hover without affecting legibility */
     &:hover {
       background: linear-gradient(to right, #2f2f48, #363656);
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
     
-    /* Ensure consistent spacing inside cards */
-    padding: 2rem;
+    h3, .card-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
     
-    /* Consistent title heights */
+    p, .card-description {
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 
+    "card1 card2"
+    "card3 card3";
+  gap: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  
+  & > div {
+    min-height: 280px;
+    
     h3, .card-title {
       min-height: 3.5rem;
       display: flex;
@@ -100,29 +138,31 @@ export const FrameworksGrid = styled.div`
       margin-bottom: 1rem;
     }
     
-    /* Consistent description heights */
     p, .card-description {
       min-height: 3rem;
       margin-bottom: 1.5rem;
     }
   }
   
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    
-    & > div {
-      width: 100%;
-      max-width: 100%;
-    }
+  & > div:nth-child(1) {
+    grid-area: card1;
   }
-`;
-
-export const ProjectsGrid = styled.div`
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+  
+  & > div:nth-child(2) {
+    grid-area: card2;
+  }
+  
+  & > div:nth-child(3) {
+    grid-area: card3;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "card1"
+      "card2"
+      "card3";
+  }
 `;
 
 // Shared grid component for card-based sections
@@ -217,9 +257,10 @@ export const CTAGrid = styled.div`
 
 // Standardized section body text
 export const SectionBodyText = styled.p`
-  color: ${theme.text.secondary};
+  color: ${theme.text.secondary}; /* Light color for dark background */
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
   font-size: 1rem;
   max-width: 780px;
   margin-left: auto;
@@ -251,22 +292,78 @@ export const ViewAllContainer = styled.div`
 
 // Consistent section spacing
 export const StyledGenericSection = styled(GenericSection)`
-  margin-top: clamp(3rem, 5vw, 5rem);
-  margin-bottom: clamp(3rem, 5vw, 5rem);
+  padding: 3rem 1.5rem;
+  background-color: ${theme.background.primary};
+  position: relative;
+  z-index: 5; /* Ensure it's above the curve overlay */
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 `;
 
-// Update SectionDivider to a more subtle style
+// Alternate section with slightly different background
+export const AlternateGenericSection = styled(GenericSection)`
+  padding: 3rem 1.5rem;
+  background-color: ${theme.background.primary};
+  position: relative;
+  z-index: 5;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+`;
+
+// Blue tinted section for frameworks
+export const BlueTintGenericSection = styled(GenericSection)`
+  padding: 3rem 1.5rem;
+  padding-bottom: 6rem;
+  background-color: #121530; /* Slightly blue-tinted background */
+  position: relative;
+  z-index: 5;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    padding-bottom: 5rem;
+  }
+`;
+
+// Gray tinted section for Live Proof Projects
+export const GrayTintGenericSection = styled(GenericSection)`
+  padding: 3rem 1.5rem;
+  background-color: #1a1a2e; /* More distinctly different background */
+  position: relative;
+  z-index: 5;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+`;
+
+// Gray background section for Projects
+export const DarkGraySection = styled(GenericSection)`
+  padding: 3rem 1.5rem;
+  background-color: #111827; /* Simple dark gray background */
+  position: relative;
+  z-index: 5;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+`;
+
+// Update SectionDivider to be more visible on dark background
 export const SectionDivider = styled.div`
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.06), rgba(255,255,255,0));
+  background: linear-gradient(90deg, rgba(67, 97, 238, 0), rgba(67, 97, 238, 0.3), rgba(67, 97, 238, 0));
   margin: 3rem 0 2rem;
 `;
 
-// Extra padding container
+// Update SectionWrapper to use dark background
 export const SectionWrapper = styled.div`
   padding-bottom: 6rem;
-  background: linear-gradient(to bottom, transparent, rgba(10, 12, 30, 0.8));
+  background-color: ${theme.background.primary};
 `;
 
 // Button group with consistent styling
@@ -317,7 +414,7 @@ export const Highlight = styled.span`
 export const SectionTitle = styled.h2`
   font-size: 1.75rem;
   font-weight: 600;
-  color: ${theme.text.primary};
+  color: ${theme.text.primary}; /* Light color for dark background */
   margin: 0 0 1.5rem 0;
   letter-spacing: 0.5px;
   text-align: center;
@@ -355,10 +452,10 @@ export const CTADescription = styled.p`
   text-align: center;
 `;
 
-// Add HighlightBox styled component
+// Update HighlightBox for dark theme
 export const HighlightBox = styled.span`
-  background: #e5e7eb;
-  color: #222;
+  background: rgba(67, 97, 238, 0.2);
+  color: ${theme.text.primary};
   font-weight: 700;
   border-radius: 6px;
   padding: 0.1em 0.4em;
@@ -367,22 +464,27 @@ export const HighlightBox = styled.span`
   display: inline-block;
 `;
 
-// Why I Stand Out Section
-export const StandOutSection = styled.div`
-  background: linear-gradient(to bottom, rgba(16, 19, 31, 0.7), rgba(10, 12, 30, 0.5));
-  padding: 2.5rem;
+// StandOut section for highlighting key differentiating factors
+export const StandOutSection = styled.section`
+  background-color: rgba(16, 19, 31, 0.7); /* Dark with slight transparency */
+  padding: 3rem 2rem;
   border-radius: 12px;
+  position: relative;
+  z-index: 5;
+  max-width: 780px;
   margin: 3rem auto;
-  max-width: 900px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
 `;
 
 export const StandOutTitle = styled.h2`
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: ${theme.text.primary};
+  color: ${theme.text.primary}; /* Light color for dark background */
   display: flex;
   align-items: center;
   
@@ -403,7 +505,7 @@ export const StandOutItem = styled.li`
   display: flex;
   align-items: flex-start;
   margin-bottom: 1rem;
-  color: ${theme.text.secondary};
+  color: ${theme.text.secondary}; /* Light color for dark background */
   font-size: 1.1rem;
   line-height: 1.6;
   
@@ -413,4 +515,56 @@ export const StandOutItem = styled.li`
     font-weight: bold;
     margin-right: 0.75rem;
   }
-`; 
+`;
+
+// Section titles with icon
+export const SectionHeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+`;
+
+export const SectionHeaderIcon = styled.div`
+  font-size: 1.75rem;
+  background: rgba(67, 97, 238, 0.1);
+  border-radius: 10px;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SectionHeaderTitle = styled.h2`
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background: linear-gradient(90deg, #4361ee, #7209b7);
+    margin-left: 1rem;
+  }
+`;
+
+// Dark section for projects with proper spacing
+export const ProjectsSection = styled.div`
+  background-color: var(--background-dark);
+  padding: 5rem 1.5rem 3rem;
+  position: relative;
+  z-index: 5;
+  max-width: 780px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 4rem 1rem 2rem;
+  }
+`;

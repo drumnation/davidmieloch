@@ -37,6 +37,17 @@ export interface CTALinkProps {
    * Icon type to display with the link
    */
   iconType?: string;
+
+  /**
+   * Optional custom React node to use as the icon.
+   * If provided, this overrides iconType.
+   */
+  iconNode?: React.ReactNode;
+
+  /**
+   * Optional background color for the icon wrapper.
+   */
+  iconBackground?: string;
   
   /**
    * Size of the button

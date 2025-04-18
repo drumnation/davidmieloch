@@ -64,7 +64,7 @@ export const LinkContainer = styled.a`
 /**
  * Container for the icon
  */
-export const IconWrapper = styled.span`
+export const IconWrapper = styled.span<{ iconBackground?: string }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +72,28 @@ export const IconWrapper = styled.span`
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  border-radius: 6px;
+
+  ${props => props.iconBackground && css`
+    background-color: ${props.iconBackground};
+    padding: 2px;
+    border-radius: 4px;
+    width: auto;
+    height: auto;
+    box-sizing: content-box;
+
+    & > img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  `}
+
+  & > * {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    mix-blend-mode: ${props => props.iconBackground === 'white' ? 'multiply' : 'normal'};
+  }
 `;
 
 export const StyledCTALink = styled.span<{ $variant?: CTALinkProps['variant']; $size?: CTALinkProps['size'] }>`

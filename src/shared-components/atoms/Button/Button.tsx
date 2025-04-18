@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { ButtonProps } from './Button.types';
 import { StyledButton, IconWrapper } from './Button.styles';
 import styled from 'styled-components';
@@ -33,6 +34,7 @@ export const Button: React.FC<ButtonProps> = ({
   icon, 
   iconPosition = 'left',
   disabled = false,
+  href,
   ...props 
 }) => {
   const content = (
@@ -47,28 +49,57 @@ export const Button: React.FC<ButtonProps> = ({
   const useVerticalAnimation = props.variant === 'ghost' || props.variant === 'repo-action';
   const shouldAnimate = !disabled && props.variant !== 'repo-link';
 
-  // For buttons that don't need animation, render directly
-  if (!shouldAnimate) {
-    return <StyledButton {...props} disabled={disabled}>{content}</StyledButton>;
-  }
+  // Create button with appropriate wrapper
+  const renderButton = () => {
+    // For buttons that don't need animation, render directly
+    if (!shouldAnimate) {
+      return <StyledButton {...props} disabled={disabled}>{content}</StyledButton>;
+    }
 
-  // For buttons that need vertical movement on hover
-  if (useVerticalAnimation) {
+    // For buttons that need vertical movement on hover
+    if (useVerticalAnimation) {
+      return (
+        <VerticalHoverWrapper $animate={shouldAnimate}>
+          <StyledButton {...props} disabled={disabled}>
+            {content}
+          </StyledButton>
+        </VerticalHoverWrapper>
+      );
+    }
+
+    // For buttons that need scale animation on hover
     return (
-      <VerticalHoverWrapper $animate={shouldAnimate}>
+      <HoverWrapper $animate={shouldAnimate}>
         <StyledButton {...props} disabled={disabled}>
           {content}
         </StyledButton>
-      </VerticalHoverWrapper>
+      </HoverWrapper>
+    );
+  };
+
+  // If there's an href and it's external, render an anchor tag
+  if (href && (href.startsWith('http') || href.startsWith('mailto:'))) {
+    return (
+      <a 
+        href={href}
+        target={props.target || '_blank'} 
+        rel={props.rel || 'noopener noreferrer'}
+        style={{ textDecoration: 'none' }}
+      >
+        {renderButton()}
+      </a>
     );
   }
 
-  // For buttons that need scale animation on hover
-  return (
-    <HoverWrapper $animate={shouldAnimate}>
-      <StyledButton {...props} disabled={disabled}>
-        {content}
-      </StyledButton>
-    </HoverWrapper>
-  );
+  // If there's an href and it's internal, use Next.js Link
+  if (href) {
+    return (
+      <Link href={href} style={{ textDecoration: 'none' }}>
+        {renderButton()}
+      </Link>
+    );
+  }
+
+  // Otherwise just render the button
+  return renderButton();
 }; 

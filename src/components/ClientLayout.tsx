@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { AppShell, Container } from '@mantine/core';
+import { AppShell, Burger, Group } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import { MantineProvider } from '@mantine/core';
 import { ThemeProvider, useTheme } from '../providers/ThemeProvider';
 import { ClarityProvider } from '../providers/ClarityProvider';
 import { Header } from '../shared-components/organisms/Header';
@@ -43,7 +45,6 @@ export default function ClientLayout({
       <ClarityProvider>
         <AppShell
           header={{ height: 60 }}
-          padding="md"
           styles={() => ({
             main: {
               backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',

@@ -26,7 +26,7 @@ export const Content = styled.div`
   p {
     font-size: 1.125rem;
     line-height: 1.8;
-    color: #333;
+    color: #e2e8f0;
     margin-bottom: 1.5rem;
     
     @media (max-width: 767px) {
@@ -42,6 +42,7 @@ export const Content = styled.div`
     li {
       margin-bottom: 0.5rem;
       font-size: 1.125rem;
+      color: #c8d2f0;
       
       @media (max-width: 767px) {
         font-size: 1rem;

@@ -1,9 +1,10 @@
+import { IconFileText, IconMail } from '@tabler/icons-react';
 import { characteristicGridPositions, personaNavPositions, ctaPositions } from './Home.nodes';
-import { CTALinkProps } from './Home.types';
+import { PersonaNavItem } from './Home.types';
 
 // FSBP section content data
 export const fsbpContent = {
-  title: 'The Full-Stack Business Person',
+  title: 'Full-Stack Business Person',
   subtitle: 'Why the future belongs to multi-skilled professionals who leverage AI to perform roles previously done by specialists',
   introText: 'We\'re already witnessing the dawn of hyper-efficient organizations – AI-native companies achieving unprecedented results with remarkably small teams. The Full-Stack Business Person is someone who combines deep technical expertise with broad business acumen, leveraging AI to perform roles that previously required several specialists.',
   paradigmSection: {

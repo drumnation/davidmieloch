@@ -48,6 +48,17 @@ export interface CardProps {
   className?: string;
   
   /**
+   * If true, the icon image fills the container with rounded corners.
+   * Defaults to false (icon centered in padded container).
+   */
+  fullSizeIcon?: boolean;
+  
+  /**
+   * Optional background color for the main icon container.
+   */
+  iconBackgroundColor?: string;
+  
+  /**
    * Additional styled custom styling
    */
   style?: React.CSSProperties;
@@ -61,11 +72,18 @@ export const Card: React.FC<CardProps> = ({
   variant = 'framework',
   action,
   className,
+  fullSizeIcon = false,
+  iconBackgroundColor,
   style
 }) => {
   return (
-    <CardContainer variant={variant} className={className} style={style}>
-      {icon && <CardIcon>{icon}</CardIcon>}
+    <CardContainer 
+      variant={variant} 
+      className={className} 
+      style={style}
+      $fullSizeIcon={fullSizeIcon}
+    >
+      {icon && <CardIcon $iconBackgroundColor={iconBackgroundColor}>{icon}</CardIcon>}
       
       {title && <CardTitle>{title}</CardTitle>}
       

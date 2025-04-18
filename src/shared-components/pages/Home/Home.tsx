@@ -1,34 +1,32 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import '@mantine/carousel/styles.css';
+
+import React from 'react';
 import Head from 'next/head';
-import { Hero } from '../../organisms/Hero/Hero';
+import Image from 'next/image';
+import { Hero } from '@shared-components/organisms/Hero/Hero';
 import { PersonaNavItem } from './Home.types';
 import { useHomeData } from './Home.hook';
 import { FSBPSection } from './components/ContentSection/ContentSection';
-import { GenericSection } from './components/ContentSection';
 import { SectionHeading } from './components/SectionHeading';
 import { PersonaCard } from './components/PersonaCard/PersonaCard';
 import CTALink from './components/CTALink';
 import { Card } from './components/Card';
 import { TechIcon } from '../../atoms/TechIcon';
 import { formatTechList } from './Home.utils';
+import { BlueTintGenericSection } from './Home.styles.ts';
 // Import all styles from our combined file
 import {
   Badge,
   ButtonGroup,
-  CTADescription,
-  ContentContainer,
-  FadeInSection,
   FrameworksGrid,
   FullWidthBackgroundWrapper, // From Home.styles.tsx
   Highlight,
-  HighlightBox,
   HomeContainer, // From Home.styles.tsx
-  HomePageContainer, // From Home.styles.ts
   HeroSection,
+  CurveOverlay,
   PersonaNav,
-  ProjectsGrid,
   SectionBodyText,
   SectionDivider,
   SectionTitle,
@@ -38,15 +36,24 @@ import {
   StandOutList,
   StandOutItem,
   StyledGenericSection,
-  ViewAllContainer
+  SectionHeaderContainer,
+  SectionHeaderIcon,
+  SectionHeaderTitle,
 } from './Home.styles.combined';
+import { Title, Text } from '@mantine/core';
+import { Carousel } from '@mantine/carousel';
+import { 
+  aiContextGenerator, 
+  promptForge, 
+  carouselProjects 
+} from '@data/projects';
+import { theme } from './Home.styles.ts'; // Import theme
 
 export const Home = () => {
   const { 
     heroProps, 
     personaNavData, 
     metaData,
-    hasScrolled
   } = useHomeData();
   
   // Technologies list for footer section
@@ -79,9 +86,12 @@ export const Home = () => {
           </div>
         </HeroSection>
         
+        {/* Curve Overlay */}
+        <CurveOverlay />
+        
         {/* Full-Stack Business Person Concept Block */}
         <StyledGenericSection id="fsbp-concept">
-          <SectionHeading icon="💡" title="The Full-Stack Business Person Model" />
+          <SectionHeading icon="💡" title="Fule`l-Stack Business Person Model" />
           <SectionBodyText>
             AI isn&apos;t just changing how we code — it&apos;s redefining what kind of developers teams need.
           </SectionBodyText>
@@ -150,8 +160,11 @@ export const Home = () => {
         <SectionDivider />
         
         {/* Frameworks in Action Section - Updated with refined content and links */}
-        <StyledGenericSection id="frameworks">
-          <SectionHeading icon="🧩" title="Frameworks in Action" />
+        <BlueTintGenericSection id="frameworks">
+          <SectionHeaderContainer>
+            <SectionHeaderIcon>🧩</SectionHeaderIcon>
+            <SectionHeaderTitle>Frameworks in Action</SectionHeaderTitle>
+          </SectionHeaderContainer>
           <SectionBodyText>
             These frameworks demonstrate how I lead engineering teams through real-world complexity—from orchestrating AI systems to modernizing legacy codebases. Each is written as a standalone playbook, rooted in execution.
           </SectionBodyText>
@@ -181,79 +194,136 @@ export const Home = () => {
               />}
             />
           </FrameworksGrid>
-        </StyledGenericSection>
+        </BlueTintGenericSection>
         
         <SectionDivider />
         
-        {/* Live Proof Projects Section - Moved to the end of the content */}
+        {/* Live Proof Projects Section - Use StyledGenericSection */}
         <StyledGenericSection id="projects">
-          <SectionHeading icon="🚀" title="Live Proof Projects in Action" />
-          <SectionBodyText>These systems reflect how I design and ship AI-native workflows—modular, developer-focused, and built for real-world use.</SectionBodyText>
-          <ProjectsGrid>
+          {/* Headline and Intro */}
+          <Title order={2} ta="center">🚀 Live Proof Projects in Action</Title>
+          <Text c="dimmed" ta="center" mb="xl">
+            These tools reflect how I build and scale AI-native workflows — from installable dev tools to internal orchestration systems.
+          </Text>
+          
+          {/* Static Tools Row (High-Signal / Actionable Projects) */}
+          <Text tt="uppercase" size="sm" fw={700} c="dimmed" mb="xs">Installable Tools</Text>
+          <FrameworksGrid>
+            {/* Card for aiContextGenerator */}
             <Card 
               variant="project"
-              icon="🧠"
-              title="ai-context-generator"
-              description="VS Code extension that generates smart summaries for codebases using GPT."
+              iconBackgroundColor={aiContextGenerator.iconBackgroundColor}
+              icon={
+                aiContextGenerator.icon === 'ai-context-generator' ? 
+                <Image src="https://drumnation.gallerycdn.vsassets.io/extensions/drumnation/ai-context-generator/0.0.10/1721423097801/Microsoft.VisualStudio.Services.Icons.Default" alt="AI Context Generator Logo" width={40} height={40} /> : 
+                <Text>{aiContextGenerator.icon}</Text>
+              }
+              title={aiContextGenerator.name}
+              description={aiContextGenerator.description}
               action={<CTALink 
-                href="https://marketplace.visualstudio.com/items?itemName=drumnation.ai-context-generator" 
-                label="View on VS Marketplace"
-                iconType="external-link"
+                href={aiContextGenerator.link || '#'}
+                label={aiContextGenerator.status === 'live' ? "View on VS Marketplace" : "Learn More"}
+                // Potentially add specific iconNode for marketplace/github again if needed
+                iconNode={aiContextGenerator.link?.includes('marketplace') ? <Image src="/vscode-marketplace-logo.png" alt="VS Code Marketplace Logo" width={20} height={20} /> : undefined}
                 variant="primary"
                 size="sm"
               />}
             >
-              <div style={{ marginBottom: 12 }}>
-                <Badge bg="#e0e7ff" color="#3730a3">🧠 AI</Badge>
-                <Badge bg="#fef9c3" color="#92400e">⚡️ DevX</Badge>
-              </div>
+              {aiContextGenerator.badges && (
+                <div style={{ marginBottom: 12 }}>
+                  {aiContextGenerator.badges.map(badge => (
+                    <Badge key={badge.text} bg={badge.bg} color={badge.color || theme.text.primary}>{badge.text}</Badge>
+                  ))}
+                </div>
+              )}
             </Card>
+
+            {/* Card for promptForge */}
             <Card 
               variant="project"
-              icon="🛠️"
-              title="prompt-forge"
-              description="Modular prompt and template engine for chaining GPT workflows and tooling."
+              iconBackgroundColor={promptForge.iconBackgroundColor}
+              icon={
+                promptForge.icon === 'prompt-forge' ? 
+                <Image src="/media/prompt-forge-logo.png" alt="Prompt Forge Logo" width={60} height={60} style={{ objectFit: 'contain' }}/> : 
+                <Text>{promptForge.icon}</Text>
+              }
+              title={promptForge.name}
+              description={promptForge.description}
               action={<CTALink 
-                href="https://github.com/dmieloch/prompt-forge" 
-                label="View on GitHub"
-                iconType="external-link"
+                href={promptForge.link || '#'}
+                label={promptForge.status === 'live' ? "View on GitHub" : "Learn More"}
+                iconNode={promptForge.link?.includes('github') ? <Image src="/github-logo.svg" alt="GitHub Logo" width={20} height={20} /> : undefined}
                 variant="primary"
                 size="sm"
               />}
             >
-              <div style={{ marginBottom: 12 }}>
-                <Badge bg="#e0e7ff" color="#3730a3">🧩 PromptOps</Badge>
-                <Badge bg="#fef9c3" color="#92400e">⚙️ Templates</Badge>
-              </div>
+              {promptForge.badges && (
+                <div style={{ marginBottom: 12 }}>
+                  {promptForge.badges.map(badge => (
+                    <Badge key={badge.text} bg={badge.bg} color={badge.color || theme.text.primary}>{badge.text}</Badge>
+                  ))}
+                </div>
+              )}
             </Card>
-            <Card 
-              variant="project"
-              icon="🌱"
-              title="Brain Garden"
-              description="An internal OS for managing rules, prompts, skill-jacks, and context for AI projects."
-              action={<CTALink 
-                href="#" 
-                label="Coming Soon"
-                iconType="external-link"
-                variant="primary"
-                size="sm"
-              />}
-            >
-              <div style={{ marginBottom: 12 }}>
-                <Badge bg="#e0e7ff" color="#3730a3">🧠 Orchestration</Badge>
-                <Badge bg="#fef9c3" color="#92400e">🛠️ Agent Infra</Badge>
-              </div>
-            </Card>
-          </ProjectsGrid>
-          <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-            <CTALink 
-              href="/experience" 
-              label="See more Projects"
-              iconType="external-link"
-              variant="secondary"
-              size="sm"
-            />
-          </div>
+          </FrameworksGrid>
+
+          {/* Carousel Row (Modular / Internal / Power-User Tools) */}
+          <Text tt="uppercase" size="sm" fw={700} c="dimmed" mb="xs">Internal & Ecosystem Tools</Text>
+          <Carousel
+            slideSize={{ base: '100%', sm: '50%' }}
+            slideGap="md"
+            loop
+            withIndicators
+            styles={{
+              slide: {
+                height: '100%',
+              },
+              container: {
+                display: 'flex',
+                flexDirection: 'row',
+              },
+              root: {
+                overflow: 'hidden',
+              },
+            }}
+          >
+            {carouselProjects.map((project) => (
+              <Carousel.Slide key={project.name}>
+                <Card 
+                  variant="project"
+                  iconBackgroundColor={project.iconBackgroundColor}
+                  style={{ height: '400px' }}
+                  icon={
+                    project.icon === 'brain-garden' ? 
+                    <Image 
+                      src="/media/misc/brain-garden.png" 
+                      alt="Brain Garden Logo" 
+                      width={60}
+                      height={60}
+                      style={{ borderRadius: '8px' }}
+                    /> : 
+                    <Text>{project.icon}</Text>
+                  }
+                  title={project.name}
+                  description={project.description}
+                  action={<CTALink 
+                    href={project.link || '#'}
+                    label={project.status === 'coming soon' ? "Coming Soon" : "Learn More"}
+                    variant={project.status === 'coming soon' ? "secondary" : "primary"}
+                    size="sm"
+                  />}
+                >
+                  {project.badges && (
+                    <div style={{ marginBottom: 12 }}>
+                      {project.badges.map(badge => (
+                        <Badge key={badge.text} bg={badge.bg} color={badge.color || theme.text.primary}>{badge.text}</Badge>
+                      ))}
+                    </div>
+                  )}
+                </Card>
+              </Carousel.Slide>
+            ))}
+          </Carousel>
         </StyledGenericSection>
         
         <SectionDivider />
@@ -262,7 +332,7 @@ export const Home = () => {
         <SectionWrapper>
           <StyledGenericSection>
             <SectionTitle>Ready to elevate your engineering strategy?</SectionTitle>
-            <SectionBodyText style={{ textAlign: 'center' }}>
+            <SectionBodyText style={{ textAlign: 'center', color: '#e2e8f0' }}>
               Whether you&apos;re looking to transform your development processes or build an AI-native roadmap, let&apos;s connect.
             </SectionBodyText>
             <ButtonGroup>
