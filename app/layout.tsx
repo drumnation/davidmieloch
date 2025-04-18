@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${lexend.variable} ${inter.variable} ${manrope.variable} ${workSans.variable} ${ibmPlex.variable}`}>
-      <body>
+      <body style={{ overflowX: 'hidden' }}>
         <PlayerProvider>
           <ClientLayout>{children}</ClientLayout>
         </PlayerProvider>

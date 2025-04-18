@@ -53,6 +53,7 @@ export default function ClientLayout({
             root: {
               backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
               transition: 'background-color 200ms ease',
+              overflowX: 'hidden',
             }
           })}
         >

@@ -91,7 +91,7 @@ export const Home = () => {
         
         {/* Full-Stack Business Person Concept Block */}
         <StyledGenericSection id="fsbp-concept">
-          <SectionHeading icon="💡" title="Fule`l-Stack Business Person Model" />
+          <SectionHeading icon="💡" title="Full-Stack Business Person Model" />
           <SectionBodyText>
             AI isn&apos;t just changing how we code — it&apos;s redefining what kind of developers teams need.
           </SectionBodyText>
