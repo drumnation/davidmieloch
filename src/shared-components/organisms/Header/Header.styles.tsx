@@ -90,21 +90,21 @@ export const StyledMobileDrawer = styled(Drawer, {
   shouldForwardProp: (prop) => !['isDark', 'theme', 'handleNavigation'].includes(prop.toString())
 })<StyledMobileDrawerProps>`
   .mantine-Drawer-header {
-    background-color: ${props => props.isDark ? props.theme.colors.dark[7] : props.theme.white};
+    background-color: ${props => props.isDark ? props.theme.colors.dark[7] : props.theme.colors.gray[1]};
     color: ${props => props.isDark ? props.theme.white : props.theme.colors.dark[9]};
     border-bottom: 1px solid ${props => props.isDark ? props.theme.colors.dark[5] : props.theme.colors.gray[2]};
   }
   
   .mantine-Drawer-content {
-    background-color: ${props => props.isDark ? props.theme.colors.dark[8] : props.theme.colors.gray[0]};
+    background-color: ${props => props.isDark ? props.theme.colors.dark[9] : props.theme.colors.gray[0]};
     color: ${props => props.isDark ? props.theme.white : props.theme.colors.dark[9]};
     box-shadow: ${props => props.theme.shadows.md};
     border-radius: ${props => props.theme.radius.md} 0 0 ${props => props.theme.radius.md};
   }
 
   .mantine-Drawer-closeButton {
-    width: ${rem(32)};
-    height: ${rem(32)};
+    width: ${rem(36)};
+    height: ${rem(36)};
     border-radius: ${props => props.theme.radius.sm};
     transition: background-color 150ms ease;
 

@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button, Text, Group, Image, Stack, UnstyledButton, Burger, rem } from '@mantine/core';
+import { Button, Text, Group, Image, Stack, UnstyledButton, Burger, rem, Divider, ActionIcon, Tooltip } from '@mantine/core';
 import { useHeaderState } from './Header.hook';
 import { StyledHeader, StyledContainer, StyledLogoButton, StyledNav, StyledMobileDrawer } from './Header.styles';
 import { renderNavItems, renderSocialIcons } from './Header.utils';
 import { ClientOnly } from '@utils/ClientOnly';
-import { navLinks } from './Header.logic';
-import { NavLink } from './Header.types';
+import { navLinks, socialLinks } from './Header.logic';
+import { NavLink, SocialLink } from './Header.types';
 
 export function Header() {
   const {
@@ -202,10 +202,10 @@ export function Header() {
             </Group>
           }
           position="right"
-          size="xs"
+          size="sm"
           overlayProps={{ opacity: 0.5, blur: 4 }}
         >
-          <Stack gap="xs">
+          <Stack gap="sm">
             {navLinks.map((link: NavLink) => (
               <div
                 key={link.label}
@@ -238,11 +238,11 @@ export function Header() {
                   <div style={{ display: 'flex', alignItems: 'center' }}>
                     {link.icon && (
                       <span style={{ marginRight: theme.spacing.sm, display: 'flex', alignItems: 'center' }}>
-                        <link.icon size={18} stroke={1.5} />
+                        <link.icon size={20} stroke={1.5} />
                       </span>
                     )}
                     {!link.icon && (
-                      <span style={{ marginRight: theme.spacing.sm, width: rem(18), display: 'inline-block' }} />
+                      <span style={{ marginRight: theme.spacing.sm, width: rem(20), display: 'inline-block' }} />
                     )}
                     <Text 
                       style={{
@@ -257,7 +257,33 @@ export function Header() {
                 </UnstyledButton>
               </div>
             ))}
-            {/* Consider adding Experience button here too */}
+            {/* Add Divider and Social Links */}
+            <Divider my="sm" color={isDark ? theme.colors.dark[5] : theme.colors.gray[2]} />
+            <Group justify="center" gap="md" grow>
+              {socialLinks.map((link: SocialLink) => (
+                <Tooltip key={link.name} label={link.name} position="bottom" withArrow>
+                  <ActionIcon
+                    component="a"
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="subtle"
+                    color={isDark ? theme.colors.gray[4] : theme.colors.gray[6]}
+                    size="xl"
+                    radius="xl"
+                    style={{
+                      transition: 'background-color 150ms ease',
+                      '&:hover': {
+                        backgroundColor: isDark ? theme.colors.dark[6] : theme.colors.gray[1],
+                      }
+                    }}
+                  >
+                    <link.icon size={rem(20)} stroke={1.5} />
+                  </ActionIcon>
+                </Tooltip>
+              ))}
+            </Group>
+            {/* Consider adding Experience button here too - removed comment, button is in main nav */}
           </Stack>
         </StyledMobileDrawer>
       </StyledContainer>
