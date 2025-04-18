@@ -80,7 +80,6 @@ export const ExperienceContainer = styled.div`
   overflow: hidden;
   background-color: #f3f2ef;
   min-height: 100vh;
-  padding-top: 80px; // Account for header
 `;
 
 // Profile header styles

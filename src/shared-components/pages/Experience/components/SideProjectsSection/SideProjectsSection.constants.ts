@@ -671,8 +671,8 @@ This dynamic system maintains accuracy between your actual and projected finance
         thumbnail: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*iO4AGAfTaXzDQryDkwVeaA.jpeg',
         width: '100%',
         buttonText: 'Read My Post',
-        customHeight: '160px',
-        thumbnailWidth: '350px'
+        customHeight: '320px',
+        thumbnailWidth: '450px'
       },
     ]
   }

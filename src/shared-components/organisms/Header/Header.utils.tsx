@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Text, 
   UnstyledButton, 
@@ -16,15 +16,9 @@ import { usePathname } from 'next/navigation';
 export const renderNavItems = ({ theme, isDark, handleNavigation }: RenderNavItemsProps) => {
   // Local state for hover effects
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
-  const [currentPath, setCurrentPath] = useState('/');
+  // Use Next.js's usePathname hook directly
+  const pathname = usePathname();
   
-  // In client components, we need to get the pathname safely
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentPath(window.location.pathname);
-    }
-  }, []);
-
   const handleLinkHover = (label: string) => {
     setHoveredLink(label);
   };
@@ -56,12 +50,12 @@ export const renderNavItems = ({ theme, isDark, handleNavigation }: RenderNavIte
       <UnstyledButton
         style={{
           position: 'relative',
-          color: isActive(link.href, currentPath) 
+          color: isActive(link.href, pathname) 
             ? (isDark ? '#ffffff' : theme.colors.dark[9]) 
             : hoveredLink === link.label 
               ? (isDark ? '#ffffff' : theme.colors.dark[9]) 
               : (isDark ? '#ffffff' : theme.colors.dark[9]),
-          fontWeight: isActive(link.href, currentPath) || hoveredLink === link.label ? 600 : 500,
+          fontWeight: isActive(link.href, pathname) || hoveredLink === link.label ? 600 : 500,
           padding: `${rem(8)} ${rem(12)}`,
           borderRadius: theme.radius.sm,
           whiteSpace: 'nowrap',
@@ -86,7 +80,7 @@ export const renderNavItems = ({ theme, isDark, handleNavigation }: RenderNavIte
         >
           {link.label}
         </Text>
-        {isActive(link.href, currentPath) && (
+        {isActive(link.href, pathname) && (
           <Box
             style={{
               position: 'absolute',

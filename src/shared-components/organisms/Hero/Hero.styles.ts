@@ -62,7 +62,8 @@ export const HeroContainer = styled.section<{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 0 3rem 0;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
   will-change: transform;
   transform: translateZ(0);
@@ -78,6 +79,8 @@ export const HeroContainer = styled.section<{
       position: absolute;
       top: 0;
       left: 0;
+      right: 0;
+      bottom: 0;
       width: 100%;
       height: 100%;
       background-image: url(${$backgroundImage});
@@ -97,6 +100,8 @@ export const HeroContainer = styled.section<{
         position: absolute;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, ${$overlayOpacity || 0.5});
@@ -106,22 +111,21 @@ export const HeroContainer = styled.section<{
   `}
   
   /* Ensure full width in all contexts */
-  max-width: 100vw;
-  margin: 0;
+  max-width: 100%;
   align-self: stretch;
 
   &.full-width-hero {
     width: 100vw;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
   }
 
   ${media.up('md')} {
     min-height: 70vh;
-    padding: 0 0 4rem 0;
+    padding: 0;
   }
 `;
 
@@ -133,6 +137,8 @@ export const HeroContent = styled.div`
   z-index: 2;
   position: relative;
   padding: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
