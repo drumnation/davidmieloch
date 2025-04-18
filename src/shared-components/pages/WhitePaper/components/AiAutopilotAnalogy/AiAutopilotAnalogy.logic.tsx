@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hero } from '@shared-components/organisms/Hero/Hero';
+import { HeroProps } from '@shared-components/organisms/Hero/Hero.types';
 import { Typography } from '@shared-components/atoms/Typography';
 import { Icon } from '@shared-components/atoms/Icon';
 import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';
@@ -257,14 +258,36 @@ export const defaultContent = {
 };
 
 // Helper function to enhance hero props
-export const enhanceHeroProps = (heroProps: AiAutopilotAnalogyProps['heroProps'] = defaultContent.hero) => {
+export const enhanceHeroProps = (heroPropsInput?: AiAutopilotAnalogyProps['heroProps']) => {
+  const heroProps = { ...defaultContent.hero, ...heroPropsInput };
+
+  // Validate and potentially correct the animation type
+  let animation: HeroProps['animation'] = 'fade-up'; // Default
+  const validAnimations: HeroProps['animation'][] = [
+    'fade-in',
+    'fade-up',
+    'slide-in-left',
+    'slide-in-right',
+    'none',
+  ];
+
+  if (heroProps.animation && validAnimations.includes(heroProps.animation as any)) {
+    // Use the valid animation if provided
+    animation = heroProps.animation as HeroProps['animation'];
+  } else if (heroProps.animation === 'slide-in') {
+    // Map the common invalid value 'slide-in' to a valid one
+    animation = 'slide-in-left';
+  }
+  // Otherwise, the default 'fade-up' is used
+
   return {
     ...heroProps,
-    className: `${heroProps.className || ''} mb-0`,
-    background: (heroProps.background === 'image' || heroProps.background === 'gradient' || 
-                heroProps.background === 'light' || heroProps.background === 'dark') ? 
-                heroProps.background : 'gradient',
-    textColor: 'light' as const
+    // Override with the validated/corrected animation
+    animation: animation,
+    // Ensure other props conform to HeroProps by casting (assuming defaults are correct)
+    background: heroProps.background as HeroProps['background'],
+    textColor: heroProps.textColor as HeroProps['textColor'],
+    pattern: heroProps.pattern as HeroProps['pattern'],
   };
 };
 

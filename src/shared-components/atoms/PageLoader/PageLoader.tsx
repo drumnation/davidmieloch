@@ -1,11 +1,12 @@
 import React from 'react';
 import { PageLoaderProps } from './PageLoader.types';
-import { SpinnerLoader } from '../../../components';
+import { SpinnerLoader } from '@shared-components/atoms/SpinnerLoader';
 
 export const PageLoader: React.FC<PageLoaderProps> = ({ 
   className,
   spinnerSize = 'large',
-  spinnerColor
+  spinnerColor,
+  text
 }) => {
   // Convert size string to pixel number
   const sizeMap = {
@@ -21,7 +22,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({
       type="clip"
       size={size}
       color={spinnerColor}
-      fullPage={false}
+      text={text}
       className={className}
     />
   );

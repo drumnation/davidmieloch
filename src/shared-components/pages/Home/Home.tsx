@@ -6,7 +6,7 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Hero } from '@shared-components/organisms/Hero/Hero';
-import { PersonaNavItem } from './Home.types';
+import { PersonaNavItem, HomePageProps } from './Home.types';
 import { useHomeData } from './Home.hook';
 import { FSBPSection } from './components/ContentSection/ContentSection';
 import { SectionHeading } from './components/SectionHeading';
@@ -39,6 +39,7 @@ import {
   SectionHeaderContainer,
   SectionHeaderIcon,
   SectionHeaderTitle,
+  DarkBackgroundSection,
 } from './Home.styles.combined';
 import { Title, Text } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
@@ -49,7 +50,7 @@ import {
 } from '@data/projects';
 import { theme } from './Home.styles.ts'; // Import theme
 
-export const Home = () => {
+export const Home: React.FC<HomePageProps> = ({ onReady }) => {
   const { 
     heroProps, 
     personaNavData, 
@@ -82,7 +83,7 @@ export const Home = () => {
         <HeroSection className="with-glow">
           <div className="cylinder-backdrop" />
           <div className="hero-content fade-in-element">
-            <Hero {...heroProps} />
+            <Hero {...heroProps} onImageLoad={onReady} />
           </div>
         </HeroSection>
         
@@ -198,8 +199,8 @@ export const Home = () => {
         
         <SectionDivider />
         
-        {/* Live Proof Projects Section - Use StyledGenericSection */}
-        <StyledGenericSection id="projects">
+        {/* Live Proof Projects Section - Use DarkBackgroundSection */}
+        <DarkBackgroundSection id="projects">
           {/* Headline and Intro */}
           <Title order={2} ta="center">🚀 Live Proof Projects in Action</Title>
           <Text c="dimmed" ta="center" mb="xl">
@@ -324,7 +325,7 @@ export const Home = () => {
               </Carousel.Slide>
             ))}
           </Carousel>
-        </StyledGenericSection>
+        </DarkBackgroundSection>
         
         <SectionDivider />
         

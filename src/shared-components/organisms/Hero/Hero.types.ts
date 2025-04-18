@@ -1,9 +1,13 @@
-import { CSSProperties } from 'react';
+import { ReactNode, CSSProperties } from 'react';
+import { MantineGradient } from '@mantine/core';
 
 interface CTAButton {
   text: string;
   link: string;
 }
+
+export type AnimationType = 'fade-in' | 'fade-up' | 'slide-in-left' | 'slide-in-right' | 'none';
+export type TextColor = 'light' | 'dark';
 
 export interface HeroProps {
   title?: string;
@@ -15,13 +19,18 @@ export interface HeroProps {
   backgroundOverlay?: boolean;
   overlayOpacity?: number;
   pattern?: 'circuit-board' | 'dots' | 'none';
-  textColor?: 'light' | 'dark';
+  textColor?: TextColor;
   className?: string;
   style?: CSSProperties;
-  animation?: 'fade-up' | 'slide-in' | 'none';
+  animation?: AnimationType;
   gradientColors?: string[];
   cta?: {
     primary?: CTAButton;
     secondary?: CTAButton;
   };
+  imageUrl?: string;
+  gradient?: MantineGradient;
+  minHeight?: string | number;
+  children?: ReactNode;
+  onImageLoad?: () => void;
 } 

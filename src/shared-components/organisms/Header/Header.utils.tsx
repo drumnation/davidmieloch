@@ -13,14 +13,17 @@ import { socialLinks, navLinks } from './Header.logic';
 import { RenderNavItemsProps, RenderSocialIconsProps } from './Header.types';
 import { usePathname } from 'next/navigation';
 
-export const renderNavItems = ({ theme, isDark, handleNavigation }: RenderNavItemsProps) => {
+export const renderNavItems = ({ theme, isDark, handleNavigation, isNavigating }: RenderNavItemsProps) => {
   // Local state for hover effects
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const [clickedLink, setClickedLink] = useState<string | null>(null);
   // Use Next.js's usePathname hook directly
   const pathname = usePathname();
   
   const handleLinkHover = (label: string) => {
-    setHoveredLink(label);
+    if (!isNavigating) {
+      setHoveredLink(label);
+    }
   };
 
   const handleLinkLeave = () => {
@@ -43,7 +46,9 @@ export const renderNavItems = ({ theme, isDark, handleNavigation }: RenderNavIte
       key={link.label}
       style={{ textDecoration: 'none', position: 'relative' }}
       onClick={(e) => {
+        if (isNavigating) return;
         e.preventDefault();
+        setClickedLink(link.label);
         handleNavigation(link.href);
       }}
     >
@@ -60,13 +65,19 @@ export const renderNavItems = ({ theme, isDark, handleNavigation }: RenderNavIte
           borderRadius: theme.radius.sm,
           whiteSpace: 'nowrap',
           transition: 'all 200ms ease',
-          backgroundColor: hoveredLink === link.label 
-            ? (isDark ? 'rgba(99, 102, 241, 0.2)' : 'rgba(99, 102, 241, 0.1)') 
-            : 'transparent',
-          transform: hoveredLink === link.label ? 'translateY(-1px)' : 'translateY(0)',
-          boxShadow: hoveredLink === link.label ? '0 2px 4px rgba(0,0,0,0.05)' : 'none',
-          borderBottom: hoveredLink === link.label ? '2px solid #6366F1' : '2px solid transparent',
-          cursor: 'pointer',
+          backgroundColor: isNavigating
+            ? (isDark ? 'rgba(99, 102, 241, 0.3)' : 'rgba(99, 102, 241, 0.2)')
+            : clickedLink === link.label
+              ? (isDark ? 'rgba(99, 102, 241, 0.3)' : 'rgba(99, 102, 241, 0.2)')
+              : hoveredLink === link.label 
+                ? (isDark ? 'rgba(99, 102, 241, 0.2)' : 'rgba(99, 102, 241, 0.1)') 
+                : 'transparent',
+          transform: hoveredLink === link.label && !isNavigating ? 'translateY(-1px)' : 'translateY(0)',
+          boxShadow: hoveredLink === link.label && !isNavigating ? '0 2px 4px rgba(0,0,0,0.05)' : 'none',
+          borderBottom: hoveredLink === link.label && !isNavigating ? '2px solid #6366F1' : '2px solid transparent',
+          cursor: isNavigating ? 'wait' : 'pointer',
+          opacity: isNavigating ? 0.7 : 1,
+          pointerEvents: isNavigating ? 'none' : 'auto',
         }}
         onMouseEnter={() => handleLinkHover(link.label)}
         onMouseLeave={handleLinkLeave}

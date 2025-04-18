@@ -11,41 +11,41 @@ export type SocialLink = {
   url: string;
 };
 
-export type HeaderHookReturn = {
+export interface HeaderHookReturn {
   opened: boolean;
   toggle: () => void;
   close: () => void;
   theme: MantineTheme;
   isDark: boolean;
   pathname: string;
-  isLoading: boolean;
-  loadingPath: string | null;
   logoHovered: boolean;
-  setLogoHovered: (value: boolean) => void;
+  setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>;
   socialHovered: string | null;
-  setSocialHovered: (value: string | null) => void;
+  setSocialHovered: React.Dispatch<React.SetStateAction<string | null>>;
   experienceHovered: boolean;
-  setExperienceHovered: (value: boolean) => void;
+  setExperienceHovered: React.Dispatch<React.SetStateAction<boolean>>;
   mobileHovered: string | null;
-  setMobileHovered: (value: string | null) => void;
+  setMobileHovered: React.Dispatch<React.SetStateAction<string | null>>;
   hoveredLink: string | null;
-  setHoveredLink: (value: string | null) => void;
+  setHoveredLink: React.Dispatch<React.SetStateAction<string | null>>;
   handleNavigation: (href: string) => void;
   isActive: (href: string) => boolean;
   handleLinkHover: (label: string) => void;
   handleLinkLeave: () => void;
-};
+  isNavigating: boolean;
+}
 
-export type RenderNavItemsProps = {
-  theme: MantineTheme;
+export interface RenderNavItemsProps {
+  theme: any; // Consider replacing with proper MantineTheme type
   isDark: boolean;
   handleNavigation: (href: string) => void;
-};
+  isNavigating: boolean;
+}
 
-export type RenderSocialIconsProps = {
-  theme: MantineTheme;
+export interface RenderSocialIconsProps {
+  theme: any; // Consider replacing with proper MantineTheme type
   isDark: boolean;
-};
+}
 
 export type StyledHeaderProps = {
   isDark: boolean;

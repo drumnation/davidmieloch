@@ -79,7 +79,6 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
   return (
     <Container className={className}>
       {/* Hero Section */}
-      <Hero {...enhancedHeroProps} />
       
       {/* Content Section with White Background */}
       <ContentSection>

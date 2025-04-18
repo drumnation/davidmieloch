@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { Hero } from '../../organisms/Hero';
+import { PageContainer } from '../../layouts/PageContainer';
 import { 
   ContentSection,
   ContentContainer,
@@ -19,7 +20,7 @@ import {
   LetsWorkTogether
 } from './components';
 
-export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practices', className }) => {
+export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practices', className, onReady }) => {
   const [isVisible, setIsVisible] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
   
@@ -54,9 +55,9 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
     textColor: 'light' as const,
     animation: 'fade-up' as const,
     className: 'best-practices-hero',
-    initialAnimation: 'visible' as 'visible' | 'hidden',
-    overlay: true,
-    overlayOpacity: 0.6
+    backgroundOverlay: true,
+    overlayOpacity: 0.6,
+    onImageLoad: onReady
   };
 
   const categories = useMemo(() => {
@@ -73,13 +74,13 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
         ref={contentRef}
         className={`best-practices-content-section ${isVisible ? 'visible' : ''}`}
       >
-        <ContentContainer className="best-practices-content-container">
+        <PageContainer>
           <DetailedContent />
           <PageSeparator />
           <Categories categories={categories} />
           <Conclusion />
           <LetsWorkTogether />
-        </ContentContainer>
+        </PageContainer>
       </ContentSection>
     </Container>
   );

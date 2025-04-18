@@ -4,12 +4,19 @@ import React, { useEffect, useState } from 'react';
 import { 
   ExperienceContainer,
   GlobalStyles,
-  fadeIn
+  fadeIn,
 } from './Experience.styles';
 import { ExperienceProps } from './Experience.types';
 import { TransitionDiv, TransitionContainer } from '../../../utils/animations/migration-helpers';
+import { Hero } from '../../organisms/Hero';
+// Removed import for missing Experience.logic file
+// import { defaultContent } from './Experience.logic'; 
+// Removed redundant default imports
+// import TimelineSection from './components/TimelineSection'; 
+// import SkillsSection from './components/SkillsSection'; 
+// import SideProjectsSection from './components/SideProjectsSection'; 
 
-// Import our subcomponents
+// Import subcomponents using named exports from index
 import { 
   ProfileSection, 
   ExperienceSection, 
@@ -41,7 +48,9 @@ import { SIDE_PROJECTS } from './components/SideProjectsSection/SideProjectsSect
 export const Experience: React.FC<ExperienceProps> = ({ 
   id = 'experience', 
   className,
-  sideProjects = SIDE_PROJECTS 
+  sideProjects = SIDE_PROJECTS,
+  heroProps,
+  onReady
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   
@@ -77,43 +86,38 @@ export const Experience: React.FC<ExperienceProps> = ({
     ...INFRASTRUCTURE_SKILL_CATEGORIES
   ];
 
-  // Only use WORK_EXPERIENCE in the main list
-  // OLDER_EXPERIENCE will be displayed in an accordion by the ExperienceSection component
-  // Removing duplicate entries to avoid confusion with OLDER_EXPERIENCE
+  // Combine and sort experiences
   const allExperiences = [...WORK_EXPERIENCE].sort((a, b) => {
-    // First sort by sortOrder if available
     if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
       return a.sortOrder - b.sortOrder;
     }
-    
-    // Otherwise sort by start date (most recent first)
-    // Convert month names to numbers
     const monthToNum: Record<string, number> = {
       'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
       'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
     };
-    
     const aDateParts = a.startDate.split(' ');
     const bDateParts = b.startDate.split(' ');
-    
     const aYear = parseInt(aDateParts[1] || '0');
     const bYear = parseInt(bDateParts[1] || '0');
-    
-    // Sort by year (descending)
     if (aYear !== bYear) {
       return bYear - aYear;
     }
-    
-    // If years are the same, sort by month (descending)
     const aMonth = monthToNum[aDateParts[0]] || 0;
     const bMonth = monthToNum[bDateParts[0]] || 0;
-    
     return bMonth - aMonth;
   });
 
   return (
     <ExperienceContainer id={id} className={className}>
       <GlobalStyles />
+      
+      {/* Render Hero only if heroProps are provided */}
+      {heroProps && (
+        <Hero 
+          {...heroProps} 
+          onImageLoad={onReady}
+        />
+      )}
       
       {/* Content Section */}
       <TransitionDiv

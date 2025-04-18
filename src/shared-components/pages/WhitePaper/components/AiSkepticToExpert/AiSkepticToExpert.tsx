@@ -24,11 +24,12 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   heroProps = defaultContent.hero,
   quotesProps = defaultContent.quotes,
   problemSolutionCardsProps = defaultContent.problemSolutions,
+  onReady
 }) => {
   const componentName = "AiSkepticToExpert";
   
   // Enhance props with consistent styling and defaults
-  const enhancedHeroProps = React.useMemo(() => enhanceHeroProps(heroProps), [heroProps]);
+  const enhancedHeroProps = React.useMemo(() => enhanceHeroProps({...heroProps}), [heroProps]);
   const enhancedQuotesProps = React.useMemo(() => {
     console.log("Input quotesProps:", quotesProps);
     const enhanced = enhanceQuotesProps(quotesProps);

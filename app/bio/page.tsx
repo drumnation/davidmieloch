@@ -1,45 +1,25 @@
 'use client';
 
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import { LoadingPortal } from '../../src/components';
+import { PageWrapper } from '@shared-components/templates/PageWrapper';
 
-// Dynamically import the Bio component with no SSR to prevent hydration issues
+// Dynamically import the Bio component
 const Bio = dynamic(
   () => import('../../src/shared-components/pages/Bio/Bio').then(mod => mod.default), 
   { 
     ssr: false,
-    loading: () => null
+    // Using null fallback for Suspense, global loader handles initial state
+    loading: () => null 
   }
 );
 
 export default function BioPage() {
-  // State to control loading visibility
-  const [isLoading, setIsLoading] = useState(true);
-  
-  // Use effect to handle component loading
-  useEffect(() => {
-    // Create a timeout to give the component time to load
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    
-    // Clean up the timer
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <>
-      <LoadingPortal 
-        show={isLoading}
-        type="pulse"
-        color="#2196f3"
-        size={60}
-        text="Loading Bio..."
-      />
+    <PageWrapper>
       <Suspense fallback={null}>
         <Bio />
       </Suspense>
-    </>
+    </PageWrapper>
   );
 } 

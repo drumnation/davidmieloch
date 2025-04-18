@@ -53,7 +53,7 @@ export const useHomeData = () => {
 const preloadCriticalResources = () => {
   const preloadLinks = [
     { href: '/web-app-manifest-192x192.png', as: 'image' },
-    { href: '/images/ai-future.jpg', as: 'image' }
+    // { href: '/images/ai-future.jpg', as: 'image' }, // Removed missing image
   ];
   
   preloadLinks.forEach(link => {

@@ -1,3 +1,5 @@
+import { HeroProps } from '@shared-components/organisms/Hero';
+
 export interface PersonaNavItem {
   title: string;
   icon: string;
@@ -63,4 +65,11 @@ export interface MetaData {
   ogImage: string;
   twitterTitle: string;
   twitterDescription: string;
+}
+
+export interface HomePageProps {
+  heroProps?: HeroProps;
+  personaNavData?: PersonaNavItem[];
+  metaData?: MetaData;
+  onReady?: () => void;
 } 

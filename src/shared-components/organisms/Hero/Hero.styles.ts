@@ -56,7 +56,7 @@ export const HeroContainer = styled.section<{
   $backgroundOverlay?: boolean;
   $overlayOpacity?: number;
 }>`
-  position: relative;
+  position: relative !important;
   width: 100%;
   min-height: 60vh;
   display: flex;
@@ -69,45 +69,31 @@ export const HeroContainer = styled.section<{
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000;
+  isolation: isolate !important;
+  z-index: 0 !important;
   ${({ $background }) => backgroundStyles[$background as keyof typeof backgroundStyles]}
   ${({ $textColor }) => textColorStyles[$textColor as keyof typeof textColorStyles]}
   ${({ $pattern, $background }) => $background !== 'image' && patternStyles[$pattern as keyof typeof patternStyles]}
   
-  ${({ $backgroundImage, $backgroundOverlay, $overlayOpacity }) => $backgroundImage && css`
+  ${({ $backgroundImage }) => $backgroundImage && css`
     &::before {
       content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
       background-image: url(${$backgroundImage});
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: 0;
-      will-change: transform;
-      transform: translateZ(0);
-      opacity: 1;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      z-index: 0 !important;
+      will-change: transform !important;
+      transform: translateZ(0) !important;
+      opacity: 1 !important;
     }
-    
-    /* Add overlay when backgroundOverlay is true */
-    ${$backgroundOverlay && css`
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, ${$overlayOpacity || 0.5});
-        z-index: 1;
-      }
-    `}
   `}
   
   /* Ensure full width in all contexts */
@@ -129,18 +115,18 @@ export const HeroContainer = styled.section<{
   }
 `;
 
-export const HeroContent = styled.div`
-  max-width: 800px;
-  width: 100%;
+export const HeroContent = styled.div<{ $overlayOpacity?: number }>`
+  max-width: 700px;
+  width: 90%;
   margin: 0 auto;
   text-align: center;
-  z-index: 2;
-  position: relative;
-  padding: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2 !important;
+  position: relative !important;
+  padding: 2rem 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, ${({ $overlayOpacity }) => $overlayOpacity || 0.5}) !important;
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   color: #ffffff;
@@ -148,40 +134,93 @@ export const HeroContent = styled.div`
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000;
-  
-  .subtitle {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.2px;
+
+  /* Title styles */
+  h1 {
+    font-size: 2.75rem !important;
+    line-height: 1.1 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    margin-bottom: 1.5rem !important;
+    text-transform: uppercase !important;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Subtitle styles */
+  h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+    font-style: italic !important;
+    letter-spacing: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 2rem !important;
+    opacity: 0.9;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Description styles */
+  p {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    opacity: 0.8;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   ${media.up('md')} {
-    padding: 3rem;
+    padding: 3.5rem 4rem;
+
+    h1 {
+      font-size: 3.25rem !important;
+    }
+
+    h3 {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  ${media.down('sm')} {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 95%;
+
+    h1 {
+      font-size: 2rem !important;
+    }
+
+    h3 {
+      font-size: 1.1rem !important;
+      max-width: 100%;
+    }
+
+    p {
+      font-size: 1rem !important;
+      max-width: 100%;
+    }
   }
 `;
 
-export const Title = styled.div`
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-
-  ${media.up('md')} {
-    margin-bottom: 2rem;
-  }
-`;
-
-export const Subtitle = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-  opacity: 0.95;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+export const LoaderContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   
   ${media.down('sm')} {
     flex-direction: column;
@@ -190,6 +229,7 @@ export const ButtonContainer = styled.div`
     > * {
       margin-left: 0 !important;
       margin-bottom: 1rem;
+      width: 100%;
     }
   }
 `;

@@ -1,8 +1,11 @@
 import { ReactNode } from 'react';
+import { HeroProps } from '@shared-components/organisms/Hero';
 
 export interface BioPageProps {
   id?: string;
   className?: string;
+  heroProps?: HeroProps;
+  onReady?: () => void;
 }
 
 export interface MediaItem {

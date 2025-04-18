@@ -2,9 +2,11 @@ import { PracticeCategory } from './BestPractices.types';
 
 export const PRACTICE_CATEGORIES: PracticeCategory[] = [
   {
+    id: 'component-architecture',
+    icon: 'layout-grid',
     title: 'Component Architecture',
     description: 'Blending Atomic and Hierarchical Design for optimal component organization',
-    items: [
+    practices: [
       {
         title: 'Atomic Design for Reusable Components',
         description: 'UI elements like buttons, form fields, or data display components employ Atomic Design principles for consistency and reduced duplication',
@@ -23,9 +25,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     ],
   },
   {
+    id: 'monorepo-architecture',
+    icon: 'git-branch',
     title: 'Monorepo Architecture',
     description: 'Embracing modern tooling for seamless code sharing and development',
-    items: [
+    practices: [
       {
         title: 'Nx & Turborepo',
         description: 'Leveraging tools like Nx and Turborepo to create a seamless development experience with instant feedback loops',
@@ -44,9 +48,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     ],
   },
   {
+    id: 'modern-tooling',
+    icon: 'tool',
     title: 'Modern Tooling',
     description: 'Streamlining the development stack with cutting-edge tools',
-    items: [
+    practices: [
       {
         title: 'Vite over Webpack',
         description: 'Embracing Vite for its speed and simplicity, requiring minimal configuration for common project setups',
@@ -70,9 +76,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     ],
   },
   {
+    id: 'comprehensive-testing',
+    icon: 'test-tube-2',
     title: 'Comprehensive Testing',
     description: 'A multi-layered approach to ensure code quality and stability',
-    items: [
+    practices: [
       {
         title: 'Vitest for Unit Testing',
         description: 'Favoring Vitest over Jest for its speed, native TypeScript support, and simpler configuration',
@@ -91,9 +99,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     ],
   },
   {
+    id: 'ci-cd-pipeline',
+    icon: 'rocket',
     title: 'CI/CD Pipeline',
     description: 'Automating quality checks and deployment processes',
-    items: [
+    practices: [
       {
         title: 'GitHub Actions',
         description: 'Integrating all tools into a CI/CD pipeline using GitHub Actions for automated builds and tests',
@@ -112,9 +122,11 @@ export const PRACTICE_CATEGORIES: PracticeCategory[] = [
     ],
   },
   {
+    id: 'incremental-adoption',
+    icon: 'trending-up',
     title: 'Incremental Adoption',
     description: 'A pragmatic approach to implementing best practices',
-    items: [
+    practices: [
       {
         title: 'Prioritize High-Value Areas',
         description: 'Start with areas that offer the most immediate value, like basic linting and formatting',

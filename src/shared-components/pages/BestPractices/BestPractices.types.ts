@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 export interface BestPracticesProps {
   id?: string;
   className?: string;
+  onReady?: () => void;
 }
 
 export interface PracticeItem {
@@ -10,10 +11,13 @@ export interface PracticeItem {
   description: string;
   icon?: string;
   link?: string;
+  tags?: string[];
 }
 
 export interface PracticeCategory {
+  id: string;
   title: string;
-  description: ReactNode;
-  items: PracticeItem[];
+  icon: string;
+  description: string;
+  practices: PracticeItem[];
 } 

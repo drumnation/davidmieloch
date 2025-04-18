@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Typography } from '../../atoms/Typography';
-import { Button } from '../../atoms/Button';
+import { Loader } from '@mantine/core';
+import { Typography as AtomTypography } from '../../atoms/Typography';
+import { Button as AtomButton } from '../../atoms/Button';
 import { HeroProps } from './Hero.types';
 import * as S from './Hero.styles';
 
@@ -12,86 +13,139 @@ export const Hero: React.FC<HeroProps> = ({
   subtitle,
   description,
   tagline,
-  background = 'gradient',
+  background = 'light',
+  imageUrl,
   backgroundImage,
   backgroundOverlay = true,
   overlayOpacity = 0.5,
-  pattern = 'dots',
+  minHeight,
   textColor = 'light',
+  children,
   className,
   style,
+  pattern = 'none',
   cta,
+  onImageLoad
 }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const effectiveImageUrl = imageUrl || backgroundImage;
+
+  console.log('Hero Props:', {
+    backgroundOverlay,
+    overlayOpacity,
+    background,
+    effectiveImageUrl,
+    className
+  });
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+    onImageLoad?.();
+  };
+
+  const handleImageError = () => {
+    setIsLoading(false);
+    onImageLoad?.();
+  };
+
   return (
     <S.HeroContainer
-      className={`${className || ''} ${pattern ? `pattern-${pattern}` : ''}`}
+      className={`${className || ''} ${pattern !== 'none' ? `pattern-${pattern}` : ''}`}
       $background={background}
-      $backgroundImage={backgroundImage}
-      $backgroundOverlay={backgroundOverlay}
-      $overlayOpacity={overlayOpacity}
+      $backgroundImage={effectiveImageUrl}
       $textColor={textColor}
       $pattern={pattern}
-      style={style}
+      style={{
+        ...style,
+        position: 'relative',
+        isolation: 'isolate',
+      }}
     >
-      <S.HeroContent>
+      {effectiveImageUrl && (
+        <img 
+          src={effectiveImageUrl} 
+          onLoad={handleImageLoad}
+          onError={handleImageError} 
+          alt="" 
+          style={{ 
+            position: 'absolute',
+            left: '-9999px',
+            top: '-9999px',
+            width: '1px',
+            height: '1px',
+            opacity: 0,
+            pointerEvents: 'none' 
+          }} 
+          aria-hidden="true"
+        />
+      )}
+
+      {isLoading && effectiveImageUrl && (
+        <S.LoaderContainer>
+          <Loader color="gray" size="xl" />
+        </S.LoaderContainer>
+      )}
+
+      <S.HeroContent $overlayOpacity={overlayOpacity} style={{ opacity: isLoading ? 0 : 1 }}>
         {title && (
-          <Typography 
+          <AtomTypography 
             variant="h1" 
             color={textColor === 'light' ? 'light' : 'primary'}
             className="mb-4"
           >
             {title}
-          </Typography>
+          </AtomTypography>
         )}
         
         {subtitle && (
-          <Typography 
+          <AtomTypography 
             variant="h3" 
             weight="regular"
             color={textColor === 'light' ? 'light' : 'secondary'}
             className="mb-3"
           >
             {subtitle}
-          </Typography>
+          </AtomTypography>
         )}
 
         {description && (
-          <Typography 
+          <AtomTypography 
             variant="body"
             color={textColor === 'light' ? 'light' : 'secondary'}
             className="mb-3"
           >
             {description}
-          </Typography>
+          </AtomTypography>
         )}
-        
+
         {tagline && (
           <S.TaglineTypography>
             {tagline}
           </S.TaglineTypography>
         )}
 
-        {cta && (
+        {children && <div>{children}</div>}
+
+        {cta && (cta.primary || cta.secondary) && (
           <S.ButtonContainer>
             {cta.primary && (
-              <Button 
+              <AtomButton 
                 variant="primary" 
                 size="lg"
                 href={cta.primary.link}
               >
                 {cta.primary.text}
-              </Button>
+              </AtomButton>
             )}
-            
             {cta.secondary && (
-              <Button 
+              <AtomButton 
                 variant="ghost" 
                 size="lg"
                 href={cta.secondary.link}
                 style={{ marginLeft: '1rem' }}
               >
                 {cta.secondary.text}
-              </Button>
+              </AtomButton>
             )}
           </S.ButtonContainer>
         )}

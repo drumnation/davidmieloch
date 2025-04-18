@@ -1,21 +1,23 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { AppShell, Burger, Group } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { MantineProvider } from '@mantine/core';
-import { ThemeProvider, useTheme } from '../providers/ThemeProvider';
-import { ClarityProvider } from '../providers/ClarityProvider';
-import { Header } from '../shared-components/organisms/Header';
-import { PersistentFooter } from '../shared-components/organisms/PersistentFooter';
-import { setupSpringDebugger } from '../utils/animations/spring-debug';
+import { AppShell } from '@mantine/core';
+// import { useDisclosure } from '@mantine/hooks'; // No longer needed?
+// import { MantineProvider } from '@mantine/core'; // No longer needed?
+import { ThemeProvider, useTheme } from '@providers/ThemeProvider'; // Path Alias
+import { ClarityProvider } from '@providers/ClarityProvider'; // Path Alias
+import { LoadingProvider } from '@contexts/LoadingContext'; // Path Alias
+import { Header } from '@shared-components/organisms/Header'; // Path Alias
+import { PersistentFooter } from '@shared-components/organisms/PersistentFooter'; // Path Alias
+import { setupSpringDebugger } from '@utils/animations/spring-debug'; // Path Alias
+import { FullScreenLoader } from '@shared-components/organisms/FullScreenLoader'; // Path Alias
 
 export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { colorScheme } = useTheme();
+  const { colorScheme } = useTheme(); // Needs to be inside ThemeProvider
   const isDark = colorScheme === 'dark';
 
   // Initialize spring debugger in both dev and production
@@ -40,33 +42,46 @@ export default function ClientLayout({
     }
   }, []);
 
+  // Inner component to access theme context
+  const AppShellWithTheme = ({ children }: { children: React.ReactNode }) => {
+    const { colorScheme } = useTheme();
+    const isDark = colorScheme === 'dark';
+
+    return (
+      <AppShell
+        header={{ height: 60 }}
+        styles={() => ({
+          main: {
+            backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
+            transition: 'background-color 200ms ease',
+          },
+          root: {
+            backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
+            transition: 'background-color 200ms ease',
+            overflowX: 'hidden',
+          }
+        })}
+      >
+        <AppShell.Header>
+          <Header />
+        </AppShell.Header>
+        
+        <AppShell.Main>
+          {children}
+        </AppShell.Main>
+        
+        <PersistentFooter data-print-hidden="true" />
+      </AppShell>
+    );
+  };
+
   return (
     <ThemeProvider>
       <ClarityProvider>
-        <AppShell
-          header={{ height: 60 }}
-          styles={() => ({
-            main: {
-              backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
-              transition: 'background-color 200ms ease',
-            },
-            root: {
-              backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
-              transition: 'background-color 200ms ease',
-              overflowX: 'hidden',
-            }
-          })}
-        >
-          <AppShell.Header>
-            <Header />
-          </AppShell.Header>
-          
-          <AppShell.Main>
-            {children}
-          </AppShell.Main>
-          
-          <PersistentFooter data-print-hidden="true" />
-        </AppShell>
+        <LoadingProvider>
+          <AppShellWithTheme>{children}</AppShellWithTheme>
+          <FullScreenLoader />
+        </LoadingProvider>
       </ClarityProvider>
     </ThemeProvider>
   );

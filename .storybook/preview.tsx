@@ -153,14 +153,14 @@ const preview: Preview = {
       const pageStructure = context.globals.pageStructure;
       
       switch (pageStructure) {
-        case 'garden':
-          return brainGardenPageDecorator(Story);
-        case 'technical':
-          return technicalImplementationDecorator(Story);
-        case 'integration':
-          return aiIntegrationDecorator(Story);
-        case 'generic':
-          return genericPageDecorator(Story);
+        // case 'garden':
+        //   return brainGardenPageDecorator(Story);
+        // case 'technical':
+        //   return technicalImplementationDecorator(Story);
+        // case 'integration':
+        //   return aiIntegrationDecorator(Story);
+        // case 'generic':
+        //   return genericPageDecorator(Story);
         default:
           return <Story />;
       }

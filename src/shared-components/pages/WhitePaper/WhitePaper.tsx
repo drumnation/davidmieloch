@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { ErrorBoundary } from '../../molecules/ErrorBoundary';
+import { ErrorBoundary } from '@shared-components/molecules/ErrorBoundary';
 import { WhitePaperProps } from './WhitePaper.types';
-import { SpinnerLoader } from '../../../../src/components/SpinnerLoader';
+import { Container } from '@mantine/core';
+import dynamic from 'next/dynamic';
+import { Hero, HeroProps } from '@shared-components/organisms/Hero';
 
 // Import components directly
 import { AiSkepticToExpert } from './components/AiSkepticToExpert/AiSkepticToExpert';
@@ -14,7 +16,6 @@ import { RealWorldImpact } from './components/RealWorldImpact/RealWorldImpact';
 
 // Create styled components for animation
 const FadeInContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -33,54 +34,36 @@ const FadeInContainer = styled.div`
   }
 `;
 
-const ContentContainer = styled.div`
+const OuterContainer = styled.div`
   width: 100%;
   position: relative;
 `;
 
-export const WhitePaper: React.FC<WhitePaperProps> = ({
-  className,
-}) => {
-  const [isLoading, setIsLoading] = useState(true);
-  
-  // Fix for hydration issues and ensure content is loaded
-  useEffect(() => {
-    // Use requestAnimationFrame to ensure the browser has painted before removing loader
-    const loadTimer = setTimeout(() => {
-      requestAnimationFrame(() => {
-        setIsLoading(false);
-      });
-    }, 300); // Small delay to ensure transition is smooth
-
-    return () => clearTimeout(loadTimer);
-  }, []);
-
-  // Show spinner while loading
-  if (isLoading) {
-    return <SpinnerLoader type="hash" color="#2196f3" size={70} fullPage={true} />;
-  }
-
+export const WhitePaper: React.FC<WhitePaperProps> = ({ id = 'whitepaper', className, onReady }) => {
+  // Directly return the content. The loading is handled by the global loader during navigation.
   return (
-    <ContentContainer className={className}>
-      <FadeInContainer>
-        <ErrorBoundary fallback={<div>Error loading skeptic to expert section. Please refresh.</div>}>
-          <AiSkepticToExpert />
-        </ErrorBoundary>
+    <Container id={id} className={className}>
+      <OuterContainer>
+        <FadeInContainer>
+          <ErrorBoundary fallback={<div>Error loading skeptic to expert section. Please refresh.</div>}>
+            <AiSkepticToExpert onReady={onReady} />
+          </ErrorBoundary>
 
-        <ErrorBoundary fallback={<div>Error loading autopilot section. Please refresh.</div>}>
-          <AiAutopilotAnalogy />
-        </ErrorBoundary>
+          <ErrorBoundary fallback={<div>Error loading autopilot section. Please refresh.</div>}>
+            <AiAutopilotAnalogy />
+          </ErrorBoundary>
 
-        <ErrorBoundary fallback={<div>Error loading overview section. Please refresh.</div>}>
-          <BrainGardenOverview />
-        </ErrorBoundary>
+          <ErrorBoundary fallback={<div>Error loading overview section. Please refresh.</div>}>
+            <BrainGardenOverview />
+          </ErrorBoundary>
 
-        <ErrorBoundary fallback={<div>Error loading impact section. Please refresh.</div>}>
-          <RealWorldImpact />
-        </ErrorBoundary>
-        {/* Additional sections will be added here as they are developed */}
-      </FadeInContainer>
-    </ContentContainer>
+          <ErrorBoundary fallback={<div>Error loading impact section. Please refresh.</div>}>
+            <RealWorldImpact />
+          </ErrorBoundary>
+          {/* Additional sections will be added here as they are developed */}
+        </FadeInContainer>
+      </OuterContainer>
+    </Container>
   );
 };
 

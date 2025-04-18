@@ -1,7 +1,11 @@
 import { ReactNode } from 'react';
+import { HeroProps } from '@shared-components/organisms/Hero/Hero.types';
+import { QuoteGridProps } from '@shared-components/organisms/QuoteGrid/QuoteGrid.types';
 
 export interface AiSkepticToExpertProps {
+  id?: string;
   className?: string;
+  onReady?: () => void;
   heroProps?: {
     title: string;
     subtitle: string;
@@ -35,4 +39,19 @@ export interface AiSkepticToExpertProps {
       variant: 'gradient' | 'accent' | 'default' | 'blue';
     }>;
   };
+  content?: any; // TODO: Define a more specific type based on defaultContent structure
+  onImageLoad?: () => void;
 }
+
+// You might also want to define a specific type for the content structure
+// based on AiSkepticToExpert.constants.ts for better type safety.
+// Example:
+// export interface AiSkepticToExpertContent {
+//   hero: HeroProps;
+//   quotes: QuoteGridProps;
+//   // ... other sections ...
+// }
+// export interface AiSkepticToExpertProps {
+//   content?: AiSkepticToExpertContent;
+//   onImageLoad?: () => void;
+// }

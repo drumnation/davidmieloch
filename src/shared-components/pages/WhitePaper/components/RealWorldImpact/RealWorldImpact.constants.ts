@@ -2,14 +2,14 @@
 export const defaultContent = {
   hero: {
     title: "Real-World Impact",
-    subtitle: "AI-Powered Development: Your Autopilot for Success",
+    subtitle: "Where the AI Transformation Meets Reality",
     description: "Like an aviation autopilot system in the hands of expert pilots, Brain Garden amplifies your developers' abilities and frees up cognitive resources for higher-level tasks. Let's explore how this powerful synergy transforms development workflows.",
     callToAction: {
       label: "Explore the transformation",
       action: "scrollToSection",
       target: "solutionsImpact"
     },
-    backgroundImage: "/images/cockpit.jpg",
+    backgroundImage: "/cockpit1.jpg",
     background: "image" as const,
     backgroundOverlay: true,
     overlayOpacity: 0.7,

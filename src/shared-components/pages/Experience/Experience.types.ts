@@ -1,10 +1,13 @@
 import { ReactNode } from 'react';
 import { SideProject } from './components/SideProjectsSection/SideProjectsSection.types';
+import { HeroProps } from '@shared-components/organisms/Hero';
 
 export interface ExperienceProps {
   id?: string;
   className?: string;
   sideProjects?: SideProject[];
+  heroProps?: HeroProps;
+  onReady?: () => void;
 }
 
 export interface ExperienceItem {

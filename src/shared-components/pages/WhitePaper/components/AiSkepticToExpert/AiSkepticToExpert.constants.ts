@@ -1,13 +1,16 @@
 // Default content for the component
 export const defaultContent = {
   hero: {
-    title: "From AI Skeptic to AI Expert",
+    title: "From AI Skeptic to AI Native",
     subtitle: "A personal journey of transformation and discovery in the world of artificial intelligence",
     background: "image" as const,
     backgroundImage: "/main-heading-background.png",
     textColor: "light" as const,
     className: '',
     pattern: "none" as const,
+    backgroundOverlay: true,
+    overlayOpacity: 0.8,
+    onImageLoad: () => {},
   },
   quotes: {
     quotes: [

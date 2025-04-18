@@ -568,3 +568,15 @@ export const ProjectsSection = styled.div`
     padding: 4rem 1rem 2rem;
   }
 `;
+
+// New section variant with var(--background-dark)
+export const DarkBackgroundSection = styled(GenericSection)`
+  padding: 3rem 1.5rem;
+  background-color: var(--background-dark);
+  position: relative;
+  z-index: 5;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+`;

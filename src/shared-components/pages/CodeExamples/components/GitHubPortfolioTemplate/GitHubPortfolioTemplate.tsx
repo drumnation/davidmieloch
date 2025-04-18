@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Loader } from 'lucide-react';
 import { GitHubPortfolioTemplateProps } from './GitHubPortfolioTemplate.types';
 import { SearchInput } from '../../../../molecules/SearchInput';
@@ -34,6 +34,17 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
 }) => {
   const [searchValue, setSearchValue] = useState('');
 
+  useEffect(() => {
+    // Reset search value when filters are cleared
+    if (
+      !selectedFilters.languages.length &&
+      !selectedFilters.topics.length &&
+      !selectedFilters.types.length
+    ) {
+      setSearchValue('');
+    }
+  }, [selectedFilters]);
+
   const handleSearchChange = (value: string) => {
     setSearchValue(value);
     onSearch?.(value);
@@ -57,6 +68,14 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
     );
   }
 
+  const hasActiveFilters = 
+    selectedFilters.languages.length > 0 ||
+    selectedFilters.topics.length > 0 ||
+    selectedFilters.types.length > 0 ||
+    searchValue.length > 0;
+
+  const noResults = repositories.length === 0 && hasActiveFilters;
+
   return (
     <Container>
       <Header>
@@ -65,6 +84,9 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
         <DisclaimerBox>
           <p>
             Most of my repositories on GitHub are private, they are either private personal projects or work related so my best work is definitely not listed here. This page is here to give a little bit of a taste of what I work on for weekend projects.
+          </p>
+          <p style={{ marginTop: 'var(--mantine-spacing-sm)', fontStyle: 'italic' }}>
+            Note: Project data is fetched live from GitHub and reflects recent activity.
           </p>
         </DisclaimerBox>
       </Header>
@@ -82,7 +104,10 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
             filters={filters}
             selectedFilters={selectedFilters}
             onFilterChange={onFilterChange}
-            onClearFilters={onClearFilters}
+            onClearFilters={() => {
+              setSearchValue('');
+              onClearFilters?.();
+            }}
           />
         </Sidebar>
 
@@ -100,8 +125,9 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
                 avatarUrl: '',
                 url: ''
               }
-            }))} 
-            onRepoClick={onRepoClick} 
+            }))}
+            onRepoClick={onRepoClick}
+            emptyMessage={noResults ? "No repositories match your filters" : "No repositories found"}
           />
         </MainContent>
       </Content>

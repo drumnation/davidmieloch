@@ -2,24 +2,21 @@
 
 import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import { SpinnerLoader } from '../../src/components';
+import { Title } from '@mantine/core';
+import { SpinnerLoader } from '@shared-components/atoms/SpinnerLoader';
 
-// Dynamically import the BestPractices component with no SSR to prevent hydration issues
-const BestPractices = dynamic(
-  () => import('../../src/shared-components/pages/BestPractices'), 
-  { 
-    ssr: false,
-    loading: () => (
-      <SpinnerLoader 
-        type="circle"
-        color="#2196f3"
-        size={60}
-        fullPage={true}
-        text="Loading Best Practices Integration..."
-      />
-    )
-  }
-);
+// Dynamically import the BestPractices component
+const BestPractices = dynamic(() => import('../../src/shared-components/pages/BestPractices'), {
+  loading: () => (
+    <SpinnerLoader 
+      type="circle" 
+      color="#1976d2" 
+      size={50} 
+      text="Loading Best Practices Integration..."
+    />
+  ),
+  ssr: false,
+});
 
 export default function BestPracticesIntegrationPage() {
   return (

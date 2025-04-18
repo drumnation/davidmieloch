@@ -19,7 +19,11 @@ import TechnicalExpertise from './components/TechnicalExpertise';
 import FeaturedMedia from './components/FeaturedMedia';
 import Testimonials from './components/Testimonials';
 
-export const BioPage: React.FC<BioPageProps> = ({ id = 'bio', className }) => {
+export const BioPage: React.FC<BioPageProps> = ({ 
+  id = 'bio', 
+  className, 
+  onReady
+}) => {
   const [isVisible, setIsVisible] = useState(true);
   
   // Use useEffect to trigger animations after mount
@@ -38,7 +42,8 @@ export const BioPage: React.FC<BioPageProps> = ({ id = 'bio', className }) => {
     pattern: 'none' as const,
     textColor: 'light' as const,
     animation: 'fade-up' as const,
-    className: 'bio-hero-bg'
+    className: 'bio-hero-bg',
+    onImageLoad: onReady
   };
 
   return (

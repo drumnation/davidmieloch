@@ -168,7 +168,7 @@ export const renderCategory = (category: PracticeCategory, index: number) => {
   return {
     title: category.title,
     description: category.description,
-    items: category.items.map((item, itemIndex) => renderPracticeItem(item, itemIndex)),
+    items: category.practices.map((item: PracticeItem, itemIndex: number) => renderPracticeItem(item, itemIndex)),
     key: `category-${index}`,
   };
 }; 

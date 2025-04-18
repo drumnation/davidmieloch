@@ -41,7 +41,7 @@ export const enhanceHeroProps = (heroProps: RealWorldImpactProps['heroProps'] = 
     overlayOpacity: 0.5,
     textColor: textColor,
     pattern: pattern,
-    animation: (heroProps.animation as "fade-up" | "slide-in" | "none") || 'fade-up'
+    animation: (heroProps.animation as "fade-up" | "slide-in-left" | "none") || 'fade-up'
   };
 };
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { RepoCardProps } from './RepoCard.types';
 import { formatDate, truncateDescription } from './RepoCard.logic';

@@ -50,7 +50,7 @@ export const enhanceHeroProps = (heroProps: BrainGardenOverviewProps['heroProps'
     backgroundOverlay: heroProps.backgroundOverlay || false,
     textColor: heroProps.textColor || 'light',
     pattern: 'dots', // Using 'dots' instead of 'garden-growth' as it's supported by the Hero component
-    animation: (heroProps.animation as "fade-up" | "slide-in" | "none") || 'fade-up',
+    animation: (heroProps.animation as "fade-up" | "slide-in-left" | "none") || 'fade-up',
   };
 };
 
