@@ -209,7 +209,10 @@ export function Header() {
             {navLinks.map((link: NavLink) => (
               <div
                 key={link.label}
-                style={{ textDecoration: 'none' }}
+                style={{ 
+                  textDecoration: 'none',
+                  borderBottom: `1px solid ${isDark ? theme.colors.dark[5] : theme.colors.gray[2]}`,
+                }}
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavigation(link.href);
@@ -218,26 +221,39 @@ export function Header() {
                 <UnstyledButton
                   style={{
                     width: '100%',
-                    padding: rem(12),
+                    padding: rem(16),
                     borderRadius: theme.radius.sm,
                     color: isDark ? 'white' : theme.colors.dark[9],
                     backgroundColor: 'transparent',
-                    fontWeight: 500,
-                    transition: 'all 200ms ease',
-                    borderLeft: '3px solid transparent',
+                    transition: 'background-color 200ms ease, border-left-color 200ms ease',
+                    borderLeft: `3px solid ${isActive(link.href) ? theme.colors[theme.primaryColor][6] : 'transparent'}`,
                     position: 'relative',
                     cursor: 'pointer',
-                    // Add hover/active styles if needed based on isActive/mobileHovered
+                    '&:hover': {
+                      backgroundColor: isDark ? theme.colors.dark[6] : theme.colors.gray[1],
+                      borderLeftColor: theme.colors[theme.primaryColor][6],
+                    },
                   }}
                 >
-                  <Text 
-                    style={{
-                      color: 'inherit',
-                      transition: 'all 200ms ease',
-                    }}
-                  >
-                    {link.label}
-                  </Text>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    {link.icon && (
+                      <span style={{ marginRight: theme.spacing.sm, display: 'flex', alignItems: 'center' }}>
+                        <link.icon size={18} stroke={1.5} />
+                      </span>
+                    )}
+                    {!link.icon && (
+                      <span style={{ marginRight: theme.spacing.sm, width: rem(18), display: 'inline-block' }} />
+                    )}
+                    <Text 
+                      style={{
+                        color: 'inherit',
+                        transition: 'all 200ms ease',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {link.label}
+                    </Text>
+                  </div>
                 </UnstyledButton>
               </div>
             ))}

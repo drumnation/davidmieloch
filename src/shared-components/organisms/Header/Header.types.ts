@@ -3,6 +3,7 @@ import { MantineTheme } from '@mantine/core';
 export type NavLink = {
   label: string;
   href: string;
+  icon?: React.ComponentType<any>;
 };
 
 export type SocialLink = {

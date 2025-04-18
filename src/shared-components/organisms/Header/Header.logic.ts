@@ -1,12 +1,22 @@
-import { IconBrandGithub, IconBrandLinkedin, IconBrandMedium } from '@tabler/icons-react';
+import { 
+  IconBrandGithub, 
+  IconBrandLinkedin, 
+  IconBrandMedium, 
+  IconBuildingArch, 
+  IconCode, 
+  IconUser, 
+  IconSchool, 
+  IconBriefcase 
+} from '@tabler/icons-react';
 import { NavLink, SocialLink } from './Header.types';
 
 export const navLinks: NavLink[] = [
   // { label: 'Home', href: '/' },
-  { label: 'Enterprise AI DevTeam Transformation', href: '/enterprise-ai-development-framework' },
-  { label: 'React Best Practices', href: '/fullstack-react-best-practices-integration' },
-  { label: 'Bio', href: '/bio' },
-  { label: 'Code Examples', href: '/code-examples' },
+  { label: 'Enterprise AI DevTeam Transformation', href: '/enterprise-ai-development-framework', icon: IconBuildingArch },
+  { label: 'React Best Practices', href: '/fullstack-react-best-practices-integration', icon: IconCode },
+  { label: 'Bio', href: '/bio', icon: IconUser },
+  { label: 'Code Examples', href: '/code-examples', icon: IconCode },
+  { label: 'Experience', href: '/experience', icon: IconBriefcase },
 ];
 
 export const socialLinks: SocialLink[] = [

@@ -92,11 +92,25 @@ export const StyledMobileDrawer = styled(Drawer, {
   .mantine-Drawer-header {
     background-color: ${props => props.isDark ? props.theme.colors.dark[7] : props.theme.white};
     color: ${props => props.isDark ? props.theme.white : props.theme.colors.dark[9]};
+    border-bottom: 1px solid ${props => props.isDark ? props.theme.colors.dark[5] : props.theme.colors.gray[2]};
   }
   
   .mantine-Drawer-content {
-    background-color: ${props => props.isDark ? props.theme.colors.dark[7] : props.theme.white};
+    background-color: ${props => props.isDark ? props.theme.colors.dark[8] : props.theme.colors.gray[0]};
     color: ${props => props.isDark ? props.theme.white : props.theme.colors.dark[9]};
+    box-shadow: ${props => props.theme.shadows.md};
+    border-radius: ${props => props.theme.radius.md} 0 0 ${props => props.theme.radius.md};
+  }
+
+  .mantine-Drawer-closeButton {
+    width: ${rem(32)};
+    height: ${rem(32)};
+    border-radius: ${props => props.theme.radius.sm};
+    transition: background-color 150ms ease;
+
+    &:hover {
+      background-color: ${props => props.isDark ? props.theme.colors.dark[6] : props.theme.colors.gray[1]};
+    }
   }
 `;
 
