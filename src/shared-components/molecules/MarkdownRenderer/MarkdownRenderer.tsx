@@ -13,17 +13,17 @@ export interface MarkdownRendererProps {
 // Define wrapper components with explicit props types
 interface WrapperProps {
   children: React.ReactNode;
-  disablePadding: boolean;
+  $disablePadding: boolean;
 }
 
 // Destructure disablePadding but don't pass it down
-const CompactWrapper: React.FC<WrapperProps> = ({ children, disablePadding }) => (
-  <CompactMarkdownContainer disablePadding={disablePadding}>{children}</CompactMarkdownContainer>
+const CompactWrapper: React.FC<WrapperProps> = ({ children, $disablePadding }) => (
+  <CompactMarkdownContainer $disablePadding={$disablePadding}>{children}</CompactMarkdownContainer>
 );
 
 // Destructure disablePadding but don't pass it down
-const DefaultWrapper: React.FC<WrapperProps> = ({ children, disablePadding }) => (
-  <MarkdownContainer disablePadding={disablePadding}>{children}</MarkdownContainer>
+const DefaultWrapper: React.FC<WrapperProps> = ({ children, $disablePadding }) => (
+  <MarkdownContainer $disablePadding={$disablePadding}>{children}</MarkdownContainer>
 );
 
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
@@ -31,6 +31,9 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   compact = false,
   disablePadding = false
 }) => {
+  // Rename disablePadding to $disablePadding for transient prop usage
+  const $disablePadding = disablePadding;
+
   // Select the appropriate wrapper component
   const Container = compact ? CompactWrapper : DefaultWrapper;
 
@@ -38,15 +41,15 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   if (typeof content !== 'string') {
     console.error('MarkdownRenderer: content is not a string', content);
     // Pass disablePadding correctly to the selected container component
-    return <Container disablePadding={disablePadding}>Invalid content</Container>;
+    return <Container $disablePadding={$disablePadding}>Invalid content</Container>;
   }
 
   // Log the content for debugging
-  console.log('MarkdownRenderer content:', content);
+  // console.log('MarkdownRenderer content:', content);
 
   return (
     // Pass disablePadding correctly to the selected container component
-    <Container disablePadding={disablePadding}>
+    <Container $disablePadding={$disablePadding}>
       <ReactMarkdown
         components={{
           code({ className, children, ...props }) {

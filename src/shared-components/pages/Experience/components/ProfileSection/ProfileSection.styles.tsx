@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import Image from 'next/image';
-import { Button, Group, Paper, PaperProps, Box } from '@mantine/core';
+import { Button, Group, Paper, PaperProps, Box, Stack } from '@mantine/core';
 import styled from 'styled-components';
 
 // Define the props interface, extending PaperProps and adding className
@@ -33,6 +33,7 @@ export const ProfileContainer = styled(Paper) <PaperProps & { className?: string
 export const ProfileDetails = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
@@ -79,10 +80,12 @@ export const ProfileName = styled.h1`
   margin-bottom: var(--mantine-spacing-xxs);
   color: var(--mantine-color-blue-filled);
   text-transform: uppercase;
+  text-align: center;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
     font-size: calc(var(--mantine-font-size-xl) * 1.4);
     font-weight: 800;
+    text-align: left;
   }
 `;
 
@@ -91,6 +94,11 @@ export const ProfileHeadline = styled.p`
   color: var(--mantine-color-text);
   margin-bottom: var(--mantine-spacing-md);
   font-style: italic;
+  text-align: center;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+    text-align: left;
+  }
 `;
 
 export const LinksContainer = styled(Group)`
@@ -124,5 +132,13 @@ export const ResumeButton = styled(Button)`
     position: static;
     margin: var(--mantine-spacing-md) 0 0 0;
     width: 100%;
+  }
+`;
+
+// New styled component for the stack containing location, social links, etc.
+export const ProfileMetaStack = styled(Stack)`
+  // Apply negative margin only on sm screens and larger
+  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin-left: -30px;
   }
 `; 
