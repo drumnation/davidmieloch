@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { ProjectCategory } from './SideProjectsSection.types';
 
 export const SideProjectsContainer = styled.section`
   margin-bottom: 24px;
@@ -247,58 +248,52 @@ export const HeaderContent = styled.div`
   min-width: 0;
 `;
 
-export const CategoryPill = styled.div`
-  background-color: #f3f2ef !important;
-  color: rgba(0, 0, 0, 0.7) !important;
-  border-radius: 20px;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  white-space: nowrap;
-  display: inline-flex;
-  margin-left: auto;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  align-self: center;
-  height: fit-content;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  opacity: 1 !important;
-  
-  @media (max-width: 576px) {
-    margin-left: 60px; /* Align with the text content on mobile */
-    margin-top: 4px;
+// Function to determine background color based on category
+const getCategoryColor = (category: ProjectCategory): string => {
+  switch (category) {
+    case 'Personal Innovation Lab':
+      return '#e0f2fe'; // Light Blue
+    case 'Developer Tools':
+      return '#dcfce7'; // Light Green
+    case 'SaaS Applications':
+      return '#f3e8ff'; // Light Purple
+    case 'Digital Marketing':
+      return '#ffedd5'; // Light Orange
+    default:
+      return '#f3f2ef'; // Default Gray
   }
-  
-  /* Variant colors based on category */
-  &.personal-innovation-lab {
-    background-color: #e8f5e9 !important;
-    color: #2e7d32 !important;
-    border: 1px solid rgba(46, 125, 50, 0.2) !important;
-  }
-  
-  &.developer-tools {
-    background-color: #e3f2fd !important;
-    color: #1565c0 !important;
-    border: 1px solid rgba(21, 101, 192, 0.2) !important;
-  }
-  
-  &.saas-applications {
-    background-color: #f3e5f5 !important;
-    color: #7b1fa2 !important;
-    border: 1px solid rgba(123, 31, 162, 0.2) !important;
-  }
-  
-  &.digital-marketing {
-    background-color: #fff3e0 !important;
-    color: #e65100 !important;
-    border: 1px solid rgba(230, 81, 0, 0.2) !important;
-    opacity: 1 !important;
-  }
+};
 
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+// Function to determine text color based on category for contrast
+const getCategoryTextColor = (category: ProjectCategory): string => {
+  switch (category) {
+    case 'Personal Innovation Lab':
+      return '#0c4a6e'; // Dark Blue
+    case 'Developer Tools':
+      return '#166534'; // Dark Green
+    case 'SaaS Applications':
+      return '#581c87'; // Dark Purple
+    case 'Digital Marketing':
+      return '#7c2d12'; // Dark Orange
+    default:
+      return '#1f2937'; // Dark Gray
   }
+};
+
+export const CategoryPill = styled.div<{ $category: ProjectCategory }>`
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem; // Slightly smaller font
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  margin-top: 4px; // Add some margin if needed below title
+
+  ${({ $category }) => css`
+    background-color: ${getCategoryColor($category)};
+    color: ${getCategoryTextColor($category)};
+  `}
 `;
 
 export const ProjectLogo = styled.img`

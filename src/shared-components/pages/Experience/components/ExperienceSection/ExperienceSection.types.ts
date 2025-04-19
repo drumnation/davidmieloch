@@ -8,6 +8,10 @@ export interface ExperienceItem {
   endDate: string;
   description: string;
   foldable?: boolean;
+  /**
+   * Array of bullet points to display
+   * Supports markdown formatting syntax for bold, italic, links, etc.
+   */
   bulletPoints?: string[];
   logoPath?: string;
   showBorder?: boolean;

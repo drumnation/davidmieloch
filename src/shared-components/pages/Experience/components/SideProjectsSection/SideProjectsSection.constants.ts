@@ -14,7 +14,34 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Game Sage',
     category: 'Personal Innovation Lab',
-    description: 'An AI-powered desktop application that enhances the gaming experience by providing real-time analysis and commentary. Features include:\n\n* **Real-time AI gameplay analysis** through automatic screenshot capture\n* **Multiple analysis modes** (tactical advice, professional commentary, e-sports casting)\n* **Global hotkeys** for instant capture during gameplay\n* **Multi-monitor support** with selective display options\n* **Context-aware responses** that maintain gameplay history\n* **Scene change detection** to identify key gameplay moments',
+    description: `# Game Sage
+
+*Enhance your gaming with AI-powered real-time analysis.*
+
+## Overview
+
+An **AI-powered** desktop application that enhances the
+gaming experience by providing real-time analysis
+and commentary.
+
+## Core Features
+
+*   **Real-time AI gameplay analysis** through automatic
+    screenshot capture.
+*   **Multiple analysis modes** (tactical advice,
+    professional commentary, e-sports casting).
+*   **Global hotkeys** for instant capture during gameplay.
+*   **Multi-monitor support** with selective display options.
+*   **Context-aware responses** that maintain gameplay history.
+*   **Scene change detection** to identify key gameplay moments.
+
+## Key Benefits
+
+*   **Improve Skills:** Get tactical advice based on your play.
+*   **Enhanced Entertainment:** Enjoy professional-style commentary.
+*   **Seamless Integration:** Works smoothly during gameplay.
+*   **Flexible:** Supports multi-monitor setups.
+*   **Smart Analysis:** Understands game context and key moments.`,
     technologies: ['Electron', 'React.js', 'TypeScript', 'OpenAI Vision API'],
     startDate: '2024',
     endDate: '2024',
@@ -40,7 +67,45 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'AI Hypnosis Script Generator',
     category: 'Personal Innovation Lab',
-    description: 'A comprehensive platform for creating personalized hypnotherapy experiences. The system features AI-assisted script generation with multi-section hypnosis scripts (induction, deepener, therapeutic content, emergence), text-to-speech conversion using SSML for natural voice output, integrated binaural beats generation for enhanced hypnotic effects, and a template system for quick customization. Users can manage client information for personalized scripts, save sessions for future reference, and download or stream the complete audio experience.',
+    description: `# AI Hypnosis Script Generator
+
+*Create personalized hypnotherapy experiences with AI.*
+
+## Platform Overview
+
+A comprehensive platform for creating personalized
+hypnotherapy experiences.
+
+The system features **AI-assisted** script generation
+with multi-section hypnosis scripts (induction,
+deepener, therapeutic content, emergence).
+
+It includes **text-to-speech conversion** using **SSML**
+for natural voice output, integrated **binaural beats**
+generation for enhanced hypnotic effects, and a
+template system for quick customization.
+
+## Key Features
+
+*   **AI Script Generation:** Creates **multi-section**
+    hypnosis scripts automatically.
+*   **Natural Voice Output:** Uses **SSML** for realistic
+    text-to-speech.
+*   **Binaural Beats:** Integrated audio for enhanced effects.
+*   **Personalization:** Manage client info for tailored scripts.
+*   **Session Management:** Save sessions and download/stream
+    the complete audio.
+
+## Key Benefits
+
+*   **Highly Personalized:** Incorporates user details for
+    a tailored experience.
+*   **Simulates 1-on-1 Session:** Natural voice output mimics
+    a real hypnotherapist.
+*   **All-in-One Platform:** Combines script generation,
+    audio production, and session management.
+*   **Customizable:** Template system allows for quick adaptation.
+*   **Accessible:** Download or stream complete audio sessions.`,
     technologies: ['React.js', 'TypeScript', 'Openai', 'Web Audio API', 'SSML', 'IndexedDB', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
@@ -120,7 +185,41 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Parenting Pilot',
     category: 'Personal Innovation Lab',
-    description: 'An intelligent mobile application that helps parents stay organized and on top of their children\'s educational journey. Using advanced AI, the app automatically processes information from school emails, scanned documents, and uploaded media to create actionable items, track important events, and document progress. Features include child profile management for multiple children, AI-powered email and document processing with OCR for digitizing physical papers, automatic categorization of information into action items and events, calendar integration for school events, progress tracking for academic achievements and developmental milestones, media gallery for storing children\'s artwork, and an automated notification system with scheduled email reports.',
+    description: `# Parenting Pilot
+
+*Stay organized and track your child's education effortlessly.*
+
+## Overview
+
+An intelligent mobile application designed to help parents
+manage their children's educational journey.
+
+Using **advanced AI**, the app automatically processes
+information from school emails, scanned documents, and
+uploaded media. It creates actionable items, tracks
+important events, and documents progress.
+
+## Core Features
+
+*   **Child Profile Management:** Handles **multiple children**.
+*   **AI-Powered Processing:** Processes emails and documents
+    using **OCR** for digitizing physical papers.
+*   **Automatic Categorization:** Sorts info into action items
+    and events.
+*   **Calendar Integration:** Syncs school events.
+*   **Progress Tracking:** Monitors academic achievements and
+    developmental milestones.
+*   **Media Gallery:** Stores children's artwork.
+*   **Automated Notifications:** Includes scheduled email reports.
+
+## Key Benefits
+
+*   **Reduces Overwhelm:** Organizes chaotic school communications.
+*   **Never Miss Deadlines:** Tracks important dates and actions.
+*   **Automated Information Capture:** Processes emails and scans
+    effortlessly.
+*   **Centralized Hub:** Keeps all child-related info in one place.
+*   **Track Milestones:** Documents academic and developmental progress.`,
     technologies: ['React Native', 'Node', 'TypeScript', 'Openai'],
     startDate: '2024',
     endDate: 'Present',
@@ -143,7 +242,38 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'StoryTime',
     category: 'Personal Innovation Lab',
-    description: 'A comprehensive web application that empowers users to create fully-voiced audiobooks through an intuitive interface. It combines AI-powered script generation with advanced text-to-speech technology, allowing storytellers to focus on developing rich narratives and characters while automating the technical aspects of audiobook production.\n\n## Key Features\n\n* **Story management** with chapter organization\n* **Character creation** with customizable attributes (personality, appearance, background)\n* **AI-powered script generation** using OpenAI\'s GPT models\n* **Voice customization** for characters and narrators\n* **Text-to-speech conversion** using advanced voice APIs\n* **Script version history**\n* **Plot mapping** with relationship visualization\n* **Multi-voice compilation** for complete audiobooks',
+    description: `# StoryTime
+
+*Create fully-voiced audiobooks with AI assistance.*
+
+## Overview
+
+A comprehensive web application empowering users to create
+fully-voiced audiobooks through an intuitive interface.
+
+It combines **AI-powered script generation** with advanced
+**text-to-speech technology**, automating the technical
+aspects of audiobook production.
+
+## Key Features
+
+*   **Story management** with chapter organization.
+*   **Character creation** with customizable attributes
+    (personality, appearance, background).
+*   **AI-powered script generation** using **OpenAI's GPT models**.
+*   **Voice customization** for characters and narrators.
+*   **Text-to-speech conversion** using advanced voice APIs.
+*   **Script version history**.
+*   **Plot mapping** with relationship visualization.
+*   **Multi-voice compilation** for complete audiobooks.
+
+## Key Benefits
+
+*   **Accessible Production:** Simplifies complex audiobook creation.
+*   **Rich Character Voices:** Bring narratives to life.
+*   **Professional Quality Audio:** Automated high-quality output.
+*   **Focus on Creativity:** Automates technical tasks for storytellers.
+*   **Full Control:** Manage stories, characters, plots, and voices.`,
     technologies: ['Next.js', 'TypeScript', 'OpenAI', 'Speechify API', 'ElevenLabs Voice Cloning', 'React Audio Player', 'Node.js'],
     startDate: '2024',
     endDate: '2024',
@@ -219,7 +349,42 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Life Guidance AI',
     category: 'Personal Innovation Lab',
-    description: 'A personal development system that creates a customized self-help audiobook by feeding vast amounts of personal data into AI models. The system ingests personal content (blog posts, LinkedIn profiles, project overviews, video comments, music page data, and professional testimonials) and uses meta-prompting to generate personalized guidance. The TypeScript processing pipeline compares responses from ChatGPT and Gemini across 11 strategic archetypes, transforming the content into a structured audiobook exploring career, future planning, and ethics. The output is enhanced through voice cloning technology to create a self-narrated experience, with specialized transformers ensuring technical content is preserved and properly formatted for natural speech delivery.',
+    description: `# Life Guidance AI
+
+*Generate a personalized self-help audiobook from your data.*
+
+## Overview
+
+A personal development system creating customized audiobooks
+by feeding vast amounts of personal data into **AI models**.
+
+The system ingests content (blogs, LinkedIn, projects,
+comments, music data, testimonials) and uses
+**meta-prompting** for personalized guidance.
+
+## Technical Details
+
+A **TypeScript** processing pipeline compares **ChatGPT** and
+**Gemini** responses across **11 strategic archetypes**.
+
+Content is transformed into a structured audiobook exploring
+career, future planning, and ethics.
+
+Output uses **voice cloning** for self-narration, with
+specialized transformers preserving technical content for
+natural speech.
+
+## Key Benefits
+
+*   **Hyper-Personalized Guidance:** Tailored advice based on
+    your unique digital footprint.
+*   **Self-Narrated Experience:** Audiobook delivered in your
+    own cloned voice.
+*   **Multi-Model Analysis:** Compares insights from leading
+    AI (**ChatGPT**, **Gemini**).
+*   **Structured Content:** Organizes guidance into key life areas.
+*   **Preserves Technical Detail:** Ensures accurate representation
+    in audio format.`,
     technologies: ['TypeScript', 'Speechify', 'OpenAI', 'Gemini', 'Node.js', 'Markdown'],
     startDate: '2024',
     endDate: '2024',
@@ -245,7 +410,39 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Music Project Management System for Music Licensing',
     category: 'Personal Innovation Lab',
-    description: 'A comprehensive web application designed for music professionals to review, annotate, and manage audio tracks. Features include advanced audio waveform visualization with zoom functionality, precise audio playback controls, BPM detection and modification, time-based commenting system, track metadata management, responsive layout with resizable components, real-time waveform navigation, volume control with visual feedback, dynamic comment display tied to playback position, AI-powered comment generation through OpenAI integration, interactive keyboard shortcuts, and support for various audio file formats.',
+    description: `# Music Project Management System
+
+*Review, annotate, and manage audio tracks efficiently.*
+
+## Overview
+
+A comprehensive web application for music professionals.
+
+Designed for reviewing, annotating, and managing audio tracks
+with advanced features for collaboration.
+
+## Core Features
+
+*   **Advanced Waveform Visualization:** Includes zoom functionality.
+*   **Precise Playback Controls:** Navigate audio accurately.
+*   **BPM Detection & Modification:** Analyze and adjust tempo.
+*   **Time-Based Commenting:** Add feedback directly on the timeline.
+*   **Metadata Management:** Organize track information.
+*   **Responsive Layout:** With resizable components.
+*   **Real-time Waveform Navigation:** Quick seeking and playback.
+*   **Volume Control:** With visual feedback.
+*   **Dynamic Comment Display:** Tied to playback position.
+*   **AI-Powered Comments:** **OpenAI integration** for suggestions.
+*   **Keyboard Shortcuts:** For faster interaction.
+*   **Multi-Format Support:** Handles various audio file types.
+
+## Key Benefits
+
+*   **Accelerated Workflow:** Streamlines the review process.
+*   **Precise Feedback:** Time-stamped comments improve clarity.
+*   **Enhanced Collaboration:** Better communication among professionals.
+*   **AI Assistance:** Generate comment suggestions automatically.
+*   **User-Friendly Interface:** Intuitive controls and navigation.`,
     technologies: ['React.js', 'TypeScript', 'WaveSurfer.js', 'OpenAI', 'Render.com'],
     startDate: '2024',
     endDate: '2024',
@@ -274,7 +471,38 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'AI Brain Garden',
     category: 'Developer Tools',
-    description: 'AI-Brain-Garden is a command line tool designed to revolutionize software development by creating project-specific "Brains," structured knowledge bases that integrate templates, rules, and AI agents.\n\n## Key Features\n\n* **Context-aware assistance** - Provides AI help that understands your specific project\n* **Customizable agents** - Configure specialized AI helpers for different tasks\n* **Integrated task management** - Track and prioritize development activities\n* **Dynamic cursorrules** - Automatically enforces coding standards\n* **Atomic design for prompts** - Creates reusable, modular AI instructions\n\nBy addressing the inefficiencies of current AI tools, it offers a unique, highly customizable solution for developers and project managers seeking to streamline workflows and improve project outcomes.',
+    description: `# AI Brain Garden
+
+*Revolutionize development with project-specific AI Brains.*
+
+## Overview
+
+A command-line tool creating structured knowledge bases
+("Brains") integrating templates, rules, and AI agents.
+
+Addresses inefficiencies of current AI tools by offering
+a unique, highly customizable solution for developers.
+
+## Key Features
+
+*   **Context-aware assistance:** AI help that understands
+    your specific project.
+*   **Customizable agents:** Configure specialized AI helpers
+    for different tasks.
+*   **Integrated task management:** Track and prioritize
+    development activities.
+*   **Dynamic cursorrules:** Automatically enforces
+    coding standards.
+*   **Atomic design for prompts:** Creates reusable,
+    modular AI instructions.
+
+## Key Benefits
+
+*   **Streamlined Workflows:** Improve efficiency with integrated tools.
+*   **Enhanced Project Outcomes:** Better structure and AI assistance.
+*   **Tailored AI:** Customizable agents fit specific project needs.
+*   **Improved Consistency:** Enforces coding standards automatically.
+*   **Reusable Prompts:** Modular instructions save time.`,
     technologies: ['Node', 'TypeScript', 'Gemini', 'CLI'],
     startDate: '2024',
     endDate: 'Present',
@@ -284,7 +512,33 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Code Relay',
     category: 'Developer Tools',
-    description: 'An innovative system that bridges the gap between mobile devices and development environments, allowing developers to remotely control VS Code from their phones or tablets. The project consists of a VS Code extension that acts as a server and a React Native mobile app as the client, communicating via WebSockets. Code Relay enables execution of VS Code commands, provides access to installed extensions, and features deep integration with AI coding assistants like Roo Code and Copilot, all while away from your computer.',
+    description: `# Code Relay
+
+*Control VS Code remotely from your mobile device.*
+
+## Overview
+
+An innovative system bridging mobile devices and
+development environments.
+
+Allows remote control of VS Code via a **VS Code extension**
+(server) and a **React Native** mobile app (client),
+communicating via **WebSockets**.
+
+## Core Features
+
+*   **Remote VS Code Control:** Execute commands from phone/tablet.
+*   **Extension Access:** Use installed extensions remotely.
+*   **AI Assistant Integration:** Deep integration with **Roo Code**
+    and **Copilot**.
+*   **WebSocket Communication:** Real-time connection.
+
+## Key Benefits
+
+*   **Stay Productive Anywhere:** Access your dev environment on the go.
+*   **Seamless Mobile Access:** Control VS Code and AI assistants.
+*   **Full Functionality:** Execute commands and use extensions.
+*   **AI Integration:** Leverage coding assistants remotely.`,
     technologies: ['React Native', 'VS Code Extension', 'WebSockets', 'TypeScript', 'AI Integration'],
     startDate: '2025',
     endDate: 'Present',
@@ -293,7 +547,37 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Browser-use CLI (FORK)',
     category: 'Developer Tools',
-    description: 'A powerful terminal-based interface that enables developers to train AI agents to perform browser automation tasks through natural language commands. Features include terminal-based browser automation via natural language, multi-provider LLM support (Anthropic, OpenAI, Google Gemini, DeepSeek), vision-capable browser interaction for visual analysis, session recording and tracing for debugging, persistent browser sessions between commands, custom Chrome profile integration, headless mode for server environments, configurable automation parameters, and enhanced toolchain integration for Cursor.',
+    description: `# Browser-use CLI (FORK)
+
+*Train AI agents for browser automation via natural language.*
+
+## Overview
+
+A powerful terminal-based interface enabling developers
+to train AI agents for browser tasks using commands.
+
+Leverages vision-capable interaction for analysis.
+
+## Core Features
+
+*   **Terminal Browser Automation:** Control via natural language.
+*   **Multi-Provider LLM Support:** **Anthropic**, **OpenAI**,
+    **Google Gemini**, **DeepSeek**.
+*   **Vision-Capable Interaction:** Visual analysis of web content.
+*   **Session Recording & Tracing:** For debugging.
+*   **Persistent Sessions:** Between commands.
+*   **Custom Chrome Profile Integration**.
+*   **Headless Mode:** For server environments.
+*   **Configurable Parameters:** Customize automation.
+*   **Enhanced Cursor Integration:** Improved toolchain connection.
+
+## Key Benefits
+
+*   **Simplified Automation:** Train agents with simple commands.
+*   **Powerful Web Interaction:** Leverage LLMs for navigation/analysis.
+*   **Eliminates Complexity:** No need for complex automation code.
+*   **Flexible LLM Choice:** Supports multiple AI providers.
+*   **Debugging Tools:** Record and trace sessions easily.`,
     technologies: ['Python', 'CLI', 'Anthropic', 'OpenAI', 'Google Gemini', 'Deepseek'],
     repoUrl: 'https://github.com/drumnation/browser-use-cli',
     startDate: '2024',
@@ -311,7 +595,32 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Prompt Forge',
     category: 'Developer Tools',
-    description: 'A sophisticated web application designed for AI prompt engineering, allowing users to create, manage, and enhance prompts for various AI language models. Features include a comprehensive template management system with drag-and-drop organization, real-time prompt preview with dynamic field replacements, AI-powered prompt enhancement using multiple models (Google, Anthropic, OpenAI), customizable enhancement instructions by domain and purpose, and a modern interface with copy-to-clipboard functionality and full-screen viewing. The platform streamlines prompt crafting across different AI platforms with an intuitive template categorization system.',
+    description: `# Prompt Forge
+
+*Create, manage, and enhance AI prompts efficiently.*
+
+## Overview
+
+A sophisticated web application for AI prompt engineering.
+
+Streamlines prompt crafting across different AI platforms
+with an intuitive template categorization system.
+
+## Core Features
+
+*   **Template Management:** Drag-and-drop organization.
+*   **Real-time Preview:** With dynamic field replacements.
+*   **AI-Powered Enhancement:** Uses **Google**, **Anthropic**, **OpenAI**.
+*   **Customizable Instructions:** By domain and purpose.
+*   **Modern Interface:** Copy-to-clipboard, full-screen view.
+
+## Key Benefits
+
+*   **Streamlined Prompt Engineering:** Manage prompts across platforms.
+*   **Maximum AI Performance:** Enhance prompts automatically.
+*   **Efficient Workflow:** Template system and real-time preview.
+*   **Multi-Model Support:** Optimize for various AI providers.
+*   **User-Friendly:** Intuitive interface for easy crafting.`,
     technologies: ['React.js', 'ReplitAgent', 'TypeScript', 'Deepseek', 'Gemini', 'Node', 'Openai', 'PostgreSQL'],
     startDate: '2024',
     endDate: 'Present',
@@ -343,7 +652,38 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Model Maestro',
     category: 'Developer Tools',
-    description: 'An intelligent AI model router that analyzes user prompts to recommend the optimal AI model for specific tasks. It evaluates prompt complexity, context requirements, and special needs, then matches these with detailed profiles of models from providers like OpenAI, Anthropic, Google, and DeepSeek. Features include prompt analysis that evaluates task type and complexity, intelligent model recommendation, comparative benchmarking across providers, customizable preferences for prioritizing speed/cost/reliability, visual confidence metrics, detailed scoring breakdowns, performance history tracking, real-time token analysis, and comprehensive model specifications.',
+    description: `# Model Maestro
+
+*Intelligently route prompts to the optimal AI model.*
+
+## Overview
+
+An intelligent AI model router that analyzes prompts to
+recommend the best AI model for specific tasks.
+
+Evaluates complexity, context, and needs, matching them
+with detailed model profiles (**OpenAI**, **Anthropic**,
+**Google**, **DeepSeek**).
+
+## Core Features
+
+*   **Prompt Analysis:** Evaluates task type and complexity.
+*   **Intelligent Model Recommendation.**
+*   **Comparative Benchmarking:** Across providers.
+*   **Customizable Preferences:** Prioritize speed/cost/reliability.
+*   **Visual Confidence Metrics.**
+*   **Detailed Scoring Breakdowns.**
+*   **Performance History Tracking.**
+*   **Real-time Token Analysis.**
+*   **Comprehensive Model Specifications.**
+
+## Key Benefits
+
+*   **Optimal Model Selection:** Consistently choose the best AI.
+*   **Maximized Performance:** Optimize for cost, speed, reliability.
+*   **Data-Driven Decisions:** Uses benchmarks and analysis.
+*   **Customizable Routing:** Tailor recommendations to priorities.
+*   **Transparency:** Detailed scoring and confidence metrics.`,
     technologies: ['React.js', 'Node', 'TypeScript', 'Openai', 'Replit Agent', 'Anthropic', 'Google AI', 'Deepseek'],
     startDate: '2024',
     endDate: '2024',
@@ -373,7 +713,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Cursor Directory Structure TS',
     category: 'Developer Tools',
-    description: 'A TypeScript tool that enhances developer productivity by automatically documenting project structures and providing AI-powered insights. Features include project structure documentation automation, AI-powered file and function descriptions using Google Gemini, real-time file monitoring and updates, automatic project type detection, multi-project support with dedicated documentation, Cursor IDE integration via .cursorrules, smart caching system for performance optimization, customizable ignore patterns, and interactive project setup.',
+    description: `# Cursor Directory Structure TS\n\n*Automate project documentation with AI insights.*\n\n## Overview\n\nA **TypeScript** tool enhancing developer productivity by\nauto-documenting project structures and providing\n**AI-powered** insights.\n\nIntegrates with **Cursor IDE** via **\`.cursorrules\`**.\n\n## Core Features\n\n*   **Structure Documentation Automation.**\n*   **AI File/Function Descriptions:** Using **Google Gemini**.\n*   **Real-time File Monitoring & Updates.**\n*   **Automatic Project Type Detection.**\n*   **Multi-Project Support:** Dedicated documentation.\n*   **Cursor IDE Integration:** Via **\`.cursorrules\`**.\n*   **Smart Caching System:** For performance.\n*   **Customizable Ignore Patterns.**\n*   **Interactive Project Setup.**\n\n## Key Benefits\n\n*   **Streamlined Workflows:** Intelligent, self-updating docs.\n*   **Deeper Codebase Understanding:** For developers and AI.\n*   **Reduced Manual Effort:** Automates documentation.\n*   **Improved Onboarding:** Faster understanding of projects.\n*   **Enhanced AI Assistance:** Provides better context to AI tools.`,
     technologies: ['Node', 'TypeScript', 'CLI', 'Gemini'],
     startDate: '2024',
     endDate: '2024',
@@ -392,7 +732,31 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'AI Context Generator',
     category: 'Developer Tools',
-    description: 'Extracts a file tree and files into your clipboard to feed AI context.',
+    description: `# AI Context Generator
+
+*Extract file trees and content to clipboard for AI context.*
+
+## Overview
+
+A **VSCode Extension** designed to quickly gather project
+structure and file contents.
+
+Outputs formatted text suitable for pasting into AI prompts.
+
+## Key Features
+
+*   **File Tree Extraction:** Generates a tree view of selected
+    directories or the entire workspace.
+*   **File Content Inclusion:** Option to include the content
+    of selected files.
+*   **Clipboard Integration:** Easily copy the generated context.
+
+## Key Benefits
+
+*   **Streamlined AI Prompting:** Quickly provide necessary
+    project context to AI assistants.
+*   **Time Saver:** Automates the process of gathering context.
+*   **Improved AI Accuracy:** Ensures AI has relevant project info.`,
     technologies: ['VSCode Extension', 'Node', 'TypeScript'],
     startDate: '2024',
     endDate: 'present',
@@ -434,7 +798,22 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'React Hot TS VSCode Extension Starter',
     category: 'Developer Tools',
-    description: 'I found it difficult to get typical hot reloading with React to work with a vscode extension so I decided to open source my solution.',
+    description: `# React Hot TS VSCode Extension Starter
+
+*Open-source starter for React hot reloading in VS Code extensions.*
+
+## Overview
+
+Addresses the difficulty of enabling typical **React hot reloading**
+within the **VS Code Extension** development environment.
+
+Provides a ready-to-use solution for developers facing this
+challenge.
+
+## Key Benefit
+
+*   **Simplified Development:** Enables standard **React** hot
+    reloading for faster **VS Code extension** UI development.`,
     technologies: ['VSCode Extension', 'React.js', 'Node', 'TypeScript'],
     repoUrl: 'https://github.com/drumnation/ts-hot-react-vscode-starter',
     startDate: '2024',
@@ -444,7 +823,31 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Code Companion',
     category: 'Developer Tools',
-    description: 'A sophisticated web application that streamlines TypeScript unit testing by leveraging AI to automatically generate and fix tests. Features include interactive diff views for code comparison, real-time test execution, customizable fix instructions, persistent state management, and Monaco code editor integration. Developed around the time GPT-3.5 was released to the public.',
+    description: `# Code Companion
+
+*Streamline TypeScript unit testing with AI generation and fixing.*
+
+## Overview
+
+A sophisticated web application leveraging AI to
+automatically generate and fix **TypeScript** unit tests.
+
+Developed around the release of **GPT-3.5**.
+
+## Core Features
+
+*   **Interactive Diff Views:** For code comparison.
+*   **Real-time Test Execution.**
+*   **Customizable Fix Instructions.**
+*   **Persistent State Management.**
+*   **Monaco Code Editor Integration.**
+
+## Key Benefits
+
+*   **Automated Test Creation:** Generate tests automatically.
+*   **AI-Powered Debugging:** Fix failing tests with AI help.
+*   **Faster Development:** Build reliable software with less effort.
+*   **Reduced Manual Testing:** Streamlines the testing workflow.`,
     technologies: ['React.js', 'TypeScript', 'Redux', 'OpenAI', 'Monaco Editor', 'Render.com'],
     startDate: '2023',
     endDate: '2023',
@@ -463,7 +866,31 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Coparenting Copilot',
     category: 'SaaS Applications',
-    description: 'Navigate challenging emails and conversations with confidence using our AI-driven tool. Craft the perfect response every time. Coparenting Copilot is a tool that helps co-parents communicate using neutral brief, informative, firm, and friendly language (BIFF).',
+    description: `# Coparenting Copilot
+
+*Craft neutral, effective co-parenting communication with AI.*
+
+## Overview
+
+Navigate challenging emails and conversations confidently
+using our **AI-driven** tool.
+
+Helps co-parents communicate using neutral, **BIFF**
+(Brief, Informative, Firm, Friendly) language.
+
+## Core Features
+
+*   **AI-Powered Response Generation:** Crafts replies based on
+    BIFF principles.
+*   **Conversation Analysis:** Understands context for better suggestions.
+*   **Tone Adjustment:** Ensures neutral and effective communication.
+
+## Key Benefits
+
+*   **Reduce Conflict:** Promotes healthier co-parenting interactions.
+*   **Save Time & Stress:** Quickly generate appropriate responses.
+*   **Improve Communication:** Learn and apply BIFF techniques.
+*   **Maintain Boundaries:** Craft firm yet friendly messages.`,
     technologies: ['Next.js', 'TypeScript', 'Openai', 'Supabase', 'PostgreSQL', 'Vercel'],
     startDate: '2023',
     endDate: 'Present',
@@ -553,8 +980,37 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Cheddar',
     category: 'SaaS Applications',
-    description: 'Cheddar is a comprehensive personal finance management application that empowers users to take control of their financial future. The platform combines intuitive account management with powerful forecasting tools that visualize upcoming financial positions based on scheduled transactions and recurring payments. Users can connect their existing bank accounts through Plaid integration or manually track accounts, while the interactive balance chart provides immediate visual feedback on financial health with color-coded thresholds. Key features include financial account management with real-time balance tracking, transaction categorization and filtering, smart balance forecasting, interactive visualization, transaction scheduling with recurring payment support, and a date-based financial calendar view.',
-    technologies: ['React.js', 'React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Plaid API', 'Chart.js', 'Styled Components', 'Date-fns'],
+    description: `# Cheddar
+
+*Take control of your finances with intuitive forecasting.*
+
+## Overview
+
+A comprehensive personal finance management application.
+
+Combines account management with powerful forecasting tools
+to visualize upcoming financial positions based on scheduled
+transactions and recurring payments.
+
+## Core Features
+
+*   **Account Management:** Connect banks via **Plaid integration**
+    or track manually. **Real-time** balance tracking.
+*   **Transaction Management:** Categorization and filtering.
+*   **Smart Balance Forecasting:** Visualize future finances.
+*   **Interactive Visualization:** Balance chart with color-coded
+    thresholds.
+*   **Transaction Scheduling:** Supports recurring payments.
+*   **Financial Calendar View:** Date-based overview.
+
+## Key Benefits
+
+*   **Financial Confidence:** Transforms uncertainty with forecasting.
+*   **Visualize Future Balance:** See upcoming cash flow patterns.
+*   **Scenario Testing:** Understand impacts of financial decisions.
+*   **Peace of Mind:** Gain practical financial control.
+*   **Unified View:** Manage connected and manual accounts.`,
+    technologies: ['React.js', 'React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Plaid API', 'Chart.js', 'Styled Components'],
     startDate: '2022',
     endDate: 'Present',
     logoPath: '/media/misc/cheddar.png',
@@ -605,7 +1061,29 @@ This dynamic system maintains accuracy between your actual and projected finance
   {
     title: 'Medical Supply Inc.',
     category: 'SaaS Applications',
-    description: 'Implementing Amazon CDK Infrastructure as code solutions to help fix network infrastructure problems across multiple offices. Working on future AI-powered healthcare automation systems.',
+    description: `# Medical Supply Inc.
+
+*Implementing secure cloud infrastructure and AI solutions.*
+
+## Overview
+
+Implementing **Amazon CDK Infrastructure as Code (IaC)**
+solutions to resolve network infrastructure issues across
+multiple offices.
+
+Working on future **AI-powered** healthcare automation systems.
+
+## Key Focus Areas
+
+*   **AWS CDK:** Building and managing cloud infrastructure.
+*   **Network Stability:** Addressing connectivity issues.
+*   **Healthcare Automation:** Developing future AI systems.
+
+## Key Benefits (Project Goal)
+
+*   **Secure Cloud Infrastructure:** Reliable foundation for operations.
+*   **Improved Connectivity:** Stable network across locations.
+*   **Future-Ready:** Preparing for AI-driven healthcare solutions.`,
     technologies: ['React.js', 'Openai', 'Node', 'Express', 'AWS CDK'],
     startDate: '2025',
     endDate: 'Present',
@@ -614,7 +1092,36 @@ This dynamic system maintains accuracy between your actual and projected finance
   {
     title: 'We Learn Music Together',
     category: 'SaaS Applications',
-    description: 'WLMT (We Learn Music Together) is a comprehensive educational platform designed to help users develop emotional intelligence through music recognition. The system consists of a React Native mobile application that delivers interactive games teaching users to distinguish between happy and sad musical tones across progressive difficulty levels.\n\n## Key Features\n\n* **Interactive Game-Based Learning** - 10 educational levels with increasing complexity\n* **Comprehensive Sound Library** - Emotion-categorized audio assets \n* **Progress Tracking** - Detailed performance analytics for users\n* **School Management** - Institutional licensing system for educators\n* **Secure Admin Dashboard** - Tools for managing users, schools, and lessons\n* **Role-Based Access Control** - Secure authentication system\n* **RESTful API Backend** - Complete documentation for integration',
+    description: `# We Learn Music Together (WLMT)
+
+*Develop emotional intelligence through music recognition games.*
+
+## Overview
+
+A comprehensive educational platform using a **React Native**
+mobile app with interactive games.
+
+Teaches users to distinguish between happy and sad musical
+tones across **10 progressive difficulty levels**.
+
+## Key Features
+
+*   **Interactive Game-Based Learning:** **10 levels** of
+    increasing complexity.
+*   **Comprehensive Sound Library:** Emotion-categorized audio.
+*   **Progress Tracking:** Detailed performance analytics.
+*   **School Management:** Institutional licensing for educators.
+*   **Secure Admin Dashboard:** Manage users, schools, lessons.
+*   **Role-Based Access Control:** Secure authentication.
+*   **RESTful API Backend:** Fully documented for integration.
+
+## Key Benefits
+
+*   **Engaging Learning:** Game-based approach makes learning fun.
+*   **Develops EQ:** Teaches recognition of emotional tones in music.
+*   **Progressive Difficulty:** Adapts to user skill level.
+*   **Trackable Progress:** Users and educators can monitor performance.
+*   **Scalable:** School management system supports institutions.`,
     technologies: ['React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Web Audio API'],
     startDate: '2024',
     endDate: 'present',
@@ -636,7 +1143,34 @@ This dynamic system maintains accuracy between your actual and projected finance
   {
     title: 'Oneironaught Band Marketing',
     category: 'Digital Marketing',
-    description: 'Led web development and guerilla digital marketing for NYC instrumental progressive metal band. Created an **automated content marketing system** leveraging multiple platforms:\n\n* **WordPress Integration** - Custom website with automated content publishing\n* **IFTTT Automation** - Cross-platform content distribution triggers\n* **API Integrations** - Connected with Spotify, Reddit, Buffer, and social platforms\n* **Content Recycling** - Automated repurposing of music content across channels\n* **Analytics Dashboard** - Custom tracking for campaign performance',
+    description: `# Oneironaught Band Marketing
+
+*Automated content marketing for a NYC metal band.*
+
+## Overview
+
+Led web development and guerilla digital marketing.
+
+Created an **automated content marketing system** leveraging
+multiple platforms (**WordPress**, **IFTTT**, **Spotify API**, **Buffer**,
+social media).
+
+## Core Features
+
+*   **WordPress Integration:** Custom site with auto-publishing.
+*   **IFTTT Automation:** Cross-platform content distribution.
+*   **API Integrations:** Connected **Spotify**, **Reddit**, **Buffer**,
+    social platforms.
+*   **Content Recycling:** Automated repurposing of music content.
+*   **Analytics Dashboard:** Custom tracking for performance.
+
+## Key Results & Benefits
+
+*   **Massive Growth:** Grew Twitter to **14,600 followers**.
+*   **High Engagement:** Achieved **385K monthly impressions**.
+*   **SEO Success:** Reached **#1 Google ranking** for target keywords.
+*   **Automation Efficiency:** Reduced manual marketing effort.
+*   **Wide Reach:** Distributed content across multiple channels.`,
     technologies: ['WordPress', 'IFTTT', 'Spotify API', 'Buffer', "Facebook", "Instagram", "Twitter", "YouTube", "Pinterest"],
     startDate: '2013',
     endDate: '2016',

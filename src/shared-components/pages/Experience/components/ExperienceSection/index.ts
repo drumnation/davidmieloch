@@ -21,4 +21,5 @@ export {
 } from './ExperienceSection.styles';
 */
 // Type export seems okay if still relevant
-export type { ExperienceItem as ExperienceItemType, MediaItem, ExperienceSectionProps } from './ExperienceSection.types'; 
+export type { ExperienceItem as ExperienceItemType, MediaItem, ExperienceSectionProps } from './ExperienceSection.types';
+export { BulletPointsExample } from './BulletPointsExample'; 

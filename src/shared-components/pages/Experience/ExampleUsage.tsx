@@ -1,11 +1,12 @@
 import React from 'react';
 import { SkillsSection } from './components/SkillsSection/index';
 import { SideProjectsSection } from './components/SideProjectsSection/index';
+import { BulletPointsExample } from './components/ExperienceSection/index';
 import { TechIcon } from '../../../shared-components/atoms/TechIcon/index';
-import { 
-  SKILL_CATEGORIES, 
-  ADDITIONAL_SKILL_CATEGORIES, 
-  TOOLING_SKILL_CATEGORIES 
+import {
+  SKILL_CATEGORIES,
+  ADDITIONAL_SKILL_CATEGORIES,
+  TOOLING_SKILL_CATEGORIES
 } from './components/SkillsSection/SkillsSection.constants';
 import { sampleProjects } from './data';
 
@@ -27,10 +28,10 @@ const ExampleUsage: React.FC = () => {
       'IconBrandGithub': 'GitHub',
       'IconBrandRedux': 'Redux'
     };
-    
+
     // Get the matching tech name or use a generic fallback
     const techName = iconToTechMap[iconName] || 'Code';
-    
+
     return (
       <TechIcon
         name={techName}
@@ -40,35 +41,38 @@ const ExampleUsage: React.FC = () => {
       />
     );
   };
-  
+
   return (
     <div>
       <h1>Experience Components Examples</h1>
-      
+
+      <h2>Experience Section with Markdown-Formatted Bullet Points</h2>
+      <BulletPointsExample />
+
       <h2>Side Projects with Complex Media Layouts</h2>
-      <SideProjectsSection 
-        title="Side Projects" 
+      <SideProjectsSection
+        title="Side Projects"
         projects={sampleProjects}
       />
-      
+
       <h2>Skills Section Example</h2>
-      
+
       {/* Basic usage with default TechIcon implementation */}
-      <SkillsSection 
-        title="Technical Skills" 
+      <SkillsSection
+        title="Technical Skills"
         skillCategories={SKILL_CATEGORIES}
       />
-      
+
       {/* With custom icon rendering */}
-      <SkillsSection 
-        title="Additional Skills" 
+      <SkillsSection
+        title="Additional Skills"
         skillCategories={ADDITIONAL_SKILL_CATEGORIES}
         renderIcon={renderCustomTechIcon}
       />
-      
+
       {/* For categories that might not map well to tech icons */}
-      <SkillsSection 
-        title="Tools & Infrastructure" 
+      <SkillsSection
+        title="Tools & Infrastructure"
         skillCategories={TOOLING_SKILL_CATEGORIES}
       >
         <p>These are the tools and infrastructure technologies I work with regularly.</p>

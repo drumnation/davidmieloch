@@ -130,7 +130,12 @@ export const renderExperienceItem = (
               {job.bulletPoints.map((point: string, i: number) => (
                 <BulletItem key={`point-${index}-${i}`}>
                   <BulletIcon>{getBulletIcon(point)}</BulletIcon>
-                  <BulletText>{point}</BulletText>
+                  <BulletText>
+                    <MarkdownRenderer
+                      content={point}
+                      compact={true}
+                    />
+                  </BulletText>
                 </BulletItem>
               ))}
             </BulletList>

@@ -43,20 +43,20 @@ import {
 } from './Home.styles.combined';
 import { Title, Text } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
-import { 
-  aiContextGenerator, 
-  promptForge, 
-  carouselProjects 
+import {
+  aiContextGenerator,
+  promptForge,
+  carouselProjects
 } from '@data/projects';
 import { theme } from './Home.styles.ts'; // Import theme
 
 export const Home: React.FC<HomePageProps> = ({ onReady }) => {
-  const { 
-    heroProps, 
-    personaNavData, 
+  const {
+    heroProps,
+    personaNavData,
     metaData,
   } = useHomeData();
-  
+
   // Technologies list for footer section
   const technologies = ['✨ Built with AI', '🧠 React', '📊 Content Strategy'];
   const techListFormatted = formatTechList(technologies);
@@ -75,9 +75,9 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
         <meta name="twitter:title" content={metaData.twitterTitle} />
         <meta name="twitter:description" content={metaData.twitterDescription} />
       </Head>
-    
+
       <FullWidthBackgroundWrapper />
-      
+
       <HomeContainer>
         {/* Hero Section with Cylindrical Glow */}
         <HeroSection className="with-glow">
@@ -86,10 +86,10 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             <Hero {...heroProps} onImageLoad={onReady} />
           </div>
         </HeroSection>
-        
+
         {/* Curve Overlay */}
         <CurveOverlay />
-        
+
         {/* Full-Stack Business Person Concept Block */}
         <StyledGenericSection id="fsbp-concept">
           <SectionHeading icon="💡" title="Full-Stack Business Person Model" />
@@ -99,7 +99,7 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
           <SectionBodyText>
             As teams shrink and AI handles more tasks, the highest-leverage contributors are <Highlight>multi-disciplinary builders</Highlight> who combine:
           </SectionBodyText>
-          <StandOutList style={{ marginTop: '0.5rem', marginBottom: '1rem' }}> {/* Reusing StandOutList for styling */} 
+          <StandOutList style={{ marginTop: '0.5rem', marginBottom: '1rem' }}> {/* Reusing StandOutList for styling */}
             <StandOutItem>Deep technical skills</StandOutItem>
             <StandOutItem>Product intuition</StandOutItem>
             <StandOutItem>Business awareness</StandOutItem>
@@ -113,7 +113,7 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             🧠 This site exists to show what that looks like in practice.
           </SectionBodyText>
         </StyledGenericSection>
-        
+
         {/* Why I Stand Out Section */}
         <StandOutSection>
           <StandOutTitle>Why I Stand Out</StandOutTitle>
@@ -125,20 +125,20 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             <StandOutItem>Deep understanding of modern dev culture, testing, documentation, and delivery</StandOutItem>
           </StandOutList>
         </StandOutSection>
-        
+
         {/* Persona-Targeted Navigation */}
         <PersonaNav className="persona-nav">
           {personaNavData.map((persona: PersonaNavItem, index: number) => (
-            <PersonaCard 
+            <PersonaCard
               key={index}
               icon={persona.icon}
-              title={persona.title} 
+              title={persona.title}
               description={persona.description}
               link={persona.link}
             />
           ))}
         </PersonaNav>
-        
+
         {/* Why This Site Exists Section */}
         <StyledGenericSection>
           <SectionHeading icon="💡" title="Why This Site Exists" />
@@ -152,14 +152,14 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             dangerouslySetInnerHTML={{ __html: techListFormatted }}
           />
         </StyledGenericSection>
-        
+
         <SectionDivider />
-        
+
         {/* Full-Stack Business Person Section - Moved up earlier in the page */}
         <FSBPSection />
-        
+
         <SectionDivider />
-        
+
         {/* Frameworks in Action Section - Updated with refined content and links */}
         <BlueTintGenericSection id="frameworks">
           <SectionHeaderContainer>
@@ -170,25 +170,25 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             These frameworks demonstrate how I lead engineering teams through real-world complexity—from orchestrating AI systems to modernizing legacy codebases. Each is written as a standalone playbook, rooted in execution.
           </SectionBodyText>
           <FrameworksGrid>
-            <Card 
+            <Card
               variant="framework"
               icon={<TechIcon name="openai" size={36} color="white" />}
               title="AI Transformation"
               description="How to orchestrate dev teams in the age of agents"
-              action={<CTALink 
-                href="/enterprise-ai-development-framework" 
+              action={<CTALink
+                href="/enterprise-ai-development-framework"
                 label="Read Framework"
                 iconType="file-text"
                 variant="primary"
               />}
             />
-            <Card 
+            <Card
               variant="framework"
               icon={<TechIcon name="react" size={36} />}
               title="React Best Practices"
               description="How I clean up and future-proof maturing codebases"
-              action={<CTALink 
-                href="/fullstack-react-best-practices-integration" 
+              action={<CTALink
+                href="/fullstack-react-best-practices-integration"
                 label="Read Framework"
                 iconType="file-text"
                 variant="primary"
@@ -196,9 +196,9 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             />
           </FrameworksGrid>
         </BlueTintGenericSection>
-        
+
         <SectionDivider />
-        
+
         {/* Live Proof Projects Section - Use DarkBackgroundSection */}
         <DarkBackgroundSection id="projects">
           {/* Headline and Intro */}
@@ -206,22 +206,22 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
           <Text c="dimmed" ta="center" mb="xl">
             These tools reflect how I build and scale AI-native workflows — from installable dev tools to internal orchestration systems.
           </Text>
-          
+
           {/* Static Tools Row (High-Signal / Actionable Projects) */}
           <Text tt="uppercase" size="sm" fw={700} c="dimmed" mb="xs">Installable Tools</Text>
           <FrameworksGrid>
             {/* Card for aiContextGenerator */}
-            <Card 
+            <Card
               variant="project"
               iconBackgroundColor={aiContextGenerator.iconBackgroundColor}
               icon={
-                aiContextGenerator.icon === 'ai-context-generator' ? 
-                <Image src="https://drumnation.gallerycdn.vsassets.io/extensions/drumnation/ai-context-generator/0.0.10/1721423097801/Microsoft.VisualStudio.Services.Icons.Default" alt="AI Context Generator Logo" width={40} height={40} /> : 
-                <Text>{aiContextGenerator.icon}</Text>
+                aiContextGenerator.icon === 'ai-context-generator' ?
+                  <Image src="https://drumnation.gallerycdn.vsassets.io/extensions/drumnation/ai-context-generator/0.0.10/1721423097801/Microsoft.VisualStudio.Services.Icons.Default" alt="AI Context Generator Logo" width={40} height={40} /> :
+                  <Text>{aiContextGenerator.icon}</Text>
               }
               title={aiContextGenerator.name}
               description={aiContextGenerator.description}
-              action={<CTALink 
+              action={<CTALink
                 href={aiContextGenerator.link || '#'}
                 label={aiContextGenerator.status === 'live' ? "View on VS Marketplace" : "Learn More"}
                 // Potentially add specific iconNode for marketplace/github again if needed
@@ -240,17 +240,17 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             </Card>
 
             {/* Card for promptForge */}
-            <Card 
+            <Card
               variant="project"
               iconBackgroundColor={promptForge.iconBackgroundColor}
               icon={
-                promptForge.icon === 'prompt-forge' ? 
-                <Image src="/media/prompt-forge-logo.png" alt="Prompt Forge Logo" width={60} height={60} style={{ objectFit: 'contain' }}/> : 
-                <Text>{promptForge.icon}</Text>
+                promptForge.icon === 'prompt-forge' ?
+                  <Image src="/media/prompt-forge-logo.png" alt="Prompt Forge Logo" width={60} height={60} style={{ objectFit: 'contain' }} /> :
+                  <Text>{promptForge.icon}</Text>
               }
               title={promptForge.name}
               description={promptForge.description}
-              action={<CTALink 
+              action={<CTALink
                 href={promptForge.link || '#'}
                 label={promptForge.status === 'live' ? "View on GitHub" : "Learn More"}
                 iconNode={promptForge.link?.includes('github') ? <Image src="/github-logo.svg" alt="GitHub Logo" width={20} height={20} /> : undefined}
@@ -290,24 +290,24 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
           >
             {carouselProjects.map((project) => (
               <Carousel.Slide key={project.name}>
-                <Card 
+                <Card
                   variant="project"
                   iconBackgroundColor={project.iconBackgroundColor}
                   style={{ height: '400px' }}
                   icon={
-                    project.icon === 'brain-garden' ? 
-                    <Image 
-                      src="/media/misc/brain-garden.png" 
-                      alt="Brain Garden Logo" 
-                      width={60}
-                      height={60}
-                      style={{ borderRadius: '8px' }}
-                    /> : 
-                    <Text>{project.icon}</Text>
+                    project.icon === 'brain-garden' ?
+                      <Image
+                        src="/media/misc/brain-garden.png"
+                        alt="Brain Garden Logo"
+                        width={60}
+                        height={60}
+                        style={{ borderRadius: '8px' }}
+                      /> :
+                      <Text>{project.icon}</Text>
                   }
                   title={project.name}
                   description={project.description}
-                  action={<CTALink 
+                  action={<CTALink
                     href={project.link || '#'}
                     label={project.status === 'coming soon' ? "Coming Soon" : "Learn More"}
                     variant={project.status === 'coming soon' ? "secondary" : "primary"}
@@ -326,9 +326,9 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             ))}
           </Carousel>
         </DarkBackgroundSection>
-        
+
         <SectionDivider />
-        
+
         {/* Single, centered CTA bar */}
         <SectionWrapper>
           <StyledGenericSection>
@@ -337,8 +337,8 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
               Whether you&apos;re looking to transform your development processes or build an AI-native roadmap, let&apos;s connect.
             </SectionBodyText>
             <ButtonGroup>
-              <CTALink 
-                href="https://www.linkedin.com/in/davidmieloch/?msgControlName=message" 
+              <CTALink
+                href="https://www.linkedin.com/in/davidmieloch/?msgControlName=message"
                 label="Let&apos;s Connect"
                 iconType="mail"
                 variant="primary"

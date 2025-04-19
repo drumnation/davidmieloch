@@ -116,6 +116,36 @@ This package contains a set of components for displaying experience sections typ
 - `SkillsSection`: For listing skills with optional categorization
 - `SideProjectsSection`: For displaying side projects and personal work
 
+## Markdown Support in Bullet Points
+
+The `ExperienceSection` component supports Markdown formatting in bullet points to make content more scannable and highlight important information:
+
+```jsx
+const experienceWithMarkdown = {
+  // ... other fields
+  bulletPoints: [
+    'Led a team of **5 developers** in adopting modern React patterns.',
+    'Improved performance by **30%** through *architectural optimizations*.',
+    'Created interactive components for clients including:',
+    '- **Client A**: Custom dashboard',
+    '- **Client B**: Data visualization system',
+    'Published `npm-package-name` with **25 Stars / 5 Forks**.'
+  ]
+};
+```
+
+### Markdown Formatting Options
+
+- **Bold**: Use `**text**` to emphasize key achievements and metrics
+- **Italic**: Use `*text*` for subtle emphasis 
+- **Lists**: Create nested bullet points with hyphens (`- Sub point`)
+- **Links**: Add links with `[text](url)` syntax
+- **Code**: Highlight code/technical terms with backticks `` `code` ``
+
+### Implementation Example
+
+See `BulletPointsExample.tsx` for a complete example of markdown formatting in bullet points.
+
 ## Media Layout System
 
 The components support a flexible media layout system:

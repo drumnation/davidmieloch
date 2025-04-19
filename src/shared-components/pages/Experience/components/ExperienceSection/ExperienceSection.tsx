@@ -24,8 +24,7 @@ import {
 } from './styles/Media.styles';
 import { ExperienceSectionProps, ExperienceItem as ExperienceItemType, MediaItem } from './ExperienceSection.types';
 import { stringToColor, LetterAvatar } from '../../utils/avatarHelpers';
-import { WORK_EXPERIENCE, OLDER_EXPERIENCE } from '@data/experienceData';
-import { SECTION_TITLE } from './ExperienceSection.constants';
+import { WORK_EXPERIENCE, OLDER_EXPERIENCE, SECTION_TITLE } from '@shared-components/pages/Experience/components/ExperienceSection/ExperienceSection.constants';
 import { MarkdownRenderer } from '@shared-components/molecules/MarkdownRenderer/index';
 import { FoldableContent } from '@shared-components/molecules/FoldableContent/index';
 import { TechIcon } from '@shared-components/atoms/TechIcon/index';
@@ -92,7 +91,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
           initiallyOpen={true}
         >
           {[...OLDER_EXPERIENCE]
-            .sort(sortExperiencesByDate) // Use imported sorting function
+            .sort(sortExperiencesByDate)
             .map((job, index) => (
               <React.Fragment key={`older-job-${index}`}>
                 {/* Pass openModal (renamed from setModalImage) and setPinnedJob */}

@@ -5,7 +5,9 @@ import { ProjectLogo } from '@shared-components/atoms/ProjectLogo'; // Corrected
 import { MarkdownRenderer } from '@shared-components/molecules/MarkdownRenderer'; // Corrected path alias
 import { MediaRenderer } from '../MediaRenderer'; // Ensure correct path
 import * as S from './ProjectCard.styles.ts';
-import { SideProject, MediaItem } from '../../../../Experience.types'; // Reverted to original relative path
+import { CategoryPill } from '../../SideProjectsSection.styles';
+import { ProjectCategory } from '../../SideProjectsSection.types';
+import { SideProject, MediaItem } from '../../../../Experience.types';
 import Image from 'next/image';
 
 interface ProjectCardProps {
@@ -59,9 +61,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onImageClick 
                 </S.HeaderContent>
             </S.HeaderLeft>
             {project.category && (
-                <S.CategoryPill className={project.category.toLowerCase().replace(/\s+/g, '-')}>
+                <CategoryPill $category={project.category as ProjectCategory}>
                     {project.category}
-                </S.CategoryPill>
+                </CategoryPill>
             )}
         </S.ProjectHeader>
     );

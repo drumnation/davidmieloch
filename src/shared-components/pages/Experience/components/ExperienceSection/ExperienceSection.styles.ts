@@ -175,8 +175,13 @@ export const BulletList = styled.div`
 
 export const BulletItem = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
+  margin-bottom: 4px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const BulletIcon = styled.div`
@@ -207,6 +212,23 @@ export const BulletIcon = styled.div`
 
 export const BulletText = styled.div`
   flex: 1;
+  
+  /* Fix vertical alignment with markdown content */
+  > div {
+    width: 100%;
+  }
+
+  /* Remove margins from paragraphs to improve vertical alignment */
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Ensure proper spacing in lists */
+  ul, ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
 `;
 
 // Add back original Media styling from HEAD:ExperienceSection.styles.ts
