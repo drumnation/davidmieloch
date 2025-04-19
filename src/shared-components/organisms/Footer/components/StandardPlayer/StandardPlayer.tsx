@@ -9,6 +9,7 @@ import { formatTime } from '../../Footer.logic';
 import { StandardPlayerProps } from './StandardPlayer.types';
 import { TrackArtwork } from '../TrackArtwork';
 import { ProgressBar } from '../ProgressBar';
+import { useEffect, useState } from 'react';
 
 export const StandardPlayer = ({
     currentTrack,
@@ -26,97 +27,160 @@ export const StandardPlayer = ({
     onNextTrack,
     startUserInteraction
 }: StandardPlayerProps) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 576);
+        };
+
+        // Set initial value
+        checkMobile();
+
+        // Add event listener
+        window.addEventListener('resize', checkMobile);
+
+        // Clean up
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <Box style={openPlayerStyle}>
-            <Box style={{ marginRight: '1.5rem', width: '6.25rem', height: '6.25rem', flexShrink: 0 }}>
+            <Box style={{
+                marginRight: isMobile ? '0.75rem' : '1.5rem',
+                width: isMobile ? '4.5rem' : '6.25rem',
+                height: isMobile ? '4.5rem' : '6.25rem',
+                flexShrink: 0
+            }}>
                 <TrackArtwork
                     artwork={currentTrack?.artwork}
                     title={currentTrack?.title}
                     isPlaying={isPlaying}
                     onClick={() => { startUserInteraction(); onPlayToggle(); }}
-                    size={100}
-                    iconSize={50}
+                    size={isMobile ? 72 : 100}
+                    iconSize={isMobile ? 36 : 50}
                 />
             </Box>
 
             <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
-                <Group justify="space-between" align="center" style={{ width: '100%', paddingRight: '1rem', flexWrap: 'nowrap' }}>
-                    <Flex direction="column" align="center" style={{ flex: 1 }}>
-                        <Text size="md" fw={600} lineClamp={1} c={colors.text} style={{ textAlign: 'center' }}>
+                <Group justify="space-between" align="center" style={{ width: '100%', paddingRight: isMobile ? '0.5rem' : '1rem', flexWrap: 'nowrap' }}>
+                    <Flex direction="column" align="center" style={{
+                        flex: 1,
+                        width: '100%',
+                        maxWidth: isMobile ? 'calc(100% - 50px)' : '100%'
+                    }}>
+                        <Text
+                            size={isMobile ? "sm" : "md"}
+                            fw={600}
+                            lineClamp={1}
+                            c={colors.text}
+                            style={{
+                                textAlign: 'center',
+                                width: '100%',
+                                padding: isMobile ? '0 0.25rem' : 0
+                            }}
+                        >
                             {currentTrack?.title || 'My Music'}
                         </Text>
-                        {currentTrack && <Text size="sm" lineClamp={1} c={colors.textSecondary} style={{ textAlign: 'center' }}>
-                            {currentTrack.artist}
-                        </Text>}
+                        {currentTrack && (
+                            <Text
+                                size={isMobile ? "xs" : "sm"}
+                                lineClamp={1}
+                                c={colors.textSecondary}
+                                style={{
+                                    textAlign: 'center',
+                                    width: '100%',
+                                    padding: isMobile ? '0 0.25rem' : 0
+                                }}
+                            >
+                                {currentTrack.artist}
+                            </Text>
+                        )}
 
-                        <Group justify="center" gap="md" style={{ marginTop: '0.5rem' }}>
+                        <Group justify="center" gap={isMobile ? "sm" : "md"} style={{ marginTop: '0.5rem' }}>
                             <ActionIcon
                                 variant="subtle"
                                 color={colorScheme === 'dark' ? 'gray' : 'dark'}
                                 radius="xl"
-                                size="md"
+                                size={isMobile ? "sm" : "md"}
                                 style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
                                 onClick={() => { startUserInteraction(); onPrevTrack(); }}
                                 aria-label="Previous track"
                                 disabled={!currentTrack}
                             >
-                                <LuSkipBack size={18} />
+                                <LuSkipBack size={isMobile ? 16 : 18} />
                             </ActionIcon>
                             <ActionIcon
                                 variant="subtle"
                                 color={colorScheme === 'dark' ? 'gray' : 'dark'}
                                 radius="xl"
-                                size="lg"
+                                size={isMobile ? "md" : "lg"}
                                 style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
                                 onClick={() => { startUserInteraction(); onPlayToggle(); }}
                                 aria-label={isPlaying ? "Pause" : "Start playing"}
                                 disabled={!currentTrack}
                             >
-                                {isPlaying ? <LuPause size={24} /> : <LuPlay size={24} />}
+                                {isPlaying ? <LuPause size={isMobile ? 20 : 24} /> : <LuPlay size={isMobile ? 20 : 24} />}
                             </ActionIcon>
                             <ActionIcon
                                 variant="subtle"
                                 color={colorScheme === 'dark' ? 'gray' : 'dark'}
                                 radius="xl"
-                                size="md"
+                                size={isMobile ? "sm" : "md"}
                                 style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
                                 onClick={() => { startUserInteraction(); onNextTrack(); }}
                                 aria-label="Next track"
                                 disabled={!currentTrack}
                             >
-                                <LuSkipForward size={18} />
+                                <LuSkipForward size={isMobile ? 16 : 18} />
                             </ActionIcon>
                         </Group>
                     </Flex>
 
-                    <Group gap="xs" style={{ flexDirection: 'row', alignItems: 'center', flexShrink: 0 }}>
+                    <Group
+                        gap={isMobile ? "xs" : "xs"}
+                        style={{
+                            flexDirection: isMobile ? 'column' : 'row',
+                            alignItems: 'center',
+                            flexShrink: 0,
+                            marginLeft: isMobile ? '0.25rem' : 0
+                        }}
+                    >
                         <ActionIcon
                             variant="subtle"
                             color={colorScheme === 'dark' ? 'gray' : 'dark'}
                             radius="xl"
-                            size="sm"
+                            size={isMobile ? "xs" : "sm"}
                             style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
                             onClick={onPlaylistToggle}
                             aria-label="Show playlist"
                         >
-                            <LuListMusic size={18} />
+                            <LuListMusic size={isMobile ? 16 : 18} />
                         </ActionIcon>
                         <ActionIcon
                             variant="subtle"
                             color={colorScheme === 'dark' ? 'gray' : 'dark'}
                             radius="xl"
-                            size="sm"
+                            size={isMobile ? "xs" : "sm"}
                             style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
                             onClick={onMinimizeToggle}
                             aria-label="Minimize player"
                         >
-                            <LuChevronDown size={18} />
+                            <LuChevronDown size={isMobile ? 16 : 18} />
                         </ActionIcon>
                     </Group>
                 </Group>
 
                 {currentTrack ? (
-                    <Group align="center" gap="xs" style={{ width: '100%', paddingRight: '1rem', flexWrap: 'nowrap' }}>
+                    <Group
+                        align="center"
+                        gap="xs"
+                        style={{
+                            width: '100%',
+                            padding: isMobile ? '0 0.25rem' : '0 1rem 0 0',
+                            flexWrap: 'nowrap'
+                        }}
+                    >
                         <Text size="xs" c={colors.textMuted} style={{ whiteSpace: 'nowrap', width: 40, textAlign: 'right' }}>
                             {formatTime(currentTime)}
                         </Text>
