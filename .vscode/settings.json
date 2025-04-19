@@ -17,5 +17,7 @@
     ],
     "eslint.options": {
         "ignorePattern": [".brain/**/*.md", ".cursorrules"]
-    }
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

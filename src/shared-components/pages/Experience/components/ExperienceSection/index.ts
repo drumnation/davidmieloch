@@ -1,4 +1,7 @@
 export { ExperienceSection } from './ExperienceSection';
+export * from './ExperienceSection.types'; // Optionally re-export types
+// Remove exports of styled components that have been moved
+/*
 export { 
   SectionContainer, 
   ExperienceItem, 
@@ -16,4 +19,6 @@ export {
   MediaContainer, 
   MediaRow 
 } from './ExperienceSection.styles';
+*/
+// Type export seems okay if still relevant
 export type { ExperienceItem as ExperienceItemType, MediaItem, ExperienceSectionProps } from './ExperienceSection.types'; 

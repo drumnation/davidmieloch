@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { AiIntegrationFlowDiagram } from './AiIntegrationFlowDiagram';
+import { AiIntegrationFlowDiagram, AIIntegrationFlowDiagramProps } from './AiIntegrationFlowDiagram';
+import { ComponentProps } from 'react';
 
 const meta = {
   title: 'Components/Diagrams/AiIntegrationFlowDiagram',
@@ -20,7 +21,7 @@ const meta = {
       </div>
     ),
   ],
-  render: (args) => <AiIntegrationFlowDiagram {...args} />,
+  render: (args: ComponentProps<typeof AiIntegrationFlowDiagram>) => <AiIntegrationFlowDiagram {...args} />,
 } as Meta<typeof AiIntegrationFlowDiagram>;
 
 export default meta;
@@ -32,7 +33,7 @@ export const Default: Story = {
     height: '600px',
     showZoomControls: true,
   },
-  render: (args) => <AiIntegrationFlowDiagram {...args} />,
+  render: (args: ComponentProps<typeof AiIntegrationFlowDiagram>) => <AiIntegrationFlowDiagram {...args} />,
 };
 
 export const DarkTheme: Story = {
@@ -42,7 +43,7 @@ export const DarkTheme: Story = {
     showZoomControls: true,
     theme: 'dark',
   },
-  render: (args) => <AiIntegrationFlowDiagram {...args} />,
+  render: (args: ComponentProps<typeof AiIntegrationFlowDiagram>) => <AiIntegrationFlowDiagram {...args} />,
 };
 
 export const ForestTheme: Story = {
@@ -52,7 +53,7 @@ export const ForestTheme: Story = {
     showZoomControls: true,
     theme: 'forest',
   },
-  render: (args) => <AiIntegrationFlowDiagram {...args} />,
+  render: (args: ComponentProps<typeof AiIntegrationFlowDiagram>) => <AiIntegrationFlowDiagram {...args} />,
 };
 
 export const CustomSized: Story = {
@@ -61,5 +62,5 @@ export const CustomSized: Story = {
     height: '600px',
     showZoomControls: true,
   },
-  render: (args) => <AiIntegrationFlowDiagram {...args} />,
-}; 
+  render: (args: ComponentProps<typeof AiIntegrationFlowDiagram>) => <AiIntegrationFlowDiagram {...args} />,
+};

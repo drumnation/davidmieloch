@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { TechIconContainer } from '@shared-components/atoms/TechIcon/TechIcon.styles'; // Assuming TechIcon uses styled-components
 
 export const SectionContainer = styled.section`
   margin-bottom: 24px;
@@ -15,6 +16,7 @@ export const SectionContainer = styled.section`
   }
 `;
 
+// Add back original ExperienceItem styling from HEAD:ExperienceSection.styles.ts
 export const ExperienceItem = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,7 +43,7 @@ export const ExperienceItem = styled.div`
   }
 `;
 
-// Header area with logo and basic info
+// Add back original Header styling from HEAD:ExperienceSection.styles.ts
 export const ExperienceHeader = styled.div`
   display: flex;
   align-items: center;
@@ -141,6 +143,7 @@ export const ExperienceLocation = styled.p`
   }
 `;
 
+// Restore original ExperienceDescription styling from HEAD:ExperienceSection.styles.ts
 export const ExperienceDescription = styled.div`
   color: rgba(0, 0, 0, 0.8);
   font-size: 1rem;
@@ -162,6 +165,51 @@ export const ExperienceDescription = styled.div`
   }
 `;
 
+// Add back original bullet point styling from HEAD:ExperienceSection.tsx
+export const BulletList = styled.div`
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+export const BulletItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+`;
+
+export const BulletIcon = styled.div`
+  flex-shrink: 0;
+  background: #f5f5f5;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  
+  svg {
+    color: #555;
+    width: 14px;
+    height: 14px;
+    transition: color 0.2s ease;
+  }
+  
+  &:hover {
+    background: #eef1f6;
+    svg {
+      color: #3366cc;
+    }
+  }
+`;
+
+export const BulletText = styled.div`
+  flex: 1;
+`;
+
+// Add back original Media styling from HEAD:ExperienceSection.styles.ts
 export const MediaRow = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -476,23 +524,44 @@ const MediaGroupContent = styled.div`
   }
 `;
 
-export const TechnologiesList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 8px 8px 12px 8px;
-  margin: 0 0 12px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+// Restore original CompanyDescription styling from HEAD:ExperienceSection.tsx
+export const CompanyDescription = styled.div`
+  margin-bottom: 26px;
+  padding: 1px 0;
+  transform: scale(1); /* Force repaint */
+  
+  /* Target the paragraph directly */
+  & > div > p,
+  & > div div p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.8em !important;
+  }
+  
+  @media screen and (min-width: 768px) {
+    & > div > p,
+    & > div div p {
+      font-size: 18px !important;
+    }
+  }
+  
+  & > div > p:last-child,
+  & > div div p:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Override any compact styles from MarkdownRenderer */
+  & > div {
+    font-size: inherit !important;
+  }
 `;
 
-export const TechnologyItem = styled.div`
-  background-color: #f3f2ef;
-  border-radius: 4px;
-  padding: 4px 8px;
-  display: flex;
-  align-items: center;
-  
-  &:hover {
-    background-color: #e6e5e4;
-  }
-`; 
+/*
+export const StyledTechIcon = styled(TechIcon)`
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+`;
+*/ 

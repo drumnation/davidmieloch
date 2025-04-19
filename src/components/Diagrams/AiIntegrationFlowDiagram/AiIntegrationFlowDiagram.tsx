@@ -7,7 +7,7 @@ import React, {
   useState,
   useCallback,
 } from 'react';
-import { 
+import {
   ReactFlow,
   ReactFlowProvider,
   useNodesState,
@@ -84,7 +84,7 @@ const UiNode = ({ data }: any) => {
 
 const AnimatedEdge = (props: EdgeProps) => {
   const { id, sourceX, sourceY, targetX, targetY } = props;
-  
+
   // Create a smooth path between source and target
   const centerX = (sourceX + targetX) / 2;
   const edgePath = `M${sourceX},${sourceY} C${centerX},${sourceY} ${centerX},${targetY} ${targetX},${targetY}`;
@@ -185,7 +185,7 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
 
 // --- Main Component ---
 
-interface AIIntegrationFlowDiagramProps {
+export interface AIIntegrationFlowDiagramProps {
   /** Title displayed above the diagram */
   title?: string;
   /** Optional description text below the title */
@@ -306,7 +306,7 @@ const AiIntegrationFlowDiagram: React.FC<AIIntegrationFlowDiagramProps> = ({
   useEffect(() => {
     // Only apply layout if we're not in Storybook
     const isStorybook = window?.location?.href?.includes('localhost:7010');
-    
+
     if (!isStorybook) {
       try {
         const { nodes: layoutedNodes, edges: layoutedEdges } =
@@ -349,9 +349,9 @@ const AiIntegrationFlowDiagram: React.FC<AIIntegrationFlowDiagramProps> = ({
     <div className={className} style={containerStyle}>
       {title && <h3>{title}</h3>}
       {description && <p>{description}</p>}
-      
-      <div 
-        style={{ width: '100%', height }} 
+
+      <div
+        style={{ width: '100%', height }}
         ref={reactFlowWrapper}
         aria-label={accessibilityDescription}
       >

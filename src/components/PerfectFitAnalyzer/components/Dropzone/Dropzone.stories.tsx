@@ -1,6 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import FileDropzone from './Dropzone';
-import { useState } from 'react';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps, useState } from 'react';
+import FileDropzone, { FileDropzoneProps } from './Dropzone';
+import { FiUploadCloud } from 'react-icons/fi';
+import { useArgs } from '@storybook/preview-api';
 
 /**
  * The FileDropzone component allows users to upload job description files
@@ -9,8 +12,8 @@ import { useState } from 'react';
  * This component follows mobile-first design principles with responsive
  * adaptations for larger screens.
  */
-const meta = {
-  title: 'Components/PerfectFitAnalyzer/Components/Dropzone',
+const meta: Meta<typeof FileDropzone> = {
+  title: 'Components/PerfectFitAnalyzer/Dropzone',
   component: FileDropzone,
   parameters: {
     layout: 'centered',
@@ -56,20 +59,11 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    onFileDrop: { action: 'file dropped' },
-    onError: { action: 'error occurred' },
-    loading: {
-      control: 'boolean',
-      description: 'Shows loading state',
-    },
-    maxSize: {
-      control: 'number',
-      description: 'Maximum file size in bytes',
-    },
-    accept: {
-      control: 'object',
-      description: 'Array of accepted MIME types',
-    },
+    onFileDrop: { action: 'filesDropped' },
+    onError: { action: 'errorOccurred' },
+    loading: { control: 'boolean' },
+    maxSize: { control: 'number' },
+    accept: { control: 'object' },
   },
   decorators: [
     (Story) => (
@@ -81,7 +75,22 @@ const meta = {
 } satisfies Meta<typeof FileDropzone>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof FileDropzone>;
+
+/**
+ * Base Args with typed callbacks
+ */
+const baseArgs: Partial<FileDropzoneProps> = {
+  onFileDrop: (files: File[]) => {
+    console.log('Files dropped:', files);
+  },
+  onError: (errorMessage: string) => {
+    console.error('Dropzone error:', errorMessage);
+  },
+  maxSize: 5 * 1024 * 1024, // 5MB in bytes
+  accept: ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'],
+  loading: false,
+};
 
 /**
  * Default state of the FileDropzone component - responsive design
@@ -89,15 +98,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    loading: false,
-    maxSize: 5 * 1024 * 1024, // 5MB
-    accept: ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'],
-    onFileDrop: (files) => {
-      console.log('Files dropped:', files);
-    },
-    onError: (errorMessage) => {
-      console.error('Error:', errorMessage);
-    },
+    ...baseArgs,
   },
 };
 
@@ -106,7 +107,7 @@ export const Default: Story = {
  */
 export const Loading: Story = {
   args: {
-    ...Default.args,
+    ...baseArgs,
     loading: true,
   },
 };
@@ -116,7 +117,7 @@ export const Loading: Story = {
  */
 export const MobileView: Story = {
   args: {
-    ...Default.args,
+    ...baseArgs,
   },
   parameters: {
     viewport: {
@@ -130,7 +131,7 @@ export const MobileView: Story = {
  */
 export const TabletView: Story = {
   args: {
-    ...Default.args,
+    ...baseArgs,
   },
   parameters: {
     viewport: {
@@ -144,7 +145,7 @@ export const TabletView: Story = {
  */
 export const DesktopView: Story = {
   args: {
-    ...Default.args,
+    ...baseArgs,
   },
   parameters: {
     viewport: {
@@ -156,33 +157,35 @@ export const DesktopView: Story = {
 /**
  * Interactive example showing file selected state
  */
-export const WithInteraction: Story = {
-  render: (args) => {
-    // Create a proper React component to use hooks
-    const InteractiveDropzone = () => {
-      const [fileName, setFileName] = useState<string | null>(null);
-      
-      const handleFileDrop = (files: File[]) => {
-        if (files.length > 0) {
-          setFileName(files[0].name);
-        }
-        args.onFileDrop?.(files);
-      };
-      
-      return (
-        <div>
-          <p style={{ marginBottom: '1rem' }}>
-            {fileName ? `Selected file: ${fileName}` : 'No file selected yet'}
-          </p>
-          <FileDropzone {...args} onFileDrop={handleFileDrop} />
-        </div>
-      );
-    };
-    
-    return <InteractiveDropzone />;
-  },
+export const Interactive: Story = {
   args: {
-    ...Default.args,
+    ...baseArgs,
+  },
+  render: (args: ComponentProps<typeof FileDropzone>) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [currentArgs, updateArgs] = useArgs<FileDropzoneProps>();
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [internalFileName, setInternalFileName] = useState<string | null>(null);
+
+    const handleFileDrop = (files: File[]) => {
+      args.onFileDrop?.(files);
+      if (files.length > 0) {
+        setInternalFileName(files[0].name);
+      }
+      updateArgs({ loading: true });
+      setTimeout(() => {
+        updateArgs({ loading: false });
+      }, 2000);
+    };
+
+    return (
+      <div>
+        <p style={{ marginBottom: '1rem' }}>
+          {currentArgs.loading ? 'Uploading...' : internalFileName ? `Selected file: ${internalFileName}` : 'No file selected yet'}
+        </p>
+        <FileDropzone {...args} loading={currentArgs.loading} onFileDrop={handleFileDrop} />
+      </div>
+    );
   },
 };
 
@@ -191,7 +194,7 @@ export const WithInteraction: Story = {
  */
 export const PDFOnly: Story = {
   args: {
-    ...Default.args,
+    ...baseArgs,
     accept: ['application/pdf'],
   },
   parameters: {
@@ -208,7 +211,7 @@ export const PDFOnly: Story = {
  */
 export const LargeSizeLimit: Story = {
   args: {
-    ...Default.args,
+    ...baseArgs,
     maxSize: 20 * 1024 * 1024, // 20MB
   },
   parameters: {
@@ -217,5 +220,26 @@ export const LargeSizeLimit: Story = {
         story: 'Increased file size limit to 20MB for larger documents.',
       },
     },
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...baseArgs,
+    loading: false,
+  },
+};
+
+export const MaxFileSize: Story = {
+  args: {
+    ...baseArgs,
+    maxSize: 1 * 1024 * 1024, // 1MB
+  },
+};
+
+export const FileTypeValidation: Story = {
+  args: {
+    ...baseArgs,
+    accept: ['image/jpeg', 'image/png'], // Example: Images only
   },
 }; 

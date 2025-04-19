@@ -30,7 +30,7 @@ export interface MediaItem {
   title?: string;
   description?: string;
   width?: string;
-  height?: number;
+  height?: number | string;
   thumbnailUrl?: string;
   thumbnail?: string;
   thumbnailWidth?: string;
@@ -42,6 +42,7 @@ export interface MediaItem {
   titleLogoPath?: string;
   logoHasBorderRadius?: boolean;
   logoHasBorder?: boolean;
+  displayInline?: boolean;
   items?: MediaItem[];
   layout?: 'default' | 'stack';
 } 

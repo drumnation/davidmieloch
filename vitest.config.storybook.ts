@@ -1,27 +1,12 @@
 import { defineConfig } from 'vitest/config';
-import react from '@vitejs/plugin-react';
+import * as react from '@vitejs/plugin-react';
 import path from 'path';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   plugins: [
-    react({
-      babel: {
-        plugins: [
-          [
-            'babel-plugin-styled-components',
-            {
-              displayName: true,
-              fileName: false,
-              pure: true,
-              namespace: 'sc',
-              meaninglessFileNames: ['index', 'styles']
-            }
-          ]
-        ]
-      }
-    }),
-    tsconfigPaths()
+    (react as any).default(),
+    tsconfigPaths(),
   ],
   test: {
     environment: 'jsdom',
@@ -41,7 +26,7 @@ export default defineConfig({
       'next/navigation': path.resolve(__dirname, '.storybook/nextjs-mock-module.js'),
       'next/router': path.resolve(__dirname, '.storybook/nextjs-mock-module.js'),
       'next/link': path.resolve(__dirname, '.storybook/nextjs-mock-module.js'),
-      
+
       // Path aliases
       '@components': path.resolve(__dirname, './src/components'),
       '@shared-components': path.resolve(__dirname, './src/shared-components'),

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { 
+import {
   ExperienceContainer,
   GlobalStyles,
   fadeIn,
@@ -9,34 +9,27 @@ import {
 import { ExperienceProps } from './Experience.types';
 import { TransitionDiv, TransitionContainer } from '../../../utils/animations/migration-helpers';
 import { Hero } from '../../organisms/Hero';
-// Removed import for missing Experience.logic file
-// import { defaultContent } from './Experience.logic'; 
-// Removed redundant default imports
-// import TimelineSection from './components/TimelineSection'; 
-// import SkillsSection from './components/SkillsSection'; 
-// import SideProjectsSection from './components/SideProjectsSection'; 
 
-// Import subcomponents using named exports from index
-import { 
-  ProfileSection, 
-  ExperienceSection, 
-  EducationSection, 
+import {
+  ProfileSection,
+  ExperienceSection,
+  EducationSection,
   SkillsSection,
   SideProjectsSection
 } from './components/index';
 
 // Import constants
 import { PROFILE } from './components/ProfileSection/ProfileSection.constants';
-import { SECTION_TITLE as EXPERIENCE_TITLE, WORK_EXPERIENCE, OLDER_EXPERIENCE } from './components/ExperienceSection/ExperienceSection.constants';
+import { SECTION_TITLE as EXPERIENCE_TITLE } from './components/ExperienceSection/ExperienceSection.constants';
 import { ExperienceItem } from './components/ExperienceSection/ExperienceSection.types';
-import { 
-  SECTION_TITLE as EDUCATION_TITLE, 
-  FORMAL_EDUCATION, 
-  TECHNICAL_EDUCATION, 
-  CONTINUOUS_LEARNING 
+import {
+  SECTION_TITLE as EDUCATION_TITLE,
+  FORMAL_EDUCATION,
+  TECHNICAL_EDUCATION,
+  CONTINUOUS_LEARNING
 } from './components/EducationSection/EducationSection.constants';
-import { 
-  SECTION_TITLE as SKILLS_TITLE, 
+import {
+  SECTION_TITLE as SKILLS_TITLE,
   SKILL_CATEGORIES,
   ADDITIONAL_SKILL_CATEGORIES,
   TOOLING_SKILL_CATEGORIES,
@@ -44,16 +37,17 @@ import {
   INFRASTRUCTURE_SKILL_CATEGORIES
 } from './components/SkillsSection/SkillsSection.constants';
 import { SIDE_PROJECTS } from './components/SideProjectsSection/SideProjectsSection.constants';
+import { WORK_EXPERIENCE, OLDER_EXPERIENCE } from '@data/experienceData';
 
-export const Experience: React.FC<ExperienceProps> = ({ 
-  id = 'experience', 
+export const Experience: React.FC<ExperienceProps> = ({
+  id = 'experience',
   className,
   sideProjects = SIDE_PROJECTS,
   heroProps,
   onReady
 }) => {
   const [isVisible, setIsVisible] = useState(true);
-  
+
   // Use useEffect to trigger animations after mount
   useEffect(() => {
     setIsVisible(true);
@@ -76,7 +70,7 @@ export const Experience: React.FC<ExperienceProps> = ({
 
   // Combine education items
   const allEducationItems = [...FORMAL_EDUCATION, ...TECHNICAL_EDUCATION, ...CONTINUOUS_LEARNING];
-  
+
   // Combine skill categories
   const allSkillCategories = [
     ...SKILL_CATEGORIES,
@@ -110,15 +104,15 @@ export const Experience: React.FC<ExperienceProps> = ({
   return (
     <ExperienceContainer id={id} className={className}>
       <GlobalStyles />
-      
+
       {/* Render Hero only if heroProps are provided */}
       {heroProps && (
-        <Hero 
-          {...heroProps} 
+        <Hero
+          {...heroProps}
           onImageLoad={onReady}
         />
       )}
-      
+
       {/* Content Section */}
       <TransitionDiv
         variants={fadeIn}
@@ -131,7 +125,7 @@ export const Experience: React.FC<ExperienceProps> = ({
           style={{ opacity: 1 }}
         >
           {/* Profile Section */}
-          <ProfileSection 
+          <ProfileSection
             photoUrl={PROFILE.PHOTO.URL}
             name={PROFILE.BASIC_INFO.FULL_NAME}
             headline={PROFILE.BASIC_INFO.HEADLINE}
@@ -139,24 +133,24 @@ export const Experience: React.FC<ExperienceProps> = ({
           />
 
           {/* Experience Section */}
-          <ExperienceSection 
+          <ExperienceSection
             experiences={allExperiences}
             title={EXPERIENCE_TITLE}
           />
 
           {/* Side Projects Section */}
-          <SideProjectsSection 
+          <SideProjectsSection
             projects={sideProjects}
           />
 
           {/* Education Section */}
-          <EducationSection 
+          <EducationSection
             educationItems={allEducationItems}
             title={EDUCATION_TITLE}
           />
 
           {/* Skills Section */}
-          <SkillsSection 
+          <SkillsSection
             skillCategories={allSkillCategories}
             title={SKILLS_TITLE}
           />

@@ -1,29 +1,29 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import InputContainer from './InputContainer';
+import { InputContainer } from './InputContainer';
+import type { InputContainerProps } from './InputContainer';
 
 /**
  * The InputContainer component provides a tabbed interface to input job descriptions
  * either via file upload or text input.
  */
 const meta = {
-  title: 'Components/PerfectFitAnalyzer/Components/InputContainer',
+  title: 'Components/PerfectFitAnalyzer/InputContainer',
   component: InputContainer,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component:
-          'A tabbed container component that allows users to either upload a job description file or paste text directly. Used in the Perfect Fit Analyzer feature.',
+          'Provides a tabbed interface for inputting job descriptions either via text paste or file upload.',
       },
     },
   },
   tags: ['autodocs'],
   argTypes: {
-    onJobDescriptionSubmit: { action: 'job description submitted' },
-    loading: {
-      control: 'boolean',
-      description: 'Shows loading state',
-    },
+    onJobDescriptionSubmit: { action: 'submitted' },
+    loading: { control: 'boolean' },
+    className: { control: 'text' },
   },
 } satisfies Meta<typeof InputContainer>;
 
@@ -36,8 +36,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     loading: false,
-    onJobDescriptionSubmit: (text, source) => {
-      console.log(`Job description submitted from ${source}:`, text.substring(0, 100) + '...');
+    onJobDescriptionSubmit: (text: string, source: 'file' | 'text') => {
+      console.log('Job Description Submitted:', { text, source });
     },
   },
 };
@@ -47,9 +47,7 @@ export const Default: Story = {
  */
 export const Loading: Story = {
   args: {
+    ...Default.args,
     loading: true,
-    onJobDescriptionSubmit: (text, source) => {
-      console.log(`Job description submitted from ${source}:`, text.substring(0, 100) + '...');
-    },
   },
 }; 
