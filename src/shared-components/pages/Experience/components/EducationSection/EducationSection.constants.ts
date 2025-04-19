@@ -47,18 +47,20 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
         width: 'full',
         height: 400
       },
-      {
-        type: 'embed',
-        url: 'https://www.youtube.com/embed/nPsGSknxuiw?si=9PXoHGRkLp5Gr6Pi',
-        title: 'React VR Tour Application',
-        width: 'half'
-      },
-      {
-        type: 'embed',
-        url: 'https://www.youtube.com/embed/W0LfRSNiCAo?si=RZCPRmVbj-od0hmb',
-        title: 'Piano Roll Project',
-        width: 'half'
-      }
+      // {
+      //   type: 'embed',
+      //   url: 'https://www.youtube.com/embed/nPsGSknxuiw?si=9PXoHGRkLp5Gr6Pi',
+      //   title: 'React VR Tour Application',
+      //   width: 'half',
+      //   height: 250
+      // },
+      // {
+      //   type: 'embed',
+      //   url: 'https://www.youtube.com/embed/W0LfRSNiCAo?si=RZCPRmVbj-od0hmb',
+      //   title: 'Piano Roll Project',
+      //   width: 'half',
+      //   height: 250
+      // }
     ]
   },
   {

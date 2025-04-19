@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionContainer } from './EducationSection.styles';
+import { SectionContainer, SectionHeader, SectionTitle, EducationItemsWrapper } from './EducationSection.styles';
 import { EducationSectionProps } from './EducationSection.types';
 import { useEducationSection } from './EducationSection.hook';
 import { EducationItemDisplay } from './components/EducationItemDisplay';
@@ -22,18 +22,23 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
 
   return (
     <SectionContainer className={className}>
-      <h2>{title}</h2>
+      <SectionHeader>
+        <SectionTitle>{title}</SectionTitle>
+      </SectionHeader>
 
       {children}
 
-      {sortedEducationItems.map((edu, index) => (
-        <EducationItemDisplay
-          key={`edu-${index}`}
-          educationItem={edu}
-          renderLogo={renderLogo}
-          onImageClick={openImageModal}
-        />
-      ))}
+      {/* Wrap mapped items in the styled component */}
+      <EducationItemsWrapper>
+        {sortedEducationItems.map((edu, index) => (
+          <EducationItemDisplay
+            key={`edu-${index}`}
+            educationItem={edu}
+            renderLogo={renderLogo}
+            onImageClick={openImageModal}
+          />
+        ))}
+      </EducationItemsWrapper>
 
       <ImageModal
         isOpen={modalOpen}

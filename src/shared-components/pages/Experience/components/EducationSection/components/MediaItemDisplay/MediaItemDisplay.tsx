@@ -44,24 +44,17 @@ const PdfMedia: React.FC<{ mediaItem: MediaItem, schoolName: string }> = ({ medi
 
 // Separate component for rendering Embed content
 const EmbedMedia: React.FC<{ mediaItem: MediaItem, schoolName: string }> = ({ mediaItem, schoolName }) => {
-    const hasDefinedHeight = !!mediaItem.height;
-    const embedWrapperClass = `embed-wrapper ${hasDefinedHeight ? 'has-defined-height' : ''}`;
-    const iframeClass = hasDefinedHeight ? 'has-defined-height' : '';
-    const heightStyle = hasDefinedHeight
-        ? (typeof mediaItem.height === 'number' ? `${mediaItem.height}px` : mediaItem.height)
-        : undefined;
+    const embedWrapperClass = `embed-wrapper`;
 
     return (
         <>
-            <div className={embedWrapperClass} style={{ height: heightStyle }}>
+            <div className={embedWrapperClass}>
                 <iframe
                     src={mediaItem.url}
                     title={mediaItem.title || `${schoolName} embed`}
                     frameBorder="0"
                     scrolling="no"
                     allowFullScreen
-                    className={iframeClass}
-                    style={{ height: heightStyle }} // Apply height directly if defined
                 />
             </div>
             {mediaItem.description && (

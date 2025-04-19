@@ -1,14 +1,32 @@
 import styled from 'styled-components';
 
 export const SectionContainer = styled.section`
-  padding: 2rem 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 2rem 1.5rem; /* Add horizontal padding */
+  /* Add a subtle background and border radius */
+  background-color: #ffffff; /* Or theme background */
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  margin-bottom: 2rem; /* Add space below the section card */
 
-  h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #333;
-  }
+  /* Remove border-bottom if sections are visually separated by cards/wrappers */
+  /* border-bottom: 1px solid #e0e0e0; */
+
+  /* Removed h2 styles, will use SectionTitle */
+  /* h2 { ... } */
+`;
+
+// Added SectionHeader based on SideProjectsSection styles
+export const SectionHeader = styled.div`
+  margin-bottom: 1.5rem; /* Adjust spacing as needed */
+  padding: 0; /* Removed horizontal padding */
+`;
+
+// Added SectionTitle based on SideProjectsSection styles
+export const SectionTitle = styled.h2`
+  font-size: 1.8rem; /* Match old h2 style */
+  font-weight: 600;
+  color: #333; /* Match old h2 style */
+  margin: 0;
 `;
 
 export const EducationItem = styled.div`
@@ -85,6 +103,7 @@ export const EducationDescription = styled.p`
   color: #444;
   margin-top: 0.8rem;
   margin-bottom: 1rem;
+  padding: 1rem; /* Added padding */
 `;
 
 export const MediaRow = styled.div`
@@ -92,6 +111,7 @@ export const MediaRow = styled.div`
   flex-wrap: wrap;
   gap: 8px; /* Consistent gap */
   margin-top: 1rem;
+  box-sizing: border-box; /* Ensure padding/border included in width */
 `;
 
 interface MediaContainerProps {
@@ -99,12 +119,14 @@ interface MediaContainerProps {
 }
 
 export const MediaContainer = styled.div<MediaContainerProps>`
-  width: ${props => props.$isWide ? '100%' : 'calc(50% - 4px)'};
+  /* Use 49% for half-width to be safer with gaps/rounding */
+  width: ${props => props.$isWide ? '100%' : '49%'};
   margin-bottom: 8px;
   position: relative; /* Needed for absolute positioning inside */
-  overflow: hidden; /* Ensure content respects border radius */
+  /* overflow: hidden; */ /* Temporarily commented out for debugging */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box; /* Ensure padding/border included in width */
 
   /* Image specific styles */
   .image-wrapper {
@@ -215,33 +237,23 @@ export const MediaContainer = styled.div<MediaContainerProps>`
     }
   }
 
-  /* Embed specific styles */
+  /* Embed specific styles - Using aspect ratio padding */
   .embed-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* Default 16:9 */
-    height: 0; /* Required for padding-bottom trick */
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+    height: 0;
     overflow: hidden;
-    border-radius: 8px;
+    width: 100%; /* Ensure it takes full width of MediaContainer */
+    border-radius: 8px; /* Match MediaContainer radius */
+  }
 
-    &.has-defined-height {
-      padding-bottom: 0;
-      height: auto; /* Use explicit height */
-    }
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      max-width: 100%;
-      border: none;
-      border-radius: 8px;
-
-      &.has-defined-height {
-        position: static; /* Let iframe size itself */
-      }
-    }
+  .embed-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 `;
 
@@ -315,4 +327,12 @@ export const ModalCloseButton = styled.button`
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
+`;
+
+// Wrapper for the list of education items to apply gap
+export const EducationItemsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* This creates space between items */
+  padding: 0; /* Removed horizontal padding */
 `; 
