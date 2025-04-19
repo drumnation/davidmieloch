@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import { SideProject } from './components/SideProjectsSection/SideProjectsSection.types';
 import { HeroProps } from '@shared-components/organisms/Hero';
 
+export type { SideProject };
+
 export interface ExperienceProps {
   id?: string;
   className?: string;

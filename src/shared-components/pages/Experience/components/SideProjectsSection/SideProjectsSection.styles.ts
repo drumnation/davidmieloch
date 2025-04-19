@@ -98,10 +98,30 @@ export const FilterButton = styled.button<{ $active?: boolean }>`
   }
 `;
 
-export const TechFilterButton = styled(FilterButton)`
-  padding: 0.4rem 0.75rem;
-  font-size: 0.75rem;
-  border-radius: 16px;
+export const TechFilterButton = styled.div<{ $active?: boolean }>`
+  background-color: #f3f2ef;
+  color: rgba(0, 0, 0, 0.9);
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1.4;
+  user-select: none;
+
+  &:hover {
+    background-color: #e6e5e4;
+  }
+
+  ${({ $active }) => $active && `
+    background-color: #e6e5e4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  `}
 `;
 
 export const ProjectsGrid = styled.div`
@@ -496,7 +516,7 @@ export const MediaEmbed = styled.div`
 `;
 
 // New component for cropped embeds
-export const CroppedMediaEmbed = styled(MediaEmbed)<{ $cropHeight: string }>`
+export const CroppedMediaEmbed = styled(MediaEmbed) <{ $cropHeight: string }>`
   position: relative;
   height: ${props => props.$cropHeight};
   

@@ -458,7 +458,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
       }
     ]
   },
-  
+
   // SaaS Applications
   {
     title: 'Coparenting Copilot',
@@ -619,7 +619,7 @@ This dynamic system maintains accuracy between your actual and projected finance
     startDate: '2024',
     endDate: 'present',
     logoPath: '/media/welearn-logo.png',
-    showBorder: true, 
+    showBorder: true,
     impact: '**WLMT revolutionizes emotional intelligence education** by transforming abstract musical concepts into engaging, game-based learning experiences that help users recognize and distinguish emotional tones.',
     media: [
       {
@@ -631,13 +631,13 @@ This dynamic system maintains accuracy between your actual and projected finance
       }
     ]
   },
-  
+
   // Digital Marketing
   {
     title: 'Oneironaught Band Marketing',
     category: 'Digital Marketing',
     description: 'Led web development and guerilla digital marketing for NYC instrumental progressive metal band. Created an **automated content marketing system** leveraging multiple platforms:\n\n* **WordPress Integration** - Custom website with automated content publishing\n* **IFTTT Automation** - Cross-platform content distribution triggers\n* **API Integrations** - Connected with Spotify, Reddit, Buffer, and social platforms\n* **Content Recycling** - Automated repurposing of music content across channels\n* **Analytics Dashboard** - Custom tracking for campaign performance',
-    technologies: ['WordPress', 'IFTTT', 'Spotify API', 'Reddit API', 'Buffer', "Facebook", "Instagram", "Twitter", "YouTube", "Pinterest"],
+    technologies: ['WordPress', 'IFTTT', 'Spotify API', 'Buffer', "Facebook", "Instagram", "Twitter", "YouTube", "Pinterest"],
     startDate: '2013',
     endDate: '2016',
     impact: '**Grew Twitter following to 14,600** with 385K monthly impressions and achieved **#1 Google ranking** for target keywords',
