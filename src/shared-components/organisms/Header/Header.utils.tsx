@@ -1,117 +1,134 @@
 'use client';
 
-import React, { useState } from 'react';
-import { 
-  Text, 
-  UnstyledButton, 
-  Box, 
-  rem, 
-  ActionIcon, 
-  Tooltip 
-} from '@mantine/core';
+import React, { useState, useMemo } from 'react';
+import { rem, Box, Text, UnstyledButton, ActionIcon, Tooltip, MantineTheme, Group, ThemeIcon } from '@mantine/core';
 import { socialLinks, navLinks } from './Header.logic';
-import { RenderNavItemsProps, RenderSocialIconsProps } from './Header.types';
+import {
+  RenderNavItemsProps,
+  RenderSocialIconsProps,
+  MobileNavLinkProps,
+  IconComponent,
+  NavLink,
+  SocialLink
+} from './Header.types';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
-export const renderNavItems = ({ theme, isDark, handleNavigation, isNavigating }: RenderNavItemsProps) => {
-  // Local state for hover effects
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
-  const [clickedLink, setClickedLink] = useState<string | null>(null);
-  // Use Next.js's usePathname hook directly
+export function toRem(val: string | number) {
+  if (typeof val === 'number') return rem(val).toString();
+  if (typeof val === 'string' && !isNaN(Number(val))) return rem(Number(val)).toString();
+  return val;
+}
+
+export const RenderNavItems: React.FC<RenderNavItemsProps> = ({
+  navLinks,
+  activePath,
+  handleNavigation,
+  isActive,
+  hoveredLink,
+  handleLinkHover,
+  handleLinkLeave,
+  isDark,
+  theme,
+}) => {
+  const [clickedLink, /* setClickedLink */] = useState<string | null>(null);
   const pathname = usePathname();
-  
-  const handleLinkHover = (label: string) => {
-    if (!isNavigating) {
-      setHoveredLink(label);
-    }
-  };
 
-  const handleLinkLeave = () => {
-    setHoveredLink(null);
-  };
+  const linkElements = navLinks.map((link: NavLink) => {
+    const isCurrentlyActive = isActive(link.href);
+    const isHovered = hoveredLink === link.label;
 
-  const isActive = (href: string, pathname: string) => {
-    if (!pathname) return false;
-    if (href === '/' && pathname === '/') return true;
-    if (href !== '/' && pathname.startsWith(href)) {
-      if (pathname === href) return true;
-      if (pathname.startsWith(`${href}/`)) return true;
-      return false;
-    }
-    return false;
-  };
+    // Define text color based on dark mode
+    const textColor = isDark ? '#ffffff' : theme.colors.dark[9];
 
-  return navLinks.map((link) => (
-    <div
-      key={link.label}
-      style={{ textDecoration: 'none', position: 'relative' }}
-      onClick={(e) => {
-        if (isNavigating) return;
-        e.preventDefault();
-        setClickedLink(link.label);
-        handleNavigation(link.href);
-      }}
-    >
-      <UnstyledButton
-        style={{
-          position: 'relative',
-          color: isActive(link.href, pathname) 
-            ? (isDark ? '#ffffff' : theme.colors.dark[9]) 
-            : hoveredLink === link.label 
-              ? (isDark ? '#ffffff' : theme.colors.dark[9]) 
-              : (isDark ? '#ffffff' : theme.colors.dark[9]),
-          fontWeight: isActive(link.href, pathname) || hoveredLink === link.label ? 600 : 500,
-          padding: `${rem(8)} ${rem(12)}`,
-          borderRadius: theme.radius.sm,
-          whiteSpace: 'nowrap',
-          transition: 'all 200ms ease',
-          backgroundColor: isNavigating
-            ? (isDark ? 'rgba(99, 102, 241, 0.3)' : 'rgba(99, 102, 241, 0.2)')
-            : clickedLink === link.label
-              ? (isDark ? 'rgba(99, 102, 241, 0.3)' : 'rgba(99, 102, 241, 0.2)')
-              : hoveredLink === link.label 
-                ? (isDark ? 'rgba(99, 102, 241, 0.2)' : 'rgba(99, 102, 241, 0.1)') 
-                : 'transparent',
-          transform: hoveredLink === link.label && !isNavigating ? 'translateY(-1px)' : 'translateY(0)',
-          boxShadow: hoveredLink === link.label && !isNavigating ? '0 2px 4px rgba(0,0,0,0.05)' : 'none',
-          borderBottom: hoveredLink === link.label && !isNavigating ? '2px solid #6366F1' : '2px solid transparent',
-          cursor: isNavigating ? 'wait' : 'pointer',
-          opacity: isNavigating ? 0.7 : 1,
-          pointerEvents: isNavigating ? 'none' : 'auto',
-        }}
-        onMouseEnter={() => handleLinkHover(link.label)}
-        onMouseLeave={handleLinkLeave}
+    return (
+      <div
+        key={link.label}
+        style={{ textDecoration: 'none', position: 'relative' }}
+        onClick={(event: React.MouseEvent<HTMLDivElement>) => handleNavigation(link.href)}
       >
-        <Text 
-          size="sm" 
+        <UnstyledButton
           style={{
-            color: isDark ? '#ffffff' : 'inherit',
+            position: 'relative',
+            color: textColor,
+            fontWeight: isCurrentlyActive || isHovered ? 600 : 500,
+            padding: `${String(toRem(8))} ${String(toRem(12))}`,
+            borderRadius: theme.radius.sm,
+            whiteSpace: 'nowrap',
             transition: 'all 200ms ease',
+            backgroundColor: clickedLink === link.label
+              ? (isDark ? 'rgba(99, 102, 241, 0.3)' : 'rgba(99, 102, 241, 0.2)')
+              : isHovered
+                ? (isDark ? 'rgba(99, 102, 241, 0.2)' : 'rgba(99, 102, 241, 0.1)')
+                : 'transparent',
+            transform: isHovered ? 'translateY(-1px)' : 'translateY(0)',
+            boxShadow: isHovered ? '0 2px 4px rgba(0,0,0,0.05)' : 'none',
+            borderBottom: isHovered ? '2px solid #6366F1' : '2px solid transparent',
+            cursor: clickedLink ? 'wait' : 'pointer',
+            opacity: clickedLink ? 0.7 : 1,
+            pointerEvents: clickedLink ? 'none' : 'auto',
           }}
+          onMouseEnter={() => handleLinkHover(link.label)}
+          onMouseLeave={() => handleLinkLeave()}
         >
-          {link.label}
-        </Text>
-        {isActive(link.href, pathname) && (
-          <Box
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: rem(8),
-              right: rem(8),
-              height: rem(2),
-              background: 'linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)',
-              borderRadius: theme.radius.sm,
-            }}
-          />
-        )}
-      </UnstyledButton>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            {((link.icon as any) && (
+              <span style={{
+                marginRight: `${toRem(theme.spacing.sm)}`,
+                display: 'flex',
+                alignItems: 'center',
+                color: textColor // Ensure icon color matches text
+              }}>
+                {React.createElement(link.icon as any, {
+                  size: 18,
+                  stroke: 1.5,
+                  color: textColor // Explicitly set icon color
+                })}
+              </span>
+            ))}
+            <Text
+              size="sm"
+              style={{
+                color: textColor, // Ensure text color is explicitly set
+                transition: 'all 200ms ease',
+                fontWeight: 'inherit',
+              }}
+            >
+              {link.label}
+            </Text>
+          </div>
+          {isCurrentlyActive && (
+            <Box
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: String(toRem(8)),
+                right: String(toRem(8)),
+                height: String(toRem(2)),
+                background: 'linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)',
+                borderRadius: theme.radius.sm,
+              }}
+            />
+          )}
+        </UnstyledButton>
+      </div>
+    );
+  });
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: rem(8) }}>
+      {linkElements}
     </div>
-  ));
+  );
 };
 
-export const renderSocialIcons = ({ theme, isDark }: RenderSocialIconsProps) => {
-  const [socialHovered, setSocialHovered] = useState<string | null>(null);
-
+export const RenderSocialIcons: React.FC<RenderSocialIconsProps> = ({
+  socialLinks,
+  socialHovered,
+  setSocialHovered,
+  isDark,
+  theme,
+}) => {
   return (
     <div style={{ marginLeft: '1rem' }}>
       {socialLinks.map((link) => (
@@ -132,10 +149,52 @@ export const renderSocialIcons = ({ theme, isDark }: RenderSocialIconsProps) => 
             onMouseEnter={() => setSocialHovered(link.name)}
             onMouseLeave={() => setSocialHovered(null)}
           >
-            <link.icon size={18} style={{ color: isDark ? theme.colors.gray[3] : theme.colors.blue[6] }} />
+            {React.createElement(link.icon as any, { size: 18, stroke: 1.5, style: { color: isDark ? theme.colors.gray[3] : theme.colors.blue[6], marginRight: String(toRem(theme.spacing.sm)) } })}
           </ActionIcon>
         </Tooltip>
       ))}
     </div>
+  );
+};
+
+export const getHeaderStyle = (/* pinned: boolean, isDark: boolean, theme: MantineTheme */): React.CSSProperties => ({
+  position: 'fixed',
+  top: 0,
+  // ... existing code ...
+});
+
+export const MobileNavLink: React.FC<MobileNavLinkProps & { isDark: boolean; theme: MantineTheme }> = ({
+  icon: Icon,
+  label,
+  href,
+  onClick,
+  isDark,
+  theme,
+  isActive,
+}) => {
+  const hoverColor = useMemo(() => (isDark ? theme.colors.dark[6] : theme.colors.gray[1]), [isDark, theme]);
+  const borderLeftColor = useMemo(() => (isActive ? theme.colors[theme.primaryColor][6] : 'transparent'), [isActive, theme]);
+
+  return (
+    <UnstyledButton
+      component={Link}
+      href={href}
+      onClick={onClick}
+      style={{
+        display: 'block',
+        width: '100%',
+        padding: theme.spacing.xs,
+        borderRadius: theme.radius.sm,
+        color: isDark ? theme.colors.dark[0] : theme.black,
+        borderLeft: `3px solid ${borderLeftColor}`,
+      }}
+    >
+      <Group>
+        <ThemeIcon color={theme.primaryColor} variant="light">
+          <Icon size="1.1rem" />
+        </ThemeIcon>
+        <Text size="sm">{label}</Text>
+      </Group>
+    </UnstyledButton>
   );
 }; 

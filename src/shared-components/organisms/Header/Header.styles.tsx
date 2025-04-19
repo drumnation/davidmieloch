@@ -1,39 +1,32 @@
 'use client';
 
-import { 
-  AppShell,
+import {
   Group,
   Drawer,
-  Stack,
-  Text,
   UnstyledButton,
-  Box,
   rem,
   Container,
-  ActionIcon,
-  Tooltip,
   Button,
+  ButtonProps,
+  Text,
+  ActionIcon,
   Burger,
-  MantineTheme,
-  ButtonProps
+  MantineTheme
 } from '@mantine/core';
-import Image from 'next/image';
-import { 
-  StyledHeaderProps, 
+import {
+  StyledHeaderProps,
   StyledLogoButtonProps,
-  StyledNavProps, 
-  StyledMobileDrawerProps 
+  StyledNavProps,
+  StyledMobileDrawerProps
 } from './Header.types';
-import { navLinks } from './Header.logic';
-import { ClientOnly } from '../../../utils/ClientOnly';
 import React from 'react';
 import styled from '@emotion/styled';
 
 // Create components that take props and return React elements
 export const StyledHeader: React.FC<StyledHeaderProps> = ({ isDark, theme, children }) => {
   return (
-    <div 
-      style={{ 
+    <div
+      style={{
         backdropFilter: 'none',
         backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
         borderBottom: isDark ? `1px solid ${theme.colors.dark[4]}` : `1px solid ${theme.colors.gray[2]}`,
@@ -51,13 +44,13 @@ export const StyledHeader: React.FC<StyledHeaderProps> = ({ isDark, theme, child
 
 export const StyledContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <Container 
-      size="lg" 
-      h="100%" 
-      style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between' 
+    <Container
+      size="lg"
+      h="100%"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
       }}
     >
       {children}
@@ -67,7 +60,7 @@ export const StyledContainer: React.FC<{ children: React.ReactNode }> = ({ child
 
 export const StyledLogoButton = styled(UnstyledButton, {
   shouldForwardProp: (prop) => !['logoHovered', 'isDark', 'theme'].includes(prop.toString())
-})<StyledLogoButtonProps>`
+}) <StyledLogoButtonProps>`
   display: flex;
   align-items: center;
   color: white;
@@ -79,7 +72,7 @@ export const StyledLogoButton = styled(UnstyledButton, {
 
 export const StyledNav = styled(Group, {
   shouldForwardProp: (prop) => !['navItems', 'opened', 'toggle', 'isDark', 'theme', 'handleNavigation'].includes(prop.toString())
-})<StyledNavProps>`
+}) <StyledNavProps>`
   gap: 5px;
   flex: 0 0 auto;
   overflow: hidden;
@@ -88,7 +81,7 @@ export const StyledNav = styled(Group, {
 
 export const StyledMobileDrawer = styled(Drawer, {
   shouldForwardProp: (prop) => !['isDark', 'theme', 'handleNavigation'].includes(prop.toString())
-})<StyledMobileDrawerProps>`
+}) <StyledMobileDrawerProps>`
   .mantine-Drawer-header {
     background-color: ${props => props.isDark ? props.theme.colors.dark[7] : props.theme.colors.gray[1]};
     color: ${props => props.isDark ? props.theme.white : props.theme.colors.dark[9]};
@@ -100,6 +93,17 @@ export const StyledMobileDrawer = styled(Drawer, {
     color: ${props => props.isDark ? props.theme.white : props.theme.colors.dark[9]};
     box-shadow: ${props => props.theme.shadows.md};
     border-radius: ${props => props.theme.radius.md} 0 0 ${props => props.theme.radius.md};
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mantine-Drawer-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: ${rem(12)};
+    padding-bottom: ${rem(16)};
+    overflow-y: auto;
   }
 
   .mantine-Drawer-closeButton {
@@ -114,7 +118,13 @@ export const StyledMobileDrawer = styled(Drawer, {
   }
 `;
 
-export const ExperienceButton = styled(Button)`
+// Fix for Emotion + forwardRef + Mantine Button
+const ExperienceButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => <Button ref={ref} {...props} />
+);
+ExperienceButtonBase.displayName = 'ExperienceButton';
+
+export const ExperienceButton = styled(ExperienceButtonBase)`
   white-space: nowrap;
   flex: 0 0 auto;
   font-weight: 600;
@@ -131,4 +141,90 @@ export const ExperienceButton = styled(Button)`
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   }
+`;
+
+export const HeaderLeftRow = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+export const NavGroupWrapper = styled('div')({
+  overflow: 'hidden',
+  maxWidth: 'calc(100vw - 400px)',
+  display: 'flex',
+  flexWrap: 'nowrap',
+});
+
+export const NavItemsScroll = styled('div')({
+  display: 'flex',
+  overflow: 'auto',
+  msOverflowStyle: 'none',
+  scrollbarWidth: 'none',
+});
+
+export const ExperienceButtonWrapper = styled('div')({
+  cursor: 'pointer',
+});
+
+export const MobileNavLinkWrapper = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'borderColor',
+})<{
+  borderColor: string;
+}>(({ borderColor }) => ({
+  textDecoration: 'none',
+  borderBottom: borderColor,
+}));
+
+export const MobileNavButton = styled(UnstyledButton, {
+  shouldForwardProp: (prop) =>
+    !['isDark', 'theme', 'hoverColor', 'borderLeftColor'].includes(prop.toString()),
+})<{
+  isDark: boolean;
+  theme: MantineTheme;
+  hoverColor: string;
+  borderLeftColor: string;
+}>(({ isDark, theme, hoverColor, borderLeftColor }) => ({
+  width: '100%',
+  padding: rem(16),
+  borderRadius: theme.radius.sm,
+  color: isDark ? 'white' : theme.colors.dark[9],
+  backgroundColor: 'transparent',
+  transition: 'background-color 200ms ease, border-left-color 200ms ease',
+  borderLeft: `3px solid ${borderLeftColor}`,
+  position: 'relative',
+  cursor: 'pointer',
+  '&:hover': {
+    backgroundColor: hoverColor,
+    borderLeftColor: theme.colors[theme.primaryColor][6],
+  },
+}));
+
+export const MobileNavIconSpan = styled('span')({
+  marginRight: rem(16),
+  display: 'flex',
+  alignItems: 'center',
+});
+
+export const MobileNavText = styled(Text)({
+  color: 'inherit',
+  transition: 'all 200ms ease',
+  fontWeight: 600,
+});
+
+export const SocialIconGroup = styled(Group)({
+  justifyContent: 'center',
+  gap: 'md',
+  flexGrow: 1,
+});
+
+export const MobileActionIcon = styled(ActionIcon)<{ isDark: boolean; theme: MantineTheme }>(({ isDark, theme }) => ({
+  transition: 'background-color 150ms ease',
+  '&:hover': {
+    backgroundColor: isDark ? theme.colors.dark[6] : theme.colors.gray[1],
+  },
+}));
+
+export const StyledBurger = styled(Burger) <{ open: boolean; theme: MantineTheme }>`
+  color: ${({ theme }: { theme: MantineTheme }) => theme.colors.text?.[0] || '#ffffff'};
+  z-index: 1001; // Ensure burger is above overlay
 `; 

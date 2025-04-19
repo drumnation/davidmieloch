@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import { useMantineTheme } from '@mantine/core';
 import { useTheme } from '../../../providers/ThemeProvider';
@@ -17,7 +17,7 @@ export const useHeaderState = (): HeaderHookReturn => {
   const pathname = usePathname();
   const router = useRouter();
   const { showLoading, hideLoading } = useLoading();
-  
+
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [logoHovered, setLogoHovered] = useState(false);
   const [socialHovered, setSocialHovered] = useState<string | null>(null);
@@ -25,7 +25,7 @@ export const useHeaderState = (): HeaderHookReturn => {
   const [mobileHovered, setMobileHovered] = useState<string | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const [nextPath, setNextPath] = useState<string | null>(null);
-  
+
   const navigationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Clear navigation timeout
@@ -50,7 +50,7 @@ export const useHeaderState = (): HeaderHookReturn => {
         try {
           // Start navigation
           await router.push(nextPath);
-          
+
           // Set a timeout to ensure loading state persists during compilation
           navigationTimeoutRef.current = setTimeout(() => {
             if (isNavigating) {
@@ -95,7 +95,7 @@ export const useHeaderState = (): HeaderHookReturn => {
     setIsNavigating(true);
     setNextPath(href);
     close();
-    
+
   }, [pathname, showLoading, close, isNavigating]);
 
   const isActive = (href: string) => getIsActive(pathname, href);

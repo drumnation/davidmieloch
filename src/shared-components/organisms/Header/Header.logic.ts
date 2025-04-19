@@ -4,17 +4,15 @@ import {
   IconBrandMedium,
   IconBuildingArch,
   IconCode,
-  IconUser,
-  IconSchool,
-  IconBriefcase
+  IconUser
 } from '@tabler/icons-react';
 import { NavLink, SocialLink } from './Header.types';
 
 export const navLinks: NavLink[] = [
   // { label: 'Home', href: '/' },
-  { label: 'Enterprise AI DevTeam Transformation', href: '/enterprise-ai-development-framework', icon: IconBuildingArch },
+  { label: 'Enterprise AI Transformation', href: '/enterprise-ai-development-framework', icon: IconBuildingArch },
   { label: 'React Best Practices', href: '/fullstack-react-best-practices-integration', icon: IconCode },
-  { label: 'Bio', href: '/bio', icon: IconUser },
+  { label: 'Biography', href: '/bio', icon: IconUser },
   { label: 'Code Examples', href: '/code-examples', icon: IconCode },
 ];
 
