@@ -1,5 +1,7 @@
-- !!! We use pnpm as our package manager, as well as pnpm workspaces to help manage our monorepo packages
-- We use turbo repo to help manage and optimize our monorepo
+- !!!We use pnpm as our package manager, as well as pnpm workspaces to help manage our monorepo packages
+    - We use turbo repo to help manage and optimize our monorepo
+        - ALWAYS remove unnecessary comments when refactoring
+            - ALWAYS remove unused imports when refactoring or finishing a task
 
 Use Path Aliases Wherever possible:
 
