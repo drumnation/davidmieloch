@@ -8,6 +8,7 @@ import { renderNavItems, renderSocialIcons } from './Header.utils';
 import { ClientOnly } from '@utils/ClientOnly';
 import { navLinks, socialLinks } from './Header.logic';
 import { NavLink, SocialLink } from './Header.types';
+import { IconBriefcase } from '@tabler/icons-react';
 
 export function Header() {
   const {
@@ -33,14 +34,14 @@ export function Header() {
     handleLinkLeave,
     isNavigating,
   } = useHeaderState();
-  
+
   // Local state for button hover, unrelated to global loading
   const [expBtnHovered, setExpBtnHovered] = useState(false);
 
   // Call utilities without extra props
-  const navItems = renderNavItems({ 
-    theme, 
-    isDark, 
+  const navItems = renderNavItems({
+    theme,
+    isDark,
     handleNavigation,
     isNavigating
   });
@@ -68,16 +69,16 @@ export function Header() {
               handleNavigation('/');
             }}
           >
-            <Image 
-              src="/dave-mieloch-headshot.jpg" 
-              alt="David Mieloch Logo" 
-              width={28} 
-              height={28} 
+            <Image
+              src="/dave-mieloch-headshot.jpg"
+              alt="David Mieloch Logo"
+              width={28}
+              height={28}
               style={{ borderRadius: '4px' }}
             />
-            <Text 
-              fw={600} 
-              size="md" 
+            <Text
+              fw={600}
+              size="md"
               style={{
                 color: isDark ? 'white' : theme.colors.dark[9],
                 marginLeft: rem(8)
@@ -102,8 +103,8 @@ export function Header() {
           navItems={navItems}
         >
           {/* Restore Desktop Navigation Items Group */}
-          <Group gap={5} visibleFrom="sm" style={{ 
-            overflow: 'hidden', 
+          <Group gap={5} visibleFrom="sm" style={{
+            overflow: 'hidden',
             maxWidth: 'calc(100vw - 400px)', // Adjust based on layout
             display: 'flex',
             flexWrap: 'nowrap'
@@ -112,7 +113,7 @@ export function Header() {
               {navItems}
             </div>
           </Group>
-          
+
           {/* Desktop Navigation Items rendered inside StyledNav now? */}
           {/* 
             <Group gap={5} visibleFrom="sm" style={{ / * ... styles ... * / }}>
@@ -121,10 +122,10 @@ export function Header() {
               </div>
             </Group>
           */}
-          
+
           {/* Experience Button (Desktop) */}
           <ClientOnly>
-            <div 
+            <div
               style={{ cursor: 'pointer' }}
               onClick={(e) => {
                 e.preventDefault();
@@ -136,16 +137,16 @@ export function Header() {
                 visibleFrom="sm"
                 onMouseEnter={() => setExpBtnHovered(true)}
                 onMouseLeave={() => setExpBtnHovered(false)}
-                style={{ 
-                  whiteSpace: 'nowrap', 
+                style={{
+                  whiteSpace: 'nowrap',
                   flex: '0 0 auto',
                   fontWeight: 600,
                   transition: 'all 200ms ease',
                   background: 'linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)',
                   color: 'white',
                   transform: expBtnHovered ? 'translateY(-3px)' : 'translateY(-1px)',
-                  boxShadow: expBtnHovered 
-                    ? '0 4px 8px rgba(0,0,0,0.15), 0 0 12px 3px rgba(99, 102, 241, 0.6)' 
+                  boxShadow: expBtnHovered
+                    ? '0 4px 8px rgba(0,0,0,0.15), 0 0 12px 3px rgba(99, 102, 241, 0.6)'
                     : '0 2px 4px rgba(0,0,0,0.1), 0 0 8px 2px rgba(99, 102, 241, 0.4)',
                   border: 'none',
                   padding: `${rem(8)} ${rem(12)}`,
@@ -153,7 +154,7 @@ export function Header() {
                   position: 'relative',
                 }}
               >
-                <Text 
+                <Text
                   style={{
                     color: 'white',
                     transition: 'all 200ms ease',
@@ -164,16 +165,16 @@ export function Header() {
               </Button>
             </div>
           </ClientOnly>
-          
+
           {/* Mobile Burger Menu Icon */}
-          <Burger 
-            opened={opened} 
-            onClick={toggle} 
-            hiddenFrom="sm" 
+          <Burger
+            opened={opened}
+            onClick={toggle}
+            hiddenFrom="sm"
             color={isDark ? "white" : theme.colors.dark[9]}
           />
         </StyledNav>
-        
+
         {/* Mobile Navigation Drawer */}
         <StyledMobileDrawer
           opened={opened}
@@ -183,16 +184,16 @@ export function Header() {
           handleNavigation={handleNavigation}
           title={
             <Group gap="xs" align="center">
-              <Image 
-                src="/web-app-manifest-192x192.png" 
-                alt="David Mieloch Logo" 
-                width={24} 
-                height={24} 
+              <Image
+                src="/web-app-manifest-192x192.png"
+                alt="David Mieloch Logo"
+                width={24}
+                height={24}
                 style={{ borderRadius: '4px' }}
               />
-              <Text 
-                fw={700} 
-                size="md" 
+              <Text
+                fw={700}
+                size="md"
                 style={{
                   color: isDark ? 'white' : theme.colors.dark[9]
                 }}
@@ -209,7 +210,7 @@ export function Header() {
             {navLinks.map((link: NavLink) => (
               <div
                 key={link.label}
-                style={{ 
+                style={{
                   textDecoration: 'none',
                   borderBottom: `1px solid ${isDark ? theme.colors.dark[5] : theme.colors.gray[2]}`,
                 }}
@@ -244,7 +245,7 @@ export function Header() {
                     {!link.icon && (
                       <span style={{ marginRight: theme.spacing.sm, width: rem(20), display: 'inline-block' }} />
                     )}
-                    <Text 
+                    <Text
                       style={{
                         color: 'inherit',
                         transition: 'all 200ms ease',
@@ -257,6 +258,50 @@ export function Header() {
                 </UnstyledButton>
               </div>
             ))}
+            {/* Manually added Experience link for mobile */}
+            <div
+              key="Experience"
+              style={{
+                textDecoration: 'none',
+                borderBottom: `1px solid ${isDark ? theme.colors.dark[5] : theme.colors.gray[2]}`,
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation('/experience');
+              }}
+            >
+              <UnstyledButton
+                style={{
+                  width: '100%',
+                  padding: rem(16),
+                  borderRadius: theme.radius.sm,
+                  color: isDark ? 'white' : theme.colors.dark[9],
+                  backgroundColor: 'transparent',
+                  transition: 'background-color 200ms ease, border-left-color 200ms ease',
+                  borderLeft: `3px solid ${isActive('/experience') ? theme.colors[theme.primaryColor][6] : 'transparent'}`,
+                  position: 'relative',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    backgroundColor: isDark ? theme.colors.dark[6] : theme.colors.gray[1],
+                    borderLeftColor: theme.colors[theme.primaryColor][6],
+                  },
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  {/* Optionally add IconBriefcase here if desired */}
+                  <span style={{ marginRight: theme.spacing.sm, display: 'flex', alignItems: 'center' }}><IconBriefcase size={20} stroke={1.5} /></span>
+                  <Text
+                    style={{
+                      color: 'inherit',
+                      transition: 'all 200ms ease',
+                      fontWeight: 600,
+                    }}
+                  >
+                    Experience
+                  </Text>
+                </div>
+              </UnstyledButton>
+            </div>
             {/* Add Divider and Social Links */}
             <Divider my="sm" color={isDark ? theme.colors.dark[5] : theme.colors.gray[2]} />
             <Group justify="center" gap="md" grow>
