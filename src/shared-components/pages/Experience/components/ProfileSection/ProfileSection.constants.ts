@@ -14,9 +14,14 @@ export const PROFILE = {
     INDUSTRY: 'Software Development'
   },
   SUMMARY: {
-    INTRO: 'Innovative Full Stack Developer and Engineering Leader specializing in React.js, React Native, and Enterprise AI solutions.  Architect of the Brain Garden system, driving AI transformation and optimizing development workflows.  Proven success in building complex applications, leading teams, and implementing modern development practices to deliver high-impact results.',
+    INTRO: '**Innovative Full Stack Developer** and **Engineering Leader** specializing in **React.js**, **React Native**, and **Enterprise AI** solutions. Architect of the **Brain Garden system**, driving **AI transformation** and optimizing development workflows. **Proven success** in building complex applications, leading teams, and implementing **modern development practices** to deliver high-impact results.',
     EXPERIENCE: '',
-    SKILLS_OVERVIEW: ''
+    SKILLS_OVERVIEW: '',
+    SPECIALIZING_IN: [
+      'Front-end Architecture & Refactoring (React, TS)',
+      'AI-Powered Development Workflows',
+      'Cross-Platform Mobile (React Native)'
+    ]
   },
   SOCIAL_LINKS: {
     LINKEDIN: {

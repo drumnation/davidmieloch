@@ -1,9 +1,16 @@
 import { styled } from 'styled-components';
 
-export const MarkdownContainer = styled.div`
+// Define props interface for MarkdownContainer
+interface MarkdownContainerProps {
+  disablePadding?: boolean;
+}
+
+// Pass the props to the styled component
+export const MarkdownContainer = styled.div<MarkdownContainerProps>`
   max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  margin: 0;
+  /* Conditionally apply padding based on disablePadding prop */
+  padding: ${({ disablePadding }) => (disablePadding ? '0' : '2rem 1rem')};
   line-height: 1.6;
   font-size: 1.1rem;
 

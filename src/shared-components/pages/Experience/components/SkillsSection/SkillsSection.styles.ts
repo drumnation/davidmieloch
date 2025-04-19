@@ -1,7 +1,18 @@
 import styled from 'styled-components';
 
 export const SectionContainer = styled.section`
-  margin: 2rem 0;
+  margin-bottom: 24px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+  }
 `;
 
 export const SkillsContainer = styled.div`

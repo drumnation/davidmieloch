@@ -37,7 +37,7 @@ import {
   INFRASTRUCTURE_SKILL_CATEGORIES
 } from './components/SkillsSection/SkillsSection.constants';
 import { SIDE_PROJECTS } from './components/SideProjectsSection/SideProjectsSection.constants';
-import { WORK_EXPERIENCE, OLDER_EXPERIENCE } from '@/shared-components/pages/Experience/components/ExperienceSection/ExperienceSection.constants';
+import { WORK_EXPERIENCE, OLDER_EXPERIENCE } from '@shared-components/pages/Experience/components/ExperienceSection/ExperienceSection.constants';
 
 export const Experience: React.FC<ExperienceProps> = ({
   id = 'experience',

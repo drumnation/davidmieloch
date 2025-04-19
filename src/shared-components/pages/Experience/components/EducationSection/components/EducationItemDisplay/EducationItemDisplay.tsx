@@ -9,7 +9,7 @@ import {
     EducationMetadataRow,
     EducationDegree,
     EducationDates,
-    EducationDescription,
+    // EducationDescription, // Removed as MarkdownRenderer handles rendering
     MediaRow,
 } from '../../EducationSection.styles';
 import { EducationItemDisplayProps } from './EducationItemDisplay.types';
@@ -24,6 +24,7 @@ import * as PCS from '../../../SideProjectsSection/components/ProjectCard/Projec
 import { ProjectHeader, HeaderLeft, HeaderContent, ProjectTitle, HeaderDateRow, HeaderDate } from '../../../SideProjectsSection/components/ProjectCard/ProjectCard.styles';
 // Import a styled component for content padding
 import styled from 'styled-components';
+import { MarkdownRenderer } from '@shared-components/molecules/MarkdownRenderer'; // Added import
 
 // Styled component for content area padding
 const PaddedContent = styled.div`
@@ -69,10 +70,9 @@ export const EducationItemDisplay: React.FC<EducationItemDisplayProps> = ({
 
             {/* Wrap description and media in a padded container */}
             <PaddedContent>
-                {/* Keep existing description and media rendering for now */}
-                {/* Consider using PCS.ProjectDescription if styles match */}
+                {/* Render description using MarkdownRenderer */}
                 {edu.description && (
-                    <EducationDescription>{edu.description}</EducationDescription>
+                    <MarkdownRenderer content={edu.description} />
                 )}
 
                 {/* Add margin-top to media if description exists */}

@@ -5,6 +5,7 @@ export interface ProfileSectionProps {
   name: string;
   headline: string;
   summary: string;
+  specializingIn?: string[];
   className?: string;
   children?: ReactNode;
 } 

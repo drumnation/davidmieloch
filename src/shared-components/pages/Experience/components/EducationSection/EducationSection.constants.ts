@@ -9,7 +9,7 @@ export const FORMAL_EDUCATION: EducationItem[] = [
     fieldOfStudy: 'Music Theory and Composition, Focus in Percussion',
     startDate: '2003',
     endDate: '2008',
-    description: 'Instrumental Concentration with focus on Classical Percussion and Jazz Drumset performance. Secondary instruments included Computer, Tabla, Guitar and Piano. Active member of Phi Mu Alpha Sinfonia and Percussion Ensemble.',
+    description: `Instrumental Concentration with focus on **Classical Percussion** and **Jazz Drumset** performance.\n\nSecondary instruments included Computer, Tabla, Guitar and Piano.\n\nActive member of **Phi Mu Alpha Sinfonia** and **Percussion Ensemble.**`,
     logoPath: '/school-logos/westchester.jpeg',
     media: [
       {
@@ -37,7 +37,7 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
     fieldOfStudy: '15 Week – Full Stack Web Immersive',
     startDate: '2017',
     endDate: '2017',
-    description: 'Intensive web development bootcamp focusing on modern full-stack development. Frontend: JavaScript fundamentals (ES6+), Component Pattern, React.js, Redux + Thunk, jQuery. Backend: Ruby fundamentals, MVC pattern, Rails, SQL, ORMs, Active Record, Ruby on Rails.',
+    description: `Intensive **web development bootcamp** focusing on modern full-stack development.\n\n**Frontend:** JavaScript fundamentals (ES6+), Component Pattern, **React.js**, **Redux + Thunk**, jQuery.\n\n**Backend:** Ruby fundamentals, MVC pattern, **Rails**, SQL, ORMs, Active Record, **Ruby on Rails.**`,
     logoPath: '/school-logos/the_flatiron_school_logo.jpeg',
     media: [
       {
@@ -69,7 +69,7 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
     fieldOfStudy: '3 Month – Online Fundamentals Intensive',
     startDate: '2016',
     endDate: '2016',
-    description: 'Focused program on JavaScript ES6+ fundamentals and modern development practices.',
+    description: `Focused program on **JavaScript ES6+ fundamentals** and **modern development practices.**`,
     logoPath: '/school-logos/app-academy.jpeg'
   },
   {
@@ -78,7 +78,7 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
     fieldOfStudy: 'NYC Campus Programs',
     startDate: '2016',
     endDate: '2016',
-    description: 'Completed specialized courses in Growth Hacking for Startups and earned Google AdWords Certification.',
+    description: `Completed specialized courses in **Growth Hacking for Startups** and earned **Google AdWords Certification.**`,
     logoPath: '/school-logos/generalassembly_logo.jpeg'
   }
 ];
@@ -90,7 +90,7 @@ export const CONTINUOUS_LEARNING: EducationItem[] = [
     fieldOfStudy: 'Web Development',
     startDate: '2017',
     endDate: '2017',
-    description: 'Completed courses in Ruby, Javascript, and ReactJS development.',
+    description: `Completed courses in **Ruby**, **Javascript**, and **ReactJS** development.`,
     logoPath: '/school-logos/codeacademy_logo.png'
   },
   {
@@ -99,7 +99,7 @@ export const CONTINUOUS_LEARNING: EducationItem[] = [
     fieldOfStudy: 'Multiple Disciplines',
     startDate: '2014',
     endDate: '2017',
-    description: 'Completed courses in Programming, Digital Marketing, PPC, SEO, Content Marketing, and Ad Publishing.',
+    description: `Completed courses in **Programming**, **Digital Marketing**, **PPC**, **SEO**, **Content Marketing**, and **Ad Publishing.**`,
     logoPath: '/school-logos/udemy_logo.jpeg'
   },
   {
@@ -108,7 +108,7 @@ export const CONTINUOUS_LEARNING: EducationItem[] = [
     fieldOfStudy: 'Data Analytics',
     startDate: '2014',
     endDate: '2015',
-    description: 'Attended IBM Partner Content Marketing Workshops and IBM Insight Conference. Trained to create data models for clients using Watson Analytics for Social Media. Learned to use supervised and unsupervised methods to derive insights from data.',
+    description: `Attended **IBM Partner Content Marketing Workshops** and **IBM Insight Conference.**\n\nTrained to create data models for clients using **Watson Analytics for Social Media.**\n\nLearned to use **supervised and unsupervised methods** to derive insights from data.`,
     logoPath: '/school-logos/ibm_logo.jpeg'
   }
 ]; 

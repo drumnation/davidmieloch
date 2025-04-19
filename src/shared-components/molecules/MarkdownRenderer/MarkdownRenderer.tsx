@@ -7,22 +7,46 @@ import { MarkdownContainer, CompactMarkdownContainer } from './MarkdownRenderer.
 export interface MarkdownRendererProps {
   content: string;
   compact?: boolean;
+  disablePadding?: boolean;
 }
 
-export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, compact = false }) => {
-  const Container = compact ? CompactMarkdownContainer : MarkdownContainer;
-  
+// Define wrapper components with explicit props types
+interface WrapperProps {
+  children: React.ReactNode;
+  disablePadding: boolean;
+}
+
+// Destructure disablePadding but don't pass it down
+const CompactWrapper: React.FC<WrapperProps> = ({ children, disablePadding }) => (
+  <CompactMarkdownContainer disablePadding={disablePadding}>{children}</CompactMarkdownContainer>
+);
+
+// Destructure disablePadding but don't pass it down
+const DefaultWrapper: React.FC<WrapperProps> = ({ children, disablePadding }) => (
+  <MarkdownContainer disablePadding={disablePadding}>{children}</MarkdownContainer>
+);
+
+export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
+  content,
+  compact = false,
+  disablePadding = false
+}) => {
+  // Select the appropriate wrapper component
+  const Container = compact ? CompactWrapper : DefaultWrapper;
+
   // Check if content is a string
   if (typeof content !== 'string') {
     console.error('MarkdownRenderer: content is not a string', content);
-    return <Container>Invalid content</Container>;
+    // Pass disablePadding correctly to the selected container component
+    return <Container disablePadding={disablePadding}>Invalid content</Container>;
   }
-  
+
   // Log the content for debugging
   console.log('MarkdownRenderer content:', content);
-  
+
   return (
-    <Container>
+    // Pass disablePadding correctly to the selected container component
+    <Container disablePadding={disablePadding}>
       <ReactMarkdown
         components={{
           code({ className, children, ...props }) {
