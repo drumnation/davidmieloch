@@ -14,9 +14,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   {
     title: 'Game Sage',
     category: 'Personal Innovation Lab',
-    description: `# Game Sage
-
-*Enhance your gaming with AI-powered real-time analysis.*
+    description: `Enhance your gaming with AI-powered real-time analysis.
 
 ## Overview
 
@@ -67,9 +65,7 @@ and commentary.
   {
     title: 'AI Hypnosis Script Generator',
     category: 'Personal Innovation Lab',
-    description: `# AI Hypnosis Script Generator
-
-*Create personalized hypnotherapy experiences with AI.*
+    description: `Create personalized hypnotherapy experiences with AI.
 
 ## Platform Overview
 
@@ -185,9 +181,7 @@ template system for quick customization.
   {
     title: 'Parenting Pilot',
     category: 'Personal Innovation Lab',
-    description: `# Parenting Pilot
-
-*Stay organized and track your child's education effortlessly.*
+    description: `Stay organized and track your child's education effortlessly.
 
 ## Overview
 
@@ -242,9 +236,7 @@ important events, and documents progress.
   {
     title: 'StoryTime',
     category: 'Personal Innovation Lab',
-    description: `# StoryTime
-
-*Create fully-voiced audiobooks with AI assistance.*
+    description: `Create fully-voiced audiobooks with AI assistance.
 
 ## Overview
 
@@ -349,9 +341,7 @@ The process revealed something powerful: AI could effortlessly regenerate all su
   {
     title: 'Life Guidance AI',
     category: 'Personal Innovation Lab',
-    description: `# Life Guidance AI
-
-*Generate a personalized self-help audiobook from your data.*
+    description: `Generate a personalized self-help audiobook from your data.
 
 ## Overview
 
@@ -410,9 +400,7 @@ natural speech.
   {
     title: 'Music Project Management System for Music Licensing',
     category: 'Personal Innovation Lab',
-    description: `# Music Project Management System
-
-*Review, annotate, and manage audio tracks efficiently.*
+    description: `Review, annotate, and manage audio tracks efficiently.
 
 ## Overview
 
@@ -471,9 +459,7 @@ with advanced features for collaboration.
   {
     title: 'AI Brain Garden',
     category: 'Developer Tools',
-    description: `# AI Brain Garden
-
-*Revolutionize development with project-specific AI Brains.*
+    description: `Revolutionize development with project-specific AI Brains.
 
 ## Overview
 
@@ -512,9 +498,7 @@ a unique, highly customizable solution for developers.
   {
     title: 'Code Relay',
     category: 'Developer Tools',
-    description: `# Code Relay
-
-*Control VS Code remotely from your mobile device.*
+    description: `Control VS Code remotely from your mobile device.
 
 ## Overview
 
@@ -547,9 +531,7 @@ communicating via **WebSockets**.
   {
     title: 'Browser-use CLI (FORK)',
     category: 'Developer Tools',
-    description: `# Browser-use CLI (FORK)
-
-*Train AI agents for browser automation via natural language.*
+    description: `Train AI agents for browser automation via natural language.
 
 ## Overview
 
@@ -595,9 +577,7 @@ Leverages vision-capable interaction for analysis.
   {
     title: 'Prompt Forge',
     category: 'Developer Tools',
-    description: `# Prompt Forge
-
-*Create, manage, and enhance AI prompts efficiently.*
+    description: `Create, manage, and enhance AI prompts efficiently.
 
 ## Overview
 
@@ -652,9 +632,7 @@ with an intuitive template categorization system.
   {
     title: 'Model Maestro',
     category: 'Developer Tools',
-    description: `# Model Maestro
-
-*Intelligently route prompts to the optimal AI model.*
+    description: `Intelligently route prompts to the optimal AI model.
 
 ## Overview
 
@@ -713,7 +691,15 @@ with detailed model profiles (**OpenAI**, **Anthropic**,
   {
     title: 'Cursor Directory Structure TS',
     category: 'Developer Tools',
-    description: `# Cursor Directory Structure TS\n\n*Automate project documentation with AI insights.*\n\n## Overview\n\nA **TypeScript** tool enhancing developer productivity by\nauto-documenting project structures and providing\n**AI-powered** insights.\n\nIntegrates with **Cursor IDE** via **\`.cursorrules\`**.\n\n## Core Features\n\n*   **Structure Documentation Automation.**\n*   **AI File/Function Descriptions:** Using **Google Gemini**.\n*   **Real-time File Monitoring & Updates.**\n*   **Automatic Project Type Detection.**\n*   **Multi-Project Support:** Dedicated documentation.\n*   **Cursor IDE Integration:** Via **\`.cursorrules\`**.\n*   **Smart Caching System:** For performance.\n*   **Customizable Ignore Patterns.**\n*   **Interactive Project Setup.**\n\n## Key Benefits\n\n*   **Streamlined Workflows:** Intelligent, self-updating docs.\n*   **Deeper Codebase Understanding:** For developers and AI.\n*   **Reduced Manual Effort:** Automates documentation.\n*   **Improved Onboarding:** Faster understanding of projects.\n*   **Enhanced AI Assistance:** Provides better context to AI tools.`,
+    description: `Automate project documentation with AI insights.
+
+## Overview
+
+A **TypeScript** tool enhancing developer productivity by
+auto-documenting project structures and providing
+**AI-powered** insights.
+
+Integrates with **Cursor IDE** via **\`.cursorrules\`**.\n\n## Core Features\n\n*   **Structure Documentation Automation.**\n*   **AI File/Function Descriptions:** Using **Google Gemini**.\n*   **Real-time File Monitoring & Updates.**\n*   **Automatic Project Type Detection.**\n*   **Multi-Project Support:** Dedicated documentation.\n*   **Cursor IDE Integration:** Via **\`.cursorrules\`**.\n*   **Smart Caching System:** For performance.\n*   **Customizable Ignore Patterns.**\n*   **Interactive Project Setup.**\n\n## Key Benefits\n\n*   **Streamlined Workflows:** Intelligent, self-updating docs.\n*   **Deeper Codebase Understanding:** For developers and AI.\n*   **Reduced Manual Effort:** Automates documentation.\n*   **Improved Onboarding:** Faster understanding of projects.\n*   **Enhanced AI Assistance:** Provides better context to AI tools.`,
     technologies: ['Node', 'TypeScript', 'CLI', 'Gemini'],
     startDate: '2024',
     endDate: '2024',
@@ -732,9 +718,7 @@ with detailed model profiles (**OpenAI**, **Anthropic**,
   {
     title: 'AI Context Generator',
     category: 'Developer Tools',
-    description: `# AI Context Generator
-
-*Extract file trees and content to clipboard for AI context.*
+    description: `Extract file trees and content to clipboard for AI context.
 
 ## Overview
 
@@ -798,9 +782,7 @@ Outputs formatted text suitable for pasting into AI prompts.
   {
     title: 'React Hot TS VSCode Extension Starter',
     category: 'Developer Tools',
-    description: `# React Hot TS VSCode Extension Starter
-
-*Open-source starter for React hot reloading in VS Code extensions.*
+    description: `Open-source starter for React hot reloading in VS Code extensions.
 
 ## Overview
 
@@ -823,9 +805,7 @@ challenge.
   {
     title: 'Code Companion',
     category: 'Developer Tools',
-    description: `# Code Companion
-
-*Streamline TypeScript unit testing with AI generation and fixing.*
+    description: `Streamline TypeScript unit testing with AI generation and fixing.
 
 ## Overview
 
@@ -866,9 +846,7 @@ Developed around the release of **GPT-3.5**.
   {
     title: 'Coparenting Copilot',
     category: 'SaaS Applications',
-    description: `# Coparenting Copilot
-
-*Craft neutral, effective co-parenting communication with AI.*
+    description: `Craft neutral, effective co-parenting communication with AI.
 
 ## Overview
 
@@ -980,9 +958,7 @@ Helps co-parents communicate using neutral, **BIFF**
   {
     title: 'Cheddar',
     category: 'SaaS Applications',
-    description: `# Cheddar
-
-*Take control of your finances with intuitive forecasting.*
+    description: `Take control of your finances with intuitive forecasting.
 
 ## Overview
 
@@ -1061,9 +1037,7 @@ This dynamic system maintains accuracy between your actual and projected finance
   {
     title: 'Medical Supply Inc.',
     category: 'SaaS Applications',
-    description: `# Medical Supply Inc.
-
-*Implementing secure cloud infrastructure and AI solutions.*
+    description: `Implementing secure cloud infrastructure and AI solutions.
 
 ## Overview
 
@@ -1092,9 +1066,7 @@ Working on future **AI-powered** healthcare automation systems.
   {
     title: 'We Learn Music Together',
     category: 'SaaS Applications',
-    description: `# We Learn Music Together (WLMT)
-
-*Develop emotional intelligence through music recognition games.*
+    description: `Develop emotional intelligence through music recognition games.
 
 ## Overview
 
@@ -1143,9 +1115,7 @@ tones across **10 progressive difficulty levels**.
   {
     title: 'Oneironaught Band Marketing',
     category: 'Digital Marketing',
-    description: `# Oneironaught Band Marketing
-
-*Automated content marketing for a NYC metal band.*
+    description: `Automated content marketing for a NYC metal band.
 
 ## Overview
 

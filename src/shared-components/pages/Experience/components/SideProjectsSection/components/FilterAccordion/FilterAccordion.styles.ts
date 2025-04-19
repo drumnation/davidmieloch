@@ -51,7 +51,10 @@ export const AccordionIcon = styled.span<{ $isOpen: boolean }>`
 `;
 
 export const FilterContent = styled.div`
-  padding: 0.5rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
   background-color: white;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;

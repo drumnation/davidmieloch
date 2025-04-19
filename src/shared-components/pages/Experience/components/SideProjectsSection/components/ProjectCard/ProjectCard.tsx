@@ -9,13 +9,33 @@ import { CategoryPill } from '../../SideProjectsSection.styles';
 import { ProjectCategory } from '../../SideProjectsSection.types';
 import { SideProject, MediaItem } from '../../../../Experience.types';
 import Image from 'next/image';
+import {
+    ProjectCardContainer,
+    ProjectHeader,
+    ProjectTitle,
+    HeaderDateRow,
+    HeaderDate,
+    HeaderRepoLink,
+    ProjectMetaContainer,
+    ProjectContentWrapper,
+    ProjectMainContent,
+    ProjectMediaContent,
+    ProjectDescription,
+    ProjectImpact,
+    ProjectLinks
+} from './ProjectCard.styles.ts';
 
 interface ProjectCardProps {
     project: SideProject;
     onImageClick: (image: MediaItem) => void;
+    showTechLabels?: boolean; // Added optional prop
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onImageClick }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+    project,
+    onImageClick,
+    showTechLabels = true // Default to true if not provided
+}) => {
     const renderTechnologies = () => (
         project.technologies && project.technologies.length > 0 && (
             <S.TechnologiesList className="technologies-list">
@@ -24,7 +44,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onImageClick 
                         <TechIcon
                             name={tech}
                             size={20}
-                            showLabel={true}
+                            showLabel={showTechLabels}
                             labelPosition="right"
                             showTooltip={true}
                         />
@@ -35,71 +55,71 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onImageClick 
     );
 
     const renderHeader = () => (
-        <S.ProjectHeader className="project-header">
-            <S.HeaderLeft>
-                <ProjectLogo
-                    name={project.title}
-                    logoPath={project.logoPath}
-                    size={50}
-                    initialsCount={2}
-                    showBorder={project.showBorder}
-                />
-                <S.HeaderContent>
-                    <S.ProjectTitle>{project.title}</S.ProjectTitle>
-                    <S.HeaderDateRow>
+        <ProjectHeader className="project-header">
+            <ProjectTitle>{project.title}</ProjectTitle>
+            <ProjectLogo
+                name={project.title}
+                logoPath={project.logoPath}
+                size={50}
+                initialsCount={2}
+                showBorder={project.showBorder}
+            />
+            <ProjectMetaContainer>
+                {(project.startDate || project.endDate || project.repoUrl) && (
+                    <HeaderDateRow>
                         {(project.startDate || project.endDate) && (
-                            <S.HeaderDate>
+                            <HeaderDate>
                                 {project.startDate || 'N/A'} - {project.endDate || 'Present'}
-                            </S.HeaderDate>
+                            </HeaderDate>
                         )}
                         {project.repoUrl && (
-                            <S.HeaderRepoLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                            <HeaderRepoLink href={project.repoUrl} target="_blank" rel="noopener noreferrer">
                                 <FaGithub /> Repository
-                            </S.HeaderRepoLink>
+                            </HeaderRepoLink>
                         )}
-                    </S.HeaderDateRow>
-                </S.HeaderContent>
-            </S.HeaderLeft>
-            {project.category && (
-                <CategoryPill $category={project.category as ProjectCategory}>
-                    {project.category}
-                </CategoryPill>
-            )}
-        </S.ProjectHeader>
+                    </HeaderDateRow>
+                )}
+                {project.category && (
+                    <CategoryPill $category={project.category as ProjectCategory}>
+                        {project.category}
+                    </CategoryPill>
+                )}
+            </ProjectMetaContainer>
+        </ProjectHeader>
     );
 
     const renderDescription = () => (
-        <S.ProjectDescription
+        <ProjectDescription
             className={`project-description ${project.title === 'Prompt Forge' ? 'prompt-forge-description' : ''}`}>
             <MarkdownRenderer content={project.description} compact={true} />
-        </S.ProjectDescription>
+        </ProjectDescription>
     );
 
     const renderImpact = () => (
         project.impact && (
-            <S.ProjectImpact>
+            <ProjectImpact className="project-impact">
                 <MarkdownRenderer content={project.impact} compact={true} />
-            </S.ProjectImpact>
+            </ProjectImpact>
         )
     );
 
     const renderLinks = () => (
-        <S.ProjectLinks>
-            {project.url && (
+        project.url && (
+            <ProjectLinks className="project-links">
                 <S.ProjectLink href={project.url} target="_blank" rel="noopener noreferrer">
                     <FaGlobe /> Live Demo
                 </S.ProjectLink>
-            )}
-        </S.ProjectLinks>
+            </ProjectLinks>
+        )
     );
 
-    const renderMedia = (isHalfWidth: boolean) => (
+    const renderMedia = (isHalfWidthContext: boolean) => (
         project.media && project.media.length > 0 && (
             <MediaRenderer
                 media={project.media}
                 project={project}
                 onImageClick={onImageClick}
-                isHalfWidthContext={isHalfWidth}
+                isHalfWidthContext={isHalfWidthContext}
             />
         )
     );
@@ -107,32 +127,32 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onImageClick 
     // Render half-width card
     if (project.halfWidth) {
         return (
-            <S.ProjectCardContainer $halfWidth={true}>
+            <ProjectCardContainer $halfWidth={true}>
                 {renderTechnologies()}
                 {renderHeader()}
                 {renderDescription()}
                 {renderImpact()}
                 {renderLinks()}
                 {renderMedia(true)}
-            </S.ProjectCardContainer>
+            </ProjectCardContainer>
         );
     }
 
     // Render full-row card
     return (
-        <S.ProjectCardContainer $halfWidth={false}>
+        <ProjectCardContainer $halfWidth={false}>
             {renderTechnologies()}
             {renderHeader()}
-            <div className="project-content">
-                <div className="project-main">
+            <ProjectContentWrapper>
+                <ProjectMainContent>
                     {renderDescription()}
                     {renderImpact()}
                     {renderLinks()}
-                </div>
-                <div className="project-media">
+                </ProjectMainContent>
+                <ProjectMediaContent>
                     {renderMedia(false)}
-                </div>
-            </div>
-        </S.ProjectCardContainer>
+                </ProjectMediaContent>
+            </ProjectContentWrapper>
+        </ProjectCardContainer>
     );
 }; 

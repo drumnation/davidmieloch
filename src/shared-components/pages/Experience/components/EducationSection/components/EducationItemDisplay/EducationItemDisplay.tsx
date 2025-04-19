@@ -21,15 +21,15 @@ import { MediaItem } from '../../EducationSection.types';
 import { ProjectLogo } from '@shared-components/atoms/ProjectLogo'; // Added import
 import * as PCS from '../../../SideProjectsSection/components/ProjectCard/ProjectCard.styles'; // Corrected import path for ProjectCard styles
 // Import specific layout components from ProjectCard styles
-import { ProjectHeader, HeaderLeft, HeaderContent, ProjectTitle, HeaderDateRow, HeaderDate } from '../../../SideProjectsSection/components/ProjectCard/ProjectCard.styles';
+import { ProjectHeader, ProjectTitle, HeaderDateRow, HeaderDate } from '../../../SideProjectsSection/components/ProjectCard/ProjectCard.styles';
 // Import a styled component for content padding
 import styled from 'styled-components';
 import { MarkdownRenderer } from '@shared-components/molecules/MarkdownRenderer'; // Added import
 
 // Styled component for content area padding
 const PaddedContent = styled.div`
-  padding: 0 0 1rem 0; /* Removed horizontal padding, keep bottom padding */
-  margin-top: 1rem; /* Space below header */
+  padding: 0 1rem 1rem 1rem; // Add horizontal padding back maybe?
+  margin-top: 1rem; 
 `;
 
 export const EducationItemDisplay: React.FC<EducationItemDisplayProps> = ({
@@ -43,39 +43,30 @@ export const EducationItemDisplay: React.FC<EducationItemDisplayProps> = ({
     // TODO: Add structure like .project-content, .project-main, .project-media if needed for styling
     return (
         <PCS.ProjectCardContainer $halfWidth={false}>
-            {/* Use ProjectHeader structure */}
             <ProjectHeader>
-                <HeaderLeft>
+                <div style={{ marginRight: '1rem', flexShrink: 0 }}>
                     <ProjectLogo
                         name={edu.school}
                         logoPath={edu.logoPath}
-                        size={50} // Match project card size
-                        showBorder={true} // Add the border
-                    // Consider adding initialsCount if needed
+                        size={50}
+                        showBorder={true}
                     />
-                    <HeaderContent>
-                        {/* Use ProjectTitle for school name */}
-                        <ProjectTitle>{edu.school}</ProjectTitle>
-                        {/* Use HeaderDateRow and HeaderDate for degree/dates */}
-                        <HeaderDateRow>
-                            <HeaderDate>
-                                {edu.degree}{edu.degree && edu.fieldOfStudy ? ', ' : ''}{edu.fieldOfStudy}
-                            </HeaderDate>
-                            <HeaderDate>{edu.startDate} - {edu.endDate}</HeaderDate>
-                        </HeaderDateRow>
-                    </HeaderContent>
-                </HeaderLeft>
-                {/* Optional: Add category pill if needed later */}
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                    <ProjectTitle>{edu.school}</ProjectTitle>
+                    <HeaderDateRow>
+                        <HeaderDate>
+                            {edu.degree}{edu.degree && edu.fieldOfStudy ? ', ' : ''}{edu.fieldOfStudy}
+                        </HeaderDate>
+                        <HeaderDate>{edu.startDate} - {edu.endDate}</HeaderDate>
+                    </HeaderDateRow>
+                </div>
             </ProjectHeader>
 
-            {/* Wrap description and media in a padded container */}
             <PaddedContent>
-                {/* Render description using MarkdownRenderer */}
                 {edu.description && (
                     <MarkdownRenderer content={edu.description} />
                 )}
-
-                {/* Add margin-top to media if description exists */}
                 {edu.media && edu.media.length > 0 && (
                     <MediaRow style={{ marginTop: edu.description ? '1rem' : '0' }}>
                         {edu.media.map((mediaItem: MediaItem, mediaIndex: number) => (

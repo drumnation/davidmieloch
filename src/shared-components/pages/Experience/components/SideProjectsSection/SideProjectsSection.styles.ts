@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ProjectCategory } from './SideProjectsSection.types';
+import { TechIconContainer } from '@shared-components/atoms/TechIcon/TechIcon.styles';
 
 export const SideProjectsContainer = styled.section`
   margin-bottom: 24px;
@@ -7,6 +8,10 @@ export const SideProjectsContainer = styled.section`
   border-radius: 8px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   padding: 24px;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 15px;
+  }
   
   h2 {
     font-size: 1.25rem;
@@ -31,7 +36,6 @@ export const FiltersContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 2rem;
 `;
 
 export const FilterAccordionHeader = styled.div`
