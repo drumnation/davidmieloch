@@ -25,7 +25,7 @@ export const useHomeData = () => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 100);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -55,7 +55,7 @@ const preloadCriticalResources = () => {
     { href: '/web-app-manifest-192x192.png', as: 'image' },
     // { href: '/images/ai-future.jpg', as: 'image' }, // Removed missing image
   ];
-  
+
   preloadLinks.forEach(link => {
     const preloadLink = document.createElement('link');
     preloadLink.rel = 'preload';
@@ -144,10 +144,10 @@ const getPersonaNavData = (): PersonaNavItem[] => {
 const getMetaData = () => {
   const baseDescription = "The Full-Stack Business Person: A strategic technologist bridging AI, engineering, and business growth with deep technical expertise and broad business acumen.";
   const keywords = ["Full-Stack Business Person", "Lean Tech Leader", "AI Strategy", "React", "Node.js", "Team Transformation"];
-  
+
   // Use utility to enhance description with keywords
   const enhancedDescription = enhanceMetaDescription(baseDescription, keywords);
-  
+
   return {
     description: enhancedDescription,
     keywords: keywords.join(", "),

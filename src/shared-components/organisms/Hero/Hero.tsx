@@ -62,20 +62,20 @@ export const Hero: React.FC<HeroProps> = ({
       }}
     >
       {effectiveImageUrl && (
-        <img 
-          src={effectiveImageUrl} 
+        <img
+          src={effectiveImageUrl}
           onLoad={handleImageLoad}
-          onError={handleImageError} 
-          alt="" 
-          style={{ 
+          onError={handleImageError}
+          alt=""
+          style={{
             position: 'absolute',
             left: '-9999px',
             top: '-9999px',
             width: '1px',
             height: '1px',
             opacity: 0,
-            pointerEvents: 'none' 
-          }} 
+            pointerEvents: 'none'
+          }}
           aria-hidden="true"
         />
       )}
@@ -88,28 +88,39 @@ export const Hero: React.FC<HeroProps> = ({
 
       <S.HeroContent $overlayOpacity={overlayOpacity} style={{ opacity: isLoading ? 0 : 1 }}>
         {title && (
-          <AtomTypography 
-            variant="h1" 
+          <AtomTypography
+            variant="h1"
             color={textColor === 'light' ? 'light' : 'primary'}
             className="mb-4"
           >
             {title}
           </AtomTypography>
         )}
-        
+
         {subtitle && (
-          <AtomTypography 
-            variant="h3" 
+          <AtomTypography
+            variant="h3"
             weight="regular"
             color={textColor === 'light' ? 'light' : 'secondary'}
             className="mb-3"
           >
-            {subtitle}
+            {subtitle.split('·').map((part, i) => (
+              <React.Fragment key={i}>
+                {i === 0 ? (
+                  <>{part.trim()}</>
+                ) : (
+                  <>
+                    <span style={{ display: 'none' }}>·</span>
+                    <span style={{ display: 'block' }}>{part.trim()}</span>
+                  </>
+                )}
+              </React.Fragment>
+            ))}
           </AtomTypography>
         )}
 
         {description && (
-          <AtomTypography 
+          <AtomTypography
             variant="body"
             color={textColor === 'light' ? 'light' : 'secondary'}
             className="mb-3"
@@ -129,8 +140,8 @@ export const Hero: React.FC<HeroProps> = ({
         {cta && (cta.primary || cta.secondary) && (
           <S.ButtonContainer>
             {cta.primary && (
-              <AtomButton 
-                variant="primary" 
+              <AtomButton
+                variant="primary"
                 size="lg"
                 href={cta.primary.link}
               >
@@ -138,8 +149,8 @@ export const Hero: React.FC<HeroProps> = ({
               </AtomButton>
             )}
             {cta.secondary && (
-              <AtomButton 
-                variant="ghost" 
+              <AtomButton
+                variant="ghost"
                 size="lg"
                 href={cta.secondary.link}
                 style={{ marginLeft: '1rem' }}

@@ -233,3 +233,9 @@ export const ButtonContainer = styled.div`
     }
   }
 `;
+
+export const SubtitleWrapper = styled.div`
+  .ai-native-break {
+    display: block;
+  }
+`;
