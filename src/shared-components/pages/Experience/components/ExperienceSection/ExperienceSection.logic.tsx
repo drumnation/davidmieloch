@@ -95,6 +95,7 @@ export const renderExperienceItem = (
   showTechLabels: boolean = true
 ): React.ReactNode => {
   const jobMedia = job.media || [];
+  const isMobileLayout = !showTechLabels; // Determine layout based on showTechLabels
 
   return (
     <ExperienceItemContainer key={`job-${index}`}>
@@ -102,7 +103,7 @@ export const renderExperienceItem = (
         <TechnologyList technologies={job.technologies} showLabels={showTechLabels} />
       )}
 
-      <ExperienceItemHeader job={job} renderLogo={renderLogo} />
+      <ExperienceItemHeader job={job} renderLogo={renderLogo} isMobileLayout={isMobileLayout} />
 
       <ExperienceContent>
         <StyledExperienceDescription>

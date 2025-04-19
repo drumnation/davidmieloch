@@ -4,4 +4,5 @@ import { ExperienceItem as ExperienceItemType } from '../../ExperienceSection.ty
 export interface ExperienceItemHeaderProps {
     job: ExperienceItemType;
     renderLogo?: (company: string) => React.ReactNode;
+    isMobileLayout?: boolean;
 } 

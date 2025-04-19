@@ -37,6 +37,10 @@ export const ExperienceHeader = styled.div`
   @media (max-width: 576px) {
     flex-direction: column;
     align-items: flex-start;
+    padding-top: 2px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `;
 
@@ -89,6 +93,15 @@ export const ExperienceTitle = styled.h3`
   font-weight: 600;
   margin-bottom: 4px;
   color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+
+  @media (max-width: 576px) {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 export const ExperienceMetadataRow = styled.div`
@@ -106,24 +119,59 @@ export const ExperienceCompany = styled.h4`
   color: rgba(0, 0, 0, 0.9);
 `;
 
-export const ExperienceDates = styled.p`
+// Define props for the ExperienceDates styled component
+interface ExperienceDatesProps {
+  isMobileDateLayout?: boolean;
+}
+
+// Pass the props type to the styled component
+export const ExperienceDates = styled.p<ExperienceDatesProps>`
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
+  /* Default style includes bullet point */
   &:before {
     content: "•";
     margin-right: 4px;
+  }
+
+  /* Apply styles conditionally based on the prop within mobile view */
+  @media (max-width: 576px) {
+    ${({ isMobileDateLayout }) =>
+    isMobileDateLayout
+      ? `
+          margin-top: 2px;
+          margin-left: 0;
+          &:before {
+            content: none;
+          }
+        `
+      : ''} // Apply no extra styles if prop is false/undefined
   }
 `;
 
-export const ExperienceLocation = styled.p`
-  font-size: 0.8rem;
-  color: rgba(0, 0, 0, 0.6);
-  margin: 0;
-  &:before {
-    content: "•";
-    margin-right: 4px;
+export const ExperienceLocation = styled.span`
+  font-size: 0.875rem;
+  color: #555;
+  margin-left: 8px; // Default margin for non-mobile
+`;
+
+// Styles for Mobile Header Layout
+export const MobileHeaderContentColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0px; // Space between logo and text column
+
+  /* Style overrides for direct children in mobile column */
+  ${ExperienceCompany} {
+    margin-bottom: 4px; // Space below company name
   }
+  ${ExperienceLocation} {
+    margin-left: 0; // Remove default left margin
+    margin-bottom: 4px; // Space below location
+  }
+  /* Dates styling removed from here */
 `;
 
 export const ExperienceDescription = styled.div`
