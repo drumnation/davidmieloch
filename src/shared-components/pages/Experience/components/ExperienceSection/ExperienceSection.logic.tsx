@@ -176,8 +176,23 @@ export const renderExperienceItem = (
                   nextControlIcon={<FaChevronRight size={16} />}
                   previousControlIcon={<FaChevronLeft size={16} />}
                   styles={{
-                    control: { backgroundColor: 'rgba(0, 0, 0, 0.7)', border: 'none', color: 'white', borderRadius: '50%', width: '30px', height: '30px', '&[data-inactive]': { opacity: 0.3, cursor: 'default' }, '&:not([data-inactive]):hover': { backgroundColor: 'rgba(0, 0, 0, 0.9)' } },
-                    indicator: { width: '8px', height: '8px', backgroundColor: 'rgba(0, 0, 0, 0.3)', transition: 'width 250ms ease', '&[data-active]': { width: '16px', backgroundColor: 'rgba(0, 0, 0, 0.7)' } },
+                    control: {
+                      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                      border: 'none',
+                      color: 'white',
+                      borderRadius: '50%',
+                      width: '30px',
+                      height: '30px',
+                      '&[data-inactive]': { opacity: 0.3, cursor: 'default' },
+                      '&:not([data-inactive]):hover': { backgroundColor: 'rgba(0, 0, 0, 0.9)' }
+                    },
+                    indicator: {
+                      width: '8px',
+                      height: '8px',
+                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                      transition: 'width 250ms ease',
+                      '&[data-active]': { width: '16px', backgroundColor: 'rgba(0, 0, 0, 0.7)' }
+                    },
                     indicators: { bottom: '-5px' }
                   }}
                 >
