@@ -21,13 +21,11 @@ export const ProfileContainer = styled(Paper) <PaperProps & { className?: string
   box-shadow: var(--mantine-shadow-sm);
   background-color: var(--mantine-color-gray-0);
   display: flex;
-  flex-direction: column;
   margin-bottom: 24px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+  // Default to row for desktop, as this container is only used there now
+  flex-direction: row;
+  align-items: flex-start;
 `;
 
 export const ProfileDetails = styled.div`
@@ -36,9 +34,23 @@ export const ProfileDetails = styled.div`
   align-items: center;
   width: 100%;
 
+  // Apply mobile-specific styles
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    background-color: var(--mantine-color-gray-0);
+    padding: var(--mantine-spacing-xl) 2px; // Vertical padding, 2px horizontal
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); // Subtle bottom shadow
+    margin-bottom: var(--mantine-spacing-xl); // Add some space below
+  }
+
+  // Existing styles for sm breakpoint and up
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: row;
     align-items: flex-start;
+    // Reset mobile styles if necessary (optional, depending on desired desktop look)
+    // background-color: transparent;
+    // padding: 0;
+    // box-shadow: none;
+    // margin-bottom: 0;
   }
 `;
 
@@ -81,6 +93,10 @@ export const ProfileName = styled.h1`
   color: var(--mantine-color-blue-filled);
   text-transform: uppercase;
   text-align: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: calc(var(--mantine-font-size-xl) * 1.4);
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
     font-size: calc(var(--mantine-font-size-xl) * 1.4);

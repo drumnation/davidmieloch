@@ -91,14 +91,15 @@ export const renderExperienceItem = (
   index: number,
   renderLogo?: (company: string) => React.ReactNode,
   setModalImage?: (image: ModalImage) => void,
-  setPinnedJob?: (company: string) => void
+  setPinnedJob?: (company: string) => void,
+  showTechLabels: boolean = true
 ): React.ReactNode => {
   const jobMedia = job.media || [];
 
   return (
     <ExperienceItemContainer key={`job-${index}`}>
       {job.technologies && job.technologies.length > 0 && (
-        <TechnologyList technologies={job.technologies} />
+        <TechnologyList technologies={job.technologies} showLabels={showTechLabels} />
       )}
 
       <ExperienceItemHeader job={job} renderLogo={renderLogo} />
