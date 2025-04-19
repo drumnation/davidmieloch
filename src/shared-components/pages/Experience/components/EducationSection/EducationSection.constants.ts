@@ -58,14 +58,7 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
         url: 'https://www.youtube.com/embed/W0LfRSNiCAo?si=RZCPRmVbj-od0hmb',
         title: 'Piano Roll Project',
         width: 'half'
-      },
-      {
-        type: 'image',
-        url: '/media/photo/musichead.jpg',
-        title: 'MusicHead Application',
-        width: 'full',
-        height: 500
-      },
+      }
     ]
   },
   {
