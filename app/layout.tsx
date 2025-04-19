@@ -5,6 +5,7 @@ import { PlayerProvider } from '../src/providers/PlayerProvider';
 import '../src/styles/globals.css';
 import '../src/styles/print.css';
 import '@mantine/core/styles.css';
+import '@mantine/carousel/styles.css';
 
 export const metadata: Metadata = {
   title: 'David Mieloch Portfolio',

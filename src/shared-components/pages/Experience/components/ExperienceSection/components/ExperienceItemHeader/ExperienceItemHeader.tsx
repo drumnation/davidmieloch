@@ -11,6 +11,9 @@ import {
     ExperienceDates,
     ExperienceLocation,
     MobileHeaderContentColumn,
+    MobileTitleRow,
+    MobileLocationDateRow,
+    MobileDividerLine,
 } from '../../styles/ExperienceItem.styles'; // Path adjusted up one level
 import { stringToColor, LetterAvatar } from '../../../../utils/avatarHelpers'; // Corrected path adjustment
 import { isImageFile, MainImageStyle, IframeStyle } from '../../ExperienceSection.utils'; // Path adjusted up one level
@@ -61,7 +64,10 @@ export const ExperienceItemHeader: React.FC<ExperienceItemHeaderProps> = ({
         <StyledExperienceHeader className="project-header">
             {isMobileLayout ? (
                 <>
-                    <ExperienceTitle>{job.title}</ExperienceTitle>
+                    <MobileTitleRow>
+                        <ExperienceTitle>{job.title}</ExperienceTitle>
+                        <MobileDividerLine />
+                    </MobileTitleRow>
                     <HeaderLeft>
                         {renderLogoElement()}
                         <MobileHeaderContentColumn>
@@ -69,9 +75,12 @@ export const ExperienceItemHeader: React.FC<ExperienceItemHeaderProps> = ({
                             <ExperienceLocation>{job.location}</ExperienceLocation>
                         </MobileHeaderContentColumn>
                     </HeaderLeft>
-                    <ExperienceDates isMobileDateLayout={true}>
-                        {job.startDate} - {job.endDate}
-                    </ExperienceDates>
+                    <MobileLocationDateRow>
+                        <MobileDividerLine />
+                        <ExperienceDates isMobileDateLayout={true}>
+                            {job.startDate} - {job.endDate}
+                        </ExperienceDates>
+                    </MobileLocationDateRow>
                 </>
             ) : (
                 <HeaderLeft>

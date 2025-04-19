@@ -49,4 +49,5 @@ export interface MediaItem {
   displayInline?: boolean;
   items?: MediaItem[];
   layout?: 'default' | 'stack';
+  useMobileCarousel?: boolean;
 } 

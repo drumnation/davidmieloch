@@ -124,6 +124,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
                 width: "30%",
                 showLogo: true,
                 logoHasBorderRadius: true,
+                useMobileCarousel: true,
             },
             {
                 type: "image",
@@ -132,6 +133,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
                 width: "30%",
                 showLogo: true,
                 logoHasBorderRadius: true,
+                useMobileCarousel: true,
             },
             {
                 type: "image",
@@ -140,6 +142,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
                 width: "30%",
                 showLogo: true,
                 logoHasBorderRadius: true,
+                useMobileCarousel: true,
             },
             {
                 type: "link",
@@ -188,6 +191,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
                         url: "/media/otg/screenshots/order-ahead-2.png",
                         title: "Gate-Ready Airport Pizza App",
                         showLogo: true,
+                        useMobileCarousel: true,
                     },
                     {
                         type: "image",
@@ -215,19 +219,21 @@ Perfect for creating professional digital menu boards, promotional displays, and
             {
                 type: "pdf",
                 url: "/media/otg/OTG Case Studies.pdf",
-                title: "OTG Mobile Ordering Case Studies",
+                title: "Mobile Ordering",
                 thumbnailUrl: "/media/otg/thumbnails/case-studies-1.png",
                 height: 720,
-                showLogo: true
+                showLogo: true,
+                useMobileCarousel: true,
             },
             {
                 type: "pdf",
                 url: "/media/otg/OTG Brain Storm - Print.pdf",
-                title: "OTG Project Brainstorming Session",
+                title: "Rain Pub Tech Brainstorm",
                 thumbnailUrl: "/media/otg/thumbnails/brain-storm-1.png",
                 width: "48.5%",
                 height: 720,
-                showLogo: true
+                showLogo: true,
+                useMobileCarousel: true,
             },
             {
                 type: "pdf",
@@ -236,7 +242,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
                 thumbnailUrl: "/media/otg/thumbnails/transition-react-1.png",
                 width: "100%",
                 height: 300,
-                showLogo: true
+                showLogo: true,
             }
         ]
     },
@@ -354,6 +360,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 showLogo: true,
                 description: "Hubspot Blog with Call to Action",
                 width: "32%",
+                useMobileCarousel: true,
             },
             {
                 type: "image",
@@ -362,6 +369,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 showLogo: true,
                 description: "Professionally Curated Original Content",
                 width: "32%",
+                useMobileCarousel: true,
             },
             {
                 type: "image",
@@ -370,6 +378,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 showLogo: true,
                 description: "Pushing traffic here from Social Media",
                 width: "32%",
+                useMobileCarousel: true,
             }
         ]
     },
@@ -402,6 +411,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 showLogo: true,
                 logoHasBorder: true,
                 height: 720,
+                useMobileCarousel: true,
                 description: "Designed and created this two-page case study showcasing Saturn's transformation of a legal research firm's failing SAS environment. Crafted compelling visuals and persuasive copy highlighting dramatic performance improvements (**386% faster processing**, **689% faster data operations**), which equipped sales team members with powerful collateral for targeted client outreach."
             },
             {
@@ -413,6 +423,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 showLogo: true,
                 logoHasBorder: true,
                 height: 720,
+                useMobileCarousel: true,
                 description: 'Designed and wrote this two-page thought leadership brochure addressing **data management challenges** for Saturn Business Systems. Created compelling visuals and persuasive messaging about translating business goals into actionable data strategies, which I used for personal outreach to industry experts to participate in my thought leadership marketing initiative.'
             },
             {
@@ -434,7 +445,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 width: '48%',
                 showLogo: true,
                 logoHasBorder: true,
-                description: "Client testimonial showcasing Saturn's migration of a failing SAS environment to Power 8/AIS architecture, achieving **386% faster processing** and **689% faster data operations**. Jobs that previously took hours now complete in 20 minutes. Includes CTA for datasheet download and discovery call."
+                description: "Client testimonial showcasing Saturn's migration of a failing SAS environment to Power 8/AIS architecture, achieving **386% faster processing** and **689% faster data operations**. Jobs that previously took hours now complete in 20 minutes. Includes CTA for datasheet download and discovery call.",
             },
             {
                 type: 'embed',
@@ -444,7 +455,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 width: '48%',
                 showLogo: true,
                 logoHasBorder: true,
-                description: "Brief cold outreach video from Jonathan Karp of Saturn Business Systems targeting organizations with outdated SQL Server installations. Presents alternatives to expensive upgrades, highlighting Saturn's data warehouse solutions, cost comparison tools, and ROI analysis to help prospects make informed decisions about their aging SQL infrastructure."
+                description: "Brief cold outreach video from Jonathan Karp of Saturn Business Systems targeting organizations with outdated SQL Server installations. Presents alternatives to expensive upgrades, highlighting Saturn's data warehouse solutions, cost comparison tools, and ROI analysis to help prospects make informed decisions about their aging SQL infrastructure.",
             },
         ]
     },

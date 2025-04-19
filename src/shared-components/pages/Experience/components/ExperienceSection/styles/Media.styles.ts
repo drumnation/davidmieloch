@@ -42,6 +42,11 @@ export const MediaContainer = styled.div<{ $isWide?: boolean }>`
   @media (max-width: 768px) {
     flex: 0 0 100%;
     max-width: 100%;
+    margin-top: 25px;
+  }
+  
+  @media (max-width: 576px) {
+    margin-top: 25px;
   }
   
   img {

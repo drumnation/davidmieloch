@@ -480,10 +480,9 @@ export const MediaContainer = styled.div<{ $isWide?: boolean }>`
 `;
 
 // Add MediaGroup container for group media type
-const MediaGroup = styled.div<{ $layout?: 'default' | 'stack'; $width?: string }>`
-  display: flex;
-  flex-direction: ${props => props.$layout === 'stack' ? 'column' : 'row'};
-  flex-wrap: wrap;
+const MediaGroup = styled.div<{ $layout?: 'default' | 'stack'; $width?: string, columns?: number }>`
+  display: grid;
+  grid-template-columns: repeat(${props => props.columns || 1}, 1fr);
   gap: 8px;
   width: ${props => props.$width || '100%'};
   margin-bottom: 16px;
@@ -510,13 +509,6 @@ const MediaGroup = styled.div<{ $layout?: 'default' | 'stack'; $width?: string }
   @media (max-width: 768px) {
     width: 100%;
     flex: 0 0 100%;
-    
-    &.half-width-group,
-    &.third-width-group,
-    &.quarter-width-group {
-      width: 100%;
-      flex: 0 0 100%;
-    }
   }
 `;
 

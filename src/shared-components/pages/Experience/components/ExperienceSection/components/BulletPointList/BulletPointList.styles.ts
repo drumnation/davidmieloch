@@ -5,6 +5,11 @@ export const BulletList = styled.div`
   margin-top: 12px;
   padding-left: 16px;
   padding-right: 16px;
+
+  @media (max-width: 576px) {
+    margin-bottom: 10px; // Keep existing bottom margin for mobile only
+    padding-bottom: 15px; // Add padding to create ~25px total space (10+15)
+  }
 `;
 
 export const BulletItem = styled.div`

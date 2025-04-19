@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MantineTheme, useMantineTheme } from '@mantine/core';
+import '@mantine/carousel/styles.css'; // Import Carousel CSS
 
 import { ExperienceSectionProps, ExperienceItem as ExperienceItemType } from './ExperienceSection.types';
 import { WORK_EXPERIENCE, OLDER_EXPERIENCE, SECTION_TITLE } from '@shared-components/pages/Experience/components/ExperienceSection/ExperienceSection.constants';

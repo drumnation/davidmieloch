@@ -91,16 +91,13 @@ export const ExperienceContent = styled.div`
 export const ExperienceTitle = styled.h3`
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin: 0;
   color: rgba(0, 0, 0, 0.9);
-  width: 100%;
+  flex-shrink: 0;
+  margin-right: 8px;
 
   @media (max-width: 576px) {
     font-size: 0.9rem;
-    margin-bottom: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 `;
 
@@ -129,6 +126,7 @@ export const ExperienceDates = styled.p<ExperienceDatesProps>`
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
+  flex-shrink: 0;
   /* Default style includes bullet point */
   &:before {
     content: "•";
@@ -193,4 +191,30 @@ export const ExperienceDescription = styled.div`
       }
     }
   }
+`;
+
+// New container for mobile location and date row
+export const MobileLocationDateRow = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 0px;
+  justify-content: space-between;
+`;
+
+// New divider line for mobile view
+export const MobileDividerLine = styled.div`
+  flex-grow: 1;
+  border-top: 1px dashed #e0e0e0;
+  margin: 0 8px;
+  position: relative;
+  top: -1px;
+`;
+
+// New row container for mobile title and divider line
+export const MobileTitleRow = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
 `; 

@@ -26,6 +26,7 @@ interface MediaItemRendererProps {
     mediaIndex: number; // Index of this media item within the parent
     jobMediaLength: number; // Total number of media items for the parent job
     setModalImage?: (image: ModalImage) => void;
+    isMobileLayout?: boolean; // Add the optional prop
 }
 
 export const MediaItemRenderer: React.FC<MediaItemRendererProps> = ({
@@ -35,26 +36,31 @@ export const MediaItemRenderer: React.FC<MediaItemRendererProps> = ({
     mediaIndex,
     jobMediaLength,
     setModalImage,
+    isMobileLayout = false, // Default to false if not provided
 }) => {
-    // Calculate layout properties
-    const isQuarterWidth = mediaItem.width === '23.5%';
-    const isThirdWidth = mediaItem.width === '31.33%';
+    // Calculate layout properties only if not mobile
+    const isQuarterWidth = !isMobileLayout && mediaItem.width === '23.5%';
+    const isThirdWidth = !isMobileLayout && mediaItem.width === '31.33%';
     const isHalfWidth =
-        mediaItem.width === '49%' ||
-        mediaItem.width === '48%' ||
-        mediaItem.width === '48.5%' ||
-        mediaItem.width === 'half' ||
-        mediaItem.width === '50%';
+        !isMobileLayout &&
+        (mediaItem.width === '49%' ||
+            mediaItem.width === '48%' ||
+            mediaItem.width === '48.5%' ||
+            mediaItem.width === 'half' ||
+            mediaItem.width === '50%');
     const isSpecialLayout = isQuarterWidth || isThirdWidth || isHalfWidth;
 
     const $isWide =
+        !isMobileLayout && // Only wide on desktop
         !isSpecialLayout &&
         (mediaItem.width === 'full' ||
             mediaItem.width === '100%' ||
             jobMediaLength === 1);
 
-    const widthStyle =
-        !isSpecialLayout && !$isWide && mediaItem.width
+    // Set width to 100% on mobile, otherwise calculate based on props
+    const widthStyle = isMobileLayout
+        ? { flex: '0 0 100%', maxWidth: '100%' }
+        : !isSpecialLayout && !$isWide && mediaItem.width
             ? { flex: `0 0 ${mediaItem.width}`, maxWidth: mediaItem.width }
             : {};
 
@@ -63,7 +69,7 @@ export const MediaItemRenderer: React.FC<MediaItemRendererProps> = ({
 
     // Props without the key
     const commonContainerProps = {
-        $isWide: $isWide,
+        $isWide: isMobileLayout ? true : $isWide, // Always "wide" (full width) on mobile
         style: widthStyle,
     };
 
