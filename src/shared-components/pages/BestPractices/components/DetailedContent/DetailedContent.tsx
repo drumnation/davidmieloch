@@ -82,7 +82,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           My journey in optimizing software development for enterprise-scale React, Node.js, and TypeScript projects
           has been one of continuous learning and refinement. I&apos;ve navigated the challenges faced by growing teams,
           moving from cumbersome, outdated practices to the streamlined, highly productive workflows enabled by modern
-          tooling and architectural patterns. The key to this transformation lies in a strategic combination of component
+          tooling and architectural patterns. <br /><br />The key to this transformation lies in a strategic combination of component
           design, code sharing, a robust testing strategy, and a deep understanding of the JavaScript/TypeScript ecosystem.
         </DetailedContentText>
       </section>
@@ -97,19 +97,19 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
         <DetailedContentText>
           My approach to component organization starts with a fundamental question: <em>Will this component be reused across
             multiple applications or contexts?</em> For components intended for widespread reuse – UI elements like buttons,
-          form fields, or data display components – I employ Atomic Design principles. This creates a robust library of
+          form fields, or data display components – I employ Atomic Design principles. <br /><br />This creates a robust library of
           foundational building blocks, promoting consistency and reducing duplication.
         </DetailedContentText>
 
         <DetailedContentText>
           However, not all components are created equal. Application-specific components, tightly coupled to a particular
-          feature or workflow, often <em>don&apos;t</em> benefit from the strict constraints of Atomic Design. For these, a more
+          feature or workflow, often <em>don&apos;t</em> benefit from the strict constraints of Atomic Design. <br /><br />For these, a more
           traditional hierarchical structure, organized around the application&apos;s feature set, is more appropriate.
         </DetailedContentText>
 
         <DetailedContentText>
           The decision-making process is crucial. I&apos;ve developed a set of guidelines, refined over five years of practical
-          application, to determine the optimal structure for each component. This hybrid approach – Atomic Design for
+          application, to determine the optimal structure for each component. <br /><br />This hybrid approach – Atomic Design for
           shareable elements, hierarchical design for application-specific logic – provides the flexibility and
           maintainability needed for large-scale React applications.
         </DetailedContentText>
@@ -142,7 +142,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
 
         <DetailedContentText>
           Prettier is integrated with ESLint to handle code formatting, eliminating any subjective debates about code style.
-          The key to scaling this across a monorepo is to create shared configuration packages. These packages define the
+          The key to scaling this across a monorepo is to create shared configuration packages. <br /><br />These packages define the
           ESLint, Prettier, and TypeScript rules that are used consistently across all projects within the monorepo,
           eliminating duplicated configuration and ensuring a unified development experience.
         </DetailedContentText>
@@ -175,7 +175,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
 
         <DetailedContentText>
           I generally avoid fully mounted component tests, as they often require extensive mocking and can be brittle and
-          uninformative. The key is to develop a &quot;nose&quot; for choosing the right type of test for each situation, maximizing
+          uninformative. <br /><br />The key is to develop a &quot;nose&quot; for choosing the right type of test for each situation, maximizing
           the value of the testing effort while minimizing unnecessary complexity.
         </DetailedContentText>
       </section>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { IconBrandLinkedin } from '@tabler/icons-react';
 import {
   LetsWorkTogetherContainer,
   TitleWrapper,
@@ -37,11 +38,11 @@ export const LetsWorkTogether: React.FC<LetsWorkTogetherProps> = ({ className })
         <SectionLabel id="lets-work-together" />
         <SectionIcon>
           <IconWrapper>
-            <Image 
-              src="/icons/collaboration.svg" 
-              alt="Collaboration Icon" 
-              width={32} 
-              height={32} 
+            <Image
+              src="/icons/collaboration.svg"
+              alt="Collaboration Icon"
+              width={32}
+              height={32}
               priority={true}
             />
           </IconWrapper>
@@ -49,23 +50,23 @@ export const LetsWorkTogether: React.FC<LetsWorkTogetherProps> = ({ className })
         <TitleWrapper>
           <StyledContentTitle>Let's Work Together</StyledContentTitle>
         </TitleWrapper>
-        
+
         <EnhancedContentText>
           I help organizations establish modern development practices and transform their teams as a <span className="role">Lead</span>, <span className="role">Principal</span>, or <span className="role">Staff</span> level engineer with deep expertise in <span className="expertise">React/React Native</span> and <span className="expertise">Enterprise AI</span> solutions.
         </EnhancedContentText>
-        
+
         <IntroList>
           <div className="skill-tag">Scalable Architecture</div>
-          <div className="skill-tag">Advanced Workflows</div>
           <div className="skill-tag react">React Ecosystem</div>
-          <div className="skill-tag ai">AI Integration</div>
+          <div className="skill-tag">Advanced Workflows</div>
           <div className="skill-tag">Technical Leadership</div>
+          <div className="skill-tag ai">AI Integration</div>
           <div className="skill-tag">Team Transformation</div>
         </IntroList>
-        
+
         <HighlightedCard>
           <CardTitle>How I Can Collaborate With You</CardTitle>
-          
+
           <ContentList>
             <ul>
               <li>
@@ -86,27 +87,32 @@ export const LetsWorkTogether: React.FC<LetsWorkTogetherProps> = ({ className })
               </li>
             </ul>
           </ContentList>
-          
+
           <SpecialtyCard>
             <SpecialtyTitle>Enterprise AI Development Team Transformation</SpecialtyTitle>
             <SpecialtyText>
-              I specialize in guiding engineering teams through successful AI integration and transformation. From establishing 
-              AI development workflows and architecture to implementing best practices for sustainable AI-driven solutions, 
+              I specialize in guiding engineering teams through successful AI integration and transformation. From establishing
+              AI development workflows and architecture to implementing best practices for sustainable AI-driven solutions,
               I can help your organization navigate this complex technical landscape regardless of the engagement model.
             </SpecialtyText>
           </SpecialtyCard>
-          
+
           <ReactSpecialtyCard>
             <ReactSpecialtyTitle>React & React Native Expertise</ReactSpecialtyTitle>
             <SpecialtyText>
-              With extensive experience in React and React Native ecosystems, I bring deep knowledge of component architecture, 
-              state management, performance optimization, and cross-platform development. I can help establish enterprise-grade 
+              With extensive experience in React and React Native ecosystems, I bring deep knowledge of component architecture,
+              state management, performance optimization, and cross-platform development. I can help establish enterprise-grade
               patterns for complex applications, monorepos, and design systems that scale.
             </SpecialtyText>
           </ReactSpecialtyCard>
-          
+
           <ButtonContainer>
-            <PrimaryButton href="/contact">
+            <PrimaryButton
+              href="https://www.linkedin.com/in/davidmieloch/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconBrandLinkedin size={20} style={{ marginRight: '8px' }} />
               Get In Touch
             </PrimaryButton>
           </ButtonContainer>

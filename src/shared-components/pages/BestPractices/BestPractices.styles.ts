@@ -31,22 +31,22 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .best-practices-hero h1 {
-    font-size: 3.5rem !important;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
-    letter-spacing: -0.5px !important;
-    font-weight: 800 !important;
-    position: relative !important;
-    z-index: 2 !important;
+    font-size: 3.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    letter-spacing: -0.5px;
+    font-weight: 800;
+    position: relative;
+    z-index: 2;
   }
 
   .best-practices-hero p {
-    font-size: 1.5rem !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    font-weight: 400 !important;
-    position: relative !important;
-    z-index: 2 !important;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 400;
+    position: relative;
+    z-index: 2;
   }
 
   @keyframes subtle-zoom {
@@ -88,8 +88,12 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     padding: 0 2rem;
     
-    @media (max-width: 576px) {
-      padding: 0 1.25rem;
+    @media (max-width: 768px) {
+      padding: 0 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0 1rem;
     }
   }
 `;
@@ -97,15 +101,15 @@ export const GlobalStyles = createGlobalStyle`
 // Animation variants
 export const fadeIn: AnimationVariants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1
   }
 };
 
 export const fadeInUp: AnimationVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0
   }
 };
@@ -119,8 +123,8 @@ export const staggerContainer: AnimationVariants = {
 
 export const scaleIn: AnimationVariants = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1
   }
 };
@@ -171,8 +175,12 @@ export const ContentContainer = styled.div`
   margin: 0 auto;
   padding: 0 2rem;
   
-  @media (max-width: 576px) {
-    padding: 0 1.25rem;
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 1rem;
   }
 `;
 
@@ -205,7 +213,7 @@ export const SectionDescription = styled.p`
 
 export const CategoriesContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
   width: 100%;
   margin-bottom: 4rem;
@@ -214,16 +222,24 @@ export const CategoriesContainer = styled.div`
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
 `;
 
 export const CategoryCard = styled.div`
   background-color: ${({ theme }) => theme.colors.background.paper};
   border-radius: 8px;
-  padding: 24px;
+  padding: 20px;
   box-shadow: ${({ theme }) => theme.shadows.card};
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 480px) {
+    padding: 16px;
+  }
 `;
 
 export const CategoryTitle = styled.h3`

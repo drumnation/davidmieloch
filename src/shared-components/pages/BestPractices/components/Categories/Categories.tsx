@@ -23,26 +23,32 @@ export const Categories: React.FC<CategoriesProps> = ({
   className,
   categories
 }) => {
+  // Restore initial state
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Restore the observer logic
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          console.log("Categories Observer Intersecting!"); // Keep log for debugging
           setIsVisible(true);
         }
       },
-      { rootMargin: "-100px", threshold: 0.1 }
+      // Remove rootMargin, keep threshold
+      { threshold: 0.1 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    const currentRef = containerRef.current; // Capture ref value
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

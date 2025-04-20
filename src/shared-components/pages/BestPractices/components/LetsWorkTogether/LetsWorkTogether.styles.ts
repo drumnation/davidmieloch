@@ -128,8 +128,11 @@ export const HighlightedCard = styled.div`
   margin-top: 32px;
   margin-bottom: 32px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transform: scale(1.05);
   transform-origin: center center;
+  
+  @media (max-width: 768px) {
+     padding: 24px;
+  }
 `;
 
 export const SpecialtyCard = styled.div`
@@ -258,7 +261,10 @@ export const ButtonContainer = styled.div`
 `;
 
 export const PrimaryButton = styled.a`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   background-color: #805AD5;
   color: white;
   font-weight: bold;
@@ -275,46 +281,71 @@ export const PrimaryButton = styled.a`
     transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(0,0,0,0.15);
   }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 export const IntroList = styled.div`
+  // Mobile-first: Default to flex wrap for smaller screens
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 24px 0 30px;
-  gap: 16px;
-  
+  gap: 10px; // Mobile gap
+  margin-bottom: 64px; // Mobile margin
+
   .skill-tag {
-    background-color: #f7f7f7;
-    border: 1px solid #e2e2e2;
-    border-radius: 30px;
-    padding: 8px 16px;
-    font-size: 0.95rem;
+    background-color: #e9d8fd;
+    color: #6b46c1;
+    padding: 6px 12px; // Mobile padding
+    border-radius: 20px;
+    font-size: 0.85rem; // Mobile font size
     font-weight: 500;
-    color: #4a5568;
     display: inline-flex;
     align-items: center;
-    
-    &:before {
+    gap: 6px;
+    white-space: nowrap;
+
+    &::before {
       content: '';
-      width: 12px;
-      height: 12px;
-      display: inline-block;
-      background-color: #805AD5;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      margin-right: 8px;
+      background-color: #805AD5;
     }
     
     &.react {
-      &:before {
-        background-color: #2b6cb0;
-      }
+      background-color: #e6f7ff;
+      color: #2b6cb0;
+      &::before { background-color: #3182ce; }
     }
     
     &.ai {
-      &:before {
-        background-color: #6b46c1;
-      }
+      background-color: #f0fff4;
+      color: #2f855a;
+      &::before { background-color: #38a169; }
+    }
+  }
+
+  // Apply Grid layout for medium screens and up (adjust breakpoint if needed)
+  @media (min-width: 769px) { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 columns
+    // Align items within the grid cells (optional, adjust as needed)
+    // justify-items: center; // Center content within each grid cell horizontally
+    gap: 16px; // Adjust gap for desktop grid
+    margin-bottom: 48px; // Adjust margin for desktop
+    max-width: 900px; // Optional: constrain max width of the grid container
+    margin-left: auto;
+    margin-right: auto;
+
+    .skill-tag {
+      padding: 8px 16px; // Restore desktop padding
+      font-size: 0.9rem; // Restore desktop font size
+      // Ensure tags justify self if needed, but default stretch might be fine
+      // justify-self: center; 
     }
   }
 `; 

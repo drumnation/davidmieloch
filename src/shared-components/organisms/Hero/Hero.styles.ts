@@ -64,7 +64,6 @@ export const HeroContainer = styled.section<{
   justify-content: center;
   padding: 0;
   margin: 0;
-  overflow: hidden;
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -116,8 +115,8 @@ export const HeroContainer = styled.section<{
 `;
 
 export const HeroContent = styled.div<{ $overlayOpacity?: number }>`
-  max-width: 700px;
   width: 90%;
+  max-width: 700px;
   margin: 0 auto;
   text-align: center;
   z-index: 2 !important;
@@ -147,6 +146,8 @@ export const HeroContent = styled.div<{ $overlayOpacity?: number }>`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   /* Subtitle styles */

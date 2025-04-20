@@ -22,6 +22,7 @@ export const ReactNativeFeatureContainer = styled.div`
   
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -32,11 +33,22 @@ export const FeatureIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #000000;
+  border-radius: 50%;
+  padding: 0.5rem; 
   color: ${({ theme }) => theme.colors.primary.main};
   flex-shrink: 0;
+
+  img {
+    filter: brightness(0) invert(1);
+  }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     margin-bottom: 0.75rem;
+    width: 3rem; 
+    height: 3rem;
+    padding: 0.6rem;
+    margin-right: 0; 
   }
 `;
 
@@ -93,4 +105,4 @@ export const ItemIcon = styled.span`
 export const FeatureItemText = styled.span`
   font-size: 0.95rem;
   color: ${({ theme }) => theme.colors.text.primary};
-`; 
+`;

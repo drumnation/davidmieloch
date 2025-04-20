@@ -20,24 +20,42 @@ export const CategoryCardContainer = styled.div`
     opacity: 1;
     transform: translateY(0);
   }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px;
+  }
 `;
 
 export const CategoryTitle = styled.h3`
   font-size: 1.5rem;
   margin: 0 0 24px 0;
   color: ${({ theme }) => theme.colors.primary.main};
-  height: 36px; /* Fixed height for alignment */
   display: flex;
   align-items: center;
+  word-break: break-word;
+
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
 `;
 
 export const CategoryDescription = styled.p`
   font-size: 1rem;
   margin: 0 0 32px 0;
   color: ${({ theme }) => theme.colors.text.secondary};
-  height: 48px; /* Fixed height for alignment */
   display: flex;
   align-items: flex-start;
+  word-break: break-word;
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
 `;
 
 export const ItemsList = styled.div`
@@ -70,12 +88,18 @@ export const ItemContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 `;
 
 export const ItemTitle = styled.h4`
   font-size: 1.1rem;
   margin: 0 0 6px 0;
   color: ${({ theme }) => theme.colors.text.primary};
+  word-break: break-word;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 export const ItemDescription = styled.p`

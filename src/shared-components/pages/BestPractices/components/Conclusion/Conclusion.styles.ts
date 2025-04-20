@@ -14,6 +14,7 @@ export const ConclusionContainer = styled.div`
 
 export const TitleWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 1.5rem;
 `;
@@ -24,10 +25,11 @@ export const SectionIcon = styled.div`
   justify-content: center;
   width: 48px;
   height: 48px;
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.background.light};
+  border-radius: 50%;
+  background-color: #000000;
   padding: 8px;
-  margin-right: 16px;
+  margin-right: 0;
+  margin-bottom: 1rem;
 
   svg, img {
     width: 100%;
@@ -48,6 +50,14 @@ export const ConclusionTitle = styled.h2`
   font-size: 2rem;
   margin: 0;
   color: ${({ theme }) => theme.colors.text.primary};
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const ConclusionText = styled.p`

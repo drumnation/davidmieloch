@@ -13,7 +13,6 @@ import {
 } from '@tabler/icons-react';
 
 import { Hero } from '../../organisms/Hero';
-import { PageContainer } from '../../layouts/PageContainer';
 import {
   ContentSection,
   ContentContainer,
@@ -133,8 +132,7 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
         ref={contentRef}
         className={`best-practices-content-section ${isVisible ? 'visible' : ''}`}
       >
-        <PageContainer>
-          {/* Conditionally render SubNavController based on viewport and player state */}
+        <ContentContainer>
           {(isDesktop || isPlayerMinimized) && <SubNavController items={bestPracticesNavItems} />}
 
           <div id="bp-detailed-content" style={{ scrollMarginTop: '100px' }}>
@@ -150,7 +148,7 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
           <div id="lets-work-together" style={{ scrollMarginTop: '100px' }}>
             <LetsWorkTogether />
           </div>
-        </PageContainer>
+        </ContentContainer>
       </ContentSection>
     </Container>
   );

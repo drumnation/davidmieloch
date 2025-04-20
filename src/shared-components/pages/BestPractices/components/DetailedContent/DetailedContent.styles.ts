@@ -27,20 +27,38 @@ export const SectionIcon = styled.div`
   justify-content: center;
   width: 48px;
   height: 48px;
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.background.light};
+  border-radius: 50%;
+  background-color: #000000;
   padding: 8px;
+  flex-shrink: 0;
 
   svg, img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    fill: #ffffff;
+  }
+
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
   }
 `;
 
 export const DetailedContentTitle = styled.h2`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.text.primary};
+  word-break: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
+  min-width: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const DetailedContentText = styled.p`
@@ -63,6 +81,14 @@ export const IconWrapper = styled.div`
   justify-content: center;
   width: 32px;
   height: 32px;
+  border-radius: 50%;
+  background-color: #000000;
+  padding: 6px;
+  flex-shrink: 0;
+
+  svg {
+    fill: #ffffff;
+  }
 `;
 
 export const TitleWithIconWrapper = styled.div`
@@ -76,6 +102,17 @@ export const SectionTitle = styled.h3`
   font-size: 1.75rem;
   color: ${({ theme }) => theme.colors.text.primary};
   margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
+  min-width: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+  }
 `;
 
 export const SectionSubtitle = styled.h4`
