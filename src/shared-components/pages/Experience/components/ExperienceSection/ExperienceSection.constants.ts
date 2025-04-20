@@ -435,6 +435,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 showLogo: true,
                 logoHasBorder: true,
                 height: 720,
+                useMobileCarousel: true,
                 description: `Designed and wrote this two-page recruitment brochure for Saturn's Subject Matter Expert Network, featuring compelling visuals and persuasive copy that emphasized \"who you know is valuable.\" Created as a key component of my thought leadership marketing initiative to recruit industry experts through a multi-phase engagement model offering **five distinct revenue streams**.`
             },
             {
@@ -445,6 +446,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 width: '48%',
                 showLogo: true,
                 logoHasBorder: true,
+                useMobileCarousel: true,
                 description: "Client testimonial showcasing Saturn's migration of a failing SAS environment to Power 8/AIS architecture, achieving **386% faster processing** and **689% faster data operations**. Jobs that previously took hours now complete in 20 minutes. Includes CTA for datasheet download and discovery call.",
             },
             {
@@ -455,6 +457,7 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 width: '48%',
                 showLogo: true,
                 logoHasBorder: true,
+                useMobileCarousel: true,
                 description: "Brief cold outreach video from Jonathan Karp of Saturn Business Systems targeting organizations with outdated SQL Server installations. Presents alternatives to expensive upgrades, highlighting Saturn's data warehouse solutions, cost comparison tools, and ROI analysis to help prospects make informed decisions about their aging SQL infrastructure.",
             },
         ]
@@ -572,6 +575,14 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
         technologies: ['HTML', 'CSS', 'JavaScript', 'Video Editing', 'Multimedia', 'Sound Design'],
         media: [
             {
+                type: "image",
+                url: "/media/harmonychannel.png",
+                title: "The Harmony Channel",
+                showLogo: true,
+                width: "48%",
+                useMobileCarousel: true,
+            },
+            {
                 type: 'embed',
                 url: "https://www.youtube.com/embed/Omd_q511Aa4?si=-pjnprAxALM4Vaiz",
                 title: "Vladimir Kush - Metaphorical Voyage Trailer",
@@ -579,14 +590,8 @@ export const OLDER_EXPERIENCE: ExperienceItem[] = [
                 height: 400,
                 description: "A trailer for the Vladimir Kush film Metaphorical Voyage, featuring **Sound Design by yours truly**",
                 showLogo: true,
+                useMobileCarousel: true,
             },
-            {
-                type: "image",
-                url: "/media/harmonychannel.png",
-                title: "The Harmony Channel",
-                showLogo: true,
-                width: "48%",
-            }
         ],
         sortOrder: 7
     },

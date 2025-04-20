@@ -11,6 +11,7 @@ export const FORMAL_EDUCATION: EducationItem[] = [
     endDate: '2008',
     description: `Instrumental Concentration with focus on **Classical Percussion** and **Jazz Drumset** performance.\n\nSecondary instruments included Computer, Tabla, Guitar and Piano.\n\nActive member of **Phi Mu Alpha Sinfonia** and **Percussion Ensemble.**`,
     logoPath: '/school-logos/westchester.jpeg',
+    useMobileCarousel: true,
     media: [
       {
         type: 'embed',
@@ -37,6 +38,7 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
     fieldOfStudy: '15 Week – Full Stack Web Immersive',
     startDate: '2017',
     endDate: '2017',
+    showBorder: true,
     description: `Intensive **web development bootcamp** focusing on modern full-stack development.\n\n**Frontend:** JavaScript fundamentals (ES6+), Component Pattern, **React.js**, **Redux + Thunk**, jQuery.\n\n**Backend:** Ruby fundamentals, MVC pattern, **Rails**, SQL, ORMs, Active Record, **Ruby on Rails.**`,
     logoPath: '/school-logos/the_flatiron_school_logo.jpeg',
     media: [
@@ -47,20 +49,6 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
         width: 'full',
         height: 400
       },
-      // {
-      //   type: 'embed',
-      //   url: 'https://www.youtube.com/embed/nPsGSknxuiw?si=9PXoHGRkLp5Gr6Pi',
-      //   title: 'React VR Tour Application',
-      //   width: 'half',
-      //   height: 250
-      // },
-      // {
-      //   type: 'embed',
-      //   url: 'https://www.youtube.com/embed/W0LfRSNiCAo?si=RZCPRmVbj-od0hmb',
-      //   title: 'Piano Roll Project',
-      //   width: 'half',
-      //   height: 250
-      // }
     ]
   },
   {
@@ -69,6 +57,7 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
     fieldOfStudy: '3 Month – Online Fundamentals Intensive',
     startDate: '2016',
     endDate: '2016',
+    showBorder: true,
     description: `Focused program on **JavaScript ES6+ fundamentals** and **modern development practices.**`,
     logoPath: '/school-logos/app-academy.jpeg'
   },
@@ -78,6 +67,7 @@ export const TECHNICAL_EDUCATION: EducationItem[] = [
     fieldOfStudy: 'NYC Campus Programs',
     startDate: '2016',
     endDate: '2016',
+    showBorder: true,
     description: `Completed specialized courses in **Growth Hacking for Startups** and earned **Google AdWords Certification.**`,
     logoPath: '/school-logos/generalassembly_logo.jpeg'
   }
@@ -99,6 +89,7 @@ export const CONTINUOUS_LEARNING: EducationItem[] = [
     fieldOfStudy: 'Multiple Disciplines',
     startDate: '2014',
     endDate: '2017',
+    showBorder: true,
     description: `Completed courses in **Programming**, **Digital Marketing**, **PPC**, **SEO**, **Content Marketing**, and **Ad Publishing.**`,
     logoPath: '/school-logos/udemy_logo.jpeg'
   },
@@ -108,6 +99,7 @@ export const CONTINUOUS_LEARNING: EducationItem[] = [
     fieldOfStudy: 'Data Analytics',
     startDate: '2014',
     endDate: '2015',
+    showBorder: true,
     description: `Attended **IBM Partner Content Marketing Workshops** and **IBM Insight Conference.**\n\nTrained to create data models for clients using **Watson Analytics for Social Media.**\n\nLearned to use **supervised and unsupervised methods** to derive insights from data.`,
     logoPath: '/school-logos/ibm_logo.jpeg'
   }

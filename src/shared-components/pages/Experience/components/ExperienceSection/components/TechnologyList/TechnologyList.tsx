@@ -10,6 +10,7 @@ import { TechnologyListProps } from './TechnologyList.types'; // Import types
 export const TechnologyList: React.FC<TechnologyListProps> = ({
     technologies,
     showLabels = true,
+    headerMargin,
 }) => {
     if (!technologies || technologies.length === 0) {
         return null;
@@ -18,7 +19,7 @@ export const TechnologyList: React.FC<TechnologyListProps> = ({
     return (
         <>
             {!showLabels && (
-                <TechListHeader>
+                <TechListHeader $headerMargin={headerMargin}>
                     Tech Stack ({technologies.length})
                 </TechListHeader>
             )}

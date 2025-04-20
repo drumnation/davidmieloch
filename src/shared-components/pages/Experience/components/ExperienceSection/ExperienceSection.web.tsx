@@ -56,6 +56,8 @@ export const ExperienceSectionWeb: React.FC<ExperienceSectionProps> = ({
             {/* Render older experiences within an accordion */}
             {hasOlderExperience && (
                 <Accordion
+                    id="previous-sales-marketing-accordion"
+                    style={{ scrollMarginTop: '100px' }}
                     title={`Previous Sales & Marketing Experience (${OLDER_EXPERIENCE.length} Positions)`}
                     subtitle="Click to expand and see earlier sales and marketing positions from 2004-2016"
                     initiallyOpen={true}

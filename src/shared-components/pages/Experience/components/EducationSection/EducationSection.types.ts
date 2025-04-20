@@ -11,6 +11,8 @@ export interface EducationItem {
   logoPath?: string;
   media?: MediaItem[];
   sortOrder?: number;
+  showBorder?: boolean;
+  useMobileCarousel?: boolean;
 }
 
 export interface MediaItem {

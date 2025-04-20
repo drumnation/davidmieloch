@@ -19,11 +19,13 @@ export const Accordion: React.FC<AccordionProps> = ({
     children,
     className,
     initiallyOpen = false,
+    id,
+    style,
 }) => {
     const { isOpen, toggleAccordion } = useAccordion(initiallyOpen);
 
     return (
-        <AccordionContainer className={className}>
+        <AccordionContainer id={id} className={className} style={style}>
             <AccordionHeader $isOpen={isOpen} onClick={toggleAccordion}>
                 <StyledHeaderContent>
                     <AccordionTitle>{title}</AccordionTitle>

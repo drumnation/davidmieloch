@@ -61,6 +61,7 @@ export const IconContainer = styled.div<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   transform: rotate(${({ $isOpen }) => $isOpen ? '180deg' : '0deg'});
   transition: transform 0.3s ease;
   background-color: rgba(0, 0, 0, 0.05);
@@ -77,10 +78,10 @@ export const AccordionContent = styled.div<{ $isOpen: boolean }>`
   opacity: ${({ $isOpen }) => $isOpen ? '1' : '0'};
   overflow: hidden;
   transition: ${({ $isOpen }) =>
-        $isOpen
-            ? 'max-height 0.3s ease-out, opacity 0.3s ease-in, padding 0.2s ease'
-            : 'max-height 0.3s ease-in, opacity 0.2s ease-out, padding 0.1s ease'
-    };
+    $isOpen
+      ? 'max-height 0.3s ease-out, opacity 0.3s ease-in, padding 0.2s ease'
+      : 'max-height 0.3s ease-in, opacity 0.2s ease-out, padding 0.1s ease'
+  };
   border-top: ${({ $isOpen }) => $isOpen ? '1px solid rgba(0, 0, 0, 0.1)' : 'none'};
 `;
 

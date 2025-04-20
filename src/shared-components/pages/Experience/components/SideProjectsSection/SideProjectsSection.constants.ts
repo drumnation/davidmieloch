@@ -218,20 +218,6 @@ important events, and documents progress.
     startDate: '2024',
     endDate: 'Present',
     impact: 'Transforms the chaos of school communications into an organized system that ensures parents never miss important deadlines, events, or achievements in their children\'s educational journey.',
-    // media: [
-    //   {
-    //     type: 'image',
-    //     url: 'media/screenshots/parenting-pilot/dashboard.png',
-    //     title: 'Parenting Pilot Dashboard',
-    //     width: '48%'
-    //   },
-    //   {
-    //     type: 'image',
-    //     url: 'media/screenshots/parenting-pilot/document-scan.png',
-    //     title: 'Document Scanning Interface',
-    //     width: '48%'
-    //   }
-    // ]
   },
   {
     title: 'StoryTime',
@@ -288,14 +274,16 @@ aspects of audiobook production.
 **Right Panel:** Manage characters effortlessly—edit profiles, generate new characters with AI, and maintain consistent characterization throughout.
 
 With StoryVoice™, professional audiobook creation is just a few clicks away.`,
-        width: '100%'
+        width: '100%',
+        useMobileCarousel: true,
       },
       {
         type: 'image',
         url: '/media/screenshots/storytime/storytime3.png',
         title: 'Chapter View Interface',
         description: 'View and generate story chapter scripts and voiceovers with plot devices and character integration',
-        width: '48%'
+        width: '48%',
+        useMobileCarousel: true,
       },
       {
         type: 'image',
@@ -306,14 +294,16 @@ With StoryVoice™, professional audiobook creation is just a few clicks away.`,
 * **Define Critical Moments** — Set meaningful chapter titles and select pivotal plot points that drive your narrative forward
 * **Character Casting** — Choose exactly which characters appear in each chapter, ensuring consistent character development throughout your story
 * **Narrative Techniques** — Apply sophisticated plot devices like frame narratives that elevate your storytelling approach`,
-        width: '48%'
+        width: '48%',
+        useMobileCarousel: true,
       },
       {
         type: 'image',
         url: '/media/screenshots/storytime/storytime4.png',
         title: 'Character Creation Interface',
         description: 'Create and manage character profiles with customizable attributes',
-        width: '100%'
+        width: '100%',
+        useMobileCarousel: true,
       },
       {
         type: 'audio',
@@ -322,7 +312,8 @@ With StoryVoice™, professional audiobook creation is just a few clicks away.`,
         description: 'Listen to a sample audiobook generated with multiple AI character voices',
         thumbnail: '/media/storytime-mcguffin.png',
         thumbnailWidth: '80px',
-        width: '100%'
+        width: '100%',
+        useMobileCarousel: true,
       },
       {
         type: 'embed',
@@ -334,7 +325,8 @@ The process revealed something powerful: AI could effortlessly regenerate all su
 
 *This manual experimentation directly inspired **Storytime 2.0**—an app designed to streamline this complex process of character development, plot point creation, and narrative regeneration into an intuitive tool anyone can use.*`,
         cropHeight: '170px',
-        width: '100%'
+        width: '100%',
+        useMobileCarousel: true,
       },
     ]
   },
@@ -743,7 +735,7 @@ Outputs formatted text suitable for pasting into AI prompts.
 *   **Improved AI Accuracy:** Ensures AI has relevant project info.`,
     technologies: ['VSCode Extension', 'Node', 'TypeScript'],
     startDate: '2024',
-    endDate: 'present',
+    endDate: 'Present',
     repoUrl: 'https://github.com/drumnation/ai-context-generator',
     logoPath: 'https://drumnation.gallerycdn.vsassets.io/extensions/drumnation/ai-context-generator/0.0.10/1721423097801/Microsoft.VisualStudio.Services.Icons.Default',
     showBorder: true,
@@ -946,15 +938,6 @@ Helps co-parents communicate using neutral, **BIFF**
       }
     ]
   },
-  // {
-  //   title: 'Evidence Hero',
-  //   category: 'SaaS Applications',
-  //   description: 'Evidence and Parenting Time tracking for Family court, AI assisted summarization, categorization and RAG message search. Bringing all modes of messaging and documentation into one place (Email, SMS, Our Family Wizard).',
-  //   technologies: ['React Native', 'TypeScript', 'Node', 'Express', 'Openai', 'MongoDB'],
-  //   startDate: '2022',
-  //   endDate: 'Present',
-  //   impact: 'Created a specialized tool for organizing and analyzing family court documentation with AI assistance'
-  // },
   {
     title: 'Cheddar',
     category: 'SaaS Applications',
@@ -1108,7 +1091,7 @@ tones across **10 progressive difficulty levels**.
 *   **Scalable:** School management system supports institutions.`,
     technologies: ['React Native', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Web Audio API'],
     startDate: '2024',
-    endDate: 'present',
+    endDate: 'Present',
     logoPath: '/media/welearn-logo.png',
     showBorder: true,
     impact: '**WLMT revolutionizes emotional intelligence education** by transforming abstract musical concepts into engaging, game-based learning experiences that help users recognize and distinguish emotional tones.',
@@ -1182,7 +1165,7 @@ social media).
       {
         type: 'link',
         url: 'https://medium.com/@davidmieloch/how-i-automated-my-bands-music-blog-including-content-creation-740741bbb23f',
-        title: 'How I Automated My Band\'s Music Blog Including Content Creation',
+        title: 'How I Automated My Band\'s Music Blog',
         description: '**Read about my guerilla marketing experiment:** This article details my journey developing an automated content marketing system that helped our band grow from unknown to having thousands of followers.\n\n* How I used **IFTTT automations** to connect platforms\n* Creating a **content recycling system** for maximum reach\n* Setting up **API integrations** for seamless delivery\n* Measuring results with **custom analytics**',
         thumbnail: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*iO4AGAfTaXzDQryDkwVeaA.jpeg',
         width: '100%',

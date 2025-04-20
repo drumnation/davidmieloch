@@ -6,4 +6,6 @@ export interface AccordionProps {
     children: ReactNode;
     className?: string;
     initiallyOpen?: boolean;
+    id?: string;
+    style?: React.CSSProperties;
 } 

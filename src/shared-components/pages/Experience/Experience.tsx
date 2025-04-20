@@ -58,6 +58,11 @@ import { sortEducationByDate } from './components/EducationSection/EducationSect
 // Import react-icons
 import { FaUserCircle, FaCode, FaBullhorn, FaLightbulb, FaGraduationCap, FaTools } from 'react-icons/fa';
 
+// Import Redux state and selector
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/index';
+import { selectIsPlayerMinimized } from '@store/slices/playerUiSlice';
+
 // Define IDs for main sections AND new sub-sections
 const PROFILE_SECTION_ID = 'profile-section';
 const DEVELOPER_EXPERIENCE_SECTION_ID = 'developer-experience-section';
@@ -76,6 +81,9 @@ export const Experience: React.FC<ExperienceProps> = ({
   const [isVisible, setIsVisible] = useState(true);
   const theme = useMantineTheme();
   const isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
+
+  // Get player state from Redux store
+  const isPlayerMinimized = useSelector((state: RootState) => selectIsPlayerMinimized(state));
 
   // Use useEffect to trigger animations after mount
   useEffect(() => {
@@ -101,6 +109,12 @@ export const Experience: React.FC<ExperienceProps> = ({
   const combinedEducationItems = [...FORMAL_EDUCATION, ...TECHNICAL_EDUCATION, ...CONTINUOUS_LEARNING];
   // Sort the combined items using the *same logic* as the EducationSection component
   const allEducationItems = sortEducationByDate(combinedEducationItems);
+
+  // --- DEBUGGING: Log the contents of the combined+sorted education items ---
+  useEffect(() => {
+    console.log('allEducationItems:', allEducationItems.map(item => item.school)); // Log just the school names for brevity
+  }, [allEducationItems]); // Log when the array changes
+  // --- END DEBUGGING ---
 
   // Combine skill categories
   const allSkillCategories = [
@@ -153,6 +167,28 @@ export const Experience: React.FC<ExperienceProps> = ({
     return bMonth - aMonth;
   });
 
+  // Sort side projects consistent with the hook's logic
+  const sortedSideProjects = [...sideProjects].sort((a, b) => {
+    const hasEndDateA = !!a.endDate;
+    const hasEndDateB = !!b.endDate;
+    if (hasEndDateA && !hasEndDateB) return -1;
+    if (!hasEndDateA && hasEndDateB) return 1;
+    if (hasEndDateA && hasEndDateB) {
+      if (a.endDate === 'Present' && b.endDate !== 'Present') return -1;
+      if (a.endDate !== 'Present' && b.endDate === 'Present') return 1;
+      if (a.endDate !== 'Present' && b.endDate !== 'Present') {
+        const yearA = parseInt(a.endDate || '0');
+        const yearB = parseInt(b.endDate || '0');
+        if (isNaN(yearA) || isNaN(yearB)) {
+          return (a.endDate || '').localeCompare(b.endDate || '');
+        }
+        if (yearA !== yearB) return yearB - yearA;
+      }
+      return a.title.localeCompare(b.title);
+    }
+    return a.title.localeCompare(b.title);
+  });
+
   // Generate Navigation Items including section icons
   const navItems: SubNavItem[] = [
     // Profile Section with Image Avatar
@@ -179,9 +215,9 @@ export const Experience: React.FC<ExperienceProps> = ({
       return { id, title: exp.company, level: 1, icon: iconNode };
     }),
 
-    // Tech Sales & Marketing Experience Section
+    // Add back Previous Sales & Marketing link pointing to the accordion
     {
-      id: SALES_MARKETING_EXPERIENCE_SECTION_ID,
+      id: 'previous-sales-marketing-accordion',
       title: 'Tech Sales & Marketing Experience',
       level: 0,
       icon: <Box style={{ width: 22, height: 22, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><FaBullhorn size={18} /></Box>
@@ -202,7 +238,7 @@ export const Experience: React.FC<ExperienceProps> = ({
       level: 0,
       icon: <Box style={{ width: 22, height: 22, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><FaLightbulb size={18} /></Box>
     },
-    ...sideProjects.map(proj => {
+    ...sortedSideProjects.map(proj => {
       const id = slugify(proj.title);
       let iconNode: React.ReactNode | undefined;
       const projectInitial = proj.title?.[0]?.toUpperCase() || '';
@@ -263,7 +299,7 @@ export const Experience: React.FC<ExperienceProps> = ({
               style={{ opacity: 1 }}
             >
               {/* Profile Section */}
-              <Box id={PROFILE_SECTION_ID} pt={isDesktop ? 0 : 60}>
+              <Box id={PROFILE_SECTION_ID} style={{ scrollMarginTop: '100px' }}>
                 <ProfileSection
                   photoUrl={PROFILE.PHOTO.URL}
                   name={PROFILE.BASIC_INFO.FULL_NAME}
@@ -273,24 +309,16 @@ export const Experience: React.FC<ExperienceProps> = ({
               </Box>
 
               {/* Render Developer Experience */}
-              <Box id={DEVELOPER_EXPERIENCE_SECTION_ID} pt={80}>
+              <Box id={DEVELOPER_EXPERIENCE_SECTION_ID} style={{ scrollMarginTop: '100px' }}>
                 <ExperienceSection
                   experiences={devExperiences}
                   title="Developer Experience"
                   generateId={(item: ExperienceItem) => slugify(`${item.company}-${item.title}`)}
                 />
               </Box>
-              {/* Render Sales & Marketing Experience */}
-              <Box id={SALES_MARKETING_EXPERIENCE_SECTION_ID} pt={80}>
-                <ExperienceSection
-                  experiences={salesExperiences}
-                  title="Sales & Marketing Experience"
-                  generateId={(item: ExperienceItem) => slugify(`${item.company}-${item.title}`)}
-                />
-              </Box>
 
               {/* Side Projects Section */}
-              <Box id={SIDE_PROJECTS_SECTION_ID} pt={80}>
+              <Box id={SIDE_PROJECTS_SECTION_ID} style={{ scrollMarginTop: '100px' }}>
                 <SideProjectsSection
                   projects={sideProjects}
                   generateId={(item: SideProject) => slugify(item.title)}
@@ -298,7 +326,7 @@ export const Experience: React.FC<ExperienceProps> = ({
               </Box>
 
               {/* Education Section - receives the sorted items */}
-              <Box id={EDUCATION_SECTION_ID} pt={80}>
+              <Box id={EDUCATION_SECTION_ID} style={{ scrollMarginTop: '100px' }}>
                 <EducationSection
                   educationItems={allEducationItems} // Pass the sorted items
                   title={EDUCATION_TITLE}
@@ -307,7 +335,7 @@ export const Experience: React.FC<ExperienceProps> = ({
               </Box>
 
               {/* Skills Section */}
-              <Box id={SKILLS_SECTION_ID} pt={80}>
+              <Box id={SKILLS_SECTION_ID} style={{ scrollMarginTop: '100px' }}>
                 <SkillsSection
                   skillCategories={allSkillCategories}
                   title={SKILLS_TITLE}
@@ -317,7 +345,9 @@ export const Experience: React.FC<ExperienceProps> = ({
           </Grid.Col>
 
           {/* Navigation Controller - Renders Affix on Desktop, Burger/Drawer on Mobile */}
-          <SubNavController items={navItems} title="Page Navigation" />
+          {(isDesktop || isPlayerMinimized) && (
+            <SubNavController items={navItems} title="Page Navigation" />
+          )}
         </Grid>
       </TransitionDiv>
     </ExperienceContainer>

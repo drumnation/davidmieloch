@@ -61,6 +61,7 @@
     "csv-writer": "^1.6.0",
     "dagre": "^0.8.5",
     "dayjs": "^1.11.13",
+    "embla-carousel-auto-height": "^8.6.0",
     "framer-motion": "10.18.0",
     "html2pdf.js": "^0.10.3",
     "lucide-react": "^0.479.0",

@@ -82,17 +82,16 @@ export const MediaItemRenderer: React.FC<MediaItemRendererProps> = ({
     const groupDisplayProps = { // Props specifically for GroupDisplay
         mediaItem,
         job,
-        mediaIndex, // GroupDisplay needs this for nested keys
+        mediaIndex,
         setModalImage,
     };
 
     switch (mediaItem.type) {
         case 'image':
-            const imageLayoutClass = isQuarterWidth
-                ? 'quarter-width-image'
-                : isThirdWidth
-                    ? 'third-width-image'
-                    : '';
+            // Apply width classes only on desktop
+            const imageLayoutClass = !isMobileLayout ? (
+                isQuarterWidth ? 'quarter-width-image' : isThirdWidth ? 'third-width-image' : ''
+            ) : '';
             return (
                 <MediaContainer key={containerKey} {...commonContainerProps} className={imageLayoutClass}>
                     <ImageDisplay {...displayProps} />
@@ -124,13 +123,10 @@ export const MediaItemRenderer: React.FC<MediaItemRendererProps> = ({
                 </MediaContainer>
             );
         case 'group':
-            const groupLayoutClass = isQuarterWidth
-                ? 'quarter-width-group'
-                : isThirdWidth
-                    ? 'third-width-group'
-                    : isHalfWidth
-                        ? 'half-width-group'
-                        : '';
+            // Apply width classes only on desktop
+            const groupLayoutClass = !isMobileLayout ? (
+                isQuarterWidth ? 'quarter-width-group' : isThirdWidth ? 'third-width-group' : isHalfWidth ? 'half-width-group' : ''
+            ) : '';
             // Use MediaGroup styled component for groups
             // Pass columns prop based on logic if needed, or rely on className
             // Removed $layout and $width props as they are not defined on MediaGroup
@@ -142,7 +138,8 @@ export const MediaItemRenderer: React.FC<MediaItemRendererProps> = ({
                     // Example: columns={isQuarterWidth ? 4 : isThirdWidth ? 3 : isHalfWidth ? 2 : 1}
                     // For now, relying on className and internal styles of MediaGroup
                     columns={1} // Placeholder - Assuming default/mobile is 1 column, needs refinement if grid used
-                    style={widthStyle} // Apply widthStyle here as well (may conflict with grid)
+                    // Apply widthStyle *only* if it's mobile layout to ensure 100% width in carousel
+                    style={isMobileLayout ? widthStyle : undefined}
                 >
                     <GroupDisplay {...groupDisplayProps} />
                 </MediaGroup>

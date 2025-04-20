@@ -5,4 +5,5 @@ export interface EducationItemDisplayProps {
     renderLogo?: (school: string) => React.ReactNode;
     onImageClick?: (url: string, title?: string) => void;
     id?: string;
+    useMobileCarousel?: boolean;
 } 

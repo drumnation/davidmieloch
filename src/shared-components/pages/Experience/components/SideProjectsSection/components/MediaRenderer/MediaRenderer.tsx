@@ -11,9 +11,10 @@ interface MediaRendererProps {
     project?: SideProject; // Pass the project context if needed for logos, etc.
     onImageClick: (image: MediaItem) => void;
     isHalfWidthContext?: boolean; // Pass context about parent width
+    isMobileLayout?: boolean; // Add mobile layout prop
 }
 
-export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, onImageClick, isHalfWidthContext = false }) => {
+export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, onImageClick, isHalfWidthContext = false, isMobileLayout = false }) => {
 
     const renderMediaItem = (item: MediaItem, index: number, inGroup = false, groupLayout?: 'default' | 'stack') => {
         const { type, url, title, description, thumbnail, buttonText, width, customHeight, thumbnailWidth, showLogo, titleLogoPath, logoHasBorderRadius, logoHasBorder, cropHeight, height } = item;
@@ -24,16 +25,24 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
         const isPercentageWidth = typeof width === 'string' && width.includes('%');
 
         const adjustedStyle: React.CSSProperties = {};
-        if (isQuarterWidth) {
-            adjustedStyle.width = isHalfWidthContext ? '100%' : '25%';
-        } else if (isThirdWidth) {
-            adjustedStyle.width = isHalfWidthContext ? '100%' : '33.33%';
-        } else if (isPercentageWidth) {
-            adjustedStyle.width = isHalfWidthContext ? '100%' : width;
-        } else if (width && !isHalfWidthContext) {
-            adjustedStyle.width = width;
-        } else if (isHalfWidthContext) {
+
+        // Force 100% width if mobile layout
+        if (isMobileLayout) {
             adjustedStyle.width = '100%';
+        } else {
+            // Apply desktop/contextual width logic
+            if (isQuarterWidth) {
+                adjustedStyle.width = isHalfWidthContext ? '100%' : '25%';
+            } else if (isThirdWidth) {
+                adjustedStyle.width = isHalfWidthContext ? '100%' : '33.33%';
+            } else if (isPercentageWidth) {
+                adjustedStyle.width = isHalfWidthContext ? '100%' : width;
+            } else if (width && !isHalfWidthContext) {
+                adjustedStyle.width = width;
+            } else if (isHalfWidthContext) {
+                adjustedStyle.width = '100%';
+            }
+            // else, default width (auto/flex) applies
         }
 
         if (customHeight) {
@@ -78,13 +87,10 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
 
         // Recursive rendering for groups
         if (type === 'group' && item.items && item.items.length > 0) {
-            const itemClass = isQuarterWidth
-                ? 'quarter-width-group'
-                : isThirdWidth
-                    ? 'third-width-group'
-                    : isHalfWidthContext || width === 'half'
-                        ? 'half-width-group'
-                        : '';
+            // Add class names conditionally based on desktop layout
+            const itemClass = !isMobileLayout ? (
+                isQuarterWidth ? 'quarter-width-group' : isThirdWidth ? 'third-width-group' : isHalfWidthContext || width === 'half' ? 'half-width-group' : ''
+            ) : '';
 
             return (
                 <S.MediaGroup
@@ -108,12 +114,17 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
             );
         }
 
+        // Add class names conditionally based on desktop layout for non-group items
+        const itemClass = !isMobileLayout ? (
+            isQuarterWidth ? 'quarter-width-item' : isThirdWidth ? 'third-width-item' : ''
+        ) : '';
+
         // Link type
         if (type === 'link') {
             return (
                 <S.MediaItem
                     key={`media-link-${index}`}
-                    className={`${isQuarterWidth ? 'quarter-width-item' : ''} ${isThirdWidth ? 'third-width-item' : ''}`}
+                    className={itemClass}
                     style={{ ...adjustedStyle, height: 'auto' }}
                 >
                     <S.LinkContainer>
@@ -123,9 +134,10 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
                                     <Image
                                         src={thumbnail}
                                         alt={title || 'Link thumbnail'}
-                                        width={150}
-                                        height={100}
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        layout="responsive"
+                                        width={0}
+                                        height={0}
                                     />
                                 </div>
                             )}
@@ -178,7 +190,7 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
             return (
                 <S.MediaItem
                     key={`media-image-${index}`}
-                    className={`${isQuarterWidth ? 'quarter-width-item' : ''} ${isThirdWidth ? 'third-width-item' : ''}`}
+                    className={itemClass}
                     style={adjustedStyle}
                 >
                     {url && (
@@ -186,7 +198,6 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
                             src={url}
                             alt={title || 'Project image'}
                             onClick={() => onImageClick(item)}
-                            style={{ cursor: 'pointer', height: customHeight ? '100%' : 'auto', objectFit: customHeight ? 'cover' : 'contain' }}
                         />
                     )}
                     {renderTitleAndDescription(item)}
@@ -199,7 +210,7 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
             return (
                 <S.MediaItem
                     key={`media-video-${index}`}
-                    className={`${isQuarterWidth ? 'quarter-width-item' : ''} ${isThirdWidth ? 'third-width-item' : ''}`}
+                    className={itemClass}
                     style={adjustedStyle}
                 >
                     {url && (
@@ -222,7 +233,7 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
             return (
                 <S.MediaItem
                     key={`media-audio-${index}`}
-                    className={`${isQuarterWidth ? 'quarter-width-item' : ''} ${isThirdWidth ? 'third-width-item' : ''}`}
+                    className={itemClass}
                     style={adjustedStyle}
                 >
                     {url && (
@@ -256,7 +267,7 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
             return (
                 <S.MediaItem
                     key={`media-embed-${index}`}
-                    className={`${isQuarterWidth ? 'quarter-width-item' : ''} ${isThirdWidth ? 'third-width-item' : ''}`}
+                    className={itemClass}
                     style={adjustedStyle}
                 >
                     {url && (
@@ -292,7 +303,7 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
             return (
                 <S.MediaItem
                     key={`media-pdf-${index}`}
-                    className={`${isQuarterWidth ? 'quarter-width-item' : ''} ${isThirdWidth ? 'third-width-item' : ''}`}
+                    className={itemClass}
                     style={adjustedStyle}
                 >
                     {url && (

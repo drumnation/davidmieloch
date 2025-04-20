@@ -36,6 +36,7 @@ export const FiltersContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  padding: 1rem 0;
 `;
 
 export const FilterAccordionHeader = styled.div`
@@ -832,5 +833,44 @@ export const CloseButton = styled.button`
   
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
+  }
+`;
+
+// Wrapper for the sticky bar and the grid to contain the sticky context
+export const FilterAndGridWrapper = styled.div`
+  position: relative; // Needed for sticky positioning context
+`;
+
+// Style for the sticky filter bar on mobile
+export const StickyFilterBar = styled.div`
+  position: sticky;
+  top: 58px; // Height of main header - adjust if needed
+  z-index: 10;
+  background-color: white;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--mantine-color-gray-2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`;
+
+// Style for buttons within the sticky bar
+export const FilterBarButton = styled.button<{ $isActive?: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--mantine-radius-md);
+  border: 1px solid var(--mantine-color-gray-3);
+  background-color: ${({ $isActive }) => $isActive ? 'var(--mantine-color-blue-0)' : 'white'};
+  color: ${({ $isActive }) => $isActive ? 'var(--mantine-color-blue-7)' : 'var(--mantine-color-gray-7)'};
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: var(--mantine-color-gray-0);
   }
 `;

@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { Carousel } from '@mantine/carousel';
 import styled from 'styled-components';
 
 // --- Icon Imports ---
@@ -8,14 +7,14 @@ import {
   FaLightbulb, FaBook, FaCogs, FaServer, FaMobileAlt, FaUserShield,
   FaPencilAlt, FaFileAlt, FaTasks, FaRocket,
   FaSearch, FaHandshake, FaGlobe, FaRegCheckCircle, FaBug,
-  FaChevronLeft, FaChevronRight
 } from 'react-icons/fa';
 
 // --- Component Imports ---
 import { MarkdownRenderer } from '@shared-components/molecules/MarkdownRenderer';
 import { FoldableContent } from '@shared-components/molecules/FoldableContent';
+import { ContentCarousel } from '@shared-components/organisms/ContentCarousel';
 import { TechnologyList } from './components/TechnologyList/TechnologyList';
-import { ExperienceItemHeader } from './components/ExperienceItemHeader/ExperienceItemHeader';
+import { EntityHeader } from '@shared-components/molecules/EntityHeader';
 import { MediaItemRenderer } from './components/MediaItemRenderer/MediaItemRenderer';
 
 // --- Style Imports ---
@@ -99,11 +98,11 @@ export const renderExperienceItem = (
   showTechLabels: boolean = true
 ): React.ReactNode => {
   const jobMedia = job.media || [];
-  const isMobileLayout = !showTechLabels; // Determine layout based on showTechLabels
+  const isMobileLayout = !showTechLabels;
 
-  // Filter media items based on the new flag
-  const carouselItems = jobMedia.filter(item => item.useMobileCarousel);
-  const regularItems = jobMedia.filter(item => !item.useMobileCarousel);
+  // Filter media items based on the new flag - REMOVE FILTERING
+  // const carouselItems = jobMedia.filter(item => item.useMobileCarousel);
+  // const regularItems = jobMedia.filter(item => !item.useMobileCarousel);
 
   // Define common rendering function for a single media item
   const renderSingleMediaItem = (mediaItem: MediaItem, mediaIndex: number) => (
@@ -125,7 +124,22 @@ export const renderExperienceItem = (
         <TechnologyList technologies={job.technologies} showLabels={showTechLabels} />
       )}
 
-      <ExperienceItemHeader job={job} renderLogo={renderLogo} isMobileLayout={isMobileLayout} />
+      <EntityHeader
+        title={job.title}
+        logoPath={job.logoPath}
+        showLogoBorder={job.showBorder}
+        metadataLines={[
+          // Combine Company, Dates, and Location into a single line with bullet separators
+          [
+            job.company,
+            (job.startDate && job.endDate) ? `${job.startDate} – ${job.endDate}` : undefined,
+            job.location
+          ].filter(Boolean).join(' • ') // Filter out undefined/empty parts and join with bullets
+        ]}
+        isMobileLayout={isMobileLayout}
+        logoSize={60} // Original Experience logo size
+      // No topRightAccessory needed for experience items currently
+      />
 
       <ExperienceContent>
         <StyledExperienceDescription>
@@ -167,48 +181,19 @@ export const renderExperienceItem = (
 
           {/* --- Media Rendering Logic --- */}
           {isMobileLayout ? (
-            <> { /* Render mobile layout: Carousel first, then regular items */}
-              {carouselItems.length > 0 && (
-                <Carousel
-                  slideSize="100%"
-                  align="start"
-                  withIndicators
-                  loop
-                  nextControlIcon={<FaChevronRight size={16} />}
-                  previousControlIcon={<FaChevronLeft size={16} />}
-                  styles={{
-                    control: {
-                      backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                      border: 'none',
-                      color: 'white',
-                      borderRadius: '50%',
-                      width: '30px',
-                      height: '30px',
-                      '&[data-inactive]': { opacity: 0.3, cursor: 'default' },
-                      '&:not([data-inactive]):hover': { backgroundColor: 'rgba(0, 0, 0, 0.9)' }
-                    },
-                    indicator: {
-                      width: '8px',
-                      height: '8px',
-                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                      transition: 'width 250ms ease',
-                      '&[data-active]': { width: '16px', backgroundColor: 'rgba(0, 0, 0, 0.7)' }
-                    },
-                    indicators: { bottom: '-5px' }
-                  }}
-                >
-                  {carouselItems.map((item, idx) => (
-                    <Carousel.Slide key={`carousel-slide-${index}-${idx}`}>
-                      {renderSingleMediaItem(item, jobMedia.findIndex(m => m === item))} { /* Render item using common function */}
-                    </Carousel.Slide>
+            <> { /* Render mobile layout */}
+              {/* Only render Carousel if more than one media item */}
+              {jobMedia.length > 1 ? (
+                <ContentCarousel scrollIntoViewOnSelect={true}>
+                  {jobMedia.map((item, idx) => (
+                    // Pass the rendered item directly as a child
+                    renderSingleMediaItem(item, idx)
                   ))}
-                </Carousel>
-              )}
-              {regularItems.map((item, idx) => (
-                // Render regular items sequentially below the carousel
-                // Each will take full width due to isMobileLayout=true in renderSingleMediaItem
-                renderSingleMediaItem(item, jobMedia.findIndex(m => m === item))
-              ))}
+                </ContentCarousel>
+              ) : jobMedia.length === 1 ? (
+                // Render single item directly if only one exists
+                renderSingleMediaItem(jobMedia[0], 0)
+              ) : null /* No media items */}
             </>
           ) : (
             // Render desktop layout: All items in a single MediaRow

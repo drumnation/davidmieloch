@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSideProjects } from './SideProjectsSection.hook';
 import { PROJECT_CATEGORIES, SECTION_TITLE, SIDE_PROJECTS } from './SideProjectsSection.constants';
 import { SideProjectsSectionProps } from './SideProjectsSection.types';
 import * as S from './SideProjectsSection.styles';
-import { FilterAccordion } from './components/FilterAccordion';
 import { ProjectCard } from './components/ProjectCard';
 import { ImageModal } from './components/ImageModal';
 import { TechIcon } from '@shared-components/atoms/TechIcon';
-import styled from 'styled-components'; // Added for MobileContainer
+import styled from 'styled-components';
+import { Drawer, ScrollArea, Button, Group } from '@mantine/core';
+import { IconFilter, IconCategory, IconCode } from '@tabler/icons-react';
 
 // Basic container similar to ExperienceSection.mobile
 const MobileContainer = styled.div`
@@ -22,7 +23,6 @@ const MobileContainer = styled.div`
   }
 `;
 
-// Renamed component
 export const SideProjectsSectionMobile: React.FC<SideProjectsSectionProps> = ({
     projects = SIDE_PROJECTS,
     title = SECTION_TITLE,
@@ -34,35 +34,80 @@ export const SideProjectsSectionMobile: React.FC<SideProjectsSectionProps> = ({
         selectedCategory,
         selectedTech,
         modalImage,
-        categoryFilterOpen,
-        techFilterOpen,
         uniqueTechnologies,
         filteredProjects,
         handleCategoryChange,
         handleTechChange,
-        toggleCategoryFilter,
-        toggleTechFilter,
         openModal,
         closeModal,
     } = useSideProjects(projects);
 
+    // State for drawers
+    const [categoryDrawerOpen, setCategoryDrawerOpen] = useState(false);
+    const [techDrawerOpen, setTechDrawerOpen] = useState(false);
+
+    const openCategoryDrawer = () => setCategoryDrawerOpen(true);
+    const closeCategoryDrawer = () => setCategoryDrawerOpen(false);
+    const openTechDrawer = () => setTechDrawerOpen(true);
+    const closeTechDrawer = () => setTechDrawerOpen(false);
+
+    // Handlers that also close the drawer
+    const handleCategorySelect = (category: string | 'All') => {
+        handleCategoryChange(category);
+        closeCategoryDrawer();
+    };
+    const handleTechSelect = (tech: string | 'All') => {
+        handleTechChange(tech);
+        closeTechDrawer();
+    };
+
     return (
-        // Use the simpler MobileContainer instead of S.SideProjectsContainer
         <MobileContainer className={className} id={id}>
             <S.SectionHeader>
                 <S.SectionTitle>{title}</S.SectionTitle>
             </S.SectionHeader>
 
-            {/* Filters might need adjustments for mobile view, but keep structure for now */}
-            <FilterAccordion
+            <S.FilterAndGridWrapper>
+                {/* --- Sticky Filter Bar --- */}
+                <S.StickyFilterBar>
+                    <S.FilterBarButton onClick={openCategoryDrawer}>
+                        <IconCategory size={16} />
+                        Category: {selectedCategory}
+                    </S.FilterBarButton>
+                    <S.FilterBarButton onClick={openTechDrawer}>
+                        <IconCode size={16} />
+                        Tech: {selectedTech}
+                    </S.FilterBarButton>
+                </S.StickyFilterBar>
+
+                {/* --- Projects Grid --- */}
+                {/* Add padding-top to account for sticky bar height */}
+                <S.ProjectsGrid style={{ paddingTop: '10px' }}>
+                    {filteredProjects.map((project, index) => (
+                        <ProjectCard
+                            key={`${project.title}-${index}`}
+                            id={generateId(project)}
+                            project={project}
+                            onImageClick={openModal}
+                            showTechLabels={false} // Keep mobile setting for TechIcon inside card
+                        />
+                    ))}
+                </S.ProjectsGrid>
+            </S.FilterAndGridWrapper>
+
+            {/* --- Category Drawer --- */}
+            <Drawer
+                opened={categoryDrawerOpen}
+                onClose={closeCategoryDrawer}
                 title="Filter by Category"
-                isOpen={categoryFilterOpen}
-                onToggle={toggleCategoryFilter}
+                position="bottom"
+                size="auto"
+                padding="md"
             >
                 <S.FiltersContainer>
                     <S.FilterButton
                         $active={selectedCategory === 'All'}
-                        onClick={() => handleCategoryChange('All')}
+                        onClick={() => handleCategorySelect('All')}
                     >
                         All
                     </S.FilterButton>
@@ -70,52 +115,44 @@ export const SideProjectsSectionMobile: React.FC<SideProjectsSectionProps> = ({
                         <S.FilterButton
                             key={category}
                             $active={selectedCategory === category}
-                            onClick={() => handleCategoryChange(category)}
+                            onClick={() => handleCategorySelect(category)}
                         >
                             {category}
                         </S.FilterButton>
                     ))}
                 </S.FiltersContainer>
-            </FilterAccordion>
+            </Drawer>
 
-            <FilterAccordion
+            {/* --- Technology Drawer --- */}
+            <Drawer
+                opened={techDrawerOpen}
+                onClose={closeTechDrawer}
                 title="Filter by Technology"
-                isOpen={techFilterOpen}
-                onToggle={toggleTechFilter}
+                position="bottom"
+                size="80%" // Make it taller to fit more tech
+                padding="md"
             >
-                {/* Consider a scrollable container for mobile tech filters */}
-                <S.TechFiltersContainer style={{ flexWrap: 'nowrap', overflowX: 'auto' }}>
-                    <S.TechFilterButton
-                        $active={selectedTech === 'All'}
-                        onClick={() => handleTechChange('All')}
-                    >
-                        All
-                    </S.TechFilterButton>
-                    {uniqueTechnologies.filter(tech => tech !== 'All').map(tech => (
+                {/* Use ScrollArea for potentially long list */}
+                <ScrollArea style={{ height: 'calc(80vh - 100px)' }}>
+                    <S.TechFiltersContainer>
                         <S.TechFilterButton
-                            key={tech}
-                            $active={selectedTech === tech}
-                            onClick={() => handleTechChange(tech)}
+                            $active={selectedTech === 'All'}
+                            onClick={() => handleTechSelect('All')}
                         >
-                            {/* Pass showLabel={false} explicitly for mobile */}
-                            <TechIcon name={tech} size={16} showTooltip={false} showLabel={false} />
+                            All
                         </S.TechFilterButton>
-                    ))}
-                </S.TechFiltersContainer>
-            </FilterAccordion>
-
-            {/* Projects Grid */}
-            <S.ProjectsGrid>
-                {filteredProjects.map((project, index) => (
-                    <ProjectCard
-                        key={`${project.title}-${index}`}
-                        id={generateId(project)}
-                        project={project}
-                        onImageClick={openModal}
-                        showTechLabels={false}
-                    />
-                ))}
-            </S.ProjectsGrid>
+                        {uniqueTechnologies.filter(tech => tech !== 'All').map(tech => (
+                            <S.TechFilterButton
+                                key={tech}
+                                $active={selectedTech === tech}
+                                onClick={() => handleTechSelect(tech)}
+                            >
+                                <TechIcon name={tech} size={16} showTooltip={false} showLabel={true} />
+                            </S.TechFilterButton>
+                        ))}
+                    </S.TechFiltersContainer>
+                </ScrollArea>
+            </Drawer>
 
             {/* Image Modal */}
             <ImageModal modalImage={modalImage} onClose={closeModal} />

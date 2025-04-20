@@ -187,13 +187,37 @@ export const LinkContainer = styled.div`
   width: 100%;
   /* Removed fixed height from here, will control in component */
 
+  /* Container for thumbnail and content */
+  > div {
+    display: flex;
+    flex: 1;
+
+    /* --- Mobile Styles --- */
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      flex-direction: column;
+    }
+  }
+
   .link-thumbnail {
     flex-shrink: 0;
+    width: 150px; /* Default width for desktop */
+
+    /* --- Mobile Styles --- */
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      width: 100%; /* Full width on mobile */
+    }
+
     img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
+
+      /* --- Mobile Styles --- */
+      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+        max-height: 200px; /* Constrain height on mobile */
+        object-fit: cover; /* Ensure image covers the area */
+      }
     }
   }
 
@@ -203,19 +227,26 @@ export const LinkContainer = styled.div`
     flex-direction: column;
     justify-content: space-between; /* Push button to bottom */
     flex-grow: 1;
+
+    /* --- Mobile Styles --- */
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      width: 100%; /* Ensure content takes full width */
+    }
   }
 
   .link-title {
-    font-size: 1rem; /* Original size */
-    font-weight: 600; /* Original weight */
-    color: rgba(0, 0, 0, 0.9); /* Original color */
-    margin: 0 0 8px 0; /* Original margin */
-    background-color: #f9f9f9; /* Original background */
-    padding: 10px 15px; /* Original padding */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Original border */
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
-    /* Remove negative margins if padding handled internally */
+    width: 100%;
+    margin: 0 0 8px 0;
+
+    span { flex-grow: 1; }
   }
 
   .link-description {

@@ -20,10 +20,10 @@ export const TechnologiesList = styled.div`
 `;
 
 // Style for the optional header above the list on mobile
-export const TechListHeader = styled.div`
+export const TechListHeader = styled.div<{ $headerMargin?: string }>`
   font-size: 0.8rem;
   color: #666;
-  margin: 0 0 6px -6px;
+  margin: ${({ $headerMargin }) => $headerMargin || '0 0 6px -6px'};
   font-weight: 500;
 `;
 

@@ -15,7 +15,6 @@ export const GlobalStyles = createGlobalStyle`
     
     @media (max-width: 576px) {
       padding-top: 1.5rem;
-      padding-bottom: 3.75rem;
     }
   }
   
