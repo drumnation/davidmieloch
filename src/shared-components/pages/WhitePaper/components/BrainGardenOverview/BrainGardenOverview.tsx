@@ -65,7 +65,7 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
 
   // Create section visibility hooks for each section
   const systemVisibility = useSectionVisibility();
-  const coreVisibility = useSectionVisibility();
+  const coreVisibility = useSectionVisibility({ threshold: 0.3 });
   const teamVisibility = useSectionVisibility();
   const forceVisibility = useSectionVisibility({
     threshold: 0,
@@ -79,6 +79,7 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
   return (
     <Container className={className}>
       {/* Hero Section */}
+      <Hero {...enhancedHeroProps} />
 
       {/* Content Section with White Background */}
       <ContentSection>

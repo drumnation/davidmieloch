@@ -201,11 +201,17 @@ export const defaultContent = {
         items: [
           {
             name: "CEO & CTO Leadership",
-            description: "Their explicit statements and actions should underscore that developers remain in the driver's seat, ensuring enough time and resources for quality and maintainability. Executive leadership must consistently demonstrate through public messaging, company-wide policies, and day-to-day decisions that developers are valued partners in innovation, not mere implementers to be controlled or replaced by AI. This tone-setting role is critical as it establishes the cultural foundation that determines whether AI will enhance or undermine engineering excellence."
+            description: [
+              "Their explicit statements and actions should underscore that developers remain in the driver's seat, ensuring enough time and resources for quality and maintainability.",
+              "Executive leadership must consistently demonstrate through public messaging, company-wide policies, and day-to-day decisions that developers are valued partners in innovation, not mere implementers to be controlled or replaced by AI. This tone-setting role is critical as it establishes the cultural foundation that determines whether AI will enhance or undermine engineering excellence."
+            ]
           },
           {
             name: "Budget for Training & Tools",
-            description: "Set aside funds for AI training and resources. Equipping developers to use these tools effectively—much like additional flight training—prevents reliance on guesswork. Engineers need budget to experiment with new AI technologies as they emerge frequently and can upend established workflows. Cultivating a 'right tool for the job' mentality with a variety of AI tools, rather than depending on a single platform, ensures that downtime in one service doesn't derail productivity. Having backup approaches and alternative tools fills gaps when specific services become unreliable."
+            description: [
+              "Set aside funds for AI training and resources. Equipping developers to use these tools effectively—much like additional flight training—prevents reliance on guesswork.",
+              "Engineers need budget to experiment with new AI technologies as they emerge frequently and can upend established workflows. Cultivating a 'right tool for the job' mentality with a variety of AI tools, rather than depending on a single platform, ensures that downtime in one service doesn't derail productivity. Having backup approaches and alternative tools fills gaps when specific services become unreliable."
+            ]
           }
         ]
       },

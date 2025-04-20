@@ -1,8 +1,10 @@
 import React from 'react';
-import { ComparisonTable } from '@shared-components/molecules/ComparisonTable';
-import { SectionSubtitle } from '../ui-components';
-import { comparisonSectionStyle, sectionContainerWithoutMarginStyle } from '../../AiAutopilotAnalogy.styles';
+import { useMediaQuery } from '@mantine/hooks';
+import { useMantineTheme } from '@mantine/core';
+import { ComparisonTableSectionMobile } from './ComparisonTableSection.mobile';
+import { ComparisonTableSectionDesktop } from './ComparisonTableSection.desktop';
 
+// Define props here to be shared by both mobile and desktop versions
 interface ComparisonTableSectionProps {
   leftTitle: string;
   rightTitle: string;
@@ -14,23 +16,11 @@ interface ComparisonTableSectionProps {
   className?: string;
 }
 
-export const ComparisonTableSection: React.FC<ComparisonTableSectionProps> = ({
-  leftTitle,
-  rightTitle,
-  items,
-  className
-}) => {
-  return (
-    <div className={className} style={comparisonSectionStyle}>
-      <div style={sectionContainerWithoutMarginStyle}>
-        <SectionSubtitle title="Human Pilot vs. AI Autopilot" />
-        <ComparisonTable 
-          leftTitle={leftTitle}
-          rightTitle={rightTitle}
-          items={items}
-          variant="accent"
-        />
-      </div>
-    </div>
-  );
+// This is the main wrapper component
+export const ComparisonTableSection: React.FC<ComparisonTableSectionProps> = (props) => {
+  const theme = useMantineTheme();
+  const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
+  // Render mobile or desktop section based on screen size
+  return isMobile ? <ComparisonTableSectionMobile {...props} /> : <ComparisonTableSectionDesktop {...props} />;
 }; 

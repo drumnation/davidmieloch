@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
     Drawer, Box, Title, ScrollArea, Affix, ActionIcon, Tooltip,
     useMantineTheme
@@ -7,6 +7,8 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconList } from '@tabler/icons-react';
 import { SubNavItem } from './PageSubNav.types';
 import { SubNavList } from './SubNavList';
+import { useScrollSpy } from './useScrollSpy';
+import { getParentId } from './PageSubNav.utils';
 
 interface SubNavMobileProps {
     items: SubNavItem[];
@@ -16,22 +18,113 @@ interface SubNavMobileProps {
 export const SubNavMobile: React.FC<SubNavMobileProps> = ({ items, title = 'Page Navigation' }) => {
     const [opened, { open, close }] = useDisclosure(false);
     const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+    const [currentActiveId, setCurrentActiveId] = useState<string | null>(null);
+    const previousActiveIdRef = useRef<string | null>(null);
+    const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const theme = useMantineTheme();
 
+    const sectionIds = useMemo(() => {
+        const flattenItems = (nodes: SubNavItem[]): string[] => {
+            let ids: string[] = [];
+            for (const node of nodes) {
+                if (node.id) ids.push(node.id);
+                if (node.children) {
+                    ids = ids.concat(flattenItems(node.children));
+                }
+            }
+            return ids;
+        };
+        return flattenItems(items);
+    }, [items]);
+
+    const {
+        activeId: scrollSpyActiveId,
+        attachScrollListener,
+        detachScrollListener
+    }: {
+        activeId: string | null;
+        attachScrollListener: (performInitialCheck?: boolean) => void;
+        detachScrollListener: () => void;
+    } = useScrollSpy({ ids: sectionIds, offset: 99 });
+
+    useEffect(() => {
+        if (!scrollTimeoutRef.current && scrollSpyActiveId) {
+            setCurrentActiveId(scrollSpyActiveId);
+
+            const newParentId = getParentId(scrollSpyActiveId, items);
+            const oldParentId = getParentId(previousActiveIdRef.current, items);
+
+            if (newParentId && newParentId !== oldParentId) {
+                setExpandedSections(new Set([newParentId]));
+            }
+            previousActiveIdRef.current = scrollSpyActiveId;
+        }
+    }, [scrollSpyActiveId, items]);
+
+    useEffect(() => {
+        const initialParentId = getParentId(currentActiveId, items);
+        if (initialParentId) {
+            setExpandedSections(new Set([initialParentId]));
+        }
+        previousActiveIdRef.current = currentActiveId;
+    }, []);
+
+    useEffect(() => {
+        return () => {
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+            }
+        };
+    }, []);
+
     const handleHeaderClick = (itemId: string) => {
+        const itemIndex = items.findIndex(item => item.id === itemId);
+        let firstSubItemId: string | null = null;
+        if (itemIndex !== -1 && itemIndex + 1 < items.length && items[itemIndex + 1].level === 1) {
+            firstSubItemId = items[itemIndex + 1].id;
+        }
+
         setExpandedSections((prev) => {
             const newSet = new Set(prev);
             if (newSet.has(itemId)) {
                 newSet.delete(itemId);
             } else {
+                newSet.clear();
                 newSet.add(itemId);
             }
             return newSet;
         });
+
+        if (firstSubItemId) {
+            handleLinkActivation(firstSubItemId);
+        }
     };
 
-    const handleLinkClick = () => {
+    const handleLinkActivation = (id: string) => {
+        if (scrollTimeoutRef.current) {
+            clearTimeout(scrollTimeoutRef.current);
+        }
+
+        detachScrollListener();
+
+        setCurrentActiveId(id);
+        const clickedParentId = getParentId(id, items);
+        if (clickedParentId) {
+            setExpandedSections(new Set([clickedParentId]));
+        }
+        previousActiveIdRef.current = id;
+
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
         close();
+
+        scrollTimeoutRef.current = setTimeout(() => {
+            setCurrentActiveId(id);
+            attachScrollListener(false);
+            scrollTimeoutRef.current = null;
+        }, 500);
     };
 
     return (
@@ -53,7 +146,7 @@ export const SubNavMobile: React.FC<SubNavMobileProps> = ({ items, title = 'Page
             <Drawer
                 opened={opened}
                 onClose={close}
-                title={<Title order={4} c={theme.colors.gray[8]}>{title}</Title>}
+                title={title}
                 padding={0}
                 size="md"
                 position="left"
@@ -79,9 +172,10 @@ export const SubNavMobile: React.FC<SubNavMobileProps> = ({ items, title = 'Page
                 <ScrollArea style={{ height: '100%' }} p="md">
                     <SubNavList
                         items={items}
+                        activeId={currentActiveId}
                         expandedSections={expandedSections}
                         onHeaderClick={handleHeaderClick}
-                        onLinkClick={handleLinkClick}
+                        onLinkActivate={handleLinkActivation}
                     />
                 </ScrollArea>
             </Drawer>

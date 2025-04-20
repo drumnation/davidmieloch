@@ -147,13 +147,19 @@ export const SectionSubtitleComponent: React.FC<{
  * Creates an intro text component
  */
 export const IntroTextComponent: React.FC<{
-  text: string;
+  text: string | string[];
   className?: string;
 }> = ({ text, className }) => {
+  const paragraphs = Array.isArray(text) ? text : [text];
+
   return (
     <div>
       <IntroText className={className}>
-        {text}
+        {paragraphs.map((paragraph, index) => (
+          <p key={index} style={{ marginBottom: '1rem' }}>
+            {paragraph}
+          </p>
+        ))}
       </IntroText>
     </div>
   );

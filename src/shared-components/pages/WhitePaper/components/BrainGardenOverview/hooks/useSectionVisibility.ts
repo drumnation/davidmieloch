@@ -34,13 +34,11 @@ export const useSectionVisibility = (options: UseSectionVisibilityOptions = {}):
   const style: CSSProperties = {
     opacity: inView ? 1 : 0,
     visibility: inView ? 'visible' : 'hidden',
-    position: inView ? 'relative' : 'absolute',
     pointerEvents: inView ? 'auto' : 'none',
-    transform: `translateY(${inView ? 0 : 30}px)`,
-    willChange: 'opacity, transform',
-    transition: inView 
-      ? 'visibility 0s, opacity 0.6s ease-out, transform 0.8s ease-out, position 0s' 
-      : 'opacity 0.6s ease-out, transform 0.8s ease-out, visibility 0s 0.6s, position 0s 0.6s'
+    willChange: 'opacity',
+    transition: inView
+      ? 'visibility 0s, opacity 0.6s ease-out'
+      : 'opacity 0.6s ease-out, visibility 0s 0.6s'
   };
 
   return { ref, inView, style };

@@ -13,7 +13,11 @@ export const defaultContent = {
     className: 'custom-hero-bg',
   },
   intro: {
-    text: "Expanding on the autopilot analogy, the AI Brain Garden isn't a magical solution—it's a practical, evolving system of documentation techniques and structural approaches I've developed to enhance AI's capabilities in development workflows. Through years of working with React and Node.js teams, I've created a framework that provides structure, focus, and contextual knowledge that makes AI agents smarter and more effective. Unlike using raw AI without structure, this system reduces cognitive load by providing systematic approaches to common development challenges, allowing you to leverage AI more effectively while maintaining control of architecture and quality.",
+    text: [
+      "Expanding on the autopilot analogy, the AI Brain Garden isn't a magical solution—it's a practical, evolving system of documentation techniques and structural approaches I've developed to enhance AI's capabilities in development workflows.",
+      "Through years of working with React and Node.js teams, I've created a framework that provides structure, focus, and contextual knowledge that makes AI agents smarter and more effective.",
+      "Unlike using raw AI without structure, this system reduces cognitive load by providing systematic approaches to common development challenges, allowing you to leverage AI more effectively while maintaining control of architecture and quality."
+    ],
     icon: "brain-garden"
   },
   coreComponents: {

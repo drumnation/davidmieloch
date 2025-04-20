@@ -160,7 +160,10 @@ export const defaultContent = {
     subtitle: "A Blueprint for Successful AI Integration",
     warningTransition: {
       title: "Warning: The Organizational Risks of AI Mismanagement",
-      description: "While the strategies above provide a framework for success, many organizations are currently implementing AI in ways that create significant problems. The following section outlines disturbing trends I've observed where poor leadership approaches to AI integration are causing engineering culture breakdowns, developer burnout, and ultimately, inferior software products. This isn't theoretical—it's happening right now in companies across the industry."
+      description: [
+        "While the strategies above provide a framework for success, many organizations are currently implementing AI in ways that create significant problems.",
+        "The following section outlines disturbing trends I've observed where poor leadership approaches to AI integration are causing engineering culture breakdowns, developer burnout, and ultimately, inferior software products. This isn't theoretical—it's happening right now in companies across the industry."
+      ]
     },
     narrative: {
       introduction: "When AI tools quickly produce compelling prototypes, non-technical or semi-technical managers can become overconfident. They see these demos and assume full applications can be delivered \"with one prompt.\"",

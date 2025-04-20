@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { SPACING } from '../../BrainGardenOverview.styles';
 
+// Define mobile breakpoint
+const mobileBreakpoint = '576px';
+
 export const TeamContainer = styled.div`
   width: 100%;
   max-width: 1000px;
@@ -24,6 +27,11 @@ export const TeamContainer = styled.div`
     max-width: 700px;
     margin: 0 auto 2rem;
   }
+
+  @media (max-width: ${mobileBreakpoint}) {
+    padding: ${SPACING.mobile.container};
+    padding-bottom: ${SPACING.mobile.paragraph};
+  }
 `;
 
 export const ContentCard = styled.div`
@@ -32,6 +40,11 @@ export const ContentCard = styled.div`
   padding: ${SPACING.container};
   margin-bottom: ${SPACING.paragraph};
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: ${mobileBreakpoint}) {
+    padding: ${SPACING.mobile.container};
+    padding-bottom: ${SPACING.mobile.paragraph};
+  }
 `;
 
 export const IntroCard = styled.div`
@@ -46,17 +59,54 @@ export const IntroCard = styled.div`
   * {
     color: white !important;
   }
+
+  @media (max-width: ${mobileBreakpoint}) {
+    padding: ${SPACING.mobile.container};
+  }
 `;
 
 export const FeatureList = styled.ul`
-  list-style-type: disc;
-  padding-left: 1.5rem;
+  list-style-type: none;
+  padding-left: 0;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 
   li {
-    margin-bottom: 0.5rem;
-    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      
+      & > svg, & > span[class*="Icon"] {
+        flex-shrink: 0;
+      }
+
+      .text-content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media (max-width: ${mobileBreakpoint}) {
+        align-items: flex-start;
+        gap: 0.5rem;
+        
+        & > svg, & > span[class*="Icon"] {
+          flex-shrink: 0;
+        }
+        
+        .text-content {
+          display: block;
+          width: 100%;
+          
+          &[data-weight="bold"] {
+            margin-bottom: 0.25rem;
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -144,4 +194,39 @@ export const StyledDivider = styled.div`
   background: ${({ theme }) => theme.colors.primary.main};
   border-radius: 2px;
   margin: 1rem 0 2rem;
+`;
+
+// New wrapper for icon + title sections to control layout
+export const TitleIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+`;
+
+// New wrapper for the icon in TitleIconWrapper to add background
+export const TitleIconBackground = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+
+  & > * {
+    color: white;
+  }
+
+  @media (max-width: ${mobileBreakpoint}) {
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+  }
 `;

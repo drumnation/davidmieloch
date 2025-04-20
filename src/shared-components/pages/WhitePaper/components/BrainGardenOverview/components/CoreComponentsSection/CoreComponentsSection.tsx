@@ -53,17 +53,17 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
         <ContentContainerNoMargin>
           <div>
             <SectionTitleComponent title="Core Components" />
-            
+
             <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
               <SectionSubtitle style={{ marginBottom: '1.5rem' }}>The Foundation of the System</SectionSubtitle>
               <Typography variant="body" mb="1.5rem">
                 Just as aviation systems have evolved sophisticated documentation and structure to reduce pilot cognitive load, the Brain Garden System consists of six core components that function together to enhance AI capabilities. These practical foundational elements directly address the key challenges we explored earlier—providing structure for knowledge, workflows, rules, project planning, monitoring, and adaptable templates that help AI agents maintain context and follow best practices. The system doesn't magically solve all problems, but it provides a systematic approach that makes AI significantly more effective at handling complex development tasks.
               </Typography>
             </div>
-            
+
             {/* Feature grid with equal width cards */}
             <div style={{ marginBottom: '1rem' }}>
-              <FeatureGrid 
+              <FeatureGrid
                 features={coreComponentsProps.features}
                 columns={3}
                 style="gradient-cards"
@@ -74,8 +74,9 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
           </div>
         </ContentContainerNoMargin>
       </BackgroundSection>
-      
+
       {/* The Brain Garden Architecture section with diagram in blue header */}
+      {/*
       <div style={{ 
         backgroundColor: '#1a365d', 
         color: 'white',
@@ -105,30 +106,34 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
           </div>
         </ContentContainerNoMargin>
       </div>
+      */}
 
       {/* Diagram container taking full width with no margins */}
+      {/*
       <div style={{ 
         width: '100%', 
         padding: 0, 
         margin: 0,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        minHeight: '800px'
       }}>
         <BrainGardenComponentsDiagram 
-          theme="default"
-          width="100%"
-          height="800px"
-          backgroundColor="white"
+          theme=\"default\"
+          width=\"100%\"
+          height=\"800px\"
+          backgroundColor=\"white\"
           showZoomControls={true}
-          title=""
-          accessibilityDescription="Brain Garden Core Components Diagram showing the six main components: Skill Jack System, Prompt System, Structured Documentation, Rules System, Project Management, and Watchers System"
+          title=\"\"
+          accessibilityDescription=\"Brain Garden Core Components Diagram showing the six main components: Skill Jack System, Prompt System, Structured Documentation, Rules System, Project Management, and Watchers System\"
         />
       </div>
-            
+      */}
+
       <ContentContainerNoMargin>
         <div style={{ marginTop: '2rem', textAlign: 'center', marginBottom: '3rem' }}>
-          <CTAButtonWithIcon 
-            text="Explore the System" 
-            icon="arrow-right" 
+          <CTAButtonWithIcon
+            text="Explore the System"
+            icon="arrow-right"
             link="#ai-system"
           />
         </div>

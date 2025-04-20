@@ -15,7 +15,7 @@ export interface BrainGardenOverviewProps {
     className?: string;
   };
   introProps?: {
-    text: string;
+    text: string | string[];
     icon?: string | ReactElement;
   };
   coreComponentsProps?: {

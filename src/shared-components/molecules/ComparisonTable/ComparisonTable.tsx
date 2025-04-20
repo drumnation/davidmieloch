@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useMediaQuery } from '@mantine/hooks';
+import { useMantineTheme } from '@mantine/core';
 import { ComparisonTableProps } from './ComparisonTable.types';
 import * as S from './ComparisonTable.styles';
+import { ComparisonTableMobile } from './ComparisonTable.mobile';
+import { ComparisonTableDesktop } from './ComparisonTable.desktop';
 
 // Replace framer-motion with CSS transitions
-export const ComparisonTable: React.FC<ComparisonTableProps> = ({
-  leftTitle,
-  rightTitle,
-  items,
-  variant = 'default',
-  className,
-}) => {
+export const ComparisonTable: React.FC<ComparisonTableProps> = (props) => {
+  const theme = useMantineTheme();
+  // Use the 'sm' breakpoint defined in the Mantine theme to switch between mobile and desktop
+  const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: "-100px",
@@ -18,37 +20,13 @@ export const ComparisonTable: React.FC<ComparisonTableProps> = ({
   });
 
   const [isVisible, setIsVisible] = useState(false);
-  
+
   useEffect(() => {
     if (inView) {
       setIsVisible(true);
     }
   }, [inView]);
 
-  return (
-    <S.Container className={className} ref={ref}>
-      <S.Table $variant={variant} className={isVisible ? 'visible' : ''}>
-        <S.TableHead $variant={variant}>
-          <tr>
-            <S.TableHeaderCell>Category</S.TableHeaderCell>
-            <S.TableHeaderCell>{leftTitle}</S.TableHeaderCell>
-            <S.TableHeaderCell>{rightTitle}</S.TableHeaderCell>
-          </tr>
-        </S.TableHead>
-        <S.TableBody>
-          {items.map((item, index) => (
-            <S.TableRow
-              key={index}
-              className={isVisible ? 'visible' : ''}
-              style={{ '--item-index': index } as React.CSSProperties}
-            >
-              <S.CategoryCell>{item.category}</S.CategoryCell>
-              <S.TableCell>{item.leftContent}</S.TableCell>
-              <S.TableCell>{item.rightContent}</S.TableCell>
-            </S.TableRow>
-          ))}
-        </S.TableBody>
-      </S.Table>
-    </S.Container>
-  );
+  // Conditionally render the mobile or desktop version based on screen size
+  return isMobile ? <ComparisonTableMobile {...props} /> : <ComparisonTableDesktop {...props} />;
 };

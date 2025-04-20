@@ -1,85 +1,169 @@
 import React from 'react';
-import { Box, Grid } from '@mantine/core';
+import { Box, Grid, Group, useMantineTheme } from '@mantine/core';
+import { IconRocket, IconMoodSad, IconBulb, IconCheck } from '@tabler/icons-react';
 import { Typography } from '@shared-components/atoms/Typography';
-import { 
-  sectionContainerStyle, 
+import {
+  sectionContainerWithoutMarginStyle,
   paragraphContainerStyle,
-  paragraphContainerTopMarginStyle
+  paragraphContainerTopMarginStyle,
+  SPACING
 } from '../../AiAutopilotAnalogy.styles';
+import { PageSeparator } from '@shared-components/pages/BestPractices/BestPractices.styles';
 
-interface DunningKrugerSectionProps {
+interface AiIntegrationJourneySectionProps {
   isVisible?: boolean;
 }
 
-const DunningKrugerSection: React.FC<DunningKrugerSectionProps> = ({ isVisible = true }) => {
+const AiIntegrationJourneySection: React.FC<AiIntegrationJourneySectionProps> = ({ isVisible = true }) => {
+  const theme = useMantineTheme();
   if (!isVisible) return null;
-  
-  const phaseContainerStyle = {
+
+  const phaseContainerStyleBase: React.CSSProperties = {
     padding: '1.5rem',
-    borderRadius: '8px',
+    borderRadius: theme.radius.md,
     height: '100%',
-    backgroundColor: '#f8f9fa',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+    backgroundColor: theme.colors.gray[0],
+  };
+
+  const sectionPaddingValue = parseFloat(SPACING.section);
+  const quarterSectionPadding = `${sectionPaddingValue / 4}rem`;
+
+  const horizontalPaddingValue = parseFloat(sectionContainerWithoutMarginStyle.paddingLeft as string);
+  const halfHorizontalPadding = `${horizontalPaddingValue / 2}rem`;
+
+  const rootBoxStyle: React.CSSProperties = {
+    width: sectionContainerWithoutMarginStyle.width,
+    maxWidth: sectionContainerWithoutMarginStyle.maxWidth,
+    margin: sectionContainerWithoutMarginStyle.margin,
+    paddingTop: quarterSectionPadding,
+    paddingBottom: quarterSectionPadding,
+    paddingLeft: halfHorizontalPadding,
+    paddingRight: halfHorizontalPadding,
+    backgroundColor: theme.white,
+  };
+
+  const mobileIconCircleStyle: React.CSSProperties = {
+    backgroundColor: theme.black,
+    borderRadius: '50%',
+    padding: theme.spacing.xs,
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    lineHeight: 1,
+  };
+
+  const desktopIconCircleStyle: React.CSSProperties = {
+    backgroundColor: theme.colors.gray[2],
+    borderRadius: '50%',
+    padding: theme.spacing.xs,
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    lineHeight: 1,
   };
 
   return (
-    <Box style={sectionContainerStyle}>
-      <div style={paragraphContainerStyle}>
-        <Typography variant="h2" mb="md">The Dunning-Kruger Effect in AI Integration</Typography>
-        <Typography variant="body">
-          The journey of integrating AI into business workflows often follows a pattern similar to the Dunning-Kruger effect - 
-          a cognitive bias where people with limited knowledge in a specific domain overestimate their competence. 
-          With AI integration, organizations typically move through distinct phases of expectation versus reality.
-        </Typography>
+    <Box style={rootBoxStyle}>
+      <PageSeparator style={{ marginBottom: quarterSectionPadding }} />
+
+      <div id="ai-integration-journey" style={{ ...paragraphContainerStyle, textAlign: 'left', paddingTop: theme.spacing.xl }} className="typography-align-mobile-center">
+        <Typography variant="h2" mb="md">The AI Integration Journey</Typography>
       </div>
-      
-      <div style={paragraphContainerTopMarginStyle}>
+
+      <div style={{ ...paragraphContainerTopMarginStyle, textAlign: 'left' }} className="typography-align-mobile-center">
         <Typography variant="body" mb="lg">
-          Below is how organizations typically progress through the AI integration journey:
+          Organizations typically progress through these phases when integrating AI:
         </Typography>
       </div>
-      
+
+      <style>{`
+        @media (max-width: ${theme.breakpoints.sm}) {
+          .typography-align-mobile-center {
+            text-align: center;
+          }
+        }
+      `}</style>
+
       <Grid gutter={{ base: "lg", sm: "xl" }}>
-        <Grid.Col span={{ base: 12, sm: 6 }}>
-          <Box style={phaseContainerStyle}>
-            <Typography variant="h3" mb="sm">Phase 1: Peak of Inflated Expectations</Typography>
+        <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
+          <Box style={{ ...phaseContainerStyleBase }} className="typography-align-mobile-center">
+            <Group data-phase-group="true" mb="sm" gap="xs" align="center" justify="center" style={{ justifyContent: 'var(--group-justify, center)' }}>
+              <style>{`
+                @media (min-width: ${theme.breakpoints.md}) {
+                  [data-phase-group="true"] {
+                     --group-justify: flex-start;
+                  }
+                }
+              `}</style>
+              <Box style={mobileIconCircleStyle} hiddenFrom="md">
+                <IconRocket size={20} color={theme.white} />
+              </Box>
+              <Box style={desktopIconCircleStyle} visibleFrom="md">
+                <IconRocket size={20} color={theme.primaryColor} />
+              </Box>
+              <Box style={{ fontWeight: 700 }}>
+                <Typography variant="h3">Peak of Inflated Expectations</Typography>
+              </Box>
+            </Group>
             <Typography variant="body">
-              Initially, businesses have unrealistic expectations about what AI can accomplish. 
-              They envision fully autonomous systems that require minimal human oversight and dramatically 
-              reduce workloads immediately.
+              Unrealistic expectations about AI capabilities, envisioning immediate, fully autonomous systems with minimal oversight.
             </Typography>
           </Box>
         </Grid.Col>
-        
-        <Grid.Col span={{ base: 12, sm: 6 }}>
-          <Box style={phaseContainerStyle}>
-            <Typography variant="h3" mb="sm">Phase 2: Trough of Disillusionment</Typography>
+
+        <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
+          <Box style={{ ...phaseContainerStyleBase }} className="typography-align-mobile-center">
+            <Group data-phase-group="true" mb="sm" gap="xs" align="center" justify="center" style={{ justifyContent: 'var(--group-justify, center)' }}>
+              <Box style={mobileIconCircleStyle} hiddenFrom="md">
+                <IconMoodSad size={20} color={theme.white} />
+              </Box>
+              <Box style={desktopIconCircleStyle} visibleFrom="md">
+                <IconMoodSad size={20} color={theme.colors.orange[6]} />
+              </Box>
+              <Box style={{ fontWeight: 700 }}>
+                <Typography variant="h3">Trough of Disillusionment</Typography>
+              </Box>
+            </Group>
             <Typography variant="body">
-              Reality sets in when organizations discover that implementing AI requires significant 
-              training, data preparation, and ongoing maintenance. Disappointment emerges when initial 
-              results don't match expectations.
+              Reality hits: AI requires significant training, data prep, and maintenance. Disappointment follows when results fall short.
             </Typography>
           </Box>
         </Grid.Col>
-        
-        <Grid.Col span={{ base: 12, sm: 6 }}>
-          <Box style={phaseContainerStyle}>
-            <Typography variant="h3" mb="sm">Phase 3: Slope of Enlightenment</Typography>
+
+        <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
+          <Box style={{ ...phaseContainerStyleBase }} className="typography-align-mobile-center">
+            <Group data-phase-group="true" mb="sm" gap="xs" align="center" justify="center" style={{ justifyContent: 'var(--group-justify, center)' }}>
+              <Box style={mobileIconCircleStyle} hiddenFrom="md">
+                <IconBulb size={20} color={theme.white} />
+              </Box>
+              <Box style={desktopIconCircleStyle} visibleFrom="md">
+                <IconBulb size={20} color={theme.colors.yellow[6]} />
+              </Box>
+              <Box style={{ fontWeight: 700 }}>
+                <Typography variant="h3">Slope of Enlightenment</Typography>
+              </Box>
+            </Group>
             <Typography variant="body">
-              With perseverance, businesses gain a more realistic understanding of AI's capabilities 
-              and limitations. They develop practical strategies for implementation, focusing on specific, 
-              high-value use cases rather than broad transformation.
+              Realistic understanding develops. Focus shifts to practical, high-value use cases and limitations are acknowledged.
             </Typography>
           </Box>
         </Grid.Col>
-        
-        <Grid.Col span={{ base: 12, sm: 6 }}>
-          <Box style={phaseContainerStyle}>
-            <Typography variant="h3" mb="sm">Phase 4: Plateau of Productivity</Typography>
+
+        <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
+          <Box style={{ ...phaseContainerStyleBase }} className="typography-align-mobile-center">
+            <Group data-phase-group="true" mb="sm" gap="xs" align="center" justify="center" style={{ justifyContent: 'var(--group-justify, center)' }}>
+              <Box style={mobileIconCircleStyle} hiddenFrom="md">
+                <IconCheck size={20} color={theme.white} />
+              </Box>
+              <Box style={desktopIconCircleStyle} visibleFrom="md">
+                <IconCheck size={20} color={theme.colors.green[6]} />
+              </Box>
+              <Box style={{ fontWeight: 700 }}>
+                <Typography variant="h3">Plateau of Productivity</Typography>
+              </Box>
+            </Group>
             <Typography variant="body">
-              Eventually, organizations reach a stage of productive AI integration, with realistic 
-              expectations and measurable benefits. They understand the balance between automation 
-              and human oversight, creating sustainable AI systems that genuinely enhance productivity.
+              Sustainable AI integration achieved with measurable benefits, balancing automation and human oversight effectively.
             </Typography>
           </Box>
         </Grid.Col>
@@ -88,4 +172,4 @@ const DunningKrugerSection: React.FC<DunningKrugerSectionProps> = ({ isVisible =
   );
 };
 
-export default DunningKrugerSection; 
+export default AiIntegrationJourneySection; 

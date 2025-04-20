@@ -15,4 +15,24 @@ export const slugify = (text: string): string => {
         .replace(/^-+/, '')
         // Trim - from end of text
         .replace(/-+$/, '');
+};
+
+// New helper function
+import { SubNavItem } from './PageSubNav.types';
+
+export const getParentId = (itemId: string | null, items: SubNavItem[]): string | null => {
+    if (!itemId) return null;
+
+    let currentParentId: string | null = null;
+    for (const item of items) {
+        if (item.level === 0) {
+            currentParentId = item.id;
+        }
+        if (item.id === itemId) {
+            // If the item itself is level 0, it's its own parent for expansion purposes
+            // Otherwise, return the last found level 0 ID
+            return item.level === 0 ? item.id : currentParentId;
+        }
+    }
+    return null; // Item ID not found in the list
 }; 

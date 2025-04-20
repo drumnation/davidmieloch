@@ -6,6 +6,7 @@ import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';
 import { useAiAutopilotAnalogy } from './AiAutopilotAnalogy.hook';
 import { GlobalStyles, containerStyle, sectionContainerStyle } from './AiAutopilotAnalogy.styles';
 import { defaultContent } from './data';
+import { Box, useMantineTheme } from '@mantine/core';
 
 // Import section components
 import {
@@ -36,6 +37,8 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
     realityVsHollywoodProps
   });
 
+  const theme = useMantineTheme();
+
   // Ensure theme is of the correct type
   const diagramTheme = (mermaidDiagramProps.theme === 'default' ||
     mermaidDiagramProps.theme === 'dark' ||
@@ -47,6 +50,17 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
   return (
     <div className={className}>
       <GlobalStyles />
+      <style>{`
+        .hide-mermaid-on-mobile {
+          display: none; /* Hide by default (mobile) */
+        }
+
+        @media (min-width: ${theme.breakpoints.sm}) { /* Show from sm breakpoint up */
+          .hide-mermaid-on-mobile {
+            display: block;
+          }
+        }
+      `}</style>
       <div style={containerStyle}>
         <div id="autopilot-hero" style={{ scrollMarginTop: '100px' }}>
           <Hero {...enhancedHeroProps} />
@@ -82,19 +96,21 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
             <DunningKrugerSection />
           </div>
 
-          <div id="autopilot-diagram" style={{ scrollMarginTop: '100px' }}>
+          {/* <div id="autopilot-diagram" style={{ scrollMarginTop: '100px' }} className="hide-mermaid-on-mobile">
             <MermaidDiagramSection
               title={mermaidDiagramProps.title}
               description={mermaidDiagramProps.description}
               definition={mermaidDiagramProps.definition}
               theme={diagramTheme}
             />
-          </div>
+          </div> */}
 
           <div id="autopilot-warning" style={{ scrollMarginTop: '100px' }}>
             <WarningTransitionSection
               title={leadershipBlueprintProps.warningTransition.title}
-              description={leadershipBlueprintProps.warningTransition.description}
+              description={Array.isArray(leadershipBlueprintProps.warningTransition.description)
+                ? leadershipBlueprintProps.warningTransition.description
+                : [leadershipBlueprintProps.warningTransition.description]}
             />
           </div>
 

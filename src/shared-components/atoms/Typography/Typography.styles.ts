@@ -5,24 +5,39 @@ import { StyledTypographyProps } from './Typography.types';
 
 const variantStyles = {
   h1: css`
-    font-size: 3rem;
+    font-size: 3rem; // Desktop
     line-height: 1.2;
+    @media (max-width: 576px) {
+      font-size: 2.25rem; // Mobile
+    }
   `,
   h2: css`
-    font-size: 2.25rem;
+    font-size: 2.25rem; // Desktop
     line-height: 1.3;
+    @media (max-width: 576px) {
+      font-size: 1.75rem; // Mobile
+    }
   `,
   h3: css`
-    font-size: 1.875rem;
+    font-size: 1.875rem; // Desktop
     line-height: 1.4;
+    @media (max-width: 576px) {
+      font-size: 1.5rem; // Mobile
+    }
   `,
   body: css`
-    font-size: 1.125rem;
+    font-size: 1.125rem; // Desktop
     line-height: 1.6;
+    @media (max-width: 576px) {
+      font-size: 1rem; // Mobile
+    }
   `,
   caption: css`
-    font-size: 0.875rem;
+    font-size: 0.875rem; // Desktop
     line-height: 1.5;
+    @media (max-width: 576px) {
+      font-size: 0.75rem; // Mobile
+    }
   `,
 };
 

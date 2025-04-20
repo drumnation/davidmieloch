@@ -67,7 +67,6 @@ const whitePaperNavItems: SubNavItem[] = [
   { id: 'autopilot-reality', title: 'Reality vs Hollywood', level: 1, icon: <IconMasksTheater size={16} /> },
   { id: 'autopilot-strategy', title: 'Strategic Focus', level: 1, icon: <IconFocusCentered size={16} /> },
   { id: 'autopilot-dunning-kruger', title: 'Dunning-Kruger Effect', level: 1, icon: <IconChartArcs size={16} /> },
-  { id: 'autopilot-diagram', title: 'System Diagram', level: 1, icon: <IconVectorTriangle size={16} /> },
   { id: 'autopilot-warning', title: 'Critical Warning', level: 1, icon: <IconAlertTriangle size={16} /> },
   { id: 'autopilot-blueprint', title: 'Leadership Blueprint', level: 1, icon: <IconFileCode2 size={16} /> },
 
@@ -78,7 +77,6 @@ const whitePaperNavItems: SubNavItem[] = [
   { id: 'garden-team-customization', title: 'Team Customization', level: 1, icon: <IconUsersGroup size={16} /> },
   { id: 'garden-force-multipliers', title: 'Force Multipliers', level: 1, icon: <IconMultiplier1x size={16} /> },
   { id: 'garden-metaphor', title: 'The Garden Metaphor', level: 1, icon: <IconFlower size={16} /> },
-  { id: 'garden-architecture', title: 'System Architecture', level: 1, icon: <IconTopologyStar3 size={16} /> },
   { id: 'garden-evolution', title: 'The Next Evolution', level: 1, icon: <IconTrendingUp size={16} /> },
   { id: 'garden-transition', title: 'Transition', level: 1, icon: <IconSwitchHorizontal size={16} /> },
 

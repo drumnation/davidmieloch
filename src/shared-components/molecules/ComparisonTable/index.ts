@@ -1,2 +1,2 @@
-export * from './ComparisonTable';
-export * from './ComparisonTable.types';
+export { ComparisonTable } from './ComparisonTable';
+export type { ComparisonTableProps } from './ComparisonTable.types';

@@ -16,12 +16,14 @@ const NON_INTERACTIVE_CATEGORY_IDS = [
 interface SubNavLinkProps {
     item: SubNavItem;
     onClick?: (() => void) | undefined;
-    isExpanded?: boolean | undefined;
+    isExpanded?: boolean | undefined; // Represents if the parent list has this item expanded
+    isActive?: boolean;
+    hasSubItems?: boolean; // Add the new prop
 }
 
-export const SubNavLink: React.FC<SubNavLinkProps> = ({ item, onClick, isExpanded }) => {
+export const SubNavLink: React.FC<SubNavLinkProps> = ({ item, onClick, isExpanded, isActive, hasSubItems }) => {
     const theme = useMantineTheme();
-    const isHeader = item.level === 0;
+    const isHeader = item.level === 0; // Keep this check if specific header styling is needed
     const [isLinkValid, setIsLinkValid] = useState(false);
 
     // Check if the target element exists
@@ -30,80 +32,77 @@ export const SubNavLink: React.FC<SubNavLinkProps> = ({ item, onClick, isExpande
         setIsLinkValid(!!element);
     }, [item.id]);
 
-    // Determine if this specific item should be non-interactive
+    // Determine if this specific item should be non-interactive (e.g., category headers)
     const isNonInteractiveCategory =
         item.level === 1 && NON_INTERACTIVE_CATEGORY_IDS.includes(item.id);
 
-    // Determine overall interactiveness
+    // Determine overall interactiveness for scrolling/linking
     const isInteractive = isLinkValid && !isNonInteractiveCategory;
 
-    const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        // Only scroll if the link is interactive
-        if (isInteractive) {
-            const element = document.getElementById(item.id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-        // Always call original onClick (e.g., for closing drawer) if it exists
-        // But only if the item isn't specifically a non-interactive category header
-        if (onClick && !isNonInteractiveCategory) {
-            onClick();
-        }
-    };
+    // Determine if the item itself is clickable (either interactive link OR hasSubItems to toggle)
+    const isClickable = isInteractive || hasSubItems;
 
-    // Determine the actual click handler:
-    // - If it's a header with children, use the toggle handler (passed via onClick).
-    // - If it's interactive, use the scroll handler.
-    // - Otherwise (non-interactive), use null or prevent default.
-    const effectiveClickHandler = (isHeader && isExpanded !== undefined)
-        ? onClick
-        : (isInteractive ? handleScrollClick : (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault());
+    // ** FIX: Use the onClick handler passed down directly from SubNavList **
+    // This handler already manages toggling and link clicks (like closing mobile drawer)
+    const effectiveClickHandler = onClick;
 
-    // Determine the right section icon:
-    // Show only if it's a header AND isExpanded is defined (meaning it has children).
-    const rightSectionIcon = (isHeader && isExpanded !== undefined)
+    // ** FIX: Correct logic for the right section icon **
+    // Show chevron only if the item hasSubItems
+    const rightSectionIcon = hasSubItems
         ? (isExpanded ? <IconChevronDown size={16} /> : <IconChevronRight size={16} />)
         : null;
 
     const textStyle = {
-        fontWeight: isHeader ? 600 : 400,
+        fontWeight: isActive && isInteractive ? 600 : (isHeader ? 600 : 400),
         fontSize: isHeader ? theme.fontSizes.sm : theme.fontSizes.xs,
+        color: isActive && isInteractive ? theme.primaryColor : 'inherit',
     };
 
     const navLinkStyle = {
         paddingTop: theme.spacing.sm,
         paddingBottom: theme.spacing.sm,
-        borderLeft: !isHeader ? `3px solid ${theme.colors.gray[3]}` : 'none',
-        paddingLeft: !isHeader
-            ? (item.level * 15) + (item.icon ? 0 : 22)
-            : theme.spacing.xs,
+        borderLeft: !isHeader // Keep level-based indentation visual cue
+            ? `3px solid ${isActive && isInteractive ? theme.primaryColor : theme.colors.gray[3]}`
+            : 'none',
+        paddingLeft: !isHeader // Keep level-based padding
+            ? (item.level * 15) + (item.icon ? 0 : 22) // level > 0 will have padding
+            : theme.spacing.xs, // level === 0 padding
         borderTop: isHeader ? `1px solid ${theme.colors.gray[2]}` : 'none',
     };
 
     return (
         <NavLink
-            // Conditionally set href only if link is interactive
+            active={!!(isActive && isInteractive)} // Only mark as active if it's the interactive link itself
             href={isInteractive ? `#${item.id}` : undefined}
             label={<Text style={textStyle}>{item.title}</Text>}
+            // Use the corrected handler
             onClick={effectiveClickHandler}
+            // Prevent default link behavior ONLY if it's non-interactive AND doesn't have children
+            // Let the effectiveClickHandler manage prevention otherwise
+            // Mantine's NavLink doesn't have a simple preventDefault prop, handled in effectiveClickHandler
             variant="subtle"
             leftSection={item.icon ? <Box style={{ display: 'flex', alignItems: 'center' }}>{item.icon}</Box> : undefined}
+            // Use corrected icon
             rightSection={rightSectionIcon}
             style={navLinkStyle}
             color={theme.colors.gray[7]}
             py={isHeader ? `calc(${theme.spacing.sm} - 1px)` : theme.spacing.sm}
-            data-link-interactive={isInteractive} // Custom data attribute
+            data-link-interactive={isInteractive}
             styles={{
                 root: {
-                    cursor: isInteractive ? 'pointer' : 'default',
-                    // Keep pointer events enabled for headers with children, disable for others if non-interactive
-                    pointerEvents: (isHeader && isExpanded !== undefined) || isInteractive ? 'auto' : 'none',
-                    // Optionally dim non-interactive items slightly
-                    opacity: isInteractive ? 1 : 0.7,
+                    // Make clickable if it's interactive OR has children
+                    cursor: isClickable ? 'pointer' : 'default',
+                    // Allow events if clickable
+                    pointerEvents: isClickable ? 'auto' : 'none',
+                    // Dim only if not clickable
+                    opacity: isClickable ? 1 : 0.7,
+                },
+                label: {
+                    // fontWeight handled in textStyle
                 }
             }}
         />
     );
-}; 
+};
+
+// Removed the local hasChildren helper as it's now calculated inline. 

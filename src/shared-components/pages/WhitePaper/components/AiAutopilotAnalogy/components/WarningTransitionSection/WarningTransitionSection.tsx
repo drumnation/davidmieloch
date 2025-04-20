@@ -5,7 +5,7 @@ import { fadeIn } from '../../AiAutopilotAnalogy.styles';
 
 interface WarningTransitionSectionProps {
   title: string;
-  description: string;
+  description: string[];
   className?: string;
 }
 
@@ -15,8 +15,8 @@ export const WarningTransitionSection: React.FC<WarningTransitionSectionProps> =
   className
 }) => {
   return (
-    <motion.div 
-      className={className} 
+    <motion.div
+      className={className}
       variants={fadeIn}
       initial="hidden"
       whileInView="visible"
@@ -31,9 +31,9 @@ export const WarningTransitionSection: React.FC<WarningTransitionSectionProps> =
         boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
       }}
     >
-      <div style={{ 
+      <div style={{
         width: '100%',
-        maxWidth: '1000px', 
+        maxWidth: '1000px',
         margin: '0 auto'
       }}>
         <div style={{ marginBottom: '0.75rem' }}>
@@ -41,9 +41,16 @@ export const WarningTransitionSection: React.FC<WarningTransitionSectionProps> =
             {title}
           </Typography>
         </div>
-        <Typography variant="body" weight="regular">
-          {description}
-        </Typography>
+        {description.map((paragraph, index) => (
+          <Typography
+            key={index}
+            variant="body"
+            weight="regular"
+            mb={index < description.length - 1 ? '1rem' : undefined}
+          >
+            {paragraph}
+          </Typography>
+        ))}
       </div>
     </motion.div>
   );

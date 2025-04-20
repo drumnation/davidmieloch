@@ -20,6 +20,9 @@ import { BrainGardenOverview } from './components/BrainGardenOverview/BrainGarde
 import { RealWorldImpact } from './components/RealWorldImpact/RealWorldImpact';
 import { Hero } from '@shared-components/organisms/Hero';
 
+// Import content constants for BrainGardenOverview
+import { defaultContent as brainGardenContent } from './components/BrainGardenOverview/BrainGardenOverview.constants';
+
 // Import icons
 import {
   IconTransform,
@@ -101,7 +104,6 @@ const whitePaperNavItems: SubNavItem[] = [
   { id: 'autopilot-reality', title: 'Reality vs Hollywood', level: 1, icon: <IconMasksTheater size={16} /> },
   { id: 'autopilot-strategy', title: 'Strategic Focus', level: 1, icon: <IconFocusCentered size={16} /> },
   { id: 'autopilot-dunning-kruger', title: 'Dunning-Kruger Effect', level: 1, icon: <IconChartArcs size={16} /> },
-  { id: 'autopilot-diagram', title: 'System Diagram', level: 1, icon: <IconVectorTriangle size={16} /> },
   { id: 'autopilot-warning', title: 'Critical Warning', level: 1, icon: <IconAlertTriangle size={16} /> },
   { id: 'autopilot-blueprint', title: 'Leadership Blueprint', level: 1, icon: <IconFileCode2 size={16} /> },
 
@@ -112,7 +114,6 @@ const whitePaperNavItems: SubNavItem[] = [
   { id: 'garden-team-customization', title: 'Team Customization', level: 1, icon: <IconUsersGroup size={16} /> },
   { id: 'garden-force-multipliers', title: 'Force Multipliers', level: 1, icon: <IconMultiplier1x size={16} /> },
   { id: 'garden-metaphor', title: 'The Garden Metaphor', level: 1, icon: <IconFlower size={16} /> },
-  { id: 'garden-architecture', title: 'System Architecture', level: 1, icon: <IconTopologyStar3 size={16} /> },
   { id: 'garden-evolution', title: 'The Next Evolution', level: 1, icon: <IconTrendingUp size={16} /> },
   { id: 'garden-transition', title: 'Transition', level: 1, icon: <IconSwitchHorizontal size={16} /> },
 
@@ -153,7 +154,16 @@ export const WhitePaper: React.FC<WhitePaperProps> = ({ id = 'whitepaper', class
           </div>
           <div id="brain-garden-overview" style={{ scrollMarginTop: '100px' }}>
             <ErrorBoundary fallback={<div>Error loading overview section. Please refresh.</div>}>
-              <BrainGardenOverview />
+              <BrainGardenOverview
+                heroProps={brainGardenContent.hero}
+                introProps={brainGardenContent.intro}
+                coreComponentsProps={brainGardenContent.coreComponents}
+                forceMultipliersProps={brainGardenContent.forceMultipliers}
+                systemArchitectureProps={brainGardenContent.systemArchitecture}
+                navigationProps={brainGardenContent.navigation}
+                keyBenefitsProps={brainGardenContent.keyBenefits}
+                ctaProps={brainGardenContent.cta}
+              />
             </ErrorBoundary>
           </div>
           <div id="real-world-impact" style={{ scrollMarginTop: '100px' }}>
