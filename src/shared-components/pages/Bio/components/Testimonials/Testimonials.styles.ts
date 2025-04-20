@@ -6,6 +6,16 @@ export const TestimonialsContainer = styled(motion.div)`
   width: 100%;
   margin-top: 5rem;
   margin-bottom: 5rem;
+
+  // Target the h3 rendered by BioSectionTitle within this container
+  > div > h3 {
+    font-size: 3rem !important; // Increase font size (using !important to ensure override)
+    color: ${({ theme }) => theme.colors.text.primary} !important; // Set color to primary text
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      font-size: 2.5rem !important; // Adjust mobile size if needed
+    }
+  }
 `;
 
 export const SectionHeading = styled(motion.h2)`
@@ -36,7 +46,7 @@ export const CategoryIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors.text.primary}; // Change icon color to primary text (black/dark grey)
   
   svg {
     width: 28px;
@@ -46,7 +56,7 @@ export const CategoryIcon = styled.div`
 
 export const CategoryHeading = styled(motion.h3)`
   font-size: 1.75rem;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors.primary.main}; // Keep category title blue (primary color)
   font-weight: 600;
   margin: 0;
   padding: 0;
@@ -70,6 +80,20 @@ export const TestimonialCard = styled(motion.div)`
   &:hover {
     transform: translateY(-6px);
     box-shadow: ${({ theme }) => theme.shadows.lg};
+  }
+  
+  // Remove card styles on mobile
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 1.5rem; // Add some space below each testimonial text block on mobile
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
   }
 `;
 
@@ -97,6 +121,20 @@ export const TestimonialAuthor = styled.div`
   color: ${({ theme }) => theme.colors.primary.main};
   text-align: right;
   padding-right: 1rem;
+  margin-top: 1rem;
+
+  .testimonial-author-name {
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.primary.main};
+  }
+
+  .testimonial-author-title {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.text.secondary};
+    margin-top: 0.25rem;
+  }
 `;
 
 export const LinkedInButtonContainer = styled.div`
@@ -137,10 +175,10 @@ export const LinkedInButton = styled.a`
 // Animation variants
 export const fadeInUp: AnimationVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { 
+    transition: {
       duration: 0.6,
       ease: "easeOut"
     }

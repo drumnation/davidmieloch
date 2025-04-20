@@ -37,6 +37,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 800 !important;
     position: relative !important;
     z-index: 2 !important;
+    color: #ffffff !important;
   }
 
   .bio-hero-bg p {
@@ -47,6 +48,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400 !important;
     position: relative !important;
     z-index: 2 !important;
+    color: #ffffff !important;
   }
 
   @keyframes subtle-zoom {
@@ -141,7 +143,7 @@ export const SPACING = {
   paragraphBreak: '2.5rem',
   element: '1.5rem',
   container: '2rem',
-  
+
   // Responsive spacing for mobile
   mobile: {
     section: '3rem',
@@ -155,10 +157,10 @@ export const SPACING = {
 // Animation variants
 export const fadeInUp: AnimationVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { 
+    transition: {
       duration: 0.6,
       ease: "easeOut"
     }
@@ -167,9 +169,9 @@ export const fadeInUp: AnimationVariants = {
 
 export const fadeIn: AnimationVariants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
-    transition: { 
+    transition: {
       duration: 0.8,
       ease: "easeOut"
     }
@@ -188,10 +190,10 @@ export const staggerContainer: AnimationVariants = {
 
 export const slideInLeft: AnimationVariants = {
   hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { 
+    transition: {
       duration: 0.6,
       ease: "easeOut"
     }
@@ -200,10 +202,10 @@ export const slideInLeft: AnimationVariants = {
 
 export const slideInRight: AnimationVariants = {
   hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { 
+    transition: {
       duration: 0.6,
       ease: "easeOut"
     }
@@ -212,10 +214,10 @@ export const slideInRight: AnimationVariants = {
 
 export const scaleIn: AnimationVariants = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
-    transition: { 
+    transition: {
       duration: 0.5,
       ease: "easeOut"
     }
@@ -342,11 +344,11 @@ export const BioSectionTitle = styled.h3`
 export const MediaContainer = styled.div`
   margin: 2rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
   
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    grid-template-columns: 1fr;
+  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 

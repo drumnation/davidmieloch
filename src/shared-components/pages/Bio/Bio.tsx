@@ -163,7 +163,7 @@ export const BioPage: React.FC<BioPageProps> = ({
   // Hero props
   const heroProps = {
     title: "David Mieloch",
-    subtitle: "Orchestrating Code with Rhythmic Precision",
+    subtitle: "Orchestrating Code · With Rhythmic Precision",
     background: 'image' as const,
     backgroundImage: '/orchestra.jpg',
     backgroundOverlay: true,

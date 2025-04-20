@@ -89,21 +89,30 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ className }) => {
               </CategoryHeadingWrapper>
 
               <TestimonialCardsContainer>
-                {categoryData.testimonials.map((testimonial, testimonialIndex) => (
-                  <motion.div
-                    key={testimonialIndex}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px 0px" }}
-                    variants={fadeInVariants}
-                    transition={{ delay: testimonialIndex * 0.2 }}
-                  >
-                    <TestimonialCard>
-                      <TestimonialText dangerouslySetInnerHTML={{ __html: testimonial.text }} />
-                      <TestimonialAuthor>{testimonial.author}</TestimonialAuthor>
-                    </TestimonialCard>
-                  </motion.div>
-                ))}
+                {categoryData.testimonials.map((testimonial, testimonialIndex) => {
+                  const authorParts = testimonial.author.split(',');
+                  const name = authorParts[0].trim();
+                  const titleCompany = authorParts.slice(1).join(',').trim();
+
+                  return (
+                    <motion.div
+                      key={testimonialIndex}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, margin: "-50px 0px" }}
+                      variants={fadeInVariants}
+                      transition={{ delay: testimonialIndex * 0.2 }}
+                    >
+                      <TestimonialCard>
+                        <TestimonialText dangerouslySetInnerHTML={{ __html: testimonial.text }} />
+                        <TestimonialAuthor>
+                          <span className="testimonial-author-name">{name}</span>
+                          {titleCompany && <span className="testimonial-author-title">{titleCompany}</span>}
+                        </TestimonialAuthor>
+                      </TestimonialCard>
+                    </motion.div>
+                  );
+                })}
               </TestimonialCardsContainer>
             </div>
           );
