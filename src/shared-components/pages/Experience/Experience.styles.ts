@@ -41,10 +41,10 @@ export const GlobalStyles = createGlobalStyle`
 // Animation variants
 export const fadeInUp: AnimationVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { 
+    transition: {
       duration: 0.6,
       ease: "easeOut"
     }
@@ -53,9 +53,9 @@ export const fadeInUp: AnimationVariants = {
 
 export const fadeIn: AnimationVariants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
-    transition: { 
+    transition: {
       duration: 0.8,
       ease: "easeOut"
     }
@@ -77,7 +77,6 @@ export const ExperienceContainer = styled.div`
   width: 100%;
   position: relative;
   z-index: 1;
-  overflow: hidden;
   background-color: #f3f2ef;
   min-height: 100vh;
 `;

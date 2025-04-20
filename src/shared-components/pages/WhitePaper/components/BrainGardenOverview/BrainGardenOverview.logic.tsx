@@ -22,14 +22,18 @@ export const AnimatedSection: React.FC<{
   children: ReactNode;
   id?: string;
   className?: string;
-}> = ({ visibilityProps, children, id, className }) => {
-  const { ref, style, inView } = visibilityProps;
-  
+  style?: React.CSSProperties;
+}> = ({ visibilityProps, children, id, className, style }) => {
+  const { ref, style: animationStyle, inView } = visibilityProps;
+
+  // Merge incoming style with animation style
+  const mergedStyle = { ...animationStyle, ...style };
+
   return (
-    <div 
-      ref={ref} 
-      style={style} 
-      id={id} 
+    <div
+      ref={ref}
+      style={mergedStyle}
+      id={id}
       className={className}
       data-inview={inView}
     >
@@ -89,8 +93,8 @@ export const CTAButtonWithIcon: React.FC<{
   link: string;
   icon?: string | ReactElement;
 }> = ({ text, link, icon }) => {
-  const iconElement = typeof icon === 'string' 
-    ? <Icon name={icon as string} size={16} style={{ marginLeft: '0.5rem' }} /> 
+  const iconElement = typeof icon === 'string'
+    ? <Icon name={icon as string} size={16} style={{ marginLeft: '0.5rem' }} />
     : icon;
 
   return (
@@ -170,8 +174,8 @@ export const NarrativeSectionComponent: React.FC<{
   };
 
   return (
-    <div 
-      style={divStyle} 
+    <div
+      style={divStyle}
       className={className}
     >
       <div>
@@ -193,7 +197,7 @@ export const NarrativeSectionComponent: React.FC<{
  */
 export const processIcon = (icon: string | ReactElement | undefined, size: number = 24): ReactElement => {
   if (!icon) return <Icon name="star" size={size} />;
-  
+
   return typeof icon === 'string'
     ? <Icon name={icon} size={size} />
     : icon;

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { 
+import {
   DetailedContentContainer,
   DetailedContentTitle,
   DetailedContentText,
@@ -21,9 +21,9 @@ import { DetailedContentProps } from './DetailedContent.types';
 import Image from 'next/image';
 
 // Import icons
-import { 
-  IconBrandReact, 
-  IconBrandNpm, 
+import {
+  IconBrandReact,
+  IconBrandNpm,
   IconBrandGithub,
   IconBrandTypescript
 } from '@tabler/icons-react';
@@ -31,7 +31,7 @@ import {
 export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) => {
   const [isVisible, setIsVisible] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -41,11 +41,11 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
       },
       { rootMargin: "-100px", threshold: 0.1 }
     );
-    
+
     if (contentRef.current) {
       observer.observe(contentRef.current);
     }
-    
+
     return () => {
       if (contentRef.current) {
         observer.unobserve(contentRef.current);
@@ -58,7 +58,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
       ref={contentRef}
       className={`${className} ${isVisible ? 'visible' : ''}`}
     >
-      <section>
+      <section id="bp-intro-modern" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/react-native.svg" alt="React Native Icon" width={32} height={32} />
@@ -66,12 +66,12 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           <DetailedContentTitle>Modern React and React Native Best Practices</DetailedContentTitle>
         </TitleWrapper>
         <DetailedContentText>
-          Modern software development requires a structured approach that balances flexibility with maintainability. 
+          Modern software development requires a structured approach that balances flexibility with maintainability.
           The practices outlined here represent a comprehensive strategy for building scalable applications.
         </DetailedContentText>
       </section>
-      
-      <section>
+
+      <section id="bp-intro-enterprise" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/enterprise.svg" alt="Enterprise Icon" width={32} height={32} />
@@ -79,15 +79,15 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           <DetailedContentTitle>Accelerating Enterprise Development</DetailedContentTitle>
         </TitleWrapper>
         <DetailedContentText>
-          My journey in optimizing software development for enterprise-scale React, Node.js, and TypeScript projects 
-          has been one of continuous learning and refinement. I&apos;ve navigated the challenges faced by growing teams, 
-          moving from cumbersome, outdated practices to the streamlined, highly productive workflows enabled by modern 
-          tooling and architectural patterns. The key to this transformation lies in a strategic combination of component 
+          My journey in optimizing software development for enterprise-scale React, Node.js, and TypeScript projects
+          has been one of continuous learning and refinement. I&apos;ve navigated the challenges faced by growing teams,
+          moving from cumbersome, outdated practices to the streamlined, highly productive workflows enabled by modern
+          tooling and architectural patterns. The key to this transformation lies in a strategic combination of component
           design, code sharing, a robust testing strategy, and a deep understanding of the JavaScript/TypeScript ecosystem.
         </DetailedContentText>
       </section>
-      
-      <section>
+
+      <section id="bp-intro-components" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/react.svg" alt="React Icon" width={32} height={32} />
@@ -95,27 +95,27 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           <DetailedContentTitle>Component Architecture</DetailedContentTitle>
         </TitleWrapper>
         <DetailedContentText>
-          My approach to component organization starts with a fundamental question: <em>Will this component be reused across 
-          multiple applications or contexts?</em> For components intended for widespread reuse – UI elements like buttons, 
-          form fields, or data display components – I employ Atomic Design principles. This creates a robust library of 
+          My approach to component organization starts with a fundamental question: <em>Will this component be reused across
+            multiple applications or contexts?</em> For components intended for widespread reuse – UI elements like buttons,
+          form fields, or data display components – I employ Atomic Design principles. This creates a robust library of
           foundational building blocks, promoting consistency and reducing duplication.
         </DetailedContentText>
-        
+
         <DetailedContentText>
-          However, not all components are created equal. Application-specific components, tightly coupled to a particular 
-          feature or workflow, often <em>don&apos;t</em> benefit from the strict constraints of Atomic Design. For these, a more 
+          However, not all components are created equal. Application-specific components, tightly coupled to a particular
+          feature or workflow, often <em>don&apos;t</em> benefit from the strict constraints of Atomic Design. For these, a more
           traditional hierarchical structure, organized around the application&apos;s feature set, is more appropriate.
         </DetailedContentText>
-        
+
         <DetailedContentText>
-          The decision-making process is crucial. I&apos;ve developed a set of guidelines, refined over five years of practical 
-          application, to determine the optimal structure for each component. This hybrid approach – Atomic Design for 
-          shareable elements, hierarchical design for application-specific logic – provides the flexibility and 
+          The decision-making process is crucial. I&apos;ve developed a set of guidelines, refined over five years of practical
+          application, to determine the optimal structure for each component. This hybrid approach – Atomic Design for
+          shareable elements, hierarchical design for application-specific logic – provides the flexibility and
           maintainability needed for large-scale React applications.
         </DetailedContentText>
       </section>
 
-      <section>
+      <section id="bp-intro-typescript" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/typescript.svg" alt="TypeScript Icon" width={32} height={32} />
@@ -126,7 +126,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           TypeScript is not just about adding types; it&apos;s about leveraging the type system
           to create safer, more maintainable code. Here&apos;s how I approach TypeScript:
         </DetailedContentText>
-        
+
         <DetailedContentList>
           <ul>
             <li><strong>Be Explicit with Types</strong>: Avoid using &apos;any&apos; as much as possible
@@ -139,16 +139,16 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
               narrow types at runtime.</li>
           </ul>
         </DetailedContentList>
-        
+
         <DetailedContentText>
-          Prettier is integrated with ESLint to handle code formatting, eliminating any subjective debates about code style. 
-          The key to scaling this across a monorepo is to create shared configuration packages. These packages define the 
-          ESLint, Prettier, and TypeScript rules that are used consistently across all projects within the monorepo, 
+          Prettier is integrated with ESLint to handle code formatting, eliminating any subjective debates about code style.
+          The key to scaling this across a monorepo is to create shared configuration packages. These packages define the
+          ESLint, Prettier, and TypeScript rules that are used consistently across all projects within the monorepo,
           eliminating duplicated configuration and ensuring a unified development experience.
         </DetailedContentText>
       </section>
 
-      <section>
+      <section id="bp-intro-testing" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/jest.svg" alt="Jest Icon" width={32} height={32} />
@@ -156,10 +156,10 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           <DetailedContentTitle>Testing Strategy</DetailedContentTitle>
         </TitleWrapper>
         <DetailedContentText>
-          Automated testing is crucial for maintaining code quality and stability, especially in the context of rapid 
+          Automated testing is crucial for maintaining code quality and stability, especially in the context of rapid
           iteration and generative AI. My testing strategy encompasses several layers:
         </DetailedContentText>
-        
+
         <DetailedContentList>
           <ul>
             <li><strong>Unit Tests for Business Logic</strong>: Pure functions and business
@@ -172,15 +172,15 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
               the behavior of the component, not its implementation details.</li>
           </ul>
         </DetailedContentList>
-        
+
         <DetailedContentText>
-          I generally avoid fully mounted component tests, as they often require extensive mocking and can be brittle and 
-          uninformative. The key is to develop a &quot;nose&quot; for choosing the right type of test for each situation, maximizing 
+          I generally avoid fully mounted component tests, as they often require extensive mocking and can be brittle and
+          uninformative. The key is to develop a &quot;nose&quot; for choosing the right type of test for each situation, maximizing
           the value of the testing effort while minimizing unnecessary complexity.
         </DetailedContentText>
       </section>
 
-      <section>
+      <section id="bp-intro-storybook" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/storybook.svg" alt="Storybook Icon" width={32} height={32} />
@@ -191,7 +191,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           Documenting components is essential for reusability and collaboration. Storybook
           provides a great way to document and showcase components:
         </DetailedContentText>
-        
+
         <DetailedContentList>
           <ul>
             <li><strong>Story Per Component Variant</strong>: Create a story for each variant
@@ -204,14 +204,14 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
               the component in different contexts.</li>
           </ul>
         </DetailedContentList>
-        
+
         <DetailedContentText>
-          Developing components in Storybook often leads to more testable and well-designed components, as it forces you 
+          Developing components in Storybook often leads to more testable and well-designed components, as it forces you
           to think about their API and behavior in isolation.
         </DetailedContentText>
       </section>
 
-      <section>
+      <section id="bp-intro-bottleneck" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/turborepo.svg" alt="Turborepo Icon" width={32} height={32} />
@@ -222,7 +222,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
           In larger organizations, shared libraries can become a bottleneck for development.
           Here&apos;s how I approach this problem:
         </DetailedContentText>
-        
+
         <DetailedContentList>
           <ul>
             <li><strong>Monorepo with Clear Boundaries</strong>: Use a monorepo structure with
@@ -235,9 +235,9 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
               improve build performance.</li>
           </ul>
         </DetailedContentList>
-        
+
         <CodeBlock>
-        {`// Monorepo structure with Turborepo
+          {`// Monorepo structure with Turborepo
 monorepo/
 ├── apps/
 │   ├── web/
@@ -251,7 +251,7 @@ monorepo/
         </CodeBlock>
       </section>
 
-      <section>
+      <section id="bp-intro-quality" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/eslint.svg" alt="ESLint Icon" width={32} height={32} />
@@ -262,7 +262,7 @@ monorepo/
           Maintaining code quality and consistency is essential for long-term maintainability.
           Here are the tools and practices I use:
         </DetailedContentText>
-        
+
         <DetailedContentList>
           <ul>
             <li><strong>ESLint for Static Analysis</strong>: Use ESLint with a comprehensive
@@ -275,16 +275,16 @@ monorepo/
               CI/CD pipeline to catch issues early.</li>
           </ul>
         </DetailedContentList>
-        
+
         <DetailedContentText>
-          Prettier is integrated with ESLint to handle code formatting, eliminating any subjective debates about code style. 
-          The key to scaling this across a monorepo is to create shared configuration packages. These packages define the 
-          ESLint, Prettier, and TypeScript rules that are used consistently across all projects within the monorepo, 
+          Prettier is integrated with ESLint to handle code formatting, eliminating any subjective debates about code style.
+          The key to scaling this across a monorepo is to create shared configuration packages. These packages define the
+          ESLint, Prettier, and TypeScript rules that are used consistently across all projects within the monorepo,
           eliminating duplicated configuration and ensuring a unified development experience.
         </DetailedContentText>
       </section>
 
-      <section>
+      <section id="bp-intro-dev-env" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/vite.svg" alt="Vite Icon" width={32} height={32} />
@@ -295,7 +295,7 @@ monorepo/
           A well-configured development environment can significantly improve developer
           productivity. Here&apos;s how I set up my development environment:
         </DetailedContentText>
-        
+
         <DetailedContentList>
           <ul>
             <li><strong>Fast Build Tools</strong>: Use Vite or Next.js for fast development server
@@ -308,9 +308,9 @@ monorepo/
               configuration that changes between environments.</li>
           </ul>
         </DetailedContentList>
-        
+
         <CodeBlock>
-        {`// VSCode settings.json
+          {`// VSCode settings.json
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -321,7 +321,7 @@ monorepo/
         </CodeBlock>
       </section>
 
-      <section>
+      <section id="bp-intro-performance" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/vitest.svg" alt="Vitest Icon" width={32} height={32} />
@@ -332,7 +332,7 @@ monorepo/
           Performance is a key aspect of user experience. Here are the techniques I use to
           optimize frontend performance:
         </DetailedContentText>
-        
+
         <DetailedContentList>
           <ul>
             <li><strong>Code Splitting</strong>: Use dynamic imports and React.lazy to split
@@ -345,9 +345,9 @@ monorepo/
               like Lighthouse CI to track performance metrics over time.</li>
           </ul>
         </DetailedContentList>
-        
+
         <CodeBlock>
-        {`// Code splitting with React.lazy
+          {`// Code splitting with React.lazy
 import React, { lazy, Suspense } from 'react';
 
 const HeavyComponent = lazy(() => import('./HeavyComponent'));
@@ -362,7 +362,7 @@ function App() {
         </CodeBlock>
       </section>
 
-      <section>
+      <section id="bp-intro-deps" style={{ scrollMarginTop: '100px' }}>
         <TitleWrapper>
           <SectionIcon>
             <Image src="/icons/npm.svg" alt="NPM Icon" width={32} height={32} />
@@ -373,7 +373,7 @@ function App() {
           Managing dependencies is a critical aspect of maintaining a healthy codebase.
           Here are my strategies for effective dependency management:
         </DetailedContentText>
-        
+
         <DetailedContentList>
           <ul>
             <li><strong>Regular Dependency Updates</strong>: Regularly update dependencies to
@@ -386,9 +386,9 @@ function App() {
               and address large dependencies.</li>
           </ul>
         </DetailedContentList>
-        
+
         <CodeBlock>
-        {`// Using npm-check-updates to find outdated packages
+          {`// Using npm-check-updates to find outdated packages
 $ npx npm-check-updates
 
 # Analyzing bundle size with webpack-bundle-analyzer
@@ -396,11 +396,11 @@ $ npx webpack-bundle-analyzer ./stats.json`}
         </CodeBlock>
       </section>
 
-      <section>
+      <section id="bp-intro-summary">
         <DetailedContentText>
-          By combining technical excellence with a thoughtful, human-centered approach to development, we can create 
-          software that not only meets the needs of today but can adapt to the challenges of tomorrow. The future of 
-          development lies not just in mastering specific technologies, but in cultivating the mindset and practices 
+          By combining technical excellence with a thoughtful, human-centered approach to development, we can create
+          software that not only meets the needs of today but can adapt to the challenges of tomorrow. The future of
+          development lies not just in mastering specific technologies, but in cultivating the mindset and practices
           that enable continuous improvement and adaptation.
         </DetailedContentText>
       </section>

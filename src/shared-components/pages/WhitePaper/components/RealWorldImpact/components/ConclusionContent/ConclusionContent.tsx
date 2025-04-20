@@ -22,7 +22,7 @@ export const ConclusionContent: React.FC = () => {
   return (
     <div ref={ref}>
       <ContentContainer>
-        <Section>
+        <Section id="impact-conclusion-intro" style={{ scrollMarginTop: '100px' }}>
           <SectionTitle>{conclusion.title}</SectionTitle>
           <SectionDescription>{conclusion.subtitle}</SectionDescription>
           <Typography variant="body">
@@ -30,7 +30,7 @@ export const ConclusionContent: React.FC = () => {
           </Typography>
         </Section>
 
-        <Section>
+        <Section id="impact-insights" style={{ scrollMarginTop: '100px' }}>
           <SectionTitle>{journeyInsights.title}</SectionTitle>
           <SectionDescription>
             <Typography variant="body">
@@ -40,7 +40,7 @@ export const ConclusionContent: React.FC = () => {
           <InsightsSection insights={journeyInsights.insights} />
         </Section>
 
-        <Section>
+        <Section id="impact-framework" style={{ scrollMarginTop: '100px' }}>
           <SectionTitle>{framework.title}</SectionTitle>
           <SectionDescription>
             <Typography variant="body">
@@ -50,7 +50,7 @@ export const ConclusionContent: React.FC = () => {
           <FrameworkSection components={framework.components} />
         </Section>
 
-        <Section>
+        <Section id="impact-current-state" style={{ scrollMarginTop: '100px' }}>
           <SectionTitle>{currentState.title}</SectionTitle>
           <SectionDescription>
             <Typography variant="body">
@@ -60,16 +60,16 @@ export const ConclusionContent: React.FC = () => {
           <CurrentStateSection sections={currentState.sections} />
         </Section>
 
-        <Section>
+        <Section id="impact-cta" style={{ scrollMarginTop: '100px' }}>
           <SectionTitle>{callToAction.title}</SectionTitle>
           <SectionDescription>
             <Typography variant="body">
               {callToAction.description}
             </Typography>
           </SectionDescription>
-          <CallToActionSection 
-            actions={callToAction.actions} 
-            closing={callToAction.closing} 
+          <CallToActionSection
+            actions={callToAction.actions}
+            closing={callToAction.closing}
           />
         </Section>
       </ContentContainer>

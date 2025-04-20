@@ -28,6 +28,7 @@ export const SideProjectsSectionMobile: React.FC<SideProjectsSectionProps> = ({
     title = SECTION_TITLE,
     className,
     id,
+    generateId,
 }) => {
     const {
         selectedCategory,
@@ -108,9 +109,9 @@ export const SideProjectsSectionMobile: React.FC<SideProjectsSectionProps> = ({
                 {filteredProjects.map((project, index) => (
                     <ProjectCard
                         key={`${project.title}-${index}`}
+                        id={generateId(project)}
                         project={project}
                         onImageClick={openModal}
-                        // Pass showTechLabels={false} for mobile
                         showTechLabels={false}
                     />
                 ))}

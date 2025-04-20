@@ -1,28 +1,26 @@
 import { ReactNode } from 'react';
+// import { EducationItem } from './EducationSection.types'; // Remove self-import
 
 export interface EducationItem {
   school: string;
-  degree: string;
-  fieldOfStudy: string;
-  location?: string;
-  startDate: string;
-  endDate: string;
-  description: string;
+  degree?: string;
+  fieldOfStudy?: string;
+  startDate?: string;
+  endDate?: string;
+  description?: string;
   logoPath?: string;
-  mediaUrl?: string;
-  mediaType?: 'video' | 'image';
-  sortOrder?: number; // Optional field for custom sorting
   media?: MediaItem[];
+  sortOrder?: number;
 }
 
 export interface MediaItem {
-  type: 'image' | 'pdf' | 'embed';
+  type: 'image' | 'pdf' | 'link' | 'embed' | 'video' | 'audio';
   url: string;
   title?: string;
   description?: string;
-  thumbnailUrl?: string; // For PDFs
-  width?: string | number;
-  height?: string | number;
+  width?: string;
+  height?: number;
+  thumbnailUrl?: string;
 }
 
 export interface EducationSectionProps {
@@ -31,4 +29,5 @@ export interface EducationSectionProps {
   className?: string;
   children?: ReactNode;
   renderLogo?: (school: string) => ReactNode;
+  generateId: (item: EducationItem) => string;
 } 

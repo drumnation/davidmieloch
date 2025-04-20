@@ -67,7 +67,7 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
   const systemVisibility = useSectionVisibility();
   const coreVisibility = useSectionVisibility();
   const teamVisibility = useSectionVisibility();
-  const forceVisibility = useSectionVisibility({ 
+  const forceVisibility = useSectionVisibility({
     threshold: 0,
     rootMargin: '0px 0px -10% 0px'
   });
@@ -79,49 +79,50 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
   return (
     <Container className={className}>
       {/* Hero Section */}
-      
+
       {/* Content Section with White Background */}
       <ContentSection>
         {/* Introduction Section */}
-        <AnimatedSection visibilityProps={systemVisibility}>
+        <AnimatedSection visibilityProps={systemVisibility} id="garden-system-overview" style={{ scrollMarginTop: '100px' }}>
           <SystemOverviewSection introProps={introProps} />
         </AnimatedSection>
-        
+
         {/* Core Components Section */}
-        <AnimatedSection visibilityProps={coreVisibility}>
+        <AnimatedSection visibilityProps={coreVisibility} id="garden-core-components" style={{ scrollMarginTop: '100px' }}>
           <CoreComponentsSection coreComponentsProps={safeData.coreComponents} />
         </AnimatedSection>
-        
+
         {/* Team Customization Section */}
-        <AnimatedSection visibilityProps={teamVisibility}>
+        <AnimatedSection visibilityProps={teamVisibility} id="garden-team-customization" style={{ scrollMarginTop: '100px' }}>
           <TeamCustomizationSection />
         </AnimatedSection>
-        
+
         {/* Force Multipliers Section */}
-        <AnimatedSection 
-          visibilityProps={forceVisibility} 
-          id="force-multiplier-debug-container"
+        <AnimatedSection
+          visibilityProps={forceVisibility}
+          id="garden-force-multipliers"
+          style={{ scrollMarginTop: '100px' }}
         >
           <ForceMultipliersSection forceMultipliersProps={safeData.forceMultipliers} />
         </AnimatedSection>
-        
+
         {/* The Garden Metaphor Section */}
-        <AnimatedSection visibilityProps={gardenVisibility}>
+        <AnimatedSection visibilityProps={gardenVisibility} id="garden-metaphor" style={{ scrollMarginTop: '100px' }}>
           <GardenMetaphorSection />
         </AnimatedSection>
-        
+
         {/* System Architecture Section */}
-        <AnimatedSection visibilityProps={architectureVisibility}>
+        <AnimatedSection visibilityProps={architectureVisibility} id="garden-architecture" style={{ scrollMarginTop: '100px' }}>
           <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
         </AnimatedSection>
-        
+
         {/* The Next Evolution Section */}
-        <AnimatedSection visibilityProps={evolutionVisibility}>
+        <AnimatedSection visibilityProps={evolutionVisibility} id="garden-evolution" style={{ scrollMarginTop: '100px' }}>
           <NextEvolutionSection />
         </AnimatedSection>
-        
+
         {/* Transition to Technical Implementation Section */}
-        <AnimatedSection visibilityProps={transitionVisibility}>
+        <AnimatedSection visibilityProps={transitionVisibility} id="garden-transition" style={{ scrollMarginTop: '100px' }}>
           <TransitionSection {...transitionProps} />
         </AnimatedSection>
       </ContentSection>

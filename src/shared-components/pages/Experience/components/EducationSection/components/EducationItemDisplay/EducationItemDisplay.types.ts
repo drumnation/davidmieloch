@@ -1,7 +1,8 @@
-import { EducationItem as EducationItemType } from '../../EducationSection.types';
+import { EducationItem } from '../../EducationSection.types';
 
 export interface EducationItemDisplayProps {
-    educationItem: EducationItemType;
-    renderLogo?: (schoolName: string) => React.ReactNode;
-    onImageClick: (url: string, title?: string) => void;
+    educationItem: EducationItem;
+    renderLogo?: (school: string) => React.ReactNode;
+    onImageClick?: (url: string, title?: string) => void;
+    id?: string;
 } 

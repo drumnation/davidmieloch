@@ -1,3 +1,4 @@
+import React from 'react';
 import { ReactNode } from 'react';
 
 export interface CategoryCardItemProps {
@@ -8,6 +9,7 @@ export interface CategoryCardItemProps {
 }
 
 export interface CategoryCardProps {
+  id?: string;
   title: string;
   description: ReactNode;
   items: CategoryCardItemProps[];

@@ -30,6 +30,7 @@ export const ExperienceSectionMobile: React.FC<ExperienceSectionProps> = ({
     className = '',
     children,
     renderLogo,
+    generateId,
 }: ExperienceSectionProps) => {
     // Use the custom hook for state management
     const {
@@ -49,14 +50,14 @@ export const ExperienceSectionMobile: React.FC<ExperienceSectionProps> = ({
         <MobileContainer className={className}>
             <h2>{title}</h2>
 
-            {/* Render current experiences - pass showTechLabels={false} */}
+            {/* Render current experiences - pass generateId and showTechLabels={false} */}
             {currentExperiences.map((job: ExperienceItemType, index: number) => (
                 <React.Fragment key={`job-${index}`}>
-                    {renderExperienceItem(job, index, renderLogo, openModal, setPinnedJob, false)}
+                    {renderExperienceItem(job, index, generateId, renderLogo, openModal, setPinnedJob, false)}
                 </React.Fragment>
             ))}
 
-            {/* Render older experiences - pass showTechLabels={false} */}
+            {/* Render older experiences - pass generateId and showTechLabels={false} */}
             {hasOlderExperience && (
                 <Accordion
                     title={`Previous Sales & Marketing Experience (${OLDER_EXPERIENCE.length} Positions)`}
@@ -67,7 +68,7 @@ export const ExperienceSectionMobile: React.FC<ExperienceSectionProps> = ({
                         .sort(sortExperiencesByDate)
                         .map((job, index) => (
                             <React.Fragment key={`older-job-${index}`}>
-                                {renderExperienceItem(job as ExperienceItemType, index, renderLogo, openModal, setPinnedJob, false)}
+                                {renderExperienceItem(job as ExperienceItemType, index, generateId, renderLogo, openModal, setPinnedJob, false)}
                             </React.Fragment>
                         ))}
                 </Accordion>

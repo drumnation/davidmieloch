@@ -47,4 +47,5 @@ export interface SideProjectsSectionProps {
   title?: string;
   className?: string;
   id?: string;
+  generateId: (item: SideProject) => string;
 } 

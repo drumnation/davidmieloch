@@ -50,6 +50,7 @@ export const BulletPointsExample: React.FC = () => {
             <ExperienceSection
                 experiences={experiencesWithMarkdown}
                 title="Professional Experience"
+                generateId={(item) => item.company + item.title}
             />
 
             <div className="usage-tips">

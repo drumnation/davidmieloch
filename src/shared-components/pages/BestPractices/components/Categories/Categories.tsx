@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { 
+import {
   CategoriesContainer,
   SectionTitle,
   SectionDescription,
@@ -14,13 +14,18 @@ import { CategoryCard } from '../CategoryCard';
 import { CategoryCardItemProps } from '../CategoryCard/CategoryCard.types';
 import { ReactNativeFeature } from '../ReactNativeFeature';
 
-export const Categories: React.FC<CategoriesProps> = ({ 
+// Helper function to sanitize ID
+const sanitizeId = (title: string): string => {
+  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+};
+
+export const Categories: React.FC<CategoriesProps> = ({
   className,
-  categories 
+  categories
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -30,11 +35,11 @@ export const Categories: React.FC<CategoriesProps> = ({
       },
       { rootMargin: "-100px", threshold: 0.1 }
     );
-    
+
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
-    
+
     return () => {
       if (containerRef.current) {
         observer.unobserve(containerRef.current);
@@ -62,7 +67,7 @@ export const Categories: React.FC<CategoriesProps> = ({
   };
 
   return (
-    <CategoriesWrapper 
+    <CategoriesWrapper
       className={`${className} fade-in ${isVisible ? 'visible' : ''}`}
       ref={containerRef}
     >
@@ -72,19 +77,24 @@ export const Categories: React.FC<CategoriesProps> = ({
       <SectionDescription className={isVisible ? 'visible' : ''}>
         A comprehensive approach to modern software development
       </SectionDescription>
-      
+
       <CategoriesContainer>
         <CategoryGrid>
-          {filteredCategories.map((category) => (
-            <CategoryCard 
-              key={category.key}
-              title={category.title}
-              description={category.description}
-              items={convertItemsToCardProps(category.items, category.key)}
-            />
-          ))}
+          {filteredCategories.map((category) => {
+            // Generate ID from title
+            const categoryId = sanitizeId(category.title);
+            return (
+              <CategoryCard
+                key={category.key} // Keep original key for React list rendering
+                id={categoryId} // Use title-based ID for navigation/scrolling
+                title={category.title}
+                description={category.description}
+                items={convertItemsToCardProps(category.items, category.key)}
+              />
+            );
+          })}
         </CategoryGrid>
-        
+
         <ReactNativeFeature isVisible={isVisible} />
       </CategoriesContainer>
     </CategoriesWrapper>

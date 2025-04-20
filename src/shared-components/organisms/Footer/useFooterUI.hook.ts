@@ -6,6 +6,9 @@ import { useFooter } from './Footer.hook';
 import { usePlayer } from '../../../providers/PlayerProvider';
 import { SoundCloudTrack } from './Footer.types';
 import { USER_INTERACTION_TIMEOUT, SCROLL_THRESHOLD, getColorsByScheme } from './Footer.logic';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@store/index';
+import { setPlayerMinimized } from '@store/slices/playerUiSlice';
 
 export interface UseFooterUIProps {
     soundCloudTracks?: SoundCloudTrack[];
@@ -14,7 +17,7 @@ export interface UseFooterUIProps {
 export const useFooterUI = ({ soundCloudTracks = [] }: UseFooterUIProps) => {
     // UI state
     const [isExpanded, setIsExpanded] = useState(false);
-    const [isMiniMode, setIsMiniMode] = useState(false);
+    const [isMiniMode, setIsMiniModeState] = useState(false);
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [isUserInteracting, setIsUserInteracting] = useState(false);
     const [interactionTimeout, setInteractionTimeout] = useState<NodeJS.Timeout | null>(null);
@@ -23,6 +26,19 @@ export const useFooterUI = ({ soundCloudTracks = [] }: UseFooterUIProps) => {
 
     // Refs
     const progressBarRef = useRef<HTMLDivElement>(null);
+
+    // Redux dispatch
+    const dispatch = useDispatch<AppDispatch>();
+
+    // Wrapper to update local and global state
+    const setIsMiniMode = useCallback((value: boolean | ((prevState: boolean) => boolean)) => {
+        const newValue = typeof value === 'function'
+            ? value(isMiniMode)
+            : value;
+
+        setIsMiniModeState(newValue);
+        dispatch(setPlayerMinimized(newValue));
+    }, [dispatch, isMiniMode]);
 
     // Get theme and player data
     const { colorScheme } = useTheme();
@@ -94,7 +110,7 @@ export const useFooterUI = ({ soundCloudTracks = [] }: UseFooterUIProps) => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [isMounted, lastScrollTop, isMiniMode, isUserInteracting, isExpanded, userIntentionalMinimize]);
+    }, [isMounted, lastScrollTop, isMiniMode, isUserInteracting, isExpanded, userIntentionalMinimize, setIsMiniMode]);
 
     // Set a temporary flag when user manually interacts with controls
     const startUserInteraction = useCallback(() => {
@@ -129,7 +145,7 @@ export const useFooterUI = ({ soundCloudTracks = [] }: UseFooterUIProps) => {
             setIsMiniMode(true);
             setUserIntentionalMinimize(true); // User explicitly chose minimize
         }
-    }, [isMiniMode, startUserInteraction]);
+    }, [isMiniMode, startUserInteraction, setIsMiniMode]);
 
     // Toggle playlist view
     const handlePlaylistToggle = useCallback(() => {

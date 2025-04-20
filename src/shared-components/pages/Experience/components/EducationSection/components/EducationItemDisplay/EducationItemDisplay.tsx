@@ -25,6 +25,8 @@ import { ProjectHeader, ProjectTitle, HeaderDateRow, HeaderDate } from '../../..
 // Import a styled component for content padding
 import styled from 'styled-components';
 import { MarkdownRenderer } from '@shared-components/molecules/MarkdownRenderer'; // Added import
+// Import ProjectCardContainer from the correct path
+import { ProjectCardContainer } from '../../../SideProjectsSection/components/ProjectCard/ProjectCard.styles';
 
 // Styled component for content area padding
 const PaddedContent = styled.div`
@@ -35,14 +37,16 @@ const PaddedContent = styled.div`
 export const EducationItemDisplay: React.FC<EducationItemDisplayProps> = ({
     educationItem: edu,
     // renderLogo, // Removed unused prop
-    onImageClick
+    onImageClick,
+    id, // <-- Get id prop
 }) => {
     // Removed unused renderDefaultLogo function
     // const renderDefaultLogo = () => { ... };
 
     // TODO: Add structure like .project-content, .project-main, .project-media if needed for styling
     return (
-        <PCS.ProjectCardContainer $halfWidth={false}>
+        // Apply the ID to the root container
+        <ProjectCardContainer $halfWidth={false} id={id}>
             <ProjectHeader>
                 <div style={{ marginRight: '1rem', flexShrink: 0 }}>
                     <ProjectLogo
@@ -74,13 +78,13 @@ export const EducationItemDisplay: React.FC<EducationItemDisplayProps> = ({
                                 key={`media-${edu.school}-${mediaIndex}`}
                                 mediaItem={mediaItem}
                                 schoolName={edu.school}
-                                onImageClick={onImageClick}
+                                onImageClick={onImageClick ?? (() => { })}
                             />
                         ))}
                     </MediaRow>
                 )}
             </PaddedContent>
             {/* Removed EducationContent wrapper as elements are now structured by ProjectHeader etc. */}
-        </PCS.ProjectCardContainer> // Changed from EducationItem
+        </ProjectCardContainer> // Changed from EducationItem
     );
 }; 

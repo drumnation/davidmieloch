@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  BioSection, 
-  BioSectionTitle, 
+import {
+  BioSection,
+  BioSectionTitle,
   MediaContainer,
   MediaItem,
   MediaTitle,
@@ -16,32 +16,33 @@ import { MediaItem as MediaItemType } from '../../Bio.types';
 // Framer Motion variants
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { 
-      duration: 0.6, 
-      ease: "easeOut" 
-    } 
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
   }
 };
 
 const scaleInVariants = {
   hidden: { opacity: 0, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
-    transition: { 
-      duration: 0.5, 
-      ease: "easeOut" 
-    } 
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
   }
 };
 
 // Separate component for media item to reduce serialization overhead
-const LazyMediaItem = ({ item, index }: { item: MediaItemType, index: number }) => {
+const LazyMediaItem = ({ item, index, id }: { item: MediaItemType, index: number, id: string }) => {
   return (
     <motion.div
+      id={id}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "0px 0px 100px 0px" }}
@@ -95,9 +96,12 @@ export const FeaturedMedia: React.FC<FeaturedMediaProps> = ({ className }) => {
         </BioSectionTitle>
       </motion.div>
       <MediaContainer>
-        {MEDIA_ITEMS.map((item, index) => (
-          <LazyMediaItem key={`media-${index}`} item={item} index={index} />
-        ))}
+        {MEDIA_ITEMS.map((item, index) => {
+          const itemId = `media-${item.title.toLowerCase().replace(/\s+/g, '-')}`;
+          return (
+            <LazyMediaItem key={`media-${index}`} item={item} index={index} id={itemId} />
+          );
+        })}
       </MediaContainer>
     </BioSection>
   );

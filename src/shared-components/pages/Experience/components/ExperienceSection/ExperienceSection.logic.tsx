@@ -92,6 +92,7 @@ const getBulletIcon = (text: string) => {
 export const renderExperienceItem = (
   job: ExperienceItemType,
   index: number,
+  generateId: (item: ExperienceItemType) => string,
   renderLogo?: (company: string) => React.ReactNode,
   setModalImage?: (image: ModalImage) => void,
   setPinnedJob?: (company: string) => void,
@@ -119,7 +120,7 @@ export const renderExperienceItem = (
   );
 
   return (
-    <ExperienceItemContainer key={`job-${index}`}>
+    <ExperienceItemContainer key={`job-${index}`} id={generateId(job)}>
       {job.technologies && job.technologies.length > 0 && (
         <TechnologyList technologies={job.technologies} showLabels={showTechLabels} />
       )}

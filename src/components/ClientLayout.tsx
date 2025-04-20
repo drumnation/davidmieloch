@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { store } from '@store/index';
 import { AppShell } from '@mantine/core';
 // import { useDisclosure } from '@mantine/hooks'; // No longer needed?
 // import { MantineProvider } from '@mantine/core'; // No longer needed?
@@ -24,11 +26,11 @@ export default function ClientLayout({
   useEffect(() => {
     // Skip in SSR context
     if (typeof window === 'undefined') return;
-    
+
     // Constants for easy toggling
     const ENABLE_IN_PROD = true; // Set to false to disable in production
     const isProduction = process.env.NODE_ENV === 'production';
-    
+
     try {
       if (isProduction && ENABLE_IN_PROD) {
         console.log('[Debug] Setting up spring debugger in production mode (safety measures active)');
@@ -65,24 +67,26 @@ export default function ClientLayout({
         <AppShell.Header>
           <Header />
         </AppShell.Header>
-        
+
         <AppShell.Main>
           {children}
         </AppShell.Main>
-        
+
         <PersistentFooter data-print-hidden="true" />
       </AppShell>
     );
   };
 
   return (
-    <ThemeProvider>
-      <ClarityProvider>
-        <LoadingProvider>
-          <AppShellWithTheme>{children}</AppShellWithTheme>
-          <FullScreenLoader />
-        </LoadingProvider>
-      </ClarityProvider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <ClarityProvider>
+          <LoadingProvider>
+            <AppShellWithTheme>{children}</AppShellWithTheme>
+            <FullScreenLoader />
+          </LoadingProvider>
+        </ClarityProvider>
+      </ThemeProvider>
+    </Provider>
   );
 } 

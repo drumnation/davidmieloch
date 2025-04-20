@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  BioSection, 
+import {
+  BioSection,
   BioSectionTitle
 } from '../../Bio.styles';
 import { TESTIMONIALS_DATA } from './testimonials.data';
 import { TestimonialsProps } from './Testimonials.types';
-import { 
+import {
   TestimonialsContainer,
   SectionHeading,
   CategoryHeading,
@@ -19,23 +19,23 @@ import {
   LinkedInButtonContainer,
   LinkedInButton
 } from './Testimonials.styles';
-import { 
-  IconBrandLinkedin, 
-  IconMusic, 
-  IconBusinessplan, 
+import {
+  IconBrandLinkedin,
+  IconMusic,
+  IconBusinessplan,
   IconCode
 } from '@tabler/icons-react';
 
 // Framer Motion variants
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { 
-      duration: 0.6, 
-      ease: "easeOut" 
-    } 
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
   }
 };
 
@@ -63,13 +63,14 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ className }) => {
             Testimonials
           </BioSectionTitle>
         </motion.div>
-        
+
         {TESTIMONIALS_DATA.map((categoryData, categoryIndex) => {
           // Get the appropriate icon component
           const Icon = CATEGORY_ICONS[categoryData.category] || IconCode;
-          
+          const categoryId = `testimonials-${categoryData.category.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-')}`;
+
           return (
-            <div key={categoryData.category}>
+            <div key={categoryData.category} id={categoryId}>
               <CategoryHeadingWrapper>
                 <CategoryIcon>
                   <Icon stroke={1.5} />
@@ -86,7 +87,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ className }) => {
                   </CategoryHeading>
                 </motion.div>
               </CategoryHeadingWrapper>
-              
+
               <TestimonialCardsContainer>
                 {categoryData.testimonials.map((testimonial, testimonialIndex) => (
                   <motion.div

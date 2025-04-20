@@ -26,6 +26,7 @@ export interface ExperienceSectionProps {
   className?: string;
   children?: ReactNode;
   renderLogo?: (company: string) => ReactNode;
+  generateId: (item: ExperienceItem) => string;
 }
 
 export interface MediaItem {

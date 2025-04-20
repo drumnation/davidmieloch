@@ -11,7 +11,7 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { ConclusionContent } from './components/ConclusionContent';
 import { SpinnerLoader } from '@shared-components/atoms/SpinnerLoader';
 
-export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({ 
+export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
   heroProps = defaultContent.hero,
   className
 }) => {
@@ -37,8 +37,10 @@ export const RealWorldImpact: React.FC<RealWorldImpactProps> = ({
     <ErrorBoundary>
       <animated.div ref={ref} style={fadeIn} className={className}>
         <GlobalStyles />
-        <Hero {...heroProps} />
-        <ContentSection>
+        <div id="impact-hero" style={{ scrollMarginTop: '100px' }}>
+          <Hero {...heroProps} />
+        </div>
+        <ContentSection id="impact-conclusion">
           <ConclusionContent />
         </ContentSection>
       </animated.div>

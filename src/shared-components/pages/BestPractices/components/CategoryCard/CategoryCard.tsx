@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { 
+import {
   CategoryCardContainer,
   CategoryTitle,
   CategoryDescription,
@@ -14,14 +14,15 @@ import {
 } from './CategoryCard.styles';
 import { CategoryCardProps } from './CategoryCard.types';
 
-export const CategoryCard: React.FC<CategoryCardProps> = ({ 
+export const CategoryCard: React.FC<CategoryCardProps> = ({
+  id,
   title,
   description,
   items
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -31,14 +32,14 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
       },
       { threshold: 0.1 }
     );
-    
+
     // Store a reference to the current value of cardRef
     const currentCardRef = cardRef.current;
-    
+
     if (currentCardRef) {
       observer.observe(currentCardRef);
     }
-    
+
     return () => {
       if (currentCardRef) {
         observer.unobserve(currentCardRef);
@@ -48,6 +49,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
 
   return (
     <CategoryCardContainer
+      id={id}
       ref={cardRef}
       className={isVisible ? 'visible' : 'hidden'}
     >

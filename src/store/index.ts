@@ -1,33 +1,21 @@
 "use client";
 
-import { configureStore, createSlice } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+import appReducer from './slices/appSlice';
+import playerUiReducer from './slices/playerUiSlice';
+import uiReducer from './slices/uiSlice';
 
-// Create a simple app slice with initial state
-const appSlice = createSlice({
-  name: 'app',
-  initialState: {
-    isLoading: false,
-    theme: 'light',
-  },
-  reducers: {
-    setLoading: (state, action) => {
-      state.isLoading = action.payload;
-    },
-    setTheme: (state, action) => {
-      state.theme = action.payload;
-    },
-  },
-});
-
-// Export actions
-export const { setLoading, setTheme } = appSlice.actions;
-
-// Configure the store with the app reducer
+// Configure the store with the app reducer AND the new player UI reducer
 export const store = configureStore({
   reducer: {
-    app: appSlice.reducer,
+    app: appReducer,
+    playerUi: playerUiReducer,
+    ui: uiReducer,
   },
 });
 
+// Define the RootState type based on the store's state
 export type RootState = ReturnType<typeof store.getState>
+
+// Define the AppDispatch type based on the store's dispatch function
 export type AppDispatch = typeof store.dispatch 

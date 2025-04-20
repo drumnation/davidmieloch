@@ -19,7 +19,7 @@ import {
   DunningKrugerSection
 } from './components';
 
-export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({ 
+export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
   heroProps = defaultContent.hero,
   realityVsHollywoodProps = defaultContent.realityVsHollywood,
   className
@@ -37,66 +37,68 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
   });
 
   // Ensure theme is of the correct type
-  const diagramTheme = (mermaidDiagramProps.theme === 'default' || 
-                        mermaidDiagramProps.theme === 'dark' || 
-                        mermaidDiagramProps.theme === 'forest' || 
-                        mermaidDiagramProps.theme === 'neutral') 
-                      ? mermaidDiagramProps.theme 
-                      : 'default';
+  const diagramTheme = (mermaidDiagramProps.theme === 'default' ||
+    mermaidDiagramProps.theme === 'dark' ||
+    mermaidDiagramProps.theme === 'forest' ||
+    mermaidDiagramProps.theme === 'neutral')
+    ? mermaidDiagramProps.theme
+    : 'default';
 
   return (
     <div className={className}>
       <GlobalStyles />
       <div style={containerStyle}>
-        <Hero {...enhancedHeroProps} />
-        
+        <div id="autopilot-hero" style={{ scrollMarginTop: '100px' }}>
+          <Hero {...enhancedHeroProps} />
+        </div>
+
         <div className="autopilot-content-section">
-          {/* Introduction Section */}
-          <div style={sectionContainerStyle}>
+          <div id="autopilot-intro" style={{ ...sectionContainerStyle, scrollMarginTop: '100px' }}>
             <IntroductionSection />
           </div>
-          
-          {/* Comparison Table Section */}
-          <ComparisonTableSection
-                leftTitle={comparisonTableProps.leftTitle}
-                rightTitle={comparisonTableProps.rightTitle}
-                items={comparisonTableProps.items}
-              />
-          
-          {/* Reality vs Hollywood Section */}
-          <div style={sectionContainerStyle}>
+
+          <div id="autopilot-comparison" style={{ scrollMarginTop: '100px' }}>
+            <ComparisonTableSection
+              leftTitle={comparisonTableProps.leftTitle}
+              rightTitle={comparisonTableProps.rightTitle}
+              items={comparisonTableProps.items}
+            />
+          </div>
+
+          <div id="autopilot-reality" style={{ ...sectionContainerStyle, scrollMarginTop: '100px' }}>
             <RealityVsHollywoodSection
               realityItems={updatedRealityVsHollywoodProps.realityItems}
               hollywoodItems={updatedRealityVsHollywoodProps.hollywoodItems}
             />
           </div>
-          
-          {/* Strategic Focus Areas Section */}
-          <StrategicFocusSection 
-            features={strategicFocusAreasProps.features}
-          />
-          
-          {/* Dunning-Kruger Effect Section */}
-          <div style={sectionContainerStyle}>
+
+          <div id="autopilot-strategy" style={{ scrollMarginTop: '100px' }}>
+            <StrategicFocusSection
+              features={strategicFocusAreasProps.features}
+            />
+          </div>
+
+          <div id="autopilot-dunning-kruger" style={{ ...sectionContainerStyle, scrollMarginTop: '100px' }}>
             <DunningKrugerSection />
           </div>
 
-          {/* Mermaid Diagram Section */}
-          <MermaidDiagramSection
-            title={mermaidDiagramProps.title}
-            description={mermaidDiagramProps.description}
-            definition={mermaidDiagramProps.definition}
-            theme={diagramTheme}
-          />
+          <div id="autopilot-diagram" style={{ scrollMarginTop: '100px' }}>
+            <MermaidDiagramSection
+              title={mermaidDiagramProps.title}
+              description={mermaidDiagramProps.description}
+              definition={mermaidDiagramProps.definition}
+              theme={diagramTheme}
+            />
+          </div>
 
-          {/* Critical Warning Transition */}
-          <WarningTransitionSection
-            title={leadershipBlueprintProps.warningTransition.title}
-            description={leadershipBlueprintProps.warningTransition.description}
-          />
-          
-          {/* Leadership Blueprint Section */}
-          <div style={sectionContainerStyle}>
+          <div id="autopilot-warning" style={{ scrollMarginTop: '100px' }}>
+            <WarningTransitionSection
+              title={leadershipBlueprintProps.warningTransition.title}
+              description={leadershipBlueprintProps.warningTransition.description}
+            />
+          </div>
+
+          <div id="autopilot-blueprint" style={{ ...sectionContainerStyle, scrollMarginTop: '100px' }}>
             <LeadershipBlueprintSection
               title={leadershipBlueprintProps.title}
               narrative={leadershipBlueprintProps.narrative}

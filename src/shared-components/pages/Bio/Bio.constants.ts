@@ -25,87 +25,21 @@ export const SKILL_ICONS: SkillIcon[] = [
   { name: "Innovation", iconName: "IconBulb" }
 ];
 
-// Closing paragraphs that appear after the icon grid
-export const CLOSING_PARAGRAPHS: ReactNode = React.createElement(
-  React.Fragment,
-);
+// Simplified structure for Bio Intro section headings and IDs
+export interface BioIntroSectionInfo {
+  id: string;
+  heading?: string; // Optional heading
+}
 
-// Main bio content with detailed story
-export const BIO_CONTENT: ReactNode = React.createElement(
-  React.Fragment,
-  null,
-  React.createElement(
-    'p',
-    null,
-    "David Mieloch isn't your typical software architect. He's a full-stack developer and team lead with a secret weapon: a lifelong immersion in the world of music. From a childhood surrounded by professional musicians to his own award-winning compositions, David's journey has been one of intricate structures and creative expression – a journey that led him naturally to the world of software architecture."
-  ),
-  React.createElement(
-    'h3',
-    null,
-    "Early Life and Musical Foundations"
-  ),
-  React.createElement(
-    'p',
-    null,
-    "At West Chester University, David earned a degree in Music Theory and Composition (2003-2008), honing his ability to deconstruct complex systems, recognize patterns, and create elegant solutions. He mastered classical percussion and jazz drumset, developing discipline, precision, and improvisational skills – all equally valuable in a coding environment. His secondary instruments included piano, guitar, tabla, and, significantly, computer. This early exploration of music technology foreshadowed his future, blending artistic creativity with technical prowess."
-  ),
-  React.createElement(
-    'h3',
-    null,
-    "Composition and Creative Ventures"
-  ),
-  React.createElement(
-    'p',
-    null,
-    "David's musical talents extended far beyond academic exercises. He won multiple awards for his orchestral works, demonstrating a knack for crafting intricate, layered systems – a skill directly transferable to designing robust and scalable software architectures. He studied composition with Rick Hall, a connection fostered by Philadelphia tabla legend Lenny Seidman, deepening his understanding of musical structure and form. His creative output was remarkably diverse: he wrote original music for musical theatre, created several works for choreographed modern dance productions, and earned professional readings and recordings of several chamber music and string orchestra pieces. He also founded and managed \"The Absurdist Revolution,\" a music organization at West Chester University, designing and presenting large-scale, theatrical productions."
-  ),
-  React.createElement(
-    'p',
-    null,
-    "David recognizes a profound similarity between programming music and programming code. Both involve a precise sequence of instructions that must be followed correctly to achieve the desired outcome. He approaches both with an iterative process: writing, testing, refining, and repeating until the result is perfected. Just as a musical score for live musicians can become incredibly complex, requiring clear and accurate articulation of musical intentions for each instrument in a way that performers can readily understand, software code must be written not only to be executed by a computer but also to be read, understood, and modified by human developers. This dual requirement – functionality for the machine and clarity for humans – is central to David's approach to both music and software architecture. This clean code must be able to be read by other developers, just as a complex score must be able to be played by an orchestra."
-  ),
-  React.createElement(
-    'h3',
-    null,
-    "A Bridge to Technology: Sales and Marketing"
-  ),
-  React.createElement(
-    'p',
-    null,
-    "While his father pursued Electrical Engineering at Drexel, solidifying the family's connection to both artistic and technical excellence, David found his own technical calling, initially exploring tech sales and marketing. This experience provided invaluable insights into client needs, communication, and the broader business landscape – skills crucial for a software architect who must understand and address business requirements."
-  ),
-  React.createElement(
-    'h3',
-    null,
-    "Return to Engineering and Software Expertise"
-  ),
-  React.createElement(
-    'p',
-    null,
-    "David then made a decisive return to his technical roots, completing intensive programs at Flatiron School and channeling his passion for structure and problem-solving into mastering technologies like React.js, React Native, Node.js, and a wide range of other tools (as evidenced by his extensive skillset, from GraphQL to cloud platforms). He's not just a coder; he's a builder, a leader, and a mentor, spearheading technology adoption strategies and fostering a culture of technical excellence."
-  ),
-  React.createElement(
-    'h3',
-    null,
-    "Professional Achievements and Architectural Approach"
-  ),
-  React.createElement(
-    'p',
-    null,
-    "David's experience isn't limited to theory. He's led the development of complex web and mobile applications at Scala, Inc. He architected a Photoshop-like design tool for digital signage using the Scala Cloud Platform. He contributed to open-source projects and even built tools to enhance developer workflows (AI Context Generator, Code Companion). He also was the tech lead for the award-winning React Native app, Master A Million™, a companion app for a toy sold in GameStop stores worldwide. He brings the same meticulous attention to detail, iterative refinement, and collaborative spirit to software architecture that he honed through years of musical practice and performance. He understands that a well-designed system, like a well-composed symphony, is a harmonious blend of independent parts working together to achieve a powerful and unified whole."
-  ),
-  React.createElement(
-    'h3',
-    null,
-    "A Unique Perspective"
-  ),
-  React.createElement(
-    'p',
-    null,
-    "David's background isn't just a collection of skills; it's a unique perspective. He sees the parallels between orchestrating a musical performance and architecting a complex software system. He understands the importance of both the big picture and the smallest detail, the creative spark and the rigorous execution. If you're looking for a software architect who can bring both artistry and technical mastery to your project, let's connect."
-  )
-);
-
+export const BIO_INTRO_SECTION_INFO: BioIntroSectionInfo[] = [
+  { id: "bio-intro-opening" },
+  { id: "bio-early-life", heading: "Early Life and Musical Foundations" },
+  { id: "bio-composition", heading: "Composition and Creative Ventures" },
+  { id: "bio-bridge-to-tech", heading: "A Bridge to Technology: Sales and Marketing" },
+  { id: "bio-return-to-eng", heading: "Return to Engineering and Software Expertise" },
+  { id: "bio-achievements", heading: "Professional Achievements and Architectural Approach" },
+  { id: "bio-perspective", heading: "A Unique Perspective" }
+];
 
 export interface SkillCategory {
   name: string;

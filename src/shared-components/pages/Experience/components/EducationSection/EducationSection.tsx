@@ -11,6 +11,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
   className,
   children,
   renderLogo,
+  generateId,
 }) => {
   const {
     sortedEducationItems,
@@ -33,6 +34,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({
         {sortedEducationItems.map((edu, index) => (
           <EducationItemDisplay
             key={`edu-${index}`}
+            id={generateId(edu)}
             educationItem={edu}
             renderLogo={renderLogo}
             onImageClick={openImageModal}

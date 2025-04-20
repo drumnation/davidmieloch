@@ -53,6 +53,7 @@ const ExampleUsage: React.FC = () => {
       <SideProjectsSection
         title="Side Projects"
         projects={sampleProjects}
+        generateId={(item) => item.category + item.title}
       />
 
       <h2>Skills Section Example</h2>

@@ -18,6 +18,7 @@ export const ExperienceSectionWeb: React.FC<ExperienceSectionProps> = ({
     className = '',
     children,
     renderLogo,
+    generateId,
 }: ExperienceSectionProps) => {
     // Use the custom hook for state management
     const {
@@ -48,7 +49,7 @@ export const ExperienceSectionWeb: React.FC<ExperienceSectionProps> = ({
             {/* Render current experiences */}
             {currentExperiences.map((job: ExperienceItemType, index: number) => (
                 <React.Fragment key={`job-${index}`}>
-                    {renderExperienceItem(job, index, renderLogo, openModal, setPinnedJob, true)}
+                    {renderExperienceItem(job, index, generateId, renderLogo, openModal, setPinnedJob, true)}
                 </React.Fragment>
             ))}
 
@@ -63,7 +64,7 @@ export const ExperienceSectionWeb: React.FC<ExperienceSectionProps> = ({
                         .sort(sortExperiencesByDate)
                         .map((job, index) => (
                             <React.Fragment key={`older-job-${index}`}>
-                                {renderExperienceItem(job as ExperienceItemType, index, renderLogo, openModal, setPinnedJob, true)}
+                                {renderExperienceItem(job as ExperienceItemType, index, generateId, renderLogo, openModal, setPinnedJob, true)}
                             </React.Fragment>
                         ))}
                 </Accordion>

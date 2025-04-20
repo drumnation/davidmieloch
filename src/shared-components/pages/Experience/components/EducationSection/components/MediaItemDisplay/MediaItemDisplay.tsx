@@ -65,15 +65,20 @@ const EmbedMedia: React.FC<{ mediaItem: MediaItem, schoolName: string }> = ({ me
 };
 
 // Separate component for rendering Image content
-const ImageMedia: React.FC<{ mediaItem: MediaItem, schoolName: string, onImageClick: (url: string, title?: string) => void }> = ({ mediaItem, schoolName, onImageClick }) => (
+const ImageMedia: React.FC<{
+    mediaItem: MediaItem,
+    schoolName: string,
+    onImageClick?: (url: string, title?: string) => void
+}> = ({ mediaItem, schoolName, onImageClick }) => (
     <>
         <div
             className="image-wrapper"
-            onClick={() => onImageClick(mediaItem.url, mediaItem.title)}
-            role="button"
-            tabIndex={0}
-            onKeyPress={(e) => e.key === 'Enter' && onImageClick(mediaItem.url, mediaItem.title)}
+            onClick={onImageClick ? () => onImageClick(mediaItem.url, mediaItem.title) : undefined}
+            role={onImageClick ? "button" : undefined}
+            tabIndex={onImageClick ? 0 : undefined}
+            onKeyPress={onImageClick ? (e) => e.key === 'Enter' && onImageClick(mediaItem.url, mediaItem.title) : undefined}
             aria-label={`View larger image: ${mediaItem.title || schoolName}`}
+            style={{ cursor: onImageClick ? 'pointer' : 'default' }}
         >
             <Image
                 src={mediaItem.url}

@@ -14,6 +14,7 @@ export const SideProjectsSectionWeb: React.FC<SideProjectsSectionProps> = ({
     title = SECTION_TITLE,
     className,
     id,
+    generateId,
 }) => {
     const {
         selectedCategory,
@@ -94,9 +95,9 @@ export const SideProjectsSectionWeb: React.FC<SideProjectsSectionProps> = ({
                 {filteredProjects.map((project, index) => (
                     <ProjectCard
                         key={`${project.title}-${index}`}
+                        id={generateId(project)}
                         project={project}
                         onImageClick={openModal}
-                        // Pass showTechLabels={true} for web
                         showTechLabels={true}
                     />
                 ))}

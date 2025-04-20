@@ -29,12 +29,14 @@ interface ProjectCardProps {
     project: SideProject;
     onImageClick: (image: ParentMediaItem) => void;
     showTechLabels?: boolean;
+    id?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
     project,
     onImageClick,
-    showTechLabels = true
+    showTechLabels = true,
+    id
 }) => {
     const renderTechnologies = () => (
         project.technologies && project.technologies.length > 0 && (
@@ -189,7 +191,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
     if (project.halfWidth) {
         return (
-            <ProjectCardContainer $halfWidth={true}>
+            <ProjectCardContainer $halfWidth={true} id={id}>
                 {renderTechnologies()}
                 {renderHeader()}
                 {renderDescription()}
@@ -201,7 +203,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     }
 
     return (
-        <ProjectCardContainer $halfWidth={false}>
+        <ProjectCardContainer $halfWidth={false} id={id}>
             {renderTechnologies()}
             {renderHeader()}
             {renderDescription()}
