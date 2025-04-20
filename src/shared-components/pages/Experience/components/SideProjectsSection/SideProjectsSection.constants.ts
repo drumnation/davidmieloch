@@ -891,7 +891,7 @@ Helps co-parents communicate using neutral, **BIFF**
         layout: 'stack',
         width: '48%',
         url: '#',
-        items: [
+        media: [
           {
             type: 'image',
             url: 'media/screenshots/coparenting-copilot/composer-mode.png',
@@ -998,6 +998,7 @@ transactions and recurring payments.
         title: 'Cheddar Dashboard with Balance Forecast',
         width: '100%',
         showLogo: true,
+        useMobileCarousel: true,
         description: `The Cheddar Dashboard presents a **unified view of your financial landscape** with intelligent transaction management. 
 
 Key features include:
@@ -1014,7 +1015,8 @@ This dynamic system maintains accuracy between your actual and projected finance
         url: 'media/screenshots/cheddar/cheddar-forecast.png',
         title: 'Future Forecast Simulation',
         showLogo: true,
-        width: '48%'
+        width: '48%',
+        useMobileCarousel: true
       },
       {
         type: 'image',
@@ -1022,7 +1024,8 @@ This dynamic system maintains accuracy between your actual and projected finance
         title: 'Edit Transaction Modal',
         showLogo: true,
         description: 'The transaction editor provides complete management of your recurring expenses and income. This powerful interface lets you specify essential details like payment amount, category, frequency, and whether a transaction repeats.',
-        width: '48%'
+        width: '48%',
+        useMobileCarousel: true
       },
       {
         type: 'image',
@@ -1030,7 +1033,16 @@ This dynamic system maintains accuracy between your actual and projected finance
         title: 'Financial Calendar & Planning',
         showLogo: true,
         width: '100%',
-        description: 'The Financial Calendar & Planning section provides an interactive, multi-dimensional view of your finances across time. The color-coded calendar instantly reveals your financial status for each day—green for positive balances, yellow for warnings, and red for negative balances—with hoverable dates showing transaction previews. Complementing this, the cash flow chart tracks your balance trajectory over time using the same color system, giving you an immediate visual understanding of financial trends. Both elements function as powerful navigation tools; clicking any date or chart point automatically selects that date and scrolls to the corresponding forecast transactions in the right panel. This integrated approach transforms abstract financial data into an intuitive visual experience, allowing you to quickly identify trouble spots, plan for upcoming expenses, and understand the long-term impact of your financial decisions.'
+        useMobileCarousel: true,
+        description: `**The Financial Calendar & Planning** section provides an interactive, multi-dimensional view of your finances across time. 
+
+The color-coded calendar instantly reveals your financial status for each day—**green for positive balances**, **yellow for warnings**, and **red for negative balances**—with hoverable dates showing transaction previews. 
+
+Complementing this, the **cash flow chart** tracks your balance trajectory over time using the same color system, giving you an immediate visual understanding of financial trends. 
+
+Both elements function as powerful navigation tools; clicking any date or chart point automatically selects that date and scrolls to the corresponding forecast transactions in the right panel. 
+
+This integrated approach transforms abstract financial data into an intuitive visual experience, allowing you to quickly **identify trouble spots**, **plan for upcoming expenses**, and **understand the long-term impact** of your financial decisions.`
       },
     ]
   },

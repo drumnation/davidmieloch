@@ -14,7 +14,7 @@ export const MediaContainer = styled.div`
     @media (max-width: 900px) {
       width: calc(50% - 0.5rem);
     }
-    @media (max-width: 600px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
       width: 100%;
     }
   }
@@ -23,7 +23,13 @@ export const MediaContainer = styled.div`
     @media (max-width: 900px) {
         width: calc(50% - 0.5rem);
     }
-    @media (max-width: 600px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+        width: 100%;
+    }
+  }
+  .half-width-item {
+    width: calc(50% - 0.5rem);
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
         width: 100%;
     }
   }

@@ -1,41 +1,13 @@
 import styled, { css } from 'styled-components';
 import { MediaContainer } from '../MediaRenderer/MediaRenderer.styles';
+import { ProjectCategory } from '../../SideProjectsSection.types';
 
-// Define content containers for better structure
-export const ProjectContentWrapper = styled.div`
-  display: flex;
-  padding: 1.5rem; // Apply padding here
-  padding-top: 1rem; // Reduce top padding slightly
-  gap: 2rem;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) { // Adjust breakpoint as needed (e.g., 900px)
-    flex-direction: column;
-    padding: 1rem; // Adjust mobile padding
-    gap: 1rem;
-  }
-`;
-
-export const ProjectMainContent = styled.div`
-  flex: 1; // Takes up remaining space
-  min-width: 0; // Prevents content from overflowing flex item
-`;
-
-export const ProjectMediaContent = styled.div`
-  flex-basis: 40%; // Adjust basis as needed
-  max-width: 45%; // Adjust max-width as needed
-  flex-shrink: 0;
-
-  ${MediaContainer} {
-    margin-top: 0; // Remove top margin if already spaced by ProjectContentWrapper gap
-    padding: 0; // MediaContainer shouldn't need internal padding if wrapper has it
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) { // Use same breakpoint as wrapper
-    flex-basis: auto;
-    max-width: 100%;
-    width: 100%;
-  }
-`;
+// Remove the layout wrappers specific to the 2-column layout
+/*
+export const ProjectContentWrapper = styled.div` ... `;
+export const ProjectMainContent = styled.div` ... `;
+export const ProjectMediaContent = styled.div` ... `;
+*/
 
 // Base container
 export const ProjectCardContainer = styled.div<{ $halfWidth: boolean }>`
@@ -45,40 +17,46 @@ export const ProjectCardContainer = styled.div<{ $halfWidth: boolean }>`
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   width: 100%;
-  overflow: hidden; // Add overflow hidden to prevent children spilling out
+  overflow: hidden;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-  /* Full-row specific layout uses the new wrappers */
+  /* Full-row: Apply padding/margins directly to children */
   ${({ $halfWidth }) => !$halfWidth && css`
     grid-column: 1 / -1;
 
-    /* Remove direct padding/margin styles previously applied to children */
+    // Apply horizontal padding to content sections
     ${ProjectDescription},
     ${ProjectImpact},
-    ${ProjectLinks} {
-       padding: 0;
-       margin: 0;
+    ${ProjectLinks},
+    ${MediaContainer} { // Apply to MediaContainer as well
+       padding-left: 1.5rem;
+       padding-right: 1.5rem;
     }
 
-    /* Add specific spacing *between* elements within ProjectMainContent */
-    ${ProjectMainContent} > ${ProjectDescription} + ${ProjectImpact} {
+    // Add vertical spacing between sections
+    ${ProjectDescription} { margin-top: 1rem; }
+    ${ProjectImpact} { 
       margin-top: 1rem; 
-      padding-top: 1rem; /* Add padding if border is needed */
-      border-top: 1px solid rgba(0, 0, 0, 0.1); /* Use fallback color */
+      padding-top: 1rem; // Padding for border
+      border-top: 1px solid rgba(0, 0, 0, 0.1); 
     }
-    ${ProjectMainContent} > ${ProjectImpact} + ${ProjectLinks} {
-      margin-top: 1rem;
-    }
-     ${ProjectMainContent} > ${ProjectDescription} + ${ProjectLinks} { // If no impact
-      margin-top: 1rem;
+    ${ProjectLinks} { margin-top: 1rem; }
+    ${MediaContainer} { margin-top: 1rem; }
+
+    // Add bottom padding ONLY to the last element rendered
+    > ${ProjectDescription}:last-child,
+    > ${ProjectImpact}:last-child,
+    > ${ProjectLinks}:last-child,
+    > ${MediaContainer}:last-child {
+        padding-bottom: 1.5rem;
     }
   `}
 
-  /* Half-width cards need basic padding */
+  /* Half-width cards: Similar direct padding/margin */
   ${({ $halfWidth }) => $halfWidth && css`
      ${ProjectDescription},
      ${ProjectImpact},
@@ -88,78 +66,110 @@ export const ProjectCardContainer = styled.div<{ $halfWidth: boolean }>`
        padding-right: 1.5rem;
      }
      ${ProjectDescription} { padding-top: 1rem; }
-     ${ProjectImpact} { padding-top: 1rem; margin-top: 1rem; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+     ${ProjectImpact} { 
+        padding-top: 1rem; 
+        margin-top: 1rem; 
+        border-top: 1px solid rgba(0, 0, 0, 0.1); 
+     }
      ${ProjectLinks} { padding-top: 1rem; }
      ${MediaContainer} { padding-top: 1rem; }
 
      /* Add bottom padding to the last element */
-     > :last-child { padding-bottom: 1.5rem; }
+     > :last-child { padding-bottom: 1.5rem; } 
   `}
 
-  /* Mobile responsiveness - MOVED TO CORRECT LOCATION */
+  /* Remove mobile override for flex wrappers as they are gone */
+  /*
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    /* Styles for full-width cards on mobile */
-    ${({ $halfWidth }) => !$halfWidth && css`
-      ${ProjectContentWrapper} { // Target the wrapper 
-        flex-direction: column;
-        padding: 1rem; // Adjust padding
-        gap: 1rem;
-      }
-      ${ProjectMediaContent} { // Target the media container
-         flex-basis: auto;
-         max-width: 100%;
-         width: 100%;
-      }
-    `}
-    /* Add any general mobile styles for BOTH half and full cards here if needed */
+    ${({ $halfWidth }) => !$halfWidth && css` ... `}
   }
+  */
 `;
 
 // ProjectHeader: Use column layout, center items
 export const ProjectHeader = styled.div`
   display: flex;
-  flex-direction: column; // Stack elements vertically
-  align-items: center; // Center items horizontally
-  text-align: center; // Center text elements
-  padding: 16px 8px 8px 8px; // Adjust padding (more top)
+  align-items: center;
+  justify-content: space-between; 
+  flex-wrap: wrap;
+  gap: 8px;
+  background-color: white;
+  padding: 8px; 
+  border-radius: 6px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  gap: 8px; // Consistent gap between items
+  margin-bottom: 1rem; 
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    flex-direction: column; // Stack vertically on mobile
+    align-items: center; // Center items horizontally
+    text-align: center; // Center text
+    padding: 16px 8px 8px 8px; // Adjust padding for mobile vertical layout
+    gap: 8px; // Keep gap consistent 
+  }
 `;
 
-// ProjectTitle: Ensure full width for centering, adjust margins
+// Restore HeaderLeft
+export const HeaderLeft = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  flex: 1; 
+  min-width: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    flex-direction: column; // Stack logo and content vertically on mobile
+    width: 100%; // Take full width for centering
+    gap: 4px; // Reduce gap for vertical stack
+  }
+`;
+
+// Restore HeaderContent
+export const HeaderContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px; 
+  flex: 1;
+  min-width: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+     padding-left: 0; // Remove padding when centered
+     align-items: center; // Center text content
+     text-align: center;
+     width: 100%;
+  }
+`;
+
+// Restore ProjectTitle 
 export const ProjectTitle = styled.h3`
   font-size: 1.1rem; 
   font-weight: 600;
-  margin: 0; // Remove default margins
+  margin: 0;
   color: rgba(0, 0, 0, 0.9); 
   line-height: 1.3;
-  width: 100%; // Ensure it takes full width for centering
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin-bottom: 4px; // Add space below title when stacked
+  }
 `;
 
-// Create ProjectMetaContainer for Date & Category
-export const ProjectMetaContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px; // Small gap between date and category
-  margin-top: 4px; // Space below the logo
-`;
-
-// HeaderDateRow: Keep styles, used inside ProjectMetaContainer
+// HeaderDateRow - Revert justification
 export const HeaderDateRow = styled.div`
   display: flex;
-  flex-wrap: wrap; // Keep wrap just in case
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center; // Center date/repo link
   gap: 0.5rem 1rem;
   font-size: 0.85rem;
   color: rgba(0, 0, 0, 0.7); 
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    justify-content: center; // Center date/repo link on mobile
+    margin-bottom: 8px; // Add space below date when category follows
+  }
 `;
 
-// HeaderDate: Keep styles
 export const HeaderDate = styled.span``;
 
-// HeaderRepoLink: Keep styles
 export const HeaderRepoLink = styled.a`
   display: inline-flex;
   align-items: center;
@@ -179,38 +189,69 @@ export const HeaderRepoLink = styled.a`
   }
 `;
 
-// CategoryPill: Remove positioning styles, adjust margin
-export const CategoryPill = styled.span`
-  // Keep original appearance styles
-  background-color: #f3f2ef !important; 
-  color: rgba(0, 0, 0, 0.7) !important;
+// --- Add Color Helper Functions --- 
+const getCategoryColor = (category: ProjectCategory): string => {
+  switch (category) {
+    case 'Personal Innovation Lab':
+      return '#e0f2fe'; // Light Blue
+    case 'Developer Tools':
+      return '#dcfce7'; // Light Green
+    case 'SaaS Applications':
+      return '#f3e8ff'; // Light Purple
+    case 'Digital Marketing':
+      return '#ffedd5'; // Light Orange
+    default:
+      return '#f3f2ef'; // Default Gray
+  }
+};
+
+const getCategoryTextColor = (category: ProjectCategory): string => {
+  switch (category) {
+    case 'Personal Innovation Lab':
+      return '#0c4a6e'; // Dark Blue
+    case 'Developer Tools':
+      return '#166534'; // Dark Green
+    case 'SaaS Applications':
+      return '#581c87'; // Dark Purple
+    case 'Digital Marketing':
+      return '#7c2d12'; // Dark Orange
+    default:
+      return '#1f2937'; // Dark Gray
+  }
+};
+
+// --- Update CategoryPill --- 
+// Accept $category prop and apply dynamic styles
+export const CategoryPill = styled.span<{ $category: ProjectCategory }>`
+  // Base appearance styles
   border-radius: 20px;
-  padding: 0.3rem 0.8rem;
+  padding: 3px 10px; // Adjusted padding slightly
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500; // Adjusted weight slightly
   white-space: nowrap;
   display: inline-flex;
+  line-height: 1.4;
   transition: all 0.2s ease;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  opacity: 1 !important;
+  border: 1px solid transparent; // Start with transparent border
   
-  // Remove positioning: margin-left: auto, align-self, height
-  // Margin top will be handled by ProjectMetaContainer gap
+  // Apply dynamic colors
+  ${({ $category }) => css`
+    background-color: ${getCategoryColor($category)};
+    color: ${getCategoryTextColor($category)};
+    // Optional: Add a subtle border matching text color
+    // border-color: ${getCategoryTextColor($category)}; 
+  `}
 
-  // Remove mobile-specific margin adjustments
-  /*
-  @media (max-width: 576px) {
-    margin-left: 60px; 
-    margin-top: 4px;
-  }
-  */
+  // Desktop positioning (remains the same)
+  margin-left: auto; 
+  align-self: center;
+  height: fit-content;
 
-  // Keep category-specific overrides if needed, though the base style uses !important
-  &.developer-tools,
-  &.saas-applications {
-    background-color: #f3f2ef !important;
-    color: rgba(0, 0, 0, 0.7) !important;
+  // Mobile positioning override (remains the same)
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin-left: 0; 
+    align-self: center; 
   }
 `;
 

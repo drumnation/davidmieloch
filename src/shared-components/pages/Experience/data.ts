@@ -16,7 +16,7 @@ export const sampleProjects: SideProject[] = [
         type: 'group',
         layout: 'default',
         url: '#',
-        items: [
+        media: [
           {
             type: 'image',
             url: 'https://picsum.photos/id/1/800/400',
@@ -29,7 +29,7 @@ export const sampleProjects: SideProject[] = [
             layout: 'stack',
             url: '#',
             width: '48%',
-            items: [
+            media: [
               {
                 type: 'image',
                 url: 'https://picsum.photos/id/20/400/200',

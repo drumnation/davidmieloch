@@ -83,7 +83,7 @@ export const sampleSideProjects: SideProject[] = [
         type: 'group',
         layout: 'default',
         url: '#',
-        items: [
+        media: [
           {
             type: 'image',
             url: 'https://via.placeholder.com/800x400?text=Main+Image',
@@ -96,7 +96,7 @@ export const sampleSideProjects: SideProject[] = [
             layout: 'stack',
             width: '48%',
             url: '#',
-            items: [
+            media: [
               {
                 type: 'image',
                 url: 'https://via.placeholder.com/400x200?text=Top+Image',

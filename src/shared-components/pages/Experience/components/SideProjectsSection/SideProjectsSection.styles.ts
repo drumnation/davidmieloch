@@ -252,54 +252,6 @@ export const HeaderContent = styled.div`
   min-width: 0;
 `;
 
-// Function to determine background color based on category
-const getCategoryColor = (category: ProjectCategory): string => {
-  switch (category) {
-    case 'Personal Innovation Lab':
-      return '#e0f2fe'; // Light Blue
-    case 'Developer Tools':
-      return '#dcfce7'; // Light Green
-    case 'SaaS Applications':
-      return '#f3e8ff'; // Light Purple
-    case 'Digital Marketing':
-      return '#ffedd5'; // Light Orange
-    default:
-      return '#f3f2ef'; // Default Gray
-  }
-};
-
-// Function to determine text color based on category for contrast
-const getCategoryTextColor = (category: ProjectCategory): string => {
-  switch (category) {
-    case 'Personal Innovation Lab':
-      return '#0c4a6e'; // Dark Blue
-    case 'Developer Tools':
-      return '#166534'; // Dark Green
-    case 'SaaS Applications':
-      return '#581c87'; // Dark Purple
-    case 'Digital Marketing':
-      return '#7c2d12'; // Dark Orange
-    default:
-      return '#1f2937'; // Dark Gray
-  }
-};
-
-export const CategoryPill = styled.div<{ $category: ProjectCategory }>`
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem; // Slightly smaller font
-  font-weight: 500;
-  line-height: 1.4;
-  white-space: nowrap;
-  margin-top: 4px; // Add some margin if needed below title
-
-  ${({ $category }) => css`
-    background-color: ${getCategoryColor($category)};
-    color: ${getCategoryTextColor($category)};
-  `}
-`;
-
 export const ProjectLogo = styled.img`
   width: 50px;
   height: 50px;
