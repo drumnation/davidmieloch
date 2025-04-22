@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { motion } from 'framer-motion';
 import {
-  BioSection,
   BioSectionTitle
 } from '../../Bio.styles';
 import { SKILL_CATEGORIES } from '../../Bio.constants';
@@ -41,12 +40,13 @@ const scaleInVariants = {
 
 export const TechnicalExpertise: React.FC<TechnicalExpertiseProps> = ({ className }) => {
   return (
-    <BioSection className={className} id="technical-expertise">
+    <Fragment>
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px 0px" }}
         variants={fadeInVariants}
+        className={className}
       >
         <BioSectionTitle>
           Technical Expertise
@@ -83,7 +83,7 @@ export const TechnicalExpertise: React.FC<TechnicalExpertiseProps> = ({ classNam
           )
         })}
       </CategoryGrid>
-    </BioSection>
+    </Fragment>
   );
 };
 

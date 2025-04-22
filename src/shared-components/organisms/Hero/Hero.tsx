@@ -85,9 +85,6 @@ export const Hero: React.FC<HeroProps> = ({
     scrollCta,
     minHeight = '70vh',
     children,
-    ctaText,
-    ctaLink,
-    backgroundImageUrl,
     titleColor = 'white',
     subtitleColor = 'white',
     contentAlignment = 'center',
@@ -105,7 +102,7 @@ export const Hero: React.FC<HeroProps> = ({
     const effectiveTextColor = textColor === 'light' ? theme.white : theme.colors.dark[8];
 
     // Use the most appropriate background image source
-    const bgImage = backgroundImageUrl || backgroundImage;
+    const bgImage = backgroundImage;
 
     // Handle scroll to target for the CTA
     const handleScrollToTarget = () => {
@@ -323,20 +320,16 @@ export const Hero: React.FC<HeroProps> = ({
                         </Text>
                     )}
 
-                    {/* CTA Buttons */}
-                    {(cta?.primary || cta?.secondary) && (
-                        <Group
-                            style={{
-                                justifyContent: contentAlignment === 'center' ? 'center' : 'flex-start',
-                                marginTop: '2rem',
-                            }}
-                        >
+                    {/* Render CTA buttons if provided */}
+                    {cta && (cta.primary || cta.secondary) && (
+                        <Group justify={contentAlignment === 'center' ? 'center' : 'flex-start'} mt="xl" style={{ animation: 'fadeIn 1.5s ease-out' }}>
                             {cta.primary && (
                                 <Link href={cta.primary.link} passHref>
                                     <Button
-                                        component="a"
                                         size="lg"
                                         radius="md"
+                                        variant="gradient"
+                                        gradient={cta.primary.gradient || { from: 'blue', to: 'cyan' }}
                                         leftSection={cta.primary.icon ? <cta.primary.icon size={20} /> : undefined}
                                     >
                                         {cta.primary.text}
@@ -346,12 +339,11 @@ export const Hero: React.FC<HeroProps> = ({
                             {cta.secondary && (
                                 <Link href={cta.secondary.link} passHref>
                                     <Button
-                                        component="a"
                                         variant="outline"
                                         size="lg"
                                         radius="md"
+                                        color={effectiveTextColor === theme.white ? 'gray.0' : 'gray.7'}
                                         leftSection={cta.secondary.icon ? <cta.secondary.icon size={20} /> : undefined}
-                                        style={{ color: theme.white, borderColor: theme.white }}
                                     >
                                         {cta.secondary.text}
                                     </Button>
@@ -360,46 +352,20 @@ export const Hero: React.FC<HeroProps> = ({
                         </Group>
                     )}
 
+                    {/* Render scroll-to CTA */}
                     {scrollCta && (
-                        <Box
-                            style={{
-                                position: 'absolute',
-                                bottom: '10px',
-                                left: '50%',
-                                transform: 'translateX(-50%)',
-                                cursor: 'pointer',
-                                zIndex: 10,
-                                animation: 'bounce 2s infinite',
-                                opacity: 0.9,
-                                transition: 'opacity 0.3s ease',
-                                padding: '0.5rem',
-                                background: 'transparent',
-                                border: 'none',
-                                boxShadow: 'none',
-                            }}
-                            onClick={handleScrollToTarget}
-                            className="scroll-indicator"
-                        >
-                            <Box
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    color: 'white',
-                                }}
+                        <Group justify={contentAlignment === 'center' ? 'center' : 'flex-start'} mt="xl" style={{ animation: 'fadeIn 1.5s ease-out' }}>
+                            <Button
+                                size="lg"
+                                radius="md"
+                                variant={scrollCta.variant || 'gradient'}
+                                gradient={scrollCta.gradient || { from: 'blue', to: 'cyan' }}
+                                leftSection={scrollCta.icon ? <scrollCta.icon size={20} /> : undefined}
+                                onClick={handleScrollToTarget}
                             >
-                                <Box
-                                    style={{
-                                        width: '22px',
-                                        height: '22px',
-                                        borderBottom: '3px solid white',
-                                        borderRight: '3px solid white',
-                                        transform: 'rotate(45deg)',
-                                        filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.9))',
-                                    }}
-                                />
-                            </Box>
-                        </Box>
+                                {scrollCta.text}
+                            </Button>
+                        </Group>
                     )}
 
                     {children}
@@ -408,5 +374,33 @@ export const Hero: React.FC<HeroProps> = ({
         </>
     );
 };
+
+// Define the structure for CTA buttons
+interface CTAButton {
+    text: string;
+    link: string;
+    icon?: React.ElementType;
+    variant?: 'gradient' | 'outline' | 'filled' | 'light' | 'white' | 'subtle' | 'default';
+    gradient?: { from: string; to: string };
+}
+
+// Update HeroProps to include the new CTA structure
+export interface HeroProps {
+    // ... other props
+    cta?: {
+        primary?: CTAButton;
+        secondary?: CTAButton;
+    };
+    scrollCta?: {
+        text: string;
+        targetId: string;
+        icon?: React.ElementType;
+        variant?: 'gradient' | 'outline' | 'filled' | 'light' | 'white' | 'subtle' | 'default';
+        gradient?: { from: string; to: string };
+    };
+    ctaText?: string; // Keep for potential backwards compatibility or specific cases if needed, though primary/secondary is preferred
+    ctaLink?: string; // Keep for potential backwards compatibility or specific cases if needed
+    // ... rest of the props
+}
 
 export default Hero; 

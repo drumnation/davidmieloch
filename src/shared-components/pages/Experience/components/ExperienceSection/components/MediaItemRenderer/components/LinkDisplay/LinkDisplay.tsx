@@ -26,6 +26,8 @@ export const LinkDisplay: React.FC<LinkDisplayProps> = ({
     job,
 }) => {
     const titleLogoSrc = mediaItem.titleLogoPath || job.logoPath;
+    const isMyArticle = mediaItem.url?.startsWith("https://medium.com/@davidmieloch/");
+    const buttonText = isMyArticle ? "View My Article" : "View Article";
 
     return (
         <>
@@ -83,7 +85,7 @@ export const LinkDisplay: React.FC<LinkDisplayProps> = ({
                     )}
                 </LinkDescriptionWrapper>
                 <LinkButtonAnchor href={mediaItem.url || '#'} target="_blank" rel="noopener noreferrer">
-                    View Article
+                    {buttonText}
                     <FaExternalLinkAlt size={16} />
                 </LinkButtonAnchor>
             </LinkContentWrapper>

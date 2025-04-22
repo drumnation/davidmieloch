@@ -198,23 +198,18 @@ Perfect for creating professional digital menu boards, promotional displays, and
                         url: "/media/otg/screenshots/otg-categories-short.png",
                         title: "Gate-Ready Airport Pizza App",
                         showLogo: true,
+                        useMobileCarousel: true,
                     },
                 ]
             },
             {
-                type: "group",
-                layout: "stack",
+                type: "image",
+                url: "/media/otg/screenshots/web-cart1.png",
+                title: "Airport Restaurant Digital Ordering System",
+                description: "Designed the interface for OTG's **in-terminal dining payment system**, featuring boarding pass integration for personalized offers, multiple payment options including airline miles, and upsell opportunities. This mobile ordering solution allows travelers to **seamlessly place and pay** for meals across OTG's airport restaurant locations.",
+                foldable: true,
+                showLogo: true,
                 width: "65.67%",
-                items: [
-                    {
-                        type: "image",
-                        url: "/media/otg/screenshots/web-cart1.png",
-                        title: "Airport Restaurant Digital Ordering System",
-                        description: "Designed the interface for OTG's **in-terminal dining payment system**, featuring boarding pass integration for personalized offers, multiple payment options including airline miles, and upsell opportunities. This mobile ordering solution allows travelers to **seamlessly place and pay** for meals across OTG's airport restaurant locations.",
-                        foldable: true,
-                        showLogo: true
-                    }
-                ]
             },
             {
                 type: "pdf",
@@ -224,6 +219,7 @@ Perfect for creating professional digital menu boards, promotional displays, and
                 height: 720,
                 showLogo: true,
                 useMobileCarousel: true,
+                width: "48.5%"
             },
             {
                 type: "pdf",

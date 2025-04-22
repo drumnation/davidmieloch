@@ -7,7 +7,7 @@ export const useStyles = () => {
   const theme = useMantineTheme();
 
   // Defensive check for theme and colorScheme
-  const isDark = theme && theme.colorScheme === 'dark';
+  const isDark = theme.black === '#000';
 
   // If theme is somehow unavailable, return empty styles to prevent crash
   if (!theme) {
@@ -30,8 +30,14 @@ export const useStyles = () => {
       },
     },
 
+    visible: {
+      opacity: 1,
+      transform: 'translateY(0)',
+    },
+
     titleWrapper: {
       display: 'flex',
+      flexDirection: 'row',
       alignItems: 'center',
       gap: theme.spacing.md,
       marginBottom: theme.spacing.lg,
@@ -198,11 +204,18 @@ export const useStyles = () => {
     },
   };
 
+  // Create a classes object mapping keys to empty strings to satisfy types
+  const classNames: Record<string, string> = {};
+  for (const key in styles) {
+    classNames[key] = ''; // Assign empty string
+  }
+
   // Mantine's hooks usually return { classes, cx, theme, etc. }
   // To maintain compatibility with how it's used in DetailedContent.tsx ({ classes, cx } = useStyles()),
   // we wrap the styles object.
   // A proper `cx` function would be needed if conditional classes are complex.
   const cx = (...args: any[]) => args.filter(Boolean).join(' ');
 
-  return { classes: styles, cx };
+  // Return the object mapping keys to empty strings
+  return { classes: classNames, cx };
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ElementType } from 'react';
 import { Box, Title, Text, Code, Group } from '@mantine/core';
 import { useStyles } from './DetailedContent.styles';
 import { DetailedContentProps } from './DetailedContent.types';
@@ -24,6 +24,7 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        } else {
         }
       },
       { rootMargin: "-100px", threshold: 0.1 }
@@ -43,18 +44,23 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
 
   const sectionProps = (id: string) => ({
     id: id,
-    style: { scrollMarginTop: '100px' },
-    component: 'section',
-    mb: "xl"
+    style: { scrollMarginTop: '100px', marginBottom: 'var(--mantine-spacing-xl)' },
   });
 
   return (
     <Box
       ref={contentRef}
-      className={cx(classes.detailedContentContainer, className, { [classes.visible]: isVisible })}
+      style={{
+        width: '100%',
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
+        paddingBottom: '70px'
+      }}
+      className={className}
     >
-      <Box {...sectionProps('bp-intro-modern')}>
-        <Group align="center" gap="md" wrap="nowrap" className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-modern')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/react-native.svg" alt="React Native Icon" width={32} height={32} />
           </Box>
@@ -66,8 +72,8 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
         </Text>
       </Box>
 
-      <Box {...sectionProps('bp-intro-enterprise')}>
-        <Group align="center" gap="md" wrap="nowrap" className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-enterprise')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/enterprise.svg" alt="Enterprise Icon" width={32} height={32} />
           </Box>
@@ -82,8 +88,8 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
         </Text>
       </Box>
 
-      <Box {...sectionProps('bp-intro-components')}>
-        <Group align="center" gap="md" wrap="nowrap" className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-components')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/react.svg" alt="React Icon" width={32} height={32} />
           </Box>
@@ -108,8 +114,8 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
         </Text>
       </Box>
 
-      <Box {...sectionProps('bp-intro-typescript')}>
-        <Group align="center" gap="md" wrap="nowrap" className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-typescript')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/typescript.svg" alt="TypeScript Icon" width={32} height={32} />
           </Box>
@@ -139,8 +145,8 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
         </Text>
       </Box>
 
-      <Box {...sectionProps('bp-intro-testing')}>
-        <Group align="center" gap="md" wrap="nowrap" className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-testing')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/jest.svg" alt="Jest Icon" width={32} height={32} />
           </Box>
@@ -169,8 +175,8 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
         </Text>
       </Box>
 
-      <Box {...sectionProps('bp-intro-storybook')}>
-        <Group align="center" gap="md" wrap="nowrap" className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-storybook')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/storybook.svg" alt="Storybook Icon" width={32} height={32} />
           </Box>
@@ -198,13 +204,13 @@ export const DetailedContent: React.FC<DetailedContentProps> = ({ className }) =
         </Text>
       </Box>
 
-      <Box {...sectionProps('bp-intro-bottleneck')}>
-        <Box className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-bottleneck')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/turborepo.svg" alt="Turborepo Icon" width={32} height={32} />
           </Box>
           <Title order={2} className={classes.detailedContentTitle}>Escaping the 'Shared Library' Bottleneck</Title>
-        </Box>
+        </Group>
         <Text className={classes.detailedContentText}>
           In larger organizations, shared libraries can become a bottleneck for development.
           Here&apos;s how I approach this problem:
@@ -236,13 +242,13 @@ monorepo/
         </Code>
       </Box>
 
-      <Box {...sectionProps('bp-intro-quality')}>
-        <Box className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-quality')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/eslint.svg" alt="ESLint Icon" width={32} height={32} />
           </Box>
           <Title order={2} className={classes.detailedContentTitle}>Code Quality and Consistency</Title>
-        </Box>
+        </Group>
         <Text className={classes.detailedContentText}>
           Maintaining code quality and consistency is essential for long-term maintainability.
           Here are the tools and practices I use:
@@ -267,13 +273,13 @@ monorepo/
         </Text>
       </Box>
 
-      <Box {...sectionProps('bp-intro-dev-env')}>
-        <Box className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-dev-env')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/vite.svg" alt="Vite Icon" width={32} height={32} />
           </Box>
           <Title order={2} className={classes.detailedContentTitle}>Development Environment Setup</Title>
-        </Box>
+        </Group>
         <Text className={classes.detailedContentText}>
           A well-configured development environment can significantly improve developer
           productivity. Here&apos;s how I set up my development environment:
@@ -302,13 +308,13 @@ monorepo/
         </Code>
       </Box>
 
-      <Box {...sectionProps('bp-intro-performance')}>
-        <Box className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-performance')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/vitest.svg" alt="Vitest Icon" width={32} height={32} />
           </Box>
           <Title order={2} className={classes.detailedContentTitle}>Performance Optimization</Title>
-        </Box>
+        </Group>
         <Text className={classes.detailedContentText}>
           Performance is a key aspect of user experience. Here are the techniques I use to
           optimize frontend performance:
@@ -341,13 +347,13 @@ function App() {
         </Code>
       </Box>
 
-      <Box {...sectionProps('bp-intro-deps')}>
-        <Box className={classes.titleWrapper}>
+      <Box<'section'> {...sectionProps('bp-intro-deps')}>
+        <Group align="center" gap="md" wrap="nowrap" >
           <Box className={classes.sectionIcon}>
             <Image src="/icons/npm.svg" alt="NPM Icon" width={32} height={32} />
           </Box>
           <Title order={2} className={classes.detailedContentTitle}>Dependency Management</Title>
-        </Box>
+        </Group>
         <Text className={classes.detailedContentText}>
           Managing dependencies is a critical aspect of maintaining a healthy codebase.
           Here are my strategies for effective dependency management:
@@ -373,7 +379,7 @@ $ npx webpack-bundle-analyzer ./stats.json`}
         </Code>
       </Box>
 
-      <Box {...sectionProps('bp-intro-summary')}>
+      <Box<'section'> {...sectionProps('bp-intro-summary')}>
         <Text className={classes.detailedContentText}>
           By combining technical excellence with a thoughtful, human-centered approach to development, we can create
           software that not only meets the needs of today but can adapt to the challenges of tomorrow. The future of

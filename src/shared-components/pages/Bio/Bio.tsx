@@ -25,7 +25,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@store/index';
 import { selectIsPlayerMinimized } from '@store/slices/playerUiSlice';
 import { useMediaQuery } from '@mantine/hooks';
-import { useMantineTheme } from '@mantine/core';
+import { Card, useMantineTheme } from '@mantine/core';
 
 // Import components
 import BioIntro from './components/BioIntro';
@@ -170,7 +170,6 @@ export const BioPage: React.FC<BioPageProps> = ({
     overlayOpacity: 0.6,
     pattern: 'none' as const,
     textColor: 'light' as const,
-    animation: 'fade-up' as const,
     className: 'bio-hero-bg',
     onImageLoad: onReady
   };
@@ -204,7 +203,9 @@ export const BioPage: React.FC<BioPageProps> = ({
             <Testimonials />
           </div>
           <div id="technical-expertise" style={{ scrollMarginTop: '100px' }}>
-            <TechnicalExpertise />
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <TechnicalExpertise />
+            </Card>
           </div>
         </TransitionContainer>
       </TransitionDiv>
