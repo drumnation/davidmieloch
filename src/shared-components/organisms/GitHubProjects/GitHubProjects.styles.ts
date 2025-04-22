@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme, rgba } from '@mantine/core';
 
 export const ProjectsContainer = styled.div`
   display: flex;
@@ -26,14 +27,14 @@ export const LoadingIndicator = styled.div`
   padding: 40px 0;
   width: 100%;
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
 `;
 
 export const ErrorMessage = styled.div`
   padding: 20px;
   margin-bottom: 20px;
-  background-color: ${({ theme }) => theme.colors.accent.red}10;
-  border: 1px solid ${({ theme }) => theme.colors.accent.red}30;
+  background-color: ${({ theme }) => rgba((theme as MantineTheme).colors.red[7], 0.1)};
+  border: 1px solid ${({ theme }) => rgba((theme as MantineTheme).colors.red[7], 0.2)};
   border-radius: 8px;
-  color: ${({ theme }) => theme.colors.accent.red};
+  color: ${({ theme }) => (theme as MantineTheme).colors.red[7]};
 `; 

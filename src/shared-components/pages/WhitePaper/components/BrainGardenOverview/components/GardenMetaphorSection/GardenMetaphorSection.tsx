@@ -58,15 +58,17 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
       <ContentContainerNoMargin>
         <div>
           <SectionTitleComponent title="The Garden Metaphor: Growing Your Project" />
-          
+
           <div style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
             <SectionSubtitle style={{ marginBottom: '1.5rem' }}>A Carefully Designed Environment</SectionSubtitle>
             <Typography variant="body" mb="1.5rem">
               Just as a garden needs structure, care, and the right environment to thrive, AI Brain Garden provides a carefully designed environment where your project&apos;s knowledge and AI interactions can grow and flourish.
             </Typography>
           </div>
-          
+
           <div style={{ backgroundColor: '#f0fff4', padding: '1.5rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>
+            {/* Comment out MermaidContainer */}
+            {/*
             <MermaidContainer>
               <GardenMetaphorDiagramClient
                 title=""
@@ -78,29 +80,33 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
                 accessibilityDescription="Garden Metaphor Diagram showing the three phases of a Brain Garden project's growth: Seed Phase (Initial Setup, Knowledge Structure, Core Prompts), Sprout Phase (Cultivating Patterns, Testing & Refining, Expanding Capabilities), and Mature Phase (Self-Improving, Context-Aware, Continuously Adapting)"
               />
             </MermaidContainer>
-            
+            */}
+
+            {/* Remove the caption text */}
+            {/*
             <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
               <Typography variant="body" color="secondary">
                 The three phases of a Brain Garden project&apos;s growth - from initial setup to self-improving system
               </Typography>
             </div>
+            */}
           </div>
-          
+
           <div style={{ marginTop: '2rem', marginBottom: '1.5rem' }}>
             <SectionSubtitle style={{ marginBottom: '1.5rem' }}>Growing Your AI System Over Time</SectionSubtitle>
             <Typography variant="body" mb="1.5rem">
               Like a garden, the AI Brain Garden becomes more valuable and productive over time. The initial structure provides a foundation, but the true value emerges as your team contributes knowledge, refines processes, and establishes clear patterns.
             </Typography>
-            
+
             <Typography variant="body" mb="1.5rem">
               This natural growth cycle helps teams overcome the learning curve that typically accompanies AI adoption. Instead of trying to implement a perfect system from day one, you start with simple structures that grow organically with your team&apos;s experience.
             </Typography>
           </div>
-          
+
           <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', marginBottom: '2rem' }}>
             <div style={{ flex: '1 1 300px', margin: '1rem', padding: '1.5rem', backgroundColor: '#f8f9fa', borderRadius: '0.5rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-              <Typography 
-                variant="h3" 
+              <Typography
+                variant="h3"
                 color="primary"
                 mb="1rem"
                 as="h3"
@@ -112,10 +118,10 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
                 Begin with the essential structure—the .brain directory—containing basic knowledge organization, core prompts, and initial documentation templates. This foundational structure is lightweight but provides immediate value.
               </Typography>
             </div>
-            
+
             <div style={{ flex: '1 1 300px', margin: '1rem', padding: '1.5rem', backgroundColor: '#f8f9fa', borderRadius: '0.5rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-              <Typography 
-                variant="h3" 
+              <Typography
+                variant="h3"
                 color="primary"
                 mb="1rem"
                 as="h3"
@@ -127,10 +133,10 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
                 As your team works with the system, it naturally expands. Knowledge becomes richer, prompts are refined based on experience, and workflows become smoother. This phase is about cultivating patterns and adapting to your team&apos;s specific needs.
               </Typography>
             </div>
-            
+
             <div style={{ flex: '1 1 300px', margin: '1rem', padding: '1.5rem', backgroundColor: '#f8f9fa', borderRadius: '0.5rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-              <Typography 
-                variant="h3" 
+              <Typography
+                variant="h3"
                 color="primary"
                 mb="1rem"
                 as="h3"
@@ -143,7 +149,9 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
               </Typography>
             </div>
           </div>
-          
+
+          {/* Remove the CTA button */}
+          {/*
           <div style={{ textAlign: 'center', margin: '2rem 0' }}>
             <CTAButtonWithIcon 
               text="Explore the Core Components" 
@@ -151,6 +159,7 @@ export const GardenMetaphorSection: React.FC<GardenMetaphorSectionProps> = ({
               link="#core-components"
             />
           </div>
+          */}
         </div>
       </ContentContainerNoMargin>
     </BackgroundSection>

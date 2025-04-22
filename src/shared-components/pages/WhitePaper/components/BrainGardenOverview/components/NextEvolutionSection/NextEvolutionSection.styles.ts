@@ -1,39 +1,43 @@
 import styled from 'styled-components';
+// Removed keyframes from @emotion/react
+// Removed Box, Grid, Paper from @mui/material
+import { Grid as MantineGrid, Paper as MantinePaper, Box as MantineBox, PaperProps } from '@mantine/core'; // Import Mantine components & PaperProps
 import { SPACING } from '../../BrainGardenOverview.styles';
+// import { Typography } from '@shared-components/atoms/Typography';
 
 // Animation variants (keeping these for reference but they won't be used anymore)
 export const slideInRight = {
   hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { 
+    transition: {
       duration: 0.7,
-      ease: "easeOut" 
+      ease: "easeOut"
     }
   }
 };
 
 export const slideInLeft = {
   hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { 
+    transition: {
       duration: 0.7,
-      ease: "easeOut" 
+      ease: "easeOut"
     }
   }
 };
 
 export const fadeInScale = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
-    transition: { 
+    transition: {
       duration: 0.6,
-      ease: "easeOut" 
+      ease: "easeOut"
     }
   }
 };
@@ -74,10 +78,6 @@ export const TimelineMainLine = styled.div`
   height: 100%;
   width: 4px;
   background-color: #e0e0e0;
-  
-  @media (max-width: 768px) {
-    left: 2rem;
-  }
 `;
 
 export const PhaseContainer = styled.div`
@@ -86,11 +86,6 @@ export const PhaseContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  @media (max-width: 768px) {
-    align-items: flex-start;
-    margin-left: 4rem;
-  }
 `;
 
 export const PhaseTitle = styled.div`
@@ -102,10 +97,6 @@ export const PhaseTitle = styled.div`
   z-index: 10;
   text-align: center;
   margin-bottom: 1.5rem;
-  
-  @media (max-width: 768px) {
-    margin-left: 0;
-  }
 `;
 
 export const PhaseContent = styled.div`
@@ -115,6 +106,24 @@ export const PhaseContent = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   width: 100%;
   max-width: 48rem;
+
+  @media (max-width: 768px) {
+    /* Target the first Typography (title) */
+    & > span[data-variant="body"][data-weight="bold"] {
+      display: block;
+    }
+
+    /* Target the separator span */
+    .timeline-separator {
+      display: none;
+    }
+
+    /* Target the second Typography (description) */
+    & > span[data-variant="body"][data-color="secondary"] {
+      display: block;
+      margin-top: 0.25rem; /* Add some space between title and description */
+    }
+  }
 `;
 
 export const PhaseItemsList = styled.ul`
@@ -142,6 +151,25 @@ export const PhaseItemDot = styled.div`
 
 export const PhaseItemContent = styled.div`
   flex: 1;
+
+  /* Hide the separator span globally */
+  .timeline-separator {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    /* Mobile-specific styles */
+    /* Add space above the description wrapper */
+    .timeline-description-wrapper {
+      margin-top: 0.25rem;
+    }
+    
+    /* Remove the rule forcing inline display as it's no longer needed */
+    /* & > span[data-variant="body"][data-weight="bold"],
+    .timeline-description-wrapper > span[data-variant="body"][data-color="secondary"] {
+      display: inline;
+    } */
+  }
 `;
 
 // Capability cards styles
@@ -165,23 +193,90 @@ export const CapabilityCard = styled.div`
 `;
 
 // Research area styles
-export const ResearchAreaContainer = styled.div`
-  background-color: #f5f5f5;
-  padding: 2rem;
-  border-radius: 0.5rem;
+export const ResearchAreaContainer = styled(MantineBox)`
+  margin-top: 3rem;
+`;
+
+export const ResearchGridContainer = styled(MantineGrid)`
+  // Inherits Mantine Grid props like gutter, etc.
+`;
+
+// Update ResearchAreaCard to style Mantine Paper
+export const ResearchAreaCard = styled(MantinePaper).attrs({
+  shadow: 'xs',
+  padding: 'lg',
+  withBorder: true,
+})`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  // Use styled-components theme
+  border-color: ${({ theme }) => theme.colors.border || '#e0e0e0'}; 
+  background-color: ${({ theme }) => theme.colors.background?.paper || '#ffffff'}; // Use standard theme structure
+`;
+
+// Shared Icon Wrapper Style (using Mantine Box)
+export const IconWrapper = styled(MantineBox)`
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  // Use styled-components theme
+  color: ${({ theme }) => theme.colors.primary || '#2563eb'}; 
+  line-height: 1;
+`;
+
+// New Section: From Vision to Value
+export const VisionValueContainer = styled(MantineBox)`
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+`;
+
+// Title for the new section and R&D section
+export const SectionSubTitleComponent = styled(MantineBox)`
+  margin-bottom: 1.5rem;
+  text-align: left; /* Default alignment - Removed mobile centering */
+`;
+
+export const BenefitGrid = styled(MantineGrid)`
   margin-bottom: 3rem;
 `;
 
-export const ResearchGridContainer = styled.div`
+// BenefitCard styling Mantine Paper
+export const BenefitCard = styled(MantinePaper).attrs({
+  shadow: 'xs',
+  padding: 'lg',
+  withBorder: true,
+})`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
+  height: 100%;
+  // Use styled-components theme
+  border-color: ${({ theme }) => theme.colors.border || '#e0e0e0'}; 
+  background-color: ${({ theme }) => theme.colors.background?.light || '#f8f9fa'}; // Use standard theme structure
 `;
 
-export const ResearchAreaCard = styled.div`
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  width: 100%;
+// RESTORED: PrincipleList
+export const PrincipleList = styled(MantineBox)`
+  margin-bottom: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr; // Default to single column
+  /* Removed media query for larger screens */
+`;
+
+// RESTORED: PrincipleCard styling Mantine Paper
+export const PrincipleCard = styled(MantinePaper).attrs({
+  shadow: 'xs',
+  padding: 'lg',
+  withBorder: true,
+  component: 'div',
+})`
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+   height: 100%;
+   // Use styled-components theme
+   border-color: ${({ theme }) => theme.colors.border || '#e0e0e0'};
+   background-color: ${({ theme }) => theme.colors.background?.paper || '#ffffff'}; // Use standard theme structure
 `;

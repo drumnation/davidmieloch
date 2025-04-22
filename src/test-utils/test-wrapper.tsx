@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
-import { ThemeProvider } from 'styled-components';
+// import { ThemeProvider } from 'styled-components'; // Remove SC import
 import { MantineProvider } from '@mantine/core';
-import { theme as styledTheme } from '../styles/theme/styled-theme';
+// import { theme as styledTheme } from '../styles/theme/styled-theme'; // Remove SC theme import
 import { theme as mantineTheme } from '../styles/theme';
 
-// Create a wrapper component that provides both Mantine and styled-components theme
+// Create a wrapper component that provides only the Mantine theme
 interface TestWrapperProps {
   children: ReactNode;
 }
@@ -12,9 +12,9 @@ interface TestWrapperProps {
 export const TestWrapper: React.FC<TestWrapperProps> = ({ children }) => {
   return (
     <MantineProvider theme={mantineTheme}>
-      <ThemeProvider theme={styledTheme}>
-        {children}
-      </ThemeProvider>
+      {/* <ThemeProvider theme={styledTheme}> */}{/* Remove SC Provider */}
+      {children}
+      {/* </ThemeProvider> */}
     </MantineProvider>
   );
 };

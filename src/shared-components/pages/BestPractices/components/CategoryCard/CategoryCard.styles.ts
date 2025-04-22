@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { AnimationVariants } from '../../../../../utils/animations/migration-helpers';
+import { AnimationVariants } from '@utils/animations/migration-helpers';
+import { MantineTheme } from '@mantine/core';
 
-export const CategoryCardContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.paper};
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: ${({ theme }) => theme.shadows.card};
+export const CategoryCardContainer = styled.div<{ theme: MantineTheme }>`
+  background-color: ${({ theme }) => theme.white};
+  border-radius: ${({ theme }) => theme.radius.md};
+  padding: ${({ theme }) => theme.spacing.lg};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -21,66 +22,66 @@ export const CategoryCardContainer = styled.div`
     transform: translateY(0);
   }
 
-  @media (max-width: 768px) {
-    padding: 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: ${({ theme }) => theme.spacing.md};
   }
 
-  @media (max-width: 480px) {
-    padding: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: ${({ theme }) => theme.spacing.sm};
   }
 `;
 
-export const CategoryTitle = styled.h3`
-  font-size: 1.5rem;
-  margin: 0 0 24px 0;
-  color: ${({ theme }) => theme.colors.primary.main};
+export const CategoryTitle = styled.h3<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.headings.sizes.h3.fontSize};
+  margin: 0 0 ${({ theme }) => theme.spacing.md} 0;
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   display: flex;
   align-items: center;
   word-break: break-word;
 
-  @media (max-width: 480px) {
-    font-size: 1.3rem;
-    margin-bottom: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: calc(${({ theme }) => theme.headings.sizes.h3.fontSize} * 0.9);
+    margin-bottom: ${({ theme }) => theme.spacing.sm};
   }
 `;
 
-export const CategoryDescription = styled.p`
-  font-size: 1rem;
-  margin: 0 0 32px 0;
-  color: ${({ theme }) => theme.colors.text.secondary};
+export const CategoryDescription = styled.p<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  margin: 0 0 ${({ theme }) => theme.spacing.lg} 0;
+  color: ${({ theme }) => theme.colors.gray[7]};
   display: flex;
   align-items: flex-start;
   word-break: break-word;
 
-  @media (max-width: 480px) {
-    font-size: 0.95rem;
-    margin-bottom: 24px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    margin-bottom: ${({ theme }) => theme.spacing.md};
   }
 `;
 
-export const ItemsList = styled.div`
+export const ItemsList = styled.div<{ theme: MantineTheme }>`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: ${({ theme }) => theme.spacing.md};
   flex-grow: 1;
 `;
 
-export const Item = styled.div`
+export const Item = styled.div<{ theme: MantineTheme }>`
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: ${({ theme }) => theme.spacing.md};
 `;
 
-export const ItemIcon = styled.div`
+export const ItemIcon = styled.div<{ theme: MantineTheme }>`
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 40px;
   width: 40px;
   height: 40px;
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.background.light};
-  padding: 8px;
+  border-radius: ${({ theme }) => theme.radius.sm};
+  background-color: ${({ theme }) => theme.colors.gray[0]};
+  padding: ${({ theme }) => theme.spacing.xs};
   flex-shrink: 0;
 `;
 
@@ -91,21 +92,23 @@ export const ItemContent = styled.div`
   min-width: 0;
 `;
 
-export const ItemTitle = styled.h4`
-  font-size: 1.1rem;
-  margin: 0 0 6px 0;
-  color: ${({ theme }) => theme.colors.text.primary};
+export const ItemTitle = styled.h4<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  margin: 0 0 ${({ theme }) => theme.spacing.xs} 0;
+  color: ${({ theme }) => theme.black};
   word-break: break-word;
+  display: flex;
+  align-items: center;
 
-  @media (max-width: 480px) {
-    font-size: 1rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;
 
-export const ItemDescription = styled.p`
-  font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  line-height: 1.5;
+export const ItemDescription = styled.p<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.colors.gray[7]};
+  line-height: ${({ theme }) => theme.lineHeights.md};
   margin: 0;
 `;
 

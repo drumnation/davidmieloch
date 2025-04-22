@@ -1,9 +1,8 @@
 import React from 'react'
 import type { Preview } from '@storybook/react'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { theme as styledTheme } from '../src/styles/theme/styled-theme'
 import { viewports } from '../src/styles/theme/viewports'
 import { MantineProvider } from '@mantine/core'
+import { theme as mantineTheme } from '../src/styles/theme'
 import '@mantine/core/styles.css'
 import { ReactFlowProvider } from 'reactflow'
 import 'reactflow/dist/style.css'
@@ -81,19 +80,17 @@ const GlobalStyles = () => (
 // Main decorator that wraps all providers
 const MainDecorator = (Story: React.ComponentType) => {
   const queryClient = React.useMemo(() => createQueryClient(), []);
-  
+
   return (
     <QueryClientProvider client={queryClient}>
-      <StyledThemeProvider theme={styledTheme}>
-        <MantineProvider>
-          <ReactFlowProvider>
-            <GlobalStyles />
-            <div className="storybook-container" style={{ minHeight: '100vh', width: '100%' }}>
-              <Story />
-            </div>
-          </ReactFlowProvider>
-        </MantineProvider>
-      </StyledThemeProvider>
+      <MantineProvider theme={mantineTheme}>
+        <ReactFlowProvider>
+          <GlobalStyles />
+          <div className="storybook-container" style={{ minHeight: '100vh', width: '100%' }}>
+            <Story />
+          </div>
+        </ReactFlowProvider>
+      </MantineProvider>
     </QueryClientProvider>
   );
 };
@@ -151,7 +148,7 @@ const preview: Preview = {
     // Apply page structure decorator based on selection
     (Story, context) => {
       const pageStructure = context.globals.pageStructure;
-      
+
       switch (pageStructure) {
         // case 'garden':
         //   return brainGardenPageDecorator(Story);

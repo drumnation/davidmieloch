@@ -1,19 +1,20 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.background.light};
+  background-color: ${({ theme }) => (theme as MantineTheme).white};
   border-radius: 12px;
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  border: 1px solid ${({ theme }) => (theme as MantineTheme).colors.gray[3]};
   overflow: hidden;
 `;
 
 export const Header = styled.div`
   padding: 24px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border.light};
-  background-color: ${({ theme }) => theme.colors.background.light};
+  border-bottom: 1px solid ${({ theme }) => (theme as MantineTheme).colors.gray[3]};
+  background-color: ${({ theme }) => (theme as MantineTheme).white};
 `;
 
 export const BackButton = styled.button`
@@ -24,13 +25,13 @@ export const BackButton = styled.button`
   border: none;
   cursor: pointer;
   padding: 8px 0;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   font-size: 14px;
   margin-bottom: 16px;
   transition: color 0.2s ease;
   
   &:hover {
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   }
 `;
 
@@ -41,7 +42,7 @@ export const Title = styled.h2`
   font-size: 24px;
   font-weight: 600;
   margin: 0 0 12px 0;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => (theme as MantineTheme).black};
 `;
 
 export const PrivateBadge = styled.span`
@@ -49,8 +50,8 @@ export const PrivateBadge = styled.span`
   align-items: center;
   padding: 2px 8px;
   border-radius: 12px;
-  background-color: ${({ theme }) => theme.colors.background.dark};
-  color: ${({ theme }) => theme.colors.text.light};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors.dark[7]};
+  color: ${({ theme }) => (theme as MantineTheme).white};
   font-size: 12px;
   font-weight: 500;
 `;
@@ -58,7 +59,7 @@ export const PrivateBadge = styled.span`
 export const Description = styled.p`
   font-size: 16px;
   line-height: 1.5;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   margin: 0 0 16px 0;
 `;
 
@@ -73,7 +74,7 @@ export const MetaItem = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   font-size: 14px;
 `;
 
@@ -100,7 +101,7 @@ export const SectionTitle = styled.h3`
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 16px 0;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => (theme as MantineTheme).black};
 `;
 
 export const StatsGrid = styled.div`
@@ -114,20 +115,20 @@ export const StatCard = styled.div`
   display: flex;
   flex-direction: column;
   padding: 16px;
-  background-color: ${({ theme }) => theme.colors.background.light};
+  background-color: ${({ theme }) => (theme as MantineTheme).white};
   border-radius: 8px;
 `;
 
 export const StatLabel = styled.div`
   font-size: 14px;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   margin-bottom: 8px;
 `;
 
 export const StatValue = styled.div`
   font-size: 24px;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => (theme as MantineTheme).black};
 `;
 
 export const LinkButton = styled.a`
@@ -136,7 +137,7 @@ export const LinkButton = styled.a`
   justify-content: center;
   gap: 8px;
   padding: 10px 16px;
-  background-color: ${({ theme }) => theme.colors.primary.main};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -147,6 +148,6 @@ export const LinkButton = styled.a`
   transition: background-color 0.2s ease;
   
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primary.dark};
+    background-color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][8]};
   }
 `; 

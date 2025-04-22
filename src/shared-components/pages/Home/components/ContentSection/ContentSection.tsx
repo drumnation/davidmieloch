@@ -2,32 +2,47 @@
 
 import React from 'react';
 import { Typography } from '../../../../atoms/Typography';
-import { SectionHeading } from '../SectionHeading';
+import { fsbpContent, getCharacteristicPosition } from '../../Home.logic';
 import { CharacteristicCard } from '../CharacteristicCard';
-import CTALink from '../CTALink';
-import { 
-  FSBPSectionContainer,
-  FSBPHeader,
-  FSBPSubheadline,
-  FSBPHeaderSeparator,
-  FSBPContent,
-  FSBPIntro,
-  FSBPText,
-  FSBPEmphasis,
-  FSBPKeyTerm,
-  ParadigmSection,
-  ParadigmParagraph,
-  ParadigmSubheading,
-  ParadigmIcon,
-  PullQuoteContainer,
-  PullQuote,
-  CharacteristicsSection,
+import { SectionHeading } from '../SectionHeading';
+import { useMediaQuery } from './ContentSection.hook';
+import {
   CharacteristicsGrid,
-  CTASectionContainer,
-  CTAGroup
+  CharacteristicsSection,
+  FSBPContent,
+  FSBPEmphasis,
+  FSBPHeader,
+  FSBPHeaderSeparator,
+  FSBPIntro,
+  FSBPKeyTerm,
+  FSBPSectionContainer,
+  FSBPSubheadline,
+  FSBPText,
+  ParadigmIcon,
+  ParadigmParagraph,
+  ParadigmSection,
+  ParadigmSubheading,
+  PullQuote,
+  PullQuoteContainer,
 } from './ContentSection.styles';
-import { fsbpContent, getCharacteristicPosition, getCTAPosition } from '../../Home.logic';
-import { useMediaQuery } from '../../ContentSection.hook';
+import {
+  FcCommandLine,
+  FcBusiness,
+  FcDataConfiguration,
+  FcRefresh,
+  FcVoicePresentation,
+  FcIdea
+} from 'react-icons/fc';
+
+// Map of icons for the characteristics section
+const iconMap: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
+  'Technical Depth': FcCommandLine,
+  'Business Breadth': FcBusiness,
+  'AI Orchestration': FcDataConfiguration,
+  'Systems Thinking': FcRefresh,
+  'First-Principles Reasoning': FcIdea,
+  'Communication Fluency': FcVoicePresentation,
+};
 
 export const FSBPSection: React.FC = () => {
   const { isMobile, isTablet } = useMediaQuery();
@@ -46,18 +61,18 @@ export const FSBPSection: React.FC = () => {
         </FSBPSubheadline>
         <FSBPHeaderSeparator className="fsbp-header-separator" />
       </FSBPHeader>
-      
+
       <FSBPContent className="fsbp-content">
         <FSBPIntro className="fsbp-intro">
           <FSBPText variant="body" mb="1.5rem" className="fsbp-text">
             We&apos;re already witnessing the dawn of <FSBPEmphasis>hyper-efficient organizations</FSBPEmphasis> – AI-native companies achieving <FSBPEmphasis>unprecedented results with remarkably small teams</FSBPEmphasis>.
-            The <FSBPKeyTerm>Full-Stack Business Person</FSBPKeyTerm> is someone who combines deep technical expertise with broad business 
+            The <FSBPKeyTerm>Full-Stack Business Person</FSBPKeyTerm> is someone who combines deep technical expertise with broad business
             acumen, leveraging AI to perform roles that previously required several specialists.
           </FSBPText>
         </FSBPIntro>
-        
+
         <SectionHeading>{fsbpContent.paradigmSection.title}</SectionHeading>
-        
+
         <ParadigmSection className="paradigm-section">
           {fsbpContent.paradigmSection.items.map((item, index) => (
             <ParadigmParagraph key={index} className="paradigm-paragraph">
@@ -86,19 +101,19 @@ export const FSBPSection: React.FC = () => {
                 </ParadigmIcon>
                 {item.title}
               </ParadigmSubheading>
-              
-              <div 
-                className="fsbp-text-content" 
+
+              <div
+                className="fsbp-text-content"
                 dangerouslySetInnerHTML={{ __html: item.content }}
-                style={{ 
-                  lineHeight: '1.7', 
-                  fontSize: '1.05rem', 
-                  marginBottom: '1.5rem' 
+                style={{
+                  lineHeight: '1.7',
+                  fontSize: '1.05rem',
+                  marginBottom: '1.5rem'
                 }}
               />
             </ParadigmParagraph>
           ))}
-          
+
           {/* Pull quote */}
           <PullQuoteContainer className="pull-quote-container">
             <PullQuote className="pull-quote">
@@ -106,20 +121,24 @@ export const FSBPSection: React.FC = () => {
             </PullQuote>
           </PullQuoteContainer>
         </ParadigmSection>
-        
+
         {/* Characteristics Section */}
         <CharacteristicsSection>
           <SectionHeading>{fsbpContent.characteristics.title}</SectionHeading>
-          
+
           <CharacteristicsGrid className="characteristics-grid">
             {fsbpContent.characteristics.items.map((item, index) => {
               const position = getCharacteristicPosition(index, screenSize);
+              // Safely get the icon component by title
+              const IconComponent = item.title in iconMap ? iconMap[item.title] : undefined;
+
               return (
-                <CharacteristicCard 
+                <CharacteristicCard
                   key={index}
                   icon={item.icon}
                   title={item.title}
                   description={item.description}
+                  IconComponent={IconComponent}
                   style={{
                     gridRow: position.row,
                     gridColumn: position.column
@@ -129,7 +148,7 @@ export const FSBPSection: React.FC = () => {
             })}
           </CharacteristicsGrid>
         </CharacteristicsSection>
-        
+
         {/* CTA Section */}
       </FSBPContent>
     </FSBPSectionContainer>

@@ -3,20 +3,22 @@ import { Typography } from '@shared-components/atoms/Typography';
 import { SystemArchitectureSectionProps } from './SystemArchitectureSection.types';
 import { ContentContainer } from '../../BrainGardenOverview.styles';
 import { SectionTitleComponent, CTAButtonWithIcon } from '../../BrainGardenOverview.logic';
-import { useTheme } from 'styled-components';
+import { useMantineTheme } from '@mantine/core';
 
 export const SystemArchitectureSection: React.FC<SystemArchitectureSectionProps> = ({
   className,
   systemArchitectureProps
 }) => {
-  const theme = useTheme();
+  const mTheme = useMantineTheme();
+
+  const backgroundGradient = mTheme.other?.heroGradient ?? mTheme.other?.accentGradient ?? 'linear-gradient(135deg, #2196f3 0%, #00bcd4 100%)';
 
   return (
     <ContentContainer
       className={className}
       id="system-architecture-section"
       style={{
-        background: theme.colors.gradient,
+        background: backgroundGradient,
         color: 'white',
         padding: '3rem 2rem',
         borderRadius: '0.5rem'

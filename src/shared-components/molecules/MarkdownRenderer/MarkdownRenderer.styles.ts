@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 // Define props interface for MarkdownContainer
 interface MarkdownContainerProps {
@@ -15,7 +16,7 @@ export const MarkdownContainer = styled.div<MarkdownContainerProps>`
   font-size: 1.1rem;
 
   h3 {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   }
   h1, h2, h3 {
     margin: 2rem 0 1rem;
@@ -23,7 +24,7 @@ export const MarkdownContainer = styled.div<MarkdownContainerProps>`
 
   h1 {
     font-size: 2.5rem;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.accent};
+    border-bottom: 2px solid ${({ theme }) => (theme as MantineTheme).colors.gray[4]};
     padding-bottom: 0.5rem;
   }
 
@@ -50,11 +51,11 @@ export const MarkdownContainer = styled.div<MarkdownContainerProps>`
   }
 
   strong {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][7]};
   }
 
   a {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => (theme as MantineTheme).colors.blue[6]};
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -62,14 +63,14 @@ export const MarkdownContainer = styled.div<MarkdownContainerProps>`
   }
 
   code {
-    background: ${({ theme }) => theme.colors.codeBackground};
+    background: ${({ theme }) => (theme as MantineTheme).colors.gray[1]};
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
-    font-family: ${({ theme }) => theme.fonts.mono};
+    font-family: ${({ theme }) => (theme as MantineTheme).fontFamilyMonospace};
   }
 
   pre {
-    background: ${({ theme }) => theme.colors.codeBlockBackground};
+    background: ${({ theme }) => (theme as MantineTheme).colors.dark[8]};
     padding: 1rem;
     border-radius: 8px;
     margin: 1.5rem 0;
@@ -83,11 +84,11 @@ export const MarkdownContainer = styled.div<MarkdownContainerProps>`
   }
 
   blockquote {
-    border-left: 4px solid ${({ theme }) => theme.colors.accent};
+    border-left: 4px solid ${({ theme }) => (theme as MantineTheme).colors.gray[5]};
     margin: 1.5rem 0;
     padding: 0.5rem 1rem;
-    background: ${({ theme }) => theme.colors.blockquoteBackground};
-    color: ${({ theme }) => theme.colors.blockquoteText};
+    background: ${({ theme }) => (theme as MantineTheme).colors.gray[0]};
+    color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   }
 `;
 
@@ -104,7 +105,7 @@ export const CompactMarkdownContainer = styled(MarkdownContainer)`
 
   h1 {
     font-size: 1.2rem;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.accent};
+    border-bottom: 1px solid ${({ theme }) => (theme as MantineTheme).colors.gray[3]};
     padding-bottom: 0.25rem;
   }
 

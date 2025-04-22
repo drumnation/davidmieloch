@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const GridContainer = styled.div`
   display: grid;
@@ -15,18 +16,18 @@ export const EmptyState = styled.div`
   text-align: center;
   padding: 48px 24px;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.background.light};
+  background-color: ${({ theme }) => (theme as MantineTheme).white};
   border-radius: 8px;
-  border: 1px dashed ${({ theme }) => theme.colors.border.light};
+  border: 1px dashed ${({ theme }) => (theme as MantineTheme).colors.gray[3]};
   
   h3 {
     margin: 16px 0 8px;
     font-weight: 600;
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   }
   
   p {
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
     max-width: 450px;
     margin: 0;
   }

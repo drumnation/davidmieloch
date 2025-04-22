@@ -78,12 +78,6 @@ export const SubNavMobile: React.FC<SubNavMobileProps> = ({ items, title = 'Page
     }, []);
 
     const handleHeaderClick = (itemId: string) => {
-        const itemIndex = items.findIndex(item => item.id === itemId);
-        let firstSubItemId: string | null = null;
-        if (itemIndex !== -1 && itemIndex + 1 < items.length && items[itemIndex + 1].level === 1) {
-            firstSubItemId = items[itemIndex + 1].id;
-        }
-
         setExpandedSections((prev) => {
             const newSet = new Set(prev);
             if (newSet.has(itemId)) {
@@ -94,10 +88,6 @@ export const SubNavMobile: React.FC<SubNavMobileProps> = ({ items, title = 'Page
             }
             return newSet;
         });
-
-        if (firstSubItemId) {
-            handleLinkActivation(firstSubItemId);
-        }
     };
 
     const handleLinkActivation = (id: string) => {

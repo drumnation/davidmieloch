@@ -2,6 +2,7 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { NavigationMenu } from './NavigationMenu';
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 const StoryContainer = styled.div<{ $isDark?: boolean }>`
   min-height: 100vh;
@@ -131,7 +132,7 @@ export const RightPosition: Story = {
 const DemoContent = styled.div`
   padding: 2rem;
   margin: 2rem;
-  background: ${({ theme }) => theme.colors.background.paper || '#fff'};
+  background: ${({ theme }) => (theme as MantineTheme).white || '#fff'};
   border-radius: 12px;
   min-height: 400px;
 `;

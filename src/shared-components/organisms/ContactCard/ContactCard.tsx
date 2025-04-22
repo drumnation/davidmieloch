@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 import { Typography } from '../../atoms/Typography/Typography';
 import { Card } from '../../atoms/Card/Card';
 import { FaLinkedin, FaGithub, FaMedium, FaEnvelope, FaUser, FaComments, FaArrowRight } from 'react-icons/fa';
@@ -33,12 +34,12 @@ const StyledCard = styled(Card)`
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: ${({ theme }) => theme.colors.gradient};
+  background: ${({ theme }) => `linear-gradient(135deg, ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][7]} 0%, ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][5]} 100%)`};
   color: white;
   
   &.accent {
-    background-color: ${({ theme }) => theme.colors.background.light};
-    border-left: 4px solid ${({ theme }) => theme.colors.primary.main};
+    background-color: ${({ theme }) => (theme as MantineTheme).white};
+    border-left: 4px solid ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   }
 `;
 
@@ -106,7 +107,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({
   className,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -116,12 +117,12 @@ export const ContactCard: React.FC<ContactCardProps> = ({
       },
       { rootMargin: "-100px" }
     );
-    
+
     const currentElement = document.querySelector('.contact-card-container');
     if (currentElement) {
       observer.observe(currentElement);
     }
-    
+
     return () => {
       if (currentElement) {
         observer.unobserve(currentElement);
@@ -130,7 +131,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({
   }, []);
 
   return (
-    <ContactCardWrapper 
+    <ContactCardWrapper
       className={`contact-card-container fade-in ${isVisible ? 'visible' : ''} ${className || ''}`}
     >
       <StyledCard>

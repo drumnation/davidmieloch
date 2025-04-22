@@ -132,9 +132,9 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
       <ContentContainerNoMargin>
         <div style={{ marginTop: '2rem', textAlign: 'center', marginBottom: '3rem' }}>
           <CTAButtonWithIcon
-            text="Explore the System"
+            text="Skip to Force Multipliers"
             icon="arrow-right"
-            link="#ai-system"
+            link="#garden-force-multipliers"
           />
         </div>
       </ContentContainerNoMargin>

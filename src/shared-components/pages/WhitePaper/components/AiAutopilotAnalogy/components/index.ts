@@ -5,4 +5,4 @@ export { StrategicFocusSection } from './StrategicFocusSection';
 export { MermaidDiagramSection } from './MermaidDiagramSection';
 export { WarningTransitionSection } from './WarningTransitionSection';
 export { LeadershipBlueprintSection } from './LeadershipBlueprintSection';
-export { default as DunningKrugerSection } from './DunningKrugerSection/DunningKrugerSection'; 
+export { default as AiIntegrationJourneySection } from './AiIntegrationJourneySection/AiIntegrationJourneySection'; 

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ReactFlowProvider } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 const LoadingContainer = styled.div`
   width: 100%;
@@ -13,8 +14,8 @@ const LoadingContainer = styled.div`
   align-items: center;
   border: 1px dashed #ccc;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.background.light || '#f8f8f8'};
-  color: ${({ theme }) => theme.colors.text.secondary || '#666'};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors.gray[0] || '#f8f8f8'};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7] || '#666'};
 `;
 
 const WrapperContainer = styled.div`
@@ -59,7 +60,7 @@ export const ReactFlowClientWrapper: React.FC<ReactFlowClientWrapperProps> = ({
   useEffect(() => {
     mountedTimestampRef.current = Date.now();
     logDebug('Component mounting started');
-    
+
     // Short delay to ensure DOM is fully ready
     const initTimer = setTimeout(() => {
       setMounted(true);
@@ -73,7 +74,7 @@ export const ReactFlowClientWrapper: React.FC<ReactFlowClientWrapperProps> = ({
         } : null
       });
     }, 50);
-    
+
     return () => {
       clearTimeout(initTimer);
       logDebug('Component unmounting');

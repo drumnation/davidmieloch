@@ -5,6 +5,14 @@ import testClarityFeatures from '../../../utils/analytics-test';
 import { initClarity } from '@analytics/clarity';
 import { PersonaNavItem } from './Home.types';
 import { enhanceMetaDescription } from './Home.utils';
+import {
+  FcManager,
+  FcSettings,
+  FcEngineering,
+  FcSearch,
+  FcIdea
+} from 'react-icons/fc';
+import React from 'react';
 
 /**
  * Custom hook providing all data required for the Home page
@@ -84,21 +92,24 @@ const initializeAnalytics = () => {
 const getHeroProps = () => {
   return {
     title: "David Mieloch",
-    subtitle: "Staff-Level Full-Stack Engineer · AI-Native Systems Thinker",
+    desktopSubtitle: "Staff-Level Full-Stack Engineer<br />· <span class='ai-native-highlight'>AI-Native</span> Systems Thinker",
+    mobileSubtitle: "Staff-Level<br />Full-Stack Engineer <br />· <span class='ai-native-highlight'>AI-Native</span><br />Systems Thinker",
     tagline: "I help engineering teams unlock 10x efficiency through scalable architectures, agentic workflows, and AI-native product design.",
     background: "image" as const,
     backgroundImage: "/connected-dots.jpg",
     backgroundOverlay: false,
     textColor: 'light' as const,
-    animation: 'fade-up' as const,
+    animation: 'fadeIn' as const,
     cta: {
       primary: {
-        text: '🔍 View My Experience',
-        link: '/experience'
+        text: 'View My Experience',
+        link: '/experience',
+        icon: FcSearch
       },
       secondary: {
-        text: '💡 Discover How I Work',
-        link: '#fsbp-concept'
+        text: 'Discover How I Work',
+        link: '#fsbp-concept',
+        icon: FcIdea
       }
     }
   };
@@ -112,25 +123,25 @@ const getPersonaNavData = (): PersonaNavItem[] => {
   return [
     {
       title: 'For CEOs',
-      icon: '👑',
-      description: 'Business impact & ROI',
+      icon: React.createElement(FcManager),
+      description: 'Business impact &<br />ROI',
       link: '/enterprise-ai-development-framework?persona=ceo'
     },
     {
       title: 'For CTOs',
-      icon: '🔧',
+      icon: React.createElement(FcSettings),
       description: 'Technical vision & scalability',
       link: '/enterprise-ai-development-framework?persona=cto'
     },
     {
       title: 'For Engineering Managers',
-      icon: '👨‍💻',
+      icon: React.createElement(FcEngineering),
       description: 'Team practices & mentorship',
       link: '/fullstack-react-best-practices-integration?persona=em'
     },
     {
       title: 'For Recruiters',
-      icon: '🔎',
+      icon: React.createElement(FcSearch),
       description: 'Skills & experience overview',
       link: '/bio?persona=recruiter'
     }

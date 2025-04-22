@@ -1,12 +1,13 @@
 'use client';
 
 import React, { FC } from 'react';
+import { Text, useMantineTheme, Box } from '@mantine/core';
 import { TypographyProps } from './Typography.types';
-import { StyledTypography } from './Typography.styles';
+import { getTypographyStyles, TypographyStylesProps } from './Typography.styles';
 
-export const Typography: FC<TypographyProps> = ({ 
-  children, 
-  variant = 'body', 
+export const Typography: FC<TypographyProps> = ({
+  children,
+  variant = 'body',
   weight = 'regular',
   color = 'primary',
   className,
@@ -19,6 +20,8 @@ export const Typography: FC<TypographyProps> = ({
   my,
   ...rest
 }) => {
+  const theme = useMantineTheme();
+
   // Determine the HTML element based on variant if 'as' prop is not provided
   const getDefaultElement = () => {
     switch (variant) {
@@ -31,23 +34,34 @@ export const Typography: FC<TypographyProps> = ({
     }
   };
 
+  // Prepare props for the style function
+  const styleProps: TypographyStylesProps = {
+    variant,
+    weight,
+    color,
+    mt,
+    mb,
+    ml,
+    mr,
+    mx,
+    my
+  };
+
+  // Generate styles using the new function
+  const styles = getTypographyStyles(theme, styleProps);
+
+  // Determine the component to render (either provided 'as' or default)
+  const Component = as || getDefaultElement();
+
   return (
-    <StyledTypography
-      as={as || getDefaultElement()}
-      $variant={variant}
-      $weight={weight}
-      $color={color}
-      $mt={mt}
-      $mb={mb}
-      $ml={ml}
-      $mr={mr}
-      $mx={mx}
-      $my={my}
+    <Box
+      component={Component as any}
+      sx={styles}
       className={className}
       {...rest}
     >
       {children}
-    </StyledTypography>
+    </Box>
   );
 };
 

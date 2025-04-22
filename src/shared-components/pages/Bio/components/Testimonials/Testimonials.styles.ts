@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { AnimationVariants } from '../../../../../utils/animations/migration-helpers';
+import { MantineTheme } from '@mantine/core';
 
 export const TestimonialsContainer = styled(motion.div)`
   width: 100%;
@@ -10,7 +11,7 @@ export const TestimonialsContainer = styled(motion.div)`
   // Target the h3 rendered by BioSectionTitle within this container
   > div > h3 {
     font-size: 3rem !important; // Increase font size (using !important to ensure override)
-    color: ${({ theme }) => theme.colors.text.primary} !important; // Set color to primary text
+    color: ${({ theme }) => theme.colors.gray[7]} !important; // Set color to primary text
 
     @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
       font-size: 2.5rem !important; // Adjust mobile size if needed
@@ -22,7 +23,7 @@ export const SectionHeading = styled(motion.h2)`
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
   font-weight: 700;
 `;
 
@@ -34,7 +35,7 @@ export const CategoryHeadingWrapper = styled.div`
   margin: 2.5rem 0 0.5rem;
   position: relative;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.primary.light};
+  border-bottom: 2px solid ${({ theme }) => theme.colors[theme.primaryColor][3]};
   width: 100%;
   
   &:first-of-type {
@@ -46,7 +47,7 @@ export const CategoryIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.text.primary}; // Change icon color to primary text (black/dark grey)
+  color: ${({ theme }) => theme.colors.gray[7]}; // Change icon color to primary text
   
   svg {
     width: 28px;
@@ -56,7 +57,7 @@ export const CategoryIcon = styled.div`
 
 export const CategoryHeading = styled(motion.h3)`
   font-size: 1.75rem;
-  color: ${({ theme }) => theme.colors.primary.main}; // Keep category title blue (primary color)
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]}; // Keep category title blue (primary color)
   font-weight: 600;
   margin: 0;
   padding: 0;
@@ -70,8 +71,8 @@ export const TestimonialCardsContainer = styled(motion.div)`
 `;
 
 export const TestimonialCard = styled(motion.div)`
-  background: ${({ theme }) => theme.colors.background.light};
-  border-radius: 12px;
+  background: ${({ theme }) => theme.colors.gray[0]};
+  border-radius: ${({ theme }) => theme.radius.md};
   padding: 2rem;
   box-shadow: ${({ theme }) => theme.shadows.md};
   transition: all 0.3s ease;
@@ -101,10 +102,10 @@ export const TestimonialText = styled.blockquote`
   font-style: italic;
   font-size: 1.125rem;
   line-height: 1.8;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
   margin: 0 0 1.5rem;
   padding-left: 1.25rem;
-  border-left: 3px solid ${({ theme }) => theme.colors.primary.light};
+  border-left: 3px solid ${({ theme }) => theme.colors[theme.primaryColor][3]};
   
   p {
     margin-bottom: 1rem;
@@ -118,21 +119,21 @@ export const TestimonialText = styled.blockquote`
 export const TestimonialAuthor = styled.div`
   font-weight: 600;
   font-size: 1.125rem;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   text-align: right;
   padding-right: 1rem;
   margin-top: 1rem;
 
   .testimonial-author-name {
     font-weight: 700;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   }
 
   .testimonial-author-title {
     display: block;
     font-size: 0.95rem;
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: ${({ theme }) => theme.colors.gray[6]};
     margin-top: 0.25rem;
   }
 `;
@@ -150,15 +151,15 @@ export const LinkedInButton = styled.a`
   background-color: #0077b5; /* LinkedIn blue */
   color: white;
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.radius.sm};
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   
   &:hover {
     background-color: #006097; /* Darker LinkedIn blue */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: ${({ theme }) => theme.shadows.md};
     transform: translateY(-2px);
   }
   

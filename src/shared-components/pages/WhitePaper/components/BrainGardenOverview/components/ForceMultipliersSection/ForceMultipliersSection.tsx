@@ -1,8 +1,10 @@
 import React from 'react';
+import { useMantineTheme } from '@mantine/core';
 import { FeatureGrid } from '@shared-components/organisms/FeatureGrid/FeatureGrid';
 import { Feature } from '@shared-components/organisms/FeatureGrid/FeatureGrid.types';
 import { ForceMultipliersSectionProps } from './ForceMultipliersSection.types';
 import { Icon } from '@shared-components/atoms/Icon';
+import { IconSparkles } from '@tabler/icons-react';
 import { SectionSubtitle } from '../../BrainGardenOverview.styles';
 import { SectionTitleComponent } from '../../BrainGardenOverview.logic';
 import { DiagramClientWrapper } from '@components/Diagrams/_wrappers/DiagramClientWrapper';
@@ -15,7 +17,7 @@ import {
   PowerfulTitle,
   MetricsContainer
 } from '../../BrainGardenOverview.styles';
-import { 
+import {
   ForceMultiplierContainer,
   StyledForceMultiplierContainer,
   BodyText,
@@ -49,6 +51,10 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
   className,
   forceMultipliersProps
 }): React.ReactNode => {
+  const mTheme = useMantineTheme();
+
+  const primaryBlue = mTheme.colors[mTheme.primaryColor]?.[5] ?? mTheme.colors.blue?.[5] ?? '#2196f3';
+
   const impactMetrics = [
     { number: '10x', label: 'Faster Development' },
     { number: '80%', label: 'Less Manual Work' },
@@ -72,17 +78,24 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
     <ForceMultiplierContainer className={className} id="force-multipliers-section">
       <StyledForceMultiplierContainer>
         <PowerfulTitle>
-          <Icon name="bolt" source="tabler" size={32} />
+          <IconSparkles size={32} />
           <GradientText>Force Multipliers</GradientText>
         </PowerfulTitle>
 
-        {/* Act 1: The Developer's Dilemma */}
-        <ActTitle>Act 1: The Developer's Dilemma</ActTitle>
+        <ActTitle>
+          <span style={{ color: '#000000' }}>Act 1:</span>
+          <span style={{
+            color: primaryBlue,
+            marginLeft: '0.5rem'
+          }}>
+            The Developer's Dilemma
+          </span>
+        </ActTitle>
         <StoryBox>
           <BodyText variant="body">
             Picture a developer, staring at their screen as the deadline looms. They've just finished a complex feature, and now face a familiar dilemma: write comprehensive tests or move on to the next task. They know - they absolutely know - that skipping tests will come back to haunt them. When a new feature intersects with this one in a few months, something will break, and they'll spend hours tracking down what went wrong.
           </BodyText>
-          
+
           <BodyText variant="body">
             But the boss never sees the tests, only the feature. These invisible guardians of code quality, while critically important, are rarely valued by anyone but the developers themselves. And because of this eternal conflict, developers remain perpetually inexperienced at writing tests. It's a vicious cycle - being slow at writing tests means there's never enough time to write them properly, which means you never get faster at writing them.
           </BodyText>
@@ -100,7 +113,6 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </BodyText>
         </StoryBox>
 
-        {/* Act 2: The AI Revolution */}
         <ActTitle>Act 2: The AI Revolution</ActTitle>
         <StoryBox>
           <BodyText variant="body">
@@ -125,7 +137,6 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </BodyText>
         </StoryBox>
 
-        {/* Act 3: The Force Multiplier Effect */}
         <ActTitle>Act 3: The Force Multiplier Effect</ActTitle>
         <StoryBox>
           <BodyText variant="body">
@@ -136,6 +147,8 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           <BodyText variant="body">
             Imagine making a change and having several tests fail. Instead of diving into debugging, you grab a coffee. Why? Because the AI agent can work autonomously while you take a break:
           </BodyText>
+          {/* Comment out the DiagramContainer section */}
+          {/* 
           <DiagramContainer>
             <GardenMetaphorDiagram
               theme="default"
@@ -146,16 +159,17 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
               showZoomControls={true}
             />
           </DiagramContainer>
-          
+          */}
+
           <BodyText variant="body">
             Now think about this: that AI agent didn't just solve those failing tests through trial and error. It relied on existing tests to understand the expected behavior. It used commit messages to understand the history of the problematic code - why particular decisions were made. It drew from documentation to grasp the intended architecture.
           </BodyText>
-            
+
           <GitFeatureReconstruction>
             <Comment>// Step 1: Extract the history of a removed feature</Comment>
             <GitCommand><CommandHighlight>git log -p --all -S 'userPreferences'</CommandHighlight> {'>'} feature_history.txt</GitCommand>
             <GitOutput>{`Finding commits that modified 'userPreferences'... Extracted 7 commits from the past 5 months.`}</GitOutput>
-            
+
             <Comment>// Step 2: AI analyzes the feature's evolution</Comment>
             <GitOutput>{`✓ Initial implementation: March 15
 ✓ Added new settings: April 2
@@ -163,21 +177,21 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
 ✓ Fixed accessibility issues: May 10
 ✓ Removed during codebase cleanup: June 3`}</GitOutput>
           </GitFeatureReconstruction>
-          
+
           <InsightBox>
             <InsightTitle>Why This Matters</InsightTitle>
             <p>With this detailed evolution history automatically extracted and analyzed, the AI can now reconstruct the feature exactly as it was before removal, complete with all subsequent improvements and refactoring. Without well-structured commit messages and coherent commit history, this would be virtually impossible.</p>
           </InsightBox>
-          
+
           <BodyText variant="body">
             Or consider a massive feature that needs to be broken down into multiple PRs. Good luck doing that manually with a huge PR that touches hundreds of files. But with good documentation and commit messages? AI can analyze dependency chains, identify logical groupings, and auto-create perfectly structured, sequenced PRs:
           </BodyText>
-          
+
           <GitPRSplitter>
             <Comment>// Step 1: Extract changes for analysis</Comment>
             <GitCommand><CommandHighlight>git log --patch</CommandHighlight> {'>'} changes.patch</GitCommand>
             <GitOutput>{`Extracting commit history with changes...`}</GitOutput>
-            
+
             <Comment>// Step 2: AI analyzes the changes to determine logical groupings</Comment>
             <GitCommand><CommandHighlight>analyze_changes</CommandHighlight> changes.patch</GitCommand>
             <GitOutput>{`Analyzing 230+ files changed in PR #1458...
@@ -189,25 +203,25 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
 ✓ Dependencies detected:
   - Database changes depend on authentication
   - UI changes depend on both database and authentication`}</GitOutput>
-            
+
             <Comment>// Step 3: AI creates separate branches with logical commits</Comment>
             <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> part1-authentication</GitCommand>
             <GitOutput>{`Created branch 'part1-authentication'`}</GitOutput>
-            
-            <PRBranch><BranchIcon>⎇</BranchIcon> part1-authentication: <span style={{color: "#F472B6"}}>Authentication core refactoring</span></PRBranch>
+
+            <PRBranch><BranchIcon>⎇</BranchIcon> part1-authentication: <span style={{ color: "#F472B6" }}>Authentication core refactoring</span></PRBranch>
             <DependencyArrow>Required for database and UI changes</DependencyArrow>
-            
+
             <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> part2-database</GitCommand>
             <GitOutput>{`Created branch 'part2-database'`}</GitOutput>
-            
-            <PRBranch><BranchIcon>⎇</BranchIcon> part2-database: <span style={{color: "#F472B6"}}>Schema migrations and ORM updates</span></PRBranch>
+
+            <PRBranch><BranchIcon>⎇</BranchIcon> part2-database: <span style={{ color: "#F472B6" }}>Schema migrations and ORM updates</span></PRBranch>
             <DependencyArrow>Required for UI changes</DependencyArrow>
-            
+
             <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> part3-ui</GitCommand>
             <GitOutput>{`Created branch 'part3-ui'`}</GitOutput>
-            
-            <PRBranch><BranchIcon>⎇</BranchIcon> part3-ui: <span style={{color: "#F472B6"}}>Component library and page updates</span></PRBranch>
-            
+
+            <PRBranch><BranchIcon>⎇</BranchIcon> part3-ui: <span style={{ color: "#F472B6" }}>Component library and page updates</span></PRBranch>
+
             <Comment>// Step 4: AI creates structured PRs with dependency information</Comment>
             <GitCommand><CommandHighlight>create_pull_requests</CommandHighlight> --sequence</GitCommand>
             <GitOutput>{`Creating sequential pull requests...
@@ -217,7 +231,7 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
 
 All PRs include automated documentation of changes, test results, and dependency notes.`}</GitOutput>
           </GitPRSplitter>
-          
+
           <InsightBox>
             <InsightTitle>Why This Matters</InsightTitle>
             <p>Breaking down massive PRs is a time-consuming, error-prone process. With AI leveraging good commit history and clear code organization, this becomes an automated task that produces perfectly structured, reviewable changes. Thorough test coverage allows the AI to validate each PR individually, ensuring they can be merged sequentially without breaking functionality.</p>
@@ -234,7 +248,7 @@ All PRs include automated documentation of changes, test results, and dependency
 /src/features/sharing/QuickShare.tsx
 /src/features/sharing/hooks/useQuickShare.ts
 /src/features/sharing/api/quickShareApi.ts`}</GitOutput>
-            
+
             <Comment>// Step 2: Check documentation status</Comment>
             <GitCommand><CommandHighlight>check_docs_status</CommandHighlight> "Quick Share"</GitCommand>
             <GitOutput>{`Documentation check results:
@@ -242,7 +256,7 @@ All PRs include automated documentation of changes, test results, and dependency
 ✗ Usage examples: Missing
 ✗ Integration guide: Missing
 ✗ Feature documentation: Missing`}</GitOutput>
-            
+
             <Comment>// Step 3: AI follows documentation checklist</Comment>
             <GitCommand><CommandHighlight>generate_docs</CommandHighlight> --feature "Quick Share" --complete</GitCommand>
             <GitOutput>{`Generating missing documentation...
@@ -255,21 +269,21 @@ Ensuring consistency with existing documentation...
 ✓ docs/api/sharing/quick-share-api.md
 ✓ docs/examples/sharing/quick-share-examples.md
 ✓ docs/integration/quick-share-integration.md`}</GitOutput>
-            
+
             <Comment>// Step 4: AI creates documentation PR</Comment>
             <GitCommand><CommandHighlight>git checkout -b</CommandHighlight> docs/quick-share-feature</GitCommand>
             <GitOutput>{`Created branch 'docs/quick-share-feature'`}</GitOutput>
-            
+
             <GitCommand><CommandHighlight>git add</CommandHighlight> docs/</GitCommand>
             <GitCommand><CommandHighlight>git commit -m</CommandHighlight> "Add comprehensive documentation for Quick Share feature"</GitCommand>
             <GitOutput>{`[docs/quick-share-feature a8e29a5] Add comprehensive documentation for Quick Share feature
 4 files changed, 425 insertions(+)`}</GitOutput>
-            
+
             <GitCommand><CommandHighlight>git push origin</CommandHighlight> docs/quick-share-feature</GitCommand>
             <GitOutput>{`Branch 'docs/quick-share-feature' set up to track remote branch 'docs/quick-share-feature' from 'origin'.
 To github.com:company/repo.git
   0000000..a8e29a5  docs/quick-share-feature -> docs/quick-share-feature`}</GitOutput>
-            
+
             <GitCommand><CommandHighlight>create_pull_request</CommandHighlight> --branch docs/quick-share-feature</GitCommand>
             <GitOutput>{`Created PR #2134: "Documentation: Complete Quick Share feature docs"
 Added Reviewers: @tech-writers, @feature-owners
@@ -283,7 +297,6 @@ Added Labels: documentation, automated`}</GitOutput>
           </InsightBox>
         </StoryBox>
 
-        {/* The New Reality */}
         <StoryBox>
           <BodyText variant="body">
             This is the new reality of developing software with AI and agent technology, aided by the Brain Garden system which ensures all the force multipliers are in place so your team squeezes every ounce of exponential productivity out of the process. Those best practices that developers always wanted to follow but couldn't find time for? They're now effortless to maintain. And those same practices have become the foundation that enables AI to perform increasingly powerful automated tasks.
@@ -293,26 +306,24 @@ Added Labels: documentation, automated`}</GitOutput>
           </BodyText>
         </StoryBox>
 
-        {/* Feature Grid showing the transformation */}
-        <FeatureGrid 
+        <FeatureGrid
           features={forceMultipliersProps.features}
           layout="row"
           renderFeatureContent={renderFeatureContent}
         />
-        
-        {/* The Dark Side: AI Without Structure */}
+
         <ActTitle>The Dark Side: AI Without Structure</ActTitle>
         <StoryBox>
           <BodyText variant="body">
             While the Brain Garden System creates a virtuous cycle of productivity and quality, many development teams experience the opposite: a chaotic first encounter with AI tools that leads to frustration, disappointment, and sometimes outright rejection of the technology.
           </BodyText>
-          
+
           <BodyText variant="body">
             Meet Sarah, an experienced senior developer who's skeptical but open-minded about AI. Her CTO just purchased licenses for an AI coding assistant for the entire team, with enthusiastic promises of "10x productivity" and expectations of immediate ROI.
           </BodyText>
-          
+
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#E34935' }}>Day 1: Chaos in the Codebase</strong>
-          
+
           <TerminalBlock>
             <Command>git pull</Command>
             <R>{`Updating 3a5bc21..9f842d0
@@ -324,7 +335,7 @@ error: Your local changes to the following files would be overwritten by merge:
 
 Please commit your changes or stash them before you merge.
 Aborting`}</R>
-            
+
             <Command>git status</Command>
             <R>{`Modified:   src/components/auth/AuthProvider.tsx
 Modified:   src/utils/api-client.ts
@@ -335,7 +346,7 @@ Untracked:  src/utils/authentication/AuthProvider.tsx
 Untracked:  src/pages/api/auth/utils.ts
 Deleted:    src/tests/auth.test.tsx`}</R>
           </TerminalBlock>
-          
+
           <ChatContainer>
             <ChatMessage>
               <Avatar $bgColor="#E34935">S</Avatar>
@@ -346,7 +357,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
@@ -356,7 +367,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
@@ -366,7 +377,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
@@ -377,9 +388,9 @@ Deleted:    src/tests/auth.test.tsx`}</R>
               </MessageContent>
             </ChatMessage>
           </ChatContainer>
-          
+
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#E34935' }}>Day 3: The Bug Whack-a-Mole</strong>
-          
+
           <ChatContainer>
             <ChatMessage>
               <Avatar $bgColor="#E34935">S</Avatar>
@@ -390,7 +401,7 @@ Deleted:    src/tests/auth.test.tsx`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
@@ -401,23 +412,23 @@ Deleted:    src/tests/auth.test.tsx`}</R>
               </MessageContent>
             </ChatMessage>
           </ChatContainer>
-          
+
           <TerminalBlock>
             <Command>git bisect start</Command>
             <Command>git bisect bad</Command>
             <Command>git bisect good HEAD~20</Command>
             <R>{`Bisecting: 10 revisions left to test after this (roughly 3 steps)
 [8d7e25a] AI-enhanced order validation with improved error handling`}</R>
-            
+
             <Command>npm test</Command>
             <R>{`PASS src/tests/orders/validation.test.ts
 PASS src/tests/orders/payment.test.ts
 PASS src/tests/orders/shipping.test.ts`}</R>
-            
+
             <Command>npm run integration-test</Command>
             <R>{`FAIL PaymentProcessor -> Processing with existing customer -> "Cannot read property 'id' of undefined"`}</R>
           </TerminalBlock>
-          
+
           <ChatContainer>
             <ChatMessage>
               <Avatar $bgColor="#E34935">S</Avatar>
@@ -428,7 +439,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
@@ -438,7 +449,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
@@ -448,7 +459,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#0B6E31">MD</Avatar>
               <MessageContent>
@@ -459,9 +470,9 @@ PASS src/tests/orders/shipping.test.ts`}</R>
               </MessageContent>
             </ChatMessage>
           </ChatContainer>
-          
+
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#E34935' }}>Day 7: The Management Meeting</strong>
-          
+
           <ChatContainer>
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">CTO</Avatar>
@@ -472,7 +483,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
@@ -482,7 +493,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
@@ -492,7 +503,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
@@ -502,7 +513,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
@@ -513,17 +524,17 @@ PASS src/tests/orders/shipping.test.ts`}</R>
               </MessageContent>
             </ChatMessage>
           </ChatContainer>
-          
+
           <BodyText variant="body" mb="2rem">
             Two weeks later, Sarah has become openly hostile to AI tools. In code reviews, she rejects any AI-generated code on principle. Junior team members are committing broken code because they're blindly accepting AI suggestions to meet the new OKR. The codebase is filled with inconsistently structured components, duplicate logic, and incorrectly refactored modules.
           </BodyText>
-          
+
           <BodyText variant="body">
             The team is caught in a vicious cycle: poor AI implementation → bugs and architectural issues → distrust in AI → resistance to learning proper AI implementation → continued poor usage. This pattern is playing out in companies everywhere as teams rush to adopt AI without the proper framework.
           </BodyText>
-          
+
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#E34935' }}>The Weekend Coder PM: When AI Empowers the Wrong People</strong>
-          
+
           <BodyText variant="body">
             A month into the AI rollout, Mark, the project manager who previously had never written a line of code, proudly announces he's built a complete CRUD application over the weekend using AI tools.
           </BodyText>
@@ -535,7 +546,7 @@ PASS src/tests/orders/shipping.test.ts`}</R>
 Compiled successfully.
 ✨ Done in 5.67s`}</R>
           </TerminalBlock>
-          
+
           <ChatContainer>
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">M</Avatar>
@@ -546,7 +557,7 @@ Compiled successfully.
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#E34935">S</Avatar>
               <MessageContent>
@@ -556,7 +567,7 @@ Compiled successfully.
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
@@ -567,9 +578,9 @@ Compiled successfully.
               </MessageContent>
             </ChatMessage>
           </ChatContainer>
-          
+
           <strong style={{ display: 'block', marginBottom: '0.5rem', marginTop: '1.5rem', fontSize: '1rem', color: '#E34935' }}>The Following Week: Sprint Planning</strong>
-          
+
           <ChatContainer>
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">M</Avatar>
@@ -580,7 +591,7 @@ Compiled successfully.
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
@@ -590,7 +601,7 @@ Compiled successfully.
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
@@ -600,7 +611,7 @@ Compiled successfully.
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
@@ -610,7 +621,7 @@ Compiled successfully.
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">M</Avatar>
               <MessageContent>
@@ -621,9 +632,9 @@ Compiled successfully.
               </MessageContent>
             </ChatMessage>
           </ChatContainer>
-          
+
           <strong style={{ display: 'block', marginBottom: '0.5rem', marginTop: '1.5rem', fontSize: '1rem', color: '#E34935' }}>Two Weeks Later: The Production Incident</strong>
-          
+
           <TerminalBlock>
             <Command>grep "ERROR" /var/log/production.log | tail -n 20</Command>
             <R>{`ERROR [2023-08-15 03:42:18] [auth-service]: SQL injection attempt detected
@@ -631,7 +642,7 @@ ERROR [2023-08-15 03:45:22] [auth-service]: Brute force login attempt detected
 ERROR [2023-08-15 03:52:47] [data-service]: Customer data leak detected - improper access control
 ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
           </TerminalBlock>
-          
+
           <ChatContainer>
             <ChatMessage>
               <Avatar $bgColor="#E34935">ST</Avatar>
@@ -642,7 +653,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
@@ -652,7 +663,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#E34935">D</Avatar>
               <MessageContent>
@@ -662,7 +673,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#0B6E31">JD</Avatar>
               <MessageContent>
@@ -673,13 +684,13 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
               </MessageContent>
             </ChatMessage>
           </ChatContainer>
-          
+
           <strong style={{ display: 'block', marginBottom: '0.5rem', marginTop: '1.5rem', fontSize: '1rem', color: '#E34935' }}>The Aftermath: Developer Exodus</strong>
-          
+
           <BodyText variant="body">
             In the following weeks, three senior developers resign. Exit interviews reveal a common theme: "AI tools were weaponized against us." Developers describe a toxic environment where:
           </BodyText>
-          
+
           <ul style={{ marginLeft: '2rem', color: '#E34935', marginTop: '1rem', marginBottom: '1rem' }}>
             <li style={{ marginBottom: '0.5rem' }}>
               Deadlines were set by non-technical managers who equated their weekend hobby projects with enterprise software
@@ -697,11 +708,11 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
               Developer autonomy was stripped away as PMs began dictating implementations
             </li>
           </ul>
-          
+
           <BodyText variant="body">
             The company's Glassdoor rating plummets. One anonymous review reads: "The AI tools that were supposed to make our jobs easier became weapons used against us. PMs with no coding experience now dictate how long features should take based on their weekend 'vibe coding' sessions. When the AI tools are down, we still have the same impossible deadlines but without the tools to meet them."
           </BodyText>
-          
+
           <ChatContainer>
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">M</Avatar>
@@ -712,7 +723,7 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
                 </MessageBubble>
               </MessageContent>
             </ChatMessage>
-            
+
             <ChatMessage>
               <Avatar $bgColor="#4A9EFF">CTO</Avatar>
               <MessageContent>
@@ -723,18 +734,18 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
               </MessageContent>
             </ChatMessage>
           </ChatContainer>
-          
+
           <BodyText variant="body" mb="2rem">
             Two months later, the company has an engineering team composed mostly of junior developers supervised by project managers. Technical debt has accumulated to crippling levels. The AI tools generate code quickly, but without the guidance of experienced developers, that code is becoming increasingly unmaintainable. When servers are overloaded and AI tools are unavailable, development grinds to a halt as few developers can work effectively without AI assistance. The AI revolution that promised to enhance developer capabilities has instead created a dysfunctional dependency.
           </BodyText>
-          
+
           <strong style={{ display: 'block', marginBottom: '1rem', marginTop: '2rem', fontSize: '1.2rem', color: '#6772e5' }}>The Brain Garden Difference</strong>
-          
+
           <BodyText variant="body">
             This scenario highlights the core problem: AI tools without structure create chaos. The Brain Garden System addresses exactly these issues:
           </BodyText>
-          
-          <ul style={{ marginLeft: '2rem', marginTop: '1rem', marginBottom: '1.5rem' }}>
+
+          <ul>
             <li style={{ marginBottom: '0.8rem' }}>
               <strong>Project Structure Knowledge:</strong> The system maintains comprehensive documentation of your project structure, ensuring AI can't create duplicate files or break architectural patterns.
             </li>
@@ -751,13 +762,12 @@ ERROR [2023-08-15 04:01:13] [monitoring]: System-wide outage initiated`}</R>
               <strong>Metrics That Matter:</strong> Replacing arbitrary "AI usage" metrics with meaningful measures like test coverage, documentation completeness, and bug reduction.
             </li>
           </ul>
-          
+
           <BodyText variant="body">
             AI tools aren't magic—they're powerful amplifiers of your existing development practices. With poor practices, they amplify chaos. With the Brain Garden System, they amplify excellence, creating the virtuous cycle we've explored throughout this section.
           </BodyText>
         </StoryBox>
 
-        {/* The Future Is Here */}
         <StoryBox>
           <BodyText variant="body">
             We're not talking about some far-off future. This is happening now. The teams that embrace these practices aren't just writing better code - they're creating environments where AI can operate as a true team member, handling increasingly complex tasks with growing autonomy.

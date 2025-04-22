@@ -86,10 +86,10 @@ const AiIntegrationJourneySection: React.FC<AiIntegrationJourneySectionProps> = 
 
       <Grid gutter={{ base: "lg", sm: "xl" }}>
         <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
-          <Box style={{ ...phaseContainerStyleBase }} className="typography-align-mobile-center">
+          <Box style={{ ...phaseContainerStyleBase }}>
             <Group data-phase-group="true" mb="sm" gap="xs" align="center" justify="center" style={{ justifyContent: 'var(--group-justify, center)' }}>
               <style>{`
-                @media (min-width: ${theme.breakpoints.md}) {
+                @media (min-width: ${theme.breakpoints.sm}) {
                   [data-phase-group="true"] {
                      --group-justify: flex-start;
                   }
@@ -105,15 +105,24 @@ const AiIntegrationJourneySection: React.FC<AiIntegrationJourneySectionProps> = 
                 <Typography variant="h3">Peak of Inflated Expectations</Typography>
               </Box>
             </Group>
-            <Typography variant="body">
-              Unrealistic expectations about AI capabilities, envisioning immediate, fully autonomous systems with minimal oversight.
-            </Typography>
+            <Box style={{ textAlign: 'left' }}>
+              <Typography variant="body">
+                Unrealistic expectations about AI capabilities, envisioning immediate, fully autonomous systems with minimal oversight.
+              </Typography>
+            </Box>
           </Box>
         </Grid.Col>
 
         <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
-          <Box style={{ ...phaseContainerStyleBase }} className="typography-align-mobile-center">
+          <Box style={{ ...phaseContainerStyleBase }}>
             <Group data-phase-group="true" mb="sm" gap="xs" align="center" justify="center" style={{ justifyContent: 'var(--group-justify, center)' }}>
+              <style>{`
+                @media (min-width: ${theme.breakpoints.sm}) {
+                  [data-phase-group="true"] {
+                     --group-justify: flex-start;
+                  }
+                }
+              `}</style>
               <Box style={mobileIconCircleStyle} hiddenFrom="md">
                 <IconMoodSad size={20} color={theme.white} />
               </Box>
@@ -124,15 +133,24 @@ const AiIntegrationJourneySection: React.FC<AiIntegrationJourneySectionProps> = 
                 <Typography variant="h3">Trough of Disillusionment</Typography>
               </Box>
             </Group>
-            <Typography variant="body">
-              Reality hits: AI requires significant training, data prep, and maintenance. Disappointment follows when results fall short.
-            </Typography>
+            <Box style={{ textAlign: 'left' }}>
+              <Typography variant="body">
+                Reality hits: AI requires significant training, data prep, and maintenance. Disappointment follows when results fall short.
+              </Typography>
+            </Box>
           </Box>
         </Grid.Col>
 
         <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
-          <Box style={{ ...phaseContainerStyleBase }} className="typography-align-mobile-center">
+          <Box style={{ ...phaseContainerStyleBase }}>
             <Group data-phase-group="true" mb="sm" gap="xs" align="center" justify="center" style={{ justifyContent: 'var(--group-justify, center)' }}>
+              <style>{`
+                @media (min-width: ${theme.breakpoints.sm}) {
+                  [data-phase-group="true"] {
+                     --group-justify: flex-start;
+                  }
+                }
+              `}</style>
               <Box style={mobileIconCircleStyle} hiddenFrom="md">
                 <IconBulb size={20} color={theme.white} />
               </Box>
@@ -143,15 +161,24 @@ const AiIntegrationJourneySection: React.FC<AiIntegrationJourneySectionProps> = 
                 <Typography variant="h3">Slope of Enlightenment</Typography>
               </Box>
             </Group>
-            <Typography variant="body">
-              Realistic understanding develops. Focus shifts to practical, high-value use cases and limitations are acknowledged.
-            </Typography>
+            <Box style={{ textAlign: 'left' }}>
+              <Typography variant="body">
+                Realistic understanding develops. Focus shifts to practical, high-value use cases and limitations are acknowledged.
+              </Typography>
+            </Box>
           </Box>
         </Grid.Col>
 
         <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
-          <Box style={{ ...phaseContainerStyleBase }} className="typography-align-mobile-center">
+          <Box style={{ ...phaseContainerStyleBase }}>
             <Group data-phase-group="true" mb="sm" gap="xs" align="center" justify="center" style={{ justifyContent: 'var(--group-justify, center)' }}>
+              <style>{`
+                @media (min-width: ${theme.breakpoints.sm}) {
+                  [data-phase-group="true"] {
+                     --group-justify: flex-start;
+                  }
+                }
+              `}</style>
               <Box style={mobileIconCircleStyle} hiddenFrom="md">
                 <IconCheck size={20} color={theme.white} />
               </Box>
@@ -162,9 +189,11 @@ const AiIntegrationJourneySection: React.FC<AiIntegrationJourneySectionProps> = 
                 <Typography variant="h3">Plateau of Productivity</Typography>
               </Box>
             </Group>
-            <Typography variant="body">
-              Sustainable AI integration achieved with measurable benefits, balancing automation and human oversight effectively.
-            </Typography>
+            <Box style={{ textAlign: 'left' }}>
+              <Typography variant="body">
+                Sustainable AI integration achieved with measurable benefits, balancing automation and human oversight effectively.
+              </Typography>
+            </Box>
           </Box>
         </Grid.Col>
       </Grid>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { MantineTheme } from '@mantine/core';
 
 export const CategoryGrid = styled.div`
   display: grid;
@@ -14,7 +15,7 @@ export const CategoryContainer = styled(motion.div)`
 
 export const CategoryTitle = styled.h4`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
   margin-bottom: 0.5rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -40,16 +41,16 @@ export const CategorySkills = styled.div`
 // We're no longer using this component, but keeping it for reference
 // in case we need to revert back or use it elsewhere
 export const CompactSkillTag = styled(motion.span)`
-  background: ${({ theme }) => theme.colors.background.light};
-  color: ${({ theme }) => theme.colors.text.primary};
+  background: ${({ theme }) => theme.colors.gray[0]};
+  color: ${({ theme }) => theme.colors.gray[7]};
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.radius.sm};
   font-size: 0.75rem;
   white-space: nowrap;
   transition: all 0.2s ease;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.primary.main};
-    color: white;
+    background: ${({ theme }) => theme.colors[theme.primaryColor][6]};
+    color: ${({ theme }) => theme.white};
   }
 `; 

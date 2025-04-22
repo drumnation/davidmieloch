@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Hero } from '@shared-components/organisms/Hero/Hero';
+import { Hero } from '@shared-components/organisms/Hero';
 import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';
 import { useAiAutopilotAnalogy } from './AiAutopilotAnalogy.hook';
 import { GlobalStyles, containerStyle, sectionContainerStyle } from './AiAutopilotAnalogy.styles';
@@ -17,7 +17,7 @@ import {
   MermaidDiagramSection,
   WarningTransitionSection,
   LeadershipBlueprintSection,
-  DunningKrugerSection
+  AiIntegrationJourneySection
 } from './components';
 
 export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
@@ -92,8 +92,8 @@ export const AiAutopilotAnalogy: React.FC<AiAutopilotAnalogyProps> = ({
             />
           </div>
 
-          <div id="autopilot-dunning-kruger" style={{ ...sectionContainerStyle, scrollMarginTop: '100px' }}>
-            <DunningKrugerSection />
+          <div id="ai-integration-journey" style={{ ...sectionContainerStyle, scrollMarginTop: '100px' }}>
+            <AiIntegrationJourneySection />
           </div>
 
           {/* <div id="autopilot-diagram" style={{ scrollMarginTop: '100px' }} className="hide-mermaid-on-mobile">

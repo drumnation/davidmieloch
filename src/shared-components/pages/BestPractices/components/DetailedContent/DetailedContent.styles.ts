@@ -1,161 +1,208 @@
-import styled from 'styled-components';
+import { MantineTheme, rem, useMantineTheme } from '@mantine/core';
+import type { CSSProperties } from 'react'; // Use React's CSSProperties
 
-export const DetailedContentContainer = styled.div`
-  width: 100%;
-  margin: 2rem 0 4rem;
-  padding-bottom: 70px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+// Note: createStyles is deprecated. Using object syntax directly.
+// This hook will provide the styles object based on the current theme.
+export const useStyles = () => {
+  const theme = useMantineTheme();
 
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+  // Defensive check for theme and colorScheme
+  const isDark = theme && theme.colorScheme === 'dark';
 
-export const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-`;
-
-export const SectionIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #000000;
-  padding: 8px;
-  flex-shrink: 0;
-
-  svg, img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    fill: #ffffff;
+  // If theme is somehow unavailable, return empty styles to prevent crash
+  if (!theme) {
+    console.error('Mantine theme context is missing. Ensure MantineProvider wraps this component.');
+    return { classes: {}, cx: (...args: any[]) => args.filter(Boolean).join(' ') };
   }
 
-  @media (max-width: 480px) {
-    width: 40px;
-    height: 40px;
-  }
-`;
+  const styles: Record<string, CSSProperties & Record<string, any>> = {
+    detailedContentContainer: {
+      width: '100%',
+      margin: `${theme.spacing.xl} 0 ${rem(64)}`,
+      paddingBottom: rem(70),
+      opacity: 0,
+      transform: 'translateY(20px)',
+      transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
 
-export const DetailedContentTitle = styled.h2`
-  font-size: 2rem;
-  color: ${({ theme }) => theme.colors.text.primary};
-  word-break: break-word;
-  overflow-wrap: break-word;
-  flex: 1;
-  min-width: 0;
+      '&.visible': {
+        opacity: 1,
+        transform: 'translateY(0)',
+      },
+    },
 
-  @media (max-width: 768px) {
-    font-size: 1.75rem;
-  }
-  @media (max-width: 480px) {
-    font-size: 1.5rem;
-  }
-`;
+    titleWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: theme.spacing.md,
+      marginBottom: theme.spacing.lg,
+    },
 
-export const DetailedContentText = styled.p`
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
-`;
+    sectionIcon: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: rem(48),
+      height: rem(48),
+      borderRadius: '50%',
+      backgroundColor: isDark ? theme.colors.dark[6] : theme.black,
+      padding: theme.spacing.xs,
+      flexShrink: 0,
 
-export const DetailedContentList = styled.div`
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
-`;
+      '& svg, & img': {
+        width: '100%',
+        height: '100%',
+        objectFit: 'contain',
+        fill: theme.white,
+      },
 
-export const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #000000;
-  padding: 6px;
-  flex-shrink: 0;
+      [`@media (max-width: ${theme.breakpoints.xs})`]: {
+        width: rem(40),
+        height: rem(40),
+      },
+    },
 
-  svg {
-    fill: #ffffff;
-  }
-`;
+    detailedContentTitle: {
+      fontSize: theme.headings.sizes.h2.fontSize,
+      fontWeight: theme.headings.sizes.h2.fontWeight,
+      color: isDark ? theme.white : theme.black,
+      wordBreak: 'break-word',
+      overflowWrap: 'break-word',
+      flex: 1,
+      minWidth: 0,
+      margin: 0,
 
-export const TitleWithIconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-`;
+      [`@media (max-width: ${theme.breakpoints.md})`]: {
+        fontSize: `calc(${theme.headings.sizes.h2.fontSize} * 0.875)`,
+      },
+      [`@media (max-width: ${theme.breakpoints.sm})`]: {
+        fontSize: `calc(${theme.headings.sizes.h2.fontSize} * 0.75)`,
+      },
+    },
 
-export const SectionTitle = styled.h3`
-  font-size: 1.75rem;
-  color: ${({ theme }) => theme.colors.text.primary};
-  margin: 0;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  flex: 1;
-  min-width: 0;
+    detailedContentText: {
+      fontSize: theme.fontSizes.lg,
+      lineHeight: 1.6,
+      marginBottom: theme.spacing.lg,
+      color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
+    },
 
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-  @media (max-width: 480px) {
-    font-size: 1.3rem;
-  }
-`;
+    detailedContentList: {
+      fontSize: theme.fontSizes.lg,
+      lineHeight: 1.6,
+      marginBottom: theme.spacing.lg,
+      color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
+      paddingLeft: theme.spacing.xl,
+      listStylePosition: 'inside',
 
-export const SectionSubtitle = styled.h4`
-  font-size: 1.25rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  margin: 0 0 1rem 0;
-  font-weight: 500;
-`;
+      '& ul': {
+        listStyle: 'disc',
+        margin: 0,
+        paddingLeft: theme.spacing.md,
+      },
+      '& li': {
+        marginBottom: theme.spacing.sm,
+      }
+    },
 
-export const SubtitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
+    iconWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: rem(32),
+      height: rem(32),
+      borderRadius: '50%',
+      backgroundColor: isDark ? theme.colors.dark[6] : theme.black,
+      padding: rem(6),
+      flexShrink: 0,
 
-export const TextContent = styled.p`
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
-`;
+      '& svg': {
+        fill: theme.white,
+      },
+    },
 
-export const ListContent = styled.div`
-  margin-bottom: 1.5rem;
-`;
+    titleWithIconWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: theme.spacing.sm,
+      marginBottom: theme.spacing.md,
+    },
 
-export const ListItem = styled.li`
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  margin-bottom: 0.75rem;
-`;
+    sectionTitle: {
+      fontSize: theme.headings.sizes.h3.fontSize,
+      fontWeight: theme.headings.sizes.h3.fontWeight,
+      color: isDark ? theme.white : theme.black,
+      margin: 0,
+      wordBreak: 'break-word',
+      overflowWrap: 'break-word',
+      flex: 1,
+      minWidth: 0,
 
-export const CodeBlock = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.light};
-  border-radius: 8px;
-  padding: 1.5rem;
-  overflow-x: auto;
-  margin-bottom: 1.5rem;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: ${({ theme }) => theme.colors.text.primary};
-  white-space: pre;
-`;
+      [`@media (max-width: ${theme.breakpoints.md})`]: {
+        fontSize: `calc(${theme.headings.sizes.h3.fontSize} * 0.85)`,
+      },
+      [`@media (max-width: ${theme.breakpoints.sm})`]: {
+        fontSize: `calc(${theme.headings.sizes.h3.fontSize} * 0.75)`,
+      },
+    },
+
+    sectionSubtitle: {
+      fontSize: theme.fontSizes.xl,
+      color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
+      margin: `0 0 ${theme.spacing.md} 0`,
+      fontWeight: 500,
+    },
+
+    subtitleWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: theme.spacing.xs,
+      marginBottom: theme.spacing.xs,
+    },
+
+    textContent: {
+      fontSize: theme.fontSizes.lg,
+      lineHeight: 1.6,
+      marginBottom: theme.spacing.lg,
+      color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
+    },
+
+    listContent: {
+      marginBottom: theme.spacing.lg,
+      paddingLeft: theme.spacing.xl,
+      listStylePosition: 'inside',
+
+      '& ul': {
+        listStyle: 'disc',
+        margin: 0,
+        paddingLeft: theme.spacing.md,
+      },
+      '& li': {
+        fontSize: theme.fontSizes.lg,
+        lineHeight: 1.6,
+        color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
+        marginBottom: theme.spacing.sm,
+      }
+    },
+
+    codeBlock: {
+      backgroundColor: isDark ? theme.colors.dark[8] : theme.colors.gray[0],
+      borderRadius: theme.radius.md,
+      padding: theme.spacing.lg,
+      overflowX: 'auto',
+      marginBottom: theme.spacing.lg,
+      fontFamily: theme.fontFamilyMonospace,
+      fontSize: theme.fontSizes.sm,
+      lineHeight: 1.5,
+      color: isDark ? theme.white : theme.black,
+      whiteSpace: 'pre',
+    },
+  };
+
+  // Mantine's hooks usually return { classes, cx, theme, etc. }
+  // To maintain compatibility with how it's used in DetailedContent.tsx ({ classes, cx } = useStyles()),
+  // we wrap the styles object.
+  // A proper `cx` function would be needed if conditional classes are complex.
+  const cx = (...args: any[]) => args.filter(Boolean).join(' ');
+
+  return { classes: styles, cx };
+};

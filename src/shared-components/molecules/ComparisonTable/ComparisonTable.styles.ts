@@ -18,32 +18,25 @@ export const Table = styled.table<StyledTableProps>`
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.md};
   opacity: 0;
-  transition: opacity 0.6s ease-out;
-  
-  &.visible {
-    opacity: 1;
-  }
 `;
 
 export const TableHead = styled.thead<StyledTableProps>`
-  background: ${({ $variant, theme }) => 
-    $variant === 'gradient' 
-      ? theme.colors.gradient
+  background: ${({ $variant, theme }) =>
+    $variant === 'gradient'
+      ? theme.colors[theme.primaryColor]?.[7] || theme.colors.blue[7]
       : $variant === 'accent'
-        ? theme.colors.accent.blue
-        : theme.colors.primary.main};
-  color: ${({ theme }) => theme.colors.text.light};
+        ? theme.colors.blue[7]
+        : theme.colors[theme.primaryColor]?.[7] || theme.colors.blue[7]};
+  color: ${({ theme }) => theme.white};
 `;
 
 export const TableBody = styled.tbody`
-  background: ${({ theme }) => theme.colors.background.light};
+  background: var(--mantine-color-body);
 `;
 
 export const TableRow = styled.tr`
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  transition-delay: calc(var(--item-index, 0) * 0.1s);
   
   &.visible {
     opacity: 1;
@@ -51,11 +44,17 @@ export const TableRow = styled.tr`
   }
   
   &:nth-child(even) {
-    background: ${({ theme }) => theme.colors.background.paper};
+    background: ${props => props.theme.colors.gray[0]};
+    [data-mantine-color-scheme="dark"] & {
+       background: ${props => props.theme.colors.dark[6]};
+    }
   }
   
   &:hover {
     background: rgba(0, 0, 0, 0.05);
+    [data-mantine-color-scheme="dark"] & {
+       background: rgba(255, 255, 255, 0.05);
+    }
   }
 `;
 
@@ -76,7 +75,7 @@ export const TableHeaderCell = styled.th`
 
 export const TableCell = styled.td`
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border.light};
+  border-bottom: 1px solid var(--mantine-color-default-border);
   
   &:first-child {
     font-weight: 600;
@@ -86,16 +85,19 @@ export const TableCell = styled.td`
 export const CategoryCell = styled.td`
   padding: 1rem 1.5rem;
   font-weight: 600;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border.light};
-  background: ${({ theme }) => theme.colors.background.paper};
+  border-bottom: 1px solid var(--mantine-color-default-border);
+  background: var(--mantine-color-body);
+  [data-mantine-color-scheme="dark"] & {
+       background: ${props => props.theme.colors.dark[7]};
+  }
 `;
 
 export const HighlightText = styled.span`
-  color: ${({ theme }) => theme.colors.accent.green};
+  color: ${({ theme }) => theme.colors.green[6]};
   font-weight: 600;
 `;
 
 export const LowlightText = styled.span`
-  color: ${({ theme }) => theme.colors.accent.red};
+  color: ${({ theme }) => theme.colors.red[6]};
   font-weight: 600;
 `;

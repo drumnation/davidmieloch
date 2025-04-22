@@ -1,34 +1,13 @@
 import { ReactNode } from 'react';
-import { HeroProps } from '@shared-components/organisms/Hero/Hero.types';
+import { HeroProps } from '@shared-components/organisms/Hero';
 import { QuoteGridProps } from '@shared-components/organisms/QuoteGrid/QuoteGrid.types';
 
 export interface AiSkepticToExpertProps {
   id?: string;
   className?: string;
   onReady?: () => void;
-  heroProps?: {
-    title: string;
-    subtitle: string;
-    background?: 'image' | 'gradient' | 'dark' | 'light';
-    backgroundImage?: string;
-    backgroundOverlay?: boolean;
-    overlayOpacity?: number;
-    pattern?: string;
-    textColor: 'light' | 'dark';
-    animation?: string;
-    className?: string;
-  };
-  quotesProps?: {
-    quotes: Array<{
-      text: string;
-      author: string;
-      note?: string;
-      icon?: ReactNode;
-    }>;
-    layout: '3-column' | '2-column' | 'grid';
-    animation?: 'stagger-fade' | 'float-in' | 'none';
-    className?: string;
-  };
+  heroProps?: HeroProps;
+  quotesProps?: QuoteGridProps;
   problemSolutionCardsProps?: {
     cards: Array<{
       slug?: string;
@@ -39,7 +18,15 @@ export interface AiSkepticToExpertProps {
       variant: 'gradient' | 'accent' | 'default' | 'blue';
     }>;
   };
-  content?: any; // TODO: Define a more specific type based on defaultContent structure
+  content?: {
+    hero: HeroProps;
+    quotes: QuoteGridProps;
+    servicesCards?: {
+      title: string;
+      description: string;
+      cards: any[];
+    }
+  };
   onImageLoad?: () => void;
 }
 

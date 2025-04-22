@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { QuoteGrid } from './QuoteGrid';
 import { FaStar, FaHeart, FaLightbulb, FaRocket, FaCode, FaLightbulb as FaBulb } from 'react-icons/fa';
-import { theme } from '../../../styles/theme/styled-theme';
 
 const meta = {
   title: 'Organisms/QuoteGrid',
@@ -13,9 +11,9 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <StyledThemeProvider theme={theme}>
-        <Story />
-      </StyledThemeProvider>
+      // <StyledThemeProvider theme={theme}>
+      <Story />
+      // </StyledThemeProvider>
     ),
   ],
   argTypes: {

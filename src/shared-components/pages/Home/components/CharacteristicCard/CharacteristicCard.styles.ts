@@ -195,4 +195,27 @@ export const Description = styled.p`
 export const IconWrapper = styled.div`
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: rgba(67, 97, 238, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  
+  svg {
+    width: 36px;
+    height: 36px;
+    transition: transform 0.3s ease;
+  }
+  
+  ${CardContainer}:hover & {
+    background: rgba(67, 97, 238, 0.2);
+    transform: scale(1.1);
+    
+    svg {
+      transform: scale(1.1);
+    }
+  }
 `; 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@mantine/core';
 import { FeatureGridProps } from './FeatureGrid.types';
 import * as S from './FeatureGrid.styles';
 import { H3, Body } from '../../atoms/Typography/Typography';
@@ -30,15 +31,15 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
       ref={ref}
       className={className}
     >
-  
+
       <S.Grid $columns={safeColumns} $style={style} $layout={layout}>
         {features.map((feature, index) => (
           <S.CardWrapper
             key={index}
             style={{
               opacity: inView ? 1 : 0,
-              transform: inView ? 
-                'translateY(0)' : 
+              transform: inView ?
+                'translateY(0)' :
                 layout === 'row' ? `translateX(${20 * (features.length - index)}px)` : 'translateY(20px)',
               transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
               transitionDelay: `${index * 100}ms`
@@ -59,9 +60,11 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
                     {feature.title}
                   </S.Title>
                 )}
-                <Body color="primary" mt="auto">
-                  {feature.description}
-                </Body>
+                <Box style={{ textAlign: 'left', marginTop: 'auto' }}>
+                  <Body color="primary">
+                    {feature.description}
+                  </Body>
+                </Box>
               </S.Content>
             </S.FeatureCard>
           </S.CardWrapper>

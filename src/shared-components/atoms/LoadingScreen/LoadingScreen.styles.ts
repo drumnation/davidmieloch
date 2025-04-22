@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const LoadingContainer = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const LoadingContainer = styled.div`
 export const LoadingText = styled.div`
   margin-top: 1.25rem;
   font-size: 1.1rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   text-align: center;
   font-weight: 500;
 `; 

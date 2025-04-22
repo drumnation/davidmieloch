@@ -100,14 +100,55 @@ export const descriptionBlockStyle = {
   maxWidth: '800px'
 };
 
-export const quoteContainerStyle = {
-  backgroundColor: '#f9f9f9',
-  borderRadius: '8px',
-  padding: '1.5rem',
-  borderLeft: '4px solid var(--primary-blue)',
-  position: 'relative',
-  margin: '1rem 0 1.5rem'
-};
+export const QuoteContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.gray[0]};
+  [data-mantine-color-scheme="dark"] & {
+    background-color: ${({ theme }) => theme.colors.dark[6]};
+  }
+  border-radius: ${({ theme }) => theme.radius.md};
+  padding: 1.5rem;
+  border-left: 4px solid ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+  position: relative;
+  margin: 1rem 0 1.5rem;
+`;
+
+export const QuoteText = styled.p`
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: var(--mantine-color-dimmed);
+`;
+
+export const QuoteAuthor = styled.p`
+  font-weight: 600;
+  text-align: right;
+  color: var(--mantine-color-text);
+`;
+
+export const QuoteIcon = styled.div`
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  font-size: 3rem;
+  opacity: 0.1;
+  color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+`;
+
+export const StrategyCard = styled.div`
+  padding: 1.5rem;
+  border: 1px solid var(--mantine-color-default-border);
+  border-radius: ${({ theme }) => theme.radius.md};
+  background: var(--mantine-color-body);
+  box-shadow: ${({ theme }) => theme.shadows.xs};
+  
+  h4 {
+    margin: 0 0 0.5rem;
+    color: var(--mantine-color-text);
+  }
+  p {
+    margin: 0;
+    color: var(--mantine-color-dimmed);
+  }
+`;
 
 export const Section = styled.div`
   margin-bottom: 2rem;
@@ -121,18 +162,18 @@ export const SectionTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: var(--mantine-color-text);
 `;
 
 export const SectionDescription = styled.div`
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: var(--mantine-color-dimmed);
 `;
 
 export const InsightCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.paper};
-  border-radius: 8px;
+  background-color: var(--mantine-color-body);
+  border-radius: ${({ theme }) => theme.radius.md};
   padding: 1.5rem;
   box-shadow: ${({ theme }) => theme.shadows.sm};
   height: 100%;
@@ -141,18 +182,18 @@ export const InsightCard = styled.div`
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
-    color: ${({ theme }) => theme.colors.text.primary};
+    color: var(--mantine-color-text);
   }
   
   p {
     font-size: 1rem;
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: var(--mantine-color-dimmed);
     margin-bottom: 1rem;
   }
   
   strong {
     font-weight: 700;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
   }
 `;
 
@@ -170,13 +211,13 @@ export const MetricItem = styled.div`
   h4 {
     font-size: 2rem;
     margin: 0;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
   }
   
   p {
     font-size: 1rem;
     margin: 0.5rem 0 0;
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: var(--mantine-color-dimmed);
   }
 `;
 
@@ -195,7 +236,7 @@ export const FeatureItem = styled.li`
     content: '→';
     position: absolute;
     left: 0;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
   }
 `;
 
@@ -204,9 +245,9 @@ export const ActionButton = styled.a`
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  background: ${({ theme }) => theme.colors.primary.main};
-  color: ${({ theme }) => theme.colors.text.light};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  background: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+  color: ${({ theme }) => theme.white};
+  border-radius: ${({ theme }) => theme.radius.md};
   text-decoration: none;
   margin-right: ${SPACING.elementBreak};
   margin-bottom: ${SPACING.elementBreak};
@@ -214,7 +255,7 @@ export const ActionButton = styled.a`
   transition: all 0.3s ease;
   
   &:hover {
-    background: ${({ theme }) => theme.colors.primary.dark};
+    background: ${({ theme }) => theme.colors[theme.primaryColor]?.[8] || theme.colors.blue[8]};
     transform: translateY(-2px);
     box-shadow: ${({ theme }) => theme.shadows.sm};
   }
@@ -234,7 +275,6 @@ export const ActionGrid = styled.div`
 export const ClosingMessage = styled(Typography)`
   font-size: 1.2rem;
   line-height: 1.6;
-  color: ${({ theme }) => theme.colors.text.primary};
   max-width: 800px;
   margin: ${SPACING.paragraphBreak} auto;
   text-align: center;
@@ -299,11 +339,11 @@ export const BlueprintContent = styled.div`
   background-color: #ffffff;
 `;
 
-export const BottomLineBox = styled.div<StyledProps>`
-  background: ${({ theme }) => theme.colors.primary.main};
-  color: ${({ theme }) => theme.colors.text.light};
+export const BottomLineBox = styled.div`
+  background: ${({ theme }) => theme.colors[theme.primaryColor]?.[7] || theme.colors.blue[7]};
+  color: ${({ theme }) => theme.white};
   padding: ${SPACING.elementBreak};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border-radius: ${({ theme }) => theme.radius.lg};
   margin-top: ${SPACING.sectionBreak};
   text-align: center;
 
@@ -320,7 +360,7 @@ export const BottomLineBox = styled.div<StyledProps>`
 `;
 
 export const ContentSection = styled.section`
-  background-color: ${({ theme }) => theme.colors.background.paper};
+  background-color: var(--mantine-color-body);
   padding: 2rem 0;
 `;
 
@@ -350,11 +390,11 @@ export const GridContainer = styled.div`
 `;
 
 export const Card = styled(motion.div)`
-  background: ${({ theme }) => theme.colors.background.paper};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  background: var(--mantine-color-body);
+  border-radius: ${({ theme }) => theme.radius.lg};
   box-shadow: ${({ theme }) => theme.shadows.lg};
   padding: 2rem;
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  border: 1px solid var(--mantine-color-default-border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
@@ -371,11 +411,11 @@ export const MetricsContainer = styled.div`
 `;
 
 export const MetricCard = styled.div`
-  background: ${({ theme }) => theme.colors.background.light};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  background: var(--mantine-color-body);
+  border-radius: ${({ theme }) => theme.radius.md};
   padding: 1.5rem;
   text-align: center;
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  border: 1px solid var(--mantine-color-default-border);
 `;
 
 export const ActionContainer = styled.div`
@@ -391,9 +431,9 @@ export const ClosingContainer = styled.div`
   max-width: 800px;
   margin: 4rem auto 0;
   padding: 2rem;
-  background: ${({ theme }) => theme.colors.background.light};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  background: var(--mantine-color-body);
+  border-radius: ${({ theme }) => theme.radius.lg};
+  border: 1px solid var(--mantine-color-default-border);
 `;
 
 export const CaseStudiesGrid = styled.div`
@@ -431,13 +471,13 @@ export const CaseStudyTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: var(--text-primary);
+  color: var(--mantine-color-text);
 `;
 
 export const CaseStudyDescription = styled.p`
   font-size: 1rem;
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: var(--mantine-color-dimmed);
   margin-bottom: 1rem;
   flex: 1;
 `;
@@ -450,12 +490,12 @@ export const CaseStudyTags = styled.div`
 `;
 
 export const CaseStudyTag = styled.span`
-  background-color: #f0f7ff;
-  color: var(--primary-blue);
+  background-color: ${props => props.theme.colors[props.theme.primaryColor]?.[0] || props.theme.colors.blue[0]};
+  color: ${props => props.theme.colors[props.theme.primaryColor]?.[6] || props.theme.colors.blue[6]};
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.radius.sm};
 `;
 
 export const ModalOverlay = styled.div`
@@ -923,5 +963,49 @@ export const Grid = styled.div`
     grid-template-columns: 1fr;
     gap: ${SPACING.mobile.element};
     margin: ${SPACING.mobile.paragraph} 0;
+  }
+`;
+
+export const TeamMemberCard = styled.div`
+  text-align: center;
+  
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    border: 3px solid ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+  }
+  h5 {
+    margin: 0.5rem 0 0.25rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+  }
+  span {
+    font-size: 0.9rem;
+    color: var(--mantine-color-dimmed);
+  }
+`;
+
+export const TestimonialCard = styled.div`
+  background: var(--mantine-color-body);
+  border-radius: ${({ theme }) => theme.radius.md};
+  padding: 1.5rem;
+  box-shadow: ${({ theme }) => theme.shadows.sm};
+  border-left: 4px solid ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+
+  p:first-of-type {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--mantine-color-dimmed);
+  }
+  
+  p:last-of-type {
+    font-weight: 600;
+    text-align: right;
+    margin: 0;
+    color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
   }
 `;

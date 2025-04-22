@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Hero } from '@shared-components/organisms/Hero/Hero';
+import { Hero } from '@shared-components/organisms/Hero';
 import { useBrainGardenOverview } from './BrainGardenOverview.hook';
 import {
   Container,
@@ -65,7 +65,10 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
 
   // Create section visibility hooks for each section
   const systemVisibility = useSectionVisibility();
-  const coreVisibility = useSectionVisibility({ threshold: 0.3 });
+  const coreVisibility = useSectionVisibility({
+    threshold: 0,
+    rootMargin: '0px 0px -5% 0px'
+  });
   const teamVisibility = useSectionVisibility();
   const forceVisibility = useSectionVisibility({
     threshold: 0,

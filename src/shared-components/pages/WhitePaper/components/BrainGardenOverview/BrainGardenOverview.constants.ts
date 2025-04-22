@@ -1,16 +1,19 @@
 // Default content for the component
 export const defaultContent = {
   hero: {
-    title: "The Brain Garden System",
-    subtitle: "A Revolutionary Approach to AI Integration",
+    desktopTitle: "<span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">THE</span><br/><span style=\"color:#2ecc71; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px rgba(255, 215, 0, 0.9), 0 0 15px rgba(255, 165, 0, 0.7);\">BRAIN GARDEN</span><br/><span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">SYSTEM</span>",
+    mobileTitle: "<span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">THE</span><br/><span style=\"color:#2ecc71; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px rgba(255, 215, 0, 0.9), 0 0 15px rgba(255, 165, 0, 0.7);\">BRAIN<br/>GARDEN</span><br/><span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">SYSTEM</span>",
+    desktopSubtitle: "<span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">A Pragmatic Approach<br/>to </span><span style=\"color:#4a9eff; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px rgba(74, 158, 255, 0.7), 0 0 12px rgba(74, 158, 255, 0.5);\">AI Integration</span>",
+    mobileSubtitle: "<span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">A Pragmatic<br/>Approach to<br/></span><span style=\"color:#4a9eff; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px rgba(74, 158, 255, 0.7), 0 0 12px rgba(74, 158, 255, 0.5);\">AI Integration</span>",
     background: "image" as const,
     backgroundImage: "/brain-garden.png",
-    backgroundOverlay: false,
-    overlayOpacity: 0,
+    backgroundOverlay: true,
+    overlayOpacity: 0.1,
     pattern: "dots" as const,
     textColor: "light" as const,
     animation: "fade-up" as const,
-    className: 'custom-hero-bg',
+    className: 'custom-hero-bg custom-hero-gradient',
+    hideBlurSquareDesktop: true,
   },
   intro: {
     text: [

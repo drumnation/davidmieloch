@@ -4,7 +4,7 @@ import { Icon } from '@shared-components/atoms/Icon';
 // Default content for the component
 export const defaultContent = {
   hero: {
-    title: "The AI Autopilot Analogy",
+    title: "THE PILOT & AUTOPILOT ANALOGY:<br>RETHINKING <span style='color:#4dabf7'>AI IN DEVELOPMENT</span>",
     subtitle: "Understanding the true role of AI in software development teams",
     background: "image" as const,
     backgroundImage: "/cockpit3.jpg",
@@ -17,7 +17,6 @@ export const defaultContent = {
     style: {
       maxWidth: '1200px',
       margin: '0 auto',
-      borderRadius: '24px',
       overflow: 'hidden'
     }
   },

@@ -6,7 +6,7 @@ import { store } from '@store/index';
 import { AppShell } from '@mantine/core';
 // import { useDisclosure } from '@mantine/hooks'; // No longer needed?
 // import { MantineProvider } from '@mantine/core'; // No longer needed?
-import { ThemeProvider, useTheme } from '@providers/ThemeProvider'; // Path Alias
+import { ThemeProvider } from '@providers/ThemeProvider'; // Keep ThemeProvider for now
 import { ClarityProvider } from '@providers/ClarityProvider'; // Path Alias
 import { LoadingProvider } from '@contexts/LoadingContext'; // Path Alias
 import { Header } from '@shared-components/organisms/Header'; // Path Alias
@@ -19,8 +19,7 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { colorScheme } = useTheme(); // Needs to be inside ThemeProvider
-  const isDark = colorScheme === 'dark';
+  // No need to get colorScheme here anymore
 
   // Initialize spring debugger in both dev and production
   useEffect(() => {
@@ -44,24 +43,26 @@ export default function ClientLayout({
     }
   }, []);
 
-  // Inner component to access theme context
+  // Inner component - no longer needs to access theme context directly
   const AppShellWithTheme = ({ children }: { children: React.ReactNode }) => {
-    const { colorScheme } = useTheme();
-    const isDark = colorScheme === 'dark';
+    // const { colorScheme } = useMantineTheme(); // Remove hook
+    // const isDark = colorScheme === 'dark'; // Remove derived variable
 
     return (
       <AppShell
         header={{ height: 60 }}
         styles={() => ({
           main: {
-            backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
+            // These CSS variables are set by the outer ThemeProvider based on the determined colorScheme
+            backgroundColor: 'var(--background-light)', // Use the variable directly
             transition: 'background-color 200ms ease',
           },
           root: {
-            backgroundColor: isDark ? 'var(--background-dark)' : 'var(--background-light)',
+            backgroundColor: 'var(--background-light)', // Use the variable directly
             transition: 'background-color 200ms ease',
             overflowX: 'hidden',
           }
+          // The correct background (light or dark) will be applied via the theme class set on body/html
         })}
       >
         <AppShell.Header>
@@ -79,6 +80,7 @@ export default function ClientLayout({
 
   return (
     <Provider store={store}>
+      {/* ThemeProvider still needed to set up context for MantineProvider */}
       <ThemeProvider>
         <ClarityProvider>
           <LoadingProvider>

@@ -1,4 +1,4 @@
-import { HeroProps } from '@shared-components/organisms/Hero/Hero.types';
+import { HeroProps } from '@shared-components/organisms/Hero';
 import { DefaultTheme } from 'styled-components';
 
 export interface Metrics {

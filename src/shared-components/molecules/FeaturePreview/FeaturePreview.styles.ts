@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { animated } from '@react-spring/web';
+import { MantineTheme } from '@mantine/core';
 
 export const FeatureGrid = styled.div`
   display: grid;
@@ -29,13 +30,7 @@ export const Description = styled.p`
   margin: 0;
   font-size: 1rem;
   line-height: 1.6;
-  color: ${({ theme }) => {
-    // Safely access theme colors with fallback
-    const textColor = theme?.colors?.text;
-    return typeof textColor === 'object' && 'secondary' in textColor
-      ? textColor.secondary
-      : '#4A5568';
-  }};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
 `;
 
 // Animated versions

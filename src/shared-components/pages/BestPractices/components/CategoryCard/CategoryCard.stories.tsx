@@ -3,8 +3,6 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { CategoryCard } from './CategoryCard';
 import { PRACTICE_CATEGORIES } from '../../BestPractices.constants';
 import { renderCategory } from '../../BestPractices.logic';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../../../styles/theme/styled-theme';
 
 // Use the same data and rendering logic as the main component
 const renderedCategory = renderCategory(PRACTICE_CATEGORIES[0], 0);
@@ -26,11 +24,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
-        <div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px' }}>
-          <Story />
-        </div>
-      </ThemeProvider>
+      <div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px' }}>
+        <Story />
+      </div>
     ),
   ],
   tags: ['autodocs'],

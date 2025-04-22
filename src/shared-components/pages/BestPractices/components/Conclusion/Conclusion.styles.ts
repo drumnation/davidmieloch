@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const ConclusionContainer = styled.div`
   width: 100%;
@@ -19,17 +20,16 @@ export const TitleWrapper = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-export const SectionIcon = styled.div`
+export const SectionIcon = styled.div<{ theme: MantineTheme }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  border-radius: ${({ theme }) => theme.radius.xl};
   background-color: #000000;
-  padding: 8px;
-  margin-right: 0;
-  margin-bottom: 1rem;
+  padding: ${({ theme }) => theme.spacing.sm};
+  margin: 0 auto;
 
   svg, img {
     width: 100%;
@@ -39,30 +39,34 @@ export const SectionIcon = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const ConclusionTitle = styled.h2`
-  font-size: 2rem;
+export const ConclusionTitle = styled.h2<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.headings.sizes.h2.fontSize};
   margin: 0;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.black};
   text-align: center;
 
-  @media (max-width: 768px) {
-    font-size: 1.75rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.headings.sizes.h3.fontSize};
   }
-  @media (max-width: 480px) {
-    font-size: 1.5rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.headings.sizes.h4.fontSize};
   }
 `;
 
-export const ConclusionText = styled.p`
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+export const ConclusionText = styled.p<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  line-height: ${({ theme }) => theme.lineHeights.lg};
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  color: ${({ theme }) => theme.colors.gray[7]};
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 `; 

@@ -64,9 +64,9 @@ const whitePaperNavItems: SubNavItem[] = [
   { id: 'autopilot-hero', title: 'Hero', level: 1, icon: <IconTargetArrow size={16} /> },
   { id: 'autopilot-intro', title: 'Introduction', level: 1, icon: <IconInfoCircle size={16} /> },
   { id: 'autopilot-comparison', title: 'Comparison Table', level: 1, icon: <IconTable size={16} /> },
+  { id: 'ai-integration-journey', title: 'AI Integration Journey', level: 1, icon: <IconChartArcs size={16} /> },
   { id: 'autopilot-reality', title: 'Reality vs Hollywood', level: 1, icon: <IconMasksTheater size={16} /> },
   { id: 'autopilot-strategy', title: 'Strategic Focus', level: 1, icon: <IconFocusCentered size={16} /> },
-  { id: 'autopilot-dunning-kruger', title: 'Dunning-Kruger Effect', level: 1, icon: <IconChartArcs size={16} /> },
   { id: 'autopilot-warning', title: 'Critical Warning', level: 1, icon: <IconAlertTriangle size={16} /> },
   { id: 'autopilot-blueprint', title: 'Leadership Blueprint', level: 1, icon: <IconFileCode2 size={16} /> },
 

@@ -12,16 +12,16 @@ export const StyledCard = styled.div<StyledCardProps>`
   flex-direction: column;
   background: ${({ $variant, theme }) =>
     $variant === 'blue'
-      ? theme.colors.accent.blue
-      : theme.colors.background.paper};
+      ? theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]
+      : 'var(--mantine-color-body)'};
   color: ${({ $variant, theme }) =>
     $variant === 'blue'
-      ? theme.colors.text.light
-      : theme.colors.text.primary};
+      ? theme.white
+      : 'var(--mantine-color-text)'};
   box-shadow: ${({ theme }) => theme.shadows.md};
-  transition: ${({ theme }) => theme.transitions.default};
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) => theme.radius.md};
 
   &:hover {
     transform: translateY(-4px);
@@ -29,17 +29,17 @@ export const StyledCard = styled.div<StyledCardProps>`
 `;
 
 export const HeaderSlug = styled.div`
-  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  font-weight: 600;
   font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.text.light};
+  color: ${({ theme }) => theme.white};
 `;
 
 export const IconHeader = styled.div`
   display: flex;
   align-items: center;
-  padding: ${({ theme }) => theme.space.md};
-  background: ${({ theme }) => theme.colors.accent.blue};
-  color: ${({ theme }) => theme.colors.text.light};
+  padding: ${({ theme }) => theme.spacing.md};
+  background: ${({ theme }) => theme.colors.blue[6]};
+  color: ${({ theme }) => theme.white};
 `;
 
 export const HeaderIcon = styled.div`
@@ -50,35 +50,35 @@ export const HeaderIcon = styled.div`
   height: 2.5rem;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
-  margin-right: ${({ theme }) => theme.space.sm};
+  margin-right: ${({ theme }) => theme.spacing.sm};
   
   svg {
     width: 1.5rem;
     height: 1.5rem;
-    color: ${({ theme }) => theme.colors.text.light};
+    color: ${({ theme }) => theme.white};
   }
 `;
 
 export const Content = styled.div<{ $variant?: 'blue' | 'white' }>`
-  padding: ${({ theme }) => theme.space.lg};
+  padding: ${({ theme }) => theme.spacing.lg};
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.space.lg};
+  gap: ${({ theme }) => theme.spacing.lg};
   flex: 1;
   background: ${({ $variant, theme }) =>
     $variant === 'blue'
-      ? theme.colors.accent.blue
-      : theme.colors.background.paper};
+      ? theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]
+      : 'var(--mantine-color-body)'};
   color: ${({ $variant, theme }) =>
     $variant === 'blue'
-      ? theme.colors.text.light
-      : theme.colors.text.primary};
+      ? theme.white
+      : 'var(--mantine-color-text)'};
 `;
 
 export const Section = styled.div`
   display: flex;
   align-items: flex-start;
-  padding-bottom: ${({ theme }) => theme.space.md};
+  padding-bottom: ${({ theme }) => theme.spacing.md};
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   
   &:last-child {
@@ -94,7 +94,7 @@ export const TextContent = styled.div`
 export const ImpactTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.space.xs};
+  gap: ${({ theme }) => theme.spacing.xs};
 `;
 
 export const StatusIcon = styled.div<{ type: 'problem' | 'solution' | 'impact' }>`
@@ -105,24 +105,24 @@ export const StatusIcon = styled.div<{ type: 'problem' | 'solution' | 'impact' }
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  margin-right: ${({ theme }) => theme.space.md};
+  margin-right: ${({ theme }) => theme.spacing.md};
   margin-top: 0.125rem;
   background: ${({ type, theme }) => {
     switch (type) {
       case 'problem':
-        return theme.colors.accent.red;
+        return theme.colors.red[6];
       case 'solution':
-        return theme.colors.accent.green;
+        return theme.colors.green[6];
       case 'impact':
-        return theme.colors.accent.blue;
+        return theme.colors.blue[6];
       default:
-        return theme.colors.accent.blue;
+        return theme.colors.blue[6];
     }
   }};
   
   svg {
     width: 1.25rem;
     height: 1.25rem;
-    color: ${({ theme }) => theme.colors.text.light};
+    color: ${({ theme }) => theme.white};
   }
 `; 

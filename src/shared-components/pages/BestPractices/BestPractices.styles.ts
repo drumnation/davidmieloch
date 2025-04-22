@@ -60,7 +60,7 @@ export const GlobalStyles = createGlobalStyle`
   
   .best-practices-content-section {
     width: 100%;
-    background-color: #fff;
+    background-color: var(--mantine-color-body);
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     margin-top: -24px;
@@ -139,7 +139,7 @@ export const Container = styled.section`
 
 export const ContentSection = styled.div`
   width: 100%;
-  background-color: #fff;
+  background-color: var(--mantine-color-body);
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   margin-top: -24px;
@@ -188,7 +188,7 @@ export const SectionTitle = styled.h1`
   font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
-  background: ${({ theme }) => theme.colors.gradient};
+  background: ${({ theme }) => `linear-gradient(to right, ${theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]}, ${theme.colors.cyan?.[6] || theme.colors.teal[6]})`};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   
@@ -203,7 +203,7 @@ export const SectionDescription = styled.p`
   max-width: 800px;
   margin: 0 auto 4rem;
   line-height: 1.6;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: var(--mantine-color-dimmed);
   
   @media (max-width: 768px) {
     font-size: 1.125rem;
@@ -229,10 +229,10 @@ export const CategoriesContainer = styled.div`
 `;
 
 export const CategoryCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.paper};
-  border-radius: 8px;
+  background-color: var(--mantine-color-body);
+  border-radius: ${({ theme }) => theme.radius.md};
   padding: 20px;
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -245,13 +245,15 @@ export const CategoryCard = styled.div`
 export const CategoryTitle = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 8px;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
 `;
 
 export const CategoryDescription = styled.p`
   font-size: 1rem;
   margin-bottom: 16px;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: var(--mantine-color-dimmed);
+  line-height: 1.5;
+  flex-grow: 1;
 `;
 
 export const ItemsList = styled.div`
@@ -397,17 +399,17 @@ export const ConclusionText = styled.p`
 export const PageSeparator = styled.div`
   width: 100%;
   height: 1px;
-  background: ${({ theme }) => `linear-gradient(
+  background: linear-gradient(
     to right,
     transparent,
+    rgba(0, 0, 0, 0.1),
     rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.1),
     transparent
-  )`};
+  );
   margin: 1rem 0 4rem 0;
   position: relative;
-  
+
   &::after {
     content: "";
     position: absolute;
@@ -416,13 +418,97 @@ export const PageSeparator = styled.div`
     transform: translate(-50%, -50%);
     width: 40px;
     height: 40px;
-    background-color: ${({ theme }) => theme.colors.background.paper};
+    background-color: ${({ theme }) => theme.white};
     border-radius: 50%;
     background-image: url('/icons/code.svg');
     background-size: 20px;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: ${({ theme }) => theme.shadows.card};
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: ${({ theme }) => theme.shadows.md};
+    border: 1px solid var(--mantine-color-default-border);
   }
+`;
+
+export const BestPracticeItem = styled.li`
+  font-size: 0.9rem;
+  color: var(--mantine-color-dimmed);
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+  
+  &:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+  }
+`;
+
+export const BestPracticeDetail = styled.div`
+  margin-bottom: 3rem;
+`;
+
+export const BestPracticeTitle = styled.h3`
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+`;
+
+export const BestPracticeDescription = styled.p`
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--mantine-color-dimmed);
+`;
+
+export const ImplementationList = styled.ul`
+  list-style: none;
+  padding-left: 20px;
+`;
+
+export const ImplementationItem = styled.li`
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--mantine-color-text);
+  position: relative;
+
+  &:before {
+    content: '✓';
+    position: absolute;
+    left: -20px;
+    color: ${({ theme }) => theme.colors.green[6]};
+  }
+  
+  strong {
+    font-weight: 600;
+  }
+`;
+
+export const LetsWorkTogetherSection = styled.div`
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 4rem auto 0;
+  padding: 3rem 2rem;
+  background: var(--mantine-color-body);
+  border-radius: ${({ theme }) => theme.radius.lg};
+  box-shadow: ${({ theme }) => theme.shadows.md};
+  border: 1px solid var(--mantine-color-default-border);
+`;
+
+export const CallToActionTitle = styled.h2`
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: ${({ theme }) => theme.colors[theme.primaryColor]?.[7] || theme.colors.blue[7]};
+`;
+
+export const CallToActionText = styled.p`
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--mantine-color-dimmed);
+`;
+
+export const ActionButton = styled.button`
+  // ... styles ...
 `;

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 import { animated } from '@react-spring/web';
 
 interface ContainerProps {
@@ -34,7 +35,7 @@ export const Card = styled.div<CardProps>`
   max-width: 800px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  box-shadow: ${({ theme }) => (theme as MantineTheme).shadows.md};
   display: flex;
   flex-direction: ${({ $style }) => $style === 'split-card' ? 'row' : 'column'};
   
@@ -45,16 +46,16 @@ export const Card = styled.div<CardProps>`
   }
   
   ${({ $style, theme }) => $style === 'default' && css`
-    background: ${theme.colors.background.paper};
-    color: ${theme.colors.text.primary};
-    border: 1px solid ${theme.colors.border.light};
+    background: ${(theme as MantineTheme).white};
+    color: ${(theme as MantineTheme).black};
+    border: 1px solid ${(theme as MantineTheme).colors.gray[3]};
   `}
 `;
 
 export const ProblemSection = styled.div`
   padding: 1.5rem;
   flex: 1;
-  background: ${({ theme }) => theme.colors.accent.red};
+  background: ${({ theme }) => (theme as MantineTheme).colors.red[7]};
   color: white;
   
   h1, h2, h3, h4, h5, h6, p {
@@ -74,18 +75,18 @@ export const ProblemSection = styled.div`
 export const ConsequenceSection = styled.div`
   padding: 1.5rem;
   flex: 1;
-  background: ${({ theme }) => theme.colors.background.paper};
-  color: ${({ theme }) => theme.colors.text.primary};
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  background: ${({ theme }) => (theme as MantineTheme).white};
+  color: ${({ theme }) => (theme as MantineTheme).black};
+  border: 1px solid ${({ theme }) => (theme as MantineTheme).colors.gray[3]};
   border-left: none;
   
   h1, h2, h3, h4, h5, h6 {
-    color: ${({ theme }) => theme.colors.accent.red};
+    color: ${({ theme }) => (theme as MantineTheme).colors.red[7]};
     font-weight: 700;
   }
   
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    border-left: 1px solid ${({ theme }) => theme.colors.border.light};
+  @media (max-width: ${({ theme }) => (theme as MantineTheme).breakpoints.md}) {
+    border-left: 1px solid ${({ theme }) => (theme as MantineTheme).colors.gray[3]};
     border-top: none;
     padding: 1.25rem;
     
@@ -97,7 +98,7 @@ export const ConsequenceSection = styled.div`
 `;
 
 export const ConsequenceTitle = styled.h3`
-  color: ${({ theme }) => theme.colors.accent.red};
+  color: ${({ theme }) => (theme as MantineTheme).colors.red[7]};
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
@@ -121,7 +122,7 @@ export const ProblemText = styled.p`
 export const ConsequenceText = styled.p`
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => (theme as MantineTheme).black};
   
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: 1rem;
@@ -138,12 +139,12 @@ export const MetricsList = styled.ul`
 export const MetricItem = styled.li`
   padding: 0.5rem 0;
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => (theme as MantineTheme).black};
   font-weight: 500;
   
   &:before {
     content: '• ';
-    color: ${({ theme }) => theme.colors.accent.red};
+    color: ${({ theme }) => (theme as MantineTheme).colors.red[7]};
     font-weight: bold;
     display: inline-block;
     width: 1em;

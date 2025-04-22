@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 import { LanguageDotProps } from './LanguageDot.types';
 
 type SizeKey = 'sm' | 'md' | 'lg';
@@ -25,7 +26,7 @@ export const Container = styled.div`
   display: inline-flex;
   align-items: center;
   font-size: 14px;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   
   &[data-show-name="false"] {
     margin-right: 0;

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { MantineTheme, rgba } from '@mantine/core';
 
 interface ContainerProps {
   $position: 'left' | 'right' | 'center' | 'full-width';
@@ -51,7 +52,7 @@ export const StepsContainer = styled.div<StepProps>`
       bottom: 0;
       left: 24px;
       width: 2px;
-      background: ${theme.colors.primary.light};
+      background: ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][1]};
       transform: translateX(-50%);
       z-index: 0;
     }
@@ -72,8 +73,8 @@ export const StepNumber = styled.div<StepNumberProps>`
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.primary.main};
-  color: ${({ theme }) => theme.colors.background.light};
+  background: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
+  color: ${({ theme }) => (theme as MantineTheme).white};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,7 +83,7 @@ export const StepNumber = styled.div<StepNumberProps>`
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  box-shadow: ${({ theme }) => (theme as MantineTheme).shadows.md};
 `;
 
 export const StepContent = styled.div`
@@ -94,23 +95,23 @@ export const StepContent = styled.div`
     font-weight: 600;
     margin-bottom: 0.75rem;
     line-height: 1.3;
-    color: ${({ theme }) => theme.colors.text.primary};
+    color: ${({ theme }) => (theme as MantineTheme).black};
   }
 `;
 
 export const StepDescription = styled.p`
   margin-bottom: 0.75rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   font-size: 1.05rem;
   line-height: 1.6;
 `;
 
 export const StepImpact = styled.p`
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   font-size: 0.95rem;
   margin-top: 1rem;
+  background-color: ${({ theme }) => rgba((theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6], 0.08)};
   padding: 0.75rem 1rem;
-  background-color: rgba(0, 120, 255, 0.08);
   border-radius: 6px;
   line-height: 1.5;
   

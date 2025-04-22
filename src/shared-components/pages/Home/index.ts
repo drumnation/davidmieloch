@@ -1,7 +1,10 @@
 export * from './Home';
-export { default } from './Home';
-export * from './Home.hook';
-export * from './Home.styles.combined';
 export * from './Home.types';
+export * from './Home.constants';
+export { default } from './Home';
+export * from './components/Card';
+export * from './components/SectionHeading';
+export * from './Home.hook';
+export * from './Home.styles.ts';
 export * from './Home.utils';
 export * from './Home.logic'; 

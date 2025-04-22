@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import { AnimationVariants } from '../../../utils/animations/migration-helpers';
+import { MantineTheme } from '@mantine/core';
 
 // Global styles for the Bio component
 export const GlobalStyles = createGlobalStyle`
@@ -37,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 800 !important;
     position: relative !important;
     z-index: 2 !important;
-    color: #ffffff !important;
+    color: ${({ theme }) => theme.white} !important;
   }
 
   .bio-hero-bg p {
@@ -48,7 +49,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400 !important;
     position: relative !important;
     z-index: 2 !important;
-    color: #ffffff !important;
+    color: ${({ theme }) => theme.white} !important;
   }
 
   @keyframes subtle-zoom {
@@ -63,15 +64,15 @@ export const GlobalStyles = createGlobalStyle`
   // Add CSS classes for transitions
   .bio-content-section {
     width: 100%;
-    background-color: #fff;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    background-color: ${({ theme }) => theme.white};
+    border-top-left-radius: ${({ theme }) => theme.radius.lg};
+    border-top-right-radius: ${({ theme }) => theme.radius.lg};
     margin-top: -24px;
     position: relative;
     z-index: 2;
     padding-top: 5rem;
     padding-bottom: 5rem;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: ${({ theme }) => theme.shadows.md};
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -79,8 +80,8 @@ export const GlobalStyles = createGlobalStyle`
     @media (max-width: 576px) {
       padding-top: 3.75rem;
       padding-bottom: 3.75rem;
-      border-top-left-radius: 16px;
-      border-top-right-radius: 16px;
+      border-top-left-radius: ${({ theme }) => theme.radius.md};
+      border-top-right-radius: ${({ theme }) => theme.radius.md};
       margin-top: -16px;
     }
   }
@@ -115,17 +116,17 @@ export const GlobalStyles = createGlobalStyle`
     align-items: center;
     text-align: center;
     padding: 1rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background-color: ${({ theme }) => theme.colors.gray[0]};
+    border-radius: ${({ theme }) => theme.radius.md};
     transition: all 0.3s ease;
     
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: ${({ theme }) => theme.shadows.md};
     }
     
     svg {
-      color: #0070f3;
+      color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
       margin-bottom: 0.75rem;
     }
     
@@ -275,7 +276,7 @@ export const BioHeader = styled.div`
 
 export const BioTitle = styled.h1`
   font-size: 3rem;
-  background: ${({ theme }) => theme.colors.gradient};
+  background: ${({ theme }) => theme.other.heroGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
@@ -288,7 +289,7 @@ export const BioTitle = styled.h1`
 
 export const BioSubtitle = styled.h2`
   font-size: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
   font-weight: 500;
   margin-bottom: 2rem;
   
@@ -303,7 +304,7 @@ export const BioContent = styled.div`
   gap: 1rem;
   font-size: 1.125rem;
   line-height: 1.8;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
   margin-bottom: ${SPACING.section};
   
   h3 {
@@ -320,7 +321,7 @@ export const BioContent = styled.div`
     float: left;
     line-height: 1;
     padding-right: 0.5rem;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   }
 `;
 
@@ -331,7 +332,7 @@ export const BioSection = styled.div`
 
 export const BioSectionTitle = styled.h3`
   font-size: 1.75rem;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   margin-bottom: ${SPACING.paragraph};
   font-weight: 600;
   text-align: center;
@@ -353,7 +354,7 @@ export const MediaContainer = styled.div`
 `;
 
 export const MediaItem = styled.div`
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border-radius: ${({ theme }) => theme.radius.lg};
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.md};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -367,15 +368,15 @@ export const MediaItem = styled.div`
 export const MediaTitle = styled.h4`
   font-size: 1.25rem;
   padding: 1rem;
-  background: ${({ theme }) => theme.colors.background.paper};
-  color: ${({ theme }) => theme.colors.text.primary};
+  background: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.colors.gray[7]};
   margin: 0;
 `;
 
 export const MediaDescription = styled.p`
   padding: 0 1rem 1rem;
-  background: ${({ theme }) => theme.colors.background.paper};
-  color: ${({ theme }) => theme.colors.text.secondary};
+  background: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.colors.gray[6]};
   font-size: 0.875rem;
 `;
 
@@ -397,16 +398,16 @@ export const EmbedContainer = styled.div`
 `;
 
 export const Highlight = styled.span`
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   font-weight: 600;
 `;
 
 export const Quote = styled.blockquote`
   font-style: italic;
-  border-left: 4px solid ${({ theme }) => theme.colors.primary.main};
+  border-left: 4px solid ${({ theme }) => theme.colors[theme.primaryColor][6]};
   padding-left: 1.5rem;
   margin: 2rem 0;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
   font-size: 1.25rem;
   line-height: 1.8;
 `;
@@ -422,8 +423,8 @@ export const TimelineContainer = styled.div`
     bottom: 0;
     left: 1.5rem;
     width: 4px;
-    background: ${({ theme }) => theme.colors.gradient};
-    border-radius: 4px;
+    background: ${({ theme }) => theme.other.heroGradient};
+    border-radius: ${({ theme }) => theme.radius.sm};
     
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
       left: 50%;
@@ -445,8 +446,8 @@ export const TimelineItem = styled.div<{ itemIndex: number }>`
 `;
 
 export const TimelineContent = styled.div`
-  background: ${({ theme }) => theme.colors.background.paper};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  background: ${({ theme }) => theme.white};
+  border-radius: ${({ theme }) => theme.radius.md};
   padding: 1.5rem;
   box-shadow: ${({ theme }) => theme.shadows.md};
   width: calc(100% - 3rem);
@@ -465,7 +466,7 @@ export const TimelineDot = styled.div`
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.primary.main};
+  background: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   transform: translateX(-50%);
   
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -475,7 +476,7 @@ export const TimelineDot = styled.div`
 
 export const TimelineYear = styled.div`
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   margin-bottom: 0.5rem;
 `;
 
@@ -488,10 +489,10 @@ export const SkillsContainer = styled.div`
 `;
 
 export const SkillTag = styled.span`
-  background: ${({ theme }) => theme.colors.background.paper};
-  color: ${({ theme }) => theme.colors.text.primary};
+  background: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.colors.gray[7]};
   padding: 0.75rem 1.25rem;
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   font-size: 1rem;
   font-weight: 500;
   box-shadow: ${({ theme }) => theme.shadows.sm};
@@ -500,7 +501,7 @@ export const SkillTag = styled.span`
   &:hover {
     transform: translateY(-3px);
     box-shadow: ${({ theme }) => theme.shadows.md};
-    background: ${({ theme }) => theme.colors.primary.main};
-    color: white;
+    background: ${({ theme }) => theme.colors[theme.primaryColor][6]};
+    color: ${({ theme }) => theme.white};
   }
 `; 

@@ -11,7 +11,8 @@ export const PersonaCardContainer = styled.div`
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   max-width: 180px;
-  height: 160px;
+  min-height: 160px;
+  height: 100%;
   justify-content: center;
   
   &:hover {
@@ -23,6 +24,7 @@ export const PersonaCardContainer = styled.div`
 export const PersonaIcon = styled.div`
   width: 48px;
   height: 48px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background-color: #e9ecef;
   display: flex;
@@ -30,6 +32,22 @@ export const PersonaIcon = styled.div`
   justify-content: center;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  
+  svg {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.2s ease;
+  }
+  
+  ${PersonaCardContainer}:hover & {
+    background-color: #e2e8f0;
+    transform: scale(1.1);
+    
+    svg {
+      transform: scale(1.1);
+    }
+  }
 `;
 
 export const PersonaTitle = styled.h4`

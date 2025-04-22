@@ -1,6 +1,7 @@
 import React from 'react';
+import { Group } from '@mantine/core';
 import { PracticeCategory, PracticeItem } from './BestPractices.types';
-import { 
+import {
   IconAtom,
   IconHierarchy2,
   IconComponents,
@@ -102,8 +103,8 @@ const VitestIcon = () => (
 const ExpoIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
     <circle cx="12" cy="12" r="10" fill="#000020" fillOpacity="0.1" />
-    <path d="M16 7.5C15.3 6.8 14.2 6.4 12.8 6.3C11.4 6.2 10.1 6.4 8.8 7C7.5 7.6 6.5 8.5 5.8 9.7C5.1 10.9 4.8 12.3 4.9 13.8C4.9 14 5 14.3 5.1 14.5C5.2 14.7 5.4 14.9 5.6 15C5.8 15.1 6.1 15.2 6.4 15.1C6.7 15 6.9 14.9 7.1 14.6C7.3 14.3 7.4 14.1 7.4 13.8C7.4 12.8 7.6 11.9 8 11.2C8.4 10.5 9 9.9 9.7 9.5C10.4 9.1 11.2 9 12.1 9.1C13 9.2 13.6 9.5 14.1 10C14.6 10.5 15 11.2 15.1 12.1C15.2 13 15.1 13.8 14.7 14.5C14.3 15.2 13.8 15.8 13.1 16.1C12.4 16.4 11.7 16.6 11 16.6C10.3 16.6 9.7 16.5 9.3 16.3C8.9 16.1 8.6 15.9 8.4 15.6C8.2 15.3 8.1 15 8.1 14.7C8.1 14.4 8.2 14.2 8.3 14C8.5 13.7 8.8 13.5 9.2 13.4C9.6 13.3 10 13.2 10.4 13.3C10.8 13.3 11.2 13.4 11.5 13.7C11.8 14 11.9 14.3 11.9 14.7C11.9 15 11.8 15.3 11.6 15.5C11.4 15.7 11.1 15.8 10.8 15.8C10.5 15.8 10.3 15.7 10.1 15.5C9.9 15.3 9.8 15.1 9.9 14.9C10 14.7 10.1 14.6 10.3 14.5" stroke="#805AD5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M11.3 17.9C13.1 17.9 14.5 17.6 15.6 17C16.7 16.4 17.5 15.5 18 14.4C18.5 13.3 18.6 12 18.4 10.6C18.2 9.2 17.6 8.1 16.7 7.3" stroke="#805AD5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M16 7.5C15.3 6.8 14.2 6.4 12.8 6.3C11.4 6.2 10.1 6.4 8.8 7C7.5 7.6 6.5 8.5 5.8 9.7C5.1 10.9 4.8 12.3 4.9 13.8C4.9 14 5 14.3 5.1 14.5C5.2 14.7 5.4 14.9 5.6 15C5.8 15.1 6.1 15.2 6.4 15.1C6.7 15 6.9 14.9 7.1 14.6C7.3 14.3 7.4 14.1 7.4 13.8C7.4 12.8 7.6 11.9 8 11.2C8.4 10.5 9 9.9 9.7 9.5C10.4 9.1 11.2 9 12.1 9.1C13 9.2 13.6 9.5 14.1 10C14.6 10.5 15 11.2 15.1 12.1C15.2 13 15.1 13.8 14.7 14.5C14.3 15.2 13.8 15.8 13.1 16.1C12.4 16.4 11.7 16.6 11 16.6C10.3 16.6 9.7 16.5 9.3 16.3C8.9 16.1 8.6 15.9 8.4 15.6C8.2 15.3 8.1 15 8.1 14.7C8.1 14.4 8.2 14.2 8.3 14C8.5 13.7 8.8 13.5 9.2 13.4C9.6 13.3 10 13.2 10.4 13.3C10.8 13.3 11.2 13.4 11.5 13.7C11.8 14 11.9 14.3 11.9 14.7C11.9 15 11.8 15.3 11.6 15.5C11.4 15.7 11.1 15.8 10.8 15.8C10.5 15.8 10.3 15.7 10.1 15.5C9.9 15.3 9.8 15.1 9.9 14.9C10 14.7 10.1 14.6 10.3 14.5" stroke="#805AD5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M11.3 17.9C13.1 17.9 14.5 17.6 15.6 17C16.7 16.4 17.5 15.5 18 14.4C18.5 13.3 18.6 12 18.4 10.6C18.2 9.2 17.6 8.1 16.7 7.3" stroke="#805AD5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -137,13 +138,13 @@ const iconMap: Record<string, React.ReactNode> = {
   'workflow': <IconArrowsRightLeft size={20} stroke="#3182CE" />,
   'expo': <ExpoIcon />,
   'collaboration': <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="10" fill="#000020" fillOpacity="0.1"/>
-    <circle cx="7" cy="8" r="2.5" stroke="#805AD5" strokeWidth="1.5"/>
-    <circle cx="17" cy="8" r="2.5" stroke="#805AD5" strokeWidth="1.5"/>
-    <circle cx="12" cy="16" r="2.5" stroke="#805AD5" strokeWidth="1.5"/>
-    <path d="M9.5 8L14.5 8" stroke="#805AD5" strokeWidth="1.5"/>
-    <path d="M8.5 10L11 14" stroke="#805AD5" strokeWidth="1.5"/>
-    <path d="M15.5 10L13 14" stroke="#805AD5" strokeWidth="1.5"/>
+    <circle cx="12" cy="12" r="10" fill="#000020" fillOpacity="0.1" />
+    <circle cx="7" cy="8" r="2.5" stroke="#805AD5" strokeWidth="1.5" />
+    <circle cx="17" cy="8" r="2.5" stroke="#805AD5" strokeWidth="1.5" />
+    <circle cx="12" cy="16" r="2.5" stroke="#805AD5" strokeWidth="1.5" />
+    <path d="M9.5 8L14.5 8" stroke="#805AD5" strokeWidth="1.5" />
+    <path d="M8.5 10L11 14" stroke="#805AD5" strokeWidth="1.5" />
+    <path d="M15.5 10L13 14" stroke="#805AD5" strokeWidth="1.5" />
   </svg>,
 };
 
@@ -151,7 +152,7 @@ export const getIconForPractice = (iconName?: string): React.ReactNode => {
   if (!iconName || !iconMap[iconName]) {
     return <IconComponents size={20} stroke="#6A0DAD" />; // Default icon
   }
-  
+
   return iconMap[iconName];
 };
 

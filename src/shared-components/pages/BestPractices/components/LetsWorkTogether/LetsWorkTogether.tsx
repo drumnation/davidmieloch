@@ -2,123 +2,200 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { IconBrandLinkedin } from '@tabler/icons-react';
+import { IconBrandLinkedin, IconCheck } from '@tabler/icons-react';
 import {
-  LetsWorkTogetherContainer,
-  TitleWrapper,
-  SectionIcon,
-  ContentTitle,
-  ContentText,
-  ContentList,
-  SectionWrapper,
-  SectionLabel,
-  IconWrapper,
-  StyledContentTitle,
-  EnhancedContentText,
-  HighlightedCard,
-  CardTitle,
-  ButtonContainer,
-  PrimaryButton,
-  SpecialtyCard,
-  SpecialtyTitle,
-  SpecialtyText,
-  ReactSpecialtyCard,
-  ReactSpecialtyTitle,
-  IntroList
-} from './LetsWorkTogether.styles';
+  Container,
+  Box,
+  Title,
+  Text,
+  Group,
+  Paper,
+  List,
+  Button,
+  Badge,
+  Stack,
+  ThemeIcon,
+  Divider,
+  useMantineTheme,
+} from '@mantine/core';
 
 export interface LetsWorkTogetherProps {
   className?: string;
 }
 
 export const LetsWorkTogether: React.FC<LetsWorkTogetherProps> = ({ className }) => {
+  const theme = useMantineTheme();
+  const brandPurple = '#805AD5';
+  const brandPurpleLight = '#6b46c1';
+  const brandBlue = '#2b6cb0';
+  const aiIconColor = '#6b46c1';
+  const reactIconColor = '#2b6cb0';
+
+  // Define specialty card colors
+  const aiCardBg = '#f0e7ff';
+  const aiCardBorder = '#dac9ff';
+  const reactCardBg = '#eaf6ff';
+  const reactCardBorder = '#bce0fd';
+
   return (
-    <LetsWorkTogetherContainer className={className}>
-      <SectionWrapper>
-        <SectionLabel id="lets-work-together" />
-        <SectionIcon>
-          <IconWrapper>
-            <Image
-              src="/icons/collaboration.svg"
-              alt="Collaboration Icon"
-              width={32}
-              height={32}
-              priority={true}
-            />
-          </IconWrapper>
-        </SectionIcon>
-        <TitleWrapper>
-          <StyledContentTitle>Let's Work Together</StyledContentTitle>
-        </TitleWrapper>
+    <Container size="lg" className={className} pb={120} px={{ base: 'md', sm: 'lg', md: 'xl' }}>
+      <Stack gap="xl" align="center">
+        <Box component="section" mt={80} pt={60} style={{ position: 'relative', borderTop: `1px solid ${theme.colors.gray[3]}`, width: '100%' }}>
+          <Divider
+            labelPosition="center"
+            label={
+              <ThemeIcon radius="xl" size={60} variant="default" style={{ border: `1px solid ${theme.colors.gray[3]}`, boxShadow: theme.shadows.sm }}>
+                <Image
+                  src="/icons/collaboration.svg"
+                  alt="Collaboration Icon"
+                  width={32}
+                  height={32}
+                  priority={true}
+                />
+              </ThemeIcon>
+            }
+            mt={-30 - 1}
+            mb="xl"
+          />
 
-        <EnhancedContentText>
-          I help organizations establish modern development practices and transform their teams as a <span className="role">Lead</span>, <span className="role">Principal</span>, or <span className="role">Staff</span> level engineer with deep expertise in <span className="expertise">React/React Native</span> and <span className="expertise">Enterprise AI</span> solutions.
-        </EnhancedContentText>
+          <Stack align="center" gap="md" mb="xl">
+            <Title order={2} ta="center" style={{ color: brandPurple }} fz={{ base: '2rem', sm: '2.5rem' }}>
+              Let's Work Together
+            </Title>
 
-        <IntroList>
-          <div className="skill-tag">Scalable Architecture</div>
-          <div className="skill-tag react">React Ecosystem</div>
-          <div className="skill-tag">Advanced Workflows</div>
-          <div className="skill-tag">Technical Leadership</div>
-          <div className="skill-tag ai">AI Integration</div>
-          <div className="skill-tag">Team Transformation</div>
-        </IntroList>
+            <Text size="lg" ta="center" maw={800} mx="auto">
+              I help organizations establish modern development practices and transform their teams as a{' '}
+              <Text span fw={600} style={{ color: brandPurpleLight, whiteSpace: 'nowrap' }}>Lead</Text>,{' '}
+              <Text span fw={600} style={{ color: brandPurpleLight, whiteSpace: 'nowrap' }}>Principal</Text>, or{' '}
+              <Text span fw={600} style={{ color: brandPurpleLight, whiteSpace: 'nowrap' }}>Staff</Text>{' '}
+              level engineer with deep expertise in{' '}
+              <Text span fw={600} style={{ color: brandBlue, whiteSpace: 'nowrap' }}>React/React Native</Text> and{' '}
+              <Text span fw={600} style={{ color: brandBlue, whiteSpace: 'nowrap' }}>Enterprise AI</Text> solutions.
+            </Text>
+          </Stack>
 
-        <HighlightedCard>
-          <CardTitle>How I Can Collaborate With You</CardTitle>
+          <Stack align="center" gap="sm" mb="xl">
+            <Group justify="center" gap="sm" wrap="wrap">
+              <Badge color="violet" variant="light" size="lg" radius="xl">Scalable Architecture</Badge>
+              <Badge color="blue" variant="light" size="lg" radius="xl">React Ecosystem</Badge>
+              <Badge color="violet" variant="light" size="lg" radius="xl">Advanced Workflows</Badge>
+              <Badge color="violet" variant="light" size="lg" radius="xl">Technical Leadership</Badge>
+              <Badge color="teal" variant="light" size="lg" radius="xl">AI Integration</Badge>
+              <Badge color="violet" variant="light" size="lg" radius="xl">Team Transformation</Badge>
+            </Group>
+          </Stack>
 
-          <ContentList>
-            <ul>
-              <li>
-                <strong>Consulting Services</strong>
-                Bring my expertise to your organization for targeted projects focused on React/React Native best practices, development workflows, or AI integration initiatives.
-              </li>
-              <li>
-                <strong>Team Augmentation</strong>
-                Join your development team as a senior technical resource to provide leadership and expertise during critical projects or transitions.
-              </li>
-              <li>
-                <strong>Full-Time Opportunities</strong>
-                Consider me for Lead, Principal, or Staff Engineer roles where I can provide technical leadership and drive transformation initiatives.
-              </li>
-              <li>
-                <strong>Technical Leadership</strong>
-                Guide your engineering teams through implementing scalable architecture, effective development workflows, and modern technical practices.
-              </li>
-            </ul>
-          </ContentList>
+          <Paper shadow="md" radius="md" p="xl" mt="xl" mb="xl" withBorder style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
+            <Stack align="center" gap="lg">
+              <Title order={3} ta="center">
+                How I Can Collaborate With You
+              </Title>
 
-          <SpecialtyCard>
-            <SpecialtyTitle>Enterprise AI Development Team Transformation</SpecialtyTitle>
-            <SpecialtyText>
-              I specialize in guiding engineering teams through successful AI integration and transformation. From establishing
-              AI development workflows and architecture to implementing best practices for sustainable AI-driven solutions,
-              I can help your organization navigate this complex technical landscape regardless of the engagement model.
-            </SpecialtyText>
-          </SpecialtyCard>
+              <Stack gap="lg" w="100%">
+                <Box>
+                  <Stack gap="md" align="center">
+                    <ThemeIcon color="teal" size={32} radius="xl">
+                      <IconCheck size="1.2rem" />
+                    </ThemeIcon>
+                    <Text fw={600} ta="center" size="lg">Consulting Services</Text>
+                  </Stack>
+                  <Text ta="center" mt="xs">
+                    Bring my expertise to your organization for targeted projects focused on{' '}
+                    <Text span style={{ color: brandBlue }}>React</Text>/<Text span style={{ color: brandBlue }}>React Native</Text> best practices, development workflows, or AI integration initiatives.
+                  </Text>
+                </Box>
 
-          <ReactSpecialtyCard>
-            <ReactSpecialtyTitle>React & React Native Expertise</ReactSpecialtyTitle>
-            <SpecialtyText>
-              With extensive experience in React and React Native ecosystems, I bring deep knowledge of component architecture,
-              state management, performance optimization, and cross-platform development. I can help establish enterprise-grade
-              patterns for complex applications, monorepos, and design systems that scale.
-            </SpecialtyText>
-          </ReactSpecialtyCard>
+                <Box>
+                  <Stack gap="md" align="center">
+                    <ThemeIcon color="teal" size={32} radius="xl">
+                      <IconCheck size="1.2rem" />
+                    </ThemeIcon>
+                    <Text fw={600} ta="center" size="lg">Team Augmentation</Text>
+                  </Stack>
+                  <Text ta="center" mt="xs">
+                    Join your development team as a senior technical resource to provide leadership and expertise during critical projects or transitions.
+                  </Text>
+                </Box>
 
-          <ButtonContainer>
-            <PrimaryButton
-              href="https://www.linkedin.com/in/davidmieloch/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <IconBrandLinkedin size={20} style={{ marginRight: '8px' }} />
-              Get In Touch
-            </PrimaryButton>
-          </ButtonContainer>
-        </HighlightedCard>
-      </SectionWrapper>
-    </LetsWorkTogetherContainer>
+                <Box>
+                  <Stack gap="md" align="center">
+                    <ThemeIcon color="teal" size={32} radius="xl">
+                      <IconCheck size="1.2rem" />
+                    </ThemeIcon>
+                    <Text fw={600} ta="center" size="lg">Full-Time Opportunities</Text>
+                  </Stack>
+                  <Text ta="center" mt="xs">
+                    Consider me for Lead, Principal, or Staff Engineer roles where I can provide technical leadership and drive transformation initiatives.
+                  </Text>
+                </Box>
+
+                <Box>
+                  <Stack gap="md" align="center">
+                    <ThemeIcon color="teal" size={32} radius="xl">
+                      <IconCheck size="1.2rem" />
+                    </ThemeIcon>
+                    <Text fw={600} ta="center" size="lg">Technical Leadership</Text>
+                  </Stack>
+                  <Text ta="center" mt="xs">
+                    Guide your engineering teams through implementing scalable architecture, effective development workflows, and modern technical practices.
+                  </Text>
+                </Box>
+              </Stack>
+
+              <Paper radius="md" p="lg" w="100%" style={{ position: 'relative', backgroundColor: aiCardBg, border: `1px solid ${aiCardBorder}` }}>
+                <Stack align="center" gap="sm">
+                  <ThemeIcon radius="xl" size={40} variant="filled" color="white" mx="auto" mt={-40}
+                    style={{ boxShadow: theme.shadows.sm, padding: theme.spacing.xs }}>
+                    <Image src="/icons/ai-chip.svg" alt="AI Icon" width={24} height={24} />
+                  </ThemeIcon>
+                  <Title order={4} ta="center" style={{ color: aiIconColor }}>
+                    Enterprise AI Development Team Transformation
+                  </Title>
+                  <Text size="sm" c="dimmed" ta="center">
+                    I specialize in guiding engineering teams through successful AI integration and transformation. From establishing
+                    AI development workflows and architecture to implementing best practices for sustainable AI-driven solutions,
+                    I can help your organization navigate this complex technical landscape regardless of the engagement model.
+                  </Text>
+                </Stack>
+              </Paper>
+
+              <Paper radius="md" p="lg" w="100%" style={{ position: 'relative', backgroundColor: reactCardBg, border: `1px solid ${reactCardBorder}` }}>
+                <Stack align="center" gap="sm">
+                  <ThemeIcon radius="xl" size={40} variant="filled" color="white" mx="auto" mt={-40}
+                    style={{ boxShadow: theme.shadows.sm, padding: theme.spacing.xs }}>
+                    <Image src="/icons/react-icon.svg" alt="React Icon" width={24} height={24} />
+                  </ThemeIcon>
+                  <Title order={4} ta="center" style={{ color: reactIconColor }}>
+                    React & React Native Expertise
+                  </Title>
+                  <Text size="sm" c="dimmed" ta="center">
+                    With extensive experience in <Text span style={{ color: brandBlue }}>React</Text> and <Text span style={{ color: brandBlue }}>React Native</Text> ecosystems, I bring deep knowledge of component architecture,
+                    state management, performance optimization, and cross-platform development. I can help establish enterprise-grade
+                    patterns for complex applications, monorepos, and design systems that scale.
+                  </Text>
+                </Stack>
+              </Paper>
+
+              <Button
+                component="a"
+                href="https://www.linkedin.com/in/davidmieloch/"
+                target="_blank"
+                rel="noopener noreferrer"
+                size="lg"
+                color="violet"
+                leftSection={<IconBrandLinkedin size={20} />}
+                style={{
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                }}
+              >
+                Get In Touch
+              </Button>
+            </Stack>
+          </Paper>
+        </Box>
+      </Stack>
+    </Container>
   );
 };
 

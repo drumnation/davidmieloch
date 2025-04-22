@@ -2,9 +2,12 @@ import styled from 'styled-components';
 import { Typography } from '@shared-components/atoms/Typography';
 import { ContentContainer as BaseContentContainer, SectionSubtitle } from '../../BrainGardenOverview.styles';
 
+// Define mobile breakpoint
+const mobileBreakpoint = '576px';
+
 export const ForceMultiplierContainer = styled(BaseContentContainer)`
   min-height: 300px; /* Ensure minimum height */
-  margin: 3rem 0; /* Add vertical margin */
+  margin: 0 0 3rem 0; /* Remove top margin, keep bottom */
   position: relative; /* Establish positioning context */
   z-index: 5; /* Ensure proper stacking with higher z-index */
   overflow: visible; /* Ensure content isn't clipped */
@@ -12,12 +15,25 @@ export const ForceMultiplierContainer = styled(BaseContentContainer)`
   height: auto; /* Let height adapt to content */
   width: 100%; /* Ensure full width */
   display: block; /* Force block display */
+  padding-top: 10px; /* Reduce top padding */
+
+  /* Reduce side padding on mobile */
+  @media (max-width: ${mobileBreakpoint}) {
+    padding-left: 5px; /* Further reduce mobile padding */
+    padding-right: 5px; /* Further reduce mobile padding */
+  }
 `;
 
 export const StyledForceMultiplierContainer = styled.div`
-  padding: 2rem;
+  padding: 0 1rem 2rem 1rem; /* Default padding (includes desktop) */
   max-width: 900px;
   margin: 0 auto;
+
+  /* Remove horizontal padding on mobile */
+  @media (max-width: ${mobileBreakpoint}) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 export const PowerfulTitle = styled.div`
@@ -25,14 +41,27 @@ export const PowerfulTitle = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  padding-top: 1rem;
+  padding-top: 0;
+  margin-top: 0;
+
+  /* Hide icon on mobile */
+  & > svg {
+    @media (max-width: ${mobileBreakpoint}) {
+      display: none;
+    }
+  }
 `;
 
 export const GradientText = styled.h2`
   font-size: 2.5rem;
   font-weight: 700;
-  color: #4361ee;
+  color: #000000;
   margin: 0;
+  white-space: nowrap;
+
+  @media (max-width: ${mobileBreakpoint}) {
+    font-size: 2rem;
+  }
 `;
 
 export const ActTitle = styled.h3`
@@ -45,14 +74,37 @@ export const ActTitle = styled.h3`
 
 export const StoryBox = styled.blockquote`
   border-left: 4px solid #e0e7ff;
-  padding-left: 1.5rem;
+  padding-left: 1.5rem; /* Default left padding */
   margin-left: 0;
   margin-right: 0;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   background-color: #f8fafc;
   border-radius: 0.5rem;
-  padding: 1.5rem;
+  padding: 1.5rem; /* Default padding (includes right/top/bottom) */
+
+  /* Reduce padding significantly on mobile */
+  @media (max-width: ${mobileBreakpoint}) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.5rem;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  /* Style nested lists */
+  ul {
+    list-style-type: disc; /* Ensure default bullets */
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    margin-left: 2rem; /* Default indentation */
+    padding-left: 0; /* Reset browser default padding */
+
+    @media (max-width: ${mobileBreakpoint}) {
+      margin-left: 1rem; /* Reduced indentation for mobile */
+    }
+  }
 `;
 
 export const BodyText = styled(Typography)`
@@ -149,8 +201,8 @@ export const DiagramContainer = styled.div`
 `;
 
 export const Comment = styled.div`
-  color: ${({ theme }) => theme.colors.text.secondary};
-  margin-bottom: ${({ theme }) => theme.space.sm};
+  color: var(--mantine-color-dimmed);
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
 // Chat interface components
@@ -229,7 +281,7 @@ export const TerminalBlock = styled.div`
 export const Command = styled.div`
   color: #E2E8F0;
   margin-bottom: 0.5rem;
-  
+
   &::before {
     content: '$ ';
     opacity: 0.6;
@@ -272,7 +324,7 @@ export const GitFeatureReconstruction = styled.div`
 export const GitCommand = styled.div`
   color: #E2E8F0;
   margin-bottom: 0.5rem;
-  
+
   &::before {
     content: '$ ';
     opacity: 0.6;
@@ -318,6 +370,7 @@ export const PRBranch = styled.div`
   margin: 1rem 0;
   display: flex;
   align-items: center;
+  color: #CBD5E1;
 `;
 
 export const BranchIcon = styled.span`
@@ -333,7 +386,7 @@ export const DependencyArrow = styled.div`
   margin-top: -0.5rem;
   color: #9CA3AF;
   font-style: italic;
-  
+
   &::before {
     content: '↳ ';
     color: #60A5FA;
@@ -349,7 +402,7 @@ export const CustomForceMultiplierContainer = styled.div`
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.background.light};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-  box-shadow: ${({ theme }) => theme.shadows.card};
+  background-color: var(--mantine-color-body);
+  border-radius: ${({ theme }) => theme.radius.lg};
+  box-shadow: ${({ theme }) => theme.shadows.md};
 `;

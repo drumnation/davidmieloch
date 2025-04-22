@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Hero } from './Hero';
+import { HeroBackup } from './HeroBackup';
+import { AnimationType, HeroProps } from './HeroBackup.types';
+import { Meta, StoryObj } from '@storybook/react';
 
-const meta = {
-  title: 'Organisms/Hero',
-  component: Hero,
+const meta: Meta<typeof HeroBackup> = {
+  title: 'Organisms/HeroBackup',
+  component: HeroBackup,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -19,28 +20,22 @@ const meta = {
       options: ['gradient', 'light', 'dark', 'minimal'],
       description: 'Background style of the hero section',
     },
-    pattern: {
-      control: 'select',
-      options: ['circuit-board', 'dots', 'none'],
-      description: 'Background pattern overlay',
-    },
     textColor: {
       control: 'select',
       options: ['light', 'dark'],
       description: 'Text color scheme',
     },
   },
-} satisfies Meta<typeof Hero>;
+} satisfies Meta<typeof HeroBackup>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof HeroBackup>;
 
 export const Default: Story = {
   args: {
     title: 'Welcome to My Portfolio',
     subtitle: "Let me guess... you're looking for a senior engineer who can help scale your team?",
     background: 'gradient',
-    pattern: 'circuit-board',
     textColor: 'light',
   },
 };
@@ -50,7 +45,6 @@ export const LightBackground: Story = {
     title: 'Building Better Solutions',
     subtitle: 'Transforming complex challenges into elegant solutions through innovative engineering',
     background: 'light',
-    pattern: 'dots',
     textColor: 'dark',
   },
 };
@@ -60,7 +54,6 @@ export const DarkMinimal: Story = {
     title: 'Engineering Excellence',
     subtitle: 'Bringing over a decade of experience in scaling high-performance teams',
     background: 'dark',
-    pattern: 'none',
     textColor: 'light',
   },
 }; 

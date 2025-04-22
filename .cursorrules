@@ -18,3 +18,38 @@ Use Path Aliases Wherever possible:
 '@contexts': require.resolve('./src/contexts'),
 '@analytics': require.resolve('./src/analytics'),
 ```
+
+Mantine Theme Color Access Pattern — Summary for Refactor
+
+1. Correct Access Pattern
+Always use Mantine's color palette arrays:
+Apply to typescript - e...
+theme.colors[theme.primaryColor][6] // for primary color (main shade)
+theme.colors.blue[6]                // for blue palette, main shade
+theme.colors.cyan[6]                // for cyan palette, main shade
+theme.colors.dark[8]                // for dark backgrounds
+theme.white                         // for white
+theme.black    
+For gradients or custom colors:
+Use theme.other.heroGradient, theme.other.accentGradient, etc., as defined in your custom theme.
+For text and backgrounds:
+Text: theme.colors.gray[7], theme.colors.dark[0], or theme.colors[theme.primaryColor][7]
+Background: theme.colors.dark[8], theme.colors.gray[0], etc.
+For border radius, spacing, and shadows:
+theme.radius.md
+theme.spacing.lg
+theme.shadows.md
+
+2. TypeScript Pattern
+If using styled-components with Mantine theme, always cast theme:
+Apply to typescript - e...
+}
+
+3. Examples from Your Codebase
+theme.colors[theme.primaryColor][6] — for main brand color
+theme.colors.dark[8] — for dark backgrounds
+theme.colors.gray[6] — for neutral text
+theme.colors.blue[6] — for blue accent
+theme.colors.cyan[6] — for cyan accent
+theme.shadows.md — for box shadows
+theme.radius.md — for border radius

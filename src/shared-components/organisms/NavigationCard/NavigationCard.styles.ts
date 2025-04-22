@@ -16,22 +16,22 @@ export const Card = styled.div<CardProps>`
   height: 100%;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  box-shadow: var(--mantine-shadow-md);
   
-  ${({ $style, theme }) => $style === 'gradient-card' && css`
-    background: linear-gradient(135deg, ${theme.colors.primary.main}, ${theme.colors.secondary.main});
-    color: ${theme.colors.background.light};
+  ${({ $style }) => $style === 'gradient-card' && css`
+    background: linear-gradient(135deg, var(--mantine-color-blue-6), var(--mantine-color-cyan-6));
+    color: var(--mantine-color-white);
   `}
   
-  ${({ $style, theme }) => $style === 'accent-card' && css`
-    background: ${theme.colors.accent.blue};
-    color: ${theme.colors.background.light};
+  ${({ $style }) => $style === 'accent-card' && css`
+    background: var(--mantine-color-blue-6);
+    color: var(--mantine-color-white);
   `}
   
-  ${({ $style, theme }) => $style === 'default' && css`
-    background: ${theme.colors.background.paper};
-    color: ${theme.colors.text.primary};
-    border: 1px solid ${theme.colors.border.light};
+  ${({ $style }) => $style === 'default' && css`
+    background: var(--mantine-color-body);
+    color: var(--mantine-color-text);
+    border: 1px solid var(--mantine-color-default-border);
   `}
 `;
 

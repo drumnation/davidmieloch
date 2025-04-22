@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components';
 import { StyledCardProps } from './Card.types';
 
 const variantStyles = {
-  gradient: css`
-    background: ${({ theme }) => theme.colors.gradient};
-    color: ${({ theme }) => theme.colors.text.light};
+  gradient: css<StyledCardProps>`
+    background: ${({ theme }) => `linear-gradient(to right, ${theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]}, ${theme.colors.cyan?.[6] || theme.colors.teal[6]})`};
+    color: ${({ theme }) => theme.white};
   `,
-  accent: css`
-    background: ${({ theme }) => theme.colors.background.light};
-    border: 1px solid ${({ theme }) => theme.colors.primary.main};
-    color: ${({ theme }) => theme.colors.text.primary};
+  accent: css<StyledCardProps>`
+    background: var(--mantine-color-body);
+    border: 1px solid ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+    color: var(--mantine-color-text);
   `,
 };
 
@@ -17,28 +17,33 @@ const paddingStyles = {
   none: css`
     padding: 0;
   `,
-  sm: css`
-    padding: ${({ theme }) => theme.space.sm};
+  sm: css<StyledCardProps>`
+    padding: ${({ theme }) => theme.spacing.sm};
   `,
-  md: css`
-    padding: ${({ theme }) => theme.space.md};
+  md: css<StyledCardProps>`
+    padding: ${({ theme }) => theme.spacing.md};
   `,
-  lg: css`
-    padding: ${({ theme }) => theme.space.lg};
+  lg: css<StyledCardProps>`
+    padding: ${({ theme }) => theme.spacing.lg};
   `,
-  xl: css`
-    padding: ${({ theme }) => theme.space.xl};
+  xl: css<StyledCardProps>`
+    padding: ${({ theme }) => theme.spacing.xl};
   `,
 };
 
 export const StyledCard = styled.div<StyledCardProps>`
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.md};
-  transition: ${({ theme }) => theme.transitions.default};
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'auto')};
 
-  ${({ $variant }) => variantStyles[$variant]};
-  ${({ $padding }) => paddingStyles[$padding]};
+  ${({ $variant = 'default' }) => {
+    if ($variant === 'gradient' || $variant === 'accent') {
+      return variantStyles[$variant];
+    }
+    return '';
+  }}
+  ${({ $padding = 'md' }) => paddingStyles[$padding]}
 
   &:hover {
     transform: translateY(-2px);

@@ -2,7 +2,7 @@ import React from 'react';
 import { RealWorldImpactProps } from './RealWorldImpact.types';
 import { defaultContent } from './RealWorldImpact.constants';
 import { Icon } from '@shared-components/atoms/Icon';
-import { HeroProps } from '@shared-components/organisms/Hero/Hero.types';
+import { HeroProps } from '@shared-components/organisms/Hero';
 import { ChallengeBreakdownProps } from '@shared-components/organisms/ChallengeBreakdown/ChallengeBreakdown.types';
 import { ProcessFlowProps } from '@shared-components/organisms/ProcessFlow/ProcessFlow.types';
 import { StatsComparisonProps } from '@shared-components/organisms/StatsComparison/StatsComparison.types';

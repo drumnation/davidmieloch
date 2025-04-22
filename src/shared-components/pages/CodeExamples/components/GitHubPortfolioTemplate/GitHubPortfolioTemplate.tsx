@@ -13,6 +13,7 @@ import {
   Sidebar,
   MainContent,
   SearchContainer,
+  MobileFilterContainer,
   LoadingContainer,
   ErrorContainer,
   ErrorMessage,
@@ -50,6 +51,27 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
     onSearch?.(value);
   };
 
+  const renderFilters = () => (
+    <>
+      <SearchContainer>
+        <SearchInput
+          value={searchValue}
+          onChange={handleSearchChange}
+          placeholder="Search repositories..."
+        />
+      </SearchContainer>
+      <FilterBar
+        filters={filters}
+        selectedFilters={selectedFilters}
+        onFilterChange={onFilterChange}
+        onClearFilters={() => {
+          setSearchValue('');
+          onClearFilters?.();
+        }}
+      />
+    </>
+  );
+
   if (isLoading) {
     return (
       <LoadingContainer>
@@ -68,7 +90,7 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
     );
   }
 
-  const hasActiveFilters = 
+  const hasActiveFilters =
     selectedFilters.languages.length > 0 ||
     selectedFilters.topics.length > 0 ||
     selectedFilters.types.length > 0 ||
@@ -91,28 +113,17 @@ export const GitHubPortfolioTemplate: React.FC<GitHubPortfolioTemplateProps> = (
         </DisclaimerBox>
       </Header>
 
+      <MobileFilterContainer>
+        {renderFilters()}
+      </MobileFilterContainer>
+
       <Content>
         <Sidebar>
-          <SearchContainer>
-            <SearchInput
-              value={searchValue}
-              onChange={handleSearchChange}
-              placeholder="Search repositories..."
-            />
-          </SearchContainer>
-          <FilterBar
-            filters={filters}
-            selectedFilters={selectedFilters}
-            onFilterChange={onFilterChange}
-            onClearFilters={() => {
-              setSearchValue('');
-              onClearFilters?.();
-            }}
-          />
+          {renderFilters()}
         </Sidebar>
 
         <MainContent>
-          <RepoGrid 
+          <RepoGrid
             repositories={repositories.map(repo => ({
               ...repo,
               fullName: repo.name,

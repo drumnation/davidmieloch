@@ -3,11 +3,9 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Categories } from './Categories';
 import { PRACTICE_CATEGORIES } from '../../BestPractices.constants';
 import { renderCategory } from '../../BestPractices.logic';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../../../styles/theme/styled-theme';
 
 // Use the same data and logic as the main component
-const categories = PRACTICE_CATEGORIES.map((category, index) => 
+const categories = PRACTICE_CATEGORIES.map((category, index) =>
   renderCategory(category, index)
 );
 
@@ -26,15 +24,6 @@ const meta = {
       }
     }
   },
-  decorators: [
-    (Story) => (
-      <ThemeProvider theme={theme}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
-          <Story />
-        </div>
-      </ThemeProvider>
-    ),
-  ],
 } satisfies Meta<typeof Categories>;
 
 export default meta;

@@ -1,4 +1,5 @@
 import styled, { keyframes, DefaultTheme } from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 import { SpinnerSize } from './Spinner.types';
 
 const spin = keyframes`
@@ -31,7 +32,7 @@ const getSizeStyles = (size: SpinnerSize) => {
 };
 
 interface ThemeProps {
-  theme: DefaultTheme;
+  theme: MantineTheme;
 }
 
 interface ColorThemeProps extends ThemeProps {
@@ -47,8 +48,8 @@ export const SpinnerContainer = styled.div<{
     return `
       width: ${width};
       height: ${height};
-      border: ${borderWidth} solid ${({ theme }: ThemeProps) => theme.colors.background.light};
-      border-top: ${borderWidth} solid ${({ $color, theme }: ColorThemeProps) => $color || theme.colors.primary.main};
+      border: ${borderWidth} solid ${({ theme }: ThemeProps) => (theme as MantineTheme).colors.gray[1]};
+      border-top: ${borderWidth} solid ${({ $color, theme }: ColorThemeProps) => $color || (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
     `;
   }}
   border-radius: 50%;

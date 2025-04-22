@@ -3,27 +3,27 @@ import { motion } from 'framer-motion';
 
 export const Grid = styled.div<{ $layout: string; $background: string }>`
   display: grid;
-  grid-template-columns: ${({ $layout }) => 
+  grid-template-columns: ${({ $layout }) =>
     $layout === '3-column' ? 'repeat(auto-fill, minmax(300px, 1fr))' :
-    $layout === '2-column' ? 'repeat(auto-fill, minmax(450px, 1fr))' : '1fr'};
+      $layout === '2-column' ? 'repeat(auto-fill, minmax(450px, 1fr))' : '1fr'};
   gap: 24px;
   width: 100%;
 `;
 
-export const QuoteCard = styled(motion.div)<{ $style: string; $background: string }>`
+export const QuoteCard = styled(motion.div) <{ $style: string; $background: string }>`
   display: flex;
   flex-direction: column;
   padding: ${({ $style }) => $style === 'card' ? '24px' : '0'};
   background-color: ${({ $style, $background, theme }) => {
     if ($style !== 'card') return 'transparent';
-    
+
     if ($background === 'blue') {
-      return theme.colors.primary.main || '#4A72FF';
+      return theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6];
     }
-    
-    return $background === 'dark' 
-      ? theme.colors.background.dark || '#2D3748' 
-      : theme.colors.background.light || '#FFFFFF';
+
+    return $background === 'dark'
+      ? theme.colors.dark[7]
+      : theme.white;
   }};
   border-radius: 12px;
   box-shadow: ${({ $style }) => $style === 'card' ? '0 4px 10px rgba(0, 0, 0, 0.08)' : 'none'};
@@ -34,7 +34,7 @@ export const QuoteCard = styled(motion.div)<{ $style: string; $background: strin
   transition: box-shadow 0.3s ease;
 `;
 
-export const IconWrapper = styled(motion.div)<{
+export const IconWrapper = styled(motion.div) <{
   $background?: 'light' | 'dark' | 'gradient' | 'blue';
 }>`
   display: flex;
@@ -42,10 +42,10 @@ export const IconWrapper = styled(motion.div)<{
   margin-bottom: 16px;
   color: ${({ $background, theme }) => {
     if ($background === 'blue') {
-      return theme.colors.text.light || '#FFFFFF';
+      return theme.white;
     }
-    
-    return theme.colors.primary.main || '#4A72FF';
+
+    return theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6];
   }};
   
   svg {
@@ -70,6 +70,6 @@ export const QuoteAuthor = styled(motion.p)`
 
 export const QuoteNote = styled(motion.p)`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.text.secondary || '#718096'};
+  color: var(--mantine-color-dimmed);
   margin: 0;
 `; 

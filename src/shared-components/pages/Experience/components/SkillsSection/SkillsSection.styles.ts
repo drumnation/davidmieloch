@@ -1,17 +1,18 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const SectionContainer = styled.section`
   margin-bottom: 24px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  background-color: ${({ theme }) => (theme as MantineTheme).white};
+  border-radius: ${({ theme }) => (theme as MantineTheme).radius.md};
+  box-shadow: ${({ theme }) => (theme as MantineTheme).shadows.sm};
   padding: 24px;
 
   h2 {
-    font-size: 1.25rem;
+    font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.lg};
     margin-bottom: 16px;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
+    color: ${({ theme }) => (theme as MantineTheme).black};
   }
 `;
 
@@ -32,12 +33,13 @@ export const SkillsCategoryColumn = styled.div`
 `;
 
 export const SkillsCategoryTitle = styled.h3`
-  font-size: 1.1rem;
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.md};
   margin-bottom: 1rem;
   font-weight: 600;
-  border-bottom: 2px solid;
+  border-bottom: 2px solid ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][2]};
   padding-bottom: 0.5rem;
   display: inline-block;
+  color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][7]};
 `;
 
 export const SkillsGrid = styled.div`
@@ -47,22 +49,24 @@ export const SkillsGrid = styled.div`
 `;
 
 export const SkillTag = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.paper || '#f5f5f5'};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors.gray[0]};
   padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
+  border-radius: ${({ theme }) => (theme as MantineTheme).radius.sm};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.sm};
   display: flex;
   align-items: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => (theme as MantineTheme).shadows.xs};
   transition: transform 0.2s, box-shadow 0.2s;
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: ${({ theme }) => (theme as MantineTheme).shadows.sm};
   }
   
   .skill-icon {
     margin-right: 8px;
+    color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   }
   
   .skill-name {

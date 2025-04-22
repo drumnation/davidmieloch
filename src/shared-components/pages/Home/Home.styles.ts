@@ -1,7 +1,8 @@
 "use client";
 
 import styled from 'styled-components';
-import { GenericSection } from './components/ContentSection';
+import { Container, Box } from '@mantine/core'; // Import Mantine components
+import GenericSection from '@shared-components/molecules/GenericSection'; // Use default import syntax
 
 // Define theme colors for consistency
 export const theme = {
@@ -26,10 +27,75 @@ export const theme = {
   }
 };
 
+export const HomeContainer = styled(Container)`
+  min-height: calc(100vh - 60px); /* Subtract header height */
+  width: 100%;
+  padding: 0;
+  position: relative;
+
+  // Add side shadows using pseudo-elements on wider screens
+  @media (min-width: 1200px) { // Use standard pixel value for lg breakpoint
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50px; // Width of the shadow effect
+      pointer-events: none; // Ensure they don't interfere with interaction
+    }
+
+    &::before {
+      left: 0;
+      transform: translateX(-100%);
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.08), transparent);
+    }
+
+    &::after {
+      right: 0;
+      transform: translateX(100%);
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.08), transparent);
+    }
+  }
+
+  /* === Carousel Control Overrides === */
+  /*
+  .mantine-Carousel-controls {
+    // ... removed flex styles ...
+  }
+
+  .mantine-Carousel-control {
+    // ... removed control styles ...
+  }
+
+  .mantine-Carousel-indicators {
+     // ... removed indicator styles ...
+  }
+
+  .mantine-Carousel-indicator {
+     // ... removed indicator styles ...
+  }
+  */
+  /* === End Carousel Control Overrides === */
+`;
+
+export const FullWidthBackgroundWrapper = styled(Box)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  margin-left: calc(-50vw + 50%);
+  z-index: -1;
+  // Use theme color - Note: Theme needs to be provided via ThemeProvider for this to work
+  // background-color: ${({ theme }) => theme.colors.dark[8]}; 
+  background-color: #1A1B1E; // Fallback to direct value if ThemeProvider is not setup here
+`;
+
 export const HomePageContainer = styled.div`
   width: 100%;
-  background-color: ${theme.background.primary}; // Restored dark background
-  color: ${theme.text.primary}; // Restored default text color
+  background-color: ${theme.background.primary};
+  color: ${theme.text.primary};
   min-height: 100vh;
 `;
 
@@ -82,6 +148,7 @@ export const PersonaNav = styled.div`
   gap: 1rem;
   margin: 4rem auto;
   max-width: 800px;
+  align-items: stretch;
 `;
 
 export const FrameworksGrid = styled.div`
@@ -92,7 +159,6 @@ export const FrameworksGrid = styled.div`
   margin-bottom: 1rem;
   
   & > div {
-    height: 400px;
     background: linear-gradient(to right, #1e1e2f, #232342);
     transition: all 0.3s ease;
     
@@ -274,14 +340,15 @@ export const ContentContainer = styled.div`
   padding: 0 1.5rem;
 `;
 
-export const Badge = styled.span<{ color: string, bg: string }>`
+export const Badge = styled.span<{ color?: string; bg: string }>`
   background: ${props => props.bg};
-  color: ${props => props.color};
+  color: ${props => props.color || theme.text.primary};
   border-radius: 6px;
   padding: 2px 8px;
   font-size: 0.75rem;
   font-weight: 600;
   margin-right: 6px;
+  display: inline-block;
 `;
 
 export const ViewAllContainer = styled.div`
@@ -329,7 +396,7 @@ export const BlueTintGenericSection = styled(GenericSection)`
 `;
 
 // Gray tinted section for Live Proof Projects
-export const GrayTintGenericSection = styled(GenericSection)`
+export const GrayBackgroundSection = styled(GenericSection)`
   padding: 3rem 1.5rem;
   background-color: #1a1a2e; /* More distinctly different background */
   position: relative;
@@ -341,7 +408,7 @@ export const GrayTintGenericSection = styled(GenericSection)`
 `;
 
 // Gray background section for Projects
-export const DarkGraySection = styled(GenericSection)`
+export const DarkGrayBackgroundSection = styled(GenericSection)`
   padding: 3rem 1.5rem;
   background-color: #111827; /* Simple dark gray background */
   position: relative;
@@ -487,12 +554,6 @@ export const StandOutTitle = styled.h2`
   color: ${theme.text.primary}; /* Light color for dark background */
   display: flex;
   align-items: center;
-  
-  &::before {
-    content: '✅';
-    margin-right: 0.75rem;
-    font-size: 1.5rem;
-  }
 `;
 
 export const StandOutList = styled.ul`
@@ -557,7 +618,7 @@ export const SectionHeaderTitle = styled.h2`
 
 // Dark section for projects with proper spacing
 export const ProjectsSection = styled.div`
-  background-color: var(--background-dark);
+  background-color: #1A1B1E;
   padding: 5rem 1.5rem 3rem;
   position: relative;
   z-index: 5;
@@ -572,11 +633,86 @@ export const ProjectsSection = styled.div`
 // New section variant with var(--background-dark)
 export const DarkBackgroundSection = styled(GenericSection)`
   padding: 3rem 1.5rem;
-  background-color: var(--background-dark);
+  background-color: #1A1B1E;
   position: relative;
   z-index: 5;
 
   @media (max-width: 768px) {
     padding: 2rem 1rem;
+  }
+`;
+
+// Style adjustments for Mantine Carousel
+export const CarouselContainer = styled.div`
+  .mantine-Carousel-controls {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: ${({ theme }) => theme.spacing.md}; /* Add some padding instead */
+    top: unset;
+    left: unset;
+    right: unset;
+    transform: unset;
+  }
+
+  .mantine-Carousel-control {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1); // Simple background
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 50%; // Make them circular
+    width: 30px; // Explicit size
+    height: 30px;
+    display: flex; // Center icon
+    align-items: center;
+    justify-content: center;
+    top: unset;
+    left: unset;
+    right: unset;
+    bottom: unset;
+    transform: unset;
+    margin: 0; /* Reset margin */
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &[data-inactive] {
+      opacity: 0.4 !important;
+      cursor: default;
+    }
+
+    &[data-carousel-prev] {
+      order: -1; /* Place before indicators */
+      margin-right: 24px;
+    }
+
+    &[data-carousel-next] {
+      order: 1; /* Place after indicators */
+      margin-left: 24px;
+    }
+  }
+
+  .mantine-Carousel-indicators {
+    display: flex; /* Ensure indicators are flex items */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    order: 0; /* Place between controls */
+  }
+
+  .mantine-Carousel-indicator {
+    background-color: ${({ theme }) => theme.colors.dark[3]};
+    width: 8px;
+    height: 8px;
+    transition: width 250ms ease;
+    border-radius: 4px;
+    margin: 0 4px;
+
+     &[data-active] {
+        background-color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+        width: 24px;
+     }
   }
 `;

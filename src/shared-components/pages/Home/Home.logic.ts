@@ -1,6 +1,15 @@
 import { IconFileText, IconMail } from '@tabler/icons-react';
 import { characteristicGridPositions, personaNavPositions, ctaPositions } from './Home.nodes';
 import { PersonaNavItem } from './Home.types';
+import {
+  FcCommandLine,
+  FcBusiness,
+  FcDataConfiguration,
+  FcRefresh,
+  FcVoicePresentation,
+  FcIdea
+} from 'react-icons/fc';
+import React from 'react';
 
 // FSBP section content data
 export const fsbpContent = {
@@ -32,32 +41,32 @@ export const fsbpContent = {
     items: [
       {
         title: 'Technical Depth',
-        icon: '💻',
+        icon: React.createElement(FcCommandLine),
         description: 'Deep knowledge of programming, systems architecture, and technical processes, unlike standard business roles.'
       },
       {
         title: 'Business Breadth',
-        icon: '📊',
+        icon: React.createElement(FcBusiness),
         description: 'Comprehensive understanding of business functions including marketing, finance, and growth strategy.'
       },
       {
         title: 'AI Orchestration',
-        icon: '🤖',
+        icon: React.createElement(FcDataConfiguration),
         description: 'Expertise in prompt engineering and AI tool coordination, turning AI systems into amplifiers of expertise.'
       },
       {
         title: 'Systems Thinking',
-        icon: '🔄',
+        icon: React.createElement(FcRefresh),
         description: 'Recognition of entire systems with interconnected components and second-order effects.'
       },
       {
         title: 'First-Principles Reasoning',
-        icon: '🔬',
+        icon: React.createElement(FcIdea),
         description: 'Reduction of complex situations to foundational elements, enabling creative solutions.'
       },
       {
         title: 'Communication Fluency',
-        icon: '🗣️',
+        icon: React.createElement(FcVoicePresentation),
         description: 'Articulate explanation of technology to business stakeholders and business concepts to engineers.'
       }
     ]

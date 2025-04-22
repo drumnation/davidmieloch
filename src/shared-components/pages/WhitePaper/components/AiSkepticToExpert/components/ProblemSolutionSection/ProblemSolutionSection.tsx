@@ -16,12 +16,16 @@ export interface ProblemSolutionCardData {
 
 export interface ProblemSolutionSectionProps {
   title: string;
+  titleStyle?: {
+    uppercase?: boolean;
+  };
   cards: ProblemSolutionCardData[];
   className?: string;
 }
 
 export const ProblemSolutionSection: React.FC<ProblemSolutionSectionProps> = ({
   title = 'Common Problems & My Solutions',
+  titleStyle = { uppercase: true },
   cards,
   className
 }) => {
@@ -37,12 +41,12 @@ export const ProblemSolutionSection: React.FC<ProblemSolutionSectionProps> = ({
   };
 
   const cardItemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20 
+    hidden: {
+      opacity: 0,
+      y: 20
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         type: "spring",
@@ -51,6 +55,9 @@ export const ProblemSolutionSection: React.FC<ProblemSolutionSectionProps> = ({
       }
     }
   };
+
+  // Transform title to uppercase if specified in titleStyle
+  const displayTitle = titleStyle?.uppercase ? title.toUpperCase() : title;
 
   return (
     <motion.div
@@ -64,23 +71,23 @@ export const ProblemSolutionSection: React.FC<ProblemSolutionSectionProps> = ({
         <S.ContentWrapper>
           <S.TitleContainer>
             <Typography variant="h2">
-              {title}
+              {displayTitle}
             </Typography>
           </S.TitleContainer>
-          
+
           <S.CardGrid variants={cardContainerVariants}>
             {cards.map((card, index) => {
-              const formattedImpact = typeof card.impact === 'string' 
-                ? { value: card.impact } 
+              const formattedImpact = typeof card.impact === 'string'
+                ? { value: card.impact }
                 : card.impact;
-              
-              const cardVariant = card.variant === 'gradient' || card.variant === 'accent' 
-                ? 'blue' 
+
+              const cardVariant = card.variant === 'gradient' || card.variant === 'accent'
+                ? 'blue'
                 : card.variant === 'default' ? 'white' : card.variant;
-              
+
               return (
                 <motion.div key={index} variants={cardItemVariants}>
-                  <ProblemSolutionCard 
+                  <ProblemSolutionCard
                     slug={card.slug || 'Feature'}
                     problem={card.problem}
                     solution={card.solution}

@@ -58,7 +58,9 @@ import {
   IconBulb, // Insights
   IconSchema, // Framework
   IconPlayerPlay, // Current State
-  IconHandClick // CTA
+  IconHandClick, // CTA
+  IconCrosshair,
+  IconFileText
 } from '@tabler/icons-react';
 
 // Create styled components for animation
@@ -99,13 +101,13 @@ const whitePaperNavItems: SubNavItem[] = [
   // AI Autopilot Analogy (Level 0)
   { id: 'autopilot-analogy', title: 'AI Autopilot Analogy', level: 0, icon: <IconPlaneTilt size={18} /> },
   { id: 'autopilot-hero', title: 'Hero', level: 1, icon: <IconTargetArrow size={16} /> },
-  { id: 'autopilot-intro', title: 'Introduction', level: 1, icon: <IconInfoCircle size={16} /> },
+  { id: 'autopilot-introduction', title: 'Introduction', level: 1, icon: <IconInfoCircle size={16} /> },
   { id: 'autopilot-comparison', title: 'Comparison Table', level: 1, icon: <IconTable size={16} /> },
   { id: 'autopilot-reality', title: 'Reality vs Hollywood', level: 1, icon: <IconMasksTheater size={16} /> },
-  { id: 'autopilot-strategy', title: 'Strategic Focus', level: 1, icon: <IconFocusCentered size={16} /> },
-  { id: 'autopilot-dunning-kruger', title: 'Dunning-Kruger Effect', level: 1, icon: <IconChartArcs size={16} /> },
-  { id: 'autopilot-warning', title: 'Critical Warning', level: 1, icon: <IconAlertTriangle size={16} /> },
-  { id: 'autopilot-blueprint', title: 'Leadership Blueprint', level: 1, icon: <IconFileCode2 size={16} /> },
+  { id: 'autopilot-strategic-focus', title: 'Strategic Focus', level: 1, icon: <IconCrosshair size={16} /> },
+  { id: 'ai-integration-journey', title: 'AI Integration Journey', level: 1, icon: <IconChartArcs size={16} /> },
+  { id: 'autopilot-critical-warning', title: 'Critical Warning', level: 1, icon: <IconAlertTriangle size={16} /> },
+  { id: 'autopilot-leadership-blueprint', title: 'Leadership Blueprint', level: 1, icon: <IconFileText size={16} /> },
 
   // Brain Garden Overview (Level 0)
   { id: 'brain-garden-overview', title: 'Brain Garden Overview', level: 0, icon: <IconPlant2 size={18} /> },

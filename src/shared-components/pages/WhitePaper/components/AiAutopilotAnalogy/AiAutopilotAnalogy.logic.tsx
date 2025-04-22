@@ -1,6 +1,6 @@
 import React from 'react';
-import { Hero } from '@shared-components/organisms/Hero/Hero';
-import { HeroProps } from '@shared-components/organisms/Hero/Hero.types';
+import { Hero } from '@shared-components/organisms/Hero';
+import { HeroProps } from '@shared-components/organisms/Hero';
 import { Typography } from '@shared-components/atoms/Typography';
 import { Icon } from '@shared-components/atoms/Icon';
 import { AiAutopilotAnalogyProps } from './AiAutopilotAnalogy.types';

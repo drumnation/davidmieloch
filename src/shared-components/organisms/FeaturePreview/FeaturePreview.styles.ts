@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const FeatureGrid = styled.div`
   display: grid;
@@ -28,7 +29,7 @@ export const IconWrapper = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 12px;
-  background-color: ${({ theme }) => theme.colors.primary.main};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   margin-bottom: 20px;
 `;
 
@@ -36,12 +37,12 @@ export const Title = styled.h3`
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 12px 0;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => (theme as MantineTheme).black};
 `;
 
 export const Description = styled.p`
   font-size: 14px;
   line-height: 1.6;
   margin: 0;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
 `; 

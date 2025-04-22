@@ -105,13 +105,14 @@ export const BestPractices: React.FC<BestPracticesProps> = ({ id = 'best-practic
 
   // Hero props
   const heroProps = {
-    title: "Best Practices",
-    subtitle: "Modern Enterprise Approaches for Fullstack React and React Native Development",
+    title: "<span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; margin-bottom: 20px; display: block;\">React Best Practices</span>",
+    desktopSubtitle: "<span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">Modern Enterprise Approaches<br>for <span style=\"color: #4dabf7; font-weight: 600; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">Fullstack React</span> and<br><span style=\"color: #4dabf7; font-weight: 600; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">React Native</span> Development</span>",
+    mobileSubtitle: "<span style=\"text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">Modern<br>Enterprise Approaches<br>for <span style=\"color: #4dabf7; font-weight: 600; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">Fullstack React</span><br>and <span style=\"color: #4dabf7; font-weight: 600; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;\">React Native</span> Development</span>",
     background: 'image' as const,
     backgroundImage: '/monitors.jpg',
     pattern: 'none' as const,
     textColor: 'light' as const,
-    animation: 'fade-up' as const,
+    animation: 'fadeIn' as const,
     className: 'best-practices-hero',
     backgroundOverlay: true,
     overlayOpacity: 0.6,

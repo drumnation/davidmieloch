@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const Grid = styled.div<{ $columns: number }>`
   display: grid;
@@ -26,12 +27,12 @@ export const FeatureCard = styled.div<{ $style: 'gradient-card' | 'accent-card' 
   ${({ $style, theme }) =>
     $style === 'gradient-card'
       ? `
-      background: linear-gradient(135deg, ${theme.colors.background.light} 0%, ${theme.colors.background.paper} 100%);
+      background: linear-gradient(135deg, ${(theme as MantineTheme).white} 0%, ${(theme as MantineTheme).colors.gray[0]} 100%);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       `
       : `
-      background: ${theme.colors.background.light};
-      border-left: 4px solid ${theme.colors.primary.main};
+      background: ${(theme as MantineTheme).white};
+      border-left: 4px solid ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       `}
   
@@ -48,8 +49,8 @@ export const IconWrapper = styled.div`
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background-color: ${({ theme }) => theme.colors.primary.light};
-  color: ${({ theme }) => theme.colors.primary.main};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][1]};
+  color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][7]};
   margin-bottom: 16px;
 `;
 
@@ -57,14 +58,14 @@ export const Title = styled.h3`
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 12px 0;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => (theme as MantineTheme).black};
 `;
 
 export const Description = styled.p`
   font-size: 14px;
   line-height: 1.5;
   margin: 0 0 16px 0;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
 `;
 
 export const BulletList = styled.ul`
@@ -75,7 +76,7 @@ export const BulletList = styled.ul`
 export const BulletItem = styled.li`
   font-size: 14px;
   margin-bottom: 8px;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   
   &:last-child {
     margin-bottom: 0;
@@ -89,12 +90,12 @@ export const CtaLink = styled.a`
   padding-top: 16px;
   font-size: 14px;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   text-decoration: none;
   transition: color 0.2s ease;
   
   &:hover {
-    color: ${({ theme }) => theme.colors.primary.dark};
+    color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][8]};
   }
   
   svg {

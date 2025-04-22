@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { Group } from '@mantine/core';
 import {
   CategoryCardContainer,
   CategoryTitle,
   CategoryDescription,
   ItemsList,
-  Item,
   ItemIcon,
   ItemContent,
   ItemTitle,
@@ -57,13 +57,13 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
       <CategoryDescription>{description}</CategoryDescription>
       <ItemsList>
         {items.map((item) => (
-          <Item key={item.key}>
+          <Group key={item.key} align="center" gap="md" wrap="nowrap">
             <ItemIcon>{item.icon}</ItemIcon>
             <ItemContent>
               <ItemTitle>{item.title}</ItemTitle>
               <ItemDescription>{item.description}</ItemDescription>
             </ItemContent>
-          </Item>
+          </Group>
         ))}
       </ItemsList>
     </CategoryCardContainer>

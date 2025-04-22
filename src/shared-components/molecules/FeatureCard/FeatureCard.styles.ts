@@ -1,34 +1,35 @@
 import styled, { css } from 'styled-components';
 import { animated } from '@react-spring/web';
+import { MantineTheme } from '@mantine/core';
 
 interface CardContainerProps {
   $style?: 'gradient-card' | 'accent-card';
 }
 
-export const CardContainer = styled(animated.div)<CardContainerProps>`
+export const CardContainer = styled(animated.div) <CardContainerProps>`
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  background-color: ${({ theme }) => theme.colors.background.paper};
+  background-color: ${({ theme }) => (theme as MantineTheme).white};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
-  ${({ $style, theme }) => 
+  ${({ $style, theme }) =>
     $style === 'gradient-card' && css`
       background: linear-gradient(
         135deg,
-        ${theme.colors.primary.main} 0%,
-        ${theme.colors.secondary.main} 100%
+        ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]} 0%,
+        ${(theme as MantineTheme).colors.gray[6]} 100%
       );
-      color: ${theme.colors.text.light};
+      color: ${(theme as MantineTheme).white};
       
       h3 {
-        color: ${theme.colors.text.light};
+        color: ${(theme as MantineTheme).white};
       }
     `}
   
-  ${({ $style, theme }) => 
+  ${({ $style, theme }) =>
     $style === 'accent-card' && css`
-      border-left: 4px solid ${theme.colors.primary.main};
+      border-left: 4px solid ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
     `}
   
   &:hover {
@@ -42,12 +43,12 @@ export const Title = styled.h3`
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 16px;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => (theme as MantineTheme).black};
 `;
 
 export const IconContainer = styled.div`
   margin-bottom: 16px;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
 `;
 
 export const BulletList = styled.ul`
@@ -67,7 +68,7 @@ export const BulletItem = styled.li`
 
   svg {
     margin-right: 8px;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
     flex-shrink: 0;
   }
 `;
@@ -81,5 +82,5 @@ export const BulletIconContainer = styled.span`
   margin-right: 10px;
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
 `;

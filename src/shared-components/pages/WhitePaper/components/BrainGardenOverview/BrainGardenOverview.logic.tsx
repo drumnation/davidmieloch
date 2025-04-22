@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react';
-import { HeroProps } from '@shared-components/organisms/Hero/Hero.types';
+import { HeroProps } from '@shared-components/organisms/Hero';
 import { BrainGardenOverviewProps } from './BrainGardenOverview.types';
 import { defaultContent } from './BrainGardenOverview.constants';
 import { Icon } from '@shared-components/atoms/Icon';
@@ -156,9 +156,9 @@ export const IntroTextComponent: React.FC<{
     <div>
       <IntroText className={className}>
         {paragraphs.map((paragraph, index) => (
-          <p key={index} style={{ marginBottom: '1rem' }}>
+          <div key={index} style={{ marginBottom: '1rem' }}>
             {paragraph}
-          </p>
+          </div>
         ))}
       </IntroText>
     </div>

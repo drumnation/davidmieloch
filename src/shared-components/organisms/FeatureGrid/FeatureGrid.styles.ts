@@ -28,50 +28,34 @@ export const Grid = styled.div<StyledFeatureGridProps>`
       width: 100%;
     }
   ` : css`
+    /* Row layout styles */
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 2rem;
-    overflow-x: auto;
-    padding: 1rem 0;
-    margin: 0 -1rem;
-    width: calc(100% + 2rem);
-    position: relative;
-    
-    /* Add a shadow to indicate scrolling */
-    &::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 50px;
-      background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.8));
-      pointer-events: none;
-    }
-    
-    /* Hide scrollbar but allow scrolling */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    
-    /* Ensure cards maintain consistent width in row layout */
+    flex-wrap: wrap; /* Allow wrapping instead of forcing no-wrap */
+    gap: 1.5rem; /* Keep or adjust gap as needed */
+    /* Remove overflow, padding, margin, width calc, and shadow */
+    /* overflow-x: auto; */
+    /* padding: 1rem 0; */
+    /* margin: 0 -1rem; */
+    /* width: calc(100% + 2rem); */
+    /* position: relative; */
+
+    /* Remove scroll shadow */
+    /* &::after { ... } */
+
+    /* Remove scrollbar hiding */
+    /* scrollbar-width: none; */
+    /* -ms-overflow-style: none; */
+    /* &::-webkit-scrollbar { display: none; } */
+
+    /* Let items flex */
     & > div {
-      flex: 0 0 auto;
-      width: 280px;
-      max-width: 85%;
-      margin: 0 0.5rem;
-      
-      &:first-child {
-        margin-left: 1rem;
-      }
-      
-      &:last-child {
-        margin-right: 1rem;
-        padding-right: 50px; /* Add space for the shadow */
-      }
+      flex: 1 1 280px; /* Allow flex grow/shrink, base width 280px */
+      max-width: 100%; /* Allow items to take full width if needed when wrapped */
+      /* Remove specific row layout margins */
+      /* margin: 0 0.5rem; */
+      /* &:first-child { margin-left: 1rem; } */
+      /* &:last-child { margin-right: 1rem; padding-right: 50px; } */
     }
   `}
 `;
@@ -92,13 +76,12 @@ export const IconWrapper = styled.div`
   border-radius: 12px;
   background: var(--bg-light);
   color: var(--primary-blue);
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
   min-height: 0; /* Needed for Firefox */
 `;
 
@@ -119,4 +102,6 @@ export const Title = styled.h4<{ $isKeyword?: boolean }>`
   min-height: 3rem; /* Ensure consistent height for titles */
   display: flex;
   align-items: flex-start;
+  text-align: center;
+  justify-content: center;
 `; 

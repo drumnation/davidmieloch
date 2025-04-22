@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.background.dark};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors.dark[8]};
+  border-radius: ${({ theme }) => (theme as MantineTheme).radius.lg};
 `;
 
 export const Header = styled.div`
@@ -15,14 +16,14 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.xl};
-  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.xl};
+  color: ${({ theme }) => (theme as MantineTheme).white};
   margin-bottom: 0.5rem;
 `;
 
 export const Subtitle = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.text.secondary};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.md};
+  color: ${({ theme }) => (theme as MantineTheme).colors.dark[1]};
 `;
 
 export const WorkGrid = styled.div`
@@ -32,33 +33,33 @@ export const WorkGrid = styled.div`
 `;
 
 export const WorkCard = styled.article`
-  background-color: ${({ theme }) => theme.colors.background.paper};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors.dark[6]};
+  border-radius: ${({ theme }) => (theme as MantineTheme).radius.md};
   padding: 1.5rem;
-  box-shadow: ${({ theme }) => theme.shadows.sm};
+  box-shadow: ${({ theme }) => (theme as MantineTheme).shadows.sm};
 `;
 
 export const WorkTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSizes.lg};
-  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.lg};
+  color: ${({ theme }) => (theme as MantineTheme).white};
   margin-bottom: 0.5rem;
 `;
 
 export const Company = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.primary.main};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.sm};
+  color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][5]};
   margin-bottom: 1rem;
 `;
 
 export const Period = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.text.secondary};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.sm};
+  color: ${({ theme }) => (theme as MantineTheme).colors.dark[1]};
   margin-bottom: 1rem;
 `;
 
 export const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.md};
+  color: ${({ theme }) => (theme as MantineTheme).white};
   margin-bottom: 1rem;
   line-height: 1.5;
 `;
@@ -71,11 +72,11 @@ export const TechnologiesList = styled.div`
 `;
 
 export const Technology = styled.span`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.primary.main};
-  background-color: ${({ theme }) => theme.colors.accent.light};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.sm};
+  color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][2]};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][8]};
   padding: 0.25rem 0.75rem;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border-radius: ${({ theme }) => (theme as MantineTheme).radius.sm};
 `;
 
 export const AchievementsList = styled.ul`
@@ -85,8 +86,8 @@ export const AchievementsList = styled.ul`
 `;
 
 export const Achievement = styled.li`
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: ${({ theme }) => (theme as MantineTheme).fontSizes.md};
+  color: ${({ theme }) => (theme as MantineTheme).white};
   margin-bottom: 0.5rem;
   padding-left: 1.5rem;
   position: relative;
@@ -95,6 +96,6 @@ export const Achievement = styled.li`
     content: "•";
     position: absolute;
     left: 0.5rem;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][5]};
   }
 `; 

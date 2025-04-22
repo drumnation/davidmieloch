@@ -1,37 +1,37 @@
 import styled from 'styled-components';
-import { DefaultTheme } from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 import { TagProps } from './Tag.types';
 
 const variantStyles = {
-  default: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.background.light};
-    color: ${theme.colors.text.primary};
-    border: 1px solid ${theme.colors.border.light};
+  default: (theme: MantineTheme) => `
+    background-color: ${theme.colors.gray[1]};
+    color: ${theme.black};
+    border: 1px solid ${theme.colors.gray[3]};
   `,
-  primary: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.primary.main};
-    color: #ffffff;
-    border: 1px solid ${theme.colors.primary.main};
+  primary: (theme: MantineTheme) => `
+    background-color: ${theme.colors[theme.primaryColor][6]};
+    color: ${theme.white};
+    border: 1px solid ${theme.colors[theme.primaryColor][6]};
   `,
-  secondary: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.secondary.light};
-    color: ${theme.colors.secondary.main};
-    border: 1px solid ${theme.colors.secondary.light};
+  secondary: (theme: MantineTheme) => `
+    background-color: ${theme.colors.gray[1]};
+    color: ${theme.colors.gray[7]};
+    border: 1px solid ${theme.colors.gray[3]};
   `,
-  success: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.accent.green}20;
-    color: ${theme.colors.accent.green};
-    border: 1px solid ${theme.colors.accent.green}20;
+  success: (theme: MantineTheme) => `
+    background-color: ${theme.colors.green[0]};
+    color: ${theme.colors.green[7]};
+    border: 1px solid ${theme.colors.green[2]};
   `,
-  warning: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.accent.yellow}20;
-    color: ${theme.colors.accent.yellow};
-    border: 1px solid ${theme.colors.accent.yellow}20;
+  warning: (theme: MantineTheme) => `
+    background-color: ${theme.colors.yellow[0]};
+    color: ${theme.colors.yellow[7]};
+    border: 1px solid ${theme.colors.yellow[2]};
   `,
-  danger: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.accent.red}20;
-    color: ${theme.colors.accent.red};
-    border: 1px solid ${theme.colors.accent.red}20;
+  danger: (theme: MantineTheme) => `
+    background-color: ${theme.colors.red[0]};
+    color: ${theme.colors.red[7]};
+    border: 1px solid ${theme.colors.red[2]};
   `
 };
 
@@ -64,7 +64,7 @@ export const StyledTag = styled.span<Partial<TagProps>>`
   white-space: nowrap;
   transition: all 0.2s ease;
   
-  ${({ theme, variant = 'default' }) => variantStyles[variant](theme)}
+  ${({ theme, variant = 'default' }) => variantStyles[variant](theme as MantineTheme)}
   ${({ size = 'md' }) => sizeStyles[size]}
   
   ${({ onClick }) => onClick && `

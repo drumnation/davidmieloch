@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import '@xyflow/react/dist/style.css';
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 // Import our components
 import { ReactFlowClientWrapper } from './ReactFlowClientWrapper';
@@ -26,13 +27,13 @@ const TitleContainer = styled.div`
   h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: ${({ theme }) => theme.colors.text.primary || '#333'};
+    color: ${({ theme }) => (theme as MantineTheme).black};
   }
 
   p {
     font-size: 1rem;
     line-height: 1.5;
-    color: ${({ theme }) => theme.colors.text.secondary || '#666'};
+    color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
   }
 `;
 
@@ -85,24 +86,24 @@ export const EnhancedReactFlowDiagram: React.FC<EnhancedReactFlowDiagramProps> =
         // Check if definition is a ReactFlowDefinition object
         if (typeof definition === 'object' && definition !== null) {
           const reactFlowDef = definition as ReactFlowDefinition;
-          
+
           // Extract and validate nodes and edges from the definition
           const definitionNodes = Array.isArray(reactFlowDef.nodes) ? reactFlowDef.nodes : [];
           const definitionEdges = Array.isArray(reactFlowDef.edges) ? reactFlowDef.edges : [];
 
           // Validate node positions
           const validNodes = definitionNodes.filter((node: ReactFlowNode) => {
-            const isValid = node.id && 
-                           node.position && 
-                           typeof node.position.x === 'number' && 
-                           typeof node.position.y === 'number' &&
-                           !isNaN(node.position.x) &&
-                           !isNaN(node.position.y);
-            
+            const isValid = node.id &&
+              node.position &&
+              typeof node.position.x === 'number' &&
+              typeof node.position.y === 'number' &&
+              !isNaN(node.position.x) &&
+              !isNaN(node.position.y);
+
             if (!isValid && debug) {
               console.warn('[EnhancedReactFlowDiagram] Invalid node filtered out:', node);
             }
-            
+
             return isValid;
           });
 
@@ -142,8 +143,8 @@ export const EnhancedReactFlowDiagram: React.FC<EnhancedReactFlowDiagramProps> =
           {description && <p>{description}</p>}
         </TitleContainer>
       )}
-      
-      <div style={{ 
+
+      <div style={{
         width: typeof width === 'number' ? `${width}px` : width,
         height: '100%',
       }}>
@@ -162,7 +163,7 @@ export const EnhancedReactFlowDiagram: React.FC<EnhancedReactFlowDiagramProps> =
           />
         </ReactFlowClientWrapper>
       </div>
-      
+
       {accessibilityDescription && (
         <div className="sr-only" role="note" aria-label="Diagram description">
           {accessibilityDescription}

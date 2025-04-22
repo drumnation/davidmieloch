@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 import { Typography } from '../../atoms/Typography/Typography';
 import { Card } from '../../atoms/Card/Card';
 
@@ -19,19 +20,19 @@ const ProblemCard = styled(Card)`
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: ${({ theme }) => theme.colors.accent.blue};
+  background-color: ${({ theme }) => (theme as MantineTheme).colors.blue[6]};
   color: white;
   display: flex;
   flex-direction: column;
   height: 100%;
   
   &.gradient {
-    background: ${({ theme }) => theme.colors.accent.blue};
+    background: ${({ theme }) => (theme as MantineTheme).colors.blue[6]};
     color: white;
   }
   
   &.accent {
-    background-color: ${({ theme }) => theme.colors.accent.blue};
+    background-color: ${({ theme }) => (theme as MantineTheme).colors.blue[6]};
     color: white;
     border-left: 4px solid rgba(255, 255, 255, 0.3);
   }
@@ -79,11 +80,11 @@ export const ProblemCards: React.FC<ProblemCardsProps> = ({
         <ProblemCard key={index} className={getCardClassName()}>
           <Title variant="h3">{problem.title}</Title>
           <Description variant="body">{problem.description}</Description>
-          
+
           {problem.plainTextContent && (
             <PlainTextContent>{problem.plainTextContent}</PlainTextContent>
           )}
-          
+
           {problem.codeExample && !problem.plainTextContent && (
             <PlainTextContent>{problem.codeExample}</PlainTextContent>
           )}

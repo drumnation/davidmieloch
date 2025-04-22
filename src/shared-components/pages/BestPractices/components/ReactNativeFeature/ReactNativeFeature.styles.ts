@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
-export const ReactNativeFeatureContainer = styled.div`
+export const ReactNativeFeatureContainer = styled.div<{ theme: MantineTheme }>`
   margin: 0;
-  background: ${({ theme }) => theme.colors.background.paper};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
-  box-shadow: ${({ theme }) => theme.shadows.card};
-  padding: 1.25rem;
+  background: ${({ theme }) => theme.white};
+  border-radius: ${({ theme }) => theme.radius.md};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
+  padding: ${({ theme }) => theme.spacing.lg};
   display: flex;
   align-items: flex-start;
   
@@ -23,20 +24,21 @@ export const ReactNativeFeatureContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: column;
     align-items: center;
+    padding: ${({ theme }) => theme.spacing.md};
   }
 `;
 
-export const FeatureIcon = styled.div`
+export const FeatureIcon = styled.div<{ theme: MantineTheme }>`
   width: 2.5rem;
   height: 2.5rem;
-  margin-right: 1rem;
+  margin-right: ${({ theme }) => theme.spacing.md};
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #000000;
-  border-radius: 50%;
+  border-radius: ${({ theme }) => theme.radius.xl};
   padding: 0.5rem; 
-  color: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   flex-shrink: 0;
 
   img {
@@ -44,7 +46,7 @@ export const FeatureIcon = styled.div`
   }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    margin-bottom: 0.75rem;
+    margin-bottom: ${({ theme }) => theme.spacing.sm};
     width: 3rem; 
     height: 3rem;
     padding: 0.6rem;
@@ -56,17 +58,17 @@ export const FeatureContent = styled.div`
   flex: 1;
 `;
 
-export const FeatureTitle = styled.h3`
-  font-size: 1.5rem;
+export const FeatureTitle = styled.h3<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.headings.sizes.h3.fontSize};
   font-weight: 600;
-  margin: 0 0 0.4rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+  margin: 0 0 ${({ theme }) => theme.spacing.xs};
+  color: ${({ theme }) => theme.black};
 `;
 
-export const FeatureDescription = styled.p`
-  font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  margin: 0 0 1rem;
+export const FeatureDescription = styled.p<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  color: ${({ theme }) => theme.colors.gray[7]};
+  margin: 0 0 ${({ theme }) => theme.spacing.md};
   max-width: 85%;
   
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -74,35 +76,35 @@ export const FeatureDescription = styled.p`
   }
 `;
 
-export const FeatureList = styled.ul`
+export const FeatureList = styled.ul<{ theme: MantineTheme }>`
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  gap: ${({ theme }) => theme.spacing.sm};
   
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     grid-template-columns: 1fr;
   }
 `;
 
-export const FeatureItem = styled.li`
+export const FeatureItem = styled.li<{ theme: MantineTheme }>`
   display: flex;
   align-items: flex-start;
-  line-height: 1.4;
+  line-height: ${({ theme }) => theme.lineHeights.md};
 `;
 
-export const ItemIcon = styled.span`
+export const ItemIcon = styled.span<{ theme: MantineTheme }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.5rem;
-  color: ${({ theme }) => theme.colors.primary.main};
+  margin-right: ${({ theme }) => theme.spacing.xs};
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   flex-shrink: 0;
 `;
 
-export const FeatureItemText = styled.span`
-  font-size: 0.95rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+export const FeatureItemText = styled.span<{ theme: MantineTheme }>`
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.black};
 `;

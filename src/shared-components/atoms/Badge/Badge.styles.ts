@@ -1,32 +1,32 @@
 import styled from 'styled-components';
-import { DefaultTheme } from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 import { BadgeProps } from './Badge.types';
 
 const variantStyles = {
-  default: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.background.light};
-    color: ${theme.colors.text.secondary};
-    border: 1px solid ${theme.colors.border.light};
+  default: (theme: MantineTheme) => `
+    background-color: ${theme.colors.gray[1]};
+    color: ${theme.colors.gray[7]};
+    border: 1px solid ${theme.colors.gray[3]};
   `,
-  stars: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.accent.yellow}10;
-    color: ${theme.colors.accent.yellow};
-    border: 1px solid ${theme.colors.accent.yellow}20;
+  stars: (theme: MantineTheme) => `
+    background-color: ${theme.colors.yellow[0]};
+    color: ${theme.colors.yellow[7]};
+    border: 1px solid ${theme.colors.yellow[2]};
   `,
-  forks: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.accent.blue}10;
-    color: ${theme.colors.accent.blue};
-    border: 1px solid ${theme.colors.accent.blue}20;
+  forks: (theme: MantineTheme) => `
+    background-color: ${theme.colors.blue[0]};
+    color: ${theme.colors.blue[7]};
+    border: 1px solid ${theme.colors.blue[2]};
   `,
-  issues: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.accent.green}10;
-    color: ${theme.colors.accent.green};
-    border: 1px solid ${theme.colors.accent.green}20;
+  issues: (theme: MantineTheme) => `
+    background-color: ${theme.colors.green[0]};
+    color: ${theme.colors.green[7]};
+    border: 1px solid ${theme.colors.green[2]};
   `,
-  prs: (theme: DefaultTheme) => `
-    background-color: ${theme.colors.accent.red}10;
-    color: ${theme.colors.accent.red};
-    border: 1px solid ${theme.colors.accent.red}20;
+  prs: (theme: MantineTheme) => `
+    background-color: ${theme.colors.red[0]};
+    color: ${theme.colors.red[7]};
+    border: 1px solid ${theme.colors.red[2]};
   `
 };
 
@@ -77,6 +77,6 @@ export const StyledBadge = styled.span<Partial<BadgeProps>>`
   white-space: nowrap;
   transition: all 0.2s ease;
   
-  ${({ theme, variant = 'default' }) => variantStyles[variant](theme)}
+  ${({ theme, variant = 'default' }) => variantStyles[variant](theme as MantineTheme)}
   ${({ size = 'md' }) => sizeStyles[size]}
 `; 

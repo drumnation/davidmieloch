@@ -3,7 +3,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Hero } from '@shared-components/organisms/Hero/Hero';
+import { Container, Paper, Box } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+import { Hero } from '@shared-components/organisms/Hero';
 import { Typography } from '@shared-components/atoms/Typography/Typography';
 import { AiSkepticToExpertProps } from './AiSkepticToExpert.types';
 import * as S from './AiSkepticToExpert.styles';
@@ -27,8 +29,9 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   onReady
 }) => {
   const componentName = "AiSkepticToExpert";
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
-  // Enhance props with consistent styling and defaults
+  // Use the adjusted enhancer function
   const enhancedHeroProps = React.useMemo(() => enhanceHeroProps({ ...heroProps }), [heroProps]);
   const enhancedQuotesProps = React.useMemo(() => {
     console.log("Input quotesProps:", quotesProps);
@@ -43,6 +46,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
     triggerOnce: true
   });
 
+  // Use the new Hero component
   const heroComponent = React.useMemo(() => (
     <Hero {...enhancedHeroProps} />
   ), [enhancedHeroProps]);
@@ -62,7 +66,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
       >
         {/* Added ID and style here */}
         <div id="skeptic-reality" style={{ scrollMarginTop: '100px' }}>
-          <ContentSection title="The Reality of AI Tools in Development Teams">
+          <ContentSection title="The Reality of AI Tools in Development Teams" titleStyle={{ textTransform: 'uppercase' }}>
             <Typography variant="body" weight="regular" className="mb-4">
               Let me guess: your team just got access to AI coding tools, and the reactions range from skeptical eye-rolls to outright hostility.
               I&apos;ve been there—both as the skeptic and later as the solution architect.
@@ -110,6 +114,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
         <div id="skeptic-solutions" style={{ scrollMarginTop: '100px', marginTop: SPACING.paragraphBreak }}>
           <ProblemSolutionSection
             title="Common Problems & My Solutions"
+            titleStyle={{ textTransform: 'uppercase' }}
             cards={problemSolutionCardsProps.cards}
           />
         </div>

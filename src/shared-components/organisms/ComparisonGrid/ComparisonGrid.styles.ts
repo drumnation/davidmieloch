@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const Container = styled.div<{ position?: string }>`
   width: 100%;
@@ -38,7 +39,7 @@ export const Card = styled.div<{ styleType?: string }>`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  background-color: ${props => props.theme.colors.accent.blue};
+  background-color: ${props => (props.theme as MantineTheme).colors.blue[6]};
   color: white;
   
   ${props => props.styleType === 'accent-cards' && `
@@ -46,11 +47,11 @@ export const Card = styled.div<{ styleType?: string }>`
   `}
   
   ${props => props.styleType === 'gradient-cards' && `
-    background: ${props.theme.colors.accent.blue};
+    background: ${(props.theme as MantineTheme).colors.blue[6]};
   `}
   
   ${props => props.styleType === 'default' && `
-    background-color: ${props.theme.colors.accent.blue};
+    background-color: ${(props.theme as MantineTheme).colors.blue[6]};
   `}
   
   h1, h2, h3, h4, h5, h6 {

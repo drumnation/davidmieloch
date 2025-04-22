@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 import { animated } from '@react-spring/web';
 
 interface ContainerProps {
@@ -42,7 +43,7 @@ export const CardsContainer = styled.div`
 export const Card = styled.div<CardProps>`
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  box-shadow: ${({ theme }) => (theme as MantineTheme).shadows.md};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -50,24 +51,24 @@ export const Card = styled.div<CardProps>`
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: ${({ theme }) => theme.shadows.lg};
+    box-shadow: ${({ theme }) => (theme as MantineTheme).shadows.lg};
   }
   
   ${({ $style, theme }) => $style === 'gradient-cards' && css`
-    background: linear-gradient(135deg, ${theme.colors.primary.main}, ${theme.colors.secondary.main});
+    background: linear-gradient(135deg, ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]}, ${(theme as MantineTheme).colors.gray[6]});
     color: white;
   `}
   
   ${({ $style, theme }) => $style === 'accent-cards' && css`
-    background: ${theme.colors.primary.light};
+    background: ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][1]};
     color: white;
-    border: 1px solid ${theme.colors.primary.main};
+    border: 1px solid ${(theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   `}
   
   ${({ $style, theme }) => $style === 'default' && css`
-    background: ${theme.colors.background.paper};
-    color: ${theme.colors.text.primary};
-    border: 1px solid ${theme.colors.border.light};
+    background: ${(theme as MantineTheme).white};
+    color: ${(theme as MantineTheme).black};
+    border: 1px solid ${(theme as MantineTheme).colors.gray[3]};
   `}
 `;
 

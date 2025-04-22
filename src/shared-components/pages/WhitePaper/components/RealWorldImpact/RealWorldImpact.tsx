@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { animated } from '@react-spring/web';
-import { Hero } from '@shared-components/organisms/Hero/Hero';
+import { Hero } from '@shared-components/organisms/Hero';
 import { RealWorldImpactProps } from './RealWorldImpact.types';
 import { GlobalStyles, ContentSection } from './RealWorldImpact.styles';
 import { defaultContent } from './RealWorldImpact.constants';

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Group } from '@mantine/core';
+import { IconAlertTriangle } from '@tabler/icons-react';
 import { Typography } from '@shared-components/atoms/Typography';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../AiAutopilotAnalogy.styles';
@@ -14,6 +16,11 @@ export const WarningTransitionSection: React.FC<WarningTransitionSectionProps> =
   description,
   className
 }) => {
+  // Split the title
+  const titleParts = title.split(':', 1); // Split only on the first colon
+  const warningText = titleParts.length > 0 ? `${titleParts[0]}:` : title; // Add colon back
+  const restOfTitle = titleParts.length > 1 ? title.substring(titleParts[0].length + 1).trim() : null;
+
   return (
     <motion.div
       className={className}
@@ -37,9 +44,18 @@ export const WarningTransitionSection: React.FC<WarningTransitionSectionProps> =
         margin: '0 auto'
       }}>
         <div style={{ marginBottom: '0.75rem' }}>
-          <Typography variant="h3" weight="bold">
-            {title}
-          </Typography>
+          <Group gap="xs" align="center">
+            <IconAlertTriangle size={24} color="#f44336" />
+            <Typography variant="h3" weight="bold">
+              {warningText}
+            </Typography>
+          </Group>
+          {/* Render the rest of the title if it exists */}
+          {restOfTitle && (
+            <Typography variant="h3" weight="bold" mt="xs">
+              {restOfTitle}
+            </Typography>
+          )}
         </div>
         {description.map((paragraph, index) => (
           <Typography

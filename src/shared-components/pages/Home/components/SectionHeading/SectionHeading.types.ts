@@ -8,7 +8,7 @@ export interface SectionHeadingProps {
    * Content of the heading
    */
   children?: ReactNode;
-  
+
   /**
    * Optional CSS class name
    */
@@ -17,7 +17,7 @@ export interface SectionHeadingProps {
   /**
    * Optional icon to display before the heading
    */
-  icon?: string;
+  icon?: ReactNode;
 
   /**
    * Optional title text (alternative to using children)

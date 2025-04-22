@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Text, Title, Group } from '@mantine/core';
+import { Text, Title, Group, Stack } from '@mantine/core';
 import { IconTrendingUp, IconTrendingDown, IconMinus } from '@tabler/icons-react';
 import { ChallengeBreakdownProps } from './ChallengeBreakdown.types';
 import {
@@ -12,7 +12,6 @@ import {
   ChallengeGrid,
   ChallengeCard,
   MetricsContainer,
-  ImpactText,
   MetricValue,
   ChallengeDescription
 } from './ChallengeBreakdown.styles';
@@ -34,8 +33,8 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
   // Animation variants
   const containerVariants = {
     hidden: animation === 'none' ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         type: "spring",
@@ -62,7 +61,7 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
 
   const getTrendIcon = (trend?: 'up' | 'down' | 'neutral') => {
     const color = trend === 'up' ? '#E53E3E' : trend === 'down' ? '#38A169' : '#718096';
-    
+
     switch (trend) {
       case 'up':
         return <IconTrendingUp size={16} color={color} />;
@@ -84,7 +83,7 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
       animate="visible"
       className={className}
     >
-      <Container position={position}>
+      <Container $position={position}>
         <StyledCard $styleType={style}>
           <ContentWrapper>
             {title && (
@@ -111,12 +110,12 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
                         {item.title}
                       </Title>
                     )}
-                    
+
                     {/* Description */}
                     <ChallengeDescription>
                       {item.description}
                     </ChallengeDescription>
-                    
+
                     {/* Metrics if they exist */}
                     {item.metrics && (
                       <MetricsContainer>
@@ -141,12 +140,12 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
                         ))}
                       </MetricsContainer>
                     )}
-                    
+
                     {/* Impact if it exists */}
                     {item.impact && (
-                      <ImpactText>
+                      <Text mt="sm" size="sm">
                         Impact: <strong>{item.impact}</strong>
-                      </ImpactText>
+                      </Text>
                     )}
                   </ChallengeCard>
                 </motion.div>
@@ -160,9 +159,9 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
 
   return (
     <AnimationErrorBoundary componentName={componentName}>
-      <AnimationDebugger 
-        componentName={componentName} 
-        trackRenders={true} 
+      <AnimationDebugger
+        componentName={componentName}
+        trackRenders={true}
         logLifecycle={true}
         detectCircular={true}
       >

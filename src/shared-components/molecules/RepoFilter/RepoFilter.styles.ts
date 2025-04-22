@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MantineTheme } from '@mantine/core';
 
 export const FilterContainer = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ export const SectionTitle = styled.h4`
   font-size: 14px;
   font-weight: 600;
   margin: 0;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => (theme as MantineTheme).colors.gray[7]};
 `;
 
 export const FilterGroup = styled.div`
@@ -42,11 +43,11 @@ export const LanguageTag = styled.button<{ $active?: boolean }>`
   align-items: center;
   padding: 6px 12px;
   background: ${({ $active, theme }) =>
-    $active ? theme.colors.primary.main : theme.colors.background.light};
+    $active ? (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6] : (theme as MantineTheme).white};
   color: ${({ $active, theme }) =>
-    $active ? theme.colors.text.light : theme.colors.text.primary};
+    $active ? (theme as MantineTheme).white : (theme as MantineTheme).black};
   border: 1px solid ${({ $active, theme }) =>
-    $active ? theme.colors.primary.main : theme.colors.border.light};
+    $active ? (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6] : (theme as MantineTheme).colors.gray[3]};
   border-radius: 16px;
   font-size: 13px;
   cursor: pointer;
@@ -54,23 +55,23 @@ export const LanguageTag = styled.button<{ $active?: boolean }>`
   
   &:hover {
     background: ${({ $active, theme }) =>
-      $active ? theme.colors.primary.dark : theme.colors.background.paper};
+    $active ? (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][8] : (theme as MantineTheme).colors.gray[0]};
   }
 `;
 
 export const SortSelect = styled.select`
   padding: 8px 12px;
   border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
-  background-color: ${({ theme }) => theme.colors.background.light};
-  color: ${({ theme }) => theme.colors.text.primary};
+  border: 1px solid ${({ theme }) => (theme as MantineTheme).colors.gray[3]};
+  background-color: ${({ theme }) => (theme as MantineTheme).white};
+  color: ${({ theme }) => (theme as MantineTheme).black};
   font-size: 14px;
   width: 100%;
   cursor: pointer;
   
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.primary.main};
+    border-color: ${({ theme }) => (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6]};
   }
 `;
 
@@ -80,15 +81,15 @@ export const OrderToggle = styled.button<{ $active?: boolean }>`
   justify-content: center;
   width: 32px;
   height: 32px;
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  border: 1px solid ${({ theme }) => (theme as MantineTheme).colors.gray[3]};
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.background.light};
+  background-color: ${({ theme }) => (theme as MantineTheme).white};
   color: ${({ $active, theme }) =>
-    $active ? theme.colors.primary.main : theme.colors.text.secondary};
+    $active ? (theme as MantineTheme).colors[(theme as MantineTheme).primaryColor][6] : (theme as MantineTheme).colors.gray[7]};
   cursor: pointer;
   transition: all 0.2s ease;
   
   &:hover {
-    background-color: ${({ theme }) => theme.colors.background.paper};
+    background-color: ${({ theme }) => (theme as MantineTheme).colors.gray[0]};
   }
 `; 

@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { Stack, Box } from '@mantine/core';
 import {
   ConclusionContainer,
   ConclusionTitle,
   ConclusionText,
-  TitleWrapper,
   SectionIcon,
   IconWrapper
 } from './Conclusion.styles';
@@ -42,60 +42,62 @@ export const Conclusion: React.FC<ConclusionProps> = ({ className }) => {
       ref={conclusionRef}
       className={`${className} ${isVisible ? 'visible' : ''}`}
     >
-      <section id="bp-conclusion-synergy" style={{ scrollMarginTop: '100px' }}>
-        <TitleWrapper>
-          <SectionIcon>
-            <IconWrapper>
-              <Image
-                src="/icons/ai-synergy.svg"
-                alt="AI Synergy Icon"
-                width={32}
-                height={32}
-                priority={true}
-              />
-            </IconWrapper>
-          </SectionIcon>
-          <ConclusionTitle>The Synergy of AI and Modern Development Practices</ConclusionTitle>
-        </TitleWrapper>
-        <ConclusionText>
-          The benefits of these architectural choices extend beyond human developers. The rise of generative AI tools,
-          like post GPT-4. like 4o, o1, Gemini 2.5 pro, and Claude 3.7, has highlighted a powerful synergy between well-structured code and AI assistance. A codebase
-          built with TypeScript, organized into well-defined modules within a monorepo, and supported by comprehensive
-          tests, is significantly easier for AI to understand, generate, and refactor. The lack of these principles in
-          the legacy project I described severely limited the effectiveness of AI, demonstrating that outdated practices
-          create a bottleneck for future innovation. A modern stack <em>amplifies</em> the power of AI.
-        </ConclusionText>
-      </section>
+      <Stack gap="xl" align="center">
+        <Box component="section" id="bp-conclusion-synergy" style={{ scrollMarginTop: '100px', width: '100%', maxWidth: '800px' }}>
+          <Stack align="center" gap="md" mb="xl">
+            <SectionIcon>
+              <IconWrapper>
+                <Image
+                  src="/icons/ai-synergy.svg"
+                  alt="AI Synergy Icon"
+                  width={32}
+                  height={32}
+                  priority={true}
+                />
+              </IconWrapper>
+            </SectionIcon>
+            <ConclusionTitle>The Synergy of AI and Modern Development Practices</ConclusionTitle>
+          </Stack>
+          <ConclusionText>
+            The benefits of these architectural choices extend beyond human developers. The rise of generative AI tools,
+            like post GPT-4. like 4o, o1, Gemini 2.5 pro, and Claude 3.7, has highlighted a powerful synergy between well-structured code and AI assistance. A codebase
+            built with TypeScript, organized into well-defined modules within a monorepo, and supported by comprehensive
+            tests, is significantly easier for AI to understand, generate, and refactor. The lack of these principles in
+            the legacy project I described severely limited the effectiveness of AI, demonstrating that outdated practices
+            create a bottleneck for future innovation. A modern stack <em>amplifies</em> the power of AI.
+          </ConclusionText>
+        </Box>
 
-      <section id="bp-conclusion-future" style={{ scrollMarginTop: '100px' }}>
-        <TitleWrapper>
-          <SectionIcon>
-            <IconWrapper>
-              <Image
-                src="/icons/future.svg"
-                alt="Future Icon"
-                width={32}
-                height={32}
-                priority={true}
-              />
-            </IconWrapper>
-          </SectionIcon>
-          <ConclusionTitle>Conclusion: Building for the Future</ConclusionTitle>
-        </TitleWrapper>
-        <ConclusionText>
-          The evolution of software development is a continuous process. However, the combination of a thoughtful
-          component architecture (blending Atomic and hierarchical design), a monorepo approach powered by tools like
-          Nx, Turborepo, and pnpm, a commitment to TypeScript&apos;s strong typing, a comprehensive testing strategy, and a
-          robust CI/CD pipeline provides a solid foundation for building scalable, maintainable, and high-quality
-          applications in the React, Node.js, and TypeScript ecosystem.
-          <br />
-          <br />
-          These elements are not isolated improvements;
-          they are interconnected force multipliers that benefit both human developers and the increasingly important
-          role of AI in the software development lifecycle. This approach is essential for enterprise teams striving
-          for speed, quality, and stability.
-        </ConclusionText>
-      </section>
+        <Box component="section" id="bp-conclusion-future" style={{ scrollMarginTop: '100px', width: '100%', maxWidth: '800px' }}>
+          <Stack align="center" gap="md" mb="xl">
+            <SectionIcon>
+              <IconWrapper>
+                <Image
+                  src="/icons/future.svg"
+                  alt="Future Icon"
+                  width={32}
+                  height={32}
+                  priority={true}
+                />
+              </IconWrapper>
+            </SectionIcon>
+            <ConclusionTitle>Conclusion: Building for the Future</ConclusionTitle>
+          </Stack>
+          <ConclusionText>
+            The evolution of software development is a continuous process. However, the combination of a thoughtful
+            component architecture (blending Atomic and hierarchical design), a monorepo approach powered by tools like
+            Nx, Turborepo, and pnpm, a commitment to TypeScript&apos;s strong typing, a comprehensive testing strategy, and a
+            robust CI/CD pipeline provides a solid foundation for building scalable, maintainable, and high-quality
+            applications in the React, Node.js, and TypeScript ecosystem.
+            <br />
+            <br />
+            These elements are not isolated improvements;
+            they are interconnected force multipliers that benefit both human developers and the increasingly important
+            role of AI in the software development lifecycle. This approach is essential for enterprise teams striving
+            for speed, quality, and stability.
+          </ConclusionText>
+        </Box>
+      </Stack>
     </ConclusionContainer>
   );
-}; 
+};
