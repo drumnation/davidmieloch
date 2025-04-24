@@ -83,7 +83,7 @@ export const PROJECT_CURSOR_DIRECTORY_STRUCTURE: ProjectData = {
     iconType: 'image',
     iconValue: '/media/cursor.png',
     iconBackgroundColor: '#4a5568',
-    link: 'https://github.com/dmieloch/cursor-directory-structure-ts',
+    link: 'https://github.com/drumnation/cursor-directory-structure-ts',
 };
 
 export const PROJECT_TS_IMPORT_MOVE: ProjectData = {
@@ -92,7 +92,7 @@ export const PROJECT_TS_IMPORT_MOVE: ProjectData = {
     status: 'live',
     iconType: 'techIcon',
     iconValue: 'typescript',
-    link: 'https://github.com/dmieloch/ts-import-move',
+    link: 'https://github.com/drumnation/ts-import-move',
 };
 
 export const PROJECT_BROWSER_USE_CLI: ProjectData = {
@@ -102,7 +102,7 @@ export const PROJECT_BROWSER_USE_CLI: ProjectData = {
     iconType: 'image',
     iconValue: '/browser-use.jpg',
     iconBackgroundColor: '#ffffff',
-    link: 'https://github.com/dmieloch/browser-use-cli',
+    link: 'https://github.com/drumnation/browser-use-cli',
 };
 
 export const PROJECT_UNSPLASH_MCP: ProjectData = {
