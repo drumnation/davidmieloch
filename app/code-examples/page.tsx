@@ -1,43 +1,30 @@
-'use client'; // Mark as a Client Component because we use useEffect
-
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation'; // Import useRouter
-import { CodeExamples } from '@shared-components/pages/CodeExamples';
+import React from 'react';
+import { fetchGitHubRepos, transformGitHubRepo, fallbackRepositories } from './utils/github';
 import { Repository } from '@shared-components/types/Repository.types';
-import { useLoading } from '@contexts/LoadingContext'; // Import useLoading
+import CodeExamplesClient from './CodeExamplesClient';
 
-interface CodeExamplesClientProps {
-  repositories: Repository[];
-  rateLimited: boolean;
-  children?: React.ReactNode;
+async function getGitHubRepos(): Promise<{ repositories: Repository[], rateLimited: boolean }> {
+  const correctUsername = 'drumnation';
+  const repos = await fetchGitHubRepos(correctUsername);
+  let rateLimited = false;
+  let finalRepositories: Repository[];
+
+  if (repos === null) {
+    rateLimited = true;
+    finalRepositories = fallbackRepositories;
+  } else if (repos.length === 0) {
+    finalRepositories = fallbackRepositories;
+  } else {
+    const transformedRepos = repos
+      .map(transformGitHubRepo)
+      .filter((repo): repo is Repository => repo !== null)
+      .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+    finalRepositories = transformedRepos.length === 0 ? fallbackRepositories : transformedRepos;
+  }
+  return { repositories: finalRepositories, rateLimited };
 }
 
-export default function CodeExamplesClient({ repositories, rateLimited }: CodeExamplesClientProps) {
-  const { signalPageReady } = useLoading(); // Get signalPageReady from context
-  const router = useRouter(); // Get router instance
-
-  // Effect to REDIRECT if rate limited
-  useEffect(() => {
-    if (rateLimited) {
-      console.log('Rate limit detected on client, redirecting to /experience...');
-      // window.open('https://github.com/drumnation', '_blank'); // Remove window.open
-      router.push('/experience'); // Redirect to /experience
-    }
-  }, [rateLimited, router]); // Add router to dependency array
-
-  // Effect to signal page is ready once mounted
-  useEffect(() => {
-    // Only signal ready if we are *not* about to redirect
-    if (!rateLimited) {
-      console.log('[CodeExamplesClient] Signaling page ready.');
-      signalPageReady(); 
-    }
-  }, [signalPageReady, rateLimited]); // Add rateLimited dependency
-
-  // Avoid rendering the main content if we are redirecting
-  if (rateLimited) {
-    return null; // Or render a minimal loading/redirecting message
-  }
-
-  return <CodeExamples repositories={repositories} />;
+export default async function Page() {
+  const { repositories, rateLimited } = await getGitHubRepos();
+  return <CodeExamplesClient repositories={repositories} rateLimited={rateLimited} />;
 } 
