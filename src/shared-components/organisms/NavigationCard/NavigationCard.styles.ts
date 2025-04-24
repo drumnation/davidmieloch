@@ -41,6 +41,9 @@ export const CardContent = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 1rem;
   height: 100%;
 `;

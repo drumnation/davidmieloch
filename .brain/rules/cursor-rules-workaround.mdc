@@ -1,7 +1,7 @@
 ---
 description: Cursor Rules Workaround Process - Instructions for creating and updating Cursor rules via the .brain/rules directory workaround to ensure editable, version-controlled rules that are properly symlinked to the .cursor/rules location.
-globs: "*"
-alwaysApply: true
+globs: 
+alwaysApply: false
 ---
 # Cursor Rules Workaround Process
 # Last Updated: 2025-03-31 10:34:05 AM

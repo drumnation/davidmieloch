@@ -1,0 +1,126 @@
+---
+description: 
+globs: *.tsx
+alwaysApply: false
+---
+## **Framer Motion Animation Ruleset for React Sales Content**
+
+**Objective:** To automatically apply tasteful, engaging, and conversion-focused animations using Framer Motion to React components within sales-oriented content (landing pages, product showcases, pricing pages, etc.) without explicit per-element requests.
+
+**Core Principles:**
+
+1. **Purposeful Animation:** Every animation should serve a purpose – guide the eye, emphasize key information, provide feedback, or enhance perceived value. Avoid animation for animation's sake.  
+2. **Subtlety is Key:** Animations should enhance, not distract. Opt for smooth, relatively quick transitions. Avoid overly complex, lengthy, or jarring effects.  
+3. **Performance First:** Be mindful of performance. Use efficient animations (transform, opacity). Limit animations on complex or numerous elements, especially simultaneous ones. Leverage whileInView to animate only visible elements.  
+4. **Consistency:** Maintain a consistent animation style (timing, easing) across the application for a cohesive feel.  
+5. **Accessibility:** Ensure animations don't negatively impact accessibility. Consider users who prefer reduced motion.
+
+**Ruleset & Examples:**
+
+The agent should analyze the structure and semantics of React components and apply the following rules:
+
+**1\. Page/Section Load & Transitions:**
+
+* **Rule:** Apply entrance animations to primary content sections or blocks as they enter the viewport.  
+* **Trigger:** whileInView={{ opacity: 1, y: 0 }} with initial={{ opacity: 0, y: 20 }} (Subtle fade-up).  
+* **Applies To:** Main section containers (\<section\>, \<div\> acting as sections), hero content wrappers, feature group containers.  
+* **Example:** A "Key Features" section fades and slides up gently when scrolled into view.  
+  // \<motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.5 }}\>...\</motion.section\>
+
+* **Variation:** For page transitions (if using a router that supports them), animate the outgoing page (exit) and incoming page (initial, animate).
+
+**2\. Headlines & Key Text:**
+
+* **Rule:** Animate primary headlines (H1, H2) to draw initial focus. Sub-headlines or descriptive text can have a slight delay.  
+* **Trigger:** On load/viewport entry. Use fade-in, subtle slide-in, or word/letter staggering for high-impact headlines (use sparingly).  
+* **Applies To:** \<h1\>, \<h2\>, primary \<p\> tags in hero sections.  
+* **Example:** Main headline fades up (opacity, y), subtitle fades in slightly after (delay).  
+  // \<motion.h1 initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}\>...\</motion.h1\>  
+  // \<motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}\>...\</motion.p\>
+
+**3\. Call to Actions (CTAs):**
+
+* **Rule:** Apply subtle animations on hover/focus and potentially a gentle initial animation to make CTAs stand out.  
+* **Trigger:** whileHover, whileTap, potentially animate for a subtle loop (use *very* sparingly).  
+* **Applies To:** \<button\>, \<a\> styled as buttons, primary action links.  
+* **Example:** Button slightly scales up on hover and down on tap.  
+  // \<motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 300, damping: 15 }}\>Sign Up Now\</motion.button\>
+
+* **Variation:** A *very* subtle pulse animation (scale: \[1, 1.02, 1\]) on the primary CTA if appropriate for the design.
+
+**4\. Feature Lists & Bullet Points:**
+
+* **Rule:** Animate the appearance of list items, often with a stagger effect.  
+* **Trigger:** Parent container whileInView, use staggerChildren transition property.  
+* **Applies To:** \<ul\>, \<ol\>, groups of feature cards/blocks.  
+* **Example:** Feature items fade/slide in one after another.  
+  // const listVariants \= { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } };  
+  // const itemVariants \= { hidden: { opacity: 0, x: \-20 }, visible: { opacity: 1, x: 0 } };  
+  // \<motion.ul initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={listVariants}\>  
+  //   \<motion.li variants={itemVariants}\>Feature 1\</motion.li\>  
+  //   \<motion.li variants={itemVariants}\>Feature 2\</motion.li\>  
+  // \</motion.ul\>
+
+**5\. Icons & Small Illustrations:**
+
+* **Rule:** Apply subtle animations on load or hover to add delight and draw attention to associated features.  
+* **Trigger:** whileInView (for load), whileHover (on the icon or its parent container).  
+* **Applies To:** SVG icons, small decorative images.  
+* **Example:** Icon subtly scales or rotates on hover over its feature card.  
+  // \<motion.div whileHover={{ y: \-5 }}\>\<YourIconComponent /\>\</motion.div\>
+
+* **Variation:** Icon fades/scales in slightly after its accompanying text appears.
+
+**6\. Pricing Tables/Cards:**
+
+* **Rule:** Use hover effects to indicate selection possibility and potentially highlight a recommended plan.  
+* **Trigger:** whileHover on individual plan cards.  
+* **Applies To:** Containers for individual pricing tiers.  
+* **Example:** Pricing card lifts slightly (y-translate or shadow change) on hover.  
+  // \<motion.div whileHover={{ y: \-8, boxShadow: "0px 10px 20px rgba(0,0,0,0.1)" }} transition={{ duration: 0.2 }}\>...\</motion.div\>
+
+* **Variation:** A "Recommended" badge might have a subtle shimmer or pulse animation.
+
+**7\. Testimonials & Quotes:**
+
+* **Rule:** Apply gentle entrance animations to testimonial cards or blockquotes to lend them credibility and visual separation.  
+* **Trigger:** whileInView.  
+* **Applies To:** Testimonial cards, \<blockquote\> elements.  
+* **Example:** Testimonial card fades and slides in from the side. Quote marks (") might scale in slightly before the text.  
+  // \<motion.blockquote initial={{ opacity: 0, x: \-30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.5 }}\>...\</motion.blockquote\>
+
+**8\. Images & Media:**
+
+* **Rule:** Animate the appearance of key images or video placeholders.  
+* **Trigger:** whileInView.  
+* **Applies To:** \<img\>, \<video\>, container divs with background images.  
+* **Example:** Image fades in and slightly scales up.  
+  // \<motion.img src="..." initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7 }} /\>
+
+**9\. Form Elements & Feedback:**
+
+* **Rule:** Use animation for subtle feedback on input focus or validation states (use cautiously).  
+* **Trigger:** whileFocus, conditional animation based on form state.  
+* **Applies To:** \<input\>, \<textarea\>, potentially form error messages.  
+* **Example:** Input border color animates smoothly on focus. An error message shakes slightly on appearance (x: \[-5, 5, \-5, 5, 0\]).  
+  // Error Message Example (using variants):  
+  // const errorVariants \= { visible: { opacity: 1, x: \[-3, 3, \-3, 3, 0\], transition: { duration: 0.3 } }, hidden: { opacity: 0 } };  
+  // \<motion.div variants={errorVariants} animate={hasError ? "visible" : "hidden"}\>Error text\</motion.div\>
+
+**10\. Counters & Dynamic Numbers:**
+
+* **Rule:** Animate numbers counting up to their final value when they become visible.  
+* **Trigger:** whileInView. Requires Framer Motion's useMotionValue, useTransform, or animate function.  
+* **Applies To:** Statistic displays (e.g., "10,000+ Customers").  
+* **Example:** (Requires more complex setup \- see Framer Motion docs for animate function with numbers). The number rapidly increments from 0 to the target value.
+
+**Implementation Notes:**
+
+* Wrap target components with motion.{htmlTag} (e.g., motion.div, motion.button).  
+* Use initial and animate props for load animations (when not scroll-dependent).  
+* Use initial and whileInView for scroll-triggered animations. Configure viewport options (once: true is common, amount controls visibility threshold).  
+* Use whileHover, whileTap, whileFocus for interaction-based micro-interactions.  
+* Leverage variants for cleaner organization, especially with parent/child relationships (staggerChildren).  
+* Use transition prop to control duration, delay, easing (ease: "easeInOut"), and type (type: "spring").
+
+By following these rules, the agent can systematically enhance sales content with animations that feel integrated, purposeful, and contribute positively to the user experience and conversion goals.

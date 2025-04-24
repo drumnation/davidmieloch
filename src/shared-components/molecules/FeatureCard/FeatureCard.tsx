@@ -40,7 +40,7 @@ const BulletList = styled.ul`
 
 const BulletItem = styled.li`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 12px;
   
   &:last-child {
@@ -50,6 +50,7 @@ const BulletItem = styled.li`
   &:before {
     content: "•";
     margin-right: 8px;
+    line-height: 1;
   }
 `;
 
@@ -67,7 +68,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
         {icon}
         {title}
       </CardTitle>
-      
+
       <BulletList>
         {bulletPoints.map((point, index) => (
           <BulletItem key={index}>

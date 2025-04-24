@@ -42,6 +42,12 @@ import {
 } from 'react-icons/bi';
 import { GiPuzzle } from 'react-icons/gi';
 import { useMediaQuery } from '@mantine/hooks';
+import { motion, useInView } from 'framer-motion';
+
+// Import required icons
+import { BsCodeSlash } from 'react-icons/bs';
+import { HiOutlineUsers } from 'react-icons/hi';
+import { FaBrain } from 'react-icons/fa';
 
 // Define the type for a timeline item
 interface TimelineItem {
@@ -60,6 +66,26 @@ interface PrincipleItemData {
   title: string;
   description: string;
 }
+
+// Helper for keyword highlighting
+const HighlightKeywords: React.FC<{ text: string }> = ({ text }) => {
+  const keywords = [
+    'multi-agent collaboration', 'hierarchical task delegation', 'specialized agent roles',
+    'on-demand skill integration', 'Skill-Jacks via MCP', 'universal memory compatibility', 'advanced knowledge graph capabilities',
+    'deep integrations', 'developer tools', 'user environments',
+    'feedback loops', 'dynamic rule profile management', 'autonomously enhance'
+  ];
+  const regex = new RegExp(`(${keywords.join('|')})`, 'gi');
+  const parts = text.split(regex);
+
+  return (
+    <>
+      {parts.map((part, index) =>
+        regex.test(part) ? <strong key={index}>{part}</strong> : part
+      )}
+    </>
+  );
+};
 
 export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
   className
@@ -111,6 +137,10 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
       ]
     }
   };
+
+  // Animation ref
+  const researchRef = React.useRef(null);
+  const researchInView = useInView(researchRef, { once: true, amount: 0.2 });
 
   // R&D focus areas data - with Icons
   const researchAreas: ResearchAreaItem[] = [
@@ -236,23 +266,29 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
           <Typography variant="h3">Highlighted Future Capabilities</Typography>
         </Box>
         <CapabilityCardsGrid>
-          <CapabilityCard style={{ backgroundColor: "#2196F3" }}>
-            <Typography variant="h3" color="light" mb="0.75rem">Seamless VSCode Extension</Typography>
-            <Typography variant="body" color="light">
+          <CapabilityCard>
+            <Typography variant="h3" mb="0.75rem" sx={{ display: 'flex', alignItems: 'center' }}>
+              <BsCodeSlash style={{ marginRight: '8px' }} /> Seamless VSCode Extension
+            </Typography>
+            <Typography variant="body">
               Provides a dedicated GUI within the developer's IDE for managing agents, workflows, and accessing Brain Garden features directly.
             </Typography>
           </CapabilityCard>
 
-          <CapabilityCard style={{ backgroundColor: "#6A0DAD" }}>
-            <Typography variant="h3" color="light" mb="0.75rem">Hierarchical Agent Teams</Typography>
-            <Typography variant="body" color="light">
+          <CapabilityCard>
+            <Typography variant="h3" mb="0.75rem" sx={{ display: 'flex', alignItems: 'center' }}>
+              <HiOutlineUsers style={{ marginRight: '8px' }} /> Hierarchical Agent Teams
+            </Typography>
+            <Typography variant="body">
               Implement specialized agent roles (Architects, Testers) directed by Lead agents for complex, parallel task execution and planning.
             </Typography>
           </CapabilityCard>
 
-          <CapabilityCard style={{ backgroundColor: "#4CAF50" }}>
-            <Typography variant="h3" color="light" mb="0.75rem">Unified Knowledge System</Typography>
-            <Typography variant="body" color="light">
+          <CapabilityCard>
+            <Typography variant="h3" mb="0.75rem" sx={{ display: 'flex', alignItems: 'center' }}>
+              <FaBrain style={{ marginRight: '8px' }} /> Unified Knowledge System
+            </Typography>
+            <Typography variant="body">
               Ingest diverse data sources (Gmail, OCR) into a universal, searchable knowledge graph, serving as the single source of truth for all agents.
             </Typography>
           </CapabilityCard>
@@ -263,24 +299,39 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
           <SectionSubTitleComponent>
             <Typography variant="h3">Key Research & Development Focus Areas</Typography>
           </SectionSubTitleComponent>
-          <Typography variant="body" mb="1.5rem">
+          <Typography variant="body" mb="xl">
             Our R&D resources are strategically invested in these transformative capabilities to
             create an increasingly autonomous and powerful Brain Garden ecosystem:
           </Typography>
 
-          {/* Use Mantine Grid for layout - Reverting children structure inside map */}
-          <ResearchGridContainer gutter="lg">
-            {researchAreas.map((area, index) => (
-              // Keep Grid.Col structure, user needs to fix typing error
-              <Grid.Col key={index} span={{ base: 12, sm: 6, md: 6 }}>
-                <ResearchAreaCard>
-                  <IconWrapper><area.icon /></IconWrapper>
-                  <Typography variant="h3" mb="0.5rem">{area.title}</Typography>
-                  <Typography variant="body">{area.description}</Typography>
-                </ResearchAreaCard>
-              </Grid.Col>
-            ))}
-          </ResearchGridContainer>
+          {/* Use motion.div for animation container */}
+          <motion.div
+            ref={researchRef}
+            initial="hidden"
+            animate={researchInView ? "visible" : "hidden"}
+            variants={staggerContainer} // Use stagger effect
+          >
+            {/* Increased gutter */}
+            <ResearchGridContainer gutter="xl">
+              {researchAreas.map((area, index) => (
+                // Keep Grid.Col structure
+                <Grid.Col key={index} span={{ base: 12, sm: 6, md: 6 }}>
+                  {/* Apply item animation & ensure full height */}
+                  <motion.div variants={fadeInUp} style={{ height: '100%' }}>
+                    <ResearchAreaCard>
+                      <IconWrapper><area.icon /></IconWrapper>
+                      {/* Adjusted Typography size/weight */}
+                      <Typography variant="h3" size="xl" fw={600} ta="center" mb="0.5rem">{area.title}</Typography>
+                      {/* Adjusted Typography size/line-height, use Highlight component */}
+                      <Typography variant="body" size="lg" lh={1.6} ta="center">
+                        <HighlightKeywords text={area.description} />
+                      </Typography>
+                    </ResearchAreaCard>
+                  </motion.div>
+                </Grid.Col>
+              ))}
+            </ResearchGridContainer>
+          </motion.div>
         </ResearchAreaContainer>
 
         {/* NEW SECTION: From Vision to Value */}
@@ -301,29 +352,29 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
 
           {/* Map R&D areas to benefits using Mantine Grid and BenefitCard */}
           <BenefitGrid gutter="lg">
-            {/* Manually map each benefit to a Grid.Col - Reverting children structure */}
-            <Grid.Col span={{ base: 12, md: 6 }}>
+            {/* Manually map each benefit to a Grid.Col */}
+            <Grid.Col span={{ base: 12, md: 6 }} style={{ height: '100%' }}>
               <BenefitCard>
                 <IconWrapper><BiNetworkChart /></IconWrapper>
                 <Typography variant="h3" mb="0.5rem">Enhanced Efficiency & Capability</Typography>
                 <Typography variant="body">Agent orchestration and specialization enable tackling complex tasks, parallel execution, and automation of sophisticated workflows.</Typography>
               </BenefitCard>
             </Grid.Col>
-            <Grid.Col span={{ base: 12, md: 6 }}>
+            <Grid.Col span={{ base: 12, md: 6 }} style={{ height: '100%' }}>
               <BenefitCard>
                 <IconWrapper><BiBrain /></IconWrapper>
                 <Typography variant="h3" mb="0.5rem">Smarter, Context-Aware Agents</Typography>
                 <Typography variant="body">Dynamic knowledge integration provides deeper, unified understanding, leading to more accurate and relevant assistance.</Typography>
               </BenefitCard>
             </Grid.Col>
-            <Grid.Col span={{ base: 12, md: 6 }}>
+            <Grid.Col span={{ base: 12, md: 6 }} style={{ height: '100%' }}>
               <BenefitCard>
                 <IconWrapper><BiPlug /></IconWrapper>
                 <Typography variant="h3" mb="0.5rem">Superior Developer Experience (DevEx)</Typography>
                 <Typography variant="body">Seamless workflow integration embeds Brain Garden into the developer's natural environment, reducing friction.</Typography>
               </BenefitCard>
             </Grid.Col>
-            <Grid.Col span={{ base: 12, md: 6 }}>
+            <Grid.Col span={{ base: 12, md: 6 }} style={{ height: '100%' }}>
               <BenefitCard>
                 <IconWrapper><BiCog /></IconWrapper>
                 <Typography variant="h3" mb="0.5rem">Long-Term Viability & Intelligence</Typography>
@@ -349,18 +400,18 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
             }}
           >
             {corePrinciples.map((principle, index) => (
-              /* Use Mantine Paper for the card */
+              /* Use Mantine Paper for the card - Add height style */
               <Paper
                 key={index}
                 shadow="xs"
                 p="lg"
                 withBorder
-                style={{ // Use style prop for remaining styles
+                style={{
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: theme.spacing.sm, // Use theme value for gap
-                  borderColor: theme.colors.gray[3] // Use theme value for border color
+                  gap: theme.spacing.sm,
+                  borderColor: theme.colors.gray[3]
                 }}
               >
                 {/* Children are now correctly passed to Paper */}

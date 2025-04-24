@@ -149,20 +149,22 @@ export const FeatureCard = styled.div`
 
 export const FeatureItem = styled.li`
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   margin-bottom: 0.75rem;
-  position: relative;
-  padding-left: 1.5rem;
-  
+
   &:before {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
     width: 0.5rem;
     height: 0.5rem;
-    background-color: #4299e1;
+    background-color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
     border-radius: 50%;
+    margin-right: 0.75rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 

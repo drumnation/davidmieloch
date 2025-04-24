@@ -181,12 +181,35 @@ export const CapabilityCardsGrid = styled.div`
 `;
 
 export const CapabilityCard = styled.div`
-  padding: 1.5rem;
+  /* Increased padding */
+  padding: 2rem; 
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   width: 100%;
+  /* Align text left */
+  text-align: left; 
+
+  /* Set background colors based on position using hex codes */
+  &:nth-child(1) {
+    background-color: #2196F3; // Blue
+  }
+  &:nth-child(2) {
+    /* Updated purple to match the screenshot's likely color */
+    background-color: #673ab7; // Deep Purple (closer match than #6A0DAD)
+  }
+  &:nth-child(3) {
+    /* Updated green to match the screenshot's likely color */
+    background-color: #4CAF50; // Green (standard)
+  }
   
+  /* Ensure text elements inside are white */
+  h3,
+  p,
+  span {
+    color: white !important; /* Use !important to override Typography atom if needed */
+  }
+
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
@@ -194,34 +217,50 @@ export const CapabilityCard = styled.div`
 
 // Research area styles
 export const ResearchAreaContainer = styled(MantineBox)`
-  margin-top: 3rem;
+  margin-top: 2rem; 
+  /* Increased bottom margin */
+  margin-bottom: 3rem; 
+  background-color: #f8f9fa; 
+  /* Increased padding */
+  padding: 3rem; 
+  border-radius: 16px; 
 `;
 
 export const ResearchGridContainer = styled(MantineGrid)`
-  // Inherits Mantine Grid props like gutter, etc.
+  /* Grid gap is controlled by gutter prop in component */
 `;
 
 // Update ResearchAreaCard to style Mantine Paper
 export const ResearchAreaCard = styled(MantinePaper).attrs({
-  shadow: 'xs',
-  padding: 'lg',
+  shadow: 'sm',
+  padding: 'xl',
   withBorder: true,
 })`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center; 
+  gap: 1rem;
   height: 100%;
-  // Use styled-components theme
-  border-color: ${({ theme }) => theme.colors.border || '#e0e0e0'}; 
-  background-color: ${({ theme }) => theme.colors.background?.paper || '#ffffff'}; // Use standard theme structure
+  border-color: #dee2e6;
+  background-color: #ffffff;
+  border-radius: 16px;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  /* Center text inside */
+  text-align: center;
+
+  /* Hover effect */
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
 `;
 
 // Shared Icon Wrapper Style (using Mantine Box)
 export const IconWrapper = styled(MantineBox)`
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
-  // Use styled-components theme
-  color: ${({ theme }) => theme.colors.primary || '#2563eb'}; 
+  font-size: 2.5rem; 
+  margin-bottom: 0.75rem; /* sm spacing */
+  /* Use primary color - hardcoded default blue */
+  color: #228be6; /* blue[6] */
   line-height: 1;
 `;
 
@@ -241,19 +280,28 @@ export const BenefitGrid = styled(MantineGrid)`
   margin-bottom: 3rem;
 `;
 
-// BenefitCard styling Mantine Paper
+// BenefitCard styling Mantine Paper - Apply consistent styling
 export const BenefitCard = styled(MantinePaper).attrs({
-  shadow: 'xs',
-  padding: 'lg',
+  shadow: 'sm', // Consistent shadow
+  padding: 'xl', // Consistent padding
   withBorder: true,
 })`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center; // Center content
+  gap: 1rem; // Consistent gap
   height: 100%;
-  // Use styled-components theme
-  border-color: ${({ theme }) => theme.colors.border || '#e0e0e0'}; 
-  background-color: ${({ theme }) => theme.colors.background?.light || '#f8f9fa'}; // Use standard theme structure
+  border-color: #dee2e6; // Consistent border
+  background-color: #ffffff; // Consistent background
+  border-radius: 16px; // Consistent radius
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; // Consistent transition
+  text-align: center; // Consistent alignment
+
+  /* Consistent hover effect */
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  }
 `;
 
 // RESTORED: PrincipleList
@@ -265,18 +313,27 @@ export const PrincipleList = styled(MantineBox)`
   /* Removed media query for larger screens */
 `;
 
-// RESTORED: PrincipleCard styling Mantine Paper
+// RESTORED: PrincipleCard styling Mantine Paper - Apply consistent styling
 export const PrincipleCard = styled(MantinePaper).attrs({
-  shadow: 'xs',
-  padding: 'lg',
+  shadow: 'sm', // Consistent shadow
+  padding: 'xl', // Consistent padding
   withBorder: true,
   component: 'div',
 })`
    display: flex;
    flex-direction: column;
-   gap: 0.5rem;
+   align-items: center; // Center content
+   gap: 1rem; // Consistent gap
    height: 100%;
-   // Use styled-components theme
-   border-color: ${({ theme }) => theme.colors.border || '#e0e0e0'};
-   background-color: ${({ theme }) => theme.colors.background?.paper || '#ffffff'}; // Use standard theme structure
+   border-color: #dee2e6; // Consistent border
+   background-color: #ffffff; // Consistent background
+   border-radius: 16px; // Consistent radius
+   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; // Consistent transition
+   text-align: center; // Consistent alignment
+
+   /* Consistent hover effect */
+   &:hover {
+     transform: scale(1.02);
+     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+   }
 `;

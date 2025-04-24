@@ -1,1 +1,1 @@
-export * from './ConclusionContent'; 
+export { ConclusionContent } from './ConclusionContent'; 

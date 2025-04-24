@@ -5,6 +5,7 @@ import { MarkdownRenderer } from '@shared-components/molecules/MarkdownRenderer'
 import * as S from './MediaRenderer.styles.ts';
 import { SideProject } from '../../SideProjectsSection.types';
 import { ProjectLogo } from '@shared-components/atoms/ProjectLogo';
+import { Button } from '@shared-components/atoms/Button/Button';
 
 interface MediaRendererProps {
     media: MediaItem[] | undefined;
@@ -174,9 +175,17 @@ export const MediaRenderer: React.FC<MediaRendererProps> = ({ media, project, on
                                     <MarkdownRenderer content={description} compact={true} />
                                 </div>}
                                 {url && (
-                                    <a href={url} target="_blank" rel="noopener noreferrer" className="link-button">
-                                        {buttonText || 'View'}
-                                    </a>
+                                    <div className="link-button-wrapper">
+                                        <Button
+                                            href={url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            variant="primary"
+                                            size="sm"
+                                        >
+                                            {buttonText || 'View'}
+                                        </Button>
+                                    </div>
                                 )}
                             </div>
                         </div>

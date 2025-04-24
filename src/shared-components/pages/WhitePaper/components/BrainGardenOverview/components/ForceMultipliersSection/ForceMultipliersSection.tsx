@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMantineTheme } from '@mantine/core';
+import { useMantineTheme, Title } from '@mantine/core';
 import { FeatureGrid } from '@shared-components/organisms/FeatureGrid/FeatureGrid';
 import { Feature } from '@shared-components/organisms/FeatureGrid/FeatureGrid.types';
 import { ForceMultipliersSectionProps } from './ForceMultipliersSection.types';
@@ -79,7 +79,9 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
       <StyledForceMultiplierContainer>
         <PowerfulTitle>
           <IconSparkles size={32} />
-          <GradientText>Force Multipliers</GradientText>
+          <Title order={2} c="dark.8" style={{ display: 'inline-block', marginLeft: '0.5rem' }}>
+            Force Multipliers
+          </Title>
         </PowerfulTitle>
 
         <ActTitle>
@@ -113,7 +115,15 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </BodyText>
         </StoryBox>
 
-        <ActTitle>Act 2: The AI Revolution</ActTitle>
+        <ActTitle>
+          <span style={{ color: '#000000' }}>Act 2:</span>
+          <span style={{
+            color: primaryBlue,
+            marginLeft: '0.5rem'
+          }}>
+            The AI Revolution
+          </span>
+        </ActTitle>
         <StoryBox>
           <BodyText variant="body">
             When AI first entered the development workflow, it seemed like a helpful assistant - someone to pair program with, to catch errors, to suggest improvements. But something more profound was happening: AI was transforming those time-consuming best practices into something effortless.
@@ -137,7 +147,15 @@ export const ForceMultipliersSection: React.FC<ForceMultipliersSectionProps> = (
           </BodyText>
         </StoryBox>
 
-        <ActTitle>Act 3: The Force Multiplier Effect</ActTitle>
+        <ActTitle>
+          <span style={{ color: '#000000' }}>Act 3:</span>
+          <span style={{
+            color: primaryBlue,
+            marginLeft: '0.5rem'
+          }}>
+            The Force Multiplier Effect
+          </span>
+        </ActTitle>
         <StoryBox>
           <BodyText variant="body">
             But here's where it gets truly revolutionary. These best practices - the tests, the commit messages, the documentation - they're not just nice to have anymore. They've become force multipliers that enable AI agents to perform tasks that would have seemed like science fiction just a few years ago.

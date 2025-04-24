@@ -17,7 +17,6 @@ export const Table = styled.table<StyledTableProps>`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.md};
-  opacity: 0;
 `;
 
 export const TableHead = styled.thead<StyledTableProps>`

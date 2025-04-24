@@ -1,5 +1,5 @@
 import React from 'react';
-import { WarningBox, WarningContent } from '../../RealWorldImpact.styles';
+import { WarningBox } from '../../RealWorldImpact.styles';
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -28,13 +28,22 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     if (this.state.hasError) {
       return (
         <WarningBox>
-          <WarningContent>
-            <h3>Something went wrong</h3>
-            <p>We're sorry, but there was an error loading this section.</p>
+          <div style={{ color: '#d32f2f' }}>
+            <h3 style={{ color: '#d32f2f', marginBottom: '1rem', fontSize: '1.5rem' }}>Something went wrong</h3>
+            <p style={{ marginBottom: '1rem', lineHeight: 1.6 }}>We're sorry, but there was an error loading this section.</p>
             {process.env.NODE_ENV === 'development' && (
-              <pre>{this.state.error?.message}</pre>
+              <pre style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                padding: '1rem',
+                borderRadius: '4px',
+                overflow: 'auto',
+                fontFamily: 'monospace',
+                fontSize: '0.9rem'
+              }}>
+                {this.state.error?.message}
+              </pre>
             )}
-          </WarningContent>
+          </div>
         </WarningBox>
       );
     }

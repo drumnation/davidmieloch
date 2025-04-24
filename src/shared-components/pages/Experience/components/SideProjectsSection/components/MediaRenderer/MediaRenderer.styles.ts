@@ -264,26 +264,8 @@ export const LinkContainer = styled.div`
     }
   }
 
-  .link-button {
-    background-color: #0073b1; /* Original blue background */
-    color: white; /* Original white text */
-    border: none; /* Original: no border */
-    border-radius: 4px; /* Original radius */
-    padding: 8px 16px; /* Original padding */
-    font-size: 0.85rem; /* Original font size */
-    font-weight: 600; /* Original font weight */
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    align-self: flex-start; /* Align to start */
+  .link-button-wrapper {
     margin: 0 15px 15px; /* Add margin for spacing */
-
-    &:hover {
-      background-color: #006097; /* Original hover */
-      text-decoration: none;
-    }
   }
 `;
 

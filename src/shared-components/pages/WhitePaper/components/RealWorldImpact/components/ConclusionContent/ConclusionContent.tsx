@@ -4,7 +4,6 @@ import { ContentContainer, Section, SectionTitle, SectionDescription } from '../
 import { InsightsSection } from '../InsightsSection';
 import { FrameworkSection } from '../FrameworkSection';
 import { CurrentStateSection } from '../CurrentStateSection';
-import { CallToActionSection } from '../CallToActionSection';
 import { defaultContent } from '../../RealWorldImpact.constants';
 import { useConclusionContentAnimation } from './ConclusionContent.hook';
 
@@ -17,7 +16,7 @@ export const ConclusionContent: React.FC = () => {
     return null;
   }
 
-  const { journeyInsights, framework, currentState, callToAction } = conclusion.content;
+  const { journeyInsights, framework, currentState } = conclusion.content;
 
   return (
     <div ref={ref}>
@@ -50,7 +49,7 @@ export const ConclusionContent: React.FC = () => {
           <FrameworkSection components={framework.components} />
         </Section>
 
-        <Section id="impact-current-state" style={{ scrollMarginTop: '100px' }}>
+        <Section id="impact-current-state" style={{ scrollMarginTop: '100px', marginBottom: '6rem' }}>
           <SectionTitle>{currentState.title}</SectionTitle>
           <SectionDescription>
             <Typography variant="body">
@@ -58,19 +57,6 @@ export const ConclusionContent: React.FC = () => {
             </Typography>
           </SectionDescription>
           <CurrentStateSection sections={currentState.sections} />
-        </Section>
-
-        <Section id="impact-cta" style={{ scrollMarginTop: '100px' }}>
-          <SectionTitle>{callToAction.title}</SectionTitle>
-          <SectionDescription>
-            <Typography variant="body">
-              {callToAction.description}
-            </Typography>
-          </SectionDescription>
-          <CallToActionSection
-            actions={callToAction.actions}
-            closing={callToAction.closing}
-          />
         </Section>
       </ContentContainer>
     </div>

@@ -33,6 +33,8 @@ export interface StateSection {
 export interface Action {
   label: string;
   description: string;
+  icon?: string;
+  link?: string;
 }
 
 export interface InsightsSectionProps {
