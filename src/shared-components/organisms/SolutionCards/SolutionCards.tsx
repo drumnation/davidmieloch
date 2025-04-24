@@ -17,19 +17,19 @@ const SolutionCard = styled(Card)`
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: ${({ theme }) => theme.colors.accent.blue};
+  background-color: ${({ theme }) => theme.colors.blue[6]};
   color: white;
   display: flex;
   flex-direction: column;
   height: 100%;
   
   &.gradient {
-    background: ${({ theme }) => theme.colors.accent.blue};
+    background: ${({ theme }) => theme.colors.blue[6]};
     color: white;
   }
   
   &.accent {
-    background-color: ${({ theme }) => theme.colors.accent.blue};
+    background-color: ${({ theme }) => theme.colors.blue[6]};
     color: white;
     border-left: 4px solid rgba(255, 255, 255, 0.3);
   }

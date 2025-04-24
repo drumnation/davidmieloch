@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { BrainGardenOverview } from './BrainGardenOverview';
 import { defaultContent } from './BrainGardenOverview.constants';
+import { enhanceHeroProps } from './BrainGardenOverview.logic';
 
 const meta = {
   title: 'Pages/01-WhitePaper/03-BrainGardenOverview',
@@ -23,8 +24,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const safeHeroProps = (raw: any) => {
+  const enhanced = enhanceHeroProps(raw);
+  return {
+    ...enhanced,
+    title: enhanced.title || '',
+    subtitle: enhanced.subtitle || '',
+  };
+};
+
 const defaultArgs = {
-  heroProps: defaultContent.hero,
+  heroProps: safeHeroProps(defaultContent.hero),
   introProps: defaultContent.intro,
   coreComponentsProps: defaultContent.coreComponents,
   forceMultipliersProps: defaultContent.forceMultipliers,
@@ -32,6 +42,7 @@ const defaultArgs = {
   navigationProps: defaultContent.navigation,
   keyBenefitsProps: defaultContent.keyBenefits,
   ctaProps: defaultContent.cta,
+  transitionProps: defaultContent.transition,
 };
 
 /**

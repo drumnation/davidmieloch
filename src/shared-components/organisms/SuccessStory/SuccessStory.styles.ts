@@ -41,11 +41,11 @@ export const Card = styled.div<{ styleType?: string }>`
   
   ${props => props.styleType === 'accent-card' && `
     background-color: #fff;
-    border-left: 6px solid ${props.theme.colors.primary};
+    border-left: 6px solid ${props.theme.colors[props.theme.primaryColor][6]};
   `}
   
   ${props => props.styleType === 'gradient-card' && `
-    background: linear-gradient(135deg, ${props.theme.colors.primary}, ${props.theme.colors.secondary});
+    background: linear-gradient(135deg, ${props.theme.colors[props.theme.primaryColor][6]}, ${props.theme.colors.cyan[6]});
     color: #fff;
   `}
   
@@ -58,7 +58,7 @@ export const Title = styled.h3`
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: ${props => props.theme.colors.text.primary};
+  color: ${props => props.theme.colors.dark[7]};
 `;
 
 export const MetricsList = styled.ul`
@@ -75,7 +75,7 @@ export const MetricItem = styled.li`
   
   &:before {
     content: "✓";
-    color: ${props => props.theme.colors.primary.main};
+    color: ${props => props.theme.colors[props.theme.primaryColor][6]};
     margin-right: 0.5rem;
     font-weight: bold;
   }
@@ -87,14 +87,14 @@ export const Quote = styled.blockquote`
   line-height: 1.6;
   margin: 1.5rem 0 0;
   padding-left: 1rem;
-  border-left: 3px solid ${props => props.theme.colors.primary};
-  color: ${props => props.theme.colors.text.secondary};
+  border-left: 3px solid ${props => props.theme.colors[props.theme.primaryColor][6]};
+  color: ${props => props.theme.colors.gray[6]};
 `;
 
 export const fadeIn: AnimationVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0
   }
 }; 

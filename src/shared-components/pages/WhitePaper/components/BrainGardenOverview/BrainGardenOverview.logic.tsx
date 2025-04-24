@@ -46,15 +46,12 @@ export const AnimatedSection: React.FC<{
  * Enhances the hero props with consistent styling and defaults
  */
 export const enhanceHeroProps = (heroProps: BrainGardenOverviewProps['heroProps'] = defaultContent.hero): HeroProps => {
+  const validAnimations = ['fadeIn', 'slideIn', 'zoomIn', 'none'];
   return {
     ...heroProps,
-    className: heroProps.className || '',
-    background: heroProps.background || 'gradient',
-    backgroundImage: heroProps.backgroundImage,
-    backgroundOverlay: heroProps.backgroundOverlay || false,
-    textColor: heroProps.textColor || 'light',
-    pattern: 'dots', // Using 'dots' instead of 'garden-growth' as it's supported by the Hero component
-    animation: (heroProps.animation as "fade-up" | "slide-in-left" | "none") || 'fade-up',
+    title: (heroProps.title ?? '') as string,
+    subtitle: (heroProps.subtitle ?? '') as string,
+    animation: validAnimations.includes(heroProps.animation as string) ? heroProps.animation : 'fadeIn',
   };
 };
 

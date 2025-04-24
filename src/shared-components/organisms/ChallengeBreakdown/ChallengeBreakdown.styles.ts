@@ -3,8 +3,8 @@ import { Stack, MantineTheme, Title, Text, rem } from '@mantine/core';
 import { animated } from '@react-spring/web';
 
 interface StyledProps {
-  $usePointAnimation: boolean;
-  styleType?: 'gradient-card' | 'accent-card' | 'challenge-cards';
+  $usePointAnimation?: boolean;
+  $styleType?: 'gradient-card' | 'accent-card' | 'challenge-cards';
 }
 
 interface SectionProps {
@@ -95,8 +95,8 @@ export const StyledCard = styled.div<StyledProps>`
         `
       : null}
 
-  ${({ styleType }) => {
-    switch (styleType) {
+  ${({ $styleType }) => {
+    switch ($styleType) {
       case 'gradient-card':
         return css`
           background: linear-gradient(135deg, var(--mantine-color-blue-6) 0%, var(--mantine-color-cyan-6) 100%);

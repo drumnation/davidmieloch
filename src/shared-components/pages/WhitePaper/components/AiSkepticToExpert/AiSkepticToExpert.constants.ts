@@ -1,3 +1,6 @@
+import React from 'react';
+import { Icon } from '@shared-components/atoms/Icon';
+
 // Default content for the component
 export const defaultContent = {
   hero: {
@@ -10,25 +13,25 @@ export const defaultContent = {
     pattern: "none" as const,
     backgroundOverlay: true,
     overlayOpacity: 0.8,
-    onImageLoad: () => {},
+    onImageLoad: () => { },
   },
   quotes: {
     quotes: [
       {
         text: "One of our OKRs is basically 'Use AI more' and one of the ways they're measuring that is Copilot suggestion acceptance %. Absolute insanity.",
         author: "Engineering Lead",
-        icon: "chart-bar"
+        icon: React.createElement(Icon, { name: 'chart-bar', size: 24 })
       },
       {
         text: "Management bought Cursor pro for everyone and said that they expect to see a return on that investment.",
         author: "Senior Developer",
-        icon: "coin"
+        icon: React.createElement(Icon, { name: 'coin', size: 24 })
       },
       {
         text: "We're also seeing an increase in failures in Prod, so we need you to really ramp up Copilot and AI code reviews to find the source of these new issues.",
         author: "Project Manager",
         note: "(without realizing the irony)",
-        icon: "alert-triangle"
+        icon: React.createElement(Icon, { name: 'alert-triangle', size: 24 })
       }
     ],
     layout: "3-column" as const,

@@ -18,19 +18,15 @@ export const enhanceHeroProps = (heroProps: RealWorldImpactProps['heroProps'] = 
   const backgroundImage = heroProps.backgroundImage;
   const backgroundOverlay = heroProps.backgroundOverlay !== undefined ? heroProps.backgroundOverlay : true;
   const textColor = heroProps.textColor || 'light';
-  const pattern = (heroProps.pattern === 'circuit-board' || heroProps.pattern === 'dots' || heroProps.pattern === 'none')
-    ? heroProps.pattern 
-    : 'dots';
-  
+
   // Enable logging for debugging
   console.log('Enhanced Hero Props:', {
     backgroundImage,
     backgroundOverlay,
     textColor,
-    pattern,
     originalProps: heroProps
   });
-  
+
   return {
     title: heroProps.title || '',
     subtitle: heroProps.subtitle || '',
@@ -40,8 +36,7 @@ export const enhanceHeroProps = (heroProps: RealWorldImpactProps['heroProps'] = 
     backgroundOverlay: backgroundOverlay,
     overlayOpacity: 0.5,
     textColor: textColor,
-    pattern: pattern,
-    animation: (heroProps.animation as "fade-up" | "slide-in-left" | "none") || 'fade-up'
+    animation: (heroProps.animation === 'fadeIn' || heroProps.animation === 'slideIn' || heroProps.animation === 'zoomIn' || heroProps.animation === 'none') ? heroProps.animation : 'fadeIn'
   };
 };
 
@@ -63,7 +58,7 @@ export const enhanceProblemOverviewProps = (
   background?: 'light' | 'dark' | 'gradient';
 } => {
   let metrics: Array<{ number: string; label: string }> = [];
-  
+
   // Handle both the old and new data structures
   if (problemOverviewProps?.metrics) {
     // Old structure with metrics directly
@@ -91,8 +86,8 @@ export const enhanceProblemOverviewProps = (
     title: problemOverviewProps?.title || '',
     description: problemOverviewProps?.description || '',
     metrics: metrics,
-    style: problemOverviewProps?.style === 'grid-with-stats' || problemOverviewProps?.style === 'default' 
-      ? 'gradient-card' 
+    style: problemOverviewProps?.style === 'grid-with-stats' || problemOverviewProps?.style === 'default'
+      ? 'gradient-card'
       : (problemOverviewProps?.style as 'gradient-card' | 'accent-card') || 'gradient-card',
     position,
     animation: problemOverviewProps?.animation || 'fade-up',
@@ -111,7 +106,7 @@ export const enhanceChallengeBreakdownProps = (
     description: string;
     impact: string;
   }> = [];
-  
+
   // Handle both old and new data structures
   if (challengeBreakdownProps?.key_issues) {
     // Old structure with key_issues directly
@@ -128,13 +123,13 @@ export const enhanceChallengeBreakdownProps = (
       impact: challenge.impact || '',
     }));
   }
-  
+
   return {
     title: challengeBreakdownProps?.title || '',
     description: "The most pressing challenge in enterprise development isn't technical—it's cognitive.",
     challenges: key_issues,
-    style: (challengeBreakdownProps?.style === 'default' || challengeBreakdownProps?.style === 'challenge-cards') 
-      ? 'accent-card' 
+    style: (challengeBreakdownProps?.style === 'default' || challengeBreakdownProps?.style === 'challenge-cards')
+      ? 'accent-card'
       : (challengeBreakdownProps?.style as 'accent-card' | 'gradient-card') || 'accent-card',
     position: (challengeBreakdownProps?.position === 'center' ? 'right' : challengeBreakdownProps?.position) || 'right',
     animation: 'fade-up',
@@ -152,7 +147,7 @@ export const enhanceProcessFlowProps = (
     description: string;
     impact: string;
   }> = [];
-  
+
   // Handle both old and new data structures
   if (processFlowProps?.steps) {
     // Old structure with steps directly
@@ -169,13 +164,13 @@ export const enhanceProcessFlowProps = (
       impact: step.metrics ? Object.values(step.metrics).join(", ") : '',
     }));
   }
-  
+
   return {
     title: processFlowProps?.title || '',
     subtitle: processFlowProps?.subtitle || '',
     steps: steps,
-    style: processFlowProps?.style === 'comparative-flow-diagram' 
-      ? 'horizontal-steps' 
+    style: processFlowProps?.style === 'comparative-flow-diagram'
+      ? 'horizontal-steps'
       : (processFlowProps?.style as 'horizontal-steps' | 'vertical-steps') || 'horizontal-steps',
     position: processFlowProps?.position || 'full-width',
   };
@@ -434,7 +429,7 @@ export const enhanceSolutionsImpactProps = (
     style: string;
     position: string;
   }> = [];
-  
+
   // Check if we have case studies
   if (solutionsImpactProps?.caseStudies && solutionsImpactProps.caseStudies.length > 0) {
     // Process each case study
@@ -498,7 +493,7 @@ export const enhanceIndustryVoicesProps = (
 } => {
   // Convert voices array to quotes format if it exists
   let quotes = industryVoicesProps?.quotes || [];
-  
+
   if (industryVoicesProps?.voices && industryVoicesProps.voices.length > 0) {
     quotes = industryVoicesProps.voices.map(voice => ({
       text: voice.quote,

@@ -278,7 +278,7 @@ export const ItemIcon = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.background.light};
+  background-color: ${({ theme }) => theme.colors.gray[0]};
   padding: 8px;
   flex-shrink: 0;
 `;
@@ -292,12 +292,12 @@ export const ItemContent = styled.div`
 export const ItemTitle = styled.h4`
   font-size: 1.1rem;
   margin-bottom: 4px;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
 `;
 
 export const ItemDescription = styled.p`
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
   line-height: 1.5;
 `;
 
@@ -316,11 +316,11 @@ export const PracticeItem = styled.li`
   gap: 1rem;
   padding: 1rem;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.background.light};
+  background-color: ${({ theme }) => theme.colors.gray[0]};
   transition: background-color 0.2s ease;
   
   &:hover {
-    background-color: ${({ theme }) => theme.colors.background.paper};
+    background-color: ${({ theme }) => theme.colors.gray[1]};
   }
 `;
 
@@ -328,12 +328,12 @@ export const IconContainer = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: ${({ theme }) => theme.colors.gradient};
+  background: ${({ theme }) => theme.other?.heroGradient || theme.colors.blue[6]};
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: white;
+  color: ${({ theme }) => theme.white};
 `;
 
 export const PracticeContent = styled.div`
@@ -343,13 +343,13 @@ export const PracticeContent = styled.div`
 export const PracticeTitle = styled.h3`
   font-size: 1.125rem;
   margin: 0 0 0.5rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
 `;
 
 export const PracticeDescription = styled.p`
   font-size: 0.875rem;
   margin: 0;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
   line-height: 1.5;
 `;
 
@@ -361,21 +361,21 @@ export const DetailedContentContainer = styled.div`
 export const DetailedContentTitle = styled.h2`
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
 `;
 
 export const DetailedContentText = styled.p`
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
 `;
 
 export const DetailedContentList = styled.div`
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
 `;
 
 export const ConclusionContainer = styled.div`
@@ -386,14 +386,14 @@ export const ConclusionContainer = styled.div`
 export const ConclusionTitle = styled.h2`
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
 `;
 
 export const ConclusionText = styled.p`
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
 `;
 
 export const PageSeparator = styled.div`
@@ -431,7 +431,7 @@ export const PageSeparator = styled.div`
 
 export const BestPracticeItem = styled.li`
   font-size: 0.9rem;
-  color: var(--mantine-color-dimmed);
+  color: ${({ theme }) => theme.colors.gray[6]};
   margin-bottom: 8px;
   padding-left: 16px;
   position: relative;
@@ -440,7 +440,7 @@ export const BestPracticeItem = styled.li`
     content: '•';
     position: absolute;
     left: 0;
-    color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+    color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   }
 `;
 
@@ -451,7 +451,7 @@ export const BestPracticeDetail = styled.div`
 export const BestPracticeTitle = styled.h3`
   font-size: 1.75rem;
   margin-bottom: 1rem;
-  color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
 `;
 
 export const BestPracticeDescription = styled.p`
@@ -469,7 +469,7 @@ export const ImplementationList = styled.ul`
 export const ImplementationItem = styled.li`
   margin-bottom: 1rem;
   font-size: 1rem;
-  color: var(--mantine-color-text);
+  color: ${({ theme }) => theme.colors.gray[7]};
   position: relative;
 
   &:before {

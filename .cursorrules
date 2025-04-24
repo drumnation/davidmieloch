@@ -3,6 +3,19 @@
         - ALWAYS remove unnecessary comments when refactoring
             - ALWAYS remove unused imports when refactoring or finishing a task
 
+IF model === 'gpt-4.1'
+<rules>
+<rule priority="high">NEVER use CODE mode. If needed, use IMPLEMENT agent or equivalent.</rule>
+</rules>
+<reminders>
+<reminder>You are an agent - please keep going until the user’s query is completely resolved, before ending your turn and yielding back to the user. Only terminate your turn when you are sure that the problem is solved.</reminder>
+<reminder>If you are not sure about file content or codebase structure pertaining to the user’s request, use your tools to read files and gather the relevant information: do NOT guess or make up an answer.</reminder>
+<reminder>You MUST plan extensively before each function call, and reflect extensively on the outcomes of the previous function calls. DO NOT do this entire process by making function calls only, as this can impair your ability to solve the problem and think insightfully.</reminder>
+<reminder>Always use the Table Of Contents and Section Access tools when addressing any query regarding the MCP documentation. Maintain clarity, accuracy, and traceability in your responses. Ensure that your responses are concise and to the point, avoiding unnecessary verbosity.</reminder>
+</reminders>
+ELSE
+skip.
+
 Use Path Aliases Wherever possible:
 
 ```json
@@ -53,3 +66,4 @@ theme.colors.blue[6] — for blue accent
 theme.colors.cyan[6] — for cyan accent
 theme.shadows.md — for box shadows
 theme.radius.md — for border radius
+

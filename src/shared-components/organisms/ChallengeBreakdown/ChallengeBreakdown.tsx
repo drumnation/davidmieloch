@@ -83,8 +83,8 @@ export const ChallengeBreakdown: React.FC<ChallengeBreakdownProps> = ({
       animate="visible"
       className={className}
     >
-      <Container $position={position}>
-        <StyledCard $styleType={style}>
+      <Container $position={position} $variant="default">
+        <StyledCard $styleType={style} $usePointAnimation={false}>
           <ContentWrapper>
             {title && (
               <MainTitle>

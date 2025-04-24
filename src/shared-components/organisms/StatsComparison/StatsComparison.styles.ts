@@ -52,21 +52,21 @@ export const Card = styled.div<CardProps>`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.md};
-  background: ${({ theme }) => theme.colors.accent.blue};
+  background: ${({ theme }) => theme.colors.blue[6]};
   color: white;
   
   ${({ $style, theme }) => $style === 'gradient-cards' && css`
-    background: ${theme.colors.accent.blue};
+    background: ${theme.colors.blue[6]};
     color: white;
   `}
   
   ${({ $style, theme }) => $style === 'accent-cards' && css`
-    background: ${theme.colors.accent.blue};
+    background: ${theme.colors.blue[6]};
     color: white;
   `}
   
   ${({ $style, theme }) => $style === 'default' && css`
-    background: ${theme.colors.accent.blue};
+    background: ${theme.colors.blue[6]};
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
   `}

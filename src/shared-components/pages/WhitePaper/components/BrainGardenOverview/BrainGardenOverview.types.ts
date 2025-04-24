@@ -11,7 +11,7 @@ export interface BrainGardenOverviewProps {
     overlayOpacity?: number;
     pattern?: 'circuit-board' | 'dots' | 'none';
     textColor?: 'light' | 'dark';
-    animation?: 'fade-up' | 'slide-in' | 'none';
+    animation?: 'fadeIn' | 'slideIn' | 'zoomIn' | 'none';
     className?: string;
   };
   introProps?: {

@@ -1,4 +1,5 @@
 export * from './ContentSection';
 export * from './ContentSection.types';
-export * from './GenericSection';
-export * from './GenericSection.types'; 
+// Remove exports for non-existent GenericSection files
+// export * from './GenericSection';
+// export * from './GenericSection.types'; 

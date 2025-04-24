@@ -1,10 +1,10 @@
 import { BrainGardenOverviewProps } from './BrainGardenOverview.types';
 import { defaultContent } from './BrainGardenOverview.constants';
-import { 
-  enhanceHeroProps, 
-  processFeatures, 
-  processNavigationItems, 
-  processStats 
+import {
+  enhanceHeroProps,
+  processFeatures,
+  processNavigationItems,
+  processStats
 } from './BrainGardenOverview.logic';
 
 /**
@@ -25,7 +25,12 @@ export const useBrainGardenOverview = (props: BrainGardenOverviewProps) => {
   } = props;
 
   // Enhance hero props with defaults and consistent styling
-  const enhancedHeroProps = enhanceHeroProps(heroProps);
+  const normalizedHeroProps = {
+    ...heroProps,
+    title: (heroProps && (heroProps as any).title) || (heroProps && (heroProps as any).desktopTitle) || '',
+    subtitle: (heroProps && (heroProps as any).subtitle) || (heroProps && (heroProps as any).desktopSubtitle) || '',
+  };
+  const enhancedHeroProps = enhanceHeroProps(normalizedHeroProps);
 
   // Process features, navigation items, and stats to ensure icons are React elements
   const processedCoreComponents = {

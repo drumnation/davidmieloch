@@ -19,13 +19,13 @@ export const Title = styled.h1`
   font-size: 32px;
   font-weight: 700;
   margin: 0 0 12px 0;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
 `;
 
 export const Description = styled.p`
   font-size: 18px;
   line-height: 1.6;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.colors.gray[6]};
   margin: 0;
   max-width: 800px;
 `;
@@ -38,7 +38,7 @@ export const SectionTitle = styled.h2`
   font-size: 24px;
   font-weight: 600;
   margin: 0 0 24px 0;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.gray[7]};
 `;
 
 export const RepoGrid = styled.div`

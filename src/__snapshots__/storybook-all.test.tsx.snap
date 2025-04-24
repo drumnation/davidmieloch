@@ -10824,6 +10824,117 @@ exports[`Storybook Snapshots > Organisms/Hero > LightBackground 1`] = `
 </div>
 `;
 
+exports[`Storybook Snapshots > Organisms/HeroBackup > DarkMinimal 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class=""
+  >
+    <section
+      class=""
+    >
+      <div
+        class=""
+      >
+        <h1
+          class="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+        >
+          Engineering Excellence
+        </h1>
+        <p
+          class="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+        >
+          Bringing over a decade of experience in scaling high-performance teams
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Organisms/HeroBackup > Default 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class=""
+  >
+    <section
+      class=""
+    >
+      <div
+        class=""
+      >
+        <h1
+          class="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+        >
+          Welcome to My Portfolio
+        </h1>
+        <p
+          class="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+        >
+          Let me guess... you're looking for a senior engineer who can help scale your team?
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`Storybook Snapshots > Organisms/HeroBackup > LightBackground 1`] = `
+<div>
+  <style
+    data-mantine-styles="true"
+  >
+    :root{--mantine-font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-font-family-monospace: Monaco, Courier, monospace;--mantine-font-family-headings: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;--mantine-radius-default: calc(0.5rem * var(--mantine-scale));--mantine-color-dark-0: #C1C2C5;--mantine-color-dark-1: #A6A7AB;--mantine-color-dark-2: #909296;--mantine-color-dark-3: #5c5f66;--mantine-color-dark-4: #373A40;--mantine-color-dark-5: #2C2E33;--mantine-color-dark-6: #25262b;--mantine-color-dark-7: #1A1B1E;--mantine-color-dark-8: #141517;--mantine-color-dark-9: #101113;--mantine-color-blue-0: #e3f2fd;--mantine-color-blue-1: #bbdefb;--mantine-color-blue-2: #90caf9;--mantine-color-blue-3: #64b5f6;--mantine-color-blue-4: #42a5f5;--mantine-color-blue-5: #2196f3;--mantine-color-blue-6: #1e88e5;--mantine-color-blue-7: #1976d2;--mantine-color-blue-8: #0d47a1;--mantine-color-blue-9: #002171;--mantine-color-cyan-0: #e0f7fa;--mantine-color-cyan-1: #b2ebf2;--mantine-color-cyan-2: #80deea;--mantine-color-cyan-3: #4dd0e1;--mantine-color-cyan-4: #26c6da;--mantine-color-cyan-5: #00bcd4;--mantine-color-cyan-6: #00acc1;--mantine-color-cyan-7: #0097a7;--mantine-color-cyan-8: #00838f;--mantine-color-cyan-9: #006064;}:root[data-mantine-color-scheme="dark"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.15);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.2);--mantine-color-dark-outline-hover: rgba(55, 58, 64, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.15);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.2);--mantine-color-blue-outline-hover: rgba(66, 165, 245, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.15);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.2);--mantine-color-cyan-outline-hover: rgba(38, 198, 218, 0.05);}:root[data-mantine-color-scheme="light"]{--mantine-color-dark-light: rgba(37, 38, 43, 0.1);--mantine-color-dark-light-hover: rgba(37, 38, 43, 0.12);--mantine-color-dark-outline-hover: rgba(37, 38, 43, 0.05);--mantine-color-blue-light: rgba(30, 136, 229, 0.1);--mantine-color-blue-light-hover: rgba(30, 136, 229, 0.12);--mantine-color-blue-outline-hover: rgba(30, 136, 229, 0.05);--mantine-color-cyan-light: rgba(0, 172, 193, 0.1);--mantine-color-cyan-light-hover: rgba(0, 172, 193, 0.12);--mantine-color-cyan-outline-hover: rgba(0, 172, 193, 0.05);}
+  </style>
+  <style
+    data-mantine-styles="classes"
+  >
+    @media (max-width: 35.99375em) {.mantine-visible-from-xs {display: none !important;}}@media (min-width: 36em) {.mantine-hidden-from-xs {display: none !important;}}@media (max-width: 47.99375em) {.mantine-visible-from-sm {display: none !important;}}@media (min-width: 48em) {.mantine-hidden-from-sm {display: none !important;}}@media (max-width: 61.99375em) {.mantine-visible-from-md {display: none !important;}}@media (min-width: 62em) {.mantine-hidden-from-md {display: none !important;}}@media (max-width: 74.99375em) {.mantine-visible-from-lg {display: none !important;}}@media (min-width: 75em) {.mantine-hidden-from-lg {display: none !important;}}@media (max-width: 87.99375em) {.mantine-visible-from-xl {display: none !important;}}@media (min-width: 88em) {.mantine-hidden-from-xl {display: none !important;}}
+  </style>
+  <div
+    class=""
+  >
+    <section
+      class=""
+    >
+      <div
+        class=""
+      >
+        <h1
+          class="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+        >
+          Building Better Solutions
+        </h1>
+        <p
+          class="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+        >
+          Transforming complex challenges into elegant solutions through innovative engineering
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+`;
+
 exports[`Storybook Snapshots > Organisms/NavigationCard > Default 1`] = `
 <div>
   <style

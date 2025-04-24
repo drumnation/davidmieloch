@@ -268,23 +268,21 @@ export const enhanceHeroProps = (heroPropsInput?: AiAutopilotAnalogyProps['heroP
   const heroProps = { ...defaultContent.hero, ...heroPropsInput };
 
   // Validate and potentially correct the animation type
-  let animation: HeroProps['animation'] = 'fade-up'; // Default
+  let animation: HeroProps['animation'] = 'fadeIn'; // Default
   const validAnimations: HeroProps['animation'][] = [
-    'fade-in',
-    'fade-up',
-    'slide-in-left',
-    'slide-in-right',
+    'fadeIn',
+    'fadeIn',
+    'slideIn',
+    'slideIn',
+    'zoomIn',
     'none',
   ];
 
-  if (heroProps.animation && validAnimations.includes(heroProps.animation as any)) {
+  if (validAnimations.includes(heroProps.animation as HeroProps['animation'])) {
     // Use the valid animation if provided
     animation = heroProps.animation as HeroProps['animation'];
-  } else if (heroProps.animation === 'slide-in') {
-    // Map the common invalid value 'slide-in' to a valid one
-    animation = 'slide-in-left';
   }
-  // Otherwise, the default 'fade-up' is used
+  // Otherwise, the default 'fadeIn' is used
 
   return {
     ...heroProps,
@@ -293,7 +291,6 @@ export const enhanceHeroProps = (heroPropsInput?: AiAutopilotAnalogyProps['heroP
     // Ensure other props conform to HeroProps by casting (assuming defaults are correct)
     background: heroProps.background as HeroProps['background'],
     textColor: heroProps.textColor as HeroProps['textColor'],
-    pattern: heroProps.pattern as HeroProps['pattern'],
   };
 };
 

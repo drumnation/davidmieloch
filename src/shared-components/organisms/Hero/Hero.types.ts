@@ -4,8 +4,9 @@ import { MantineGradient, MantineColor } from '@mantine/core';
 interface CTAButton {
     text: string;
     link: string;
-    variant?: 'primary' | 'secondary' | 'tertiary'; // Added variant for flexibility
-    icon?: ComponentType<{ size?: number; color?: string }>; // Added icon prop
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'gradient' | 'outline' | 'filled' | 'light' | 'white' | 'subtle' | 'default'; // Updated variants
+    gradient?: { from: string; to: string }; // Added gradient prop
+    icon?: ComponentType<{ size?: number; color?: string }> | React.ElementType; // Updated icon type
 }
 
 export type TextColor = 'light' | 'dark';
@@ -45,6 +46,9 @@ export interface HeroProps {
     scrollCta?: {
         text: string;
         targetId?: string;
+        icon?: ComponentType<{ size?: number; color?: string }> | React.ElementType; // Added icon
+        variant?: 'gradient' | 'outline' | 'filled' | 'light' | 'white' | 'subtle' | 'default'; // Added variant
+        gradient?: { from: string; to: string }; // Added gradient
     };
     minHeight?: string | number;
     height?: string | number;

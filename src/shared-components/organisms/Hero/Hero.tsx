@@ -375,32 +375,4 @@ export const Hero: React.FC<HeroProps> = ({
     );
 };
 
-// Define the structure for CTA buttons
-interface CTAButton {
-    text: string;
-    link: string;
-    icon?: React.ElementType;
-    variant?: 'gradient' | 'outline' | 'filled' | 'light' | 'white' | 'subtle' | 'default';
-    gradient?: { from: string; to: string };
-}
-
-// Update HeroProps to include the new CTA structure
-export interface HeroProps {
-    // ... other props
-    cta?: {
-        primary?: CTAButton;
-        secondary?: CTAButton;
-    };
-    scrollCta?: {
-        text: string;
-        targetId: string;
-        icon?: React.ElementType;
-        variant?: 'gradient' | 'outline' | 'filled' | 'light' | 'white' | 'subtle' | 'default';
-        gradient?: { from: string; to: string };
-    };
-    ctaText?: string; // Keep for potential backwards compatibility or specific cases if needed, though primary/secondary is preferred
-    ctaLink?: string; // Keep for potential backwards compatibility or specific cases if needed
-    // ... rest of the props
-}
-
 export default Hero; 

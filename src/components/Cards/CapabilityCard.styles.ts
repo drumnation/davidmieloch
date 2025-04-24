@@ -21,7 +21,7 @@ export const CapabilityCardContainer = styled(Box)`
 
 export const IconWrapper = styled(Flex)`
   margin-bottom: 1rem;
-  color: ${props => props.theme.colors.primary.main};
+  color: ${props => props.theme.colors[props.theme.primaryColor][6]};
   font-size: 2rem;
   align-items: center;
   justify-content: center;
@@ -31,11 +31,11 @@ export const CardTitle = styled(Text)`
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: ${props => props.theme.colors.text.primary};
+  color: ${props => props.theme.colors.gray[7]};
 `;
 
 export const CardDescription = styled(Text)`
   font-size: 0.875rem;
   line-height: 1.5;
-  color: ${props => props.theme.colors.text.secondary};
+  color: ${props => props.theme.colors.gray[6]};
 `; 

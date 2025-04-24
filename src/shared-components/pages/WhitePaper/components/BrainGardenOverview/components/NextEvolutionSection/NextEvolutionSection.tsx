@@ -267,7 +267,7 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
         </Box>
         <CapabilityCardsGrid>
           <CapabilityCard>
-            <Typography variant="h3" mb="0.75rem" sx={{ display: 'flex', alignItems: 'center' }}>
+            <Typography variant="h3" mb="0.75rem">{/* removed style prop */}
               <BsCodeSlash style={{ marginRight: '8px' }} /> Seamless VSCode Extension
             </Typography>
             <Typography variant="body">
@@ -276,7 +276,7 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
           </CapabilityCard>
 
           <CapabilityCard>
-            <Typography variant="h3" mb="0.75rem" sx={{ display: 'flex', alignItems: 'center' }}>
+            <Typography variant="h3" mb="0.75rem">{/* removed style prop */}
               <HiOutlineUsers style={{ marginRight: '8px' }} /> Hierarchical Agent Teams
             </Typography>
             <Typography variant="body">
@@ -285,7 +285,7 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
           </CapabilityCard>
 
           <CapabilityCard>
-            <Typography variant="h3" mb="0.75rem" sx={{ display: 'flex', alignItems: 'center' }}>
+            <Typography variant="h3" mb="0.75rem">{/* removed style prop */}
               <FaBrain style={{ marginRight: '8px' }} /> Unified Knowledge System
             </Typography>
             <Typography variant="body">
@@ -321,9 +321,9 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
                     <ResearchAreaCard>
                       <IconWrapper><area.icon /></IconWrapper>
                       {/* Adjusted Typography size/weight */}
-                      <Typography variant="h3" size="xl" fw={600} ta="center" mb="0.5rem">{area.title}</Typography>
+                      <Typography variant="h3" mb="0.5rem">{area.title}</Typography>
                       {/* Adjusted Typography size/line-height, use Highlight component */}
-                      <Typography variant="body" size="lg" lh={1.6} ta="center">
+                      <Typography variant="body">
                         <HighlightKeywords text={area.description} />
                       </Typography>
                     </ResearchAreaCard>

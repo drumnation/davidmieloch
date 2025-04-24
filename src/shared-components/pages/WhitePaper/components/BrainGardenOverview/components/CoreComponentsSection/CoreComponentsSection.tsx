@@ -15,7 +15,6 @@ import {
   CTAButtonWithIcon
 } from '../../BrainGardenOverview.logic';
 import { Card } from '@shared-components/atoms/Card';
-import { ContentBlock, SectionTitle, SubsectionTitle } from '@shared-components/pages/WhitePaper/components/TechnicalImplementation/TechnicalImplementation.styles';
 import { DiagramContainer } from './CoreComponentsSection.styles';
 import { DiagramClientWrapper } from '@components/Diagrams/_wrappers/DiagramClientWrapper';
 

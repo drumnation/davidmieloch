@@ -66,7 +66,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
       >
         {/* Added ID and style here */}
         <div id="skeptic-reality" style={{ scrollMarginTop: '100px' }}>
-          <ContentSection title="The Reality of AI Tools in Development Teams" titleStyle={{ textTransform: 'uppercase' }}>
+          <ContentSection title="The Reality of AI Tools in Development Teams" titleStyle={{ uppercase: true }}>
             <Typography variant="body" weight="regular" className="mb-4">
               Let me guess: your team just got access to AI coding tools, and the reactions range from skeptical eye-rolls to outright hostility.
               I&apos;ve been there—both as the skeptic and later as the solution architect.
@@ -114,7 +114,7 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
         <div id="skeptic-solutions" style={{ scrollMarginTop: '100px', marginTop: SPACING.paragraphBreak }}>
           <ProblemSolutionSection
             title="Common Problems & My Solutions"
-            titleStyle={{ textTransform: 'uppercase' }}
+            titleStyle={{ uppercase: true }}
             cards={problemSolutionCardsProps.cards}
           />
         </div>

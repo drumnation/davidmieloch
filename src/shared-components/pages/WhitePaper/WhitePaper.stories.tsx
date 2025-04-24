@@ -3,12 +3,10 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { AiSkepticToExpert } from './components/AiSkepticToExpert/AiSkepticToExpert';
 import { AiAutopilotAnalogy } from './components/AiAutopilotAnalogy/AiAutopilotAnalogy';
 import { BrainGardenOverview } from './components/BrainGardenOverview/BrainGardenOverview';
-import TechnicalImplementation from './components/TechnicalImplementation/TechnicalImplementation';
 import { RealWorldImpact } from './components/RealWorldImpact/RealWorldImpact';
 import { defaultContent as skepticContent } from './components/AiSkepticToExpert/AiSkepticToExpert.constants';
 import { defaultContent as brainGardenContent } from './components/BrainGardenOverview/BrainGardenOverview.constants';
 import { defaultContent as impactContent } from './components/RealWorldImpact/RealWorldImpact.constants';
-import { defaultContent as technicalContent } from './components/TechnicalImplementation/TechnicalImplementation.constants';
 import { SubNavController } from '@shared-components/navigation/PageSubNav';
 import { SubNavItem } from '@shared-components/navigation/PageSubNav/PageSubNav.types';
 import {
