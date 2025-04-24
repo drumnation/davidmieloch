@@ -23,7 +23,7 @@ const resolveSpacing = (
   if (value === undefined) return undefined;
   // Check if it's a theme spacing key first
   if (typeof value === 'string' && value in theme.spacing) {
-    return theme.spacing[value as MantineSpacing];
+    return theme.spacing[value as keyof typeof theme.spacing];
   }
   // Otherwise, treat as a literal value (number or string like '10px')
   return rem(value);
