@@ -6,7 +6,7 @@ import { MantineTheme, MantineSpacing, rem, MantineGradient } from '@mantine/cor
 export interface TypographyStylesProps {
   variant: 'h1' | 'h2' | 'h3' | 'body' | 'caption';
   weight: 'regular' | 'medium' | 'semibold' | 'bold';
-  color: 'primary' | 'secondary' | 'light' | 'gradient' | 'inherit';
+  color: 'primary' | 'secondary' | 'light' | 'gradient' | 'inherit' | 'dimmed';
   mt?: MantineSpacing | (string & {}) | number; // Updated type
   mb?: MantineSpacing | (string & {}) | number; // Updated type
   ml?: MantineSpacing | (string & {}) | number; // Updated type
@@ -122,6 +122,13 @@ export const getTypographyStyles = (
       styles.color = theme.colors.gray[5];
       styles['[data-mantine-color-scheme="dark"] &'] = {
         color: theme.colors.gray[4],
+      };
+      break;
+    case 'dimmed':
+      // Set dimmed color that is slightly muted
+      styles.color = theme.colors.gray[6];
+      styles['[data-mantine-color-scheme="dark"] &'] = {
+        color: theme.colors.dark[2],
       };
       break;
     case 'gradient':
