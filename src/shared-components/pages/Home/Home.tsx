@@ -307,7 +307,7 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
               description={PROJECT_PROMPT_FORGE.description}
               action={<CTALink
                 href={PROJECT_PROMPT_FORGE.link || '#'}
-                label={PROJECT_PROMPT_FORGE.status === 'live' ? "View on GitHub" : "Learn More"}
+                label={PROJECT_PROMPT_FORGE.status === 'live' ? "View Live" : "Learn More"}
                 iconNode={PROJECT_PROMPT_FORGE.link?.includes('github') ? <Image src="/github-logo.svg" alt="GitHub Logo" width={20} height={20} /> : undefined}
                 variant="primary"
                 size="sm"

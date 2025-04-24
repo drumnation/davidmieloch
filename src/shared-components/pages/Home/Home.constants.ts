@@ -48,9 +48,9 @@ export const PROJECT_AI_CONTEXT_GENERATOR: ProjectData = {
 
 export const PROJECT_PROMPT_FORGE: ProjectData = {
     name: 'Prompt Forge',
-    description: 'Modular prompt and template engine for chaining GPT workflows and tooling.',
+    description: 'My Personal Modular prompt and template engine for chaining GPT workflows and enhancing prompts for AI Agents. (Bring your own API keys)',
     status: 'live',
-    link: 'https://github.com/drumnation/prompt-forge',
+    link: 'https://prompt-forge.replit.app/',
     iconType: 'image',
     iconValue: '/media/prompt-forge-logo.png',
     iconBackgroundColor: 'white',
