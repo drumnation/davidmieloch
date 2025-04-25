@@ -226,7 +226,15 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
   };
 
   return (
-    <ContentContainer className={className}>
+    <ContentContainer
+      // Conditionally apply motion props only on larger screens
+      {...(isSm && { as: motion.div })} // Apply 'as' prop only when isSm is true
+      className={className}
+      {...(isSm && { variants: staggerContainer })} // Apply variants only when isSm is true
+      {...(isSm && { initial: "hidden" })}         // Apply initial only when isSm is true
+      {...(isSm && { whileInView: "visible" })}      // Apply whileInView only when isSm is true
+      {...(isSm && { viewport: { once: true, amount: 0.2 } })} // Revert viewport, apply only when isSm is true
+    >
       <Box>
         <SectionTitleComponent title="The Next Evolution of Brain Garden" />
 
@@ -317,7 +325,7 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
                 // Keep Grid.Col structure
                 <Grid.Col key={index} span={{ base: 12, sm: 6, md: 6 }}>
                   {/* Apply item animation & ensure full height */}
-                  <motion.div variants={fadeInUp} style={{ height: '100%' }}>
+                  <motion.div variants={fadeInUp} style={{ height: '100%', width: '100%' }}>
                     <ResearchAreaCard>
                       <IconWrapper><area.icon /></IconWrapper>
                       {/* Adjusted Typography size/weight */}
@@ -410,6 +418,7 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
+                  alignItems: 'center',
                   gap: theme.spacing.sm,
                   borderColor: theme.colors.gray[3]
                 }}
@@ -424,14 +433,17 @@ export const NextEvolutionSection: React.FC<NextEvolutionSectionProps> = ({
 
         </VisionValueContainer>
 
-        <Typography variant="body" mt="2rem" mb="1rem">
-          These principles and the resulting benefits are the foundation upon which the Brain Garden's technical architecture is constructed. Let's now examine how these concepts are realized in the specific components and structures of the system.
-        </Typography>
-
-        <Typography variant="body">
-          The architecture we&apos;re about to explore translates these concepts into practical
-          tools and structures that developers can immediately apply to their daily workflows.
-        </Typography>
+        {/* Wrap Typography in a Box for padding */}
+        <Box
+          style={{
+            paddingLeft: theme.spacing.xl,
+            paddingRight: theme.spacing.xl,
+          }}
+        >
+          <Typography variant="body" mt="2rem" mb="1rem">
+            These principles and the resulting benefits are the foundation upon which the Brain Garden's technical architecture is constructed. Let's now examine how these concepts are realized in the specific components and structures of the system.
+          </Typography>
+        </Box>
       </Box>
     </ContentContainer>
   );

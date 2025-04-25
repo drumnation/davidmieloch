@@ -218,12 +218,18 @@ export const CapabilityCard = styled.div`
 // Research area styles
 export const ResearchAreaContainer = styled(MantineBox)`
   margin-top: 2rem; 
-  /* Increased bottom margin */
   margin-bottom: 3rem; 
   background-color: #f8f9fa; 
-  /* Increased padding */
-  padding: 3rem; 
+  padding: 3rem; // Default padding for larger screens
   border-radius: 16px; 
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -${SPACING.mobile.container}; /* Counteract parent padding */
+    margin-right: -${SPACING.mobile.container}; /* Counteract parent padding */
+    border-radius: 0; /* Optional: Remove border radius for full-width feel */
+  }
 `;
 
 export const ResearchGridContainer = styled(MantineGrid)`
@@ -233,7 +239,6 @@ export const ResearchGridContainer = styled(MantineGrid)`
 // Update ResearchAreaCard to style Mantine Paper
 export const ResearchAreaCard = styled(MantinePaper).attrs({
   shadow: 'sm',
-  padding: 'xl',
   withBorder: true,
 })`
   display: flex;
@@ -241,16 +246,18 @@ export const ResearchAreaCard = styled(MantinePaper).attrs({
   align-items: center; 
   gap: 1rem;
   height: 100%;
+  width: 100%; /* Ensure card takes full width of its container */
   border-color: #dee2e6;
   background-color: #ffffff;
   border-radius: 16px;
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
   /* Center text inside */
   text-align: center;
+  /* Set padding explicitly: top=2rem, horizontal=2rem, bottom=2rem */
+  padding: 2rem 2rem 2rem; 
 
-  /* Hover effect */
   &:hover {
-    transform: scale(1.02);
+    transform: translateY(-4px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
 `;
@@ -283,7 +290,6 @@ export const BenefitGrid = styled(MantineGrid)`
 // BenefitCard styling Mantine Paper - Apply consistent styling
 export const BenefitCard = styled(MantinePaper).attrs({
   shadow: 'sm', // Consistent shadow
-  padding: 'xl', // Consistent padding
   withBorder: true,
 })`
   display: flex;
@@ -291,11 +297,13 @@ export const BenefitCard = styled(MantinePaper).attrs({
   align-items: center; // Center content
   gap: 1rem; // Consistent gap
   height: 100%;
+  width: 100%; /* Ensure card takes full width of its container */
   border-color: #dee2e6; // Consistent border
   background-color: #ffffff; // Consistent background
   border-radius: 16px; // Consistent radius
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; // Consistent transition
   text-align: center; // Consistent alignment
+  padding: 2rem ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.xl};
 
   /* Consistent hover effect */
   &:hover {

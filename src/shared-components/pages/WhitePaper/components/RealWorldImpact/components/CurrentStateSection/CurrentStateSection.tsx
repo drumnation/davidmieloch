@@ -108,6 +108,25 @@ const FeatureCard = styled(motion.div) <FeatureCardProps>`
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 0 0.5rem;
+    color: white;
+  }
+  
+  .feature-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+    strong {
+      font-weight: 600;
+      color: white;
+    }
+
+    p {
+      margin: 0.25rem 0 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #f0f0f0;
+    }
   }
 `;
 
