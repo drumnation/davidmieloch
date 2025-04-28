@@ -15,6 +15,7 @@ export default defineConfig({
     setupFiles: ['.storybook/vitest.setup.ts'],
   },
   resolve: {
+    preserveSymlinks: true,
     alias: {
       '@components': path.resolve(__dirname, './src/components'),
       '@shared-components': path.resolve(__dirname, './src/shared-components'),

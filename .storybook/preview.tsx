@@ -4,8 +4,8 @@ import { viewports } from '../src/styles/theme/viewports'
 import { MantineProvider } from '@mantine/core'
 import { theme as mantineTheme } from '../src/styles/theme'
 import '@mantine/core/styles.css'
-import { ReactFlowProvider } from 'reactflow'
-import 'reactflow/dist/style.css'
+import { ReactFlowProvider } from '@xyflow/react'
+import '@xyflow/react/dist/style.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 // Add global styles for fonts
