@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented resume data utility to format portfolio data for AI analysis [#Feature]
 - Implemented document parser utilities for Perfect Fit Analyzer that handle PDF, DOCX, and text files [#Feature]
 - Added comprehensive test suite for document parsing functionality [#Testing]
+- Added multi-size, square, high-resolution favicons and app icons generated from a center-cropped headshot for all platforms (iOS, Android, web, PWA). Updated manifest and global head configuration for best practice support.
 
 ### Changed
 
