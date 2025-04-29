@@ -39,6 +39,9 @@ export const GlobalStyles = createGlobalStyle`
     position: relative !important;
     z-index: 2 !important;
     color: ${({ theme }) => theme.white} !important;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+    paint-order: stroke fill;
   }
 
   .bio-hero-bg p {
@@ -50,6 +53,25 @@ export const GlobalStyles = createGlobalStyle`
     position: relative !important;
     z-index: 2 !important;
     color: ${({ theme }) => theme.white} !important;
+  }
+
+  /*
+   * Updated style for the hero subtitle paragraph.
+   * Increased font size and added text stroke.
+   */
+  .bio-hero-bg .hero-subtitle-custom {
+    font-size: 1.8rem !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+    margin: 0 auto !important;
+    font-weight: 400 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    color: ${({ theme }) => theme.white} !important;
+    text-align: center;
+    line-height: 1.4;
+    -webkit-text-stroke: 0.8px black;
+    text-stroke: 0.8px black;
+    paint-order: stroke fill;
   }
 
   @keyframes subtle-zoom {
@@ -503,5 +525,17 @@ export const SkillTag = styled.span`
     box-shadow: ${({ theme }) => theme.shadows.md};
     background: ${({ theme }) => theme.colors[theme.primaryColor][6]};
     color: ${({ theme }) => theme.white};
+  }
+`;
+
+// Styled span for specific words in the hero subtitle
+export const HeroSubtitleSpan = styled.span`
+  &.orchestrating,
+  &.rhythmic {
+    color: ${({ theme }) => theme.colors.blue[6]};
+    font-weight: 500;
+    text-shadow: 
+      0 0 8px ${({ theme }) => theme.colors.blue[4]},
+      0 2px 8px rgba(0, 0, 0, 0.8);
   }
 `; 

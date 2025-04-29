@@ -1,6 +1,6 @@
 import { RefObject } from 'react';
 // import { SoundCloudTrack } from '../../Footer.types'; // Remove old type
-import { AudioTrack, AudioMode } from '../../dual-audio/DualAudio.types'; // Import new types
+import { AudioTrack, AudioMode } from '../dual-audio/DualAudio.types'; // Import new types
 
 export interface StandardPlayerProps {
     currentTrack: AudioTrack | null; // Update type
@@ -11,15 +11,36 @@ export interface StandardPlayerProps {
     colorScheme: string;
     currentTime: number;
     duration: number;
-    volume: number; // Add volume
-    mode: AudioMode; // Add mode
     onPlayToggle: () => void;
     onMinimizeToggle: () => void;
     onPlaylistToggle: () => void;
     onPrevTrack: () => void;
     onNextTrack: () => void;
-    onVolumeChange: (volume: number) => void; // Add volume handler
-    onModeChange: (mode: AudioMode) => void; // Add mode handler
-    onSeek: (progress: number) => void; // Add seek handler (takes progress 0-100)
+    /** @deprecated Use onSeekMusic and onSeekNarration instead */
+    onSeek?: (progress: number) => void;
+    onSeekMusic: (progress: number) => void;
+    onSeekNarration: (progress: number) => void;
     startUserInteraction?: () => void; // Make optional
+
+    // New props for toggles & independent volume
+    isMusicEnabled: boolean;
+    isNarrationEnabled: boolean;
+    musicVolume: number; // Separate music volume prop
+    voiceVolume: number; // Separate voice volume prop
+    toggleMusic: () => void;
+    toggleNarration: () => void;
+    onMusicVolumeChange: (volume: number) => void; // Separate handler
+    onVoiceVolumeChange: (volume: number) => void; // Separate handler
+
+    // Additional context needed for display logic
+    activeVoiceTrack: AudioTrack | null;
+    isMusicPlaying: boolean;
+    isVoicePlaying: boolean;
+    voiceCurrentTime: number;
+    voiceDuration: number;
+
+    playMusic?: () => void;
+    pauseMusic?: () => void;
+    playVoice?: () => void;
+    pauseVoice?: () => void;
 } 

@@ -9,7 +9,7 @@ import { MantineProvider } from './MantineProvider'; // Our custom MantineProvid
 import { ThemeContext, ThemeContextType } from '../contexts/ThemeContext'; // Keep context import for now, might remove later
 import { usePathname } from 'next/navigation';
 import { useMantineTheme } from '@mantine/core'; // Import Mantine theme hook
-import { DualAudioProvider } from '@/shared-components/organisms/Footer/dual-audio/DualAudioContext'; // Import DualAudioProvider
+import { DualAudioProvider } from '@/shared-components/organisms/Footer/components/dual-audio/DualAudioContext'; // Import DualAudioProvider
 
 // Keep useTheme hook export for now, as Header/Footer still use it for colorScheme
 // We might remove this later if Header/Footer can get colorScheme differently.
@@ -30,7 +30,8 @@ const StyledComponentsBridge: React.FC<{ children: React.ReactNode }> = ({ child
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const pathname = usePathname();
-  const colorScheme = pathname === '/' ? 'dark' : 'light';
+  const isRoot = pathname.split('?')[0].replace(/\/+$/, '') === '' || pathname === '/';
+  const colorScheme = isRoot ? 'dark' : 'light';
 
   const toggleColorScheme = () => {
     console.warn('toggleColorScheme is not implemented for route-based theme');

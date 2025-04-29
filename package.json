@@ -32,7 +32,7 @@
     "test:storybook:watch": "npx vitest --config vitest.config.storybook.ts --watch",
     "test:storybook:normalize": "node scripts/normalize-snapshots.js",
     "test:storybook:stable": "pnpm test:storybook:update && pnpm test:storybook:normalize && pnpm test:storybook:all",
-    "test:ci": "npx vitest --config vitest.config.snapshot.ts --run && npx vitest --config vitest.config.stories.ts --run"
+    "test:ci": "pnpm exec vitest --config vitest.config.snapshot.ts --run && pnpm exec vitest --config vitest.config.stories.ts --run"
   },
   "// comments": {
     "pdf-thumbnails": "Requires pdftoppm from poppler-utils to be installed on the system for PDF page extraction"
@@ -134,7 +134,7 @@
     "storybook": "^8.6.11",
     "typescript": "^5",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.8"
+    "vitest": "^3.1.2"
   },
   "eslintConfig": {
     "extends": [

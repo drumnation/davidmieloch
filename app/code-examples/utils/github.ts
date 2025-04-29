@@ -26,6 +26,7 @@ interface GitHubRepo {
 
 // Restore the correct list of included repositories from commit b81a2bf3
 const INCLUDED_REPOS = [
+  'davidmieloch',
   'ts-hot-react-vscode-starter',
   'ai-context-generator',
   'prompt-forge',
@@ -86,7 +87,7 @@ export async function fetchGitHubRepos(username: string): Promise<GitHubRepo[] |
   console.log('Fetching GitHub repos for:', username);
   try {
     console.log(`Making API request to: https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
-    
+
     const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`, {
       headers: {
         'Accept': 'application/vnd.github.v3+json'
@@ -94,9 +95,9 @@ export async function fetchGitHubRepos(username: string): Promise<GitHubRepo[] |
       // This forces a fresh network request instead of using cached responses
       cache: 'no-store'
     });
-    
+
     console.log('API response status:', response.status, response.statusText);
-    
+
     if (!response.ok) {
       console.error('GitHub API response not OK:', response.status, response.statusText);
       // Specifically check for 403 (Rate Limit Exceeded)
@@ -105,12 +106,12 @@ export async function fetchGitHubRepos(username: string): Promise<GitHubRepo[] |
         return null; // Signal rate limit error
       }
       // Return empty array for other fetch errors
-      return []; 
+      return [];
     }
-    
+
     const data = await response.json();
     console.log('Fetched repositories count:', data.length);
-    
+
     // Basic check if data is an array
     if (!Array.isArray(data)) {
       console.error('GitHub API did not return an array:', data);
@@ -121,7 +122,7 @@ export async function fetchGitHubRepos(username: string): Promise<GitHubRepo[] |
   } catch (error) {
     console.error('Error fetching GitHub repositories:', error);
     // Return empty array for general exceptions
-    return []; 
+    return [];
   }
 }
 
@@ -145,13 +146,13 @@ export function transformGitHubRepo(repo: GitHubRepo): Repository | null {
     updatedAt: repo.updated_at,
     isPrivate: repo.private,
     topics: repo.topics,
-    owner: repo.owner 
-      ? { 
-          id: repo.owner.id.toString(),
-          login: repo.owner.login, 
-          avatarUrl: repo.owner.avatar_url, 
-          url: repo.owner.html_url
-        } 
+    owner: repo.owner
+      ? {
+        id: repo.owner.id.toString(),
+        login: repo.owner.login,
+        avatarUrl: repo.owner.avatar_url,
+        url: repo.owner.html_url
+      }
       : { id: '0', login: 'unknown', avatarUrl: '', url: '#' },
   };
 }

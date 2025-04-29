@@ -58,7 +58,7 @@ export enum FooterState {
 
 // Default player heights
 export const PLAYER_HEIGHTS = {
-    MINI: '50px',
+    MINI: '54px',
     OPEN: '120px',
     EXPANDED: 'auto'
 }; 

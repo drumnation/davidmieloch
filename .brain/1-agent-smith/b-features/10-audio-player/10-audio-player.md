@@ -1,3 +1,43 @@
+# Dual Audio Player Feature Status
+
+**Last Updated:** $(date +'%Y-%m-%d %H:%M:%S')
+
+## Current State & Functionality
+
+*   **Core Logic:** The primary logic resides in `src/shared-components/organisms/Footer/dual-audio/useDualAudioController.ts`.
+*   **Dual Audio Elements:** Two separate `<audio>` elements are used (via `musicAudioRef` and `voiceAudioRef`) rendered hidden within `src/shared-components/organisms/Footer/Footer.tsx`.
+*   **Independent State:** State variables (play/pause, time, duration, volume, active track) are managed independently for music and voice.
+*   **Context:** State and actions are provided via `DualAudioContext` created in `src/shared-components/organisms/Footer/dual-audio/DualAudioContext.tsx`.
+*   **Voice Loading:** Voice tracks are dynamically loaded based on the current route using `useVoiceTrackLoader` and the `voiceTracks.ts` playlist.
+*   **Playlists Synced:** The `voiceTracks.ts` playlist has been updated to match the MP3s in `/public/audio/voice/`. `musicPlaylist.ts` manages background music.
+*   **Route Cleanup:** A potentially redundant route (`app/best-practices-integration/`) was removed.
+*   **Event Listeners:** `timeupdate`, `ended`, and `loadedmetadata` listeners are attached to keep state synchronized.
+*   **Music Ducking:** Implemented logic to lower music volume (`DUCK_VOLUME = 0.2`) when a voice track plays in `BOTH` mode and restore it afterward.
+*   **Mode Switching:** Logic handles volume adjustments and playback state changes when switching between `MUSIC_ONLY`, `VOICE_ONLY`, and `BOTH` modes.
+*   **Volume/Seek:** Volume and seek handlers clamp values and consider the current mode and ducking state.
+
+## How It Works (High Level)
+
+1.  `Footer.tsx` renders the player UI (`MiniPlayer`, `StandardPlayer`, `Playlist`) and the hidden `<audio>` elements.
+2.  `Footer.tsx` consumes `useDualAudio` to get state/actions from the context.
+3.  `DualAudioContext` uses `useDualAudioController` to manage all the underlying audio logic.
+4.  `useDualAudioController` sets up state, refs, event listeners, and defines actions (play, pause, seek, load, setVolume, setMode).
+5.  `useVoiceTrackLoader` (used within the controller) listens to route changes and calls `loadVoiceTrack` with the appropriate track from `voiceTracks.ts`.
+6.  Effects within `useDualAudioController` handle music ducking based on `isVoicePlaying` and mode changes.
+
+## Remaining Tasks / Next Steps
+
+*   **Implement Track Ending Logic:** Define behavior in `handleMusicEnded` and `handleVoiceEnded` within `useDualAudioController.ts`:
+    *   Music: Play next track in playlist? Loop? Stop?
+    *   Voice: Clear active track? Switch mode back to Music Only?
+*   **Thorough Testing:** Execute the extensive QA checklist below.
+*   **Browser Compatibility/Edge Cases:** Test across different browsers and handle potential browser limitations (e.g., autoplay restrictions requiring user interaction).
+*   **Error Handling:** Improve error handling for audio loading/playback failures beyond basic console logs.
+*   **(Deferred) Test Suite:** Fix/update Vitest snapshot tests.
+*   **(Optional) Polish:** Consider bonus features from the checklist (preload indicators, persistent mode, adjustable duck volume).
+
+---
+
 ✅ Perfect — you're ready for the final phase.
 
 Here's the **"🎯 Post-Launch QA Checklist: Dual Audio System"** (expanded, final version):

@@ -1,235 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brain Garden Portfolio Site
 
-## Getting Started
+> The central hub for my work as a senior AI-native engineer, systems thinker, and technical thought leader. This isn't just a portfolio — it's a living artifact of my engineering philosophy, powered by my evolving AI system: **Brain Garden**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Overview
+This site is more than a showcase — it's a **working demonstration of AI-assisted development in action**. Every feature, animation, prompt system, and page structure is part of an ecosystem I use to:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Codify and test new development patterns
+- Share strategic systems for AI-driven engineering teams
+- Reinforce my identity as a **Full-Stack Business Person** who builds tools, stories, and systems
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎧 Dual Audio Player
+One of the site’s flagship features is a **custom dual-mode audio player**:
 
-## Learn More
+- **Narrated Pages**: Every major section of the site includes a spoken narration — human-paced, professionally voiced.
+- **Dual Toggle**: Users can swap between narrative audio and ambient music on any page.
+- **Seamless Playback**: Intelligent caching and playback continuity across pages.
 
-To learn more about Next.js, take a look at the following resources:
+This isn't just an accessibility feature — it's a statement about **the future of multimodal interfaces**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌱 What Is Brain Garden?
+> "Brain Garden" is my system for evolving AI-assisted software development.
 
-## Deploy on Vercel
+- A place to store and share **rules**, **prompts**, and **knowledge breakthroughs**
+- A portable, fast-loading system that amplifies my performance on every project
+- A shared mental workspace that any team I work with inherits instantly
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Hiring me means inheriting Brain Garden — and everything I’ve learned from the frontier.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
 
-## LinkedIn Data Processing
+## 🧠 AI-Native Engineering Philosophy
+This site demonstrates my core principles:
 
-This project includes a tool to process LinkedIn data exports and generate structured data for the Experience page.
+- **Code should narrate itself** — clarity, intention, and purpose matter.
+- **AI isn’t magic** — it's leverage. Tools must adapt to humans, not the other way around.
+- **Systems > Scripts** — even small features should slot into a broader design logic.
 
-### Exporting Your LinkedIn Data
+---
 
-1. Go to your LinkedIn account settings
-2. Click on "Data privacy"
-3. Click on "Get a copy of your data"
-4. Select "Want something in particular?" option
-5. Check the following data files:
-   - Profile
-   - Positions
-   - Education
-   - Skills
-   - Rich Media
-6. Request the archive and download it when available
+## 📂 Tech Stack
+- **Next.js + TypeScript** (full SSR/ISR support)
+- **Mantine UI** + theme/design tokens
+- **Styled-Components**
+- **Framer Motion** for subtle, layered animation
+- **Vercel** for blazing-fast deploys
+- **Custom audio playback engine** (React Context + Web Audio API)
 
-### Processing the LinkedIn Data
+---
 
-1. Create a directory `.brain/linkedInDataExport` in the project root
-2. Extract the LinkedIn data ZIP file and place the CSV files in this directory
-3. Run the processing script:
+## 🤖 AI-Integrated Production
 
-```bash
-pnpm process-linkedin
-```
+The site itself was built using the same agent-assisted development principles I write about. Many of the prompts and workflows used in building this site were developed inside my Brain Garden system — which evolves alongside me to support rapid prototyping, narration scripting, and iterative refinement.
 
-4. This will:
-   - Parse the CSV files
-   - Extract profile information, work experience, education, and skills
-   - Attempt to download media files (profile photo, etc.)
-   - Generate placeholder images for companies and schools
-   - Save structured JSON data in `src/data/`
+### Voice Cloning & TTS
 
-### Advanced Options
+- Narration was generated using **Speechify + voice cloning** trained on my voice.
+- Scripts are managed in structured markdown, allowing fast iteration, segment re-recording, and rebalancing narration/music dynamics.
 
-The LinkedIn data processing script includes several advanced options:
+## 🧠 Philosophy in Form
 
-#### Using LinkedIn Authentication
+This portfolio isn’t just about the projects I’ve done — it’s a demonstration of my approach:
 
-To download media directly from LinkedIn (which often requires authentication):
+- Developer tooling built to evolve
+- Storytelling merged with interface design
+- AI-powered workflows that don’t just produce, but amplify
 
-1. Log in to LinkedIn in your browser
-2. Use browser developer tools to export cookies to JSON:
-   - Chrome: DevTools > Application > Storage > Cookies > Right-click > Save all cookies as JSON
-   - Firefox: DevTools > Storage > Cookies > Export
-3. Save the cookies file to `.brain/linkedin-cookies.json`
-4. Edit the `CONFIG.useAuthentication` option in the script to `true`
+## 🧪 Want to Go Deeper?
 
-#### Company Logo Generation
+If you’re evaluating me for a role or consulting opportunity, this repo pairs well with:
 
-The script will generate visually appealing letter avatars for companies and schools:
+- [My AI development frameworks](https://davidmieloch.com/enterprise-ai-development-framework)
+- [My React best practices guide](https://davidmieloch.com/fullstack-react-best-practices-integration)
 
-- Each letter avatar uses a color from LinkedIn's color palette
-- The first letter of the company/school name is displayed prominently
-- The script ensures consistent styling across all avatars
+---
 
-> **Note:** The script previously supported the Clearbit Logo API for company logos, but this service has been deprecated and is no longer available. Letter avatars are now used as the primary fallback when direct downloads fail.
+## 📁 Repo Purpose
+You're looking at my **flagship personal site** — not a playground, but a polished demonstration of what it means to be a modern full-stack engineer who thinks like a systems architect and moves like a startup founder.
 
-#### Troubleshooting
+It contains:
+- Modular component systems
+- Audio control logic
+- Advanced layout structure
+- Voice-ready content workflows
+- Live embedded AI philosophies
 
-If you encounter issues with media downloads:
+---
 
-1. Enable verbose logging by setting `CONFIG.verbose = true` in the script
-2. Check for debug screenshots in the project root directory
-3. Try using LinkedIn authentication as described above
-4. If all else fails, the script will generate letter avatars as placeholders
+## 🤝 Who This Is For
+If you're a:
 
-# Experience Components
+- CTO evaluating a senior engineer with strong AI instincts
+- Engineering lead looking to scale your dev team’s capabilities with AI
+- Recruiter seeking **a builder who builds systems that build systems**
 
-This package contains a set of components for displaying experience sections typically found on resumes and personal websites.
+Then this site — and this repo — is for you.
 
-## Components
+---
 
-- `Experience`: The main container component for all experience sections
-- `ExperienceSection`: For showcasing work experience 
-- `EducationSection`: For displaying educational background
-- `SkillsSection`: For listing skills with optional categorization
-- `SideProjectsSection`: For displaying side projects and personal work
+## 🎯 Goals
+- Prove out design, dev, and content capabilities in one artifact
+- Act as the gateway to deeper materials (whitepapers, talks, demos)
+- Show — not just tell — how I work and how I lead
 
-## Markdown Support in Bullet Points
+---
 
-The `ExperienceSection` component supports Markdown formatting in bullet points to make content more scannable and highlight important information:
+## 📌 Live Site
+[https://davidmieloch.com](https://davidmieloch.com)
 
-```jsx
-const experienceWithMarkdown = {
-  // ... other fields
-  bulletPoints: [
-    'Led a team of **5 developers** in adopting modern React patterns.',
-    'Improved performance by **30%** through *architectural optimizations*.',
-    'Created interactive components for clients including:',
-    '- **Client A**: Custom dashboard',
-    '- **Client B**: Data visualization system',
-    'Published `npm-package-name` with **25 Stars / 5 Forks**.'
-  ]
-};
-```
+---
 
-### Markdown Formatting Options
+## 🛠️ Want to Build Something Like This?
+Contact me directly or open an issue.
 
-- **Bold**: Use `**text**` to emphasize key achievements and metrics
-- **Italic**: Use `*text*` for subtle emphasis 
-- **Lists**: Create nested bullet points with hyphens (`- Sub point`)
-- **Links**: Add links with `[text](url)` syntax
-- **Code**: Highlight code/technical terms with backticks `` `code` ``
+---
 
-### Implementation Example
+## ✍️ Author
+**David Mieloch**  
+Senior Software Engineer • AI Architect • Full-Stack Business Person  
+[LinkedIn](https://www.linkedin.com/in/davidmieloch) • [Site](https://davidmieloch.com) • [Email](mailto:david@davidmieloch.com)
 
-See `BulletPointsExample.tsx` for a complete example of markdown formatting in bullet points.
-
-## Media Layout System
-
-The components support a flexible media layout system:
-
-### Basic Media Types
-
-- **image**: Display an image with optional title and description
-- **video**: Display a video with controls and optional thumbnail
-- **link**: Display a link with optional thumbnail, title, and description
-
-### Advanced Layouts with Media Groups
-
-You can create complex media layouts using the `group` media type:
-
-```js
-{
-  type: 'group',
-  layout: 'default', // 'default' for side-by-side, 'stack' for vertical
-  url: '#', // Required placeholder URL
-  items: [
-    // First item takes 48% width
-    {
-      type: 'image',
-      url: '/path/to/image1.jpg',
-      title: 'Main Feature',
-      width: '48%'
-    },
-    // Second item is a group of stacked media
-    {
-      type: 'group',
-      layout: 'stack',
-      url: '#',
-      width: '48%',
-      items: [
-        {
-          type: 'image',
-          url: '/path/to/image2.jpg',
-          title: 'Stacked Item 1'
-        },
-        {
-          type: 'image',
-          url: '/path/to/image3.jpg',
-          title: 'Stacked Item 2'
-        }
-      ]
-    }
-  ]
-}
-```
-
-This creates a layout with:
-- One main image on the left (48% width)
-- Two stacked images on the right (48% width combined)
-
-### Width Options
-
-Media items support several width options:
-- Percentage values (e.g., `'48%'`, `'100%'`)
-- Predefined values: `'quarter'`, `'third'`, `'half'`, `'full'`
-- Default: Takes full width if no width specified
-
-### Responsive Behavior
-
-All media layouts are responsive and adapt to smaller screens:
-- On mobile, media items stack vertically regardless of layout
-- Images maintain proper aspect ratios
-- Media groups preserve their internal layout structure when possible
-
-## Usage
-
-```jsx
-import { Experience, SideProjectsSection } from '@components/Experience';
-import { sampleProjects } from './data';
-
-const MyExperiencePage = () => (
-  <Experience>
-    <SideProjectsSection 
-      title="Side Projects" 
-      projects={sampleProjects} 
-    />
-  </Experience>
-);
-```
-
-## Example Data
-
-See `data.ts` and `ExampleUsage.tsx` for example implementations.
+> "I'm not selling Brain Garden. I'm selling me — and Brain Garden comes with me."

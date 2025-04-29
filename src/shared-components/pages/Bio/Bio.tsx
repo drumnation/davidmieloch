@@ -5,7 +5,8 @@ import { Hero } from '../../organisms/Hero';
 import {
   BioContainer,
   fadeIn,
-  GlobalStyles
+  GlobalStyles,
+  HeroSubtitleSpan
 } from './Bio.styles';
 import { BioPageProps } from './Bio.types';
 import { TransitionDiv, TransitionContainer } from '@utils/animations/migration-helpers';
@@ -25,7 +26,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@store/index';
 import { selectIsPlayerMinimized } from '@store/slices/playerUiSlice';
 import { useMediaQuery } from '@mantine/hooks';
-import { Card, useMantineTheme } from '@mantine/core';
+import { Card, Text, useMantineTheme } from '@mantine/core';
 
 // Import components
 import BioIntro from './components/BioIntro';
@@ -163,7 +164,6 @@ export const BioPage: React.FC<BioPageProps> = ({
   // Hero props
   const heroProps = {
     title: "David Mieloch",
-    subtitle: "Orchestrating Code · With Rhythmic Precision",
     background: 'image' as const,
     backgroundImage: '/orchestra.jpg',
     backgroundOverlay: true,
@@ -178,7 +178,13 @@ export const BioPage: React.FC<BioPageProps> = ({
     <BioContainer id={id} className={className}>
       <GlobalStyles />
 
-      <Hero {...heroProps} />
+      <Hero {...heroProps}>
+        <Text component="p" className="hero-subtitle-custom" mt="md">
+          <HeroSubtitleSpan className="orchestrating">Orchestrating</HeroSubtitleSpan> Code
+          <br />
+          · With <HeroSubtitleSpan className="rhythmic">Rhythmic</HeroSubtitleSpan> Precision
+        </Text>
+      </Hero>
 
       {/* Conditionally render SubNavController */}
       {(isDesktop || isPlayerMinimized) && <SubNavController items={biographyNavItems} />}

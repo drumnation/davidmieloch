@@ -80,6 +80,22 @@ Perfect for creating professional digital menu boards, promotional displays, and
             },
             {
                 type: "link",
+                url: "https://medium.com/@davidmieloch/what-i-learned-building-a-photoshop-in-the-browser-da72c963b185",
+                title: "What I Learned Building a Photoshop in the Browser",
+                description: "Lessons in architecture, state management, and engineering leadership from four years building an enterprise-grade design tool.",
+                thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*LuA3jus3hzE3peIfFVkMig.jpeg",
+                width: "100%",
+            },
+            {
+                type: "link",
+                url: "https://medium.com/@davidmieloch/building-with-brain-garden-real-world-lessons-in-practical-ai-07cb45169341",
+                title: "Building with Brain Garden: Real-World Lessons in Practical AI",
+                description: "Beyond Hype — How We Actually Use Rules, Prompts, Skill Jacks, and Task Lists to Work Smarter with AI",
+                thumbnailUrl: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*TEtUPh7iSY6VNc10yRPG4w.png",
+                width: "100%",
+            },
+            {
+                type: "link",
                 url: "https://medium.com/@davidmieloch/developing-with-a-team-of-ais-b1b2019ea44c",
                 title: "Developing with a Team of AIs",
                 description: "How I organized multiple AI agents to work together on code projects",

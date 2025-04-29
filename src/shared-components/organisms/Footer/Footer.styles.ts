@@ -60,7 +60,10 @@ export const FooterContainer = styled.div<ColorSchemeProps & {
   width: 100%;
   z-index: 50;
   background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
-  height: ${props => props.$isExpanded ? '300px' : props.$isMiniMode ? '50px' : 'auto'};
+  height: ${props => props.$isExpanded ? '300px' : props.$isMiniMode ? '54px' : 'auto'};
+  @media (max-width: 768px) {
+    height: ${props => (!props.$isMiniMode && !props.$isExpanded) ? '140px' : ''};
+  }
   transition: height 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
   transform: translateY(${props => props.$isMiniMode ? '0' : '0'});
   will-change: height, transform, opacity;
@@ -115,7 +118,7 @@ export const MiniModeContainer = styled.div<ColorSchemeProps>`
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
-  height: 50px;
+  height: 54px;
   background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
       
   /* Ensure all direct children are perfectly centered */
@@ -493,8 +496,8 @@ export const getFooterContainerStyle = (
   borderTop: `1px solid ${colors.border}`,
   color: colors.text,
   boxShadow: isMiniMode ? '0 -1px 3px rgba(0,0,0,0.1)' : '0 -2px 10px rgba(0,0,0,0.15)',
-  height: isExpanded ? 'auto' : isMiniMode ? '50px' : '120px',
-  minHeight: isMiniMode ? '50px' : '120px',
+  height: isExpanded ? 'auto' : isMiniMode ? '54px' : 'auto',
+  minHeight: isMiniMode ? '54px' : isExpanded ? '120px' : 'auto',
   transition: 'height 0.3s ease',
   overflow: 'hidden',
 });
@@ -545,3 +548,11 @@ export const compactControlsStyle: CSSProperties = {
 export const playlistContentStyle: CSSProperties = {
   padding: '1rem',
 };
+
+export const FooterResponsiveContainer = styled.div`
+  width: 100%;
+  height: 120px;
+  @media (max-width: 768px) {
+    height: 205px;
+  }
+`;

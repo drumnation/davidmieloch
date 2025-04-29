@@ -6,6 +6,9 @@ import { miniModeGroupStyle } from '../../Footer.styles';
 import { MiniPlayerProps } from './MiniPlayer.types';
 import { TrackArtwork } from '../TrackArtwork';
 import { ProgressBar } from '../ProgressBar';
+import { useMediaQuery } from '@mantine/hooks';
+import { useMantineTheme } from '@mantine/core';
+import { MiniPlayerContainer, MiniPlayerTopRow, MiniPlayerArtworkMeta, MiniPlayerMetadata, MiniPlayerChevron, MiniPlayerProgressBar } from './MiniPlayer.styles';
 
 export const MiniPlayer = ({
     currentTrack,
@@ -17,48 +20,92 @@ export const MiniPlayer = ({
     colorScheme,
     onPlayToggle,
     onMinimizeToggle,
-    startUserInteraction
+    startUserInteraction,
+    displayTitle
 }: MiniPlayerProps & { artworkUrl?: string }) => {
+    const theme = useMantineTheme();
+    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+    const displayArtwork = artworkUrl || currentTrack?.artwork;
+
     return (
-        <Group justify="space-between" align="center" style={miniModeGroupStyle}>
-            <Group align="center" gap="xs" style={{ overflow: 'hidden', flexShrink: 1, flexWrap: 'nowrap' }}>
-                <TrackArtwork
-                    artwork={artworkUrl}
-                    title={currentTrack?.title}
-                    isPlaying={isPlaying}
-                    onClick={() => { startUserInteraction?.(); onPlayToggle(); }}
-                    size={30}
-                    iconSize={15}
-                />
-                <Box style={{ overflow: 'hidden' }}>
-                    <Text size="xs" fw={600} lineClamp={1} c={colors.text}>
-                        {currentTrack?.title || 'Track'}
-                    </Text>
-                    <Text size="xs" lineClamp={1} c={colors.textSecondary}>
-                        {currentTrack?.artist || '-'}
-                    </Text>
-                </Box>
-            </Group>
-
-            <Box style={{ flex: 1, margin: '0 0.5rem' }}>
-                <ProgressBar
-                    progress={progress}
-                    backgroundColor={colors.progressBackground}
-                    barRef={progressBarRef}
-                />
-            </Box>
-
-            <ActionIcon
-                variant="subtle"
-                color={colorScheme === 'dark' ? 'gray' : 'dark'}
-                radius="xl"
-                size="sm"
-                style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
-                onClick={onMinimizeToggle}
-                aria-label="Expand player"
-            >
-                <LuChevronUp size={14} />
-            </ActionIcon>
-        </Group>
+        <MiniPlayerContainer>
+            {isMobile ? (
+                <>
+                    <MiniPlayerTopRow>
+                        <MiniPlayerArtworkMeta>
+                            <TrackArtwork
+                                artwork={displayArtwork}
+                                title={currentTrack?.title}
+                                isPlaying={isPlaying}
+                                onClick={() => { startUserInteraction?.(); onPlayToggle(); }}
+                                size={30}
+                                iconSize={15}
+                            />
+                            <MiniPlayerMetadata>
+                                <Text size="xs" fw={600} lineClamp={1} c={colors.text}>
+                                    {displayTitle}
+                                </Text>
+                            </MiniPlayerMetadata>
+                        </MiniPlayerArtworkMeta>
+                        <MiniPlayerChevron>
+                            <ActionIcon
+                                variant="subtle"
+                                color={colorScheme === 'dark' ? 'gray' : 'dark'}
+                                radius="xl"
+                                size="sm"
+                                onClick={onMinimizeToggle}
+                                aria-label="Expand player"
+                            >
+                                <LuChevronUp size={14} />
+                            </ActionIcon>
+                        </MiniPlayerChevron>
+                    </MiniPlayerTopRow>
+                    <MiniPlayerProgressBar>
+                        <ProgressBar
+                            progress={progress}
+                            backgroundColor={colors.progressBackground}
+                            barRef={progressBarRef}
+                        />
+                    </MiniPlayerProgressBar>
+                </>
+            ) : (
+                <MiniPlayerTopRow>
+                    <MiniPlayerArtworkMeta>
+                        <TrackArtwork
+                            artwork={displayArtwork}
+                            title={currentTrack?.title}
+                            isPlaying={isPlaying}
+                            onClick={() => { startUserInteraction?.(); onPlayToggle(); }}
+                            size={40}
+                            iconSize={18}
+                        />
+                        <MiniPlayerMetadata>
+                            <Text size="sm" fw={600} lineClamp={1} c={colors.text}>
+                                {displayTitle}
+                            </Text>
+                        </MiniPlayerMetadata>
+                    </MiniPlayerArtworkMeta>
+                    <MiniPlayerProgressBar>
+                        <ProgressBar
+                            progress={progress}
+                            backgroundColor={colors.progressBackground}
+                            barRef={progressBarRef}
+                        />
+                    </MiniPlayerProgressBar>
+                    <MiniPlayerChevron>
+                        <ActionIcon
+                            variant="subtle"
+                            color={colorScheme === 'dark' ? 'gray' : 'dark'}
+                            radius="xl"
+                            size="sm"
+                            onClick={onMinimizeToggle}
+                            aria-label="Expand player"
+                        >
+                            <LuChevronUp size={16} />
+                        </ActionIcon>
+                    </MiniPlayerChevron>
+                </MiniPlayerTopRow>
+            )}
+        </MiniPlayerContainer>
     );
 }; 

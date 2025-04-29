@@ -17,12 +17,9 @@ import { ProgressBar } from '../ProgressBar';
 export const Playlist = ({
     currentTrack,
     isPlaying,
-    progress,
     colors,
-    progressBarRef,
     colorScheme,
-    displayTracks,
-    onPlayToggle,
+    tracks,
     onMinimizeToggle,
     onPlaylistToggle,
     onTrackSelect,
@@ -40,7 +37,9 @@ export const Playlist = ({
                     artwork={currentTrack?.artwork}
                     title={currentTrack?.title}
                     isPlaying={isPlaying}
-                    onClick={() => { startUserInteraction(); onPlayToggle(); }}
+                    onClick={() => {
+                        startUserInteraction?.();
+                    }}
                     size={30}
                     iconSize={15}
                 />
@@ -48,14 +47,6 @@ export const Playlist = ({
                 <Box style={{ flex: 1, overflow: 'hidden', marginLeft: '0.5rem', marginRight: '0.5rem' }}>
                     <Text size="xs" fw={600} lineClamp={1} c={colors.text}>{currentTrack?.title || 'Track'}</Text>
                     <Text size="xs" lineClamp={1} c={colors.textSecondary}>{currentTrack?.artist || '-'}</Text>
-                </Box>
-
-                <Box style={{ flex: 2, margin: '0 0.75rem' }}>
-                    <ProgressBar
-                        progress={progress}
-                        backgroundColor={colors.progressBackground}
-                        barRef={progressBarRef}
-                    />
                 </Box>
 
                 <Group gap="xs">
@@ -88,11 +79,11 @@ export const Playlist = ({
             <Box style={playlistContentStyle}>
                 <Text size="sm" fw={600} c={colors.textSecondary} mb="0.5rem">My Tracks</Text>
                 <Box style={{ ...trackListContainerStyle, scrollbarWidth: 'thin', scrollbarColor: `${colors.scrollThumb} ${colors.scrollTrack}` }}>
-                    {displayTracks && displayTracks.length > 0 ? (
-                        displayTracks.map((track) => (
+                    {tracks && tracks.length > 0 ? (
+                        tracks.map((track) => (
                             <Box
                                 key={track.id}
-                                onClick={() => onTrackSelect(track.id)}
+                                onClick={() => onTrackSelect(track)}
                                 style={{
                                     ...trackItemBaseStyle,
                                     backgroundColor: currentTrack?.id === track.id ? colors.activeTrackBackground : 'transparent',
