@@ -79,7 +79,7 @@ export const PillControlBar = ({
                     onClick={onToggleNarration}
                     aria-label="Toggle Narration"
                     variant="transparent"
-                    style={{ color: isNarrationEnabled ? theme.black : theme.colors.gray[6] }}
+                    style={{ color: isNarrationEnabled ? (isDark ? theme.white : theme.black) : theme.colors.gray[6] }}
                     size="sm"
                 >
                     <LuHeadphones size={16} />
@@ -107,7 +107,7 @@ export const PillControlBar = ({
                     onClick={onToggleMusic}
                     aria-label="Toggle Music"
                     variant="transparent"
-                    style={{ color: isMusicEnabled ? theme.black : theme.colors.gray[6] }}
+                    style={{ color: isMusicEnabled ? (isDark ? theme.white : theme.black) : theme.colors.gray[6] }}
                     size="sm"
                 >
                     <LuMusic size={16} />
@@ -130,7 +130,7 @@ export const PillControlBar = ({
                     borderRight: `1px solid ${dividerColor}`,
                 }}
             >
-                <ActionIcon variant="transparent" onClick={onPlaylistClick} aria-label="Playlist" style={{ color: theme.black }}>
+                <ActionIcon variant="transparent" onClick={onPlaylistClick} aria-label="Playlist" style={{ color: isDark ? theme.white : theme.black }}>
                     <LuListMusic size={18} />
                 </ActionIcon>
             </Box>
@@ -142,7 +142,7 @@ export const PillControlBar = ({
                     borderRadius: '0 9999px 9999px 0',
                 }}
             >
-                <ActionIcon variant="transparent" onClick={onMinimizeClick} aria-label="Minimize" style={{ color: theme.black }}>
+                <ActionIcon variant="transparent" onClick={onMinimizeClick} aria-label="Minimize" style={{ color: isDark ? theme.white : theme.black }}>
                     <LuChevronDown size={18} />
                 </ActionIcon>
             </Box>

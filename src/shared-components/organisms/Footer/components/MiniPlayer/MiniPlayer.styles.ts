@@ -4,9 +4,10 @@ import { rem } from '@mantine/core';
 export const MiniPlayerContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: center;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.dark[8]};
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 `;
 
 export const MiniPlayerTopRow = styled.div`
@@ -15,12 +16,14 @@ export const MiniPlayerTopRow = styled.div`
   justify-content: space-between;
   width: 100%;
   padding-top: ${rem(8)};
+  min-height: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding-top: ${rem(8)};
+    min-height: 0;
   }
 `;
 
@@ -48,6 +51,7 @@ export const MiniPlayerProgressBar = styled.div`
   margin-top: ${rem(4)};
   display: flex;
   align-items: center;
+  min-height: 0;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
     margin-top: 0;
@@ -55,5 +59,6 @@ export const MiniPlayerProgressBar = styled.div`
     width: auto;
     flex: 1 1 0%;
     max-width: none;
+    min-height: 0;
   }
 `; 

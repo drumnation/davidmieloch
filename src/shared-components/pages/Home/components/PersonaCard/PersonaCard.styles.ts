@@ -8,12 +8,11 @@ export const PersonaCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  max-width: 180px;
-  min-height: 160px;
-  height: 100%;
-  justify-content: center;
+  width: 200px;
+  height: 220px;
   
   &:hover {
     transform: translateY(-5px);

@@ -1,48 +1,45 @@
-// src/shared-components/organisms/Footer/dual-audio/playlists/musicPlaylist.ts
+import { AudioTrack } from '../DualAudio.types';
 
-import { AudioTrack } from '../DualAudio.types'; // Use the updated AudioTrack type
-
-// Updated playlist with normalized filenames - only including files that exist
 export const musicPlaylist: AudioTrack[] = [
     {
-        id: 'reality-tunnel', // Normalized ID
+        id: 'reality-tunnel',
         title: 'Reality Tunnel',
         artist: 'Music by David Mieloch',
-        src: '/audio/music/reality-tunnel.mp3', // Normalized path
-        artwork: '/audio/music/reality-tunnel.jpg', // Normalized path
+        src: '/audio/music/reality-tunnel.mp3',
+        artwork: '/audio/music/reality-tunnel.jpg',
         description: 'Dreamlike exploration of future landscapes and hidden pathways.',
     },
     {
-        id: 'hop-trippin-the-bells', // Normalized ID
-        title: 'Hop Trippin the Bells',
+        id: 'frenetic-puzzle-game-gameplay',
+        title: 'Frenetic Puzzle Game - Gameplay',
         artist: 'Music by David Mieloch',
-        src: '/audio/music/hop-trippin-the-bells.mp3', // Normalized path
-        artwork: '/audio/music/hop-trippin-the-bells.jpg', // Normalized path
-        description: 'Playful bells and rhythmic energy — perfect for lighthearted moments.',
+        src: '/audio/music/frenetic-puzzle-game-gameplay.mp3',
+        artwork: '/audio/music/frenetic-puzzle-game-gameplay.jpg',
+        description: 'Fast-paced, energetic music for puzzle-solving gameplay.',
     },
     {
-        id: 'scarlet-harvest', // Normalized ID
-        title: 'Scarlet Harvest',
+        id: 'lielexlium',
+        title: 'Lielexlium',
         artist: 'Music by David Mieloch',
-        src: '/audio/music/scarlet-harvest.mp3', // Normalized path
-        artwork: '/audio/music/scarlet-harvest.jpg', // Normalized path
-        description: 'A cinematic blend of tension and beauty, ripe with autumn energy.',
+        src: '/audio/music/lielexlium.mp3',
+        artwork: '/audio/music/lielexlium.jpg',
+        description: 'Abstract electronic composition with evolving textures.',
     },
     {
-        id: 'epic-battle-game-opening-credits', // Normalized ID
-        title: 'Epic Battle Game - Opening Credits',
-        artist: 'Music by David Mieloch',
-        src: '/audio/music/epic-battle-game-opening-credits.mp3', // Normalized path
-        artwork: '/audio/music/epic-battle-game-opening-credits.jpg', // Normalized path
-        description: 'Heroic orchestral theme for intense game openings.',
-    },
-    {
-        id: 'organica-for-solo-violin', // Normalized ID
+        id: 'organica-for-solo-violin',
         title: 'Organica - For Solo Violin',
         artist: 'Music by David Mieloch',
-        src: '/audio/music/organica-for-solo-violin.mp3', // Normalized path
-        artwork: '/audio/music/organica-for-solo-violin.jpg', // Normalized path
+        src: '/audio/music/organica-for-solo-violin.mp3',
+        artwork: '/audio/music/organica-for-solo-violin.jpg',
         description: 'Intricate and evolving piece for solo violin.',
+    },
+    {
+        id: 'epic-battle-game-opening-credits',
+        title: 'Epic Battle Game - Opening Credits',
+        artist: 'Music by David Mieloch',
+        src: '/audio/music/epic-battle-game-opening-credits.mp3',
+        artwork: '/audio/music/epic-battle-game-opening-credits.jpg',
+        description: 'Heroic orchestral theme for intense game openings.',
     },
     {
         id: 'exotic-traveling-game-cut-scene-light',
@@ -69,12 +66,28 @@ export const musicPlaylist: AudioTrack[] = [
         description: 'Anticipatory music for pre-battle game sequences.',
     },
     {
-        id: 'frenetic-puzzle-game-gameplay',
-        title: 'Frenetic Puzzle Game - Gameplay',
+        id: 'booty-dance-of-the-sugar-plum-fairy',
+        title: 'Booty Dance of the Sugar Plum Fairy',
         artist: 'Music by David Mieloch',
-        src: '/audio/music/frenetic-puzzle-game-gameplay.mp3',
-        artwork: '/audio/music/frenetic-puzzle-game-gameplay.jpg',
-        description: 'Fast-paced, energetic music for puzzle-solving gameplay.',
+        src: '/audio/music/booty-dance-of-the-sugar-plum-fairy.mp3',
+        artwork: '/audio/music/booty-dance-of-the-sugar-plum-fairy.jpg',
+        description: 'Playful, rhythmic reimagining of a classical favorite.',
+    },
+    {
+        id: 'where-roads-end-mixed-chamber-ensemble',
+        title: 'Where Roads End - Mixed Chamber Ensemble',
+        artist: 'Music by David Mieloch',
+        src: '/audio/music/where-roads-end-mixed-chamber-ensemble.mp3',
+        artwork: '/audio/music/where-roads-end-mixed-chamber-ensemble.jpg',
+        description: 'Intricate chamber piece exploring musical boundaries.',
+    },
+    {
+        id: 'hop-trippin-the-bells',
+        title: 'Hop Trippin the Bells',
+        artist: 'Music by David Mieloch',
+        src: '/audio/music/hop-trippin-the-bells.mp3',
+        artwork: '/audio/music/hop-trippin-the-bells.jpg',
+        description: 'Playful bells and rhythmic energy — perfect for lighthearted moments.',
     },
     {
         id: 'casual-zombie-gameplay-iphone',
@@ -85,12 +98,28 @@ export const musicPlaylist: AudioTrack[] = [
         description: 'Quirky, light-hearted music for mobile zombie games.',
     },
     {
+        id: 'requiem-in-memory-of-a-dear-friend',
+        title: 'Requiem in Memory of a Dear Friend',
+        artist: 'Music by David Mieloch',
+        src: '/audio/music/requiem-in-memory-of-a-dear-friend.mp3',
+        artwork: '/audio/music/requiem-in-memory-of-a-dear-friend.jpg',
+        description: 'Emotional, contemplative piece honoring friendship and memory.',
+    },
+    {
         id: 'sci-fi-first-person-shooter-opening-credits',
         title: 'Sci-Fi First Person Shooter - Opening Credits',
         artist: 'Music by David Mieloch',
         src: '/audio/music/sci-fi-first-person-shooter-opening-credits.mp3',
         artwork: '/audio/music/sci-fi-first-person-shooter-opening-credits.jpg',
         description: 'Epic, futuristic title sequence music for sci-fi shooters.',
+    },
+    {
+        id: 'sonata-no.1-for-string-orchestra',
+        title: 'Sonata No.1 - For String Orchestra',
+        artist: 'Music by David Mieloch',
+        src: '/audio/music/sonata-no.1-for-string-orchestra.mp3',
+        artwork: '/audio/music/sonata-no.1-for-string-orchestra.jpg',
+        description: 'Classical string composition with contemporary elements.',
     },
     {
         id: 'aluzion-fields',
@@ -107,38 +136,6 @@ export const musicPlaylist: AudioTrack[] = [
         src: '/audio/music/sci-fi-first-person-shooter-gameplay.mp3',
         artwork: '/audio/music/sci-fi-first-person-shooter-gameplay.jpg',
         description: 'High-energy combat music for sci-fi action sequences.',
-    },
-    {
-        id: 'requiem-in-memory-of-a-dear-friend',
-        title: 'Requiem in Memory of a Dear Friend',
-        artist: 'Music by David Mieloch',
-        src: '/audio/music/requiem-in-memory-of-a-dear-friend.mp3',
-        artwork: '/audio/music/requiem-in-memory-of-a-dear-friend.jpg',
-        description: 'Emotional, contemplative piece honoring friendship and memory.',
-    },
-    {
-        id: 'where-roads-end-mixed-chamber-ensemble',
-        title: 'Where Roads End - Mixed Chamber Ensemble',
-        artist: 'Music by David Mieloch',
-        src: '/audio/music/where-roads-end-mixed-chamber-ensemble.mp3',
-        artwork: '/audio/music/where-roads-end-mixed-chamber-ensemble.jpg',
-        description: 'Intricate chamber piece exploring musical boundaries.',
-    },
-    {
-        id: 'lielexlium',
-        title: 'Lielexlium',
-        artist: 'Music by David Mieloch',
-        src: '/audio/music/lielexlium.mp3',
-        artwork: '/audio/music/lielexlium.jpg',
-        description: 'Abstract electronic composition with evolving textures.',
-    },
-    {
-        id: 'sonata-no.1-for-string-orchestra',
-        title: 'Sonata No.1 - For String Orchestra',
-        artist: 'Music by David Mieloch',
-        src: '/audio/music/sonata-no.1-for-string-orchestra.mp3',
-        artwork: '/audio/music/sonata-no.1-for-string-orchestra.jpg',
-        description: 'Classical string composition with contemporary elements.',
     },
     {
         id: 'identity-conflict-z-chamber-trio',
@@ -165,11 +162,11 @@ export const musicPlaylist: AudioTrack[] = [
         description: 'Modern electronic take on a classic holiday melody.',
     },
     {
-        id: 'booty-dance-of-the-sugar-plum-fairy',
-        title: 'Booty Dance of the Sugar Plum Fairy',
+        id: 'scarlet-harvest',
+        title: 'Scarlet Harvest',
         artist: 'Music by David Mieloch',
-        src: '/audio/music/booty-dance-of-the-sugar-plum-fairy.mp3',
-        artwork: '/audio/music/booty-dance-of-the-sugar-plum-fairy.jpg',
-        description: 'Playful, rhythmic reimagining of a classical favorite.',
+        src: '/audio/music/scarlet-harvest.mp3',
+        artwork: '/audio/music/scarlet-harvest.jpg',
+        description: 'A cinematic blend of tension and beauty, ripe with autumn energy.',
     },
 ]; 

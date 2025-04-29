@@ -144,11 +144,16 @@ export const CurveOverlay = styled.div`
 export const PersonaNav = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 1rem;
   margin: 4rem auto;
-  max-width: 800px;
+  max-width: 900px;
   align-items: stretch;
+
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
 `;
 
 export const FrameworksGrid = styled.div`

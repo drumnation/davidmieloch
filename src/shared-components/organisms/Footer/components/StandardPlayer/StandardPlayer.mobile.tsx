@@ -1,129 +1,73 @@
 "use client";
 
-import { Box, Text, ActionIcon, Group, Tooltip, Flex, Center, useMantineTheme, Button } from '@mantine/core';
-import {
-    LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic, LuMic, LuMusic,
-    LuHeadphones, LuVolume1, LuVolume2
-} from 'react-icons/lu';
+import { Box, Text, ActionIcon, Group, Tooltip, Flex, Center, Button } from '@mantine/core';
+import { LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic, LuMic, LuMusic, LuHeadphones, LuVolume1, LuVolume2 } from 'react-icons/lu';
 import { formatTime } from '../../Footer.logic';
 import { StandardPlayerProps } from './StandardPlayer.types';
 import { TrackArtwork } from '../TrackArtwork';
 import { ProgressBar } from '../ProgressBar';
-import { useCallback, useRef, useEffect, useState } from 'react';
 import { PillControlBar } from '../../../../molecules/PillControlBar';
+import { useStandardPlayerMobile } from './StandardPlayer.mobile.hook';
+import { getDisplayTitle, getDisplayArtist } from './StandardPlayer.mobile.logic';
+import {
+    getPlayerContainerStyle,
+    getArtworkBoxStyle,
+    getToggleButtonBoxStyle,
+    getProgressBarBoxStyle,
+    getProgressBarContainerStyle,
+    getTimeTextStyle,
+    getEmptyBarStyle,
+    getButtonStyles,
+    getBottomRowStyle,
+} from './StandardPlayer.mobile.styles';
 
-// NOTE: This component assumes it's only rendered on mobile.
+export const StandardPlayerMobile = (props: StandardPlayerProps) => {
+    const {
+        theme,
+        progressBarContainerRef,
+        controlMode,
+        showToggle,
+        toggleControlMode,
+        isEffectivelyPlaying,
+        isNarrationActive,
+        displayControlTrack,
+        displayCurrentTime,
+        displayDuration,
+        displayTrackAvailable,
+        handlePlayPause,
+        handleProgressBarClick,
+        handlePrevTrack,
+        handleNextTrack,
+        isMusicTrackAvailable,
+    } = useStandardPlayerMobile(props);
 
-export const StandardPlayerMobile = ({
-    currentTrack: activeMusicTrack,
-    progress,
-    colors,
-    progressBarRef,
-    colorScheme,
-    currentTime: musicCurrentTime,
-    duration: musicDuration,
-    onPlayToggle,
-    onMinimizeToggle,
-    onPlaylistToggle,
-    onPrevTrack,
-    onNextTrack,
-    onSeekMusic,
-    onSeekNarration,
-    startUserInteraction,
-    isMusicEnabled,
-    isNarrationEnabled,
-    musicVolume,
-    voiceVolume,
-    toggleMusic,
-    toggleNarration,
-    onMusicVolumeChange,
-    onVoiceVolumeChange,
-    activeVoiceTrack,
-    isMusicPlaying,
-    isVoicePlaying,
-    voiceCurrentTime,
-    voiceDuration,
-    playMusic,
-    pauseMusic,
-    playVoice,
-    pauseVoice,
-}: StandardPlayerProps) => {
+    const {
+        currentTrack: activeMusicTrack,
+        colors,
+        progressBarRef,
+        colorScheme,
+        startUserInteraction,
+        isMusicEnabled,
+        isNarrationEnabled,
+        musicVolume,
+        voiceVolume,
+        onMusicVolumeChange,
+        onVoiceVolumeChange,
+        onPlaylistToggle,
+        onMinimizeToggle,
+        toggleMusic,
+        toggleNarration,
+        activeVoiceTrack,
+        isMusicPlaying,
+        isVoicePlaying,
+        playMusic,
+        pauseMusic,
+        playVoice,
+        pauseVoice,
+    } = props;
 
-    const progressBarContainerRef = useRef<HTMLDivElement>(null);
-    const theme = useMantineTheme();
-    const [controlMode, setControlMode] = useState<'music' | 'narration'>(isMusicEnabled ? 'music' : 'narration');
-
-    useEffect(() => {
-        if (isMusicEnabled && isNarrationEnabled) return;
-        if (isMusicEnabled) setControlMode('music');
-        else if (isNarrationEnabled) setControlMode('narration');
-    }, [isMusicEnabled, isNarrationEnabled]);
-
-    const showToggle = isMusicEnabled && isNarrationEnabled;
-    const toggleControlMode = () => {
-        setControlMode((prev) => (prev === 'narration' ? 'music' : 'narration'));
-    };
-
-    const isMusicActive = controlMode === 'music';
-    const isNarrationActive = controlMode === 'narration';
-    const isEffectivelyPlaying = isMusicPlaying || isVoicePlaying;
-    const displayControlTrack = controlMode === 'music' ? activeMusicTrack : activeVoiceTrack;
-    const displayCurrentTime = controlMode === 'music' ? musicCurrentTime : voiceCurrentTime;
-    const displayDuration = controlMode === 'music' ? musicDuration : voiceDuration;
-    const displayTrackAvailable = !!displayControlTrack;
-
-    const handlePlayPause = () => {
-        startUserInteraction?.();
-        if (isMusicEnabled && isNarrationEnabled) {
-            onPlayToggle();
-            onPlayToggle();
-        } else {
-            onPlayToggle();
-        }
-    };
-
-    const handleProgressBarClick = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
-        if (!progressBarContainerRef.current || displayDuration <= 0) return;
-        startUserInteraction?.();
-        const rect = progressBarContainerRef.current.getBoundingClientRect();
-        const clickX = event.clientX - rect.left;
-        const containerWidth = rect.width;
-        const newProgress = (clickX / containerWidth) * 100;
-        if (controlMode === 'music') {
-            onSeekMusic(Math.max(0, Math.min(100, newProgress)));
-        } else if (controlMode === 'narration') {
-            onSeekNarration(Math.max(0, Math.min(100, newProgress)));
-        }
-    }, [displayDuration, onSeekMusic, onSeekNarration, controlMode, startUserInteraction]);
-
-    // --- Display Logic ---
-    let displayTitle = '';
-    if (controlMode === 'narration') {
-        if (isMusicEnabled && isNarrationEnabled && activeMusicTrack?.title) {
-            displayTitle = `Narration + ${activeMusicTrack.title}`;
-        } else {
-            displayTitle = 'Narration';
-        }
-    } else if (controlMode === 'music' && activeMusicTrack?.title) {
-        displayTitle = activeMusicTrack.title;
-    } else {
-        displayTitle = 'Audio Player';
-    }
-
-    const displayArtist = isMusicEnabled && isNarrationEnabled && activeVoiceTrack && activeMusicTrack
-        ? "Narration and Music by David Mieloch"
-        : isNarrationEnabled && activeVoiceTrack
-            ? "Narration by David Mieloch"
-            : activeMusicTrack?.artist || "Music by David Mieloch";
-
-    // Button styling
-    const buttonStyles = {
-        border: '1px solid black',
-        backgroundColor: 'white',
-        color: 'black',
-        borderRadius: '20px',
-    };
-
+    const displayTitle = getDisplayTitle(controlMode, isMusicEnabled, isNarrationEnabled, activeMusicTrack, activeVoiceTrack);
+    const displayArtist = getDisplayArtist(isMusicEnabled, isNarrationEnabled, activeMusicTrack, activeVoiceTrack);
     const artworkSize = 56;
 
     return (
@@ -131,27 +75,19 @@ export const StandardPlayerMobile = ({
             direction="column"
             justify="space-between"
             gap={6}
-            style={{
-                height: 'auto',
-                minHeight: '110px',
-                width: '100%',
-                padding: '8px 12px'
-            }}
+            style={getPlayerContainerStyle()}
         >
-            {/* --- Top Row: Contains Art Column | Meta/Controls/Seek Column --- */}
             <Flex align="stretch" gap="sm" style={{ width: '100%', flexGrow: 1 }}>
-                {/* Col 1: Art (Full Height) */}
-                <Box style={{ height: 'auto', width: `${artworkSize + 10}px`, flexShrink: 0 }}>
+                <Box style={getArtworkBoxStyle(artworkSize)}>
                     <TrackArtwork
                         artwork={activeMusicTrack?.artwork}
                         title={activeMusicTrack?.title}
                         isPlaying={isEffectivelyPlaying}
-                        onClick={() => { startUserInteraction?.(); onPlayToggle(); }}
+                        onClick={() => { startUserInteraction?.(); props.onPlayToggle(); }}
                         size={artworkSize + 10}
                         iconSize={(artworkSize + 10) * 0.5}
                     />
-                    {/* Toggle Button always centered under artwork */}
-                    <Box style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '8px 0' }}>
+                    <Box style={getToggleButtonBoxStyle()}>
                         {showToggle && (
                             <Button
                                 onClick={toggleControlMode}
@@ -162,14 +98,12 @@ export const StandardPlayerMobile = ({
                                 style={{ minWidth: 48, padding: '0 12px' }}
                                 aria-label="Toggle playback mode"
                             >
-                                {controlMode === 'music' ? <LuMusic size={18} /> : <LuHeadphones size={18} />}
+                                {controlMode === 'music' ? <LuMusic size={18} color={colorScheme === 'dark' ? theme.white : 'black'} /> : <LuHeadphones size={18} color={colorScheme === 'dark' ? theme.white : 'black'} />}
                             </Button>
                         )}
                     </Box>
                 </Box>
-                {/* Col 2: Meta / Playback Stack (centered) */}
                 <Flex direction="column" align="center" justify="space-around" style={{ flexGrow: 1, overflow: 'hidden', minWidth: 0 }}>
-                    {/* Meta */}
                     <Flex direction="column" align="center">
                         <Text size="xs" fw={600} lineClamp={1} c={colors.text}>
                             {displayTitle}
@@ -180,17 +114,16 @@ export const StandardPlayerMobile = ({
                             </Text>
                         )}
                     </Flex>
-                    {/* Playback Controls */}
                     <Group justify="center" gap="sm" wrap="nowrap">
-                        <Tooltip label="Previous Track" position="bottom" withArrow disabled={!isMusicActive || !activeMusicTrack}>
+                        <Tooltip label="Previous Track" position="bottom" withArrow disabled={!isMusicTrackAvailable}>
                             <ActionIcon
-                                onClick={() => { startUserInteraction?.(); onPrevTrack(); }}
+                                onClick={handlePrevTrack}
                                 aria-label="Previous track"
-                                disabled={!isMusicActive || !activeMusicTrack}
+                                disabled={!isMusicTrackAvailable}
                                 size="md"
-                                style={buttonStyles}
+                                style={getButtonStyles()}
                             >
-                                <LuSkipBack size={18} />
+                                <LuSkipBack size={18} color="black" />
                             </ActionIcon>
                         </Tooltip>
                         <ActionIcon
@@ -198,46 +131,42 @@ export const StandardPlayerMobile = ({
                             aria-label={isEffectivelyPlaying ? "Pause" : "Play"}
                             disabled={!displayTrackAvailable}
                             size="lg"
-                            style={buttonStyles}
+                            style={getButtonStyles()}
                         >
-                            {isEffectivelyPlaying ? <LuPause size={24} /> : <LuPlay size={24} />}
+                            {isEffectivelyPlaying ? <LuPause size={24} color="black" /> : <LuPlay size={24} color="black" />}
                         </ActionIcon>
-                        <Tooltip label="Next Track" position="bottom" withArrow disabled={!isMusicActive || !activeMusicTrack}>
+                        <Tooltip label="Next Track" position="bottom" withArrow disabled={!isMusicTrackAvailable}>
                             <ActionIcon
-                                onClick={() => { startUserInteraction?.(); onNextTrack(); }}
+                                onClick={handleNextTrack}
                                 aria-label="Next track"
-                                disabled={!isMusicActive || !activeMusicTrack}
+                                disabled={!isMusicTrackAvailable}
                                 size="md"
-                                style={buttonStyles}
+                                style={getButtonStyles()}
                             >
-                                <LuSkipForward size={18} />
+                                <LuSkipForward size={18} color="black" />
                             </ActionIcon>
                         </Tooltip>
                     </Group>
                 </Flex>
             </Flex>
-
-            {/* --- Seek Bar Row: Seek + Time --- */}
-            <Box style={{ width: '100%', padding: '0 8px' }}>
+            <Box style={getProgressBarBoxStyle()}>
                 {displayTrackAvailable ? (
                     <Group align="center" gap="xs" wrap="nowrap">
-                        <Text size="xs" c={colors.textMuted} style={{ whiteSpace: 'nowrap', width: 35, textAlign: 'right' }}>
+                        <Text size="xs" c={colors.textMuted} style={getTimeTextStyle('right')}>
                             {formatTime(displayCurrentTime)}
                         </Text>
-                        <Box ref={progressBarContainerRef} onClick={handleProgressBarClick} style={{ flexGrow: 1, cursor: 'pointer', padding: '8px 0', margin: '-8px 0' }}>
+                        <Box ref={progressBarContainerRef} onClick={handleProgressBarClick} style={getProgressBarContainerStyle()}>
                             <ProgressBar progress={displayDuration > 0 ? (displayCurrentTime / displayDuration) * 100 : 0} backgroundColor={isNarrationActive ? theme.colors.cyan[6] : colors.progressBackground} barRef={progressBarRef} />
                         </Box>
-                        <Text size="xs" c={colors.textMuted} style={{ whiteSpace: 'nowrap', width: 35, textAlign: 'left' }}>
+                        <Text size="xs" c={colors.textMuted} style={getTimeTextStyle('left')}>
                             {formatTime(displayDuration)}
                         </Text>
                     </Group>
                 ) : (
-                    <Box style={{ width: '100%', height: '4px', backgroundColor: colors.progressBackground, borderRadius: '2px', marginTop: '4px' }} />
+                    <Box style={getEmptyBarStyle(colors)} />
                 )}
             </Box>
-
-            {/* --- Bottom Row: ONE ROW CONTROL BAR --- */}
-            <Center style={{ width: '100%', marginTop: '8px' }}>
+            <Center style={getBottomRowStyle()}>
                 <PillControlBar
                     voiceVolume={voiceVolume}
                     musicVolume={musicVolume}
