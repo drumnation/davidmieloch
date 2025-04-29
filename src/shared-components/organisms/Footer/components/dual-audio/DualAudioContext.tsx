@@ -1,5 +1,5 @@
 import { createContext, useContext, ReactNode } from 'react';
-import { useDualAudioController, DualAudioContextTypeWithRefs } from './useDualAudioController';
+import { useDualAudioController, DualAudioContextTypeWithRefs } from './index';
 
 const DualAudioContext = createContext<DualAudioContextTypeWithRefs | undefined>(undefined);
 
