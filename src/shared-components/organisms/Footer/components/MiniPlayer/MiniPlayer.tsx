@@ -9,6 +9,7 @@ import { ProgressBar } from '../ProgressBar';
 
 export const MiniPlayer = ({
     currentTrack,
+    artworkUrl,
     isPlaying,
     progress,
     colors,
@@ -17,15 +18,15 @@ export const MiniPlayer = ({
     onPlayToggle,
     onMinimizeToggle,
     startUserInteraction
-}: MiniPlayerProps) => {
+}: MiniPlayerProps & { artworkUrl?: string }) => {
     return (
         <Group justify="space-between" align="center" style={miniModeGroupStyle}>
             <Group align="center" gap="xs" style={{ overflow: 'hidden', flexShrink: 1, flexWrap: 'nowrap' }}>
                 <TrackArtwork
-                    artwork={currentTrack?.artwork}
+                    artwork={artworkUrl}
                     title={currentTrack?.title}
                     isPlaying={isPlaying}
-                    onClick={() => { startUserInteraction(); onPlayToggle(); }}
+                    onClick={() => { startUserInteraction?.(); onPlayToggle(); }}
                     size={30}
                     iconSize={15}
                 />

@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../../../contexts/ThemeContext';
 import { useFooter } from './Footer.hook';
-import { usePlayer } from '../../../providers/PlayerProvider';
 import { SoundCloudTrack } from './Footer.types';
 import { USER_INTERACTION_TIMEOUT, SCROLL_THRESHOLD, getColorsByScheme } from './Footer.logic';
 import { useDispatch } from 'react-redux';
@@ -40,27 +39,11 @@ export const useFooterUI = ({ soundCloudTracks = [] }: UseFooterUIProps) => {
         dispatch(setPlayerMinimized(newValue));
     }, [dispatch, isMiniMode]);
 
-    // Get theme and player data
+    // Get theme data
     const { colorScheme } = useTheme();
-    const { tracks: hookTracks } = useFooter([], soundCloudTracks);
-    const {
-        tracks,
-        currentTrack,
-        isPlaying,
-        togglePlay,
-        playTrack,
-        nextTrack,
-        prevTrack,
-        currentTime,
-        duration,
-        progress
-    } = usePlayer();
 
     // Get colors based on theme
     const colors = getColorsByScheme(colorScheme);
-
-    // Use the tracks from player context or fallback to hook tracks
-    const displayTracks = tracks.length > 0 ? tracks : hookTracks;
 
     // Client-side only
     useEffect(() => {
@@ -153,12 +136,6 @@ export const useFooterUI = ({ soundCloudTracks = [] }: UseFooterUIProps) => {
         setIsExpanded(prev => !prev);
     }, [startUserInteraction]);
 
-    // Handle track selection
-    const handleTrackSelect = useCallback((trackId: number | string) => {
-        startUserInteraction();
-        playTrack(trackId);
-    }, [playTrack, startUserInteraction]);
-
     // Cleanup timeout on unmount
     useEffect(() => {
         return () => {
@@ -175,23 +152,11 @@ export const useFooterUI = ({ soundCloudTracks = [] }: UseFooterUIProps) => {
         isMounted,
         colors,
         progressBarRef,
-        displayTracks,
 
-        // Player state
-        currentTrack,
-        isPlaying,
-        currentTime,
-        duration,
-        progress,
-
-        // Methods
+        // UI Methods
         startUserInteraction,
         handleMinimizeToggle,
         handlePlaylistToggle,
-        handleTrackSelect,
-        togglePlay,
-        nextTrack,
-        prevTrack,
         colorScheme
     };
 }; 

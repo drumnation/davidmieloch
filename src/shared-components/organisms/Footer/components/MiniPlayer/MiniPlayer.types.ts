@@ -1,8 +1,9 @@
 import { RefObject } from 'react';
-import { SoundCloudTrack } from '../../Footer.types';
+// import { SoundCloudTrack } from '../../Footer.types'; // Remove old type
+import { AudioTrack } from '../../dual-audio/DualAudio.types'; // Import new type
 
 export interface MiniPlayerProps {
-    currentTrack: SoundCloudTrack | null;
+    currentTrack: AudioTrack | null; // Update type
     isPlaying: boolean;
     progress: number;
     colors: any;
@@ -10,5 +11,5 @@ export interface MiniPlayerProps {
     colorScheme: string;
     onPlayToggle: () => void;
     onMinimizeToggle: () => void;
-    startUserInteraction: () => void;
+    startUserInteraction?: () => void; // Make optional if not always passed
 } 

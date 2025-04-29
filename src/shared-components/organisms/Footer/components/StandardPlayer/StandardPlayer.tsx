@@ -1,18 +1,20 @@
 "use client";
 
-import { Box, Text, ActionIcon, Group, Center, Flex } from '@mantine/core';
+import { Box, Text, ActionIcon, Group, Center, Flex, Slider, Select } from '@mantine/core';
 import {
-    LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic
+    LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic, LuMic, LuMusic, LuWaves
 } from 'react-icons/lu';
 import { openPlayerStyle } from '../../Footer.styles';
 import { formatTime } from '../../Footer.logic';
 import { StandardPlayerProps } from './StandardPlayer.types';
 import { TrackArtwork } from '../TrackArtwork';
 import { ProgressBar } from '../ProgressBar';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
+import { AudioMode } from '../../dual-audio/DualAudio.types';
 
 export const StandardPlayer = ({
     currentTrack,
+    artworkUrl,
     isPlaying,
     progress,
     colors,
@@ -20,14 +22,20 @@ export const StandardPlayer = ({
     colorScheme,
     currentTime,
     duration,
+    volume,
+    mode,
     onPlayToggle,
     onMinimizeToggle,
     onPlaylistToggle,
     onPrevTrack,
     onNextTrack,
+    onVolumeChange,
+    onModeChange,
+    onSeek,
     startUserInteraction
-}: StandardPlayerProps) => {
+}: StandardPlayerProps & { artworkUrl?: string }) => {
     const [isMobile, setIsMobile] = useState(false);
+    const progressBarContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -44,6 +52,34 @@ export const StandardPlayer = ({
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
+    // Handler for clicks on the progress bar container
+    const handleProgressBarClick = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+        if (!progressBarContainerRef.current || duration <= 0) return;
+        startUserInteraction?.();
+
+        const rect = progressBarContainerRef.current.getBoundingClientRect();
+        const clickX = event.clientX - rect.left; // X position within the container
+        const containerWidth = rect.width;
+        const newProgress = (clickX / containerWidth) * 100;
+
+        onSeek(Math.max(0, Math.min(100, newProgress))); // Call unified seek, clamp value 0-100
+    }, [duration, onSeek, startUserInteraction]);
+
+    // Map modes to icons and labels for the Select component
+    const modeSelectData = [
+        { value: AudioMode.BOTH, label: 'Voice + Music', icon: LuWaves },
+        { value: AudioMode.VOICE_ONLY, label: 'Voice Only', icon: LuMic },
+        { value: AudioMode.MUSIC_ONLY, label: 'Music Only', icon: LuMusic },
+    ];
+
+    // Define iconProps inside the component scope
+    const iconProps = {
+        variant: "subtle",
+        color: colorScheme === 'dark' ? 'gray' : 'dark',
+        radius: "xl",
+        style: { ':hover': { backgroundColor: colors.hoverBackground } }
+    };
+
     return (
         <Box style={openPlayerStyle}>
             <Box style={{
@@ -53,10 +89,10 @@ export const StandardPlayer = ({
                 flexShrink: 0
             }}>
                 <TrackArtwork
-                    artwork={currentTrack?.artwork}
+                    artwork={artworkUrl}
                     title={currentTrack?.title}
                     isPlaying={isPlaying}
-                    onClick={() => { startUserInteraction(); onPlayToggle(); }}
+                    onClick={() => { startUserInteraction?.(); onPlayToggle(); }}
                     size={isMobile ? 72 : 100}
                     iconSize={isMobile ? 36 : 50}
                 />
@@ -67,7 +103,7 @@ export const StandardPlayer = ({
                     <Flex direction="column" align="center" style={{
                         flex: 1,
                         width: '100%',
-                        maxWidth: isMobile ? 'calc(100% - 50px)' : '100%'
+                        maxWidth: isMobile ? 'calc(100% - 80px)' : 'calc(100% - 150px)'
                     }}>
                         <Text
                             size={isMobile ? "sm" : "md"}
@@ -80,7 +116,7 @@ export const StandardPlayer = ({
                                 padding: isMobile ? '0 0.25rem' : 0
                             }}
                         >
-                            {currentTrack?.title || 'My Music'}
+                            {currentTrack?.title || (mode === AudioMode.MUSIC_ONLY ? 'Music' : 'Voice')}
                         </Text>
                         {currentTrack && (
                             <Text
@@ -99,76 +135,90 @@ export const StandardPlayer = ({
 
                         <Group justify="center" gap={isMobile ? "sm" : "md"} style={{ marginTop: '0.5rem' }}>
                             <ActionIcon
-                                variant="subtle"
-                                color={colorScheme === 'dark' ? 'gray' : 'dark'}
-                                radius="xl"
-                                size={isMobile ? "sm" : "md"}
-                                style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
-                                onClick={() => { startUserInteraction(); onPrevTrack(); }}
+                                onClick={() => { startUserInteraction?.(); onPrevTrack(); }}
                                 aria-label="Previous track"
-                                disabled={!currentTrack}
+                                disabled={mode === AudioMode.VOICE_ONLY || !currentTrack}
+                                {...iconProps}
                             >
                                 <LuSkipBack size={isMobile ? 16 : 18} />
                             </ActionIcon>
                             <ActionIcon
-                                variant="subtle"
-                                color={colorScheme === 'dark' ? 'gray' : 'dark'}
-                                radius="xl"
-                                size={isMobile ? "md" : "lg"}
-                                style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
-                                onClick={() => { startUserInteraction(); onPlayToggle(); }}
-                                aria-label={isPlaying ? "Pause" : "Start playing"}
+                                onClick={() => { startUserInteraction?.(); onPlayToggle(); }}
+                                aria-label={isPlaying ? "Pause" : "Play"}
                                 disabled={!currentTrack}
+                                {...iconProps}
+                                size={isMobile ? "md" : "lg"}
                             >
                                 {isPlaying ? <LuPause size={isMobile ? 20 : 24} /> : <LuPlay size={isMobile ? 20 : 24} />}
                             </ActionIcon>
                             <ActionIcon
-                                variant="subtle"
-                                color={colorScheme === 'dark' ? 'gray' : 'dark'}
-                                radius="xl"
-                                size={isMobile ? "sm" : "md"}
-                                style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
-                                onClick={() => { startUserInteraction(); onNextTrack(); }}
+                                onClick={() => { startUserInteraction?.(); onNextTrack(); }}
                                 aria-label="Next track"
-                                disabled={!currentTrack}
+                                disabled={mode === AudioMode.VOICE_ONLY || !currentTrack}
+                                {...iconProps}
                             >
                                 <LuSkipForward size={isMobile ? 16 : 18} />
                             </ActionIcon>
                         </Group>
                     </Flex>
 
-                    <Group
-                        gap={isMobile ? "xs" : "xs"}
-                        style={{
-                            flexDirection: isMobile ? 'column' : 'row',
-                            alignItems: 'center',
-                            flexShrink: 0,
-                            marginLeft: isMobile ? '0.25rem' : 0
-                        }}
-                    >
-                        <ActionIcon
-                            variant="subtle"
-                            color={colorScheme === 'dark' ? 'gray' : 'dark'}
-                            radius="xl"
-                            size={isMobile ? "xs" : "sm"}
-                            style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
-                            onClick={onPlaylistToggle}
-                            aria-label="Show playlist"
-                        >
-                            <LuListMusic size={isMobile ? 16 : 18} />
-                        </ActionIcon>
-                        <ActionIcon
-                            variant="subtle"
-                            color={colorScheme === 'dark' ? 'gray' : 'dark'}
-                            radius="xl"
-                            size={isMobile ? "xs" : "sm"}
-                            style={{ ':hover': { backgroundColor: colors.hoverBackground } }}
-                            onClick={onMinimizeToggle}
-                            aria-label="Minimize player"
-                        >
-                            <LuChevronDown size={isMobile ? 16 : 18} />
-                        </ActionIcon>
-                    </Group>
+                    <Flex direction={isMobile ? 'column' : 'row'} gap={isMobile ? 'xs' : 'sm'} align="center" style={{ flexShrink: 0 }}>
+                        <Select
+                            size={isMobile ? 'xs' : 'sm'}
+                            value={mode}
+                            onChange={(value) => { startUserInteraction?.(); onModeChange(value as AudioMode); }}
+                            data={modeSelectData.map(({ value, label }) => ({ value, label }))}
+                            style={{ width: isMobile ? 120 : 150 }}
+                            aria-label="Select playback mode"
+                            styles={(theme) => ({
+                                dropdown: {
+                                    backgroundColor: colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
+                                    borderColor: colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3],
+                                },
+                                option: {
+                                    color: colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+                                    '&:hover': {
+                                        backgroundColor: colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1],
+                                        color: colorScheme === 'dark' ? theme.white : theme.black,
+                                    },
+                                },
+                            })}
+                        />
+
+                        {!isMobile && (
+                            <Slider
+                                value={volume}
+                                onChange={(value) => { startUserInteraction?.(); onVolumeChange(value); }}
+                                min={0}
+                                max={1}
+                                step={0.01}
+                                label={`Volume: ${Math.round(volume * 100)}%`}
+                                size="sm"
+                                style={{ width: 80 }}
+                                color={iconProps.color}
+                                aria-label="Volume control"
+                            />
+                        )}
+
+                        <Group gap={isMobile ? "xs" : "xs"} style={{ flexDirection: isMobile ? 'row' : 'row' }}>
+                            <ActionIcon
+                                onClick={onPlaylistToggle}
+                                aria-label="Show playlist"
+                                {...iconProps}
+                                size={isMobile ? "sm" : "sm"}
+                            >
+                                <LuListMusic size={isMobile ? 16 : 18} />
+                            </ActionIcon>
+                            <ActionIcon
+                                onClick={onMinimizeToggle}
+                                aria-label="Minimize player"
+                                {...iconProps}
+                                size={isMobile ? "sm" : "sm"}
+                            >
+                                <LuChevronDown size={isMobile ? 16 : 18} />
+                            </ActionIcon>
+                        </Group>
+                    </Flex>
                 </Group>
 
                 {currentTrack ? (
@@ -184,7 +234,11 @@ export const StandardPlayer = ({
                         <Text size="xs" c={colors.textMuted} style={{ whiteSpace: 'nowrap', width: 40, textAlign: 'right' }}>
                             {formatTime(currentTime)}
                         </Text>
-                        <Box style={{ flex: 1, position: 'relative', padding: '10px 0', margin: '-10px 0' }}>
+                        <Box
+                            ref={progressBarContainerRef}
+                            onClick={handleProgressBarClick}
+                            style={{ flex: 1, cursor: 'pointer', position: 'relative', padding: '10px 0', margin: '-10px 0' }}
+                        >
                             <ProgressBar
                                 progress={progress}
                                 backgroundColor={colors.progressBackground}

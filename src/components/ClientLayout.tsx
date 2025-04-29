@@ -10,9 +10,12 @@ import { ThemeProvider } from '@providers/ThemeProvider'; // Keep ThemeProvider 
 import { ClarityProvider } from '@providers/ClarityProvider'; // Path Alias
 import { LoadingProvider } from '@contexts/LoadingContext'; // Path Alias
 import { Header } from '@shared-components/organisms/Header'; // Path Alias
-import { PersistentFooter } from '@shared-components/organisms/PersistentFooter'; // Path Alias
+import { PersistentFooter } from '@shared-components/organisms/PersistentFooter'; // Uncomment import
 import { setupSpringDebugger } from '@utils/animations/spring-debug'; // Path Alias
 import { FullScreenLoader } from '@shared-components/organisms/FullScreenLoader'; // Path Alias
+
+const HEADER_HEIGHT = 60;
+const FOOTER_HEIGHT = 60;
 
 export default function ClientLayout({
   children,
@@ -50,17 +53,20 @@ export default function ClientLayout({
 
     return (
       <AppShell
-        header={{ height: 60 }}
+        header={{ height: HEADER_HEIGHT }}
+        footer={{ height: FOOTER_HEIGHT }}
         styles={() => ({
           main: {
-            // These CSS variables are set by the outer ThemeProvider based on the determined colorScheme
-            backgroundColor: 'var(--background-light)', // Use the variable directly
+            backgroundColor: 'var(--background-light)',
             transition: 'background-color 200ms ease',
+            flexGrow: 1,
+            minHeight: `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`,
           },
           root: {
-            backgroundColor: 'var(--background-light)', // Use the variable directly
+            backgroundColor: 'var(--background-light)',
             transition: 'background-color 200ms ease',
             overflowX: 'hidden',
+            minHeight: '100vh',
           }
           // The correct background (light or dark) will be applied via the theme class set on body/html
         })}
@@ -73,7 +79,18 @@ export default function ClientLayout({
           {children}
         </AppShell.Main>
 
-        <PersistentFooter data-print-hidden="true" />
+        {/* Render PersistentFooter INSIDE AppShell.Footer */}
+        <AppShell.Footer style={{ padding: 0, border: 0 }}>
+          {/* Ensure the test footer is removed */}
+          {/* <footer style={{ height: '100%', width: '100%', background: 'cyan', zIndex: 9999, color: 'black', textAlign: 'center', fontSize: '20px', borderTop: '3px solid blue', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+             APPSHELL FOOTER TEST - IS THIS VISIBLE?
+           </footer> */}
+
+          {/* Render the actual PersistentFooter here */}
+          <PersistentFooter data-print-hidden="true" />
+
+        </AppShell.Footer>
+
       </AppShell>
     );
   };

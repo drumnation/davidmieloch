@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { lexend, inter, manrope, workSans, ibmPlex } from '../src/styles/fonts';
 import ClientLayout from '@components/ClientLayout';
-import { PlayerProvider } from '../src/providers/PlayerProvider';
+import { ThemeProvider } from '../src/providers/ThemeProvider';
 import '../src/styles/globals.css';
 import '../src/styles/print.css';
 import '@mantine/core/styles.css';
@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lexend.variable} ${inter.variable} ${manrope.variable} ${workSans.variable} ${ibmPlex.variable}`}>
       <body style={{ overflowX: 'hidden' }}>
-        <PlayerProvider>
+        <ThemeProvider>
           <ClientLayout>{children}</ClientLayout>
-        </PlayerProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
