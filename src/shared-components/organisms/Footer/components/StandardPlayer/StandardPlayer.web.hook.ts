@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useMantineTheme } from '@mantine/core';
 import { useElementSize } from '@mantine/hooks';
 import { StandardPlayerProps } from './StandardPlayer.types';
+import { isIOSMobile } from '@utils/platform';
 
 // Custom hook for StandardPlayerWeb stateful logic
 export function useStandardPlayerWeb(props: StandardPlayerProps) {
@@ -11,6 +12,7 @@ export function useStandardPlayerWeb(props: StandardPlayerProps) {
     const [controlMode, setControlMode] = useState<'music' | 'narration'>(props.isMusicEnabled ? 'music' : 'narration');
     const [isMusicHovered, setIsMusicHovered] = useState(false);
     const [isNarrationHovered, setIsNarrationHovered] = useState(false);
+    const [layeredAudioMessage, setLayeredAudioMessage] = useState<string | null>(null);
 
     useEffect(() => {
         if (props.isMusicEnabled && props.isNarrationEnabled) return;
@@ -19,6 +21,10 @@ export function useStandardPlayerWeb(props: StandardPlayerProps) {
     }, [props.isMusicEnabled, props.isNarrationEnabled]);
 
     const toggleControlMode = () => {
+        if (isIOSMobile() && props.isMusicEnabled && props.isNarrationEnabled) {
+            setLayeredAudioMessage('Layered audio is not supported on iOS.');
+            return;
+        }
         setControlMode((prev) => (prev === 'narration' ? 'music' : 'narration'));
     };
 
@@ -107,6 +113,7 @@ export function useStandardPlayerWeb(props: StandardPlayerProps) {
         displayTitle,
         displayArtist,
         iconProps,
+        layeredAudioMessage,
     };
 }
 

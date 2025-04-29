@@ -20,6 +20,7 @@ import {
     getButtonStyles,
     getBottomRowStyle,
 } from './StandardPlayer.mobile.styles';
+import { isIOSMobile } from '@utils/platform';
 
 export const StandardPlayerMobile = (props: StandardPlayerProps) => {
     const {
@@ -69,6 +70,7 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
     const displayTitle = getDisplayTitle(controlMode, isMusicEnabled, isNarrationEnabled, activeMusicTrack, activeVoiceTrack);
     const displayArtist = getDisplayArtist(isMusicEnabled, isNarrationEnabled, activeMusicTrack, activeVoiceTrack);
     const artworkSize = 56;
+    const isIOS = isIOSMobile();
 
     return (
         <Flex
@@ -203,6 +205,7 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                     colorScheme={colorScheme === 'dark' ? 'dark' : 'light'}
                     sliderWidth={56}
                     gap={4}
+                    isIOS={isIOS}
                 />
             </Center>
         </Flex>

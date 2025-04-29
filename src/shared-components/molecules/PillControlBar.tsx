@@ -1,6 +1,6 @@
 "use client";
 
-import { useMantineTheme, Flex, Group, ActionIcon, Slider, Box } from '@mantine/core';
+import { useMantineTheme, Flex, Group, ActionIcon, Slider, Box, Tooltip } from '@mantine/core';
 import { LuHeadphones, LuMusic, LuListMusic, LuChevronDown } from 'react-icons/lu';
 
 interface PillControlBarProps {
@@ -17,6 +17,7 @@ interface PillControlBarProps {
     colorScheme?: 'light' | 'dark';
     sliderWidth?: number;
     gap?: number;
+    isIOS?: boolean;
 }
 
 export const PillControlBar = ({
@@ -33,6 +34,7 @@ export const PillControlBar = ({
     colorScheme = 'light',
     sliderWidth = 80,
     gap = 6,
+    isIOS = false,
 }: PillControlBarProps) => {
     const theme = useMantineTheme();
 
@@ -84,15 +86,30 @@ export const PillControlBar = ({
                 >
                     <LuHeadphones size={16} />
                 </ActionIcon>
-                <Slider
-                    value={voiceVolume}
-                    onChange={onVoiceVolumeChange}
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    size="xs"
-                    style={{ width: sliderWidth }}
-                />
+                {isIOS ? (
+                    <Tooltip label="Volume control is not available on iOS. Use your device volume buttons." position="top" withArrow>
+                        <Slider
+                            value={voiceVolume}
+                            onChange={onVoiceVolumeChange}
+                            min={0}
+                            max={1}
+                            step={0.01}
+                            size="xs"
+                            style={{ width: sliderWidth }}
+                            disabled
+                        />
+                    </Tooltip>
+                ) : (
+                    <Slider
+                        value={voiceVolume}
+                        onChange={onVoiceVolumeChange}
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        size="xs"
+                        style={{ width: sliderWidth }}
+                    />
+                )}
             </Group>
 
             {/* Music */}
@@ -112,15 +129,30 @@ export const PillControlBar = ({
                 >
                     <LuMusic size={16} />
                 </ActionIcon>
-                <Slider
-                    value={musicVolume}
-                    onChange={onMusicVolumeChange}
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    size="xs"
-                    style={{ width: sliderWidth }}
-                />
+                {isIOS ? (
+                    <Tooltip label="Volume control is not available on iOS. Use your device volume buttons." position="top" withArrow>
+                        <Slider
+                            value={musicVolume}
+                            onChange={onMusicVolumeChange}
+                            min={0}
+                            max={1}
+                            step={0.01}
+                            size="xs"
+                            style={{ width: sliderWidth }}
+                            disabled
+                        />
+                    </Tooltip>
+                ) : (
+                    <Slider
+                        value={musicVolume}
+                        onChange={onMusicVolumeChange}
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        size="xs"
+                        style={{ width: sliderWidth }}
+                    />
+                )}
             </Group>
 
             {/* Playlist */}

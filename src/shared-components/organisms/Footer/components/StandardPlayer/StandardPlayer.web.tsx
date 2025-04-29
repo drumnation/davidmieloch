@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Text, ActionIcon, Group, Slider, Tooltip, Button, Flex } from '@mantine/core';
+import { Box, Text, ActionIcon, Group, Slider, Tooltip, Button, Flex, Alert } from '@mantine/core';
 import {
     LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic, LuMic, LuMusic,
     LuHeadphones, LuVolume1, LuVolume2
@@ -35,6 +35,7 @@ import {
 import { useStandardPlayerWeb } from './StandardPlayer.web.hook';
 import { formatTime } from '../../Footer.logic';
 import { useRef } from 'react';
+import { isIOSMobile } from '@utils/platform';
 
 // NOTE: This component assumes it's only rendered on desktop.
 
@@ -64,6 +65,7 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
         displayTitle,
         displayArtist,
         iconProps,
+        layeredAudioMessage,
     } = useStandardPlayerWeb(props);
 
     const {
@@ -95,6 +97,8 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
         playVoice,
         pauseVoice,
     } = props;
+
+    const isIOS = isIOSMobile();
 
     return (
         <Flex
@@ -226,17 +230,16 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                                 }}
                                 onMouseEnter={() => setIsNarrationHovered(true)}
                                 onMouseLeave={() => setIsNarrationHovered(false)}
+                                disabled={isIOS}
                             >
                                 Narration
                             </Button>
-                            {isNarrationEnabled && (
-                                <Tooltip label="Narration Volume" position="top" withArrow>
-                                    <Group gap={2} wrap="nowrap" align="center" style={{ cursor: 'pointer' }}>
-                                        <ActionIcon size="xs" variant="transparent" color={iconProps.color} style={{ pointerEvents: 'none', opacity: 0.7 }}><LuVolume1 size={12} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /></ActionIcon>
-                                        <Slider value={voiceVolume} onChange={onVoiceVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Narration volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} />
-                                        <ActionIcon size="xs" variant="transparent" color={iconProps.color} style={{ pointerEvents: 'none', opacity: 0.7 }}><LuVolume2 size={14} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /></ActionIcon>
-                                    </Group>
+                            {isIOS ? (
+                                <Tooltip label="Volume control is not available on iOS. Use your device volume buttons." position="top" withArrow>
+                                    <Slider value={voiceVolume} onChange={onVoiceVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Narration volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} disabled />
                                 </Tooltip>
+                            ) : (
+                                <Slider value={voiceVolume} onChange={onVoiceVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Narration volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} />
                             )}
                         </Group>
                         <Group gap="xs" align="center" wrap="nowrap" style={groupMarginRight}>
@@ -276,17 +279,16 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                                 }}
                                 onMouseEnter={() => setIsMusicHovered(true)}
                                 onMouseLeave={() => setIsMusicHovered(false)}
+                                disabled={isIOS}
                             >
                                 Music
                             </Button>
-                            {isMusicEnabled && (
-                                <Tooltip label="Music Volume" position="top" withArrow>
-                                    <Group gap={2} wrap="nowrap" align="center" style={{ cursor: 'pointer' }}>
-                                        <ActionIcon size="xs" variant="transparent" color={iconProps.color} style={{ pointerEvents: 'none', opacity: 0.7 }}><LuVolume1 size={12} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /></ActionIcon>
-                                        <Slider value={musicVolume} onChange={onMusicVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Music volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} />
-                                        <ActionIcon size="xs" variant="transparent" color={iconProps.color} style={{ pointerEvents: 'none', opacity: 0.7 }}><LuVolume2 size={14} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /></ActionIcon>
-                                    </Group>
+                            {isIOS ? (
+                                <Tooltip label="Volume control is not available on iOS. Use your device volume buttons." position="top" withArrow>
+                                    <Slider value={musicVolume} onChange={onMusicVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Music volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} disabled />
                                 </Tooltip>
+                            ) : (
+                                <Slider value={musicVolume} onChange={onMusicVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Music volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} />
                             )}
                         </Group>
                     </Box>
@@ -318,6 +320,11 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                     </Box>
                 </Box>
             </Flex>
+            {layeredAudioMessage && (
+                <Alert color="yellow" style={{ position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)', zIndex: 1000 }}>
+                    {layeredAudioMessage}
+                </Alert>
+            )}
         </Flex>
     );
 }; 
