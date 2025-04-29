@@ -158,11 +158,11 @@ export const musicPlaylist: AudioTrack[] = [
         description: 'Track description placeholder.', // Placeholder
     },
     {
-        id: 'lielexlium_1', // Note: _1 due to collision during normalization
+        id: 'lielexlium',
         title: 'Lielexlium',
         artist: 'Music by David Mieloch', // Placeholder
-        src: '/audio/music/lielexlium_1.mp3',
-        artwork: '/audio/music/lielexlium_1.jpg',
+        src: '/audio/music/lielexlium.mp3',
+        artwork: '/audio/music/lielexlium.jpg',
         description: 'Track description placeholder.', // Placeholder
     },
     {
