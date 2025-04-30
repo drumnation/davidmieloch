@@ -90,7 +90,7 @@ export const useHeaderState = (): HeaderHookReturn => {
     }
 
     // First, set up loading state synchronously
-    const pathLabel = href?.split('/').pop()?.replace(/-/g, ' ') || 'page';
+    const pathLabel = href.split('/').pop()?.replace(/-/g, ' ') || 'page';
     showLoading(`Loading ${pathLabel}...`);
     setIsNavigating(true);
     setNextPath(href);
@@ -98,7 +98,9 @@ export const useHeaderState = (): HeaderHookReturn => {
 
   }, [pathname, showLoading, close, isNavigating]);
 
-  const isActive = (href: string) => getIsActive(pathname, href);
+  const isActive = (href: string) => {
+    return pathname ? getIsActive(pathname, href) : false;
+  };
 
   const handleLinkHover = (label: string) => {
     if (!isNavigating) {
@@ -116,7 +118,7 @@ export const useHeaderState = (): HeaderHookReturn => {
     close,
     theme,
     isDark,
-    pathname,
+    pathname: pathname || '',
     logoHovered,
     setLogoHovered,
     socialHovered,

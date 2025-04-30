@@ -1,6 +1,7 @@
 "use client";
 
-import { Box, Text, ActionIcon, Group, Slider, Tooltip, Button, Flex, Alert, Checkbox } from '@mantine/core';
+import React from 'react';
+import { Box, Text, ActionIcon, Group, Tooltip, Button, Flex, Alert, SegmentedControl } from '@mantine/core';
 import {
     LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic, LuMic, LuMusic,
     LuHeadphones, LuVolume1, LuVolume2, LuVolumeX
@@ -27,13 +28,6 @@ import {
     timeTextLeft,
     timeTextRight,
     emptyBar,
-    cardRow,
-    cardCol,
-    groupMarginRight,
-    sliderStyle,
-    playlistBtn,
-    playlistBtnRoot,
-    minimizeBtnRoot,
     flexShrink0,
     controlToggleGroup,
     controlToggleIcon
@@ -68,7 +62,7 @@ const basePlayerTourSteps: Step[] = [
         disableBeacon: true,
     },
     {
-        target: '#narration-button-group, #music-button-group',
+        target: '#combined-pill-button',
         content: (
             <Box>
                 <Group gap="xs" mb="xs">
@@ -207,6 +201,26 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
         handleRewindNarration,
         handleForwardNarration,
     } = useStandardPlayerWeb(props);
+
+    // Handler for narration button
+    const handleNarrationClick = () => {
+        startUserInteraction?.();
+        if (isNarrationEnabled) {
+            if (isVoicePlaying) pauseVoice?.(); else playVoice?.();
+        } else {
+            toggleNarration?.();
+        }
+    };
+
+    // Handler for music button
+    const handleMusicClick = () => {
+        startUserInteraction?.();
+        if (isMusicEnabled) {
+            if (isMusicPlaying) pauseMusic?.(); else playMusic?.();
+        } else {
+            toggleMusic?.();
+        }
+    };
 
     return (
         <Flex
@@ -350,140 +364,143 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                     </Box>
                 </Flex>
             </Flex>
-            <Flex align="center" gap="lg" style={flexShrink0}>
-                <Box style={cardRow(theme)}>
-                    <Box
-                        id="audio-toggle-buttons-container"
-                        style={cardCol(theme, colorScheme, colors)}
+            <Flex direction="column" align="center" gap="sm" style={flexShrink0}>
+                {/* Combined Narration/Music Pill Button */}
+                <Box id="audio-toggle-buttons-container">
+                    <Flex
+                        id="combined-pill-button"
+                        direction="row"
+                        styles={{
+                            root: {
+                                border: `1px solid ${colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4]}`,
+                                borderRadius: theme.radius.xl,
+                                overflow: 'hidden',
+                            }
+                        }}
                     >
-                        <Group
+                        {/* Narration Button */}
+                        <Button
                             id="narration-button-group"
-                            gap="xs"
-                            align="center"
-                            wrap="nowrap"
-                            style={groupMarginRight}
+                            variant={isNarrationEnabled && isVoicePlaying ? "filled" : "subtle"}
+                            color={isNarrationEnabled && isVoicePlaying ? "cyan" : (colorScheme === 'dark' ? 'gray' : 'dark')}
+                            size="sm"
+                            radius={0}
+                            px="sm"
+                            onClick={handleNarrationClick}
+                            aria-label={isNarrationEnabled ? (isVoicePlaying ? "Pause Narration" : "Play Narration") : "Enable Narration"}
+                            styles={{
+                                root: {
+                                    width: '120px',
+                                    borderRight: `1px solid ${colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4]}`,
+                                    borderRadius: `${theme.radius.xl}px 0 0 ${theme.radius.xl}px`,
+                                }
+                            }}
                         >
-                            <Button
-                                id="narration-enable-button"
-                                variant={isNarrationEnabled && isVoicePlaying ? "filled" : "subtle"}
-                                color={isNarrationEnabled && isVoicePlaying ? "cyan" : (colorScheme === 'dark' ? 'gray' : 'dark')}
-                                size="sm"
-                                radius="xl"
-                                px="sm"
-                                onClick={() => {
-                                    startUserInteraction?.();
-                                    if (isNarrationEnabled) {
-                                        if (isVoicePlaying) pauseVoice?.(); else playVoice?.();
-                                    } else {
-                                        toggleNarration?.();
-                                    }
-                                }}
-                                aria-label={isNarrationEnabled ? (isVoicePlaying ? "Pause Narration" : "Play Narration") : "Enable Narration"}
-                                styles={{
-                                    root: {
-                                        minWidth: 110,
-                                        border: `1px solid ${colorScheme === 'dark' ? theme.white : theme.black}`,
-                                    },
-                                    section: { marginRight: 0 }
-                                }}
-                            >
-                                <Group gap="xs" wrap="nowrap" align="center">
-                                    {isNarrationEnabled
-                                        ? isVoicePlaying
-                                            ? <MdRecordVoiceOver size={14} color={theme.white} />
-                                            : <MdVoiceOverOff size={14} color={colorScheme === 'dark' ? theme.white : theme.black} />
-                                        : <MdVoiceOverOff size={14} color={theme.colors.gray[5]} />
-                                    }
-                                    <Text size="xs" c={isNarrationEnabled && isVoicePlaying ? theme.white : 'inherit'}>
-                                        Narration
-                                    </Text>
-                                </Group>
-                            </Button>
-                        </Group>
-                        <Group
+                            <Group gap="xs" wrap="nowrap" align="center">
+                                {isNarrationEnabled
+                                    ? isVoicePlaying
+                                        ? <MdRecordVoiceOver size={14} color={theme.white} />
+                                        : <MdVoiceOverOff size={14} color={colorScheme === 'dark' ? theme.white : theme.black} />
+                                    : <MdVoiceOverOff size={14} color={theme.colors.gray[5]} />
+                                }
+                                <Text size="xs" c={isNarrationEnabled && isVoicePlaying ? theme.white : 'inherit'}>
+                                    Narration
+                                </Text>
+                            </Group>
+                        </Button>
+
+                        {/* Music Button */}
+                        <Button
                             id="music-button-group"
-                            gap="xs"
-                            align="center"
-                            wrap="nowrap"
-                            style={groupMarginRight}
-                            mt={10}
+                            variant={isMusicEnabled && isMusicPlaying ? "filled" : "subtle"}
+                            color={isMusicEnabled && isMusicPlaying ? "blue" : (colorScheme === 'dark' ? 'gray' : 'dark')}
+                            size="sm"
+                            radius={0}
+                            px="sm"
+                            onClick={handleMusicClick}
+                            aria-label={isMusicEnabled ? (isMusicPlaying ? "Pause Music" : "Play Music") : "Enable Music"}
+                            styles={{
+                                root: {
+                                    width: '120px',
+                                    borderRadius: `0 ${theme.radius.xl}px ${theme.radius.xl}px 0`,
+                                }
+                            }}
                         >
-                            <Button
-                                id="music-enable-button"
-                                variant={isMusicEnabled && isMusicPlaying ? "filled" : "subtle"}
-                                color={isMusicEnabled && isMusicPlaying ? "blue" : (colorScheme === 'dark' ? 'gray' : 'dark')}
-                                size="sm"
-                                radius="xl"
-                                px="sm"
-                                onClick={() => {
-                                    startUserInteraction?.();
-                                    if (isMusicEnabled) {
-                                        if (isMusicPlaying) pauseMusic?.(); else playMusic?.();
-                                    } else {
-                                        toggleMusic?.();
-                                    }
-                                }}
-                                aria-label={isMusicEnabled ? (isMusicPlaying ? "Pause Music" : "Play Music") : "Enable Music"}
-                                styles={{
-                                    root: {
-                                        minWidth: 110,
-                                        border: `1px solid ${colorScheme === 'dark' ? theme.white : theme.black}`,
-                                    },
-                                    section: { marginRight: 0 }
-                                }}
-                            >
-                                <Group gap="xs" wrap="nowrap" align="center">
-                                    {isMusicEnabled
-                                        ? isMusicPlaying
-                                            ? <LuMusic size={14} color={theme.white} />
-                                            : <MdMusicOff size={14} color={colorScheme === 'dark' ? theme.white : theme.black} />
-                                        : <MdMusicOff size={14} color={theme.colors.gray[5]} />
-                                    }
-                                    <Text size="xs" c={isMusicEnabled && isMusicPlaying ? theme.white : 'inherit'}>
-                                        Music
-                                    </Text>
-                                </Group>
-                            </Button>
-                        </Group>
-                    </Box>
-                    <Box style={playlistBtn(theme, colorScheme, colors)}>
-                        <Tooltip label="Playlist" position="left" withArrow>
-                            <Button
-                                onClick={onPlaylistToggle}
-                                aria-label="Show playlist"
-                                variant="white"
-                                color={iconProps.color}
-                                size="xs"
-                                styles={{ root: playlistBtnRoot(theme, colorScheme, colors) }}
-                            >
-                                <LuListMusic size={20} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
-                            </Button>
-                        </Tooltip>
-                        <Tooltip label="Minimize" position="left" withArrow>
-                            <Button
-                                onClick={onMinimizeToggle}
-                                aria-label="Minimize player"
-                                variant="white"
-                                color={iconProps.color}
-                                size="xs"
-                                styles={{ root: minimizeBtnRoot(theme, colorScheme, colors) }}
-                            >
-                                <LuChevronDown size={20} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
-                            </Button>
-                        </Tooltip>
-                        <Tooltip label="Player Tour" position="left" withArrow>
-                            <Button
-                                onClick={handleStartTour}
-                                aria-label="Start player feature tour"
-                                variant="white"
-                                color={iconProps.color}
-                                size="xs"
-                                styles={{ root: minimizeBtnRoot(theme, colorScheme, colors) }}
-                            >
-                                <TbRoute size={20} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
-                            </Button>
-                        </Tooltip>
-                    </Box>
+                            <Group gap="xs" wrap="nowrap" align="center">
+                                {isMusicEnabled
+                                    ? isMusicPlaying
+                                        ? <LuMusic size={14} color={theme.white} />
+                                        : <MdMusicOff size={14} color={colorScheme === 'dark' ? theme.white : theme.black} />
+                                    : <MdMusicOff size={14} color={theme.colors.gray[5]} />
+                                }
+                                <Text size="xs" c={isMusicEnabled && isMusicPlaying ? theme.white : 'inherit'}>
+                                    Music
+                                </Text>
+                            </Group>
+                        </Button>
+                    </Flex>
+                </Box>
+
+                {/* Playlist and Minimize Buttons */}
+                <Box id="playlist-minimize-container">
+                    <Flex
+                        id="playlist-minimize-pill"
+                        direction="row"
+                        styles={{
+                            root: {
+                                border: `1px solid ${colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4]}`,
+                                borderRadius: theme.radius.xl,
+                                overflow: 'hidden',
+                            }
+                        }}
+                    >
+                        {/* Playlist Button */}
+                        <Button
+                            variant="subtle"
+                            color={colorScheme === 'dark' ? 'gray' : 'dark'}
+                            size="sm"
+                            radius={0}
+                            onClick={onPlaylistToggle}
+                            aria-label="Show playlist"
+                            leftSection={<LuListMusic size={14} />}
+                            styles={{
+                                root: {
+                                    width: '120px',
+                                    borderRight: `1px solid ${colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4]}`,
+                                    borderRadius: `${theme.radius.xl}px 0 0 ${theme.radius.xl}px`,
+                                },
+                                label: {
+                                    fontSize: '12px',
+                                    fontWeight: 'normal'
+                                }
+                            }}
+                        >
+                            Playlist
+                        </Button>
+
+                        {/* Minimize Button */}
+                        <Button
+                            variant="subtle"
+                            color={colorScheme === 'dark' ? 'gray' : 'dark'}
+                            size="sm"
+                            radius={0}
+                            onClick={onMinimizeToggle}
+                            aria-label="Minimize player"
+                            leftSection={<LuChevronDown size={14} />}
+                            styles={{
+                                root: {
+                                    width: '120px',
+                                    borderRadius: `0 ${theme.radius.xl}px ${theme.radius.xl}px 0`,
+                                },
+                                label: {
+                                    fontSize: '12px',
+                                    fontWeight: 'normal'
+                                }
+                            }}
+                        >
+                            Minimize
+                        </Button>
+                    </Flex>
                 </Box>
             </Flex>
             {layeredAudioMessage && (

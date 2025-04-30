@@ -226,7 +226,6 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                 <PillControlBar
                     onPlaylistClick={onPlaylistToggle}
                     onMinimizeClick={onMinimizeToggle}
-                    onTourClick={handleStartTour}
                     isNarrationEnabled={isNarrationEnabled}
                     isMusicEnabled={isMusicEnabled}
                     onToggleNarration={() => {

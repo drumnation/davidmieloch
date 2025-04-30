@@ -33,6 +33,13 @@ export const useVoiceTrackLoader = (
         }
 
         const path = pathname; // Use pathname directly
+
+        if (!path) {
+            console.warn('[VoiceLoader] No path available. Clearing voice track.');
+            loadVoiceTrack(null);
+            return;
+        }
+
         // Simple slug logic: remove leading/trailing slashes, handle root
         let pageSlug = path.replace(/^\/|\/$/g, '');
         if (pageSlug === '') {

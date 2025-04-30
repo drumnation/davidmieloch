@@ -31,7 +31,7 @@ const StyledComponentsBridge: React.FC<{ children: React.ReactNode }> = ({ child
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const pathname = usePathname();
-  const isRoot = pathname.split('?')[0].replace(/\/+$/, '') === '' || pathname === '/';
+  const isRoot = pathname?.split('?')[0].replace(/\/+$/, '') === '' || pathname === '/';
   const colorScheme = isRoot ? 'dark' : 'light';
 
   const toggleColorScheme = () => {

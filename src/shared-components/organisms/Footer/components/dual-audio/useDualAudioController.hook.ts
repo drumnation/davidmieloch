@@ -383,11 +383,15 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
             if (!activeMusicTrack && musicPlaylist.length > 0) {
                 loadMusicTrack(musicPlaylist[0]);
             }
-            let pageSlug = pathname.replace(/^\/|\/$/g, '');
-            if (pageSlug === '') pageSlug = 'home';
-            const initialVoiceTrack = voiceTracks.find((track: AudioTrack) => track.id === pageSlug);
-            if (initialVoiceTrack) {
-                loadVoiceTrack(initialVoiceTrack);
+            if (pathname) {
+                let pageSlug = pathname.replace(/^\/|\/$/g, '');
+                if (pageSlug === '') pageSlug = 'home';
+                const initialVoiceTrack = voiceTracks.find((track: AudioTrack) => track.id === pageSlug);
+                if (initialVoiceTrack) {
+                    loadVoiceTrack(initialVoiceTrack);
+                } else {
+                    loadVoiceTrack(null);
+                }
             } else {
                 loadVoiceTrack(null);
             }

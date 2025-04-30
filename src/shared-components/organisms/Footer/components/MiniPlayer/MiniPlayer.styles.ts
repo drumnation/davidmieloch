@@ -10,9 +10,11 @@ export const MiniPlayerContainer = styled.div<MiniPlayerContainerProps>`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme, $colorScheme }) =>
-    $colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0]};
   padding-bottom: env(safe-area-inset-bottom, 0px);
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5px);
+  }
 `;
 
 export const MiniPlayerTopRow = styled.div`
