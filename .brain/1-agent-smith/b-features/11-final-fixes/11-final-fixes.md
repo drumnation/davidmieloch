@@ -4,8 +4,8 @@
 - [x] Mobile UI Buttons need to be larger with larger hit points
 - [x] Remove it's a wonderful life for kings track because there are voices in it
 - [x] On real mobile - the tour pops up on every screen even if you've completed it
-- [ ] Add fade effect back in for desktop to aid with transitions between ducked and original tracks
-- [ ] Preload ducked version of currently playing track or original so transition to eliminate loading time
+- [x] Add fade effect back in for desktop to aid with transitions between ducked and original tracks
+- [x] Preload ducked version of currently playing track or original so transition to eliminate loading time
 - [x] Missing Next Generation Area in AI WhitePaper due to animation issue
 - [x] Latest Whitepaper content regressed and is missing, showing the old end content
 - [x] Fixed TypeScript errors related to null checks on pathnames from Next.js usePathname() hook
