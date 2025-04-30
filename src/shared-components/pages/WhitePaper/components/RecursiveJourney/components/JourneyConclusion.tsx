@@ -112,7 +112,7 @@ export const JourneyConclusion: React.FC<JourneyConclusionProps> = ({ content, c
                             color={theme.primaryColor}
                             rightSection={<IconArrowRight size={16} />}
                             component="a"
-                            href="/contact"
+                            href="https://www.linkedin.com/in/davidmieloch/"
                             size="md"
                         >
                             Contact Me

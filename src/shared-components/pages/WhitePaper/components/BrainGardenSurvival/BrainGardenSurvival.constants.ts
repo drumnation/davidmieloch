@@ -7,7 +7,7 @@ export const BRAIN_GARDEN_SURVIVAL = {
         title: "Brain Garden Is Me.",
         description: "I'm David Mieloch, MIT-trained engineer, 25-year software veteran, and AI architect. I've designed Brain Garden from the unique perspective of someone who wrestled with information and workflow constraints years before others recognized the problems. This isn't just a system—it's my philosophy about how humans and AI must collaborate.",
         ctaText: "Book a Consultation",
-        ctaLink: "https://calendar.app.google/GVVxMvBPXcZV2uAi7",
+        ctaLink: "https://www.linkedin.com/in/davidmieloch/",
         image: "/dave-mieloch-headshot.jpg"
     },
 

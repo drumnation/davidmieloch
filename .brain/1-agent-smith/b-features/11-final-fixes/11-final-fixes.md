@@ -7,4 +7,4 @@
 - [ ] Add fade effect back in for desktop to aid with transitions between ducked and original tracks
 - [ ] Preload ducked version of currently playing track or original so transition to eliminate loading time
 - [x] Missing Next Generation Area in AI WhitePaper due to animation issue
-- [ ] Latest Whitepaper content regressed and is missing, showing the old end content
+- [x] Latest Whitepaper content regressed and is missing, showing the old end content
