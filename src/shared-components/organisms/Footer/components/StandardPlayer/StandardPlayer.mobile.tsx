@@ -187,10 +187,10 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                             onClick={handlePrevTrack}
                             aria-label="Previous track"
                             disabled={!isMusicTrackAvailable}
-                            size="md"
-                            style={getButtonStyles()}
+                            size="lg"
+                            style={getButtonStyles(colorScheme, theme)}
                         >
-                            {controlMode === 'narration' ? <TbRewindBackward10 size={24} color="black" /> : <IoPlaySkipBackCircleOutline size={24} color="black" />}
+                            {controlMode === 'narration' ? <TbRewindBackward10 size={28} /> : <IoPlaySkipBackCircleOutline size={28} />}
                         </ActionIcon>
                     </Tooltip>
                     <ActionIcon
@@ -198,20 +198,20 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                         onClick={handlePlayPause}
                         aria-label={isEffectivelyPlaying ? "Pause" : "Play"}
                         disabled={!displayTrackAvailable}
-                        size="lg"
-                        style={getButtonStyles()}
+                        size="xl"
+                        style={getButtonStyles(colorScheme, theme)}
                     >
-                        {isEffectivelyPlaying ? <IoPauseCircleSharp size={30} color="black" /> : <IoIosPlayCircle size={30} color="black" />}
+                        {isEffectivelyPlaying ? <IoPauseCircleSharp size={36} /> : <IoIosPlayCircle size={36} />}
                     </ActionIcon>
                     <Tooltip label="Next Track" position="bottom" withArrow disabled={!isMusicTrackAvailable}>
                         <ActionIcon
                             onClick={handleNextTrack}
                             aria-label="Next track"
                             disabled={!isMusicTrackAvailable}
-                            size="md"
-                            style={getButtonStyles()}
+                            size="lg"
+                            style={getButtonStyles(colorScheme, theme)}
                         >
-                            {controlMode === 'narration' ? <TbRewindForward10 size={24} color="black" /> : <IoPlaySkipForwardCircleOutline size={24} color="black" />}
+                            {controlMode === 'narration' ? <TbRewindForward10 size={28} /> : <IoPlaySkipForwardCircleOutline size={28} />}
                         </ActionIcon>
                     </Tooltip>
                 </Group>
@@ -235,7 +235,7 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                 )}
             </Box>
 
-            <Center style={getBottomRowStyle()}>
+            <Center style={{ ...getBottomRowStyle(), marginBottom: 5 }}>
                 <PillControlBar
                     onPlaylistClick={onPlaylistToggle}
                     onMinimizeClick={onMinimizeToggle}

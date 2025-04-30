@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container } from '@mantine/core';
+import { Box, Container, MantineTheme } from '@mantine/core';
 import { FooterProps } from './Footer.types';
 import { useFooterUI } from './useFooterUI.hook';
 import { useDualAudio } from './components/dual-audio/DualAudioContext';
@@ -14,6 +14,7 @@ import { useFooter } from './Footer.hook';
 import { useCallback, useEffect } from 'react';
 import { AudioTrack } from './components/dual-audio/DualAudio.types';
 import { useFooterStatefulLogic } from './Footer.hook';
+import styled from '@emotion/styled';
 
 export const Footer = ({ socialLinks }: FooterProps) => {
   const {
@@ -103,7 +104,7 @@ export const Footer = ({ socialLinks }: FooterProps) => {
       )}
 
       {!isMiniMode && !isExpanded && (
-        <FooterResponsiveContainer>
+        <FooterResponsiveContainer style={{ marginBottom: '10px' }}>
           <Container size="lg" style={{ height: '100%' }}>
             <StandardPlayer
               currentTrack={activeMusicTrack}

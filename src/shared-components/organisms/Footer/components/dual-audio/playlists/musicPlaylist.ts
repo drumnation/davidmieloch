@@ -146,14 +146,6 @@ export const musicPlaylist: AudioTrack[] = [
         description: 'Experimental chamber music exploring tension and harmony.',
     },
     {
-        id: 'it-s-a-wonderful-life-for-kings',
-        title: "It's a Wonderful Life for Kings",
-        artist: 'Music by David Mieloch',
-        src: '/audio/music/it-s-a-wonderful-life-for-kings.mp3',
-        artwork: '/audio/music/it-s-a-wonderful-life-for-kings.jpg',
-        description: 'Regal, majestic composition with orchestral elements.',
-    },
-    {
         id: 'chill-out-ya-merry-gentleman',
         title: 'Chill-out ya Merry Gentleman',
         artist: 'Music by David Mieloch',

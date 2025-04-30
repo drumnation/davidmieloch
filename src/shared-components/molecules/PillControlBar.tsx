@@ -71,15 +71,10 @@ export const PillControlBar: FunctionComponent<PillControlBarProps> = ({
                 background: containerBg,
                 borderRadius: 9999,
                 paddingInline: 6,
-                boxShadow: '0 0 0 0 rgba(0,0,0,0)',
+                boxShadow: theme.shadows.sm,
                 transition: 'box-shadow 150ms ease',
                 boxSizing: 'border-box',
-            }}
-            onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 0 1px ${dividerColor}`;
-            }}
-            onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 0 rgba(0,0,0,0)';
+                marginBottom: 5,
             }}
         >
             {/* Narration */}
@@ -99,9 +94,13 @@ export const PillControlBar: FunctionComponent<PillControlBarProps> = ({
                     color={isNarrationEnabled && isNarrationPlaying ? "indigo" : undefined}
                     radius={isNarrationEnabled && isNarrationPlaying ? "xl" : undefined}
                     style={{
-                        color: isNarrationEnabled ? (isDark ? theme.white : theme.black) : theme.colors.gray[6],
+                        color: isNarrationEnabled && isNarrationPlaying
+                            ? theme.white
+                            : isNarrationEnabled
+                                ? (isDark ? theme.white : theme.black)
+                                : theme.colors.gray[6],
                     }}
-                    size="sm"
+                    size="md"
                 >
                     {isNarrationEnabled ? (isNarrationPlaying ? <MdRecordVoiceOver size={16} /> : <MdVoiceOverOff size={16} />) : <MdVoiceOverOff size={16} />}
                 </ActionIcon>
@@ -162,9 +161,13 @@ export const PillControlBar: FunctionComponent<PillControlBarProps> = ({
                     color={isMusicEnabled && isMusicPlaying ? "blue" : undefined}
                     radius={isMusicEnabled && isMusicPlaying ? "xl" : undefined}
                     style={{
-                        color: isMusicEnabled ? (isDark ? theme.white : theme.black) : theme.colors.gray[6],
+                        color: isMusicEnabled && isMusicPlaying
+                            ? theme.white
+                            : isMusicEnabled
+                                ? (isDark ? theme.white : theme.black)
+                                : theme.colors.gray[6],
                     }}
-                    size="sm"
+                    size="md"
                 >
                     {isMusicEnabled ? (isMusicPlaying ? <LuMusic size={16} /> : <MdMusicOff size={16} />) : <MdMusicOff size={16} />}
                 </ActionIcon>
@@ -188,8 +191,8 @@ export const PillControlBar: FunctionComponent<PillControlBarProps> = ({
                     borderRight: `1px solid ${dividerColor}`,
                 }}
             >
-                <ActionIcon variant="transparent" onClick={onPlaylistClick} aria-label="Playlist" style={{ color: isDark ? theme.white : theme.black }}>
-                    <LuListMusic size={18} />
+                <ActionIcon variant="transparent" onClick={onPlaylistClick} aria-label="Playlist" style={{ color: isDark ? theme.white : theme.black }} size="lg">
+                    <LuListMusic size={22} />
                 </ActionIcon>
             </Box>
 
@@ -202,8 +205,8 @@ export const PillControlBar: FunctionComponent<PillControlBarProps> = ({
                     }}
                 >
                     <Tooltip label="Player Tour" position="top" withArrow>
-                        <ActionIcon variant="transparent" onClick={onTourClick} aria-label="Start Tour" style={{ color: isDark ? theme.white : theme.black }}>
-                            <TbRoute size={18} />
+                        <ActionIcon variant="transparent" onClick={onTourClick} aria-label="Start Tour" style={{ color: isDark ? theme.white : theme.black }} size="lg">
+                            <TbRoute size={22} />
                         </ActionIcon>
                     </Tooltip>
                 </Box>
@@ -216,8 +219,8 @@ export const PillControlBar: FunctionComponent<PillControlBarProps> = ({
                     borderRadius: '0 9999px 9999px 0',
                 }}
             >
-                <ActionIcon variant="transparent" onClick={onMinimizeClick} aria-label="Minimize" style={{ color: isDark ? theme.white : theme.black }}>
-                    <LuChevronDown size={18} />
+                <ActionIcon variant="transparent" onClick={onMinimizeClick} aria-label="Minimize" style={{ color: isDark ? theme.white : theme.black }} size="lg">
+                    <LuChevronDown size={22} />
                 </ActionIcon>
             </Box>
         </Flex>

@@ -51,12 +51,15 @@ export const getEmptyBarStyle = (colors: any): CSSProperties => ({
     marginTop: '4px',
 });
 
-export const getButtonStyles = (): CSSProperties => ({
-    border: '1px solid black',
-    backgroundColor: 'white',
-    color: 'black',
-    borderRadius: '20px',
-});
+export const getButtonStyles = (colorScheme: 'light' | 'dark', theme: MantineTheme): CSSProperties => {
+    const isDark = colorScheme === 'dark';
+    return {
+        border: `1px solid ${isDark ? theme.white : theme.black}`,
+        backgroundColor: isDark ? theme.black : theme.white,
+        color: isDark ? theme.white : theme.black,
+        borderRadius: '24px',
+    };
+};
 
 export const getBottomRowStyle = (): CSSProperties => ({
     width: '100%',
