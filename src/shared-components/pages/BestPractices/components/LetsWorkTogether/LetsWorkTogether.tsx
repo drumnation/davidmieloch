@@ -178,7 +178,7 @@ export const LetsWorkTogether: React.FC<LetsWorkTogetherProps> = ({ className })
 
               <Button
                 component="a"
-                href="https://www.linkedin.com/in/davidmieloch/"
+                href="/contact"
                 target="_blank"
                 rel="noopener noreferrer"
                 size="lg"

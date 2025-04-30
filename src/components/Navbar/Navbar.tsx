@@ -11,13 +11,14 @@ const navItems = [
   { name: 'AI Integration Flow', path: '/ai-integration-flow-diagram' },
   { name: 'Best Practices', path: '/fullstack-react-best-practices-integration' },
   { name: 'Code Examples', path: '/code-examples' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const pathname = usePathname();
-  
+
   // Check if the path is active
   const isActive = (path: string) => {
     if (path === '/' && pathname !== '/') {

@@ -4,16 +4,18 @@ import {
   IconBrandMedium,
   IconBuildingArch,
   IconCode,
+  IconMessageCircle,
   IconUser
 } from '@tabler/icons-react';
 import { NavLink, SocialLink } from './Header.types';
 
 export const navLinks: NavLink[] = [
   // { label: 'Home', href: '/' },
-  { label: 'Enterprise AI Transformation', href: '/enterprise-ai-development-framework', icon: IconBuildingArch },
+  { label: 'AI Transformation', href: '/enterprise-ai-development-framework', icon: IconBuildingArch },
   { label: 'React Best Practices', href: '/fullstack-react-best-practices-integration', icon: IconCode },
   { label: 'Biography', href: '/bio', icon: IconUser },
-  { label: 'Code Examples', href: '/code-examples', icon: IconCode },
+  { label: 'Code', href: '/code-examples', icon: IconCode },
+  { label: 'Let\'s Connect', href: '/contact', icon: IconMessageCircle },
 ];
 
 export const socialLinks: SocialLink[] = [

@@ -423,7 +423,7 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
             </SectionBodyText>
             <ButtonGroup>
               <CTALink
-                href="https://www.linkedin.com/in/davidmieloch/?msgControlName=message"
+                href="/contact"
                 label="Let&apos;s Connect"
                 iconType="mail"
                 variant="primary"

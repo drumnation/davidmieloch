@@ -46,6 +46,7 @@
     "@mantine/dropzone": "^7.17.3",
     "@mantine/form": "^7.17.1",
     "@mantine/hooks": "^7.17.1",
+    "@mantine/notifications": "^7.17.5",
     "@microsoft/clarity": "^1.0.0",
     "@react-spring/animated": "9.5.5",
     "@react-spring/core": "9.5.5",
@@ -54,6 +55,7 @@
     "@reduxjs/toolkit": "^2.6.1",
     "@tabler/icons-react": "^3.31.0",
     "@types/dagre": "^0.7.52",
+    "@types/nodemailer": "^6.4.17",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@xyflow/react": "^12.4.4",
     "axios": "^1.6.0",
@@ -69,6 +71,7 @@
     "mammoth": "^1.9.0",
     "mermaid": "^11.6.0",
     "next": "15.2.1",
+    "nodemailer": "^6.10.1",
     "pdfjs-dist": "^5.1.91",
     "phosphor-react": "^1.4.1",
     "puppeteer": "^21.0.0",
@@ -84,7 +87,8 @@
     "styled-components": "^6.1.16",
     "tesseract.js": "^6.0.0",
     "vscode-languageserver-types": "^3.17.5",
-    "wavesurfer.js": "^7.9.1"
+    "wavesurfer.js": "^7.9.1",
+    "zod": "^3.24.3"
   },
   "optionalDependencies": {
     "canvas": "^2.11.2"

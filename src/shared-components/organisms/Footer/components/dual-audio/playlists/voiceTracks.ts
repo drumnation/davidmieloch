@@ -4,6 +4,7 @@ import { AudioTrack } from '../DualAudio.types'; // Assuming AudioTrack type is 
 (() => {
     console.log('[DEBUG] voiceTracks.ts loaded, will provide these tracks:', [
         'bio',
+        'contact',
         'code-examples',
         'enterprise-ai-development-framework',
         'experience',
@@ -14,6 +15,13 @@ import { AudioTrack } from '../DualAudio.types'; // Assuming AudioTrack type is 
 
 // Voice Tracks are mostly page-specific spoken narration
 export const voiceTracks: AudioTrack[] = [
+    {
+        id: 'contact',
+        title: "Let's Connect Page",
+        artist: 'Narration by David Mieloch',
+        src: '/audio/voice/contact.mp3',
+        description: 'Narrated contact page and information.'
+    },
     {
         id: 'bio',
         title: 'Personal Bio',
