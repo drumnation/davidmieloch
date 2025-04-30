@@ -24,6 +24,13 @@ import { getNextMusicTrack, handleAudioError } from './useDualAudioController.lo
 
 const FULL_VOLUME = 1;
 
+// Create a cache for preloaded audio elements
+interface PreloadedAudio {
+    normal: HTMLAudioElement;
+    ducked: HTMLAudioElement;
+    track: AudioTrack;
+}
+
 export function usePersistentMusicPlayer() {
     const dispatch = useDispatch();
 
@@ -32,6 +39,10 @@ export function usePersistentMusicPlayer() {
     const musicTargetVolumeRef = useRef(FULL_VOLUME);
     const [isDuckedMode, setIsDuckedMode] = useState(false);
     const [isMusicMuted, setIsMusicMuted] = useState(false);
+
+    // Audio preloading system
+    const preloadCacheRef = useRef<Map<string, PreloadedAudio>>(new Map());
+    const preloadedNextTrackRef = useRef<PreloadedAudio | null>(null);
 
     // Selectors
     const isMusicEnabled = useSelector(selectIsMusicEnabled);
@@ -70,6 +81,113 @@ export function usePersistentMusicPlayer() {
             audio.removeEventListener('loadedmetadata', reapplyUserVolume);
         };
     }, [applyMusicVolume]);
+
+    // Preload audio for a given track
+    const preloadAudioTrack = useCallback((track: AudioTrack): Promise<PreloadedAudio> => {
+        const trackKey = track.id.toString();
+
+        // Check if this track is already preloaded
+        if (preloadCacheRef.current.has(trackKey)) {
+            return Promise.resolve(preloadCacheRef.current.get(trackKey)!);
+        }
+
+        // Create new audio elements for both normal and ducked versions
+        const normalAudio = new Audio();
+        const duckedAudio = new Audio();
+
+        // Set normal path
+        const normalPath = track.src;
+        // Set ducked path
+        const duckedPath = track.src.replace('/audio/music/', '/audio/music-ducked/');
+
+        // Setup preloaded object
+        const preloaded: PreloadedAudio = {
+            normal: normalAudio,
+            ducked: duckedAudio,
+            track
+        };
+
+        // Store in cache
+        preloadCacheRef.current.set(trackKey, preloaded);
+
+        console.log(`Preloading track: ${track.title} (ID: ${track.id})`);
+
+        // Load both versions in parallel
+        return Promise.all([
+            new Promise<void>((resolve) => {
+                normalAudio.src = normalPath;
+                normalAudio.preload = 'auto';
+
+                const handleLoaded = () => {
+                    console.log(`Preloaded normal version of: ${track.title}`);
+                    normalAudio.removeEventListener('canplaythrough', handleLoaded);
+                    resolve();
+                };
+
+                const handleError = () => {
+                    console.warn(`Failed to preload normal version of: ${track.title}`);
+                    normalAudio.removeEventListener('error', handleError);
+                    // Resolve anyway to not block the Promise.all
+                    resolve();
+                };
+
+                normalAudio.addEventListener('canplaythrough', handleLoaded);
+                normalAudio.addEventListener('error', handleError);
+                normalAudio.load();
+            }),
+            new Promise<void>((resolve) => {
+                duckedAudio.src = duckedPath;
+                duckedAudio.preload = 'auto';
+
+                const handleLoaded = () => {
+                    console.log(`Preloaded ducked version of: ${track.title}`);
+                    duckedAudio.removeEventListener('canplaythrough', handleLoaded);
+                    resolve();
+                };
+
+                const handleError = () => {
+                    console.warn(`Failed to preload ducked version of: ${track.title}`);
+                    duckedAudio.removeEventListener('error', handleError);
+                    // Resolve anyway to not block the Promise.all
+                    resolve();
+                };
+
+                duckedAudio.addEventListener('canplaythrough', handleLoaded);
+                duckedAudio.addEventListener('error', handleError);
+                duckedAudio.load();
+            })
+        ]).then(() => preloaded);
+    }, []);
+
+    // Preload the next track in the playlist
+    const preloadNextTrack = useCallback(() => {
+        const nextTrack = getNextMusicTrack(activeMusicTrack, isMusicLooping);
+        if (nextTrack && activeMusicTrack && nextTrack.id !== activeMusicTrack.id) {
+            console.log(`Preloading next track: ${nextTrack.title}`);
+            preloadAudioTrack(nextTrack).then(preloaded => {
+                preloadedNextTrackRef.current = preloaded;
+            });
+        }
+    }, [activeMusicTrack, isMusicLooping, preloadAudioTrack]);
+
+    // Apply the preloaded audio to the current audio element
+    const applyPreloadedAudio = useCallback((preloaded: PreloadedAudio, isDucked: boolean) => {
+        if (musicAudioRef.current) {
+            const sourceAudio = isDucked ? preloaded.ducked : preloaded.normal;
+
+            if (sourceAudio.readyState >= 2) { // HAVE_CURRENT_DATA or better
+                // Transfer the loaded audio's properties to our main audio element
+                musicAudioRef.current.src = sourceAudio.src;
+
+                // Dispatch actions to update Redux store
+                dispatch(setActiveMusicTrack(preloaded.track));
+                dispatch(setMusicDuration(sourceAudio.duration));
+
+                return true;
+            }
+        }
+        return false;
+    }, [dispatch]);
 
     // Play music
     const playMusic = useCallback(() => {
@@ -133,58 +251,88 @@ export function usePersistentMusicPlayer() {
     const setDuckedMode = useCallback((ducked: boolean) => {
         if (ducked !== isDuckedMode) {
             setIsDuckedMode(ducked);
-            // If we have an active track, reload it with the new ducked/non-ducked path
+            // If we have an active track, apply the alternate version
             if (activeMusicTrack) {
                 const currentTime = musicAudioRef.current?.currentTime || 0;
                 const wasPlaying = isMusicPlaying;
 
-                // Store these values before reloading
-                const savedTime = currentTime;
-                const savedPlayState = wasPlaying;
+                // Check if we have this track preloaded
+                const trackKey = activeMusicTrack.id.toString();
+                const preloaded = preloadCacheRef.current.get(trackKey);
 
-                // Create a new track object with modified src
-                const updatedTrack = {
-                    ...activeMusicTrack,
-                    // Don't actually change the track.src property - we'll use the ducked mode state
-                    // when loading the track to determine the actual src URL
-                };
+                if (preloaded) {
+                    console.log(`Switching to ${ducked ? 'ducked' : 'normal'} version using preloaded audio`);
 
-                // Reload the track with updated path
-                if (musicAudioRef.current) {
-                    // Apply the ducked/normal source based on current state
-                    const targetSrc = ducked
-                        ? activeMusicTrack.src.replace('/audio/music/', '/audio/music-ducked/')
-                        : activeMusicTrack.src;
-
-                    const currentSrc = musicAudioRef.current.src.replace(window.location.origin, '');
-
-                    // Only reload if the source is different
-                    if (targetSrc !== currentSrc) {
-                        dispatch(setMusicPlaying(false));
-
-                        console.log(`Switching to ${ducked ? 'ducked' : 'normal'} music: ${targetSrc}`);
-                        musicAudioRef.current.src = targetSrc;
-
-                        const handleCanPlay = () => {
-                            // Restore position and play state
-                            if (savedTime > 0) {
-                                musicAudioRef.current!.currentTime = savedTime;
-                            }
-
-                            if (savedPlayState) {
-                                playMusic();
-                            }
-
-                            musicAudioRef.current!.removeEventListener('canplay', handleCanPlay);
-                        };
-
-                        musicAudioRef.current.addEventListener('canplay', handleCanPlay);
-                        musicAudioRef.current.load();
+                    // Temporarily pause while we swap sources
+                    if (wasPlaying && musicAudioRef.current) {
+                        musicAudioRef.current.pause();
                     }
+
+                    // Apply the preloaded audio
+                    const applied = applyPreloadedAudio(preloaded, ducked);
+
+                    if (applied && musicAudioRef.current) {
+                        // Restore playback position
+                        musicAudioRef.current.currentTime = currentTime;
+
+                        // Resume playback if it was playing
+                        if (wasPlaying) {
+                            musicAudioRef.current.play()
+                                .then(() => dispatch(setMusicPlaying(true)))
+                                .catch(err => console.error("Error resuming playback:", err));
+                        }
+                    } else {
+                        // Fallback to the old method if preloaded audio couldn't be applied
+                        fallbackSwitchMode(ducked, currentTime, wasPlaying);
+                    }
+                } else {
+                    // Fallback to the old method
+                    fallbackSwitchMode(ducked, currentTime, wasPlaying);
                 }
             }
         }
-    }, [activeMusicTrack, isDuckedMode, isMusicPlaying, dispatch, playMusic]);
+    }, [activeMusicTrack, isDuckedMode, isMusicPlaying, dispatch, applyPreloadedAudio]);
+
+    // Fallback method for switching modes (used when preloaded audio isn't available)
+    const fallbackSwitchMode = useCallback((ducked: boolean, currentTime: number, wasPlaying: boolean) => {
+        if (!activeMusicTrack || !musicAudioRef.current) return;
+
+        const savedTime = currentTime;
+        const savedPlayState = wasPlaying;
+
+        // Apply the ducked/normal source based on current state
+        const targetSrc = ducked
+            ? activeMusicTrack.src.replace('/audio/music/', '/audio/music-ducked/')
+            : activeMusicTrack.src;
+
+        const currentSrc = musicAudioRef.current.src.replace(window.location.origin, '');
+
+        // Only reload if the source is different
+        if (targetSrc !== currentSrc) {
+            dispatch(setMusicPlaying(false));
+
+            console.log(`Fallback switching to ${ducked ? 'ducked' : 'normal'} music: ${targetSrc}`);
+            musicAudioRef.current.src = targetSrc;
+
+            const handleCanPlay = () => {
+                // Restore position and play state
+                if (savedTime > 0 && musicAudioRef.current) {
+                    musicAudioRef.current.currentTime = savedTime;
+                }
+
+                if (savedPlayState) {
+                    playMusic();
+                }
+
+                if (musicAudioRef.current) {
+                    musicAudioRef.current.removeEventListener('canplay', handleCanPlay);
+                }
+            };
+
+            musicAudioRef.current.addEventListener('canplay', handleCanPlay);
+            musicAudioRef.current.load();
+        }
+    }, [activeMusicTrack, dispatch, playMusic]);
 
     // Load a music track
     const loadMusicTrack = useCallback(async (track: AudioTrack) => {
@@ -194,6 +342,41 @@ export function usePersistentMusicPlayer() {
         try {
             dispatch(setMusicError(null));
 
+            // Check if we have this track preloaded
+            const trackKey = track.id.toString();
+            const preloaded = preloadCacheRef.current.get(trackKey);
+
+            if (preloaded) {
+                // We have a preloaded version, use it!
+                console.log(`Loading preloaded ${isDuckedMode ? 'ducked' : 'normal'} track: ${track.title}`);
+
+                const wasPlaying = !audio.paused;
+
+                // Update Redux state
+                dispatch(setMusicPlaying(false));
+                dispatch(setMusicCurrentTime(0));
+
+                // Apply the preloaded audio
+                const applied = applyPreloadedAudio(preloaded, isDuckedMode);
+
+                if (applied) {
+                    // Apply volume
+                    applyMusicVolume(musicTargetVolumeRef.current);
+
+                    // If we were playing before, resume playback
+                    if (wasPlaying) {
+                        playMusic();
+                    }
+
+                    // Preload the next track for seamless transitions
+                    preloadNextTrack();
+
+                    return;
+                }
+                // If we couldn't apply the preloaded audio, fall through to the fallback method
+            }
+
+            // Fallback method - direct loading
             // Apply ducked path if in ducked mode
             const targetSrc = isDuckedMode
                 ? track.src.replace('/audio/music/', '/audio/music-ducked/')
@@ -209,7 +392,7 @@ export function usePersistentMusicPlayer() {
                 dispatch(setMusicCurrentTime(0));
                 dispatch(setMusicDuration(0));
 
-                console.log(`Loading ${isDuckedMode ? 'ducked' : 'normal'} music track: ${targetSrc}`);
+                console.log(`Fallback loading ${isDuckedMode ? 'ducked' : 'normal'} music track: ${targetSrc}`);
                 audio.src = targetSrc;
 
                 const handleCanPlay = () => {
@@ -220,6 +403,10 @@ export function usePersistentMusicPlayer() {
                         console.log(`Autoplaying newly loaded track: ${targetSrc}`);
                         playMusic();
                     }
+
+                    // Start preloading the next track for seamless transitions
+                    preloadNextTrack();
+
                     audio.removeEventListener('canplay', handleCanPlay);
                     audio.removeEventListener('error', handleLoadError);
                 };
@@ -240,6 +427,16 @@ export function usePersistentMusicPlayer() {
                 if (!isMusicPlaying) {
                     playMusic();
                 }
+
+                // Preload the next track even if we're loading the same file
+                preloadNextTrack();
+            }
+
+            // Start preloading this track (both versions) if not already in cache
+            if (!preloadCacheRef.current.has(trackKey)) {
+                preloadAudioTrack(track).catch(err =>
+                    console.warn(`Background preloading failed for track ${track.title}:`, err)
+                );
             }
         } catch (error) {
             console.error("Error in loadMusicTrack:", error);
@@ -250,7 +447,10 @@ export function usePersistentMusicPlayer() {
         playMusic,
         isMusicPlaying,
         dispatch,
-        isDuckedMode
+        isDuckedMode,
+        applyPreloadedAudio,
+        preloadAudioTrack,
+        preloadNextTrack
     ]);
 
     // Play the next music track
@@ -258,9 +458,53 @@ export function usePersistentMusicPlayer() {
         const nextTrack = getNextMusicTrack(activeMusicTrack, isMusicLooping);
         if (nextTrack) {
             console.log("Playing next track:", nextTrack.title);
+
+            // Check if we have this track preloaded as "next track"
+            if (
+                preloadedNextTrackRef.current &&
+                preloadedNextTrackRef.current.track.id === nextTrack.id
+            ) {
+                console.log("Using preloaded next track!");
+
+                // Apply the preloaded next track
+                const wasPlaying = isMusicPlaying;
+                dispatch(setMusicPlaying(false));
+                dispatch(setMusicCurrentTime(0));
+
+                const applied = applyPreloadedAudio(preloadedNextTrackRef.current, isDuckedMode);
+
+                if (applied && musicAudioRef.current) {
+                    // Reset the next track reference
+                    preloadedNextTrackRef.current = null;
+
+                    // Apply volume and play
+                    applyMusicVolume(musicTargetVolumeRef.current);
+
+                    if (wasPlaying) {
+                        playMusic();
+                    }
+
+                    // Preload the next track
+                    preloadNextTrack();
+                    return;
+                }
+            }
+
+            // Fallback to regular loading
             loadMusicTrack(nextTrack);
         }
-    }, [activeMusicTrack, isMusicLooping, loadMusicTrack]);
+    }, [
+        activeMusicTrack,
+        isMusicLooping,
+        loadMusicTrack,
+        isMusicPlaying,
+        isDuckedMode,
+        applyPreloadedAudio,
+        dispatch,
+        applyMusicVolume,
+        playMusic,
+        preloadNextTrack
+    ]);
 
     // Set up event listeners for music playback
     useEffect(() => {
@@ -306,6 +550,19 @@ export function usePersistentMusicPlayer() {
         dispatch(setMusicEnabled(!isMusicEnabled));
     }, [isMusicEnabled, dispatch]);
 
+    // Preload initial track and next track when component mounts
+    useEffect(() => {
+        if (activeMusicTrack) {
+            // Preload the current track (both versions)
+            preloadAudioTrack(activeMusicTrack).catch(err =>
+                console.warn(`Initial preloading failed for track ${activeMusicTrack.title}:`, err)
+            );
+
+            // Also preload the next track
+            preloadNextTrack();
+        }
+    }, []);
+
     return {
         // References
         musicAudioRef,
@@ -331,5 +588,9 @@ export function usePersistentMusicPlayer() {
         playNextMusicTrack,
         toggleMusic,
         setDuckedMode,
+
+        // Preloading methods
+        preloadAudioTrack,
+        preloadNextTrack,
     };
 } 

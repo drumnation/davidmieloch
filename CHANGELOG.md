@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed missing Redux Provider and Mantine Provider error in DualAudioProvider [#BugFix]
 - Fixed infinite render loop in WhitePaper components (AiSkepticToExpert and CoreComponentsSection) by removing console.log statements and optimizing renders [#BugFix] [#Performance]
 - Fixed ducked audio functionality so that music automatically switches to quieter ducked versions when voice narration is playing [#BugFix] [#UX]
+- Fixed TypeScript errors related to null checks for pathname from Next.js usePathname() hook [#BugFix] [#TypeSafety]
 
 ### Improved
 

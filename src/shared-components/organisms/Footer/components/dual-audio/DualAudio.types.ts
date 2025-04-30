@@ -79,6 +79,10 @@ export interface DualAudioControllerActions {
 
     // Ducked audio mode
     setDuckedMode?: (ducked: boolean) => void;
+
+    // Audio preloading methods
+    preloadAudioTrack?: (track: AudioTrack) => Promise<any>;
+    preloadNextTrack?: () => void;
 }
 
 export type DualAudioContextType = DualAudioControllerState & DualAudioControllerActions;

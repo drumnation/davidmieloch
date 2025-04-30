@@ -27,6 +27,13 @@ export function DualAudioProvider({ children }: { children: ReactNode }) {
         }
     }, [voiceNarration.isVoicePlaying, musicPlayer.activeMusicTrack, musicPlayer.setDuckedMode]);
 
+    // When audio is playing, try to preload the next track
+    useEffect(() => {
+        if (musicPlayer.isMusicPlaying && musicPlayer.activeMusicTrack && musicPlayer.preloadNextTrack) {
+            musicPlayer.preloadNextTrack();
+        }
+    }, [musicPlayer.isMusicPlaying, musicPlayer.activeMusicTrack, musicPlayer.preloadNextTrack]);
+
     // Log audio ref state just once on mount, not on every ref change
     useEffect(() => {
         console.log('[DEBUG] Initial audio refs state:', {
@@ -57,6 +64,8 @@ export function DualAudioProvider({ children }: { children: ReactNode }) {
         musicError: musicPlayer.musicError,
         toggleMusic: musicPlayer.toggleMusic,
         setDuckedMode: musicPlayer.setDuckedMode,
+        preloadAudioTrack: musicPlayer.preloadAudioTrack,
+        preloadNextTrack: musicPlayer.preloadNextTrack,
 
         // Voice narration state and controls
         voiceAudioRef: voiceNarration.voiceAudioRef,
@@ -78,8 +87,8 @@ export function DualAudioProvider({ children }: { children: ReactNode }) {
 
     return (
         <DualAudioContext.Provider value={dualAudio}>
-            <audio ref={musicPlayer.musicAudioRef} preload="metadata" hidden />
-            <audio ref={voiceNarration.voiceAudioRef} preload="metadata" hidden />
+            <audio ref={musicPlayer.musicAudioRef} preload="auto" hidden />
+            <audio ref={voiceNarration.voiceAudioRef} preload="auto" hidden />
             {children}
         </DualAudioContext.Provider>
     );
