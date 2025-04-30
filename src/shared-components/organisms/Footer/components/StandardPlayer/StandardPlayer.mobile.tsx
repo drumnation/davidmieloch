@@ -33,44 +33,31 @@ import { useJoyrideTour } from '@/hooks/useJoyrideTour';
 // --- Mobile Tour Steps ---
 const mobilePlayerTourSteps: Step[] = [
     {
-        target: '#mobile-narration-toggle',
-        content: (
-            <Box>
-                <Group gap="xs" mb="xs"><RiUserVoiceFill size={20} /><Text fw={600}>Page Narration</Text></Group>
-                <Text size="sm" mb="md">Tap here to listen to this page.</Text>
-            </Box>
-        ),
-        placement: 'top-start', disableBeacon: true,
-    },
-    {
-        target: '#mobile-music-toggle',
-        content: (
-            <Box>
-                <Group gap="xs" mb="xs"><BsMusicNoteList size={20} /><Text fw={600}>Background Music</Text></Group>
-                <Text size="sm">Tap here to listen to some of my compositions.</Text>
-            </Box>
-        ),
-        placement: 'top-end', disableBeacon: true,
-    },
-    {
         target: '#mobile-pill-control-bar',
         content: (
             <Box>
-                <Group gap="xs" mb="xs"><BsFillLayersFill size={20} /><Text fw={600}>Layered Audio</Text></Group>
-                <Text size="sm">Enable both narration and music to listen simultaneously.</Text>
+                <Group gap="xs" mb="xs"><BsFillLayersFill size={20} /><Text fw={600}>Audio Experience</Text></Group>
+                <Text size="sm">Welcome to the dual-audio player! Here you can control both page narration and background music.</Text>
             </Box>
         ),
-        placement: 'top', disableBeacon: true,
+        placement: 'top',
+        disableBeacon: true,
     },
     {
-        target: '#mobile-control-mode-switch',
+        target: '#mobile-narration-toggle, #mobile-music-toggle', // Target both toggle buttons
         content: (
             <Box>
-                <Group gap="xs" mb="xs"><AiOutlineControl size={20} /><Text fw={600}>Control Mode</Text></Group>
-                <Text size="sm">Use this switch to control either Music or Narration playback/seek when both are active.</Text>
+                <Group gap="xs" mb="xs"><RiUserVoiceFill size={20} /><BsMusicNoteList size={20} /><Text fw={600}>Toggles</Text></Group>
+                <Text size="sm">Tap these buttons to enable narration (left) or background music (right). You can use both simultaneously for a complete audio experience.</Text>
             </Box>
         ),
-        placement: 'top', disableBeacon: true,
+        placement: 'top',
+        disableBeacon: true,
+        styles: {
+            options: {
+                width: 300, // Wider tooltip for this combined explanation
+            }
+        }
     },
     {
         target: '#mobile-play-pause-button',
@@ -80,7 +67,7 @@ const mobilePlayerTourSteps: Step[] = [
                     <IoIosPlayCircle size={20} />
                     <Text fw={600}>Start Listening!</Text>
                 </Group>
-                <Text size="sm">Tap play to start the layered narration experience!</Text>
+                <Text size="sm">Tap play to start your selected audio. Use the mode switch above to control either narration or music when both are playing.</Text>
             </Box>
         ),
         placement: 'top',

@@ -1,0 +1,107 @@
+import React, { useState } from 'react';
+import { Step } from 'react-joyride';
+import { TourGuideWithContext } from '../components/TourGuide/TourGuideWithContext';
+import { useTourContext } from '../contexts/TourContext';
+
+const DashboardPage: React.FC = () => {
+  const { appTour } = useTourContext();
+  // State to force re-render when resetting the tour
+  const [key, setKey] = useState(0);
+  
+  // Define your tour steps
+  const steps: Step[] = [
+    {
+      target: '.dashboard-header',
+      content: 'Welcome to your dashboard! This is where you can manage everything.',
+      disableBeacon: true,
+    },
+    {
+      target: '.user-profile',
+      content: 'View and edit your profile information here.',
+    },
+    {
+      target: '.dashboard-stats',
+      content: 'Check your performance metrics and analytics.',
+    },
+    {
+      target: '.dashboard-actions',
+      content: 'Quick actions to help you get started.',
+    },
+  ];
+
+  // Function to reset the tour
+  const resetTour = () => {
+    // Call the reset method from context
+    appTour.resetTour();
+    // Force component to re-mount by changing key
+    setKey(prevKey => prevKey + 1);
+  };
+
+  return (
+    <TourGuideWithContext
+      key={key}
+      tourId="app" // Use the app-wide tour
+      steps={steps}
+      run={true}
+      debug={true} // Enable debugging
+    >
+      <div className="dashboard-page">
+        <header className="dashboard-header">
+          <h1>Dashboard</h1>
+          <div className="user-profile">
+            <span>User Profile</span>
+          </div>
+        </header>
+        
+        <section className="dashboard-stats">
+          <h2>Statistics</h2>
+          <div className="stats-grid">
+            <div className="stat-card">Visits: 1,234</div>
+            <div className="stat-card">Conversions: 56</div>
+            <div className="stat-card">Revenue: $7,890</div>
+          </div>
+        </section>
+        
+        <section className="dashboard-actions">
+          <h2>Quick Actions</h2>
+          <div className="action-buttons">
+            <button>Create New Project</button>
+            <button>Invite Team Member</button>
+            <button>View Reports</button>
+          </div>
+        </section>
+        
+        <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
+          {/* Button to reset the tour */}
+          <button onClick={resetTour}>
+            Restart Tour
+          </button>
+          
+          {/* Add button to show tour state for debugging */}
+          <button
+            onClick={() => {
+              console.log('Current app tour state:', appTour.state);
+              console.log('Storage value:', localStorage.getItem('tour-state-app-main-tour'));
+            }}
+          >
+            Show Tour State
+          </button>
+          
+          {/* Add button to force reload */}
+          <button
+            onClick={() => {
+              // Force reset (more aggressive)
+              localStorage.removeItem('tour-state-app-main-tour');
+              // Force a full page reload to ensure clean state
+              window.location.reload();
+            }}
+          >
+            Force Reload Tour
+          </button>
+        </div>
+      </div>
+    </TourGuideWithContext>
+  );
+};
+
+export default DashboardPage; 

@@ -54,60 +54,38 @@ const TOUR_STORAGE_KEY = 'playerTourCompleted';
 // Use base steps definition from outside
 const basePlayerTourSteps: Step[] = [
     {
-        target: '#narration-button-group',
-        content: (
-            <Box>
-                <Group gap="xs" mb="xs">
-                    <RiUserVoiceFill size={20} />
-                    <Text fw={600}>Page Narration</Text>
-                </Group>
-                <Text size="sm" mb="md">Click here to listen to this page. Every page on this site has a spoken version to listen to.</Text>
-            </Box>
-        ),
-        placement: 'left',
-        disableBeacon: true,
-    },
-    {
-        target: '#music-button-group',
-        content: (
-            <Box>
-                <Group gap="xs" mb="xs">
-                    <BsMusicNoteList size={20} />
-                    <Text fw={600}>Background Music</Text>
-                </Group>
-                <Text size="sm">I'm also a composer and musician. Click here to check out some of my compositions.</Text>
-            </Box>
-        ),
-        placement: 'left',
-        disableBeacon: true,
-    },
-    {
         target: '#audio-toggle-buttons-container',
         content: (
             <Box>
                 <Group gap="xs" mb="xs">
                     <BsFillLayersFill size={20} />
-                    <Text fw={600}>Layered Audio</Text>
+                    <Text fw={600}>Dual Audio Experience</Text>
                 </Group>
-                <Text size="sm">Enable both at the same time to listen in the background with narration. Disable narration to hear music at full volume.</Text>
+                <Text size="sm">Welcome to my audio player! You can listen to page narration, background music, or both simultaneously.</Text>
             </Box>
         ),
-        placement: 'top',
+        placement: 'left',
         disableBeacon: true,
     },
     {
-        target: '#narration-music-toggle',
+        target: '#narration-button-group, #music-button-group',
         content: (
             <Box>
                 <Group gap="xs" mb="xs">
-                    <AiOutlineControl size={20} />
-                    <Text fw={600}>Control Mode</Text>
+                    <RiUserVoiceFill size={20} />
+                    <BsMusicNoteList size={20} />
+                    <Text fw={600}>Audio Controls</Text>
                 </Group>
-                <Text size="sm">While both are activated, use this toggle selector to change whether the seek bar and player controls affect the Music or the Narration.</Text>
+                <Text size="sm">Enable narration to hear this page read aloud, or music to enjoy my compositions. Toggle either one on/off at any time.</Text>
             </Box>
         ),
-        placement: 'top',
+        placement: 'left',
         disableBeacon: true,
+        styles: {
+            options: {
+                width: 320, // Wider tooltip for this combined explanation
+            }
+        }
     },
     {
         target: '#play-pause-button',
@@ -117,7 +95,7 @@ const basePlayerTourSteps: Step[] = [
                     <IoPlaySharp size={20} />
                     <Text fw={600}>Start Listening!</Text>
                 </Group>
-                <Text size="sm">Click play to start the layered narration experience!</Text>
+                <Text size="sm">Click play to begin. Use the narration/music toggle above to switch which audio source the controls affect when both are enabled.</Text>
             </Box>
         ),
         placement: 'top',
