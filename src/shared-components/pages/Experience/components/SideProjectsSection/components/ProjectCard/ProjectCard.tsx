@@ -6,7 +6,7 @@ import { ProjectLogo } from '@shared-components/atoms/ProjectLogo';
 import { MarkdownRenderer } from '@shared-components/molecules/MarkdownRenderer';
 import { ContentCarousel } from '@shared-components/organisms/ContentCarousel';
 import { MediaRenderer } from '../MediaRenderer';
-import { TechnologyList } from '../../../ExperienceSection/components/TechnologyList';
+import { TechnologyList } from '@shared-components/pages/Experience/components/ExperienceSection/components/TechnologyList/TechnologyList';
 import { EntityHeader } from '@shared-components/molecules/EntityHeader';
 import * as S from './ProjectCard.styles';
 import { Title as EntityTitle, MetadataLine } from '@shared-components/molecules/EntityHeader/EntityHeader.styles';
@@ -20,6 +20,10 @@ import {
     ProjectLinks,
     CategoryPill
 } from './ProjectCard.styles';
+// Import ExperienceCarouselContainer from Experience page styles (Corrected path)
+import { ExperienceCarouselContainer } from '../../../../Experience.styles';
+import { Box } from '@mantine/core';
+import { MediaRow } from '../../../ExperienceSection/styles/Media.styles';
 
 // Helper function to format project dates
 const formatProjectDate = (startDateStr?: string, endDateStr?: string): string | null => {
@@ -189,11 +193,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         if (isMobileLayout) {
             if (projectMedia.length > 1) {
                 return (
-                    <ContentCarousel scrollIntoViewOnSelect={true}>
-                        {projectMedia.map((item, idx) => (
-                            renderSingleMediaItem(item, idx)
-                        ))}
-                    </ContentCarousel>
+                    <ExperienceCarouselContainer style={{ marginBottom: '1rem' }}>
+                        <ContentCarousel scrollIntoViewOnSelect={true}>
+                            {projectMedia.map((item, idx) => (
+                                renderSingleMediaItem(item, idx)
+                            ))}
+                        </ContentCarousel>
+                    </ExperienceCarouselContainer>
                 );
             } else if (projectMedia.length === 1) {
                 return renderSingleMediaItem(projectMedia[0] as LocalMediaItem, 0);
@@ -203,13 +209,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         }
 
         return (
-            <MediaRenderer
-                media={projectMedia as ParentMediaItem[]}
-                project={project}
-                onImageClick={onImageClick as (image: ParentMediaItem) => void}
-                isHalfWidthContext={isHalfWidthContext}
-                isMobileLayout={isMobileLayout}
-            />
+            <MediaRow>
+                {projectMedia.map((item, idx) => (
+                    <Box key={`media-${project.title}-${idx}`} pt="sm">
+                        {renderSingleMediaItem(item, idx)}
+                    </Box>
+                ))}
+            </MediaRow>
         );
     };
 

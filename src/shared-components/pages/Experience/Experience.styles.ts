@@ -429,3 +429,85 @@ export const MediaContainer = styled.div`
     width: 100%;
   }
 `;
+
+// --- Experience Specific Carousel Container ---
+export const ExperienceCarouselContainer = styled.div`
+  /* Copied & adapted from Home.styles.ts for light theme */
+  .mantine-Carousel-controls {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    /* Align items vertically using baseline */
+    align-items: baseline; 
+    /* Remove padding-top */
+    /* padding-top: ${({ theme }) => theme.spacing.md}; */ 
+    margin-top: ${({ theme }) => theme.spacing.md}; /* Add margin-top instead for spacing */
+    top: unset;
+    left: unset;
+    right: unset;
+    transform: unset;
+  }
+
+  .mantine-Carousel-control {
+    position: relative;
+    /* Light theme styles */
+    background: ${({ theme }) => theme.colors.gray[1]};
+    border: 1px solid ${({ theme }) => theme.colors.gray[3]};
+    color: ${({ theme }) => theme.colors.dark[6]};
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: unset;
+    left: unset;
+    right: unset;
+    bottom: unset;
+    transform: unset;
+    margin: 0;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.gray[2]};
+    }
+
+    &[data-inactive] {
+      opacity: 0.4 !important;
+      cursor: default;
+    }
+
+    &[data-carousel-prev] {
+      order: -1;
+      margin-right: 16px; /* Adjust spacing */
+    }
+
+    &[data-carousel-next] {
+      order: 1;
+      margin-left: 16px; /* Adjust spacing */
+    }
+  }
+
+  .mantine-Carousel-indicators {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    order: 0;
+  }
+
+  .mantine-Carousel-indicator {
+    /* Use light theme indicator colors */
+    background-color: ${({ theme }) => theme.colors.gray[3]};
+    width: 8px;
+    height: 8px;
+    transition: width 250ms ease;
+    border-radius: 4px;
+    margin: 0 4px;
+
+    &[data-active] {
+      /* Use primary color for active indicator */
+      background-color: ${({ theme }) => theme.colors[theme.primaryColor]?.[6] || theme.colors.blue[6]};
+      width: 24px;
+    }
+  }
+`;

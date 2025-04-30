@@ -36,6 +36,9 @@ import { MediaRow } from './styles/Media.styles';
 import { ExperienceItem as ExperienceItemType, MediaItem } from './ExperienceSection.types';
 import { ModalImage } from './ExperienceSection.hook';
 
+// Import ExperienceCarouselContainer from Experience page styles
+import { ExperienceCarouselContainer } from '../../Experience.styles';
+
 // --- Helper Functions ---
 const getBulletIcon = (text: string) => {
   const lowerText = text.toLowerCase();
@@ -184,16 +187,18 @@ export const renderExperienceItem = (
             <> { /* Render mobile layout */}
               {/* Only render Carousel if more than one media item */}
               {jobMedia.length > 1 ? (
-                <ContentCarousel scrollIntoViewOnSelect={true}>
-                  {jobMedia.map((item, idx) => (
-                    // Pass the rendered item directly as a child
-                    renderSingleMediaItem(item, idx)
-                  ))}
-                </ContentCarousel>
+                <ExperienceCarouselContainer> { /* Use Experience specific wrapper */}
+                  <ContentCarousel scrollIntoViewOnSelect={true}>
+                    {jobMedia.map((item, idx) => (
+                      // Pass the rendered item directly as a child
+                      renderSingleMediaItem(item, idx)
+                    ))}
+                  </ContentCarousel>
+                </ExperienceCarouselContainer>
               ) : jobMedia.length === 1 ? (
                 // Render single item directly if only one exists
                 renderSingleMediaItem(jobMedia[0], 0)
-              ) : null /* No media items */}
+              ) : null /* No media items - Moved comment inside */}
             </>
           ) : (
             // Render desktop layout: All items in a single MediaRow

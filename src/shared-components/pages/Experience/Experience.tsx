@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Grid, Box, useMantineTheme, Image, Avatar } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import {
@@ -125,47 +125,50 @@ export const Experience: React.FC<ExperienceProps> = ({
     ...INFRASTRUCTURE_SKILL_CATEGORIES
   ];
 
-  // Combine and sort WORK_EXPERIENCE
-  const devExperiences = [...WORK_EXPERIENCE].sort((a, b) => {
-    if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
-      return a.sortOrder - b.sortOrder;
-    }
-    const monthToNum: Record<string, number> = {
-      'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
-      'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
-    };
-    const aDateParts = a.startDate?.split(' ') ?? [];
-    const bDateParts = b.startDate?.split(' ') ?? [];
-    const aYear = parseInt(aDateParts[1] || '0', 10);
-    const bYear = parseInt(bDateParts[1] || '0', 10);
-    if (aYear !== bYear) {
-      return bYear - aYear;
-    }
-    const aMonth = monthToNum[aDateParts[0]] || 0;
-    const bMonth = monthToNum[bDateParts[0]] || 0;
-    return bMonth - aMonth;
-  });
+  // Memoize the sorted experience arrays
+  const devExperiences = useMemo(() => {
+    return [...WORK_EXPERIENCE].sort((a, b) => {
+      if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
+        return a.sortOrder - b.sortOrder;
+      }
+      const monthToNum: Record<string, number> = {
+        'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+        'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
+      };
+      const aDateParts = a.startDate?.split(' ') ?? [];
+      const bDateParts = b.startDate?.split(' ') ?? [];
+      const aYear = parseInt(aDateParts[1] || '0', 10);
+      const bYear = parseInt(bDateParts[1] || '0', 10);
+      if (aYear !== bYear) {
+        return bYear - aYear;
+      }
+      const aMonth = monthToNum[aDateParts[0]] || 0;
+      const bMonth = monthToNum[bDateParts[0]] || 0;
+      return bMonth - aMonth;
+    });
+  }, []); // Empty dependency array since WORK_EXPERIENCE is constant
 
-  // Combine and sort OLDER_EXPERIENCE
-  const salesExperiences = [...OLDER_EXPERIENCE].sort((a, b) => {
-    if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
-      return a.sortOrder - b.sortOrder;
-    }
-    const monthToNum: Record<string, number> = {
-      'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
-      'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
-    };
-    const aDateParts = a.startDate?.split(' ') ?? [];
-    const bDateParts = b.startDate?.split(' ') ?? [];
-    const aYear = parseInt(aDateParts[1] || '0', 10);
-    const bYear = parseInt(bDateParts[1] || '0', 10);
-    if (aYear !== bYear) {
-      return bYear - aYear;
-    }
-    const aMonth = monthToNum[aDateParts[0]] || 0;
-    const bMonth = monthToNum[bDateParts[0]] || 0;
-    return bMonth - aMonth;
-  });
+  const salesExperiences = useMemo(() => {
+    return [...OLDER_EXPERIENCE].sort((a, b) => {
+      if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
+        return a.sortOrder - b.sortOrder;
+      }
+      const monthToNum: Record<string, number> = {
+        'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+        'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
+      };
+      const aDateParts = a.startDate?.split(' ') ?? [];
+      const bDateParts = b.startDate?.split(' ') ?? [];
+      const aYear = parseInt(aDateParts[1] || '0', 10);
+      const bYear = parseInt(bDateParts[1] || '0', 10);
+      if (aYear !== bYear) {
+        return bYear - aYear;
+      }
+      const aMonth = monthToNum[aDateParts[0]] || 0;
+      const bMonth = monthToNum[bDateParts[0]] || 0;
+      return bMonth - aMonth;
+    });
+  }, []); // Empty dependency array since OLDER_EXPERIENCE is constant
 
   // Sort side projects consistent with the hook's logic
   const sortedSideProjects = [...sideProjects].sort((a, b) => {

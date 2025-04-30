@@ -37,6 +37,12 @@ import { useMantineTheme } from '@mantine/core';
 import { MetadataLine, Title as EntityTitle } from '@shared-components/molecules/EntityHeader/EntityHeader.styles';
 // Import the shared ContentCarousel
 import { ContentCarousel } from '@shared-components/organisms/ContentCarousel';
+import { MediaItemRenderer } from '../../../ExperienceSection/components/MediaItemRenderer/MediaItemRenderer';
+import { TechnologyList } from '@shared-components/pages/Experience/components/ExperienceSection/components/TechnologyList/TechnologyList';
+import { ModalImage } from '@shared-components/pages/Experience/components/ExperienceSection/ExperienceSection.hook';
+
+// Import ExperienceCarouselContainer from Experience page styles (Corrected path again)
+import { ExperienceCarouselContainer } from '../../../../Experience.styles';
 
 // --- Local Styled Components --- 
 
@@ -131,24 +137,34 @@ export const EducationItemDisplay: React.FC<EducationItemDisplayProps> = ({
                     )}
                     {/* Conditionally render ContentCarousel or MediaRow */}
                     {showCarousel ? (
-                        <ContentCarousel>
-                            {edu.media?.map((mediaItem: MediaItem, mediaIndex: number) => (
-                                <MediaItemDisplay
-                                    key={`carousel-media-${edu.school}-${mediaIndex}`}
-                                    mediaItem={mediaItem}
-                                    schoolName={edu.school}
-                                    onImageClick={onImageClick ?? (() => { })}
-                                />
-                            ))}
-                        </ContentCarousel>
+                        <ExperienceCarouselContainer>
+                            <ContentCarousel>
+                                {edu.media?.map((mediaItem: MediaItem, mediaIndex: number) => (
+                                    <MediaItemRenderer
+                                        key={`carousel-media-${edu.school}-${mediaIndex}`}
+                                        mediaItem={mediaItem}
+                                        job={edu as any}
+                                        index={0}
+                                        mediaIndex={mediaIndex}
+                                        jobMediaLength={edu.media?.length || 0}
+                                        setModalImage={onImageClick as any}
+                                        isMobileLayout={isMobile}
+                                    />
+                                ))}
+                            </ContentCarousel>
+                        </ExperienceCarouselContainer>
                     ) : hasMedia && (
                         <MediaRow style={{ marginTop: edu.description ? '1rem' : '0' }}>
                             {edu.media?.map((mediaItem: MediaItem, mediaIndex: number) => (
-                                <MediaItemDisplay
+                                <MediaItemRenderer
                                     key={`media-${edu.school}-${mediaIndex}`}
                                     mediaItem={mediaItem}
-                                    schoolName={edu.school}
-                                    onImageClick={onImageClick ?? (() => { })}
+                                    job={edu as any}
+                                    index={0}
+                                    mediaIndex={mediaIndex}
+                                    jobMediaLength={edu.media?.length || 0}
+                                    setModalImage={onImageClick as any}
+                                    isMobileLayout={isMobile}
                                 />
                             ))}
                         </MediaRow>

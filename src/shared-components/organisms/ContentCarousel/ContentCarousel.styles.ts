@@ -3,7 +3,7 @@ import { Carousel } from '@mantine/carousel';
 
 export const StyledCarousel = styled(Carousel)`
   /* Root styles */
-  padding-bottom: 30px; // Space for indicators
+  /* padding-bottom: 30px; // Space for indicators */
   scroll-margin-top: 58px; // Account for sticky headers when scrolling into view
 
   /* Slide container */
