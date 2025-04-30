@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Box, Card, Container, List, Text } from '@mantine/core';
 
 // Spacing constants for consistent layout
 const SPACING = {
@@ -349,4 +350,76 @@ export const LargeDescriptionText = styled.div`
 
 export const ScrollableSection = styled.div`
   scroll-margin-top: 100px;
+`;
+
+// New Vertical Stack Container
+export const VerticalStackContainer = styled(Box)`
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem; /* Reduced gap */
+    width: 100%;
+    margin: 0 auto; /* Keep centering */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+        padding-left: 1.5rem; /* sm:px-6 */
+        padding-right: 1.5rem; /* sm:px-6 */
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        padding-left: 2rem; /* lg:px-8 */
+        padding-right: 2rem; /* lg:px-8 */
+    }
+`;
+
+export const StyledContainer = styled(Container)`
+    padding-top: 4rem;
+`;
+
+// Subtle divider for transition
+export const TransitionDivider = styled(Box)`
+    height: 1px;
+    background: linear-gradient(to right, transparent, ${({ theme }) => theme.colors.gray[3]}, transparent);
+    margin-top: 1rem; // Add some space above the divider
+    margin-bottom: 2rem; // Add space below the divider before the next section
+    opacity: 0.6;
+`;
+
+// Centering styles for SectionTitle in Card 1
+export const CenteredTitle = styled.div`
+    text-align: center;
+    margin-bottom: 0 !important; // Override default margin if necessary
+
+    h2 {
+        margin-bottom: 0 !important; // Target the h2 specifically
+    }
+`;
+
+// Wrapper to center content within specific cards
+export const CenteredContentWrapper = styled(Box)`
+    max-width: 720px; /* Max width for readable text */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; /* Ensure it takes full width up to max-width */
+`;
+
+// Icon wrapper for Card 2
+export const IconWrapper = styled.div`
+    background-color: ${({ theme }) => theme.colors.blue[0]}; /* bg-blue-100 */
+    color: ${({ theme }) => theme.colors.blue[6]}; /* text-blue-600 */
+    border-radius: 50%; /* rounded-full */
+    padding: ${({ theme }) => theme.spacing.xs}; /* p-2ish */
+    display: inline-flex; /* To fit content */
+    align-items: center;
+    justify-content: center;
+    box-shadow: ${({ theme }) => theme.shadows.sm};
+`;
+
+// Styled callout for Card 5
+export const HighlightCallout = styled.div`
+    background-color: ${({ theme }) => theme.colors.blue[0]};
+    border-left: 4px solid ${({ theme }) => theme.colors.blue[5]};
+    border-radius: ${({ theme }) => theme.radius.sm};
+    padding: ${({ theme }) => theme.spacing.md};
 `; 

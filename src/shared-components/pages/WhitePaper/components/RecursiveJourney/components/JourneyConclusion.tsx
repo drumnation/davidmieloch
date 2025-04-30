@@ -78,14 +78,34 @@ export const JourneyConclusion: React.FC<JourneyConclusionProps> = ({ content, c
                 </Title>
 
                 <Box style={{ color: theme.colors.dark[7] }}>
-                    {content.map((paragraph, idx) => (
-                        <Box
-                            key={`conclusion-${idx}`}
-                            mb="md"
-                        >
-                            <MarkdownRenderer content={paragraph} disablePadding />
-                        </Box>
-                    ))}
+                    {content.map((paragraph, idx) => {
+                        // Check if it's the last paragraph and we are on mobile
+                        const isLastParagraph = idx === content.length - 1;
+                        const targetText = "That's what makes Brain Garden different.";
+                        const shouldBreak = isMobile && isLastParagraph && paragraph.trim() === targetText;
+
+                        return (
+                            <Box
+                                key={`conclusion-${idx}`}
+                                mb="md"
+                            >
+                                {shouldBreak ? (
+                                    // Render with a line break using separate Text components or innerHTML (safer)
+                                    // Using separate Text components might be cleaner if MarkdownRenderer isn't essential here
+                                    <Text style={{ textAlign: 'center' }}>
+                                        That&apos;s what makes<br />
+                                        <Text component="span" fw={700}>Brain Garden</Text> different.
+                                    </Text>
+                                    // Alternatively, if Markdown rendering features are needed for this specific line:
+                                    // <MarkdownRenderer content={"That's what makes<br />**Brain Garden** different."} disablePadding />
+                                    // Note: MarkdownRenderer might sanitize <br>, check its implementation if needed.
+                                ) : (
+                                    // Render normally for other paragraphs or non-mobile
+                                    <MarkdownRenderer content={paragraph} disablePadding />
+                                )}
+                            </Box>
+                        );
+                    })}
                 </Box>
 
                 {/* CTA Box */}
