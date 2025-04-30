@@ -7,6 +7,7 @@ import '../src/styles/globals.css';
 import '../src/styles/print.css';
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
+import { JoyrideProvider } from '@/providers/JoyrideProvider';
 
 export const metadata: Metadata = {
   title: 'David Mieloch Portfolio',
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body style={{ overflowX: 'hidden' }}>
         <StyledComponentsRegistry>
           <ThemeProvider>
-            <ClientLayout>{children}</ClientLayout>
+            <JoyrideProvider>
+              <ClientLayout>{children}</ClientLayout>
+            </JoyrideProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>

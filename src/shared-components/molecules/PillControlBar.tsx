@@ -3,6 +3,8 @@
 import { useMantineTheme, Flex, Group, ActionIcon, Slider, Box, Tooltip, Switch } from '@mantine/core';
 import { LuMusic, LuListMusic, LuChevronDown } from 'react-icons/lu';
 import { MdRecordVoiceOver, MdMusicNote, MdVoiceOverOff, MdMusicOff } from 'react-icons/md';
+import { FunctionComponent } from 'react';
+import { TbRoute } from 'react-icons/tb';
 
 interface PillControlBarProps {
     voiceVolume?: number;
@@ -11,6 +13,7 @@ interface PillControlBarProps {
     onMusicVolumeChange?: (v: number) => void;
     onPlaylistClick: () => void;
     onMinimizeClick: () => void;
+    onTourClick?: () => void;
     isNarrationEnabled: boolean;
     isMusicEnabled: boolean;
     isNarrationPlaying?: boolean;
@@ -25,13 +28,14 @@ interface PillControlBarProps {
     gap?: number;
 }
 
-export const PillControlBar = ({
+export const PillControlBar: FunctionComponent<PillControlBarProps> = ({
     voiceVolume,
     musicVolume,
     onVoiceVolumeChange,
     onMusicVolumeChange,
     onPlaylistClick,
     onMinimizeClick,
+    onTourClick,
     isNarrationEnabled,
     isMusicEnabled,
     isNarrationPlaying = false,
@@ -61,6 +65,7 @@ export const PillControlBar = ({
 
     return (
         <Flex
+            id="mobile-pill-control-bar"
             align="center"
             style={{
                 background: containerBg,
@@ -79,6 +84,7 @@ export const PillControlBar = ({
         >
             {/* Narration */}
             <Group
+                id="mobile-narration-toggle"
                 style={{
                     ...itemBaseStyle,
                     borderRight: `1px solid ${dividerColor}`,
@@ -117,33 +123,32 @@ export const PillControlBar = ({
                 <Box
                     style={{
                         ...itemBaseStyle,
-                        padding: '6px 8px', // Revert padding slightly for switch
+                        padding: '6px 8px',
                         borderRight: `1px solid ${dividerColor}`,
                     }}
                 >
                     <Switch
-                        checked={controlMode === 'narration'} // Checked state represents narration mode
+                        id="mobile-control-mode-switch"
+                        checked={controlMode === 'narration'}
                         onChange={onControlModeToggle}
                         size="sm"
-                        color={controlMode === 'narration' ? theme.colors.indigo[6] : theme.colors.blue[6]} // Active track color
-                        onLabel={<MdRecordVoiceOver size={14} color={theme.white} />} // Icon for narration (on)
-                        offLabel={<MdMusicNote size={14} color={theme.white} />} // Icon for music (off)
+                        color={controlMode === 'narration' ? theme.colors.indigo[6] : theme.colors.blue[6]}
+                        onLabel={<MdRecordVoiceOver size={14} color={theme.white} />}
+                        offLabel={<MdMusicNote size={14} color={theme.white} />}
                         aria-label="Toggle playback mode between music and narration"
                         styles={{
                             track: {
-                                backgroundColor: controlMode === 'music' ? theme.colors.blue[6] : undefined, // Set inactive track to blue
-                                borderColor: controlMode === 'music' ? theme.colors.blue[6] : undefined, // Match border
+                                backgroundColor: controlMode === 'music' ? theme.colors.blue[6] : undefined,
+                                borderColor: controlMode === 'music' ? theme.colors.blue[6] : undefined,
                             },
                         }}
                     />
-                    {/* <Tooltip label={controlMode === 'music' ? "Switch to Voice Control" : "Switch to Music Control"} position="top" withArrow>
-                        <ActionIcon ... />
-                    </Tooltip> */}
                 </Box>
             )}
 
             {/* Music */}
             <Group
+                id="mobile-music-toggle"
                 style={{
                     ...itemBaseStyle,
                     borderRight: `1px solid ${dividerColor}`,
@@ -163,6 +168,17 @@ export const PillControlBar = ({
                 >
                     {isMusicEnabled ? (isMusicPlaying ? <LuMusic size={16} /> : <MdMusicOff size={16} />) : <MdMusicOff size={16} />}
                 </ActionIcon>
+                {musicVolume !== undefined && onMusicVolumeChange && (
+                    <Slider
+                        value={musicVolume}
+                        onChange={onMusicVolumeChange}
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        size="xs"
+                        style={{ width: sliderWidth }}
+                    />
+                )}
             </Group>
 
             {/* Playlist */}
@@ -176,6 +192,22 @@ export const PillControlBar = ({
                     <LuListMusic size={18} />
                 </ActionIcon>
             </Box>
+
+            {/* Tour Button (New) */}
+            {onTourClick && (
+                <Box
+                    style={{
+                        ...itemBaseStyle,
+                        borderRight: `1px solid ${dividerColor}`,
+                    }}
+                >
+                    <Tooltip label="Player Tour" position="top" withArrow>
+                        <ActionIcon variant="transparent" onClick={onTourClick} aria-label="Start Tour" style={{ color: isDark ? theme.white : theme.black }}>
+                            <TbRoute size={18} />
+                        </ActionIcon>
+                    </Tooltip>
+                </Box>
+            )}
 
             {/* Minimize */}
             <Box

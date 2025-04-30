@@ -78,12 +78,16 @@ export default function ClientLayout({
           {children}
         </AppShell.Main>
 
-        {/* Render PersistentFooter INSIDE AppShell.Footer */}
-        <AppShell.Footer style={{ padding: 0, border: 0 }}>
-          {/* Ensure the test footer is removed */}
-          {/* <footer style={{ height: '100%', width: '100%', background: 'cyan', zIndex: 9999, color: 'black', textAlign: 'center', fontSize: '20px', borderTop: '3px solid blue', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-             APPSHELL FOOTER TEST - IS THIS VISIBLE?
-           </footer> */}
+        {/* Apply styles directly to AppShell.Footer */}
+        <AppShell.Footer
+          style={{
+            padding: 0,
+            border: 0,
+            position: 'relative', // Add relative positioning
+            zIndex: 10000     // Add high z-index 
+          }}
+        >
+          {/* Test footer removed */}
 
           {/* Render the actual PersistentFooter here */}
           <PersistentFooter data-print-hidden="true" />

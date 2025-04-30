@@ -1,12 +1,12 @@
 "use client";
 
-import { Box, Text, ActionIcon, Group, Slider, Tooltip, Button, Flex, Alert } from '@mantine/core';
+import { Box, Text, ActionIcon, Group, Slider, Tooltip, Button, Flex, Alert, Checkbox } from '@mantine/core';
 import {
     LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic, LuMic, LuMusic,
     LuHeadphones, LuVolume1, LuVolume2, LuVolumeX
 } from 'react-icons/lu';
-import { MdRecordVoiceOver, MdVoiceOverOff, MdMusicOff } from 'react-icons/md';
-import { TbRewindBackward10, TbRewindForward10 } from 'react-icons/tb';
+import { MdRecordVoiceOver, MdVoiceOverOff, MdMusicOff, MdOutlineSyncAlt } from 'react-icons/md';
+import { TbRewindBackward10, TbRewindForward10, TbRoute } from 'react-icons/tb';
 import { IoPlaySharp } from 'react-icons/io5';
 import { IoMdPause } from 'react-icons/io';
 import { useMantineTheme } from '@mantine/core';
@@ -40,40 +40,98 @@ import {
 } from './StandardPlayer.web.styles';
 import { useStandardPlayerWeb } from './StandardPlayer.web.hook';
 import { formatTime } from '../../Footer.logic';
-import { useRef } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
+import { useJoyrideTour } from '@/hooks/useJoyrideTour';
+import { Step } from 'react-joyride';
+import { AiOutlineControl } from 'react-icons/ai';
+import { BsFillLayersFill, BsMusicNoteList } from 'react-icons/bs';
+import { RiUserVoiceFill } from 'react-icons/ri';
 
 // NOTE: This component assumes it's only rendered on desktop.
 
+const TOUR_STORAGE_KEY = 'playerTourCompleted';
+
+// Use base steps definition from outside
+const basePlayerTourSteps: Step[] = [
+    {
+        target: '#narration-button-group',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs">
+                    <RiUserVoiceFill size={20} />
+                    <Text fw={600}>Page Narration</Text>
+                </Group>
+                <Text size="sm" mb="md">Click here to listen to this page. Every page on this site has a spoken version to listen to.</Text>
+            </Box>
+        ),
+        placement: 'left',
+        disableBeacon: true,
+    },
+    {
+        target: '#music-button-group',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs">
+                    <BsMusicNoteList size={20} />
+                    <Text fw={600}>Background Music</Text>
+                </Group>
+                <Text size="sm">I'm also a composer and musician. Click here to check out some of my compositions.</Text>
+            </Box>
+        ),
+        placement: 'left',
+        disableBeacon: true,
+    },
+    {
+        target: '#audio-toggle-buttons-container',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs">
+                    <BsFillLayersFill size={20} />
+                    <Text fw={600}>Layered Audio</Text>
+                </Group>
+                <Text size="sm">Enable both at the same time to listen in the background with narration. Disable narration to hear music at full volume.</Text>
+            </Box>
+        ),
+        placement: 'top',
+        disableBeacon: true,
+    },
+    {
+        target: '#narration-music-toggle',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs">
+                    <AiOutlineControl size={20} />
+                    <Text fw={600}>Control Mode</Text>
+                </Group>
+                <Text size="sm">While both are activated, use this toggle selector to change whether the seek bar and player controls affect the Music or the Narration.</Text>
+            </Box>
+        ),
+        placement: 'top',
+        disableBeacon: true,
+    },
+    {
+        target: '#play-pause-button',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs">
+                    <IoPlaySharp size={20} />
+                    <Text fw={600}>Start Listening!</Text>
+                </Group>
+                <Text size="sm">Click play to start the layered narration experience!</Text>
+            </Box>
+        ),
+        placement: 'top',
+        disableBeacon: true,
+    },
+];
+
 export const StandardPlayerWeb = (props: StandardPlayerProps) => {
-    const {
-        theme,
-        progressBarContainerRef,
-        artworkBoxRef,
-        artworkBoxHeight,
-        controlMode,
-        setControlMode,
-        toggleControlMode,
-        showToggle,
-        isMusicHovered,
-        setIsMusicHovered,
-        isNarrationHovered,
-        setIsNarrationHovered,
-        isMusicActive,
-        isNarrationActive,
-        isEffectivelyPlaying,
-        displayControlTrack,
-        displayCurrentTime,
-        displayDuration,
-        displayTrackAvailable,
-        handlePlayPause,
-        handleProgressBarClick,
-        displayTitle,
-        displayArtist,
-        iconProps,
-        layeredAudioMessage,
-        handleRewindNarration,
-        handleForwardNarration,
-    } = useStandardPlayerWeb(props);
+    // Use the custom hook
+    const { handleManualStart: handleStartTour } = useJoyrideTour({
+        steps: basePlayerTourSteps,
+        storageKey: TOUR_STORAGE_KEY,
+        options: { autoStartDelay: 150 } // Optional: Adjust delay if needed
+    });
 
     const {
         currentTrack: activeMusicTrack,
@@ -105,8 +163,39 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
         pauseVoice,
     } = props;
 
+    const {
+        theme,
+        progressBarContainerRef,
+        artworkBoxRef,
+        artworkBoxHeight,
+        controlMode,
+        setControlMode,
+        toggleControlMode,
+        showToggle,
+        isMusicHovered,
+        setIsMusicHovered,
+        isNarrationHovered,
+        setIsNarrationHovered,
+        isMusicActive,
+        isNarrationActive,
+        isEffectivelyPlaying,
+        displayControlTrack,
+        displayCurrentTime,
+        displayDuration,
+        displayTrackAvailable,
+        handlePlayPause,
+        handleProgressBarClick,
+        displayTitle,
+        displayArtist,
+        iconProps,
+        layeredAudioMessage,
+        handleRewindNarration,
+        handleForwardNarration,
+    } = useStandardPlayerWeb(props);
+
     return (
         <Flex
+            id="standard-audio-player"
             align="center"
             justify="space-between"
             gap="md"
@@ -142,7 +231,15 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                     </Flex>
                     <Group justify="center" align="center" gap="xs" wrap="nowrap" style={groupFullWidth}>
                         {showToggle && (
-                            <Group gap={2} style={controlToggleGroup(theme, colorScheme)} onClick={toggleControlMode} role="button" aria-label={controlMode === 'music' ? "Switch to narration controls" : "Switch to music controls"} tabIndex={0}>
+                            <Group
+                                id="narration-music-toggle"
+                                gap={2}
+                                style={controlToggleGroup(theme, colorScheme)}
+                                onClick={toggleControlMode}
+                                role="button"
+                                aria-label={controlMode === 'music' ? "Switch to narration controls" : "Switch to music controls"}
+                                tabIndex={0}
+                            >
                                 <Tooltip label="Control Music" position="bottom" withArrow>
                                     <ActionIcon size="sm" variant={controlMode === 'music' ? "filled" : "subtle"} color={controlMode === 'music' ? "blue" : (colorScheme === 'dark' ? 'gray' : 'dark')} radius="xl" style={controlToggleIcon(theme, colorScheme, controlMode === 'music')}>
                                         <LuMusic size={16} />
@@ -181,7 +278,7 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                                 }
                             </ActionIcon>
                         </Tooltip>
-                        <ActionIcon onClick={handlePlayPause} aria-label={isEffectivelyPlaying ? 'Pause' : 'Play'} disabled={!displayTrackAvailable} {...iconProps} size="lg">
+                        <ActionIcon id="play-pause-button" onClick={handlePlayPause} aria-label={isEffectivelyPlaying ? 'Pause' : 'Play'} disabled={!displayTrackAvailable} {...iconProps} size="lg">
                             {isEffectivelyPlaying ? <LuPause size={22} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /> : <LuPlay size={22} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />}
                         </ActionIcon>
                         <Tooltip
@@ -240,9 +337,19 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
             </Flex>
             <Flex align="center" gap="lg" style={flexShrink0}>
                 <Box style={cardRow(theme)}>
-                    <Box style={cardCol(theme, colorScheme, colors)}>
-                        <Group gap="xs" align="center" wrap="nowrap" style={groupMarginRight}>
+                    <Box
+                        id="audio-toggle-buttons-container"
+                        style={cardCol(theme, colorScheme, colors)}
+                    >
+                        <Group
+                            id="narration-button-group"
+                            gap="xs"
+                            align="center"
+                            wrap="nowrap"
+                            style={groupMarginRight}
+                        >
                             <Button
+                                id="narration-enable-button"
                                 variant={isNarrationEnabled && isVoicePlaying ? "filled" : "subtle"}
                                 color={isNarrationEnabled && isVoicePlaying ? "cyan" : (colorScheme === 'dark' ? 'gray' : 'dark')}
                                 size="sm"
@@ -278,8 +385,16 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                                 </Group>
                             </Button>
                         </Group>
-                        <Group gap="xs" align="center" wrap="nowrap" style={groupMarginRight} mt={10}>
+                        <Group
+                            id="music-button-group"
+                            gap="xs"
+                            align="center"
+                            wrap="nowrap"
+                            style={groupMarginRight}
+                            mt={10}
+                        >
                             <Button
+                                id="music-enable-button"
                                 variant={isMusicEnabled && isMusicPlaying ? "filled" : "subtle"}
                                 color={isMusicEnabled && isMusicPlaying ? "blue" : (colorScheme === 'dark' ? 'gray' : 'dark')}
                                 size="sm"
@@ -339,6 +454,18 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                                 styles={{ root: minimizeBtnRoot(theme, colorScheme, colors) }}
                             >
                                 <LuChevronDown size={20} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
+                            </Button>
+                        </Tooltip>
+                        <Tooltip label="Player Tour" position="left" withArrow>
+                            <Button
+                                onClick={handleStartTour}
+                                aria-label="Start player feature tour"
+                                variant="white"
+                                color={iconProps.color}
+                                size="xs"
+                                styles={{ root: minimizeBtnRoot(theme, colorScheme, colors) }}
+                            >
+                                <TbRoute size={20} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
                             </Button>
                         </Tooltip>
                     </Box>

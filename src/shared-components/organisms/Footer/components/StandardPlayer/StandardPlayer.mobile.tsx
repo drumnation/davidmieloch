@@ -22,9 +22,84 @@ import {
     getButtonStyles,
     getBottomRowStyle,
 } from './StandardPlayer.mobile.styles';
-// import { isIOSMobile } from '@utils/platform'; // Remove this line
+import { useRef, useEffect } from 'react';
+import { useJoyride } from '@/providers/JoyrideProvider';
+import { Step } from 'react-joyride';
+import { RiUserVoiceFill } from 'react-icons/ri';
+import { BsMusicNoteList, BsFillLayersFill } from 'react-icons/bs';
+import { AiOutlineControl } from 'react-icons/ai';
+import { useJoyrideTour } from '@/hooks/useJoyrideTour';
+
+// --- Mobile Tour Steps ---
+const mobilePlayerTourSteps: Step[] = [
+    {
+        target: '#mobile-narration-toggle',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs"><RiUserVoiceFill size={20} /><Text fw={600}>Page Narration</Text></Group>
+                <Text size="sm" mb="md">Tap here to listen to this page.</Text>
+            </Box>
+        ),
+        placement: 'top-start', disableBeacon: true,
+    },
+    {
+        target: '#mobile-music-toggle',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs"><BsMusicNoteList size={20} /><Text fw={600}>Background Music</Text></Group>
+                <Text size="sm">Tap here to listen to some of my compositions.</Text>
+            </Box>
+        ),
+        placement: 'top-end', disableBeacon: true,
+    },
+    {
+        target: '#mobile-pill-control-bar',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs"><BsFillLayersFill size={20} /><Text fw={600}>Layered Audio</Text></Group>
+                <Text size="sm">Enable both narration and music to listen simultaneously.</Text>
+            </Box>
+        ),
+        placement: 'top', disableBeacon: true,
+    },
+    {
+        target: '#mobile-control-mode-switch',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs"><AiOutlineControl size={20} /><Text fw={600}>Control Mode</Text></Group>
+                <Text size="sm">Use this switch to control either Music or Narration playback/seek when both are active.</Text>
+            </Box>
+        ),
+        placement: 'top', disableBeacon: true,
+    },
+    {
+        target: '#mobile-play-pause-button',
+        content: (
+            <Box>
+                <Group gap="xs" mb="xs">
+                    <IoIosPlayCircle size={20} />
+                    <Text fw={600}>Start Listening!</Text>
+                </Group>
+                <Text size="sm">Tap play to start the layered narration experience!</Text>
+            </Box>
+        ),
+        placement: 'top',
+        disableBeacon: true,
+    },
+];
+// --- End Mobile Tour Steps ---
+
+const TOUR_STORAGE_KEY = 'playerTourCompletedMobile';
 
 export const StandardPlayerMobile = (props: StandardPlayerProps) => {
+    // --- Use the custom hook --- 
+    const { handleManualStart: handleStartTour } = useJoyrideTour({
+        steps: mobilePlayerTourSteps,
+        storageKey: TOUR_STORAGE_KEY,
+        options: { autoStartDelay: 150 } // Using 150ms delay as before
+    });
+    // --- End Joyride Setup ---
+
     const {
         theme,
         progressBarContainerRef,
@@ -72,7 +147,6 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
     const displayTitle = getDisplayTitle(controlMode, isMusicEnabled, isNarrationEnabled, activeMusicTrack, activeVoiceTrack);
     const displayArtist = getDisplayArtist(isMusicEnabled, isNarrationEnabled, activeMusicTrack, activeVoiceTrack);
     const artworkSize = 56;
-    // const isIOS = isIOSMobile(); // Remove this line
 
     return (
         <Flex
@@ -120,6 +194,7 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                         </ActionIcon>
                     </Tooltip>
                     <ActionIcon
+                        id="mobile-play-pause-button"
                         onClick={handlePlayPause}
                         aria-label={isEffectivelyPlaying ? "Pause" : "Play"}
                         disabled={!displayTrackAvailable}
@@ -164,6 +239,7 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                 <PillControlBar
                     onPlaylistClick={onPlaylistToggle}
                     onMinimizeClick={onMinimizeToggle}
+                    onTourClick={handleStartTour}
                     isNarrationEnabled={isNarrationEnabled}
                     isMusicEnabled={isMusicEnabled}
                     onToggleNarration={() => {
