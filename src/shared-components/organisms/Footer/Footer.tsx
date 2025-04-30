@@ -82,8 +82,7 @@ export const Footer = ({ socialLinks }: FooterProps) => {
       data-testid="footer"
     >
       <GradientBorder />
-      <audio ref={musicAudioRef} preload="metadata" hidden />
-      <audio ref={voiceAudioRef} preload="metadata" hidden />
+      {/* Audio elements are now rendered by the DualAudioProvider */}
 
       {isMiniMode && (
         <Container size="lg" style={{ height: '100%' }}>

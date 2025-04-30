@@ -1,3 +1,5 @@
+import React from 'react';
+
 export enum AudioMode {
     VOICE_ONLY = 'voice-only',
     MUSIC_ONLY = 'music-only',
@@ -74,6 +76,15 @@ export interface DualAudioControllerActions {
     // New toggle actions
     toggleMusic: () => void;
     toggleNarration: () => void;
+
+    // Ducked audio mode
+    setDuckedMode?: (ducked: boolean) => void;
 }
 
-export type DualAudioContextType = DualAudioControllerState & DualAudioControllerActions; 
+export type DualAudioContextType = DualAudioControllerState & DualAudioControllerActions;
+
+// Add the type that includes audio element refs
+export interface DualAudioContextTypeWithRefs extends DualAudioContextType {
+    musicAudioRef: React.MutableRefObject<HTMLAudioElement | null>;
+    voiceAudioRef: React.MutableRefObject<HTMLAudioElement | null>;
+} 

@@ -41,8 +41,7 @@ const defaultArgs = {
   systemArchitectureProps: defaultContent.systemArchitecture,
   navigationProps: defaultContent.navigation,
   keyBenefitsProps: defaultContent.keyBenefits,
-  ctaProps: defaultContent.cta,
-  transitionProps: defaultContent.transition,
+  ctaProps: defaultContent.cta
 };
 
 /**

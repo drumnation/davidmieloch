@@ -1,5 +1,17 @@
 import { AudioTrack } from '../DualAudio.types'; // Assuming AudioTrack type is shared
 
+// Debug log to verify this file is loaded - use IIFE to ensure it runs only once when imported
+(() => {
+    console.log('[DEBUG] voiceTracks.ts loaded, will provide these tracks:', [
+        'bio',
+        'code-examples',
+        'enterprise-ai-development-framework',
+        'experience',
+        'fullstack-react-best-practices-integration',
+        'home'
+    ]);
+})();
+
 // Voice Tracks are mostly page-specific spoken narration
 export const voiceTracks: AudioTrack[] = [
     {

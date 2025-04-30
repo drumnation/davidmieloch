@@ -428,6 +428,50 @@ export const useFooterStatefulLogic = () => {
     miniPlayerDisplayTitle = activeMusicTrack.title;
   }
 
+  // Effect to handle music track ending
+  useEffect(() => {
+    const musicAudio = musicAudioRef.current;
+    if (!musicAudio) return;
+
+    const handleEnded = () => {
+      console.log("Music track ended.");
+      // Only play next if music mode is explicitly enabled and not looping a single track
+      if (isMusicEnabled && !isMusicLooping) {
+        console.log("Playing next track and ensuring music mode stays enabled...");
+        // Redundant check as the outer `if` already confirms isMusicEnabled.
+        // If needed, ensure state consistency *within* playNextMusicTrack.
+        playNextMusicTrack(); // This should load and play the next track
+      } else if (isMusicLooping) {
+        // Check ref again before accessing
+        if (musicAudioRef.current) {
+          console.log("Looping current track.");
+          musicAudioRef.current.currentTime = 0;
+          musicAudioRef.current.play().catch(e => console.error("Error restarting loop:", e));
+        } else {
+          console.warn("Music audio ref became null during loop attempt.");
+        }
+      } else {
+        // Music mode might have been turned off manually while playing.
+        // Or looping is off, and music mode is off.
+        console.log("Music mode not enabled or looping disabled, stopping auto-play.");
+        // No explicit pause needed here, as the track naturally ended.
+        // The state should already reflect paused unless the user interacts again.
+      }
+    };
+
+    musicAudio.addEventListener('ended', handleEnded);
+    return () => {
+      // Check ref again before removing listener
+      if (musicAudioRef.current) {
+        musicAudioRef.current.removeEventListener('ended', handleEnded);
+      }
+    };
+    // Dependencies: isMusicEnabled and isMusicLooping determine behavior inside handleEnded.
+    // playNextMusicTrack and pauseMusic are stable callbacks from useCallback.
+    // musicAudioRef itself doesn't change, but its *current* value matters.
+    // The effect should re-run if the core logic conditions change.
+  }, [isMusicEnabled, isMusicLooping, playNextMusicTrack, musicAudioRef]); // Keep ref in deps if needed
+
   return {
     ...dualAudio,
     ...footerUI,

@@ -31,14 +31,9 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
   const componentName = "AiSkepticToExpert";
   const isMobile = useMediaQuery('(max-width: 768px)');
 
-  // Use the adjusted enhancer function
+  // Memoize the enhanced props properly to prevent re-renders
   const enhancedHeroProps = React.useMemo(() => enhanceHeroProps({ ...heroProps }), [heroProps]);
-  const enhancedQuotesProps = React.useMemo(() => {
-    console.log("Input quotesProps:", quotesProps);
-    const enhanced = enhanceQuotesProps(quotesProps);
-    console.log("Enhanced quotesProps:", enhanced);
-    return enhanced;
-  }, [quotesProps]);
+  const enhancedQuotesProps = React.useMemo(() => enhanceQuotesProps(quotesProps), [quotesProps]);
 
   // Setup intersection observer
   const [ref, inView] = useInView({
@@ -142,8 +137,8 @@ export const AiSkepticToExpert: React.FC<AiSkepticToExpertProps> = ({
     <AnimationErrorBoundary componentName={componentName}>
       <AnimationDebugger
         componentName={componentName}
-        trackRenders={true}
-        logLifecycle={true}
+        trackRenders={false}
+        logLifecycle={false}
       >
         {renderContent()}
       </AnimationDebugger>

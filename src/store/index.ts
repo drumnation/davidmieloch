@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import appReducer from './slices/appSlice';
 import playerUiReducer from './slices/playerUiSlice';
 import uiReducer from './slices/uiSlice';
+import audioReducer from './slices/audioSlice';
 
 // Configure the store with the app reducer AND the new player UI reducer
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     app: appReducer,
     playerUi: playerUiReducer,
     ui: uiReducer,
+    audio: audioReducer,
   },
 });
 

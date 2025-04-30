@@ -1,8 +1,10 @@
-- [ ] When a music track completes it doesn't automatically begin playing the next track, music mode becomes disabled
-- [ ] Changing pages interrupts music playback -- likely because voice is determined by page route  
-      - [ ] music might need to be split to a separate context or redux slice so that changes to narration don't interrupt music playback
+- [x] When a music track completes it doesn't automatically begin playing the next track, music mode becomes disabled
+- [x] Changing pages interrupts music playback -- likely because voice is determined by page route  
+      - [x] music might need to be split to a separate context or redux slice so that changes to narration don't interrupt music playback
 - [x] Mobile UI Buttons need to be larger with larger hit points
 - [x] Remove it's a wonderful life for kings track because there are voices in it
 - [ ] On real mobile - the tour pops up on every screen even if you've completed it
 - [ ] Add fade effect back in for desktop to aid with transitions between ducked and original tracks
 - [ ] Preload ducked version of currently playing track or original so transition to eliminate loading time
+- [x] Missing Next Generation Area in AI WhitePaper due to animation issue
+- [ ] Latest Whitepaper content regressed and is missing, showing the old end content

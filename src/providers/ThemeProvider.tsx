@@ -10,6 +10,7 @@ import { ThemeContext, ThemeContextType } from '../contexts/ThemeContext'; // Ke
 import { usePathname } from 'next/navigation';
 import { useMantineTheme } from '@mantine/core'; // Import Mantine theme hook
 import { DualAudioProvider } from '@/shared-components/organisms/Footer/components/dual-audio/DualAudioContext'; // Import DualAudioProvider
+import { ReduxProvider } from './ReduxProvider'; // Import ReduxProvider
 
 // Keep useTheme hook export for now, as Header/Footer still use it for colorScheme
 // We might remove this later if Header/Footer can get colorScheme differently.
@@ -51,12 +52,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     <ThemeContext.Provider value={{ colorScheme, toggleColorScheme }}>
       {/* Pass determined scheme to MantineProvider */}
       <MantineProvider colorScheme={colorScheme}>
-        {/* Place DualAudioProvider HERE */}
-        <DualAudioProvider>
-          <StyledComponentsBridge>
-            {children}
-          </StyledComponentsBridge>
-        </DualAudioProvider> {/* Close DualAudioProvider */}
+        {/* Wrap DualAudioProvider with ReduxProvider */}
+        <ReduxProvider>
+          <DualAudioProvider>
+            <StyledComponentsBridge>
+              {children}
+            </StyledComponentsBridge>
+          </DualAudioProvider>
+        </ReduxProvider>
       </MantineProvider>
     </ThemeContext.Provider>
   );

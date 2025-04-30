@@ -264,9 +264,11 @@ export const ResearchAreaCard = styled(MantinePaper).attrs({
 
 // Shared Icon Wrapper Style (using Mantine Box)
 export const IconWrapper = styled(MantineBox)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2.5rem; 
   margin-bottom: 0.75rem; /* sm spacing */
-  /* Use primary color - hardcoded default blue */
   color: #228be6; /* blue[6] */
   line-height: 1;
 `;

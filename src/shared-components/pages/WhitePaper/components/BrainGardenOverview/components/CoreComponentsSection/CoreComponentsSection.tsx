@@ -39,9 +39,6 @@ export const CoreComponentsSection: React.FC<CoreComponentsSectionProps> = ({
   className,
   coreComponentsProps
 }) => {
-  // Log to verify props
-  console.log('CoreComponentsSection rendering with layout=grid');
-
   return (
     <>
       <BackgroundSection

@@ -1,15 +1,10 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { AudioMode, AudioTrack, DualAudioControllerState, DualAudioControllerActions, DualAudioContextType } from './DualAudio.types';
+import { AudioMode, AudioTrack, DualAudioControllerState, DualAudioControllerActions, DualAudioContextType, DualAudioContextTypeWithRefs } from './DualAudio.types';
 import { useVoiceTrackLoader } from './useVoiceTrackLoader';
 import { musicPlaylist } from './playlists/musicPlaylist';
 import { usePathname } from 'next/navigation';
 import { voiceTracks } from './playlists/voiceTracks';
 import { handleAudioError, getNextMusicTrack } from './useDualAudioController.logic';
-
-export type DualAudioContextTypeWithRefs = DualAudioContextType & {
-    musicAudioRef: React.MutableRefObject<HTMLAudioElement | null>;
-    voiceAudioRef: React.MutableRefObject<HTMLAudioElement | null>;
-};
 
 const FULL_VOLUME = 1;
 

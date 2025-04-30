@@ -163,6 +163,43 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
         pauseVoice,
     } = props;
 
+    // Add debug logging for voice track state - use a ref to prevent multiple logs during development
+    const hasLoggedVoiceState = useRef<string | null>(null);
+
+    useEffect(() => {
+        // Only log when state actually changes or hasn't been logged yet
+        const stateString = JSON.stringify({
+            isNarrationEnabled,
+            hasTrack: !!activeVoiceTrack,
+            trackTitle: activeVoiceTrack?.title,
+            isPlaying: isVoicePlaying
+        });
+
+        if (hasLoggedVoiceState.current === null || hasLoggedVoiceState.current !== stateString) {
+            console.log('[DEBUG] StandardPlayer voice state:', {
+                isNarrationEnabled,
+                hasActiveVoiceTrack: !!activeVoiceTrack,
+                activeVoiceTrackTitle: activeVoiceTrack?.title || 'none',
+                isVoicePlaying,
+                hasPlayVoiceFunction: !!playVoice,
+                playVoiceType: typeof playVoice
+            });
+
+            // Check if narration button click would work
+            if (isNarrationEnabled && activeVoiceTrack && playVoice) {
+                console.log('[DEBUG] Narration button should be functional');
+            } else {
+                console.log('[DEBUG] Issues with narration button:', {
+                    narrationEnabled: isNarrationEnabled,
+                    hasTrack: !!activeVoiceTrack,
+                    hasPlayFunction: !!playVoice
+                });
+            }
+
+            hasLoggedVoiceState.current = stateString;
+        }
+    }, [isNarrationEnabled, activeVoiceTrack, isVoicePlaying, playVoice]);
+
     const {
         theme,
         progressBarContainerRef,

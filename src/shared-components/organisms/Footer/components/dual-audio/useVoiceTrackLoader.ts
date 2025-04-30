@@ -19,18 +19,18 @@ export const useVoiceTrackLoader = (
 
         // Wait until the main hook signals readiness (refs are set)
         if (!isReady) {
-            // console.log('[VoiceLoader] Waiting for readiness...');
+            console.log('[VoiceLoader] Waiting for readiness...');
             return;
         }
 
-        // Skip the very first run AFTER readiness, initial load handled elsewhere
-        if (!initialLoadDone.current) {
-            // console.log('[VoiceLoader] Skipping initial load check (handled by main hook).');
+        // Set initial load flag after component is mounted and ready
+        const isFirstLoad = !initialLoadDone.current;
+        if (isFirstLoad) {
+            console.log('[VoiceLoader] Running initial load check');
             initialLoadDone.current = true;
-            return;
+        } else {
+            console.log('[VoiceLoader] Running subsequent route change check');
         }
-
-        console.log('[VoiceLoader] Running subsequent route change check.');
 
         const path = pathname; // Use pathname directly
         // Simple slug logic: remove leading/trailing slashes, handle root

@@ -17,9 +17,7 @@ import { CoreComponentsSection } from './components/CoreComponentsSection';
 import { TeamCustomizationSection } from './components/TeamCustomizationSection';
 import { ForceMultipliersSection } from './components/ForceMultipliersSection';
 import { GardenMetaphorSection } from './components/GardenMetaphorSection';
-import { SystemArchitectureSection } from './components/SystemArchitectureSection';
 import { NextEvolutionSection } from './components/NextEvolutionSection';
-import { TransitionSection } from './components/TransitionSection';
 
 export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) => {
   const {
@@ -31,8 +29,7 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
     systemArchitectureProps,
     processedNavigation,
     processedKeyBenefits,
-    processedCTA,
-    transitionProps
+    processedCTA
   } = useBrainGardenOverview(props);
 
   // Process the data to ensure all icons are properly handled
@@ -77,7 +74,6 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
   const gardenVisibility = useSectionVisibility();
   const architectureVisibility = useSectionVisibility();
   const evolutionVisibility = useSectionVisibility();
-  const transitionVisibility = useSectionVisibility();
 
   return (
     <Container className={className}>
@@ -115,19 +111,9 @@ export const BrainGardenOverview: React.FC<BrainGardenOverviewProps> = (props) =
           <GardenMetaphorSection />
         </AnimatedSection>
 
-        {/* System Architecture Section */}
-        <AnimatedSection visibilityProps={architectureVisibility} id="garden-architecture" style={{ scrollMarginTop: '100px' }}>
-          <SystemArchitectureSection systemArchitectureProps={systemArchitectureProps} />
-        </AnimatedSection>
-
         {/* The Next Evolution Section */}
         <AnimatedSection visibilityProps={evolutionVisibility} id="garden-evolution" style={{ scrollMarginTop: '100px' }}>
           <NextEvolutionSection />
-        </AnimatedSection>
-
-        {/* Transition to Technical Implementation Section */}
-        <AnimatedSection visibilityProps={transitionVisibility} id="garden-transition" style={{ scrollMarginTop: '100px' }}>
-          <TransitionSection {...transitionProps} />
         </AnimatedSection>
       </ContentSection>
     </Container>

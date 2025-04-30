@@ -17,10 +17,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added multi-size, square, high-resolution favicons and app icons generated from a center-cropped headshot for all platforms (iOS, Android, web, PWA). Updated manifest and global head configuration for best practice support.
 
 ### Changed
+- Refactored audio playback system to persist music across page changes [#Refactor] [#UX]
+  - Created Redux slice for managing global audio state
+  - Separated music player from voice narration in dual audio system
+  - Implemented persistent music playback that continues during navigation
+  - Isolated route-specific voice narration that doesn't affect music
+  - Added ReduxProvider to properly integrate Redux store with DualAudioProvider
 
 ### Fixed
+- Fixed music playback interruption when changing pages [#BugFix] [#UX]
+- Fixed missing Redux Provider and Mantine Provider error in DualAudioProvider [#BugFix]
+- Fixed infinite render loop in WhitePaper components (AiSkepticToExpert and CoreComponentsSection) by removing console.log statements and optimizing renders [#BugFix] [#Performance]
+- Fixed ducked audio functionality so that music automatically switches to quieter ducked versions when voice narration is playing [#BugFix] [#UX]
 
 ### Improved
+
+## [0.21.10] - 2025-04-07
+
+### Fixed
+- Fixed severe infinite render loop in DualAudioProvider by properly handling refs in dependency arrays [#BugFix] [#Performance]
+- Improved debug logging system with render-safe implementations to prevent unintended re-renders [#Refactor]
+- Enhanced useVoiceTrackLoader to load voice tracks properly on initial page load [#BugFix]
+- Fixed issues with narration button functionality [#BugFix] [#UX]
+
+## [0.21.9] - 2025-04-06
+
+### Fixed
+- Fixed missing narration button functionality [#BugFix] [#UX]
+
+## [0.21.8] - 2025-04-06
+
+### Fixed
+- Fixed ducked audio functionality so that music automatically switches to quieter ducked versions when voice narration is playing [#BugFix] [#UX]
+
+## [0.21.7] - 2025-04-05
+
+### Fixed
+- Fixed music playback interruption when changing pages [#BugFix] [#UX]
+- Fixed missing Redux Provider and Mantine Provider error in DualAudioProvider [#BugFix]
+- Fixed infinite render loop in WhitePaper components (AiSkepticToExpert and CoreComponentsSection) by removing console.log statements and optimizing renders [#BugFix] [#Performance]
 
 ## [0.21.6] - 2025-04-05
 

@@ -117,7 +117,6 @@ const whitePaperNavItems: SubNavItem[] = [
   { id: 'garden-force-multipliers', title: 'Force Multipliers', level: 1, icon: <IconMultiplier1x size={16} /> },
   { id: 'garden-metaphor', title: 'The Garden Metaphor', level: 1, icon: <IconFlower size={16} /> },
   { id: 'garden-evolution', title: 'The Next Evolution', level: 1, icon: <IconTrendingUp size={16} /> },
-  { id: 'garden-transition', title: 'Transition', level: 1, icon: <IconSwitchHorizontal size={16} /> },
 
   // Real World Impact (Level 0)
   { id: 'real-world-impact', title: 'Real World Impact', level: 0, icon: <IconChartInfographic size={18} /> },
