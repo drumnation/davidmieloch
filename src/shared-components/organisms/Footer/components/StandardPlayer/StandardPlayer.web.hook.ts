@@ -9,6 +9,7 @@ export function useStandardPlayerWeb(props: StandardPlayerProps) {
     const progressBarContainerRef = useRef<HTMLDivElement>(null);
     const { ref: artworkBoxRef, height: artworkBoxHeight } = useElementSize();
     const [controlMode, setControlMode] = useState<'music' | 'narration'>(props.isMusicEnabled ? 'music' : 'narration');
+    const [layeredAudioMessage, setLayeredAudioMessage] = useState<string | null>(null);
     const [isMusicHovered, setIsMusicHovered] = useState(false);
     const [isNarrationHovered, setIsNarrationHovered] = useState(false);
 
@@ -33,12 +34,24 @@ export function useStandardPlayerWeb(props: StandardPlayerProps) {
 
     const handlePlayPause = () => {
         props.startUserInteraction?.();
+        // Always call the main onPlayToggle, let the parent component decide what to play/pause
+        props.onPlayToggle();
+        // Remove the previous logic that called specific play/pause functions based on controlMode
+        /*
         if (props.isMusicEnabled && props.isNarrationEnabled) {
-            props.onPlayToggle();
-            props.onPlayToggle();
-        } else {
-            props.onPlayToggle();
+            // If both are enabled, toggle both based on combined state might be complex.
+            // For now, let's just toggle the active one based on controlMode.
+            if (controlMode === 'music') {
+                props.isMusicPlaying ? props.pauseMusic?.() : props.playMusic?.();
+            } else {
+                props.isVoicePlaying ? props.pauseVoice?.() : props.playVoice?.();
+            }
+        } else if (props.isMusicEnabled) {
+            props.isMusicPlaying ? props.pauseMusic?.() : props.playMusic?.();
+        } else if (props.isNarrationEnabled) {
+            props.isVoicePlaying ? props.pauseVoice?.() : props.playVoice?.();
         }
+        */
     };
 
     const handleProgressBarClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -53,6 +66,25 @@ export function useStandardPlayerWeb(props: StandardPlayerProps) {
         } else if (controlMode === 'narration') {
             props.onSeekNarration(Math.max(0, Math.min(100, newProgress)));
         }
+    };
+
+    // Narration seek handlers
+    const handleRewindNarration = () => {
+        if (props.voiceDuration <= 0) return;
+        props.startUserInteraction?.();
+        const currentTime = props.voiceCurrentTime;
+        const newTime = Math.max(0, currentTime - 10);
+        const newProgress = (newTime / props.voiceDuration) * 100;
+        props.onSeekNarration(newProgress);
+    };
+
+    const handleForwardNarration = () => {
+        if (props.voiceDuration <= 0) return;
+        props.startUserInteraction?.();
+        const currentTime = props.voiceCurrentTime;
+        const newTime = Math.min(props.voiceDuration, currentTime + 10);
+        const newProgress = (newTime / props.voiceDuration) * 100;
+        props.onSeekNarration(newProgress);
     };
 
     let combinedTitle = '';
@@ -89,12 +121,12 @@ export function useStandardPlayerWeb(props: StandardPlayerProps) {
         artworkBoxHeight,
         controlMode,
         setControlMode,
+        toggleControlMode,
+        showToggle,
         isMusicHovered,
         setIsMusicHovered,
         isNarrationHovered,
         setIsNarrationHovered,
-        toggleControlMode,
-        showToggle,
         isMusicActive,
         isNarrationActive,
         isEffectivelyPlaying,
@@ -104,9 +136,12 @@ export function useStandardPlayerWeb(props: StandardPlayerProps) {
         displayTrackAvailable,
         handlePlayPause,
         handleProgressBarClick,
+        handleRewindNarration,
+        handleForwardNarration,
         displayTitle,
         displayArtist,
         iconProps,
+        layeredAudioMessage,
     };
 }
 

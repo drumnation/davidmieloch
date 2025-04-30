@@ -54,13 +54,12 @@ export default function ClientLayout({
     return (
       <AppShell
         header={{ height: HEADER_HEIGHT }}
-        footer={{ height: FOOTER_HEIGHT }}
         styles={() => ({
           main: {
             backgroundColor: 'var(--background-light)',
             transition: 'background-color 200ms ease',
             flexGrow: 1,
-            minHeight: `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`,
+            minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
           },
           root: {
             backgroundColor: 'var(--background-light)',

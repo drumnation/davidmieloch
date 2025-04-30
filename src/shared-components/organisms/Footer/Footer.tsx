@@ -124,13 +124,13 @@ export const Footer = ({ socialLinks }: FooterProps) => {
               currentTime={activeTiming.current}
               duration={activeTiming.duration}
               onPlayToggle={handlePlayPause}
-              onSeekMusic={(progress) => {
+              onSeekMusic={(progress: number) => {
                 if (musicDuration > 0) {
                   const time = (progress / 100) * musicDuration;
                   seekMusic(time);
                 }
               }}
-              onSeekNarration={(progress) => {
+              onSeekNarration={(progress: number) => {
                 if (voiceDuration > 0) {
                   const time = (progress / 100) * voiceDuration;
                   seekVoice(time);

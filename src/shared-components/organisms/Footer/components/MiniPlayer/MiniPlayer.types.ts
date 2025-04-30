@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { MantineColorScheme } from '@mantine/core';
 // import { SoundCloudTrack } from '../../Footer.types'; // Remove old type
 import { AudioTrack } from '../dual-audio/DualAudio.types'; // Import new type
 
@@ -8,7 +9,7 @@ export interface MiniPlayerProps {
     progress: number;
     colors: any;
     progressBarRef: RefObject<HTMLDivElement>;
-    colorScheme: string;
+    colorScheme: MantineColorScheme;
     onPlayToggle: () => void;
     onMinimizeToggle: () => void;
     startUserInteraction?: () => void; // Make optional if not always passed

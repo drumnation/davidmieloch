@@ -1,12 +1,17 @@
 import styled from 'styled-components';
-import { rem } from '@mantine/core';
+import { rem, MantineColorScheme } from '@mantine/core';
 
-export const MiniPlayerContainer = styled.div`
+interface MiniPlayerContainerProps {
+  $colorScheme: MantineColorScheme;
+}
+
+export const MiniPlayerContainer = styled.div<MiniPlayerContainerProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.dark[8]};
+  background-color: ${({ theme, $colorScheme }) =>
+    $colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0]};
   padding-bottom: env(safe-area-inset-bottom, 0px);
 `;
 

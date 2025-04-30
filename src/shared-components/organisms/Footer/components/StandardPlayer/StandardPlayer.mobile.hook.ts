@@ -54,11 +54,27 @@ export function useStandardPlayerMobile(props: StandardPlayerProps) {
     // Always use music playlist navigation for arrows
     const handlePrevTrack = () => {
         props.startUserInteraction?.();
-        props.onPrevTrack();
+        if (controlMode === 'narration') {
+            const newTime = Math.max(0, props.voiceCurrentTime - 10);
+            if (props.voiceDuration > 0) {
+                const newProgress = (newTime / props.voiceDuration) * 100;
+                props.onSeekNarration(newProgress);
+            }
+        } else {
+            props.onPrevTrack();
+        }
     };
     const handleNextTrack = () => {
         props.startUserInteraction?.();
-        props.onNextTrack();
+        if (controlMode === 'narration') {
+            const newTime = Math.min(props.voiceDuration, props.voiceCurrentTime + 10);
+            if (props.voiceDuration > 0) {
+                const newProgress = (newTime / props.voiceDuration) * 100;
+                props.onSeekNarration(newProgress);
+            }
+        } else {
+            props.onNextTrack();
+        }
     };
 
     return {
