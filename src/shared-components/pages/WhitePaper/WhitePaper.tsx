@@ -63,6 +63,10 @@ import {
   IconFileText
 } from '@tabler/icons-react';
 
+// Import new components
+import { RecursiveJourney } from './components/RecursiveJourney/RecursiveJourney';
+import { BrainGardenSurvival } from './components/BrainGardenSurvival/BrainGardenSurvival';
+
 // Create styled components for animation
 const FadeInContainer = styled.div`
   display: flex;
@@ -118,14 +122,11 @@ const whitePaperNavItems: SubNavItem[] = [
   { id: 'garden-metaphor', title: 'The Garden Metaphor', level: 1, icon: <IconFlower size={16} /> },
   { id: 'garden-evolution', title: 'The Next Evolution', level: 1, icon: <IconTrendingUp size={16} /> },
 
-  // Real World Impact (Level 0)
-  { id: 'real-world-impact', title: 'Real World Impact', level: 0, icon: <IconChartInfographic size={18} /> },
-  { id: 'impact-hero', title: 'Hero', level: 1, icon: <IconTargetArrow size={16} /> },
-  { id: 'impact-conclusion-intro', title: 'Conclusion Intro', level: 1, icon: <IconFileCertificate size={16} /> },
-  { id: 'impact-insights', title: 'Journey Insights', level: 1, icon: <IconBulb size={16} /> },
-  { id: 'impact-framework', title: 'The Framework', level: 1, icon: <IconSchema size={16} /> },
-  { id: 'impact-current-state', title: 'Current State', level: 1, icon: <IconPlayerPlay size={16} /> },
-  { id: 'impact-cta', title: 'Call To Action', level: 1, icon: <IconHandClick size={16} /> },
+  // Recursive Journey (Level 0)
+  { id: 'recursive-journey', title: 'Recursive Journey', level: 0, icon: <IconChartArcs size={18} /> },
+
+  // Brain Garden Survival (Level 0)
+  { id: 'brain-garden-survival', title: 'Brain Garden Survival', level: 0, icon: <IconPlant2 size={18} /> },
 ];
 
 export const WhitePaper: React.FC<WhitePaperProps> = ({ id = 'whitepaper', className, onReady }) => {
@@ -167,12 +168,16 @@ export const WhitePaper: React.FC<WhitePaperProps> = ({ id = 'whitepaper', class
               />
             </ErrorBoundary>
           </div>
-          <div id="real-world-impact" style={{ scrollMarginTop: '100px' }}>
-            <ErrorBoundary fallback={<div>Error loading impact section. Please refresh.</div>}>
-              <RealWorldImpact />
+          <div id="recursive-journey" style={{ scrollMarginTop: '100px' }}>
+            <ErrorBoundary fallback={<div>Error loading recursive journey section. Please refresh.</div>}>
+              <RecursiveJourney />
             </ErrorBoundary>
           </div>
-          {/* Additional sections will be added here as they are developed */}
+          <div id="brain-garden-survival" style={{ scrollMarginTop: '100px' }}>
+            <ErrorBoundary fallback={<div>Error loading brain garden survival section. Please refresh.</div>}>
+              <BrainGardenSurvival />
+            </ErrorBoundary>
+          </div>
         </FadeInContainer>
       </OuterContainer>
     </Container>

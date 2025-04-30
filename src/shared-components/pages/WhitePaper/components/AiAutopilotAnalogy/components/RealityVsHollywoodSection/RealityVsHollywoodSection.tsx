@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography } from '@shared-components/atoms/Typography';
 import { Icon } from '@shared-components/atoms/Icon';
-import { 
-  titleContainerStyle, 
+import {
+  titleContainerStyle,
   RealityVsHollywoodContainer,
   realityItemStyle,
   hollywoodItemStyle,
@@ -30,7 +30,7 @@ const RealityItem: React.FC<{
   item: ItemProps;
   index: number;
 }> = ({ item, index }) => (
-  <motion.div 
+  <motion.div
     style={realityItemStyle}
     className="reality-item"
     variants={fadeInUp}
@@ -44,7 +44,7 @@ const RealityItem: React.FC<{
     </div>
     <div style={itemContentStyle}>
       <div style={{ marginBottom: '0.5rem' }}>
-        <Typography variant="h3">
+        <Typography variant="h3" color="light">
           {item.title}
         </Typography>
       </div>
@@ -60,7 +60,7 @@ const HollywoodItem: React.FC<{
   item: ItemProps;
   index: number;
 }> = ({ item, index }) => (
-  <motion.div 
+  <motion.div
     style={hollywoodItemStyle}
     className="hollywood-item"
     variants={fadeInUp}
@@ -74,7 +74,7 @@ const HollywoodItem: React.FC<{
     </div>
     <div style={itemContentStyle}>
       <div style={{ marginBottom: '0.5rem' }}>
-        <Typography variant="h3">
+        <Typography variant="h3" color="light">
           {item.title}
         </Typography>
       </div>

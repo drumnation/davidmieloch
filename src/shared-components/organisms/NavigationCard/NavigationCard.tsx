@@ -19,28 +19,28 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
   className,
 }) => {
   const componentName = "NavigationCard";
-  
+
   // Support both content object and direct props
   const cardText = content?.text || title || '';
   const cardDescription = description || '';
   const cardAction = content?.action || action || '';
   const cardLink = content?.link || link || '#';
   const cardIcon = content?.icon || icon || '';
-  
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
     rootMargin: '-100px 0px',
   });
-  
+
   // Animation variants
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20 
+    hidden: {
+      opacity: 0,
+      y: 20
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         type: "spring",
@@ -53,7 +53,7 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
 
   const renderContent = () => (
     <S.Container className={className} ref={ref}>
-      <S.AnimatedCard 
+      <S.AnimatedCard
         $style={style}
         variants={cardVariants}
         initial="hidden"
@@ -65,17 +65,17 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
               <Icon name={cardIcon} size={24} />
             </S.IconWrapper>
           )}
-          
+
           <Typography variant="h3" className="mb-3" color="light">
             {cardText}
           </Typography>
-          
+
           {cardDescription && (
             <Typography variant="body" color="secondary" className="mb-4">
               {cardDescription}
             </Typography>
           )}
-          
+
           {cardAction && cardLink && (
             <S.ActionLink href={cardLink}>
               {cardAction}
@@ -88,7 +88,7 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
       </S.AnimatedCard>
     </S.Container>
   );
-  
+
   return (
     <AnimationErrorBoundary componentName={componentName}>
       <AnimationDebugger

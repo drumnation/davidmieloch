@@ -169,7 +169,7 @@ export const Title = styled.h4<{ $isKeyword?: boolean, $isAccent?: boolean }>`
   margin: 0 0 1rem 0;
   font-size: ${({ $isKeyword }) => $isKeyword ? '1.2rem' : '1rem'};
   font-weight: bold;
-  color: ${({ $isAccent }) => $isAccent ? 'white' : 'var(--text-primary)'}; 
+  color: white; 
   line-height: 1.3;
   /* Remove min-height to allow natural flow */
   /* min-height: 3rem; */ 
