@@ -3,7 +3,7 @@
 import { useColorScheme } from '@mantine/hooks';
 import { useMantineTheme } from '@mantine/core';
 import { SocialLink, SoundCloudTrack } from './Footer.types';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDualAudio } from './components/dual-audio/DualAudioContext';
 import { musicPlaylist } from './components/dual-audio/playlists/musicPlaylist';
 import { AudioTrack } from './components/dual-audio/DualAudio.types';
@@ -255,6 +255,7 @@ export const useFooter = (
 export const useFooterStatefulLogic = () => {
   const dualAudio = useDualAudio();
   const footerUI = useFooterUI({});
+  const [lastPlayingState, setLastPlayingState] = useState<'music' | 'narration' | 'both' | 'none'>('none');
 
   const {
     musicAudioRef,
@@ -322,14 +323,66 @@ export const useFooterStatefulLogic = () => {
 
   const handlePlayPause = useCallback(() => {
     startUserInteraction?.();
-    if (isMusicPlaying || isVoicePlaying) {
-      if (isMusicEnabled) pauseMusic();
-      if (isNarrationEnabled) pauseVoice();
+
+    console.log('handlePlayPause Triggered', {
+      isMusicEnabled,
+      isNarrationEnabled,
+      isMusicPlaying,
+      isVoicePlaying,
+    });
+
+    const musicWasPlaying = isMusicEnabled && isMusicPlaying;
+    const voiceWasPlaying = isNarrationEnabled && isVoicePlaying;
+    const anythingWasPlaying = musicWasPlaying || voiceWasPlaying;
+
+    if (anythingWasPlaying) {
+      // --- PAUSE LOGIC ---
+      let stateToStore: 'music' | 'narration' | 'both' | 'none' = 'none';
+      if (musicWasPlaying && voiceWasPlaying) {
+        stateToStore = 'both';
+      } else if (musicWasPlaying) {
+        stateToStore = 'music';
+      } else if (voiceWasPlaying) {
+        stateToStore = 'narration';
+      }
+      setLastPlayingState(stateToStore); // Store state before pausing
+
+      // Perform pause actions
+      if (musicWasPlaying) pauseMusic();
+      if (voiceWasPlaying) pauseVoice();
+
     } else {
-      if (isMusicEnabled) playMusic();
-      if (isNarrationEnabled) playVoice();
+      // --- PLAY LOGIC ---
+      // Play based on the state stored just before the last pause
+      switch (lastPlayingState) {
+        case 'music':
+          if (isMusicEnabled) playMusic();
+          break;
+        case 'narration':
+          if (isNarrationEnabled) playVoice();
+          break;
+        case 'both':
+          if (isMusicEnabled) playMusic();
+          if (isNarrationEnabled) playVoice();
+          break;
+        case 'none': // Nothing was playing before, or initial state
+        default:
+          // Fallback: Play based on current *enabled* status if nothing was playing before
+          if (isMusicEnabled && isNarrationEnabled) {
+            playMusic(); // Play both if both enabled
+            playVoice();
+          } else if (isMusicEnabled) {
+            playMusic(); // Play music if only music enabled
+          } else if (isNarrationEnabled) {
+            playVoice(); // Play voice if only narration enabled
+          }
+          // If both disabled, do nothing
+          break;
+      }
+      // Optional: Reset lastPlayingState after playing? 
+      // setLastPlayingState('none'); // Let's not reset for now, keep memory until next pause.
     }
-  }, [isMusicPlaying, isVoicePlaying, isMusicEnabled, isNarrationEnabled, pauseMusic, pauseVoice, playMusic, playVoice, startUserInteraction]);
+  }, [isMusicEnabled, isNarrationEnabled, isMusicPlaying, isVoicePlaying, pauseMusic, pauseVoice, playMusic, playVoice, startUserInteraction, lastPlayingState]);
 
   const handleSeek = useCallback((newProgress: number) => {
     startUserInteraction?.();
@@ -391,5 +444,6 @@ export const useFooterStatefulLogic = () => {
     handleNextMusicTrack,
     handlePrevMusicTrack,
     miniPlayerDisplayTitle,
+    lastPlayingState,
   };
 }; 

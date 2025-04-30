@@ -1,7 +1,10 @@
 "use client";
 
-import { Box, Text, ActionIcon, Group, Tooltip, Flex, Center, Button } from '@mantine/core';
-import { LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic, LuMic, LuMusic, LuHeadphones, LuVolume1, LuVolume2 } from 'react-icons/lu';
+import { Box, Text, ActionIcon, Group, Tooltip, Flex, Center } from '@mantine/core';
+import { LuChevronDown, LuListMusic, LuMic, LuMusic, LuVolume1, LuVolume2 } from 'react-icons/lu';
+import { IoIosPlayCircle } from 'react-icons/io';
+import { IoPauseCircleSharp, IoPlaySkipBackCircleOutline, IoPlaySkipForwardCircleOutline } from 'react-icons/io5';
+import { TbRewindBackward10, TbRewindForward10 } from 'react-icons/tb';
 import { formatTime } from '../../Footer.logic';
 import { StandardPlayerProps } from './StandardPlayer.types';
 import { TrackArtwork } from '../TrackArtwork';
@@ -12,7 +15,6 @@ import { getDisplayTitle, getDisplayArtist } from './StandardPlayer.mobile.logic
 import {
     getPlayerContainerStyle,
     getArtworkBoxStyle,
-    getToggleButtonBoxStyle,
     getProgressBarBoxStyle,
     getProgressBarContainerStyle,
     getTimeTextStyle,
@@ -20,7 +22,7 @@ import {
     getButtonStyles,
     getBottomRowStyle,
 } from './StandardPlayer.mobile.styles';
-import { isIOSMobile } from '@utils/platform';
+// import { isIOSMobile } from '@utils/platform'; // Remove this line
 
 export const StandardPlayerMobile = (props: StandardPlayerProps) => {
     const {
@@ -70,7 +72,7 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
     const displayTitle = getDisplayTitle(controlMode, isMusicEnabled, isNarrationEnabled, activeMusicTrack, activeVoiceTrack);
     const displayArtist = getDisplayArtist(isMusicEnabled, isNarrationEnabled, activeMusicTrack, activeVoiceTrack);
     const artworkSize = 56;
-    const isIOS = isIOSMobile();
+    // const isIOS = isIOSMobile(); // Remove this line
 
     return (
         <Flex
@@ -89,24 +91,9 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                         size={artworkSize + 10}
                         iconSize={(artworkSize + 10) * 0.5}
                     />
-                    <Box style={getToggleButtonBoxStyle()}>
-                        {showToggle && (
-                            <Button
-                                onClick={toggleControlMode}
-                                variant="filled"
-                                color={controlMode === 'music' ? 'blue' : 'indigo'}
-                                radius="xl"
-                                size="xs"
-                                style={{ minWidth: 48, padding: '0 12px' }}
-                                aria-label="Toggle playback mode"
-                            >
-                                {controlMode === 'music' ? <LuMusic size={18} color={colorScheme === 'dark' ? theme.white : 'black'} /> : <LuHeadphones size={18} color={colorScheme === 'dark' ? theme.white : 'black'} />}
-                            </Button>
-                        )}
-                    </Box>
                 </Box>
                 <Flex direction="column" align="center" justify="space-around" style={{ flexGrow: 1, overflow: 'hidden', minWidth: 0 }}>
-                    <Flex direction="column" align="center">
+                    <Flex direction="column" align="flex-start">
                         <Text size="xs" fw={600} lineClamp={1} c={colors.text}>
                             {displayTitle}
                         </Text>
@@ -116,41 +103,45 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                             </Text>
                         )}
                     </Flex>
-                    <Group justify="center" gap="sm" wrap="nowrap">
-                        <Tooltip label="Previous Track" position="bottom" withArrow disabled={!isMusicTrackAvailable}>
-                            <ActionIcon
-                                onClick={handlePrevTrack}
-                                aria-label="Previous track"
-                                disabled={!isMusicTrackAvailable}
-                                size="md"
-                                style={getButtonStyles()}
-                            >
-                                <LuSkipBack size={18} color="black" />
-                            </ActionIcon>
-                        </Tooltip>
-                        <ActionIcon
-                            onClick={handlePlayPause}
-                            aria-label={isEffectivelyPlaying ? "Pause" : "Play"}
-                            disabled={!displayTrackAvailable}
-                            size="lg"
-                            style={getButtonStyles()}
-                        >
-                            {isEffectivelyPlaying ? <LuPause size={24} color="black" /> : <LuPlay size={24} color="black" />}
-                        </ActionIcon>
-                        <Tooltip label="Next Track" position="bottom" withArrow disabled={!isMusicTrackAvailable}>
-                            <ActionIcon
-                                onClick={handleNextTrack}
-                                aria-label="Next track"
-                                disabled={!isMusicTrackAvailable}
-                                size="md"
-                                style={getButtonStyles()}
-                            >
-                                <LuSkipForward size={18} color="black" />
-                            </ActionIcon>
-                        </Tooltip>
-                    </Group>
                 </Flex>
             </Flex>
+
+            <Center>
+                <Group justify="center" gap="sm" wrap="nowrap">
+                    <Tooltip label="Previous Track" position="bottom" withArrow disabled={!isMusicTrackAvailable}>
+                        <ActionIcon
+                            onClick={handlePrevTrack}
+                            aria-label="Previous track"
+                            disabled={!isMusicTrackAvailable}
+                            size="md"
+                            style={getButtonStyles()}
+                        >
+                            {controlMode === 'narration' ? <TbRewindBackward10 size={24} color="black" /> : <IoPlaySkipBackCircleOutline size={24} color="black" />}
+                        </ActionIcon>
+                    </Tooltip>
+                    <ActionIcon
+                        onClick={handlePlayPause}
+                        aria-label={isEffectivelyPlaying ? "Pause" : "Play"}
+                        disabled={!displayTrackAvailable}
+                        size="lg"
+                        style={getButtonStyles()}
+                    >
+                        {isEffectivelyPlaying ? <IoPauseCircleSharp size={30} color="black" /> : <IoIosPlayCircle size={30} color="black" />}
+                    </ActionIcon>
+                    <Tooltip label="Next Track" position="bottom" withArrow disabled={!isMusicTrackAvailable}>
+                        <ActionIcon
+                            onClick={handleNextTrack}
+                            aria-label="Next track"
+                            disabled={!isMusicTrackAvailable}
+                            size="md"
+                            style={getButtonStyles()}
+                        >
+                            {controlMode === 'narration' ? <TbRewindForward10 size={24} color="black" /> : <IoPlaySkipForwardCircleOutline size={24} color="black" />}
+                        </ActionIcon>
+                    </Tooltip>
+                </Group>
+            </Center>
+
             <Box style={getProgressBarBoxStyle()}>
                 {displayTrackAvailable ? (
                     <Group align="center" gap="xs" wrap="nowrap">
@@ -168,12 +159,9 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                     <Box style={getEmptyBarStyle(colors)} />
                 )}
             </Box>
+
             <Center style={getBottomRowStyle()}>
                 <PillControlBar
-                    voiceVolume={voiceVolume}
-                    musicVolume={musicVolume}
-                    onVoiceVolumeChange={controlMode !== 'music' ? (v) => { startUserInteraction?.(); onVoiceVolumeChange(v); } : () => { }}
-                    onMusicVolumeChange={controlMode !== 'narration' ? (v) => { startUserInteraction?.(); onMusicVolumeChange(v); } : () => { }}
                     onPlaylistClick={onPlaylistToggle}
                     onMinimizeClick={onMinimizeToggle}
                     isNarrationEnabled={isNarrationEnabled}
@@ -187,7 +175,7 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                                 playVoice && playVoice();
                             }
                         } else {
-                            toggleNarration();
+                            toggleNarration && toggleNarration();
                         }
                     }}
                     onToggleMusic={() => {
@@ -202,10 +190,14 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
                             toggleMusic();
                         }
                     }}
+                    controlMode={controlMode}
+                    onControlModeToggle={toggleControlMode}
+                    showControlModeToggle={showToggle}
                     colorScheme={colorScheme === 'dark' ? 'dark' : 'light'}
                     sliderWidth={56}
                     gap={4}
-                    isIOS={isIOS}
+                    isNarrationPlaying={isVoicePlaying}
+                    isMusicPlaying={isMusicPlaying}
                 />
             </Center>
         </Flex>

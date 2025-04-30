@@ -117,3 +117,18 @@ export const minimizeBtnRoot = (theme: MantineTheme, colorScheme: string, colors
 export const flexShrink0: CSSProperties = { flexShrink: 0 };
 
 // Add other extracted style objects here, e.g. artworkBoxStyle, cardStyle, buttonStyle, etc. 
+
+// Add new styles for the toggle switch
+export const controlToggleGroup = (theme: MantineTheme, colorScheme: 'light' | 'dark'): React.CSSProperties => ({
+    cursor: 'pointer',
+    padding: `calc(${theme.spacing.xs} / 2)`,
+    borderRadius: theme.radius.xl,
+    backgroundColor: colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2],
+    transition: 'background-color 0.2s ease',
+});
+
+export const controlToggleIcon = (theme: MantineTheme, colorScheme: 'light' | 'dark', isActive: boolean): React.CSSProperties => ({
+    border: `1px solid ${isActive ? 'transparent' : (colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4])}`,
+    boxShadow: isActive ? theme.shadows.xs : 'none',
+    transition: 'all 0.2s ease',
+}); 

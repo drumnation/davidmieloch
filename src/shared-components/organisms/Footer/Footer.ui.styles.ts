@@ -77,7 +77,7 @@ export const getFooterContainerStyle = (
     borderTop: `1px solid ${colors.border}`,
     color: colors.text,
     boxShadow: isMiniMode ? '0 -1px 3px rgba(0,0,0,0.1)' : '0 -2px 10px rgba(0,0,0,0.15)',
-    height: 'auto',
+    height: isMiniMode ? 'auto' : (isExpanded ? 'auto' : '90px'),
     minHeight: isMiniMode ? '64px' : '90px',
     transition: 'height 0.3s ease',
     overflow: 'hidden',

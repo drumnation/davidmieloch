@@ -28,7 +28,7 @@ export const MiniPlayer = ({
     const displayArtwork = artworkUrl || currentTrack?.artwork;
 
     return (
-        <MiniPlayerContainer>
+        <MiniPlayerContainer $colorScheme={colorScheme}>
             {isMobile ? (
                 <>
                     <MiniPlayerTopRow>

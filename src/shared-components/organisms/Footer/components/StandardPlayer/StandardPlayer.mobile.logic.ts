@@ -2,8 +2,8 @@ import { StandardPlayerProps } from './StandardPlayer.types';
 
 export function getDisplayTitle(controlMode: 'music' | 'narration', isMusicEnabled: boolean, isNarrationEnabled: boolean, activeMusicTrack: any, activeVoiceTrack: any) {
     if (controlMode === 'narration') {
-        if (isMusicEnabled && isNarrationEnabled && activeMusicTrack?.title) {
-            return `Narration + ${activeMusicTrack.title}`;
+        if (activeVoiceTrack?.title) {
+            return `Narration + ${activeVoiceTrack.title}`;
         } else {
             return 'Narration';
         }

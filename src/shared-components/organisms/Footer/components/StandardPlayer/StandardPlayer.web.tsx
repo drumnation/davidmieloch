@@ -3,8 +3,12 @@
 import { Box, Text, ActionIcon, Group, Slider, Tooltip, Button, Flex, Alert } from '@mantine/core';
 import {
     LuChevronDown, LuPlay, LuPause, LuSkipBack, LuSkipForward, LuListMusic, LuMic, LuMusic,
-    LuHeadphones, LuVolume1, LuVolume2
+    LuHeadphones, LuVolume1, LuVolume2, LuVolumeX
 } from 'react-icons/lu';
+import { MdRecordVoiceOver, MdVoiceOverOff, MdMusicOff } from 'react-icons/md';
+import { TbRewindBackward10, TbRewindForward10 } from 'react-icons/tb';
+import { IoPlaySharp } from 'react-icons/io5';
+import { IoMdPause } from 'react-icons/io';
 import { useMantineTheme } from '@mantine/core';
 import { useElementSize } from '@mantine/hooks';
 import { StandardPlayerProps } from './StandardPlayer.types';
@@ -30,12 +34,13 @@ import {
     playlistBtn,
     playlistBtnRoot,
     minimizeBtnRoot,
-    flexShrink0
+    flexShrink0,
+    controlToggleGroup,
+    controlToggleIcon
 } from './StandardPlayer.web.styles';
 import { useStandardPlayerWeb } from './StandardPlayer.web.hook';
 import { formatTime } from '../../Footer.logic';
 import { useRef } from 'react';
-import { isIOSMobile } from '@utils/platform';
 
 // NOTE: This component assumes it's only rendered on desktop.
 
@@ -47,12 +52,12 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
         artworkBoxHeight,
         controlMode,
         setControlMode,
+        toggleControlMode,
+        showToggle,
         isMusicHovered,
         setIsMusicHovered,
         isNarrationHovered,
         setIsNarrationHovered,
-        toggleControlMode,
-        showToggle,
         isMusicActive,
         isNarrationActive,
         isEffectivelyPlaying,
@@ -66,6 +71,8 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
         displayArtist,
         iconProps,
         layeredAudioMessage,
+        handleRewindNarration,
+        handleForwardNarration,
     } = useStandardPlayerWeb(props);
 
     const {
@@ -97,8 +104,6 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
         playVoice,
         pauseVoice,
     } = props;
-
-    const isIOS = isIOSMobile();
 
     return (
         <Flex
@@ -137,29 +142,72 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                     </Flex>
                     <Group justify="center" align="center" gap="xs" wrap="nowrap" style={groupFullWidth}>
                         {showToggle && (
-                            <Button
-                                onClick={toggleControlMode}
-                                variant="filled"
-                                color={controlMode === 'music' ? 'blue' : 'cyan'}
-                                radius="xl"
-                                size="sm"
-                                style={buttonToggle}
-                                aria-label={controlMode === 'music' ? 'Switch to narration controls' : 'Switch to music controls'}
-                            >
-                                {controlMode === 'music' ? <LuHeadphones size={20} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /> : <LuMusic size={20} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />}
-                            </Button>
+                            <Group gap={2} style={controlToggleGroup(theme, colorScheme)} onClick={toggleControlMode} role="button" aria-label={controlMode === 'music' ? "Switch to narration controls" : "Switch to music controls"} tabIndex={0}>
+                                <Tooltip label="Control Music" position="bottom" withArrow>
+                                    <ActionIcon size="sm" variant={controlMode === 'music' ? "filled" : "subtle"} color={controlMode === 'music' ? "blue" : (colorScheme === 'dark' ? 'gray' : 'dark')} radius="xl" style={controlToggleIcon(theme, colorScheme, controlMode === 'music')}>
+                                        <LuMusic size={16} />
+                                    </ActionIcon>
+                                </Tooltip>
+                                <Tooltip label="Control Narration" position="bottom" withArrow>
+                                    <ActionIcon size="sm" variant={controlMode === 'narration' ? "filled" : "subtle"} color={controlMode === 'narration' ? "cyan" : (colorScheme === 'dark' ? 'gray' : 'dark')} radius="xl" style={controlToggleIcon(theme, colorScheme, controlMode === 'narration')}>
+                                        <MdRecordVoiceOver size={16} />
+                                    </ActionIcon>
+                                </Tooltip>
+                            </Group>
                         )}
-                        <Tooltip label="Previous Track" position="bottom" withArrow disabled={!isMusicActive || !activeMusicTrack}>
-                            <ActionIcon onClick={() => { startUserInteraction?.(); onPrevTrack(); }} aria-label="Previous track" disabled={!isMusicActive || !activeMusicTrack} {...iconProps} size="sm">
-                                <LuSkipBack size={16} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
+                        <Tooltip
+                            label={controlMode === 'narration' ? "Rewind 10s" : "Previous Track"}
+                            position="bottom"
+                            withArrow
+                            disabled={controlMode === 'narration' ? !isNarrationActive || !activeVoiceTrack : !isMusicActive || !activeMusicTrack}
+                        >
+                            <ActionIcon
+                                onClick={() => {
+                                    startUserInteraction?.();
+                                    if (controlMode === 'narration') {
+                                        handleRewindNarration();
+                                    } else {
+                                        onPrevTrack();
+                                    }
+                                }}
+                                aria-label={controlMode === 'narration' ? "Rewind 10 seconds" : "Previous track"}
+                                disabled={controlMode === 'narration' ? !isNarrationActive || !activeVoiceTrack : !isMusicActive || !activeMusicTrack}
+                                {...iconProps}
+                                size="sm"
+                            >
+                                {controlMode === 'narration' ?
+                                    <TbRewindBackward10 size={16} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /> :
+                                    <LuSkipBack size={16} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
+                                }
                             </ActionIcon>
                         </Tooltip>
                         <ActionIcon onClick={handlePlayPause} aria-label={isEffectivelyPlaying ? 'Pause' : 'Play'} disabled={!displayTrackAvailable} {...iconProps} size="lg">
                             {isEffectivelyPlaying ? <LuPause size={22} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /> : <LuPlay size={22} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />}
                         </ActionIcon>
-                        <Tooltip label="Next Track" position="bottom" withArrow disabled={!isMusicActive || !activeMusicTrack}>
-                            <ActionIcon onClick={() => { startUserInteraction?.(); onNextTrack(); }} aria-label="Next track" disabled={!isMusicActive || !activeMusicTrack} {...iconProps} size="sm">
-                                <LuSkipForward size={16} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
+                        <Tooltip
+                            label={controlMode === 'narration' ? "Forward 10s" : "Next Track"}
+                            position="bottom"
+                            withArrow
+                            disabled={controlMode === 'narration' ? !isNarrationActive || !activeVoiceTrack : !isMusicActive || !activeMusicTrack}
+                        >
+                            <ActionIcon
+                                onClick={() => {
+                                    startUserInteraction?.();
+                                    if (controlMode === 'narration') {
+                                        handleForwardNarration();
+                                    } else {
+                                        onNextTrack();
+                                    }
+                                }}
+                                aria-label={controlMode === 'narration' ? "Forward 10 seconds" : "Next track"}
+                                disabled={controlMode === 'narration' ? !isNarrationActive || !activeVoiceTrack : !isMusicActive || !activeMusicTrack}
+                                {...iconProps}
+                                size="sm"
+                            >
+                                {controlMode === 'narration' ?
+                                    <TbRewindForward10 size={16} color={colorScheme === 'dark' ? theme.white : 'currentColor'} /> :
+                                    <LuSkipForward size={16} color={colorScheme === 'dark' ? theme.white : 'currentColor'} />
+                                }
                             </ActionIcon>
                         </Tooltip>
                     </Group>
@@ -195,101 +243,77 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
                     <Box style={cardCol(theme, colorScheme, colors)}>
                         <Group gap="xs" align="center" wrap="nowrap" style={groupMarginRight}>
                             <Button
-                                leftSection={
-                                    isNarrationHovered
-                                        ? (isVoicePlaying ? <LuPause size={14} color={theme.black} /> : <LuPlay size={14} color={theme.black} />)
-                                        : <LuHeadphones size={14} color={theme.black} />
-                                }
-                                variant="filled"
-                                color={iconProps.color}
-                                size="xs"
-                                w={110}
+                                variant={isNarrationEnabled && isVoicePlaying ? "filled" : "subtle"}
+                                color={isNarrationEnabled && isVoicePlaying ? "cyan" : (colorScheme === 'dark' ? 'gray' : 'dark')}
+                                size="sm"
+                                radius="xl"
+                                px="sm"
                                 onClick={() => {
                                     startUserInteraction?.();
                                     if (isNarrationEnabled) {
-                                        if (isVoicePlaying) {
-                                            pauseVoice && pauseVoice();
-                                        } else {
-                                            playVoice && playVoice();
-                                        }
+                                        if (isVoicePlaying) pauseVoice?.(); else playVoice?.();
                                     } else {
-                                        toggleNarration();
+                                        toggleNarration?.();
                                     }
                                 }}
-                                aria-pressed={isNarrationEnabled}
+                                aria-label={isNarrationEnabled ? (isVoicePlaying ? "Pause Narration" : "Play Narration") : "Enable Narration"}
                                 styles={{
                                     root: {
-                                        borderTopLeftRadius: theme.radius.md,
-                                        borderTopRightRadius: theme.radius.md,
-                                        borderBottomLeftRadius: 0,
-                                        borderBottomRightRadius: 0,
-                                        background: isNarrationEnabled ? theme.white : theme.colors.dark[5],
-                                        color: isNarrationEnabled ? theme.colors.dark[7] : theme.colors.gray[3],
-                                        fontWeight: 600,
+                                        minWidth: 110,
+                                        border: `1px solid ${colorScheme === 'dark' ? theme.white : theme.black}`,
                                     },
+                                    section: { marginRight: 0 }
                                 }}
-                                onMouseEnter={() => setIsNarrationHovered(true)}
-                                onMouseLeave={() => setIsNarrationHovered(false)}
-                                disabled={isIOS}
                             >
-                                Narration
+                                <Group gap="xs" wrap="nowrap" align="center">
+                                    {isNarrationEnabled
+                                        ? isVoicePlaying
+                                            ? <MdRecordVoiceOver size={14} color={theme.white} />
+                                            : <MdVoiceOverOff size={14} color={colorScheme === 'dark' ? theme.white : theme.black} />
+                                        : <MdVoiceOverOff size={14} color={theme.colors.gray[5]} />
+                                    }
+                                    <Text size="xs" c={isNarrationEnabled && isVoicePlaying ? theme.white : 'inherit'}>
+                                        Narration
+                                    </Text>
+                                </Group>
                             </Button>
-                            {isIOS ? (
-                                <Tooltip label="Volume control is not available on iOS. Use your device volume buttons." position="top" withArrow>
-                                    <Slider value={voiceVolume} onChange={onVoiceVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Narration volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} disabled />
-                                </Tooltip>
-                            ) : (
-                                <Slider value={voiceVolume} onChange={onVoiceVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Narration volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} />
-                            )}
                         </Group>
-                        <Group gap="xs" align="center" wrap="nowrap" style={groupMarginRight}>
+                        <Group gap="xs" align="center" wrap="nowrap" style={groupMarginRight} mt={10}>
                             <Button
-                                leftSection={
-                                    isMusicHovered
-                                        ? (isMusicPlaying ? <LuPause size={14} color={theme.black} /> : <LuPlay size={14} color={theme.black} />)
-                                        : <LuMusic size={14} color={theme.black} />
-                                }
-                                variant="filled"
-                                color={iconProps.color}
-                                size="xs"
-                                w={110}
+                                variant={isMusicEnabled && isMusicPlaying ? "filled" : "subtle"}
+                                color={isMusicEnabled && isMusicPlaying ? "blue" : (colorScheme === 'dark' ? 'gray' : 'dark')}
+                                size="sm"
+                                radius="xl"
+                                px="sm"
                                 onClick={() => {
                                     startUserInteraction?.();
                                     if (isMusicEnabled) {
-                                        if (isMusicPlaying) {
-                                            pauseMusic && pauseMusic();
-                                        } else {
-                                            playMusic && playMusic();
-                                        }
+                                        if (isMusicPlaying) pauseMusic?.(); else playMusic?.();
                                     } else {
-                                        toggleMusic();
+                                        toggleMusic?.();
                                     }
                                 }}
-                                aria-pressed={isMusicEnabled}
+                                aria-label={isMusicEnabled ? (isMusicPlaying ? "Pause Music" : "Play Music") : "Enable Music"}
                                 styles={{
                                     root: {
-                                        borderTopLeftRadius: 0,
-                                        borderTopRightRadius: 0,
-                                        borderBottomLeftRadius: theme.radius.md,
-                                        borderBottomRightRadius: theme.radius.md,
-                                        background: isMusicEnabled ? theme.white : theme.colors.dark[5],
-                                        color: isMusicEnabled ? theme.colors.dark[7] : theme.colors.gray[3],
-                                        fontWeight: 600,
+                                        minWidth: 110,
+                                        border: `1px solid ${colorScheme === 'dark' ? theme.white : theme.black}`,
                                     },
+                                    section: { marginRight: 0 }
                                 }}
-                                onMouseEnter={() => setIsMusicHovered(true)}
-                                onMouseLeave={() => setIsMusicHovered(false)}
-                                disabled={isIOS}
                             >
-                                Music
+                                <Group gap="xs" wrap="nowrap" align="center">
+                                    {isMusicEnabled
+                                        ? isMusicPlaying
+                                            ? <LuMusic size={14} color={theme.white} />
+                                            : <MdMusicOff size={14} color={colorScheme === 'dark' ? theme.white : theme.black} />
+                                        : <MdMusicOff size={14} color={theme.colors.gray[5]} />
+                                    }
+                                    <Text size="xs" c={isMusicEnabled && isMusicPlaying ? theme.white : 'inherit'}>
+                                        Music
+                                    </Text>
+                                </Group>
                             </Button>
-                            {isIOS ? (
-                                <Tooltip label="Volume control is not available on iOS. Use your device volume buttons." position="top" withArrow>
-                                    <Slider value={musicVolume} onChange={onMusicVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Music volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} disabled />
-                                </Tooltip>
-                            ) : (
-                                <Slider value={musicVolume} onChange={onMusicVolumeChange} min={0} max={1} step={0.01} size={2} thumbSize={10} style={sliderStyle} color={iconProps.color} aria-label="Music volume" styles={{ thumb: { transition: 'transform 0.1s ease', ':hover': { transform: 'scale(1.2)' } }, track: { transition: 'all 0.1s ease' } }} />
-                            )}
                         </Group>
                     </Box>
                     <Box style={playlistBtn(theme, colorScheme, colors)}>

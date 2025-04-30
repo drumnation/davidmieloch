@@ -8,7 +8,7 @@ export interface StandardPlayerProps {
     progress: number;
     colors: any;
     progressBarRef: RefObject<HTMLDivElement>;
-    colorScheme: string;
+    colorScheme: 'light' | 'dark';
     currentTime: number;
     duration: number;
     onPlayToggle: () => void;
