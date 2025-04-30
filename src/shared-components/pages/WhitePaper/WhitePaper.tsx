@@ -60,7 +60,10 @@ import {
   IconPlayerPlay, // Current State
   IconHandClick, // CTA
   IconCrosshair,
-  IconFileText
+  IconFileText,
+  IconRobot,
+  IconCpu,
+  IconBrain
 } from '@tabler/icons-react';
 
 // Import new components
@@ -124,9 +127,17 @@ const whitePaperNavItems: SubNavItem[] = [
 
   // Recursive Journey (Level 0)
   { id: 'recursive-journey', title: 'Recursive Journey', level: 0, icon: <IconChartArcs size={18} /> },
+  { id: 'context-initialization', title: 'Context Initialization', level: 1, icon: <IconPlayerPlay size={16} /> },
+  { id: 'feature-task-planning', title: 'Feature Task Planning', level: 1, icon: <IconChecklist size={16} /> },
+  { id: 'intelligent-execution', title: 'Intelligent Execution', level: 1, icon: <IconRobot size={16} /> },
+  { id: 'self-rescue-skill-jacks', title: 'Self-Rescue with Skill Jacks', level: 1, icon: <IconCpu size={16} /> },
+  { id: 'protecting-the-brain', title: 'Protecting the Brain', level: 1, icon: <IconBrain size={16} /> },
+  { id: 'why-it-works', title: 'Why It Works', level: 1, icon: <IconInfoCircle size={16} /> },
 
-  // Brain Garden Survival (Level 0)
-  { id: 'brain-garden-survival', title: 'Brain Garden Survival', level: 0, icon: <IconPlant2 size={18} /> },
+  // Brain Garden Survival (Level 0) - renamed to "The Breakthrough"
+  { id: 'brain-garden-survival', title: 'The Breakthrough', level: 0, icon: <IconPlant2 size={18} /> },
+  { id: 'why-continuous-evolution-matters', title: 'Why Evolution Matters', level: 1, icon: <IconTrendingUp size={16} /> },
+  { id: 'when-you-hire-me', title: 'Inheriting the Future', level: 1, icon: <IconHandClick size={16} /> },
 ];
 
 export const WhitePaper: React.FC<WhitePaperProps> = ({ id = 'whitepaper', className, onReady }) => {
