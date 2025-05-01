@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'; // Re-enable SC provider import
 import '@mantine/core/styles.css';
 import '@xyflow/react/dist/style.css';
@@ -30,6 +30,7 @@ const StyledComponentsBridge: React.FC<{ children: React.ReactNode }> = ({ child
 };
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const isRoot = pathname?.split('?')[0].replace(/\/+$/, '') === '' || pathname === '/';
   const colorScheme = isRoot ? 'dark' : 'light';
@@ -38,7 +39,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     console.warn('toggleColorScheme is not implemented for route-based theme');
   };
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   React.useEffect(() => {
+    if (!mounted) return;
     document.body.classList.remove('light-theme', 'dark-theme');
     document.documentElement.classList.remove('light-theme', 'dark-theme');
     const themeClass = colorScheme === 'dark' ? 'dark-theme' : 'light-theme';
@@ -46,13 +52,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.documentElement.classList.add(themeClass);
     document.documentElement.style.colorScheme = colorScheme;
     console.log('[ThemeProvider] Applied theme:', colorScheme);
-  }, [colorScheme]);
+  }, [colorScheme, mounted]);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={{ colorScheme, toggleColorScheme }}>
-      {/* Pass determined scheme to MantineProvider */}
       <MantineProvider colorScheme={colorScheme}>
-        {/* Wrap DualAudioProvider with ReduxProvider */}
         <ReduxProvider>
           <DualAudioProvider>
             <StyledComponentsBridge>
