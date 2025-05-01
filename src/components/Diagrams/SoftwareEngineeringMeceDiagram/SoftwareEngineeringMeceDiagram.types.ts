@@ -9,25 +9,25 @@ export interface SoftwareEngineeringMeceDiagramProps {
    * Optional CSS class name for styling the container
    */
   className?: string;
-  
+
   /**
    * Optional theme for the diagram
    * @default 'light'
    */
   theme?: 'light' | 'dark';
-  
+
   /**
    * Optional width for the diagram container
    * @default '100%'
    */
   width?: string | number;
-  
+
   /**
    * Optional height for the diagram container
    * @default '600px'
    */
   height?: string | number;
-  
+
   /**
    * Optional background color for the diagram container
    */
@@ -50,7 +50,7 @@ export interface SoftwareEngineeringMeceDiagramProps {
    * @default 'Software Engineering MECE Diagram showing distinct layers and components with clear boundaries and comprehensive coverage'
    */
   accessibilityDescription?: string;
-  
+
   /**
    * Optional title for the diagram
    * @default 'Software Engineering MECE Organization'
@@ -76,7 +76,7 @@ export interface CustomNodeData {
 /**
  * Internal props for the DiagramFlow component
  */
-export interface DiagramFlowProps extends SoftwareEngineeringMeceDiagramProps {}
+export interface DiagramFlowProps extends SoftwareEngineeringMeceDiagramProps { }
 
 /**
  * Theme style configuration
@@ -99,4 +99,6 @@ export type CustomNode = Node<CustomNodeData>;
 export type CustomEdge = Edge;
 
 // Props for node components
-export type CustomNodeProps = NodeProps; 
+export type CustomNodeProps = NodeProps;
+
+export interface FlowState extends Record<string, unknown> { } 

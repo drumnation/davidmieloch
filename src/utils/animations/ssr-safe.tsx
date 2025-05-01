@@ -10,16 +10,16 @@ import { isAnimationEnabled } from '../feature-flags';
  */
 export function useSsrSafeAnimation(componentName: string, enabled = true) {
   const [isMounted, setIsMounted] = useState(false);
-  
+
   // Only enable animations after component is mounted on client
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  
+
   // Check if animations should be enabled for this component
   const shouldAnimateByFlags = isAnimationEnabled(componentName);
   const shouldAnimate = isMounted && enabled && shouldAnimateByFlags;
-  
+
   return {
     // For variants-based animations
     animate: shouldAnimate ? 'animate' : 'initial',
@@ -46,12 +46,12 @@ export function withSsrSafeAnimation<P extends HTMLMotionProps<'div'>>(
 ) {
   return (props: P) => {
     const { shouldAnimate, animate, initial } = useSsrSafeAnimation(componentName);
-    
+
     if (!shouldAnimate) {
       // Return component with animations disabled
       return <Component {...props} animate={initial} />;
     }
-    
+
     // Return component with animations enabled
     return <Component {...props} animate={animate} />;
   };
@@ -83,10 +83,10 @@ export function MotionSafe({
   children: React.ReactNode;
 }) {
   const { animate, initial, shouldAnimate } = useSsrSafeAnimation(componentName);
-  
+
   // Handle case where variants are not provided
   const ssrSafeVariants = variants ? createSsrSafeVariants(variants) : undefined;
-  
+
   return (
     <motion.div
       {...props}

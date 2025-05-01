@@ -65,7 +65,7 @@ export const useJoyrideTour = ({
                     autoStartTimeoutIdRef.current = null;
                     if (isMountedRef.current) {
                         console.log(`[useJoyrideTour - ${hookId}] scheduleAutoStart: Timeout ${timeoutIdWhenRun} executing startTour() with ${stepsFromProps.length} steps.`);
-                        startTour(stepsFromProps);
+                        startTour(stepsFromProps, storageKey);
                     } else {
                         console.log(`[useJoyrideTour - ${hookId}] scheduleAutoStart: Timeout ${timeoutIdWhenRun} fired but component unmounted.`);
                     }
@@ -135,11 +135,11 @@ export const useJoyrideTour = ({
 
         if (stepsFromProps.length > 0) {
             console.log(`[useJoyrideTour - ${hookId}] Manual start: Calling startTour with ${stepsFromProps.length} steps.`);
-            startTour(stepsFromProps);
+            startTour(stepsFromProps, storageKey);
         } else {
             console.log(`[useJoyrideTour - ${hookId}] Manual start: No steps available.`);
         }
-    }, [stepsFromProps, storageKey, setTour, startTour]);
+    }, [stepsFromProps, storageKey, startTour]);
 
     return { handleManualStart };
 }; 

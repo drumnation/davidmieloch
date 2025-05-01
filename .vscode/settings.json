@@ -19,5 +19,6 @@
         "ignorePattern": [".brain/**/*.md", ".cursorrules"]
     },
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "dotenv.enableAutocloaking": false
 }

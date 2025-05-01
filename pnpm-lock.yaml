@@ -30,7 +30,7 @@ importers:
         specifier: ^7.17.1
         version: 7.17.5(react@18.3.1)
       '@mantine/hooks':
-        specifier: ^7.17.1
+        specifier: ^7.17.5
         version: 7.17.5(react@18.3.1)
       '@mantine/notifications':
         specifier: ^7.17.5

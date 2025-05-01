@@ -8,6 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.21.11] - 2025-04-30
+
+### Added
+- Implemented new landing page design and functionality.
 - Created InputContainer component with tabbed interface to switch between file upload and text input [#Feature] [#UI]
 - Created UI components for Perfect Fit Analyzer following Storybook-First approach (FileDropzone and JobDescriptionTextInput) [#Feature] [#UI]
 - Created OpenAI API integration for Perfect Fit Analyzer with rate limiting and response formatting [#Feature]
@@ -30,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed infinite render loop in WhitePaper components (AiSkepticToExpert and CoreComponentsSection) by removing console.log statements and optimizing renders [#BugFix] [#Performance]
 - Fixed ducked audio functionality so that music automatically switches to quieter ducked versions when voice narration is playing [#BugFix] [#UX]
 - Fixed TypeScript errors related to null checks for pathname from Next.js usePathname() hook [#BugFix] [#TypeSafety]
+- Fixed Joyride tour repeating on mobile due to incorrect localStorage key usage in `JoyrideProvider`.
 
 ### Improved
 
@@ -180,3 +196,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Removed debugging console logs
   - Simplified icon processing logic
   - Improved overall component structure
+
+### Deprecated
+
+### Removed
+
+### Security

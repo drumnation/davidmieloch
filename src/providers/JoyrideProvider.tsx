@@ -1,7 +1,7 @@
 'use client'
 
 import React, { createContext, useState, useContext, useCallback, ReactNode } from 'react'
-import JoyrideInternal, { CallBackProps, STATUS, Step, EVENTS } from 'react-joyride'
+import { CallBackProps, STATUS, Step } from 'react-joyride'
 import dynamic from 'next/dynamic'
 import { useMantineTheme } from '@mantine/core'
 
@@ -11,7 +11,7 @@ const Joyride = dynamic(() => import('react-joyride'), {
 })
 
 interface JoyrideContextProps {
-    startTour: (initialSteps?: Step[]) => void
+    startTour: (steps: Step[], storageKey: string) => void
     setTour: (newSteps: Step[]) => void
 }
 
@@ -21,24 +21,24 @@ interface JoyrideProviderProps {
     children: ReactNode
 }
 
-const TOUR_STORAGE_KEY = 'playerTourCompleted';
-
 export const JoyrideProvider: React.FC<JoyrideProviderProps> = ({ children }) => {
     const [steps, setSteps] = useState<Step[]>([])
     const [run, setRun] = useState(false)
+    const [currentStorageKey, setCurrentStorageKey] = useState<string | null>(null)
     const theme = useMantineTheme()
 
-    const startTour = useCallback((initialSteps?: Step[]) => {
+    const startTour = useCallback((initialSteps: Step[], storageKey: string) => {
         const stepsToUse = initialSteps ?? steps;
         if (stepsToUse.length > 0) {
-            console.log(`[JoyrideProvider] startTour called (using ${initialSteps ? 'initialSteps' : 'state steps'}) and setting run = true.`);
+            console.log(`[JoyrideProvider] startTour called for key "${storageKey}" (using ${initialSteps ? 'initialSteps' : 'state steps'}) and setting run = true.`);
             if (initialSteps && initialSteps !== steps) {
                 console.log(`[JoyrideProvider] startTour: Setting state steps from initialSteps.`);
                 setSteps(initialSteps);
             }
+            setCurrentStorageKey(storageKey);
             setRun(true);
         } else {
-            console.log('[JoyrideProvider] startTour called but no steps available.');
+            console.log(`[JoyrideProvider] startTour called for key "${storageKey}" but no steps available.`);
         }
     }, [steps]);
 
@@ -55,19 +55,25 @@ export const JoyrideProvider: React.FC<JoyrideProviderProps> = ({ children }) =>
         const { status, type, lifecycle } = data
         const finishedStatuses: string[] = [STATUS.FINISHED, STATUS.SKIPPED]
 
-        console.log(`[JoyrideProvider] Callback received: Status: ${status}, Type: ${type}, Lifecycle: ${lifecycle}`);
+        console.log(`[JoyrideProvider] Callback received for tour with key "${currentStorageKey}": Status: ${status}, Type: ${type}, Lifecycle: ${lifecycle}`);
 
         if (finishedStatuses.includes(status)) {
-            console.log('[JoyrideProvider] Tour finished or skipped, setting run=false and updating localStorage.');
+            console.log(`[JoyrideProvider] Tour "${currentStorageKey}" finished or skipped, setting run=false and updating localStorage.`);
             setRun(false)
-            try {
-                localStorage.setItem(TOUR_STORAGE_KEY, 'true')
-                console.log(`[JoyrideProvider] localStorage ${TOUR_STORAGE_KEY} set to true.`);
-            } catch (error) {
-                console.error("[JoyrideProvider] Failed to save to localStorage on tour end", error);
+            if (currentStorageKey) {
+                try {
+                    localStorage.setItem(currentStorageKey, 'true')
+                    console.log(`[JoyrideProvider] localStorage ${currentStorageKey} set to true.`);
+                } catch (error) {
+                    console.error(`[JoyrideProvider] Failed to save to localStorage for key ${currentStorageKey} on tour end`, error);
+                } finally {
+                    setCurrentStorageKey(null);
+                }
+            } else {
+                console.warn(`[JoyrideProvider] Tour finished or skipped, but currentStorageKey was not set. Cannot update localStorage.`);
             }
         } else if (status === STATUS.ERROR) {
-            console.error('[JoyrideProvider] Joyride error status:', data);
+            console.error(`[JoyrideProvider] Joyride error status for tour key "${currentStorageKey}":`, data);
         }
     }
 

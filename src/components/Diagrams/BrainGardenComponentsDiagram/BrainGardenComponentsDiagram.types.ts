@@ -7,7 +7,7 @@ export type NodeType = 'mainComponent' | 'subComponent' | 'system';
 /**
  * Custom node data interface with index signature
  */
-export interface CustomNodeData extends Record<string, unknown> { 
+export interface CustomNodeData extends Record<string, unknown> {
   label: string;
   icon?: string;
   style?: React.CSSProperties;
@@ -36,25 +36,25 @@ export interface BrainGardenComponentsDiagramProps {
    * Optional CSS class name for styling the container
    */
   className?: string;
-  
+
   /**
    * Optional theme for the diagram
    * @default 'default'
    */
   theme?: 'default' | 'dark' | 'forest' | 'neutral';
-  
+
   /**
    * Optional width for the diagram container
    * @default '100%'
    */
   width?: string | number;
-  
+
   /**
    * Optional height for the diagram container
    * @default '600px'
    */
   height?: string | number;
-  
+
   /**
    * Optional background color for the diagram container
    */
@@ -77,7 +77,7 @@ export interface BrainGardenComponentsDiagramProps {
    * @default 'Brain Garden Core Components Diagram showing Knowledge System, Prompt System, and Structured Documentation'
    */
   accessibilityDescription?: string;
-  
+
   /**
    * Optional title for the diagram
    * @default 'Brain Garden Core Components'
@@ -98,7 +98,7 @@ export interface BrainGardenComponentsDiagramProps {
   /**
    * Custom edges for the diagram
    */
-  customEdges?: Array<{id: string, source: string, target: string, style?: CSSProperties}>;
+  customEdges?: Array<{ id: string, source: string, target: string, style?: CSSProperties }>;
 
   /**
    * Callback function when a node is clicked
@@ -122,7 +122,7 @@ export interface BrainGardenComponentsDiagramProps {
    * @default 'shift'
    */
   selectionKeys?: string[];
-  
+
   /**
    * Whether the diagram is in edge creation mode, allowing nodes to be connected
    * @default false
@@ -133,7 +133,7 @@ export interface BrainGardenComponentsDiagramProps {
 /**
  * Internal props for the DiagramFlow component
  */
-export interface DiagramFlowProps extends BrainGardenComponentsDiagramProps {}
+export interface DiagramFlowProps extends BrainGardenComponentsDiagramProps { }
 
 /**
  * Theme style configuration
@@ -142,3 +142,5 @@ export interface ThemeStyles {
   backgroundColor?: string;
   color?: string;
 }
+
+export interface FlowState extends Record<string, unknown> { }

@@ -11,19 +11,19 @@ const createMockComponent = (tag: string) => {
   return React.forwardRef(({ children, style = {}, ...props }: any, ref) => {
     // Clean the style object of any spring values
     const cleanStyle: Record<string, any> = { ...style };
-    
+
     // Handle any potential spring values in style
     for (const key in cleanStyle) {
       if (
-        cleanStyle[key] && 
-        typeof cleanStyle[key] === 'object' && 
+        cleanStyle[key] &&
+        typeof cleanStyle[key] === 'object' &&
         (typeof cleanStyle[key].to === 'function' || typeof cleanStyle[key].get === 'function')
       ) {
         // Replace with fixed value
         cleanStyle[key] = 0;
       }
     }
-    
+
     // Create the element with React createElement directly
     return React.createElement(tag, { ...props, style: cleanStyle, ref }, children);
   });
@@ -55,7 +55,7 @@ export const useTrail = (count: number, config: any) => {
   return Array(count).fill({});
 };
 
-export const useChain = () => {};
+export const useChain = () => { };
 
 export const useTransition = () => [];
 
@@ -80,7 +80,7 @@ export class SpringValue {
   constructor(initialValue: any) {
     // Do nothing
   }
-  
+
   // All methods return fixed values or this for chaining
   get() { return 0; }
   set() { return this; }
@@ -90,21 +90,26 @@ export class SpringValue {
   reset() { return this; }
   finish() { return this; }
   update() { return Promise.resolve(this); }
-  
+
   // Add all standard properties
   value = 0;
   animation = null;
   queue = [];
   defaultProps = {};
   key = '';
-  
+
   // Make sure we're not an observable that can trigger stack overflow
   get idle() { return true; }
 }
 
 // Mock Globals
 export const Globals = {
-  assign: () => {},
+  assign: () => { },
   get: () => ({}),
   skipAnimation: true,
-}; 
+};
+
+const ForceDisableReactSpring = (props: any) => {
+  // ... component logic ...
+};
+ForceDisableReactSpring.displayName = 'ForceDisableReactSpring'; 
