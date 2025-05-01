@@ -1,4 +1,7 @@
 - !!!We use pnpm as our package manager, as well as pnpm workspaces to help manage our monorepo packages
+    - We are using Next.js with SSR and App Router
+    - We are using SWC to transpile our code, only suggest Babel if SWC is not an option anymore
+    - We are using Styled Components and Framer Motion for animations
     - We use turbo repo to help manage and optimize our monorepo
         - ALWAYS remove unnecessary comments when refactoring
             - ALWAYS remove unused imports when refactoring or finishing a task
