@@ -22,17 +22,11 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // No need to get colorScheme here anymore
-
   // Initialize spring debugger in both dev and production
   useEffect(() => {
-    // Skip in SSR context
     if (typeof window === 'undefined') return;
-
-    // Constants for easy toggling
     const ENABLE_IN_PROD = true; // Set to false to disable in production
     const isProduction = process.env.NODE_ENV === 'production';
-
     try {
       if (isProduction && ENABLE_IN_PROD) {
         console.log('[Debug] Setting up spring debugger in production mode (safety measures active)');
@@ -48,9 +42,6 @@ export default function ClientLayout({
 
   // Inner component - no longer needs to access theme context directly
   const AppShellWithTheme = ({ children }: { children: React.ReactNode }) => {
-    // const { colorScheme } = useMantineTheme(); // Remove hook
-    // const isDark = colorScheme === 'dark'; // Remove derived variable
-
     return (
       <AppShell
         header={{ height: HEADER_HEIGHT }}
@@ -67,7 +58,6 @@ export default function ClientLayout({
             overflowX: 'hidden',
             minHeight: '100vh',
           }
-          // The correct background (light or dark) will be applied via the theme class set on body/html
         })}
       >
         <AppShell.Header>
@@ -87,11 +77,7 @@ export default function ClientLayout({
             zIndex: 10000     // Add high z-index 
           }}
         >
-          {/* Test footer removed */}
-
-          {/* Render the actual PersistentFooter here */}
           <PersistentFooter data-print-hidden="true" />
-
         </AppShell.Footer>
 
       </AppShell>

@@ -5,10 +5,10 @@ import { SpinnerType } from '@shared-components/atoms/SpinnerLoader';
 import { usePathname } from 'next/navigation';
 
 const availableSpinnerTypes: SpinnerType[] = [
-  'clip', 
-  'beat', 
-  'bar', 
-  'circle', 
+  'clip',
+  'beat',
+  'bar',
+  'circle',
   'climbing-box',
   'hash',
   'pulse',
@@ -31,17 +31,16 @@ export const LoadingProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [isLoading, setIsLoading] = useState(false);
   const [loadingText, setLoadingText] = useState<string | null>(null);
   const [spinnerType, setSpinnerType] = useState<SpinnerType>('circle');
-  
+
   const isNavCompleteRef = useRef(true);
   const isPageReadyRef = useRef(false);
   const pathname = usePathname();
 
   // Reset page ready state on route change
   useEffect(() => {
-    console.log(`[LoadingContext] Route changed to: ${pathname}. Resetting page ready, setting loading.`);
+    console.log(`[LoadingContext] Route changed to: ${pathname}. Resetting page ready.`);
     isPageReadyRef.current = false;
-    setIsLoading(true);
-    setLoadingText('Loading page...'); // Set default text on route change
+    setLoadingText('Loading page...'); // Keep setting default text if desired, or remove too
   }, [pathname]);
 
   const showLoading = useCallback((text?: string) => {
@@ -51,7 +50,7 @@ export const LoadingProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     const randomIndex = Math.floor(Math.random() * availableSpinnerTypes.length);
     const randomType = availableSpinnerTypes[randomIndex];
-    
+
     setSpinnerType(randomType);
     setLoadingText(text || 'Loading...'); // Also set a fallback here if text is empty
     setIsLoading(true);

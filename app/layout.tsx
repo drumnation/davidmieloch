@@ -8,6 +8,7 @@ import '../src/styles/print.css';
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import { JoyrideProvider } from '@/providers/JoyrideProvider';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: 'David Mieloch Portfolio',
@@ -29,6 +30,7 @@ export default function RootLayout({
             </JoyrideProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>
+        <SpeedInsights />
       </body>
     </html>
   );
