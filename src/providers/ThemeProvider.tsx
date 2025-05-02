@@ -59,9 +59,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   // Restore the !mounted check to prevent premature rendering?
   // This was likely preventing the worse flashing before, despite causing its own flash.
-  if (!mounted) {
-    return null;
-  }
+  // if (!mounted) {
+  //    return null;
+  // }
 
   return (
     <ThemeContext.Provider value={{ colorScheme, toggleColorScheme }}>

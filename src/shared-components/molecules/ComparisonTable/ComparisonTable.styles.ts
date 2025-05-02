@@ -43,17 +43,11 @@ export const TableRow = styled.tr`
   }
   
   &:nth-child(even) {
-    background: ${props => props.theme.colors.gray[0]};
-    [data-mantine-color-scheme="dark"] & {
-       background: ${props => props.theme.colors.dark[6]};
-    }
+    background: var(--mantine-color-default);
   }
   
   &:hover {
-    background: rgba(0, 0, 0, 0.05);
-    [data-mantine-color-scheme="dark"] & {
-       background: rgba(255, 255, 255, 0.05);
-    }
+    background: var(--mantine-color-default-hover);
   }
 `;
 
@@ -86,9 +80,6 @@ export const CategoryCell = styled.td`
   font-weight: 600;
   border-bottom: 1px solid var(--mantine-color-default-border);
   background: var(--mantine-color-body);
-  [data-mantine-color-scheme="dark"] & {
-       background: ${props => props.theme.colors.dark[7]};
-  }
 `;
 
 export const HighlightText = styled.span`
