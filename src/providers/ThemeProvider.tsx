@@ -43,19 +43,19 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setMounted(true);
   }, []);
 
-  React.useEffect(() => {
-    if (!mounted) return;
+  // Apply theme class as soon as possible on the client
+  // Note: This runs *after* initial render, but maybe sooner than waiting for mounted=true
+  // We still need to get the initial class right from the server if possible.
+  if (typeof window !== 'undefined') {
+    const isRootClient = window.location.pathname?.split('?')[0].replace(/\/+$/, '') === '' || window.location.pathname === '/';
+    const colorSchemeClient = isRootClient ? 'dark' : 'light';
     document.body.classList.remove('light-theme', 'dark-theme');
     document.documentElement.classList.remove('light-theme', 'dark-theme');
-    const themeClass = colorScheme === 'dark' ? 'dark-theme' : 'light-theme';
+    const themeClass = colorSchemeClient === 'dark' ? 'dark-theme' : 'light-theme';
     document.body.classList.add(themeClass);
     document.documentElement.classList.add(themeClass);
-    document.documentElement.style.colorScheme = colorScheme;
-    console.log('[ThemeProvider] Applied theme:', colorScheme);
-  }, [colorScheme, mounted]);
-
-  if (!mounted) {
-    return null;
+    document.documentElement.style.colorScheme = colorSchemeClient;
+    // console.log('[ThemeProvider Client Immediate] Applied theme:', colorSchemeClient);
   }
 
   return (
