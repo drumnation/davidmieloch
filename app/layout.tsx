@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import { lexend, inter, manrope, workSans, ibmPlex } from '../src/styles/fonts';
 import ClientLayout from '@components/ClientLayout';
 import { ThemeProvider } from '../src/providers/ThemeProvider';
@@ -20,8 +21,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const themeCookie = cookies().get('theme')?.value || 'light';
+  const themeClass = themeCookie === 'dark' ? 'dark-theme' : 'light-theme';
+
   return (
-    <html lang="en" className={`${lexend.variable} ${inter.variable} ${manrope.variable} ${workSans.variable} ${ibmPlex.variable}`}>
+    <html lang="en" className={`${themeClass} ${lexend.variable} ${inter.variable} ${manrope.variable} ${workSans.variable} ${ibmPlex.variable}`}>
+      <head>
+        <meta name="color-scheme" content={themeCookie} />
+      </head>
       <body style={{ overflowX: 'hidden' }}>
         <StyledComponentsRegistry>
           <ThemeProvider>
