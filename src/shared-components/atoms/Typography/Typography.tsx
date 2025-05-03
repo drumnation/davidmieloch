@@ -2,6 +2,7 @@
 
 import React, { FC } from 'react';
 import { Text, useMantineTheme, Box } from '@mantine/core';
+import { usePathname } from 'next/navigation';
 import { TypographyProps } from './Typography.types';
 import { getTypographyStyles, TypographyStylesProps } from './Typography.styles';
 
@@ -21,6 +22,7 @@ export const Typography: FC<TypographyProps> = ({
   ...rest
 }) => {
   const theme = useMantineTheme();
+  const pathname = usePathname();
 
   // Determine the HTML element based on variant if 'as' prop is not provided
   const getDefaultElement = () => {
@@ -44,7 +46,8 @@ export const Typography: FC<TypographyProps> = ({
     ml,
     mr,
     mx,
-    my
+    my,
+    pathname
   };
 
   // Generate styles using the new function

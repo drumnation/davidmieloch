@@ -1,6 +1,8 @@
 'use client';
 
 import { MantineTheme, MantineSpacing, rem, MantineGradient } from '@mantine/core';
+import { usePathname } from 'next/navigation';
+import { getPageThemeMode, lightModeColors, darkModeColors } from '@/utils/theme-utils';
 
 // Define the types for the parameters
 export interface TypographyStylesProps {
@@ -13,6 +15,7 @@ export interface TypographyStylesProps {
   mr?: MantineSpacing | (string & {}) | number; // Updated type
   mx?: MantineSpacing | (string & {}) | number; // Updated type
   my?: MantineSpacing | (string & {}) | number; // Updated type
+  pathname?: string | null; // Add pathname for theme determination
 }
 
 // Helper to resolve spacing values
@@ -42,18 +45,22 @@ export const getTypographyStyles = (
     mr,
     mx,
     my,
+    pathname
   }: TypographyStylesProps
 ): Record<string, any> => {
+  // Determine page theme mode
+  const pathValue = pathname || '/'; // Default to root if no pathname provided
+  const pageMode = getPageThemeMode(pathValue);
+  const isDarkMode = pageMode === 'dark';
+
+  // Select hardcoded color palette based on page type
+  const colors = isDarkMode ? darkModeColors : lightModeColors;
 
   const styles: Record<string, any> = {
     fontFamily: theme.fontFamily || 'Inter, sans-serif',
     margin: 0,
-    // Default color assuming light mode, override below
-    color: theme.colors.dark[7],
-    // Apply dark mode override using data attribute selector
-    '[data-mantine-color-scheme="dark"] &': {
-      color: theme.colors.dark[0],
-    },
+    // Default text color based on page theme mode
+    color: colors.text.primary,
   };
 
   // Variant styles (font size, line height, responsive)
@@ -104,51 +111,34 @@ export const getTypographyStyles = (
   };
   styles.fontWeight = weightMap[weight] || 400;
 
-  // Color styles - override the default based on 'color' prop
+  // Color styles - override the default based on 'color' prop and page mode
   switch (color) {
     case 'primary':
-      // Already handled by default + dark mode selector above
-      // styles.color = theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[7];
-      break; // Keep default behavior
+      // Use hardcoded colors instead of theme
+      styles.color = colors.text.primary;
+      break;
     case 'secondary':
-      // Set light mode color, add specific dark mode override
-      styles.color = theme.colors.gray[6];
-      styles['[data-mantine-color-scheme="dark"] &'] = {
-        color: theme.colors.dark[2],
-      };
+      styles.color = colors.text.secondary;
       break;
     case 'light':
-      // Set light mode color, add specific dark mode override
-      styles.color = theme.colors.gray[5];
-      styles['[data-mantine-color-scheme="dark"] &'] = {
-        color: theme.colors.gray[4],
-      };
+      styles.color = isDarkMode ? '#A6A7AB' : '#909296';
       break;
     case 'dimmed':
-      // Set dimmed color that is slightly muted
-      styles.color = theme.colors.gray[6];
-      styles['[data-mantine-color-scheme="dark"] &'] = {
-        color: theme.colors.dark[2],
-      };
+      styles.color = colors.text.muted;
       break;
     case 'gradient':
-      // Define gradient using theme tokens
-      const gradient: MantineGradient = { from: theme.primaryColor, to: 'cyan', deg: 45 }; // Adjust 'cyan' if needed
-      const fromColor = theme.colors[gradient.from]?.[6] || theme.colors.blue[6]; // Fallback color
-      const toColor = theme.colors[gradient.to]?.[6] || theme.colors.cyan[6]; // Fallback color
+      // For gradients, we'll still use theme colors but with consistent results
+      const fromColor = isDarkMode ? '#4361ee' : '#4361ee'; // Same accent colors for consistency
+      const toColor = isDarkMode ? '#7209b7' : '#7209b7';
 
-      styles.backgroundImage = `linear-gradient(${gradient.deg}deg, ${fromColor} 0%, ${toColor} 100%)`;
+      styles.backgroundImage = `linear-gradient(45deg, ${fromColor} 0%, ${toColor} 100%)`;
       styles.WebkitBackgroundClip = 'text';
       styles.backgroundClip = 'text';
       styles.WebkitTextFillColor = 'transparent';
-      // Ensure the default color override doesn't affect gradient text
       delete styles.color;
-      delete styles['[data-mantine-color-scheme="dark"] &'];
       break;
     case 'inherit':
       styles.color = 'inherit';
-      // Ensure the default color override doesn't affect inherit
-      delete styles['[data-mantine-color-scheme="dark"] &'];
       break;
   }
 

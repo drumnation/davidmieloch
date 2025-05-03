@@ -2,45 +2,17 @@
 
 import styled from 'styled-components';
 import { CSSProperties } from 'react';
+import { getPageThemeMode, getThemeColors, ThemeMode } from '@/utils/theme-utils';
 
 // Define color scheme type
 type ColorScheme = 'light' | 'dark';
 
-// Define default colors to use during server-side rendering
-const defaultColors = {
-  light: {
-    background: '#f0f0f0', // Darker off-white
-    text: '#141517',
-    textSecondary: '#5c5f66',
-    border: 'rgba(0, 0, 0, 0.1)', // Aligned with Header.tsx
-    progressBackground: 'rgba(20, 21, 23, 0.1)',
-    textMuted: 'rgba(20, 21, 23, 0.7)',
-    hoverBackground: 'rgba(100, 100, 100, 0.1)',
-    scrollTrack: 'rgba(200, 200, 200, 0.2)',
-    scrollThumb: 'rgba(100, 100, 100, 0.2)',
-    activeTrackBackground: 'rgba(67, 97, 238, 0.1)',
-    activeTrackHoverBackground: 'rgba(67, 97, 238, 0.2)',
-    inactiveTrackHoverBackground: 'rgba(0, 0, 0, 0.05)'
-  },
-  dark: {
-    background: '#1A1B1E',
-    text: '#ffffff',
-    textSecondary: '#A6A7AB',
-    border: 'rgba(0, 188, 212, 0.1)', // Aligned with Header.tsx
-    progressBackground: 'rgba(255, 255, 255, 0.1)',
-    textMuted: 'rgba(255, 255, 255, 0.7)',
-    hoverBackground: 'rgba(100, 100, 100, 0.2)',
-    scrollTrack: 'rgba(0, 0, 0, 0.2)',
-    scrollThumb: 'rgba(255, 255, 255, 0.2)',
-    activeTrackBackground: 'rgba(67, 97, 238, 0.2)',
-    activeTrackHoverBackground: 'rgba(67, 97, 238, 0.3)',
-    inactiveTrackHoverBackground: 'rgba(255, 255, 255, 0.05)'
-  }
+// Use our utility to get theme colors
+const getColorsForScheme = (scheme: ColorScheme | undefined) => {
+  // If scheme is explicitly provided, use it, otherwise fall back to light mode
+  const themeMode: ThemeMode = scheme === 'dark' ? 'dark' : 'light';
+  return getThemeColors(themeMode);
 };
-
-// Helper to get colors based on scheme
-const getColors = (scheme: ColorScheme | undefined) =>
-  scheme === 'dark' ? defaultColors.dark : defaultColors.light;
 
 // Define prop type for components needing colorScheme
 interface ColorSchemeProps {
@@ -59,7 +31,7 @@ export const FooterContainer = styled.div<ColorSchemeProps & {
   flex-direction: column;
   width: 100%;
   z-index: 50;
-  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
+  background-color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.tertiary};
   height: ${props => props.$isExpanded ? '300px' : props.$isMiniMode ? '54px' : 'auto'};
   @media (max-width: 768px) {
     height: ${props => (!props.$isMiniMode && !props.$isExpanded) ? '140px' : ''};
@@ -67,7 +39,7 @@ export const FooterContainer = styled.div<ColorSchemeProps & {
   transition: height 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
   transform: translateY(${props => props.$isMiniMode ? '0' : '0'});
   will-change: height, transform, opacity;
-  color: ${({ $colorScheme }) => getColors($colorScheme).text};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.primary};
 `;
 
 export const GradientBorder = styled.div`
@@ -83,15 +55,15 @@ export const FooterInfo = styled.div<ColorSchemeProps>`
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
-  border-top: 1px solid ${({ $colorScheme }) => getColors($colorScheme).border};
-  color: ${({ $colorScheme }) => getColors($colorScheme).text};
+  background-color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.tertiary};
+  border-top: 1px solid ${({ $colorScheme }) => getColorsForScheme($colorScheme).border.primary};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.primary};
 `;
 
 export const SocialAnchor = styled.a<ColorSchemeProps>`
   text-decoration: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
-  color: ${({ $colorScheme }) => getColors($colorScheme).textSecondary};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.secondary};
   
   &:hover {
     transform: translateY(-2px);
@@ -107,7 +79,7 @@ export const MiniPlayerContainer = styled.div<ColorSchemeProps>`
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
-  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
+  background-color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.tertiary};
 `;
 
 export const MiniModeContainer = styled.div<ColorSchemeProps>`
@@ -119,7 +91,7 @@ export const MiniModeContainer = styled.div<ColorSchemeProps>`
   margin: 0 auto;
   width: 100%;
   height: 54px;
-  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
+  background-color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.tertiary};
       
   /* Ensure all direct children are perfectly centered */
   & > * {
@@ -157,13 +129,13 @@ export const ArtworkContainer = styled.div`
 `;
 
 export const TrackTitle = styled.div<ColorSchemeProps>`
-  color: ${({ $colorScheme }) => getColors($colorScheme).text};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.primary};
   font-weight: 500;
   font-size: 1.1rem;
 `;
 
 export const TrackArtist = styled.div<ColorSchemeProps>`
-  color: ${({ $colorScheme }) => getColors($colorScheme).textMuted};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.secondary};
   font-size: 0.75rem;
 `;
 
@@ -205,7 +177,7 @@ export const ProgressContainer = styled.div`
 export const ProgressBar = styled.div<ColorSchemeProps>`
   width: 100%;
   height: 4px;
-  background-color: ${({ $colorScheme }) => getColors($colorScheme).progressBackground};
+  background-color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.secondary};
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: 0.25rem;
@@ -222,7 +194,7 @@ export const TimeDisplay = styled.div<ColorSchemeProps>`
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
-  color: ${({ $colorScheme }) => getColors($colorScheme).textMuted};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.secondary};
 `;
 
 export const ControlsContainer = styled.div`
@@ -241,10 +213,10 @@ export const ControlButton = styled.button<ColorSchemeProps>`
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
-  color: ${({ $colorScheme }) => getColors($colorScheme).text};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.primary};
   
   &:hover {
-    background-color: ${({ $colorScheme }) => getColors($colorScheme).hoverBackground};
+    background-color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.hover};
   }
   
   &:focus {
@@ -266,7 +238,7 @@ export const VolumeSlider = styled.input<ColorSchemeProps>`
   width: 80px;
   height: 4px;
   -webkit-appearance: none;
-  background: ${({ $colorScheme }) => getColors($colorScheme).progressBackground};
+  background: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.secondary};
   border-radius: 2px;
   outline: none;
   
@@ -291,11 +263,11 @@ export const VolumeSlider = styled.input<ColorSchemeProps>`
 
 export const ExpandedPlayerContainer = styled.div<ColorSchemeProps>`
   padding: 1rem 1.5rem;
-  border-top: 1px solid ${({ $colorScheme }) => getColors($colorScheme).border};
+  border-top: 1px solid ${({ $colorScheme }) => getColorsForScheme($colorScheme).border.primary};
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
-  background-color: ${({ $colorScheme }) => getColors($colorScheme).background};
+  background-color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.tertiary};
 `;
 
 export const TrackList = styled.div<ColorSchemeProps>`
@@ -311,12 +283,12 @@ export const TrackList = styled.div<ColorSchemeProps>`
   }
   
   &::-webkit-scrollbar-track {
-    background: ${({ $colorScheme }) => getColors($colorScheme).scrollTrack};
+    background: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.scrollTrack};
     border-radius: 4px;
   }
   
   &::-webkit-scrollbar-thumb {
-    background: ${({ $colorScheme }) => getColors($colorScheme).scrollThumb};
+    background: ${({ $colorScheme }) => getColorsForScheme($colorScheme).background.scrollThumb};
     border-radius: 4px;
   }
 `;
@@ -328,26 +300,26 @@ export const TrackItem = styled.div<ColorSchemeProps & { $isActive?: boolean }>`
   border-radius: 4px;
   cursor: pointer;
   background-color: ${props => props.$isActive
-    ? getColors(props.$colorScheme).activeTrackBackground
+    ? getColorsForScheme(props.$colorScheme).background.activeTrackBackground
     : 'transparent'};
   transition: background-color 0.2s;
   
   &:hover {
     background-color: ${props => props.$isActive
-    ? getColors(props.$colorScheme).activeTrackHoverBackground
-    : getColors(props.$colorScheme).inactiveTrackHoverBackground};
+    ? getColorsForScheme(props.$colorScheme).background.activeTrackHoverBackground
+    : getColorsForScheme(props.$colorScheme).background.inactiveTrackHoverBackground};
   }
 `;
 
 export const TrackItemTitle = styled.div<ColorSchemeProps>`
-  color: ${({ $colorScheme }) => getColors($colorScheme).text};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.primary};
   font-weight: 500;
   font-size: 0.875rem;
   margin-bottom: 0.25rem;
 `;
 
 export const TrackItemArtist = styled.div<ColorSchemeProps>`
-  color: ${({ $colorScheme }) => getColors($colorScheme).textMuted};
+  color: ${({ $colorScheme }) => getColorsForScheme($colorScheme).text.secondary};
   font-size: 0.75rem;
 `;
 
@@ -481,26 +453,30 @@ export const trackItemBaseStyle: CSSProperties = {
   transition: 'background-color 0.15s ease',
 };
 
-// Footer container style generator
+// Helper to get footer container style based on page theme
 export const getFooterContainerStyle = (
   colors: any,
   isMiniMode: boolean,
   isExpanded: boolean
-): CSSProperties => ({
-  position: 'fixed',
-  bottom: 0,
-  left: 0,
-  right: 0,
-  zIndex: 100,
-  backgroundColor: colors.background,
-  borderTop: `1px solid ${colors.border}`,
-  color: colors.text,
-  boxShadow: isMiniMode ? '0 -1px 3px rgba(0,0,0,0.1)' : '0 -2px 10px rgba(0,0,0,0.15)',
-  height: isExpanded ? 'auto' : isMiniMode ? '54px' : 'auto',
-  minHeight: isMiniMode ? '54px' : isExpanded ? '120px' : 'auto',
-  transition: 'height 0.3s ease',
-  overflow: 'hidden',
-});
+): CSSProperties => {
+  // Hardcoded colors for consistency
+  return {
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    zIndex: 50,
+    backgroundColor: colors.background,
+    height: isExpanded ? '300px' : isMiniMode ? '54px' : 'auto',
+    transition: 'height 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.2s ease-in-out',
+    transform: 'translateY(0)',
+    willChange: 'height, transform, opacity',
+    color: colors.text
+  };
+};
 
 // Gradient border styling
 export const gradientBorderStyle: CSSProperties = {
@@ -550,9 +526,7 @@ export const playlistContentStyle: CSSProperties = {
 };
 
 export const FooterResponsiveContainer = styled.div`
-  width: 100%;
-  height: 120px;
   @media (max-width: 768px) {
-    height: 205px;
+    height: 140px;
   }
 `;
