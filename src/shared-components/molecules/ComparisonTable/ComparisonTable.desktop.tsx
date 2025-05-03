@@ -4,6 +4,7 @@ import { ComparisonTableProps } from './ComparisonTable.types';
 import * as S from './ComparisonTable.styles';
 import { Group } from '@mantine/core';
 import { IconUser, IconCpu, IconListDetails, IconTag } from '@tabler/icons-react';
+import { usePathname } from 'next/navigation';
 
 // Replace framer-motion with CSS transitions
 export const ComparisonTableDesktop: React.FC<ComparisonTableProps> = ({
@@ -13,6 +14,12 @@ export const ComparisonTableDesktop: React.FC<ComparisonTableProps> = ({
     variant = 'default',
     className,
 }) => {
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
+
+    // Only use accent/dark variant on homepage
+    const effectiveVariant = isHomePage ? variant : 'default';
+
     const [ref, inView] = useInView({
         triggerOnce: true,
         rootMargin: "-100px",
@@ -28,14 +35,14 @@ export const ComparisonTableDesktop: React.FC<ComparisonTableProps> = ({
     }, [inView]);
 
     // Determine icon color based on variant for headers
-    const headerIconColor = variant === 'accent' ? 'var(--mantine-color-white)' : 'var(--mantine-color-text)';
+    const headerIconColor = effectiveVariant === 'accent' ? 'var(--mantine-color-white)' : 'var(--mantine-color-text)';
     // Icon color for body cells can be standard text color
     const bodyIconColor = 'var(--mantine-color-text)';
 
     return (
         <S.Container className={className} ref={ref}>
-            <S.Table $variant={variant} className={isVisible ? 'visible' : ''}>
-                <S.TableHead $variant={variant}>
+            <S.Table $variant={effectiveVariant} className={isVisible ? 'visible' : ''}>
+                <S.TableHead $variant={effectiveVariant}>
                     <tr>
                         <S.TableHeaderCell>
                             <Group gap="xs" wrap="nowrap">

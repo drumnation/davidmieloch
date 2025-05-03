@@ -5,6 +5,7 @@ import { Stack, Card, Text, Title, Group, Divider, Box, useMantineTheme } from '
 import { IconUser, IconCpu } from '@tabler/icons-react';
 import * as S from './ComparisonTable.styles';
 import { sectionContainerWithoutMarginStyle } from '../../pages/WhitePaper/components/AiAutopilotAnalogy/AiAutopilotAnalogy.styles'; // Import for padding values
+import { usePathname } from 'next/navigation';
 
 // Mobile version with stacked layout using Mantine components
 export const ComparisonTableMobile: React.FC<ComparisonTableProps> = ({
@@ -14,10 +15,16 @@ export const ComparisonTableMobile: React.FC<ComparisonTableProps> = ({
     variant = 'default', // Variant might influence mobile styling too
     className,
 }) => {
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
+
+    // Only use accent/dark variant on homepage
+    const effectiveVariant = isHomePage ? variant : 'default';
+
     const theme = useMantineTheme();
     const [ref, inView] = useInView({
         triggerOnce: true,
-        rootMargin: "-50px", // Adjusted rootMargin for mobile
+        rootMargin: "-50px",
         threshold: 0.1
     });
 
@@ -29,63 +36,81 @@ export const ComparisonTableMobile: React.FC<ComparisonTableProps> = ({
         }
     }, [inView]);
 
-    const getBackgroundColor = (themeVariant: typeof variant) => {
-        return theme.white;
-    };
+    // Get color based on the variant and whether we're in a light context
+    const headerBgColor = effectiveVariant === 'accent'
+        ? theme.colors.blue[7]
+        : theme.colors.gray[1];
 
-    const getTextColor = (themeVariant: typeof variant) => {
-        return theme.black;
-    };
+    const headerTextColor = effectiveVariant === 'accent'
+        ? theme.white
+        : theme.black;
 
-    const categoryTitleColor = variant === 'accent' ? theme.colors.blue[6] : theme.primaryColor;
-
-    // Get horizontal padding from the shared style
-    const horizontalPadding = sectionContainerWithoutMarginStyle.paddingLeft; // Assuming paddingLeft and paddingRight are the same
+    const cardBgColor = theme.white;
+    const cardTextColor = theme.black;
 
     return (
-        <Stack
-            ref={ref}
-            className={className}
-            gap="lg"
-            style={{
-                paddingLeft: horizontalPadding,
-                paddingRight: horizontalPadding,
-            }}
-        >
-            {items.map((item, index) => (
+        <Box ref={ref} className={className}>
+            <Stack gap="lg">
+                {/* Header Card */}
                 <Card
-                    shadow="sm"
-                    padding="lg"
+                    p="md"
                     radius="md"
-                    withBorder
-                    key={index}
-                    className={isVisible ? 'visible' : ''}
                     style={{
+                        backgroundColor: headerBgColor,
                         opacity: isVisible ? 1 : 0,
                         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                        transition: `opacity 0.5s ease-out ${index * 0.1}s, transform 0.5s ease-out ${index * 0.1}s`,
-                        backgroundColor: getBackgroundColor(variant),
-                        color: getTextColor(variant),
+                        transition: 'opacity 0.3s ease, transform 0.5s ease',
                     }}
                 >
-                    <Stack gap="xs">
-                        <Title order={4} c={categoryTitleColor}>{item.category}</Title>
-                        <Divider my="xs" />
-                        <Group gap="xs" wrap="nowrap">
-                            <IconUser size={18} color={getTextColor(variant)} />
-                            <Text size="sm" fw={700} style={{ color: getTextColor(variant) }}>{leftTitle}:</Text>
+                    <Stack align="center" gap="xs">
+                        <Group gap="xs">
+                            <IconUser size={20} color={headerTextColor} />
+                            <Title order={5} style={{ color: headerTextColor }}>{leftTitle}</Title>
                         </Group>
-                        <Text size="sm" style={{ color: getTextColor(variant), paddingLeft: '26px' }}>{item.leftContent}</Text>
-
-                        <Divider my="xs" variant="dashed" />
-                        <Group gap="xs" wrap="nowrap">
-                            <IconCpu size={18} color={getTextColor(variant)} />
-                            <Text size="sm" fw={700} style={{ color: getTextColor(variant) }}>{rightTitle}:</Text>
+                        <Text size="sm" style={{ color: headerTextColor }}>vs.</Text>
+                        <Group gap="xs">
+                            <IconCpu size={20} color={headerTextColor} />
+                            <Title order={5} style={{ color: headerTextColor }}>{rightTitle}</Title>
                         </Group>
-                        <Text size="sm" style={{ color: getTextColor(variant), paddingLeft: '26px' }}>{item.rightContent}</Text>
                     </Stack>
                 </Card>
-            ))}
-        </Stack>
+
+                {/* Comparison Cards */}
+                {items.map((item, index) => (
+                    <Card
+                        key={index}
+                        p="lg"
+                        radius="md"
+                        style={{
+                            backgroundColor: cardBgColor,
+                            opacity: isVisible ? 1 : 0,
+                            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                            transition: `opacity 0.3s ease, transform 0.5s ease ${index * 0.1}s`,
+                        }}
+                    >
+                        <Title order={6} mb="xs">{item.category}</Title>
+                        <Divider mb="md" />
+
+                        <Stack gap="md">
+                            <Box>
+                                <Group gap="xs" mb="xs">
+                                    <IconUser size={16} color={cardTextColor} />
+                                    <Text size="sm" fw={600}>{leftTitle}</Text>
+                                </Group>
+                                <Text size="sm">{item.leftContent}</Text>
+                            </Box>
+
+                            <Box>
+                                <Group gap="xs" mb="xs">
+                                    <IconCpu size={16} color={cardTextColor} />
+                                    <Text size="sm" fw={600}>{rightTitle}</Text>
+                                </Group>
+                                <Text size="sm">{item.rightContent}</Text>
+                            </Box>
+                        </Stack>
+                    </Card>
+                ))}
+            </Stack>
+        </Box>
     );
 }; 

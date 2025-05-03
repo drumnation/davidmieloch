@@ -3,6 +3,7 @@ import { Icon } from '../../atoms/Icon';
 import { Body } from '../../atoms/Typography';
 import { ProblemSolutionCardProps } from './ProblemSolutionCard.types';
 import * as S from './ProblemSolutionCard.styles';
+import { usePathname } from 'next/navigation';
 
 /**
  * ProblemSolutionCard displays a problem statement and its solution
@@ -15,9 +16,15 @@ export const ProblemSolutionCard: React.FC<ProblemSolutionCardProps> = ({
   impact,
   icon,
   className,
+  variant = 'white',
 }) => {
+  const pathname = usePathname();
+  // Apply 'white' variant for all non-homepage paths to ensure light background
+  const isHomePage = pathname === '/';
+  const cardVariant = isHomePage && variant === 'blue' ? 'blue' : 'white';
+
   return (
-    <S.StyledCard $variant="white" className={className}>
+    <S.StyledCard $variant={cardVariant} className={className}>
       <S.IconHeader>
         <S.HeaderIcon>
           <Icon name={icon || 'chart-bar'} />
@@ -25,7 +32,7 @@ export const ProblemSolutionCard: React.FC<ProblemSolutionCardProps> = ({
         <S.HeaderSlug>{slug}</S.HeaderSlug>
       </S.IconHeader>
 
-      <S.Content $variant="white">
+      <S.Content $variant={cardVariant}>
         <S.Section>
           <S.StatusIcon type="problem">
             <Icon name="x" />
