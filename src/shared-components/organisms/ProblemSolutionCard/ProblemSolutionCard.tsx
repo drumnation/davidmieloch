@@ -21,46 +21,69 @@ export const ProblemSolutionCard: React.FC<ProblemSolutionCardProps> = ({
   const pathname = usePathname();
   // Apply 'white' variant for all non-homepage paths to ensure light background
   const isHomePage = pathname === '/';
-  const cardVariant = isHomePage && variant === 'blue' ? 'blue' : 'white';
+  const effectiveVariant = isHomePage ? variant : 'white';
 
   return (
-    <S.StyledCard $variant={cardVariant} className={className}>
-      <S.IconHeader>
-        <S.HeaderIcon>
-          <Icon name={icon || 'chart-bar'} />
-        </S.HeaderIcon>
-        <S.HeaderSlug>{slug}</S.HeaderSlug>
-      </S.IconHeader>
+    <S.StyledCard className={className} $variant={effectiveVariant}>
+      {slug && (
+        <S.IconHeader>
+          <S.HeaderIcon>
+            {icon && <Icon name={icon} size={24} />}
+          </S.HeaderIcon>
+          <S.HeaderSlug>{slug}</S.HeaderSlug>
+        </S.IconHeader>
+      )}
 
-      <S.Content $variant={cardVariant}>
-        <S.Section>
-          <S.StatusIcon type="problem">
-            <Icon name="x" />
-          </S.StatusIcon>
-          <S.TextContent>
-            <Body>{problem}</Body>
-          </S.TextContent>
-        </S.Section>
+      <S.Content $variant={effectiveVariant}>
+        {problem && (
+          <S.Section>
+            <S.StatusIcon type="problem">
+              <Icon name="alertTriangle" size={18} />
+            </S.StatusIcon>
+            <S.TextContent>
+              <Body weight="semibold" color={effectiveVariant === 'blue' ? 'light' : 'primary'}>
+                Problem
+              </Body>
+              <Body weight="regular" color={effectiveVariant === 'blue' ? 'light' : 'secondary'}>
+                {problem}
+              </Body>
+            </S.TextContent>
+          </S.Section>
+        )}
 
-        <S.Section>
-          <S.StatusIcon type="solution">
-            <Icon name="check" />
-          </S.StatusIcon>
-          <S.TextContent>
-            <Body>{solution}</Body>
-          </S.TextContent>
-        </S.Section>
+        {solution && (
+          <S.Section>
+            <S.StatusIcon type="solution">
+              <Icon name="checkCircle" size={18} />
+            </S.StatusIcon>
+            <S.TextContent>
+              <Body weight="semibold" color={effectiveVariant === 'blue' ? 'light' : 'primary'}>
+                Solution
+              </Body>
+              <Body weight="regular" color={effectiveVariant === 'blue' ? 'light' : 'secondary'}>
+                {solution}
+              </Body>
+            </S.TextContent>
+          </S.Section>
+        )}
 
         {impact && (
           <S.Section>
             <S.StatusIcon type="impact">
-              <Icon name="chart-bar" />
+              <Icon name="trendingUp" size={18} />
             </S.StatusIcon>
             <S.TextContent>
+              <Body weight="semibold" color={effectiveVariant === 'blue' ? 'light' : 'primary'}>
+                Impact
+              </Body>
               <S.ImpactTextWrapper>
-                <Body weight="bold">{impact.value}</Body>
+                <Body weight="bold">
+                  {impact.value}
+                </Body>
                 {impact.label && (
-                  <Body color="secondary">{impact.label}</Body>
+                  <Body weight="regular" color={effectiveVariant === 'blue' ? 'light' : 'secondary'}>
+                    {impact.label}
+                  </Body>
                 )}
               </S.ImpactTextWrapper>
             </S.TextContent>

@@ -80,9 +80,18 @@ export const ItemIcon = styled.div<{ theme: MantineTheme }>`
   width: 40px;
   height: 40px;
   border-radius: ${({ theme }) => theme.radius.sm};
-  background-color: ${({ theme }) => theme.colors.gray[0]};
+  background-color: #f0f0f0;
   padding: ${({ theme }) => theme.spacing.xs};
   flex-shrink: 0;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
+
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 `;
 
 export const ItemContent = styled.div`
@@ -95,7 +104,7 @@ export const ItemContent = styled.div`
 export const ItemTitle = styled.h4<{ theme: MantineTheme }>`
   font-size: ${({ theme }) => theme.fontSizes.lg};
   margin: 0 0 ${({ theme }) => theme.spacing.xs} 0;
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.colors.gray[8]};
   word-break: break-word;
   display: flex;
   align-items: center;

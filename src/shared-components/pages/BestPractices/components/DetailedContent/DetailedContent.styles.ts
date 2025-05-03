@@ -42,15 +42,17 @@ export const useStyles = () => {
           width: ${rem(48)};
           height: ${rem(48)};
           border-radius: 50%;
-          background-color: ${theme.black};
+          background-color: #f0f0f0;
           padding: ${theme.spacing.xs};
           flex-shrink: 0;
+          border: 1px solid #e0e0e0;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .${classes.sectionIcon} svg, .${classes.sectionIcon} img {
           width: 100%;
           height: 100%;
           object-fit: contain;
-          fill: ${theme.white};
+          fill: ${theme.colors[theme.primaryColor][6]};
         }
         
         .${classes.detailedContentTitle} {
@@ -58,7 +60,7 @@ export const useStyles = () => {
           font-weight: ${theme.headings.sizes.h2.fontWeight};
           line-height: 1.3;
           margin: 0;
-          color: ${theme.black};
+          color: ${theme.colors.gray[8]};
         }
         
         .${classes.detailedContentText} {
@@ -88,7 +90,8 @@ export const useStyles = () => {
         }
         
         .${classes.codeBlock} {
-          background-color: ${theme.colors.gray[0]};
+          background-color: #f9f9f9;
+          border: 1px solid #e0e0e0;
           border-radius: ${theme.radius.md};
           padding: ${theme.spacing.lg};
           overflow-x: auto;
@@ -97,7 +100,7 @@ export const useStyles = () => {
           font-family: ${theme.fontFamilyMonospace};
           font-size: ${theme.fontSizes.sm};
           line-height: 1.5;
-          color: ${theme.black};
+          color: ${theme.colors.gray[8]};
           white-space: pre;
         }
       `;
