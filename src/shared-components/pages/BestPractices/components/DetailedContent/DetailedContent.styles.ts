@@ -1,221 +1,113 @@
 import { MantineTheme, rem, useMantineTheme } from '@mantine/core';
-import type { CSSProperties } from 'react'; // Use React's CSSProperties
+import { useMemo } from 'react';
 
-// Note: createStyles is deprecated. Using object syntax directly.
-// This hook will provide the styles object based on the current theme.
+// Utility to create a simple styles class naming system
 export const useStyles = () => {
   const theme = useMantineTheme();
 
-  // Defensive check for theme and colorScheme
-  const isDark = theme.black === '#000';
+  // Create a css-in-js classNames object that will work with the component
+  return useMemo(() => {
+    // Each key in this object will be a className string that can be applied to elements
+    const classes = {
+      sectionIcon: 'detailed-content-section-icon',
+      detailedContentTitle: 'detailed-content-title',
+      detailedContentText: 'detailed-content-text',
+      detailedContentList: 'detailed-content-list',
+      detailedContentSubtitle: 'detailed-content-subtitle',
+      codeBlock: 'detailed-content-code-block',
+      sectionTitle: 'detailed-content-section-title',
+      sectionSubtitle: 'detailed-content-section-subtitle',
+      subtitleWrapper: 'detailed-content-subtitle-wrapper',
+      textContent: 'detailed-content-text-content',
+      listContent: 'detailed-content-list-content',
+    };
 
-  // If theme is somehow unavailable, return empty styles to prevent crash
-  if (!theme) {
-    console.error('Mantine theme context is missing. Ensure MantineProvider wraps this component.');
-    return { classes: {}, cx: (...args: any[]) => args.filter(Boolean).join(' ') };
-  }
+    // Add global styles for these classes - would normally be in a separate GlobalStyles component
+    // but this ensures the styles are applied
+    if (typeof document !== 'undefined') {
+      const styleId = 'detailed-content-dynamic-styles';
+      let styleEl = document.getElementById(styleId) as HTMLStyleElement;
 
-  const styles: Record<string, CSSProperties & Record<string, any>> = {
-    detailedContentContainer: {
-      width: '100%',
-      margin: `${theme.spacing.xl} 0 ${rem(64)}`,
-      paddingBottom: rem(70),
-      opacity: 0,
-      transform: 'translateY(20px)',
-      transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
-
-      '&.visible': {
-        opacity: 1,
-        transform: 'translateY(0)',
-      },
-    },
-
-    visible: {
-      opacity: 1,
-      transform: 'translateY(0)',
-    },
-
-    titleWrapper: {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: theme.spacing.md,
-      marginBottom: theme.spacing.lg,
-    },
-
-    sectionIcon: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: rem(48),
-      height: rem(48),
-      borderRadius: '50%',
-      backgroundColor: isDark ? theme.colors.dark[6] : theme.black,
-      padding: theme.spacing.xs,
-      flexShrink: 0,
-
-      '& svg, & img': {
-        width: '100%',
-        height: '100%',
-        objectFit: 'contain',
-        fill: theme.white,
-      },
-
-      [`@media (max-width: ${theme.breakpoints.xs})`]: {
-        width: rem(40),
-        height: rem(40),
-      },
-    },
-
-    detailedContentTitle: {
-      fontSize: theme.headings.sizes.h2.fontSize,
-      fontWeight: theme.headings.sizes.h2.fontWeight,
-      color: isDark ? theme.white : theme.black,
-      wordBreak: 'break-word',
-      overflowWrap: 'break-word',
-      flex: 1,
-      minWidth: 0,
-      margin: 0,
-
-      [`@media (max-width: ${theme.breakpoints.md})`]: {
-        fontSize: `calc(${theme.headings.sizes.h2.fontSize} * 0.875)`,
-      },
-      [`@media (max-width: ${theme.breakpoints.sm})`]: {
-        fontSize: `calc(${theme.headings.sizes.h2.fontSize} * 0.75)`,
-      },
-    },
-
-    detailedContentText: {
-      fontSize: theme.fontSizes.lg,
-      lineHeight: 1.6,
-      marginBottom: theme.spacing.lg,
-      color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
-    },
-
-    detailedContentList: {
-      fontSize: theme.fontSizes.lg,
-      lineHeight: 1.6,
-      marginBottom: theme.spacing.lg,
-      color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
-      paddingLeft: theme.spacing.xl,
-      listStylePosition: 'inside',
-
-      '& ul': {
-        listStyle: 'disc',
-        margin: 0,
-        paddingLeft: theme.spacing.md,
-      },
-      '& li': {
-        marginBottom: theme.spacing.sm,
+      if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.id = styleId;
+        document.head.appendChild(styleEl);
       }
-    },
 
-    iconWrapper: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: rem(32),
-      height: rem(32),
-      borderRadius: '50%',
-      backgroundColor: isDark ? theme.colors.dark[6] : theme.black,
-      padding: rem(6),
-      flexShrink: 0,
+      const css = `
+        .${classes.sectionIcon} {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: ${rem(48)};
+          height: ${rem(48)};
+          border-radius: 50%;
+          background-color: ${theme.black};
+          padding: ${theme.spacing.xs};
+          flex-shrink: 0;
+        }
+        .${classes.sectionIcon} svg, .${classes.sectionIcon} img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          fill: ${theme.white};
+        }
+        
+        .${classes.detailedContentTitle} {
+          font-size: ${theme.headings.sizes.h2.fontSize};
+          font-weight: ${theme.headings.sizes.h2.fontWeight};
+          line-height: 1.3;
+          margin: 0;
+          color: ${theme.black};
+        }
+        
+        .${classes.detailedContentText} {
+          font-size: ${theme.fontSizes.md};
+          line-height: 1.7;
+          margin-top: ${theme.spacing.md};
+          color: ${theme.colors.gray[7]};
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+        
+        .${classes.detailedContentList} {
+          margin-top: ${theme.spacing.md};
+          margin-bottom: ${theme.spacing.lg};
+        }
+        
+        .${classes.detailedContentList} ul {
+          padding-left: ${theme.spacing.xl};
+          margin: 0;
+        }
+        
+        .${classes.detailedContentList} li {
+          line-height: 1.7;
+          margin-bottom: ${theme.spacing.xs};
+          font-size: ${theme.fontSizes.md};
+          color: ${theme.colors.gray[7]};
+        }
+        
+        .${classes.codeBlock} {
+          background-color: ${theme.colors.gray[0]};
+          border-radius: ${theme.radius.md};
+          padding: ${theme.spacing.lg};
+          overflow-x: auto;
+          margin-top: ${theme.spacing.lg};
+          margin-bottom: ${theme.spacing.lg};
+          font-family: ${theme.fontFamilyMonospace};
+          font-size: ${theme.fontSizes.sm};
+          line-height: 1.5;
+          color: ${theme.black};
+          white-space: pre;
+        }
+      `;
 
-      '& svg': {
-        fill: theme.white,
-      },
-    },
+      styleEl.innerHTML = css;
+    }
 
-    titleWithIconWrapper: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: theme.spacing.sm,
-      marginBottom: theme.spacing.md,
-    },
-
-    sectionTitle: {
-      fontSize: theme.headings.sizes.h3.fontSize,
-      fontWeight: theme.headings.sizes.h3.fontWeight,
-      color: isDark ? theme.white : theme.black,
-      margin: 0,
-      wordBreak: 'break-word',
-      overflowWrap: 'break-word',
-      flex: 1,
-      minWidth: 0,
-
-      [`@media (max-width: ${theme.breakpoints.md})`]: {
-        fontSize: `calc(${theme.headings.sizes.h3.fontSize} * 0.85)`,
-      },
-      [`@media (max-width: ${theme.breakpoints.sm})`]: {
-        fontSize: `calc(${theme.headings.sizes.h3.fontSize} * 0.75)`,
-      },
-    },
-
-    sectionSubtitle: {
-      fontSize: theme.fontSizes.xl,
-      color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
-      margin: `0 0 ${theme.spacing.md} 0`,
-      fontWeight: 500,
-    },
-
-    subtitleWrapper: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: theme.spacing.xs,
-      marginBottom: theme.spacing.xs,
-    },
-
-    textContent: {
-      fontSize: theme.fontSizes.lg,
-      lineHeight: 1.6,
-      marginBottom: theme.spacing.lg,
-      color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
-    },
-
-    listContent: {
-      marginBottom: theme.spacing.lg,
-      paddingLeft: theme.spacing.xl,
-      listStylePosition: 'inside',
-
-      '& ul': {
-        listStyle: 'disc',
-        margin: 0,
-        paddingLeft: theme.spacing.md,
-      },
-      '& li': {
-        fontSize: theme.fontSizes.lg,
-        lineHeight: 1.6,
-        color: isDark ? theme.colors.dark[1] : theme.colors.gray[7],
-        marginBottom: theme.spacing.sm,
-      }
-    },
-
-    codeBlock: {
-      backgroundColor: isDark ? theme.colors.dark[8] : theme.colors.gray[0],
-      borderRadius: theme.radius.md,
-      padding: theme.spacing.lg,
-      overflowX: 'auto',
-      marginBottom: theme.spacing.lg,
-      fontFamily: theme.fontFamilyMonospace,
-      fontSize: theme.fontSizes.sm,
-      lineHeight: 1.5,
-      color: isDark ? theme.white : theme.black,
-      whiteSpace: 'pre',
-    },
-  };
-
-  // Create a classes object mapping keys to empty strings to satisfy types
-  const classNames: Record<string, string> = {};
-  for (const key in styles) {
-    classNames[key] = ''; // Assign empty string
-  }
-
-  // Mantine's hooks usually return { classes, cx, theme, etc. }
-  // To maintain compatibility with how it's used in DetailedContent.tsx ({ classes, cx } = useStyles()),
-  // we wrap the styles object.
-  // A proper `cx` function would be needed if conditional classes are complex.
-  const cx = (...args: any[]) => args.filter(Boolean).join(' ');
-
-  // Return the object mapping keys to empty strings
-  return { classes: classNames, cx };
+    return {
+      classes,
+      cx: (...args: string[]) => args.filter(Boolean).join(' ')
+    };
+  }, [theme]);
 };
