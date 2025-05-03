@@ -96,6 +96,12 @@ export const SubNavLink: React.FC<SubNavLinkProps> = ({ item, onClick, isExpande
                     pointerEvents: isClickable ? 'auto' : 'none',
                     // Dim only if not clickable
                     opacity: isClickable ? 1 : 0.7,
+                    // Improve hover feedback with a more noticeable transition
+                    transition: 'all 0.2s ease',
+                    '&:hover': isClickable ? {
+                        backgroundColor: isActive ? 'rgba(66, 153, 225, 0.1)' : 'rgba(0, 0, 0, 0.05)',
+                        borderLeftColor: !isHeader && isInteractive ? theme.colors[theme.primaryColor][5] : undefined,
+                    } : undefined,
                 },
                 label: {
                     // fontWeight handled in textStyle

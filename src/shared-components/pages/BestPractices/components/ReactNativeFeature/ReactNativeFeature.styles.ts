@@ -35,14 +35,16 @@ export const FeatureIcon = styled.div<{ theme: MantineTheme }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  background-color: #f0f0f0;
   border-radius: ${({ theme }) => theme.radius.xl};
   padding: 0.5rem; 
   color: ${({ theme }) => theme.colors[theme.primaryColor][6]};
   flex-shrink: 0;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 
   img {
-    filter: brightness(0) invert(1);
+    filter: none;
   }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -62,7 +64,7 @@ export const FeatureTitle = styled.h3<{ theme: MantineTheme }>`
   font-size: ${({ theme }) => theme.headings.sizes.h3.fontSize};
   font-weight: 600;
   margin: 0 0 ${({ theme }) => theme.spacing.xs};
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.colors.gray[8]};
 `;
 
 export const FeatureDescription = styled.p<{ theme: MantineTheme }>`
@@ -106,5 +108,5 @@ export const ItemIcon = styled.span<{ theme: MantineTheme }>`
 
 export const FeatureItemText = styled.span<{ theme: MantineTheme }>`
   font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.colors.gray[7]};
 `;
