@@ -47,6 +47,26 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     return <Container $disablePadding={$disablePadding}>Invalid content</Container>;
   }
 
+  // Preprocess markdown content to remove problematic patterns
+  let processedContent = content;
+
+  // Clean up backtick-related formatting issues
+  if (processedContent.startsWith('``md') || processedContent.startsWith('``')) {
+    processedContent = processedContent.replace(/^``(md)?/, '').trim();
+  }
+
+  // Also clean any end backticks if present
+  if (processedContent.endsWith('``')) {
+    processedContent = processedContent.replace(/``$/, '').trim();
+  }
+
+  // Remove any lingering backtick md markers on the first line
+  const contentLines = processedContent.split('\n');
+  if (contentLines.length > 0 && contentLines[0].trim() === '``md') {
+    contentLines.shift();
+    processedContent = contentLines.join('\n').trim();
+  }
+
   // Log the content for debugging
   // console.log('MarkdownRenderer content:', content);
 
@@ -94,7 +114,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     // Pass disablePadding correctly to the selected container component
     <Container $disablePadding={$disablePadding}>
       <ReactMarkdown components={componentsConfig}>
-        {content}
+        {processedContent}
       </ReactMarkdown>
     </Container>
   );

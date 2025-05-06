@@ -10,7 +10,21 @@ interface PageContainerProps {
 
 export const PageContainer: React.FC<PageContainerProps> = ({ children, className }) => {
   return (
-    <Container size="lg" className={className}>
+    <Container
+      size="lg"
+      className={className}
+      styles={(theme) => ({
+        root: {
+          '@media (max-width: 768px)': {
+            padding: '0.75rem',
+          },
+          '@media (max-width: 480px)': {
+            padding: '0.25rem',
+            maxWidth: '100%',
+          }
+        }
+      })}
+    >
       {children}
     </Container>
   );

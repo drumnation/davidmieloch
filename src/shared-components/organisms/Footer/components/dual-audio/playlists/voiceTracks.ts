@@ -16,6 +16,13 @@ import { AudioTrack } from '../DualAudio.types'; // Assuming AudioTrack type is 
 // Voice Tracks are mostly page-specific spoken narration
 export const voiceTracks: AudioTrack[] = [
     {
+        id: 'interview-generator',
+        title: "Interview Generator",
+        artist: 'Narration by David Mieloch',
+        src: '/audio/voice/interview-generator.mp3',
+        description: 'Narrated interview generator page and information.'
+    },
+    {
         id: 'thank-you-job',
         title: "Thank You Job Page",
         artist: 'Narration by David Mieloch',

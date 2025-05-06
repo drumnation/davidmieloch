@@ -1,0 +1,252 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# AI-Native Interview Generator
+
+## Purpose
+
+This prompt generates role-specific interview challenges designed to test AI-native thinking abilities for technical roles. The output is a complete interview packet that includes:
+
+1. A challenge description
+2. Implementation requirements
+3. Evaluation rubric
+4. Interviewer notes
+
+## Usage
+
+This can be triggered in two ways:
+- Via the web form at `/interview-generator`
+- Via CLI with `cursor generate-interview`
+
+## Input Parameters
+
+The generator requires the following inputs:
+
+- `roleTitle`: The specific role being interviewed for (e.g., "Senior Frontend Engineer")
+- `domainFocus`: Technical domain focus (e.g., "web-frontend", "backend", "fullstack")
+- `projectContext`: Brief description of the project/scenario context
+- `aiMaturityLevel`: Expected AI proficiency level (beginner, intermediate, advanced, expert)
+- `assessmentFormat`: Format of the challenge (take-home, live-coding, pair-programming, architecture-review)
+- `timeLimit`: Expected time to complete (1-hour, 2-hours, 4-hours, 8-hours, 24-hours, 48-hours)
+- `canUseAiTools`: Whether candidates can use AI tools during the challenge (true/false)
+- `teamFluencyLevel`: Team's overall AI fluency (novice, familiar, proficient, expert)
+
+## Output Format
+
+The output is formatted as a Markdown document with the following sections:
+
+```md
+# AI-Native Interview Challenge
+# {roleTitle}
+
+## Overview
+
+A brief introduction to the challenge, designed for a {roleTitle} role with a focus on {domainFocus}.
+
+### Context
+
+{projectContext}
+
+### Challenge Parameters
+- **AI Maturity Level:** {aiMaturityLevel}
+- **Format:** {assessmentFormat}
+- **Time Limit:** {timeLimit}
+- **AI Tools Allowed:** {canUseAiTools}
+- **Team AI Fluency:** {teamFluencyLevel}
+
+## Challenge Description
+
+Detailed description of the challenge with clear requirements and deliverables.
+
+## Implementation Requirements
+
+Specific technical requirements and constraints for the challenge.
+
+## Evaluation Rubric
+
+### Technical Implementation (40%)
+- **Excellent (35-40)**: [Criteria for excellent implementation]
+- **Good (25-34)**: [Criteria for good implementation]
+- **Satisfactory (15-24)**: [Criteria for satisfactory implementation]
+- **Needs Improvement (0-14)**: [Criteria for needs improvement]
+
+### AI Integration & Workflow (30%)
+- **Excellent (25-30)**: [Criteria for excellent AI integration]
+- **Good (18-24)**: [Criteria for good AI integration]
+- **Satisfactory (10-17)**: [Criteria for satisfactory AI integration]
+- **Needs Improvement (0-9)**: [Criteria for needs improvement]
+
+### Communication & Documentation (30%)
+- **Excellent (25-30)**: [Criteria for excellent communication]
+- **Good (18-24)**: [Criteria for good communication]
+- **Satisfactory (10-17)**: [Criteria for satisfactory communication]
+- **Needs Improvement (0-9)**: [Criteria for needs improvement]
+
+## Interviewer Notes
+
+Guidelines for the interviewer on how to evaluate responses and what to look for.
+
+### Key Questions to Ask
+
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
+
+### Red Flags
+
+- [Red flag 1]
+- [Red flag 2]
+- [Red flag 3]
+
+### Green Flags
+
+- [Green flag 1]
+- [Green flag 2]
+- [Green flag 3]
+```
+
+## Principles for Challenge Design
+
+1. **AI-Native Focus**: Each challenge should test the candidate's ability to effectively use AI as a multiplier in their workflow, not just as a coding assistant.
+
+2. **Domain Relevance**: Challenges should be directly relevant to the specific domain and role, focusing on realistic scenarios.
+
+3. **Technical Depth**: Include challenges that test technical depth appropriate to the level of the role.
+
+4. **Amplifier Mindset**: Assess whether candidates use AI as a "force multiplier" rather than just a replacement for manual coding.
+
+5. **Process Visibility**: Design challenges that make the candidate's thought process and decision-making visible.
+
+6. **Learning & Adaptation**: Include elements that assess how well candidates learn from AI interactions and adapt their approach.
+
+7. **Team Alignment**: Consider the team's current AI fluency level when designing challenge difficulty.
+
+8. **Tool Appropriateness**: If AI tools are allowed, assess the candidate's ability to choose the right tool for the job.
+
+## Challenge Types by Role
+
+### Frontend Roles
+- Component design with specific accessibility requirements
+- State management implementation with complex user flows
+- API integration with error handling and loading states
+- Performance optimization of rendering-heavy interfaces
+
+### Backend Roles
+- API design and implementation for specific use cases
+- Database schema design and query optimization
+- Authentication and authorization systems
+- Distributed systems challenges (caching, messaging, etc.)
+
+### Fullstack Roles
+- End-to-end feature implementation
+- System design with frontend and backend considerations
+- Authentication flows across stack layers
+- Performance optimization across the entire stack
+
+### Data Science/ML Roles
+- Feature engineering and selection
+- Model evaluation and comparison
+- Data pipeline design and implementation
+- ML system integration with production services
+
+### DevOps/Platform Roles
+- CI/CD pipeline design and implementation
+- Infrastructure as code challenges
+- Monitoring and observability implementation
+- Security implementation and remediation
+
+## Example Challenge (Frontend)
+
+```md
+# AI-Native Interview Challenge: Senior Frontend Engineer
+
+## Overview
+
+Design and implement a dynamic form builder interface that allows users to create, save, and share custom forms. This challenge evaluates your ability to work with complex state management, component composition, and API integration while effectively leveraging AI tools in your workflow.
+
+### Challenge Parameters
+- **AI Maturity Level:** Intermediate
+- **Format:** Take-home Challenge
+- **Time Limit:** 4 Hours
+- **AI Tools Allowed:** Yes
+- **Team AI Fluency:** Proficient
+
+## Challenge Description
+
+Create a React application that allows users to:
+
+1. Build custom forms by dragging and dropping different input types (text, number, select, checkbox, etc.)
+2. Configure each input with validation rules, default values, and styling options
+3. Preview the form as it's being built
+4. Generate a shareable link for the created form
+5. Save forms to a local storage or mock API
+
+## Implementation Requirements
+
+- Use React with TypeScript
+- Implement proper state management (React Context, Redux, or similar)
+- Create reusable components for each form element
+- Implement drag-and-drop functionality
+- Add form validation
+- Include responsive design for mobile and desktop
+- Write clean, maintainable, and well-documented code
+- Include unit tests for key components
+
+## Evaluation Rubric
+
+### Technical Implementation (40%)
+- **Excellent (35-40)**: Complete implementation with advanced features like real-time validation, undo/redo functionality, and optimized performance. Code is exceptionally clean, well-structured, and follows best practices.
+- **Good (25-34)**: Solid implementation with all core features working well. Code is clean, well-organized, and follows good practices.
+- **Satisfactory (15-24)**: Basic implementation with core functionality working. Some areas could be improved for cleaner code or better organization.
+- **Needs Improvement (0-14)**: Incomplete implementation or significant issues with core functionality. Code structure and organization need substantial improvement.
+
+### AI Integration & Workflow (30%)
+- **Excellent (25-30)**: Sophisticated AI usage that amplifies productivity. Can explain AI prompt strategies, uses AI for multiple aspects (code, testing, design thinking), and shows evidence of customizing/refining AI outputs.
+- **Good (18-24)**: Effective AI usage that speeds up development. Shows understanding of good prompting and how to integrate AI outputs with existing code.
+- **Satisfactory (10-17)**: Basic AI usage that helps with simple tasks. Some understanding of how to prompt effectively but may accept AI outputs without sufficient review or adaptation.
+- **Needs Improvement (0-9)**: Ineffective AI usage or over-reliance on AI without understanding. Code shows signs of directly using AI outputs without proper integration or review.
+
+### Communication & Documentation (30%)
+- **Excellent (25-30)**: Exceptional documentation explaining design decisions, component architecture, and AI integration strategy. Includes detailed README, inline comments where appropriate, and clear commit messages.
+- **Good (18-24)**: Good documentation with clear README and explanation of major design decisions. Some discussion of AI usage and workflow.
+- **Satisfactory (10-17)**: Basic documentation that covers setup and usage but lacks depth on design decisions or AI workflow.
+- **Needs Improvement (0-9)**: Minimal or missing documentation. Hard to understand code structure or design decisions.
+
+## Interviewer Notes
+
+### Key Questions to Ask
+
+1. "Walk me through your component architecture. How did you decide on this structure?"
+2. "How did you approach the state management for this application? What alternatives did you consider?"
+3. "Can you explain your process for working with AI tools during this challenge? What were some effective prompts or strategies you used?"
+4. "What was the most challenging part of this implementation, and how did you overcome it?"
+5. "If you had more time, what additional features or improvements would you make?"
+
+### Red Flags
+
+- Unable to explain parts of their own code (indicates over-reliance on AI without understanding)
+- Direct copying of AI-generated code without adaptation to the specific requirements
+- Poor component structure or state management showing lack of architectural thinking
+- No consideration for edge cases, error states, or user experience
+- Not leveraging TypeScript effectively for type safety
+
+### Green Flags
+
+- Thoughtful component design showing understanding of React patterns and principles
+- Strategic use of AI tools that enhances rather than replaces their own thinking
+- Evidence of iterative improvement and learning during the development process
+- Well-structured code with clear separation of concerns
+- Consideration of accessibility, performance, and user experience
+- Bonus points for additional features or enhancements that weren't explicitly required
+```
+
+## Implementation Notes
+
+When generating challenges:
+
+1. Tailor the challenge complexity to match the role level and AI maturity requirements
+2. Ensure clear, specific evaluation criteria that focus on both technical skills and AI workflow
+3. Include interviewer notes that help assess AI-native thinking and approach
+4. Make challenges realistic and representative of actual work at the company

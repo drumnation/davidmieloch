@@ -22,9 +22,8 @@ const variantStyles = {
     background: transparent;
     color: #4F46E5;
     &:hover {
-      background: rgba(255, 255, 255, 0.3);
-      color: white;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+      background: rgba(79, 70, 229, 0.1);
+      color: #4F46E5;
       font-weight: 600;
     }
   `,
@@ -73,7 +72,7 @@ export const IconWrapper = styled.span<{ position: 'left' | 'right' }>`
   ${({ position }) => position === 'left' ? 'margin-right: 8px;' : 'margin-left: 8px;'}
 `;
 
-export const StyledButton = styled(MantineButton)<ButtonProps>`
+export const StyledButton = styled(MantineButton) <ButtonProps>`
   border-radius: 8px;
   font-weight: 500;
   transition: all 0.2s ease;
