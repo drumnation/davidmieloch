@@ -1,9 +1,4 @@
----
-description: 
-globs: 
-alwaysApply: false
----
-# AI-Native Interview Generator
+export const masterPrompt = `# AI-Native Interview Generator
 
 ## Purpose
 
@@ -17,27 +12,26 @@ This prompt generates role-specific interview challenges designed to test AI-nat
 ## Usage
 
 This can be triggered in two ways:
-- Via the web form at `/interview-generator`
-- Via CLI with `cursor generate-interview`
+- Via the web form at '/ interview - generator'
+- Via CLI with 'cursor generate-interview'
 
 ## Input Parameters
 
 The generator requires the following inputs:
 
-- `roleTitle`: The specific role being interviewed for (e.g., "Senior Frontend Engineer")
-- `domainFocus`: Technical domain focus (e.g., "web-frontend", "backend", "fullstack")
-- `projectContext`: Brief description of the project/scenario context
-- `aiMaturityLevel`: Expected AI proficiency level (beginner, intermediate, advanced, expert)
-- `assessmentFormat`: Format of the challenge (take-home, live-coding, pair-programming, architecture-review)
-- `timeLimit`: Expected time to complete (1-hour, 2-hours, 4-hours, 8-hours, 24-hours, 48-hours)
-- `canUseAiTools`: Whether candidates can use AI tools during the challenge (true/false)
-- `teamFluencyLevel`: Team's overall AI fluency (novice, familiar, proficient, expert)
+- "roleTitle": The specific role being interviewed for (e.g., "Senior Frontend Engineer")
+- "domainFocus": Technical domain focus (e.g., "web-frontend", "backend", "fullstack")
+- "projectContext": Brief description of the project/scenario context
+- "aiMaturityLevel": Expected AI proficiency level (beginner, intermediate, advanced, expert)
+- "assessmentFormat": Format of the challenge (take-home, live-coding, pair-programming, architecture-review)
+- "timeLimit": Expected time to complete (1-hour, 2-hours, 4-hours, 8-hours, 24-hours, 48-hours)
+- "canUseAiTools": Whether candidates can use AI tools during the challenge (true/false)
+- "teamFluencyLevel": Team's overall AI fluency (novice, familiar, proficient, expert)
 
 ## Output Format
 
 The output is formatted as a Markdown document with the following sections:
 
-```md
 # AI-Native Interview Challenge
 # {roleTitle}
 
@@ -105,7 +99,6 @@ Guidelines for the interviewer on how to evaluate responses and what to look for
 - [Green flag 1]
 - [Green flag 2]
 - [Green flag 3]
-```
 
 ## Principles for Challenge Design
 
@@ -159,7 +152,6 @@ Guidelines for the interviewer on how to evaluate responses and what to look for
 
 ## Example Challenge (Frontend)
 
-```md
 # AI-Native Interview Challenge: Senior Frontend Engineer
 
 ## Overview
@@ -240,7 +232,6 @@ Create a React application that allows users to:
 - Well-structured code with clear separation of concerns
 - Consideration of accessibility, performance, and user experience
 - Bonus points for additional features or enhancements that weren't explicitly required
-```
 
 ## Implementation Notes
 
@@ -250,3 +241,4 @@ When generating challenges:
 2. Ensure clear, specific evaluation criteria that focus on both technical skills and AI workflow
 3. Include interviewer notes that help assess AI-native thinking and approach
 4. Make challenges realistic and representative of actual work at the company
+`; 

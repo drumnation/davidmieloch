@@ -23,13 +23,15 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({
             <Divider my="md" style={{ opacity: 0.3 }} />
 
             <ActionContainer>
-                <AtomButton
-                    type="button"
-                    onClick={populateTestData}
-                    variant="secondary"
-                >
-                    Test Data
-                </AtomButton>
+                {process.env.NODE_ENV === 'development' && (
+                    <AtomButton
+                        type="button"
+                        onClick={populateTestData}
+                        variant="secondary"
+                    >
+                        Test Data
+                    </AtomButton>
+                )}
                 <AtomButton
                     type="submit"
                     disabled={isLoading}

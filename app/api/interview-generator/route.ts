@@ -1,21 +1,74 @@
-import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
-import fs from 'fs';
-import path from 'path';
 import { getEnrichedRoleContext } from './lib/getEnrichedRoleContext.ts';
+import { masterPrompt } from './prompts/masterPrompt';
 
-// Initialize OpenAI client
+export const runtime = 'edge';
+
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Add type interface at the top of the file
+interface InterviewInputs {
+    roleTitle: string;
+    domainFocus: string;
+    projectContext: string;
+    aiMaturityLevel: string;
+    assessmentFormat: string;
+    timeLimit: string;
+    canUseAiTools?: boolean;
+    teamFluencyLevel?: string;
+}
+
 export async function POST(request: Request) {
     try {
-        const { inputs } = await request.json();
+        // Validate request content type
+        const contentType = request.headers.get('Content-Type') || '';
+        if (!contentType.includes('application/json')) {
+            return new Response(
+                JSON.stringify({
+                    error: 'Invalid Content-Type. Expected application/json'
+                }),
+                {
+                    status: 400,
+                    headers: { 'Content-Type': 'application/json' }
+                }
+            );
+        }
 
-        // Load the master prompt
-        const masterPromptPath = path.join(process.cwd(), 'src/components/InterviewGenerator/prompts/master-prompt.mdc');
-        const masterPrompt = fs.readFileSync(masterPromptPath, 'utf8');
+        // Parse and validate inputs with error handling
+        let inputs: InterviewInputs;
+        try {
+            const body = await request.json();
+            inputs = body.inputs as InterviewInputs;
+
+            if (!inputs) {
+                throw new Error('Missing required "inputs" field in request body');
+            }
+
+            // Validate required fields
+            const requiredFields = [
+                'roleTitle', 'domainFocus', 'projectContext',
+                'aiMaturityLevel', 'assessmentFormat', 'timeLimit'
+            ] as const;
+
+            const missingFields = requiredFields.filter(field => !inputs[field]);
+            if (missingFields.length > 0) {
+                throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
+            }
+        } catch (parseError) {
+            console.error('Error parsing request:', parseError);
+            return new Response(
+                JSON.stringify({
+                    error: 'Invalid request format',
+                    details: parseError instanceof Error ? parseError.message : 'Failed to parse JSON body'
+                }),
+                {
+                    status: 400,
+                    headers: { 'Content-Type': 'application/json' }
+                }
+            );
+        }
 
         // Get enriched role context
         const enrichedRoleContext = await getEnrichedRoleContext(inputs.roleTitle);
@@ -23,8 +76,8 @@ export async function POST(request: Request) {
         // Format the inputs for the prompt
         const promptContent = formatPromptWithInputs(masterPrompt, inputs, enrichedRoleContext);
 
-        // Call OpenAI API
-        const completion = await openai.chat.completions.create({
+        // Call OpenAI API with streaming
+        const response = await openai.chat.completions.create({
             model: "gpt-4",
             messages: [
                 {
@@ -37,27 +90,49 @@ export async function POST(request: Request) {
                 }
             ],
             temperature: 0.7,
-            max_tokens: 2000,
+            stream: true,
         });
 
-        // Extract the generated markdown from the response
-        const markdown = completion.choices[0].message.content ||
-            generateFallbackMarkdown(inputs);
+        // Create a TransformStream to process the OpenAI response
+        const encoder = new TextEncoder();
+        const stream = new ReadableStream({
+            async start(controller) {
+                for await (const chunk of response) {
+                    const content = chunk.choices?.[0]?.delta?.content || '';
+                    controller.enqueue(encoder.encode(content));
+                }
+                controller.close();
+            }
+        });
 
-        // Store the result for future reference
-        storeGeneratedInterview(inputs.roleTitle, markdown);
-
-        return NextResponse.json({ markdown }, { status: 200 });
+        // Return the stream with explicit text/plain content type
+        // This helps browsers and clients handle the content appropriately
+        return new Response(stream, {
+            headers: {
+                'Content-Type': 'text/plain; charset=utf-8',
+                'Cache-Control': 'no-cache',
+            },
+        });
     } catch (error) {
         console.error('Error generating interview:', error);
-        return NextResponse.json(
-            { error: 'Failed to generate interview' },
-            { status: 500 }
+
+        // Return error as JSON with proper content type
+        return new Response(
+            JSON.stringify({
+                error: 'Failed to generate interview',
+                details: error instanceof Error ? error.message : 'Unknown error'
+            }),
+            {
+                status: 500,
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
         );
     }
 }
 
-function formatPromptWithInputs(masterPrompt: string, inputs: any, enrichedRoleContext: string): string {
+function formatPromptWithInputs(masterPrompt: string, inputs: InterviewInputs, enrichedRoleContext: string): string {
     // Create a formatted string from the inputs that can be used in the prompt
     const {
         roleTitle,
@@ -66,8 +141,8 @@ function formatPromptWithInputs(masterPrompt: string, inputs: any, enrichedRoleC
         aiMaturityLevel,
         assessmentFormat,
         timeLimit,
-        canUseAiTools,
-        teamFluencyLevel
+        canUseAiTools = false,
+        teamFluencyLevel = 'novice'
     } = inputs;
 
     let roleContextSection = '';
@@ -94,71 +169,14 @@ Team AI Fluency Level: ${teamFluencyLevel}
 Please create a complete interview challenge following the template and principles described above.`;
 }
 
-function storeGeneratedInterview(roleTitle: string, markdown: string) {
-    try {
-        // Create a slug from the role title
-        const slug = roleTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const fileName = `${slug}-${timestamp}.md`;
-
-        // Ensure directory exists
-        const dirPath = path.join(process.cwd(), '.interviews/roles');
-        if (!fs.existsSync(dirPath)) {
-            fs.mkdirSync(dirPath, { recursive: true });
-        }
-
-        // Write file
-        fs.writeFileSync(path.join(dirPath, fileName), markdown);
-    } catch (error) {
-        console.error('Failed to store interview:', error);
-        // Non-critical operation, so we just log the error
-    }
-}
-
-function generateFallbackMarkdown(inputs: any): string {
-    // Fallback in case the OpenAI call fails
-    const {
-        roleTitle,
-        domainFocus,
-        projectContext,
-        aiMaturityLevel,
-        assessmentFormat,
-        timeLimit,
-        canUseAiTools,
-        teamFluencyLevel
-    } = inputs;
-
-    return `# AI-Native Interview Challenge
-# ${roleTitle}
-
-## Overview
-
-This challenge is designed to assess candidates for the ${roleTitle} role, focusing on ${domainFocus}.
-
-### Context
-${projectContext}
-
-### Challenge Parameters
-- **AI Maturity Level:** ${aiMaturityLevel}
-- **Format:** ${assessmentFormat}
-- **Time Limit:** ${timeLimit}
-- **AI Tools Allowed:** ${canUseAiTools ? 'Yes' : 'No'}
-- **Team AI Fluency:** ${teamFluencyLevel}
-
-## Challenge Description
-[API call failed - please regenerate the challenge]
-
-## Evaluation Rubric
-[API call failed - please regenerate the challenge]
-
-## Interviewer Notes
-[API call failed - please regenerate the challenge]
-`;
-}
-
 export async function GET() {
-    return NextResponse.json(
-        { message: 'Please use POST method with required inputs' },
-        { status: 405 }
+    return new Response(
+        JSON.stringify({ message: 'Please use POST method with required inputs' }),
+        {
+            status: 405,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
     );
 } 

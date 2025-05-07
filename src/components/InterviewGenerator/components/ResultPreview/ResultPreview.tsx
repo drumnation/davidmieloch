@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Title, Divider, Modal } from '@mantine/core';
-import { FiSave, FiCopy, FiMaximize } from 'react-icons/fi';
+import { Title, Divider } from '@mantine/core';
+import { FiSave, FiCopy } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { Button as AtomButton } from '@/shared-components/atoms';
 import { MarkdownRenderer } from '@/shared-components/molecules/MarkdownRenderer';
@@ -10,8 +10,7 @@ import { ResultPreviewProps } from './ResultPreview.types';
 import {
     PreviewContainer,
     PreviewHeader,
-    CopyButton,
-    ModalContent
+    CopyButton
 } from './ResultPreview.styles';
 
 export const ResultPreview: React.FC<ResultPreviewProps> = ({
@@ -22,25 +21,7 @@ export const ResultPreview: React.FC<ResultPreviewProps> = ({
     previewAnimation
 }) => {
     const previewRef = useRef<HTMLDivElement>(null);
-    const [displayedMarkdown, setDisplayedMarkdown] = useState('');
     const [hasScrolledToPreview, setHasScrolledToPreview] = useState(false);
-
-    // Typewriter effect for markdown
-    useEffect(() => {
-        if (markdown) {
-            setDisplayedMarkdown(''); // Reset if markdown changes
-            setHasScrolledToPreview(false); // Reset scroll flag when new markdown arrives
-            let i = 0;
-            const interval = setInterval(() => {
-                setDisplayedMarkdown((prev) => prev + markdown.charAt(i));
-                i++;
-                if (i >= markdown.length) {
-                    clearInterval(interval);
-                }
-            }, 20); // Adjust speed as needed (e.g., 20ms per character)
-            return () => clearInterval(interval);
-        }
-    }, [markdown]);
 
     // Scroll to preview ONCE when markdown is first populated
     useEffect(() => {
@@ -55,7 +36,7 @@ export const ResultPreview: React.FC<ResultPreviewProps> = ({
         }
     }, [markdown, hasScrolledToPreview]); // Depend on markdown and the flag
 
-    if (!markdown) return null; // Show component as soon as markdown is available, typewriter will fill it
+    if (!markdown) return null; // Don't show anything if no markdown
 
     return (
         <>
@@ -83,7 +64,7 @@ export const ResultPreview: React.FC<ResultPreviewProps> = ({
                     <CopyButton onClick={copyToClipboard}>
                         {copied ? 'Copied!' : <><FiCopy size={14} /> Copy</>}
                     </CopyButton>
-                    <MarkdownRenderer content={displayedMarkdown} />
+                    <MarkdownRenderer content={markdown} />
                 </PreviewContainer>
             </motion.div>
         </>

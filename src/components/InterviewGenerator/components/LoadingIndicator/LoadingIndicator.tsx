@@ -30,6 +30,8 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
                 return 'Sending request to AI model...';
             case ApiStage.PROCESSING:
                 return thinkingSteps[currentStep]; // Use thinking steps during processing
+            case ApiStage.STREAMING:
+                return 'Receiving interview challenge...';
             case ApiStage.COMPLETED:
                 return 'Generation complete!';
             case ApiStage.ERROR:
@@ -39,13 +41,25 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
         }
     };
 
+    // Get a friendly name for the current stage
+    const getStageFriendlyName = () => {
+        switch (apiStage) {
+            case ApiStage.PROCESSING:
+                return 'AI Processing';
+            case ApiStage.STREAMING:
+                return 'Streaming Content';
+            default:
+                return apiStage;
+        }
+    };
+
     return (
         <LoadingBox ref={loadingBoxRef}>
             <Loader color="white" size="md" />
             <LoadingText>{getStageMessage()}</LoadingText>
 
             <ProgressContainer>
-                <StageLabel>{apiStage === ApiStage.PROCESSING ? 'AI Processing' : apiStage}</StageLabel>
+                <StageLabel>{getStageFriendlyName()}</StageLabel>
                 <Progress
                     value={progress}
                     color="rgba(136, 130, 255, 0.8)"

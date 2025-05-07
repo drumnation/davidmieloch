@@ -11,6 +11,7 @@ export enum ApiStage {
     PREPARING = 'preparing',
     REQUESTING = 'requesting',
     PROCESSING = 'processing',
+    STREAMING = 'streaming', // New stage specifically for streaming content
     COMPLETED = 'completed',
     ERROR = 'error'
 }
@@ -37,6 +38,7 @@ export const useInterviewGenerator = () => {
     // Add API stage tracking
     const [apiStage, setApiStage] = useState<ApiStage>(ApiStage.IDLE);
     const [progress, setProgress] = useState(0);
+    const [isStreaming, setIsStreaming] = useState(false);
 
     // Add a ref for the loading box
     const loadingBoxRef = useRef<HTMLDivElement>(null);
@@ -57,14 +59,39 @@ export const useInterviewGenerator = () => {
         }
     }, [formValues.assessmentFormat]);
 
+    // Effect for initial progress based on API stage
+    useEffect(() => {
+        if (apiStage === ApiStage.IDLE) {
+            setProgress(0);
+            setCurrentStep(0);
+            setIsStreaming(false);
+        } else if (apiStage === ApiStage.PREPARING) {
+            setProgress(15);
+            setCurrentStep(0);
+            setIsStreaming(false);
+        } else if (apiStage === ApiStage.REQUESTING) {
+            setProgress(30);
+            setIsStreaming(false);
+        } else if (apiStage === ApiStage.STREAMING) {
+            setProgress(75);
+            setIsStreaming(true);
+        } else if (apiStage === ApiStage.COMPLETED) {
+            setProgress(100);
+            setIsStreaming(false);
+        } else if (apiStage === ApiStage.ERROR) {
+            setIsStreaming(false);
+        }
+    }, [apiStage]);
+
     // Effect for cycling thinking steps and their associated progress
     useEffect(() => {
         let thinkingInterval: NodeJS.Timeout | undefined;
 
-        if (isLoading && apiStage === ApiStage.PROCESSING) {
+        // Only run thinking animation if we're processing but not streaming yet
+        if (isLoading && apiStage === ApiStage.PROCESSING && !isStreaming) {
             const thinkingStepsLength = thinkingSteps.length;
-            const baseProgress = 25;
-            const thinkingProgressRange = 70;
+            const baseProgress = 30;
+            const thinkingProgressRange = 45;
 
             thinkingInterval = setInterval(() => {
                 setCurrentStep((prevStep) => {
@@ -72,6 +99,7 @@ export const useInterviewGenerator = () => {
                     if (nextStep < thinkingStepsLength) {
                         const currentThinkingProgress = (nextStep / thinkingStepsLength) * thinkingProgressRange;
                         setProgress(baseProgress + currentThinkingProgress);
+
                         // Scroll only once when processing starts and first step is about to be set
                         if (prevStep === 0 && nextStep === 1) {
                             setTimeout(() => {
@@ -98,7 +126,6 @@ export const useInterviewGenerator = () => {
                     });
                 }, 100);
             }
-
         }
 
         return () => {
@@ -106,25 +133,7 @@ export const useInterviewGenerator = () => {
                 clearInterval(thinkingInterval);
             }
         };
-    }, [isLoading, apiStage]); // Only re-run if isLoading or apiStage changes
-
-    // Effect for initial progress based on API stage (simplified)
-    useEffect(() => {
-        if (apiStage === ApiStage.IDLE) {
-            setProgress(0);
-            setCurrentStep(0); // Reset step for next run
-        } else if (apiStage === ApiStage.PREPARING) {
-            setProgress(10);
-            setCurrentStep(0); // Ensure steps start from 0 if preparing
-        } else if (apiStage === ApiStage.REQUESTING) {
-            setProgress(25); // "Sending request..." phase
-        } else if (apiStage === ApiStage.COMPLETED) {
-            setProgress(100);
-        } else if (apiStage === ApiStage.ERROR) {
-            // Optionally set a specific progress for error, or leave as is
-        }
-        // Progress during ApiStage.PROCESSING is handled by the thinkingInterval effect
-    }, [apiStage]);
+    }, [isLoading, apiStage, isStreaming, currentStep]);
 
     const handleChange = (field: string, value: any) => {
         setFormValues(prev => ({ ...prev, [field]: value }));
@@ -134,8 +143,9 @@ export const useInterviewGenerator = () => {
         e.preventDefault();
         setIsLoading(true);
         setError('');
-        setCurrentStep(0); // Reset current step at the beginning of a new submission
+        setCurrentStep(0);
         setApiStage(ApiStage.PREPARING);
+        setMarkdown('');
 
         try {
             // Preparing data and prompt
@@ -153,62 +163,83 @@ export const useInterviewGenerator = () => {
 
             if (!response.ok) {
                 setApiStage(ApiStage.ERROR);
-                throw new Error('Failed to generate interview');
+                throw new Error(`Failed to generate interview: ${response.status}`);
             }
 
+            // Switch to processing stage for the thinking animation
             setApiStage(ApiStage.PROCESSING);
 
-            // Processing response
-            const data = await response.json();
-            let finalMarkdown = data.markdown;
+            // Give time for the thinking animation to cycle through steps
+            // This is essential for the thinking steps to be visible
+            await new Promise(resolve => setTimeout(resolve, 8000));
 
-            if (typeof finalMarkdown === 'string') {
-                // Attempt to clean up by explicitly removing various markdown code block markers
-                finalMarkdown = finalMarkdown.trim();
+            // Now switch to streaming mode
+            setApiStage(ApiStage.STREAMING);
 
-                // 1. First, remove any opening markdown code block markers (pattern: ```md, ``md, etc.)
-                if (finalMarkdown.startsWith('```md') || finalMarkdown.startsWith('``md')) {
-                    finalMarkdown = finalMarkdown.replace(/^(```md|``md)/, '').trim();
-                }
-
-                // 2. Also check for just backticks at the beginning
-                if (finalMarkdown.startsWith('```') || finalMarkdown.startsWith('``')) {
-                    finalMarkdown = finalMarkdown.replace(/^(```|``)/, '').trim();
-                }
-
-                // 3. Remove any closing code block backticks
-                if (finalMarkdown.endsWith('```') || finalMarkdown.endsWith('``')) {
-                    finalMarkdown = finalMarkdown.replace(/(```|``)$/, '').trim();
-                }
-
-                // 4. If we still have a format like ``md at the beginning of the text, remove it
-                const lines = finalMarkdown.split('\n');
-                if (lines.length > 0 && (lines[0].trim() === '``md' || lines[0].trim() === '``')) {
-                    lines.shift();
-                    finalMarkdown = lines.join('\n').trim();
-                }
+            // Get the reader from the response body
+            const reader = response.body?.getReader();
+            if (!reader) {
+                throw new Error('Failed to get response stream reader');
             }
 
-            // Ensure thinking steps progress shows 95% before moving to completed
-            // This might already be handled if the thinking interval completed
-            // If not, explicitly set it if it's less than 95 and stage was PROCESSING
-            if (progress < 95 && apiStage === ApiStage.PROCESSING) {
-                setProgress(95);
-            }
-            await new Promise(resolve => setTimeout(resolve, 500)); // Delay for UI to catch up
+            const decoder = new TextDecoder();
+            let accumulatedMarkdown = '';
+            let chunkCount = 0;
 
+            // Start collecting chunks
+            while (true) {
+                const { done, value } = await reader.read();
+
+                if (done) {
+                    break;
+                }
+
+                // Decode the chunk and append to our accumulator
+                const chunk = decoder.decode(value, { stream: true });
+                accumulatedMarkdown += chunk;
+                chunkCount++;
+
+                // Immediately update markdown as we receive chunks
+                // This ensures the typewriter-like effect during streaming
+                setMarkdown(prevMarkdown => prevMarkdown + chunk);
+
+                // Force a small delay to allow the UI to render between chunks
+                // This makes the typewriter effect more visible
+                await new Promise(resolve => setTimeout(resolve, 50));
+
+                // Update progress based on chunk size and count
+                // Calculate the progress to go from 75% to 95% during streaming
+                // This reserves the last 5% for completion
+                const streamingStartProgress = 75;
+                const streamingEndProgress = 95;
+                const streamingRange = streamingEndProgress - streamingStartProgress;
+
+                // Estimate total chunks (usually between 20-30)
+                const estimatedTotalChunks = 25;
+                const chunkProgress = (chunkCount / estimatedTotalChunks) * streamingRange;
+
+                // Ensure progress doesn't exceed the end value
+                const newProgress = Math.min(streamingStartProgress + chunkProgress, streamingEndProgress);
+                setProgress(newProgress);
+            }
+
+            // Mark as complete
             setApiStage(ApiStage.COMPLETED);
+            setProgress(100);
 
-            // Slight delay to show 100% before completing
-            await new Promise(resolve => setTimeout(resolve, 300));
-            setMarkdown(finalMarkdown);
+            // Final decoder flush
+            const finalChunk = decoder.decode();
+            if (finalChunk) {
+                // Also update the UI with the final chunk
+                setMarkdown(prevMarkdown => prevMarkdown + finalChunk);
+            }
         } catch (err) {
+            console.error('Interview generation error:', err);
             setError(err instanceof Error ? err.message : 'An unknown error occurred');
             setApiStage(ApiStage.ERROR);
         } finally {
             setTimeout(() => {
                 setIsLoading(false);
-                setApiStage(ApiStage.IDLE);
             }, 500);
         }
     };
@@ -252,15 +283,16 @@ export const useInterviewGenerator = () => {
         error,
         timeOptions,
         currentStep,
-        copied,
         loadingBoxRef,
         apiStage,
         progress,
+        copied,
         handleChange,
         handleSubmit,
         saveToFile,
         populateTestData,
         applyPreset,
-        copyToClipboard
+        copyToClipboard,
+        thinkingSteps
     };
 }; 

@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { Paper } from '@mantine/core';
+import { Typography } from '@/shared-components/atoms/Typography';
+import { Button as AtomButton } from '@/shared-components/atoms/Button';
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -103,5 +106,69 @@ export const Subtitle = styled.p`
   @media (max-width: 480px) {
     font-size: 0.9rem;
     margin-bottom: 0.75rem;
+  }
+`;
+
+// Additional styled components moved from InterviewGenerator.tsx
+export const FormContainer = styled.div`
+  margin-bottom: 2rem;
+`;
+
+export const SectionTitle = styled(Typography)`
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+`;
+
+export const PreviewContainer = styled(Paper)`
+  padding: 1.5rem;
+  margin-top: 2rem;
+  background-color: ${({ theme }) => theme.colors.gray[0]};
+  border-radius: ${({ theme }) => theme.radius.md};
+`;
+
+export const ActionContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+`;
+
+export const PreviewHeader = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  
+  h2 {
+    margin: 0;
+  }
+  
+  button {
+    margin-left: auto;
+  }
+`;
+
+export const RadioContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+`;
+
+export const RadioWithIcon = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const PresetsContainer = styled.div`
+  margin-bottom: 1.5rem;
+`;
+
+export const StyledPresetButton = styled(AtomButton)`
+  /* Override default ghost hover */
+  &&&:hover {
+    background-color: ${({ theme }) => theme.colors.gray[1]}; 
+    color: ${({ theme }) => theme.colors.blue[6]};
+    text-shadow: none;
   }
 `;
