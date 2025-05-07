@@ -1,0 +1,139 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# AI-Native Interview Challenge Assignment Generator
+
+## Purpose
+
+This subprompt specifically generates the challenge description and implementation requirements sections of an AI-native interview challenge. It focuses on creating a domain-relevant, appropriately difficult challenge that tests both technical skills and AI workflow capabilities.
+
+## Input Parameters
+
+The generator requires the following inputs:
+
+- `roleTitle`: The specific role being interviewed for (e.g., "Senior Frontend Engineer")
+- `domainFocus`: Technical domain focus (e.g., "web-frontend", "backend", "fullstack")
+- `projectContext`: Brief description of the project/scenario context
+- `aiMaturityLevel`: Expected AI proficiency level (beginner, intermediate, advanced, expert)
+- `assessmentFormat`: Format of the challenge (take-home, live-coding, pair-programming, architecture-review)
+- `timeLimit`: Expected time to complete (1-hour, 2-hours, 4-hours, 8-hours, 24-hours, 48-hours)
+- `canUseAiTools`: Whether candidates can use AI tools during the challenge (true/false)
+
+## Output Format
+
+```md
+## Challenge Description
+
+Detailed description of a realistic challenge appropriate for the role, domain, and AI maturity level. This includes:
+
+1. A clear scenario or problem statement
+2. Expected deliverables
+3. Constraints or limitations
+4. Any specific focus areas (e.g., performance, security, accessibility)
+
+## Implementation Requirements
+
+A bulletized list of technical requirements and constraints, including:
+
+- Required technologies or frameworks
+- Specific technical features to implement
+- Quality standards (tests, documentation, etc.)
+- Any specific AI-related considerations
+- Deliverable format (e.g., GitHub repo, code files, documentation)
+```
+
+## Guidelines for Assignment Generation
+
+1. **Time-Appropriate Scope**: Ensure the challenge can realistically be completed within the specified time limit
+
+2. **Domain Relevance**: Create challenges that test skills specifically relevant to the role and domain focus
+
+3. **AI Maturity Calibration**:
+   - **Beginner**: Simple prompting tasks, basic code completion
+   - **Intermediate**: Structured prompting, managing context, iterative refinement
+   - **Advanced**: Complex workflows, prompt engineering, tool chaining
+   - **Expert**: Advanced system design with AI, novel applications, full workflow optimization
+
+4. **Format Adaptation**:
+   - **Take-home**: More comprehensive, end-to-end problems
+   - **Live-coding**: Focused problems solvable in 1-2 hours
+   - **Pair-programming**: Collaborative problems with discussion points
+   - **Architecture-review**: System design challenges with multiple considerations
+
+5. **AI Tools Consideration**:
+   - If allowed: Include specific prompts to assess AI tool usage skills
+   - If not allowed: Focus on core technical skills and problem-solving approach
+
+6. **Technical Depth**: Include at least one aspect that requires deeper technical knowledge beyond what could be easily solved with basic AI prompting
+
+7. **Real-World Relevance**: Frame challenges within realistic business scenarios
+
+## Example Output (Frontend)
+
+```md
+## Challenge Description
+
+Design and implement an AI-enhanced content management interface for a marketing team. This tool should allow marketers to:
+
+1. Create and edit blog posts with a rich text editor
+2. Generate content suggestions based on target keywords
+3. Analyze content for SEO optimization and readability
+4. Schedule posts for publication across multiple channels
+5. Track performance metrics after publication
+
+The interface should demonstrate your understanding of frontend architecture, state management, and effective AI integration to enhance the user workflow.
+
+## Implementation Requirements
+
+- Use React with TypeScript and a component library of your choice
+- Implement clean, maintainable component architecture
+- Demonstrate effective state management (Context API, Redux, or similar)
+- Create at least one custom hook for a complex behavior
+- Integrate with at least one mock API endpoint (provide mock implementation)
+- Include proper error handling and loading states
+- Implement responsive design for mobile and desktop
+- Write unit tests for key components (minimum 70% coverage)
+- Include documentation explaining your AI integration approach
+- Provide a README with setup instructions and architectural decisions
+- Bonus: Add accessibility features (ARIA attributes, keyboard navigation)
+```
+
+## Example Output (Backend)
+
+```md
+## Challenge Description
+
+Develop a recommendation engine API for an e-commerce platform that uses AI to enhance product recommendations. The system should:
+
+1. Process user browsing and purchase history data
+2. Generate personalized product recommendations
+3. Filter recommendations based on inventory availability
+4. Include an A/B testing mechanism for different recommendation algorithms
+5. Provide performance metrics on recommendation quality
+
+Focus on building a scalable, efficient system that demonstrates your backend architecture skills and ability to integrate AI capabilities effectively.
+
+## Implementation Requirements
+
+- Use Node.js/Express (or equivalent framework in your preferred language)
+- Implement a clean architecture with separation of concerns
+- Design RESTful API endpoints with proper documentation
+- Include data validation and error handling
+- Implement proper logging and monitoring hooks
+- Create a database schema with sample data (SQL or NoSQL)
+- Write comprehensive unit and integration tests
+- Include rate limiting and security considerations
+- Document your AI integration approach and design decisions
+- Provide a README with setup instructions and architectural overview
+- Bonus: Include containerization with Docker
+```
+
+## Adaptation Guidelines
+
+Adjust challenge complexity based on:
+- Seniority level (junior, mid-level, senior, staff)
+- Time constraints
+- Team's AI fluency
+- Specific technical skills listed in the job description

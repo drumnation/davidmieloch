@@ -15,10 +15,10 @@ export const PageContainer: React.FC<PageContainerProps> = ({ children, classNam
       className={className}
       styles={(theme) => ({
         root: {
-          '@media (max-width: 768px)': {
+          '@media (maxWidth: 768px)': {
             padding: '0.75rem',
           },
-          '@media (max-width: 480px)': {
+          '@media (maxWidth: 480px)': {
             padding: '0.25rem',
             maxWidth: '100%',
           }

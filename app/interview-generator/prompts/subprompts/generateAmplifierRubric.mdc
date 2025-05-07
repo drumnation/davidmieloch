@@ -1,0 +1,198 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# AI-Native Interview Evaluation Rubric Generator
+
+## Purpose
+
+This subprompt generates a comprehensive evaluation rubric for assessing candidates on their AI-native technical skills. The rubric focuses on three key areas: technical implementation, AI integration & workflow, and communication & documentation.
+
+## Input Parameters
+
+The generator requires the following inputs:
+
+- `roleTitle`: The specific role being interviewed for (e.g., "Senior Frontend Engineer")
+- `domainFocus`: Technical domain focus (e.g., "web-frontend", "backend", "fullstack")
+- `aiMaturityLevel`: Expected AI proficiency level (beginner, intermediate, advanced, expert)
+- `assessmentFormat`: Format of the challenge (take-home, live-coding, pair-programming, architecture-review)
+- `teamFluencyLevel`: Team's overall AI fluency (novice, familiar, proficient, expert)
+
+## Output Format
+
+```md
+## Evaluation Rubric
+
+### Technical Implementation (40%)
+- **Excellent (35-40)**: [Criteria for excellent implementation]
+- **Good (25-34)**: [Criteria for good implementation]
+- **Satisfactory (15-24)**: [Criteria for satisfactory implementation]
+- **Needs Improvement (0-14)**: [Criteria for needs improvement]
+
+### AI Integration & Workflow (30%)
+- **Excellent (25-30)**: [Criteria for excellent AI integration]
+- **Good (18-24)**: [Criteria for good AI integration]
+- **Satisfactory (10-17)**: [Criteria for satisfactory AI integration]
+- **Needs Improvement (0-9)**: [Criteria for needs improvement]
+
+### Communication & Documentation (30%)
+- **Excellent (25-30)**: [Criteria for excellent communication]
+- **Good (18-24)**: [Criteria for good communication]
+- **Satisfactory (10-17)**: [Criteria for satisfactory communication]
+- **Needs Improvement (0-9)**: [Criteria for needs improvement]
+```
+
+## Technical Implementation Rubric Guidelines
+
+Focus on domain-specific technical excellence:
+
+### Frontend Focus
+- Component architecture and reusability
+- State management approach
+- Performance optimization
+- Accessibility implementation
+- Responsive design implementation
+- Testing coverage and approach
+
+### Backend Focus
+- API design and implementation
+- Data modeling and database design
+- Authentication and authorization
+- Error handling and logging
+- System scalability considerations
+- Testing coverage and approach
+
+### Fullstack Focus
+- End-to-end architecture
+- Frontend-backend integration
+- Cross-layer concerns (e.g., validation, error handling)
+- Full-stack performance considerations
+- Testing across the stack
+
+### Data Science/ML Focus
+- Data processing pipeline design
+- Model selection and implementation
+- Feature engineering approach
+- Model evaluation methodology
+- Production integration considerations
+
+### DevOps/Platform Focus
+- Infrastructure design
+- CI/CD implementation
+- Monitoring and observability
+- Security implementation
+- Resource optimization
+
+## AI Integration & Workflow Rubric Guidelines
+
+Assess the candidate's ability to effectively leverage AI as a force multiplier:
+
+### Beginner Level
+- Basic prompt engineering
+- Understanding of AI limitations
+- Ability to verify and correct AI outputs
+- Simple workflow integration
+
+### Intermediate Level
+- Strategic prompt design
+- Context management
+- Tool selection and orchestration
+- Iterative refinement process
+
+### Advanced Level
+- Complex AI workflow design
+- Sophisticated prompt engineering
+- Tool chaining and multi-step processes
+- Novel application of AI capabilities
+
+### Expert Level
+- System-level AI integration
+- Original AI workflow patterns
+- Performance optimization of AI processes
+- Knowledge-building and continuous improvement
+
+## Communication & Documentation Rubric Guidelines
+
+Evaluate the candidate's ability to communicate their thought process and decisions:
+
+### Take-Home Format
+- Code documentation
+- README quality
+- Architectural explanation
+- Decision justification
+- Process transparency
+
+### Live-Coding Format
+- Verbal communication during coding
+- Question handling
+- Problem-solving narration
+- Code organization and clarity
+
+### Pair-Programming Format
+- Collaboration approach
+- Ideas communication
+- Receptiveness to feedback
+- Joint problem-solving
+
+### Architecture-Review Format
+- Clarity of architectural diagrams
+- System explanation
+- Trade-off articulation
+- Question responses
+
+## Example Output (Frontend, Intermediate AI Level)
+
+```md
+## Evaluation Rubric
+
+### Technical Implementation (40%)
+- **Excellent (35-40)**: Complete implementation with advanced features like real-time validation, proper state management patterns, and optimized performance. Component architecture shows clear separation of concerns and reusability. Code demonstrates deep understanding of React patterns and best practices. Includes thoughtful error handling, loading states, and edge cases.
+- **Good (25-34)**: Solid implementation with all core features working correctly. Good component structure with reasonable separation of concerns. Effective state management, though may have room for optimization. Handles common error cases and includes basic loading states.
+- **Satisfactory (15-24)**: Basic implementation with core functionality working. Component structure is functional but may lack optimal organization. State management works but may have inconsistencies. Limited error handling and loading states.
+- **Needs Improvement (0-14)**: Incomplete implementation or significant issues with core functionality. Poor component structure with inappropriate coupling. Ineffective state management leading to bugs or inconsistencies. Missing error handling and loading states.
+
+### AI Integration & Workflow (30%)
+- **Excellent (25-30)**: Demonstrates sophisticated AI prompt engineering that significantly enhances productivity. Shows clear evidence of iterative refinement of AI outputs. Uses AI strategically for different aspects of development (architecture planning, component design, testing). Can articulate clear reasoning for when and how AI was used in the workflow. Final code shows deep understanding and ownership.
+- **Good (18-24)**: Effectively uses AI to accelerate development while maintaining quality. Shows good prompt construction and ability to guide AI toward useful outputs. Applies appropriate review and refinement to AI-generated code. Can explain AI usage strategy and how it enhanced workflow.
+- **Satisfactory (10-17)**: Basic AI usage that assists with some development tasks. Some evidence of prompt engineering but may rely on basic prompts. Minimal refinement of AI outputs. Limited explanation of AI integration into workflow. Some generated code may be used without full understanding.
+- **Needs Improvement (0-9)**: Ineffective AI usage or over-reliance on AI without critical evaluation. Poor prompt construction leading to low-quality outputs. Direct copying of AI-generated code without adaptation or understanding. Unable to explain AI integration strategy. Final implementation shows lack of ownership.
+
+### Communication & Documentation (30%)
+- **Excellent (25-30)**: Exceptional documentation with clear explanations of component architecture, state management, and key decisions. Includes detailed README with setup instructions, usage examples, and architectural diagrams. Code has meaningful comments that explain "why" not just "what." Provides thorough explanation of AI integration strategy and workflow process. Commit history tells a clear story of development progression.
+- **Good (18-24)**: Good documentation covering main architectural decisions and setup process. README includes necessary information for running the application. Code is generally well-organized and readable. Some explanation of AI workflow included. Commit messages are informative.
+- **Satisfactory (10-17)**: Basic documentation that covers setup but lacks depth on design decisions. Limited code comments focused on obvious functionality. Minimal discussion of AI usage or workflow. Commit history provides basic tracking but limited insight.
+- **Needs Improvement (0-9)**: Poor or missing documentation. Unclear setup instructions. Code lacks organization and meaningful comments. No explanation of AI integration or workflow. Commit history is sparse or uninformative.
+```
+
+## Example Output (Backend, Advanced AI Level)
+
+```md
+## Evaluation Rubric
+
+### Technical Implementation (40%)
+- **Excellent (35-40)**: Exceptional API architecture showing deep understanding of backend principles. Clean, modular code structure with proper separation of concerns. Robust error handling with appropriate status codes and informative messages. Thorough data validation and security implementation. Optimized database queries and proper indexing. Comprehensive test coverage with unit, integration, and potentially end-to-end tests.
+- **Good (25-34)**: Well-structured API with good adherence to RESTful principles. Modular code organization with clear boundaries. Effective error handling for common cases. Solid data validation and basic security measures. Efficient database operations. Good test coverage of critical paths.
+- **Satisfactory (15-24)**: Functional API that meets basic requirements. Reasonable code organization but may have some structural issues. Basic error handling for major cases. Some data validation but may miss edge cases. Functional database operations. Limited test coverage focused on happy paths.
+- **Needs Improvement (0-14)**: Poorly structured API with significant architectural issues. Disorganized code with improper separation of concerns. Inadequate error handling. Missing or ineffective data validation. Inefficient or problematic database operations. Minimal or no testing.
+
+### AI Integration & Workflow (30%)
+- **Excellent (25-30)**: Demonstrates advanced AI workflow integration with complex, multi-step processes. Shows sophisticated prompt engineering techniques including chain-of-thought, few-shot learning, and context management. Evidence of AI tool chaining for different aspects of development. Can articulate advanced strategies for leveraging AI in backend development. Final implementation shows expert refinement and enhancement of AI outputs. AI usage significantly accelerates development without compromising quality.
+- **Good (18-24)**: Employs effective AI workflow with strategic prompt engineering. Shows good understanding of context management and refinement processes. Uses AI for multiple aspects of development with appropriate tool selection. Can explain reasoning behind AI integration choices. Implementation shows thoughtful adaptation of AI outputs. AI usage enhances productivity while maintaining code quality.
+- **Satisfactory (10-17)**: Basic AI workflow with functional prompt construction. Some evidence of iterative refinement. Limited use of advanced AI techniques. Can provide basic explanation of how AI was used. Implementation shows some adaptation of AI outputs but may rely too heavily on unrefined generations. AI usage provides some productivity benefits.
+- **Needs Improvement (0-9)**: Ineffective AI workflow with poor prompt engineering. Little or no refinement of AI outputs. Inability to explain AI integration strategy. Implementation shows direct use of AI-generated code without understanding or adaptation. AI usage either provides minimal benefit or actually detracts from solution quality.
+
+### Communication & Documentation (30%)
+- **Excellent (25-30)**: Comprehensive API documentation with clear endpoint descriptions, request/response examples, and error handling information. Detailed README with architecture overview, setup instructions, and design rationale. Thorough code comments explaining complex logic and design decisions. Clear explanation of database schema and relationships. Detailed description of AI integration approach and workflow optimization. Well-structured commit history showing logical progression.
+- **Good (18-24)**: Solid API documentation covering all endpoints and major use cases. Good README with setup instructions and basic architectural information. Helpful code comments for non-obvious logic. Database schema documentation. Some explanation of AI workflow and usage. Informative commit messages.
+- **Satisfactory (10-17)**: Basic API documentation covering main endpoints. Simple README with minimal setup instructions. Limited code comments focused on complex sections only. Basic database information. Minimal discussion of AI integration. Basic commit history.
+- **Needs Improvement (0-9)**: Incomplete or missing API documentation. Insufficient README lacking setup instructions. Few or no code comments. Missing database documentation. No explanation of AI workflow. Poor commit history with uninformative messages.
+```
+
+## Adaptation Guidelines
+
+Adjust rubric based on:
+- Role seniority (adjust expectations accordingly)
+- Domain-specific technical requirements
+- Team's AI fluency level (set appropriate AI integration expectations)
+- Assessment format (different communication expectations)

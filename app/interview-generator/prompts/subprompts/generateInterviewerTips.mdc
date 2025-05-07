@@ -1,0 +1,227 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# AI-Native Interviewer Tips Generator
+
+## Purpose
+
+This subprompt generates a comprehensive set of interviewer guidelines to effectively evaluate candidates on AI-native technical skills. The output provides key questions to ask, red flags to watch for, and green flags that indicate strong AI-native thinking.
+
+## Input Parameters
+
+The generator requires the following inputs:
+
+- `roleTitle`: The specific role being interviewed for (e.g., "Senior Frontend Engineer")
+- `domainFocus`: Technical domain focus (e.g., "web-frontend", "backend", "fullstack")
+- `aiMaturityLevel`: Expected AI proficiency level (beginner, intermediate, advanced, expert)
+- `assessmentFormat`: Format of the challenge (take-home, live-coding, pair-programming, architecture-review)
+- `canUseAiTools`: Whether candidates can use AI tools during the challenge (true/false)
+- `teamFluencyLevel`: Team's overall AI fluency (novice, familiar, proficient, expert)
+
+## Output Format
+
+```md
+## Interviewer Notes
+
+Guidelines for evaluating candidates on both technical implementation and AI-native thinking.
+
+### Key Questions to Ask
+
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
+...
+
+### Red Flags
+
+- [Red flag 1]
+- [Red flag 2]
+- [Red flag 3]
+...
+
+### Green Flags
+
+- [Green flag 1]
+- [Green flag 2]
+- [Green flag 3]
+...
+```
+
+## Guidelines for Interviewer Tips
+
+### Key Questions Guidelines
+
+Include questions that assess:
+
+1. **Technical Understanding**
+   - Architecture and design decisions
+   - Technology selection rationale
+   - Performance considerations
+   - Security and edge case handling
+
+2. **AI Workflow & Mindset**
+   - Prompt engineering approach
+   - AI tool selection strategy
+   - Verification and refinement process
+   - Understanding of AI strengths/limitations
+
+3. **Problem-Solving Process**
+   - Initial approach to the problem
+   - Challenges encountered and solutions
+   - Alternative approaches considered
+   - Assumptions made and how they were validated
+
+4. **Self-Assessment & Growth**
+   - Areas for improvement
+   - Learning from the experience
+   - How they would approach it differently
+   - Further optimization ideas
+
+### Red Flags Guidelines
+
+Identify warning signs such as:
+
+1. **Technical Red Flags**
+   - Inability to explain parts of their own code
+   - Poor architectural decisions without justification
+   - Neglecting important technical aspects (security, performance, etc.)
+   - Inconsistent or contradictory explanations
+
+2. **AI Usage Red Flags**
+   - Over-reliance on AI without understanding outputs
+   - Inability to describe their AI workflow
+   - Using AI as a replacement for core skills rather than an amplifier
+   - Not verifying or testing AI-generated code
+   - "Prompt dumping" without strategic guidance
+
+3. **Communication Red Flags**
+   - Defensive responses to questions
+   - Lack of clarity in explanations
+   - Inability to discuss trade-offs
+   - Poor documentation or commenting
+
+### Green Flags Guidelines
+
+Highlight positive indicators such as:
+
+1. **Technical Green Flags**
+   - Clear architectural vision with well-justified decisions
+   - Thoughtful handling of edge cases
+   - Performance and security considerations
+   - Evidence of technical depth beyond surface-level implementation
+
+2. **AI Usage Green Flags**
+   - Strategic AI prompting and workflow
+   - Critical evaluation of AI outputs
+   - Using AI to enhance rather than replace thinking
+   - Novel or creative AI applications
+   - Efficiency gains through effective AI integration
+
+3. **Communication Green Flags**
+   - Clear explanation of complex concepts
+   - Transparent discussion of limitations and challenges
+   - Quality documentation and code organization
+   - Receptiveness to feedback and questions
+
+## Example Output (Frontend)
+
+```md
+## Interviewer Notes
+
+### Key Questions to Ask
+
+1. "Walk me through your component architecture. How did you decide on this structure?"
+2. "What was your approach to state management in this application? What alternatives did you consider?"
+3. "Can you explain your process for working with AI tools during this challenge? What prompt strategies were most effective?"
+4. "How did you handle error states and edge cases in the UI?"
+5. "What performance considerations did you make, and how did you implement them?"
+6. "If you had to scale this application to handle thousands of users, what would you change?"
+7. "What was the most challenging aspect of implementing the form validation, and how did you solve it?"
+8. "How did you approach accessibility in this implementation?"
+9. "What parts of the code would you refactor given more time, and why?"
+
+### Red Flags
+
+- Unable to explain significant portions of their code, suggesting direct copying from AI without understanding
+- Using inappropriate or outdated React patterns (e.g., excessive class components, direct DOM manipulation)
+- No clear component structure or separation of concerns
+- Lack of state management strategy or inconsistent state handling
+- Missing error handling or loading states
+- No consideration for accessibility or responsive design
+- Inability to articulate how they used AI in their workflow
+- Signs of "prompt dumping" without strategic guidance to the AI
+- Defensive or dismissive attitude towards feedback
+- Over-engineered solution that adds unnecessary complexity
+
+### Green Flags
+
+- Clear, well-structured component architecture with appropriate separation of concerns
+- Strategic use of custom hooks to extract and reuse logic
+- Thoughtful state management approach with justification
+- Comprehensive error handling and loading states
+- Accessibility considerations (ARIA attributes, keyboard navigation, semantic HTML)
+- Responsive design implementation with testing across breakpoints
+- Evidence of iterative AI prompting and refinement
+- Can articulate specific AI prompting strategies and when they were effective
+- Clear documentation of setup instructions and architecture decisions
+- Mention of testing strategies, even if not fully implemented due to time constraints
+- Awareness of trade-offs made and future improvements
+```
+
+## Example Output (Backend, Advanced AI Level)
+
+```md
+## Interviewer Notes
+
+### Key Questions to Ask
+
+1. "Walk me through your API architecture and design decisions."
+2. "How did you approach data modeling for this application? What influenced your schema design?"
+3. "What security considerations did you implement in your API?"
+4. "Can you describe your error handling strategy across the application?"
+5. "How would your implementation scale if this service needed to handle 100x the current load?"
+6. "Explain your testing approach and what aspects you prioritized testing."
+7. "What was your workflow for using AI tools in this implementation? How did you validate the outputs?"
+8. "What advanced prompt engineering techniques did you employ to get better results from AI tools?"
+9. "If you were to implement this again with unlimited time, what would you do differently?"
+10. "How did you ensure the quality and reliability of AI-generated code?"
+
+### Red Flags
+
+- Insecure API design (e.g., missing authentication, vulnerable to injection attacks)
+- Poor error handling (e.g., exposing stack traces, inconsistent error responses)
+- Inefficient database queries or inappropriate data modeling
+- No input validation or request sanitization
+- Monolithic architecture with poor separation of concerns
+- Inability to explain database schema or query design choices
+- Direct use of AI-generated code without validation or understanding
+- No API documentation or inadequate documentation
+- Inability to articulate how AI tools assisted their development process
+- Little evidence of refining or iterating on initial AI outputs
+- No consideration for logging, monitoring, or observability
+
+### Green Flags
+
+- Well-designed API architecture with clear separation of concerns
+- Thoughtful database schema design with consideration for query performance
+- Comprehensive security implementation (authentication, authorization, input validation)
+- Robust error handling with appropriate error responses and logging
+- Evidence of performance optimization (e.g., indexing, query optimization)
+- Clear API documentation with examples
+- Strategic use of AI for multiple aspects of development (architecture planning, code generation, testing)
+- Can demonstrate sophisticated prompt engineering techniques (e.g., few-shot learning, context management)
+- Evidence of critical evaluation and refinement of AI outputs
+- Implementation of monitoring, logging, or observability considerations
+- Consideration for horizontal scaling or distributed system patterns if relevant
+```
+
+## Adaptation Guidelines
+
+Adjust interviewer guidance based on:
+- Role seniority (junior vs. senior expectations)
+- Domain-specific technical requirements
+- Team's AI fluency level (align expectations with team capability)
+- Assessment format (different focuses for different formats)
+- Whether AI tools are allowed in the challenge
