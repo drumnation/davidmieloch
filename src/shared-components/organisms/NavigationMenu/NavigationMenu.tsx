@@ -64,9 +64,7 @@ const NavigationItemComponent: React.FC<{
           {item.title}
         </Body>
         {item.subsections?.length && (
-          <S.SubsectionIndicator
-            $style={style}
-          >
+          <S.SubsectionIndicator>
             <span style={indicatorStyle}>▾</span>
           </S.SubsectionIndicator>
         )}
@@ -110,7 +108,7 @@ export const NavigationMenu: React.FC<NavigationMenuProps> = ({
 
   return (
     <S.StyledNavigationMenu $style={style} $position={position} className={className}>
-      <S.MobileHandle $style={style} />
+      <S.MobileHandle />
       <S.MenuList>
         {items.map((item) => (
           <NavigationItemComponent

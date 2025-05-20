@@ -9,21 +9,9 @@ export const StyledNavigationMenu = styled.nav<StyledNavigationMenuProps>`
   overflow-y: auto;
   padding: 1.5rem;
   border-radius: 12px;
-  background: ${({ $style }) =>
-    $style === 'dark' ? '#1A1B1E' : 'var(--bg-light)'};
-  box-shadow: ${({ $style }) =>
-    $style === 'dark'
-      ? '0 4px 20px rgba(0, 0, 0, 0.4)'
-      : '0 4px 20px rgba(0, 0, 0, 0.1)'};
-  
-  ${({ $position }) =>
-    $position === 'left'
-      ? css`
-          margin-right: 2rem;
-        `
-      : css`
-          margin-left: 2rem;
-        `}
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-right: 2rem;
 
   /* Hide scrollbar but keep functionality */
   scrollbar-width: none;
@@ -82,38 +70,22 @@ export const MenuItemButton = styled.button<StyledNavigationItemProps>`
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: ${({ $style, $isActive }) =>
-    $style === 'dark'
-      ? $isActive
-        ? '#FFFFFF'
-        : 'rgba(255, 255, 255, 0.85)'
-      : $isActive
-      ? 'var(--text-primary)'
-      : 'var(--text-secondary)'};
+  color: ${({ $isActive }) => ($isActive ? '#000' : '#666')};
   font-weight: ${({ $isActive }) => ($isActive ? '500' : '400')};
   transition: all 0.2s ease;
-  background: ${({ $style, $isActive }) =>
-    $isActive
-      ? $style === 'dark'
-        ? 'rgba(255, 255, 255, 0.1)'
-        : 'rgba(0, 0, 0, 0.08)'
-      : 'transparent'};
+  background: ${({ $isActive }) => ($isActive ? 'rgba(0, 0, 0, 0.08)' : 'transparent')};
 
   &:hover {
-    background: ${({ $style }) =>
-      $style === 'dark'
-        ? 'rgba(255, 255, 255, 0.08)'
-        : 'rgba(0, 0, 0, 0.05)'};
+    background: rgba(0, 0, 0, 0.05);
   }
 `;
 
-export const SubsectionIndicator = styled.span<Pick<StyledNavigationItemProps, '$style'>>`
+export const SubsectionIndicator = styled.span`
   position: absolute;
   right: 0.75rem;
   top: 50%;
   transform: translateY(-45%);
-  color: ${({ $style }) =>
-    $style === 'dark' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.4)'};
+  color: rgba(0, 0, 0, 0.4);
   font-size: 1rem;
   pointer-events: none;
   display: inline-flex;
@@ -124,19 +96,15 @@ export const SubsectionIndicator = styled.span<Pick<StyledNavigationItemProps, '
   line-height: 1;
 `;
 
-export const MobileHandle = styled.div<Pick<StyledNavigationItemProps, '$style'>>`
+export const MobileHandle = styled.div`
   display: none;
-  
   @media (max-width: 1024px) {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 4px;
     width: 40px;
-    background: ${({ $style }) =>
-      $style === 'dark'
-        ? 'rgba(255, 255, 255, 0.3)'
-        : 'rgba(0, 0, 0, 0.1)'};
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     margin: 0.5rem auto;
   }

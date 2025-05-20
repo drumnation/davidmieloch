@@ -60,7 +60,8 @@ export const GlobalStyles = createGlobalStyle`
   
   .best-practices-content-section {
     width: 100%;
-    background-color: var(--mantine-color-body);
+    background-color: #fff;
+    color: #000;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     margin-top: -24px;
@@ -203,7 +204,7 @@ export const SectionDescription = styled.p`
   max-width: 800px;
   margin: 0 auto 4rem;
   line-height: 1.6;
-  color: var(--mantine-color-dimmed);
+  color: #666;
   
   @media (max-width: 768px) {
     font-size: 1.125rem;
@@ -229,7 +230,7 @@ export const CategoriesContainer = styled.div`
 `;
 
 export const CategoryCard = styled.div`
-  background-color: var(--mantine-color-body);
+  background-color: #fff;
   border-radius: ${({ theme }) => theme.radius.md};
   padding: 20px;
   box-shadow: ${({ theme }) => theme.shadows.sm};
@@ -251,7 +252,7 @@ export const CategoryTitle = styled.h3`
 export const CategoryDescription = styled.p`
   font-size: 1rem;
   margin-bottom: 16px;
-  color: var(--mantine-color-dimmed);
+  color: #666;
   line-height: 1.5;
   flex-grow: 1;
 `;
@@ -349,7 +350,7 @@ export const PracticeTitle = styled.h3`
 export const PracticeDescription = styled.p`
   font-size: 0.875rem;
   margin: 0;
-  color: ${({ theme }) => theme.colors.gray[6]};
+  color: #666;
   line-height: 1.5;
 `;
 
@@ -368,14 +369,14 @@ export const DetailedContentText = styled.p`
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.gray[6]};
+  color: #666;
 `;
 
 export const DetailedContentList = styled.div`
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.gray[6]};
+  color: #666;
 `;
 
 export const ConclusionContainer = styled.div`
@@ -393,7 +394,7 @@ export const ConclusionText = styled.p`
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.gray[6]};
+  color: #666;
 `;
 
 export const PageSeparator = styled.div`
@@ -458,7 +459,7 @@ export const BestPracticeDescription = styled.p`
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: var(--mantine-color-dimmed);
+  color: #666;
 `;
 
 export const ImplementationList = styled.ul`
@@ -490,10 +491,10 @@ export const LetsWorkTogetherSection = styled.div`
   max-width: 800px;
   margin: 4rem auto 0;
   padding: 3rem 2rem;
-  background: var(--mantine-color-body);
+  background: #fff;
   border-radius: ${({ theme }) => theme.radius.lg};
   box-shadow: ${({ theme }) => theme.shadows.md};
-  border: 1px solid var(--mantine-color-default-border);
+  border: 1px solid #e0e0e0;
 `;
 
 export const CallToActionTitle = styled.h2`
@@ -506,7 +507,7 @@ export const CallToActionText = styled.p`
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 2rem;
-  color: var(--mantine-color-dimmed);
+  color: #666;
 `;
 
 export const ActionButton = styled.button`

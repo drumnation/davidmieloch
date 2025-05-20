@@ -1,0 +1,87 @@
+---
+description: Guide for using the MCP-Inception server (execute_mcp_client, etc.). Request when needing to delegate tasks or manage context window.
+globs:
+alwaysApply: false
+---
+# MCP-Inception Server Usage Guide
+# Last Updated: 2025-03-31 10:13:02 AM
+
+## Overview
+
+The mcp-inception server allows you to call another LLM from within your current Claude session. This enables:
+
+- Offloading context windows to handle larger tasks
+- Delegating specific tasks to another LLM
+- Running multiple queries in parallel
+- Processing data with a map-reduce pattern
+
+The server now directly integrates with the Anthropic API, making calls to Claude models without requiring additional MCP servers or configuration.
+
+## When to Use
+
+### Use `execute_mcp_client` when
+
+- You need to perform a research task without cluttering your main context
+- You want to delegate a specific question to another LLM
+- You need to free up context window in your primary session
+
+### Use `execute_parallel_mcp_client` when
+
+- You need to process multiple similar items independently
+- You want to get results for multiple inputs faster
+- Examples: Analyzing multiple documents, getting data for multiple cities/entities
+
+### Use `execute_map_reduce_mcp_client` when
+
+- You need to process many items and then synthesize the results
+- You want to analyze data in parallel but need a final combined output
+- Examples: Summarizing multiple documents, extracting insights from multiple sources
+
+## Technical Details
+
+- The server makes direct API calls to Anthropic's Claude model
+- Default model: claude-3-5-sonnet-20240620
+- API key is configured in the server code
+- No additional MCP servers or shell scripts required
+
+## Commands and Usage
+
+### 1. Basic Question Answering (execute_mcp_client)
+
+Use this when you want to offload a simple question to another LLM:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_mcp_client">
+<parameter name="command">What is the capital of France?</parameter>
+</invoke>
+</function_calls>
+```
+
+### 2. Parallel Processing (execute_parallel_mcp_client)
+
+Use this when you need to process multiple items independently with the same prompt:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_parallel_mcp_client">
+<parameter name="prompt">What is the time zone of this city?</parameter>
+<parameter name="items">["New York", "London", "Tokyo", "Sydney", "Paris"]</parameter>
+</invoke>
+</function_calls>
+```
+
+### 3. Map-Reduce Processing (execute_map_reduce_mcp_client)
+
+Use this to process multiple items and then combine the results:
+
+```
+<function_calls>
+<invoke name="mcp_mcp_inception_execute_map_reduce_mcp_client">
+<parameter name="mapPrompt">Summarize the key points of this document: {item}</parameter>
+<parameter name="reducePrompt">Combine these document summaries into a comprehensive overview: {accumulator} and {result}</parameter>
+<parameter name="items">["Document 1 content...", "Document 2 content...", "Document 3 content..."]</parameter>
+<parameter name="initialValue">Starting summary...</parameter>
+</invoke>
+</function_calls>
+``` 

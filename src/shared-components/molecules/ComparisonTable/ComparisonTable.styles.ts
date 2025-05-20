@@ -16,44 +16,38 @@ export const Table = styled.table<StyledTableProps>`
   border-spacing: 0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background: #fff;
 `;
 
 export const TableHead = styled.thead<StyledTableProps>`
-  background: ${({ $variant, theme }) =>
-    $variant === 'gradient'
-      ? theme.colors[theme.primaryColor]?.[7] || theme.colors.blue[7]
-      : $variant === 'accent'
-        ? theme.colors.blue[7]
-        : theme.colors[theme.primaryColor]?.[7] || theme.colors.blue[7]};
-  color: ${({ theme }) => theme.white};
+  background: #1976d2;
+  color: #fff;
 `;
 
 export const TableBody = styled.tbody`
-  background: var(--mantine-color-body);
+  background: #fff;
 `;
 
 export const TableRow = styled.tr`
   opacity: 0;
   transform: translateY(20px);
-  
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   &:nth-child(even) {
-    background: ${props => props.theme.colors.gray[0]};
-    [data-mantine-color-scheme="dark"] & {
-       background: ${props => props.theme.colors.dark[6]};
-    }
+    background: #f5f5f5;
   }
-  
+
+  &:nth-child(odd) {
+    background: #fff;
+  }
+
   &:hover {
-    background: rgba(0, 0, 0, 0.05);
-    [data-mantine-color-scheme="dark"] & {
-       background: rgba(255, 255, 255, 0.05);
-    }
+    background: #e3f2fd;
   }
 `;
 
@@ -62,20 +56,14 @@ export const TableHeaderCell = styled.th`
   text-align: left;
   font-weight: 600;
   font-size: 1.125rem;
-  
-  &:first-child {
-    width: 30%;
-  }
-  
-  &:not(:first-child) {
-    width: 35%;
-  }
+  color: #fff;
 `;
 
 export const TableCell = styled.td`
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--mantine-color-default-border);
-  
+  border-bottom: 1px solid #e0e0e0;
+  color: #000;
+
   &:first-child {
     font-weight: 600;
   }
@@ -84,19 +72,16 @@ export const TableCell = styled.td`
 export const CategoryCell = styled.td`
   padding: 1rem 1.5rem;
   font-weight: 600;
-  border-bottom: 1px solid var(--mantine-color-default-border);
-  background: var(--mantine-color-body);
-  [data-mantine-color-scheme="dark"] & {
-       background: ${props => props.theme.colors.dark[7]};
-  }
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
 `;
 
 export const HighlightText = styled.span`
-  color: ${({ theme }) => theme.colors.green[6]};
+  color: #43a047;
   font-weight: 600;
 `;
 
 export const LowlightText = styled.span`
-  color: ${({ theme }) => theme.colors.red[6]};
+  color: #e53935;
   font-weight: 600;
 `;

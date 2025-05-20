@@ -19,7 +19,8 @@ import {
     CenteredTitle,
     CenteredContentWrapper,
     IconWrapper,
-    HighlightCallout
+    HighlightCallout,
+    StyledBoxWithFirstChildMargin
 } from './BrainGardenSurvival.styles';
 import { BrainGardenSurvivalProps } from './BrainGardenSurvival.types';
 import { useBrainGardenSurvival } from './BrainGardenSurvival.hook';
@@ -124,30 +125,7 @@ export const BrainGardenSurvival: React.FC<BrainGardenSurvivalProps> = (props) =
                             <Card shadow="sm" px="lg" py="md" radius="md" withBorder>
                                 <CenteredContentWrapper>
                                     {/* Responsive Box container for layout */}
-                                    <Box
-                                        style={(theme: MantineTheme) => ({
-                                            display: 'flex',
-                                            gap: theme.spacing.md,
-                                            // Mobile first: Column layout, centered
-                                            flexDirection: 'column',
-                                            alignItems: 'center',
-                                            textAlign: 'center',
-                                            // Apply margin-bottom to the IconWrapper (first child) only on mobile
-                                            '& > *:first-child': {
-                                                marginBottom: theme.spacing.sm,
-                                            },
-                                            // Desktop override: Row layout, aligned start
-                                            [`@media (min-width: ${theme.breakpoints.md})`]: {
-                                                flexDirection: 'row',
-                                                alignItems: 'center',
-                                                textAlign: 'left',
-                                                // Remove margin-bottom from IconWrapper on desktop
-                                                '& > *:first-child': {
-                                                    marginBottom: 0,
-                                                },
-                                            },
-                                        })}
-                                    >
+                                    <StyledBoxWithFirstChildMargin>
                                         <IconWrapper>
                                             <TbBrain size={24} />
                                         </IconWrapper>
@@ -158,7 +136,7 @@ export const BrainGardenSurvival: React.FC<BrainGardenSurvivalProps> = (props) =
                                                 And it's not just the technology that's evolving — <strong>humans amplified by AI</strong> are creating better tools and systems at an overwhelming pace.
                                             </Text>
                                         </Stack>
-                                    </Box>
+                                    </StyledBoxWithFirstChildMargin>
                                 </CenteredContentWrapper>
                             </Card>
                         </motion.div>

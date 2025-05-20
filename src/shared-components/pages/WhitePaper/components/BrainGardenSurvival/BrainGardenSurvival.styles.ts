@@ -39,26 +39,18 @@ export const SectionParagraph = styled.div`
   margin-bottom: 1.5rem;
   font-size: 1rem;
   line-height: 1.7;
-  color: ${({ theme }) => theme.colors.gray[7]};
+  color: #000;
   max-width: 720px;
-  
-  [data-mantine-color-scheme="dark"] & {
-    color: ${({ theme }) => theme.colors.gray[3]};
-  }
 `;
 
 export const SectionTitle = styled.h2`
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors[theme.primaryColor][7]};
+  color: #1976d2;
   
   @media (max-width: 768px) {
     font-size: 1.75rem;
-  }
-  
-  [data-mantine-color-scheme="dark"] & {
-    color: ${({ theme }) => theme.colors[theme.primaryColor][4]};
   }
 `;
 
@@ -66,14 +58,10 @@ export const SectionSubtitle = styled.h3`
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: ${({ theme }) => theme.colors.gray[8]};
+  color: #000;
   
   @media (max-width: 768px) {
     font-size: 1.25rem;
-  }
-  
-  [data-mantine-color-scheme="dark"] & {
-    color: ${({ theme }) => theme.colors.gray[2]};
   }
 `;
 
@@ -254,7 +242,7 @@ export const HighlightTitleStyled = styled.h3`
 export const HighlightTextStyled = styled.div`
   font-size: 16px;
   line-height: 1.6;
-  color: ${({ theme }) => theme.colors.gray[8]};
+  color: #000;
 `;
 
 export const InsightBoxStyled = styled.div`
@@ -264,7 +252,7 @@ export const InsightBoxStyled = styled.div`
 `;
 
 export const InsightTextStyled = styled.div`
-  color: ${({ theme }) => theme.colors.gray[8]};
+  color: #000;
 `;
 
 export const CTASectionStyled = styled.div`
@@ -284,12 +272,14 @@ export const HeadingText = styled.div`
   font-size: 1.25rem;
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
+  color: #000;
 `;
 
 export const SubHeadingText = styled.div`
   font-weight: 700;
   font-size: 2.25rem;
   margin-bottom: 1.5rem;
+  color: #000;
 `;
 
 export const BlueInfoCard = styled.div`
@@ -322,14 +312,14 @@ export const BrainGardenHeading = styled.div`
 export const StepList = styled.div`
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--mantine-color-gray-8);
+  color: #000;
   margin-bottom: 24px;
 `;
 
 export const DescriptionText = styled.div`
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--mantine-color-gray-8);
+  color: #000;
   margin-bottom: 20px;
 `;
 
@@ -343,7 +333,7 @@ export const BlueCalloutBox = styled.div`
 export const LargeDescriptionText = styled.div`
   font-size: 24px;
   line-height: 1.6;
-  color: var(--mantine-color-gray-7);
+  color: #000;
   font-weight: 400;
   margin-bottom: 24px;
 `;
@@ -422,4 +412,25 @@ export const HighlightCallout = styled.div`
     border-left: 4px solid ${({ theme }) => theme.colors.blue[5]};
     border-radius: ${({ theme }) => theme.radius.sm};
     padding: ${({ theme }) => theme.spacing.md};
+`;
+
+export const StyledBoxWithFirstChildMargin = styled(Box)`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing.md};
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  & > *:first-child {
+    margin-bottom: ${({ theme }) => theme.spacing.sm};
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    & > *:first-child {
+      margin-bottom: 0;
+    }
+  }
 `; 

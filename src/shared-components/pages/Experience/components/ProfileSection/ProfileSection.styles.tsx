@@ -87,28 +87,28 @@ export const ProfileImageWrapper = styled.div`
 `;
 
 export const ProfileName = styled.h1`
-  font-size: var(--mantine-font-size-xl);
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: var(--mantine-spacing-xxs);
-  color: var(--mantine-color-blue-filled);
+  margin-bottom: 0.25rem;
+  color: #1976d2;
   text-transform: uppercase;
   text-align: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    font-size: calc(var(--mantine-font-size-xl) * 1.4);
+    font-size: 2.8rem;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-    font-size: calc(var(--mantine-font-size-xl) * 1.4);
+    font-size: 2.8rem;
     font-weight: 800;
     text-align: left;
   }
 `;
 
 export const ProfileHeadline = styled.p`
-  font-size: var(--mantine-font-size-lg);
-  color: var(--mantine-color-text);
-  margin-bottom: var(--mantine-spacing-md);
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1.25rem;
   font-style: italic;
   text-align: center;
 
@@ -157,4 +157,10 @@ export const ProfileMetaStack = styled(Stack)`
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
     margin-left: -30px;
   }
+`;
+
+// Icon color override for all icons in the profile section
+export const IconWrapper = styled.span`
+  color: #1976d2 !important;
+  fill: #1976d2 !important;
 `; 
