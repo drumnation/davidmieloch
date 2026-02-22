@@ -16,7 +16,7 @@ export function MantineProvider({
   colorScheme?: 'light' | 'dark';
 }) {
   return (
-    <BaseMantineProvider theme={mantineTheme} defaultColorScheme={colorScheme}>
+    <BaseMantineProvider theme={mantineTheme} forceColorScheme={colorScheme}>
       {children}
     </BaseMantineProvider>
   );
