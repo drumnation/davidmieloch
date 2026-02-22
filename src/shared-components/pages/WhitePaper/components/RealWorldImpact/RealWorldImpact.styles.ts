@@ -206,7 +206,7 @@ export const StrategyCard = styled.div<StyledComponentProps>`
   }
   p {
     margin: 0;
-    color: ${({ theme }) => theme.colors.gray[6]};
+    color: ${({ theme }) => theme.colors.gray[8]};
   }
 `;
 
@@ -1174,7 +1174,7 @@ export const TeamMemberCard = styled.div`
   }
   span {
     font-size: 0.9rem;
-    color: ${({ theme }) => theme.colors.gray[6]};
+    color: ${({ theme }) => theme.colors.gray[8]};
   }
 `;
 
