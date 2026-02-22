@@ -109,7 +109,7 @@ export const ExampleViewer: React.FC<ExampleViewerProps> = ({ fileName, label })
                     }}
                 >
                     {isLoading ? (
-                        <Text color="dark.4" size="sm">Loading example...</Text>
+                        <Text color="dimmed" size="sm">Loading example...</Text>
                     ) : error ? (
                         <Text color="red" size="sm">{error}</Text>
                     ) : (
