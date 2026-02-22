@@ -64,7 +64,7 @@ export const ProfileSectionMobile: React.FC<ProfileSectionProps> = ({
                 <ProfileName>{name}</ProfileName>
 
                 <Group gap="xs" wrap="nowrap">
-                    <ThemeIcon size="sm" variant="light" color="gray">
+                    <ThemeIcon size="sm" variant="light" color="blue">
                         <IconMapPin size="0.9rem" />
                     </ThemeIcon>
                     <Text size="sm" c="dimmed" ta="center">
