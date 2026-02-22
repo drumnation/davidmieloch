@@ -357,7 +357,7 @@ export const StatNumber = styled.div`
 
 export const StatLabel = styled.div`
   font-size: 1rem;
-  color: var(--mantine-color-dimmed);
+  color: var(--mantine-color-dark-4, #5c5f66);
 `;
 
 export const IconContainer = styled.div`
@@ -518,7 +518,7 @@ export const ImpactMetric = styled.div`
   
   .label {
     font-size: 1.1rem;
-    color: var(--mantine-color-dimmed);
+    color: var(--mantine-color-dark-4, #5c5f66);
   }
 `;
 
@@ -534,7 +534,7 @@ export const BeforeAfter = styled.div`
   .before, .after {
     h4 {
       font-size: 1rem;
-      color: var(--mantine-color-dimmed);
+      color: var(--mantine-color-dark-4, #5c5f66);
       margin-bottom: 0.5rem;
     }
     
