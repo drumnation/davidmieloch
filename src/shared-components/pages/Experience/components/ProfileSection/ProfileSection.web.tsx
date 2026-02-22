@@ -83,7 +83,7 @@ export const ProfileSectionWeb: React.FC<ProfileSectionProps> = ({
                                     rel="noopener noreferrer"
                                     size="lg"
                                     variant="light"
-                                    color="gray"
+                                    color="blue"
                                     radius="xl"
                                     aria-label={link.name}
                                 >
