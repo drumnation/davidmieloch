@@ -179,7 +179,7 @@ export const BrainGardenSurvival: React.FC<BrainGardenSurvivalProps> = (props) =
                         <motion.div variants={fadeInUp}>
                             <Card shadow="sm" px="lg" py="md" radius="md" withBorder mt="md">
                                 <Blockquote
-                                    color="gray"
+                                    color="dark"
                                     radius="xs"
                                     icon={null}
                                     style={{
@@ -212,7 +212,7 @@ export const BrainGardenSurvival: React.FC<BrainGardenSurvivalProps> = (props) =
                                         One project would feel sharp and fast; another would lag behind, stuck in old patterns.
                                     </Text>
 
-                                    <Text size="sm" c="dimmed">
+                                    <Text size="sm" c="dark.4">
                                         When I started mentoring others, it became even more obvious:
                                     </Text>
 
@@ -406,7 +406,7 @@ export const BrainGardenSurvival: React.FC<BrainGardenSurvivalProps> = (props) =
                                             <Text ta="center" fz="md">
                                                 You're getting a <Text span fw={700} fz="md" fs="italic">living system of advantages,</Text> {/* Bold + Italic */}
                                             </Text>
-                                            <Text ta="center" fz="sm" c="dimmed" fs="italic"> {/* Smaller, dimmed, italic */}
+                                            <Text ta="center" fz="sm" c="dark.4" fs="italic"> {/* Smaller, dimmed, italic */}
                                                 continuously updated, battle-tested, and ready to deploy.
                                             </Text>
                                         </Stack>
@@ -462,7 +462,7 @@ export const BrainGardenSurvival: React.FC<BrainGardenSurvivalProps> = (props) =
                                 }}
                             >
                                 {/* Section Label */}
-                                <Text tt="uppercase" size="xs" c="dimmed" fw={500}>
+                                <Text tt="uppercase" size="xs" c="dark.4" fw={500}>
                                     The Living System
                                 </Text>
 
