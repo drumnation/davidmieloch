@@ -201,7 +201,7 @@ export const DiagramContainer = styled.div`
 `;
 
 export const Comment = styled.div`
-  color: var(--mantine-color-dimmed);
+  color: var(--mantine-color-dark-4, #5c5f66);
   margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
