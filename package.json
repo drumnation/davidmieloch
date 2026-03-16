@@ -154,5 +154,10 @@
     "*.stories.{ts,tsx}": [
       "bash -c \"CI=true pnpm test:stories --run\""
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "react-floater": "0.9.4"
+    }
   }
 }

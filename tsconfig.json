@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,33 +27,93 @@
       "@/*": [
         "./src/*"
       ],
-      "@components": ["./src/components"],
-      "@components/*": ["./src/components/*"],
-      "@shared-components": ["./src/shared-components"],
-      "@shared-components/*": ["./src/shared-components/*"],
-      "@utils": ["./src/utils"],
-      "@utils/*": ["./src/utils/*"],
-      "@styles": ["./src/styles"],
-      "@styles/*": ["./src/styles/*"],
-      "@types": ["./src/types"],
-      "@types/*": ["./src/types/*"],
-      "@store": ["./src/store"],
-      "@store/*": ["./src/store/*"],
-      "@providers": ["./src/providers"],
-      "@providers/*": ["./src/providers/*"],
-      "@data": ["./src/data"],
-      "@data/*": ["./src/data/*"],
-      "@pages": ["./src/pages"],
-      "@pages/*": ["./src/pages/*"],
-      "@contexts": ["./src/contexts"],
-      "@contexts/*": ["./src/contexts/*"],
-      "@analytics": ["./src/analytics"],
-      "@analytics/*": ["./src/analytics/*"],
-      "@hooks": ["./src/hooks"],
-      "@hooks/*": ["./src/hooks/*"]
+      "@components": [
+        "./src/components"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@shared-components": [
+        "./src/shared-components"
+      ],
+      "@shared-components/*": [
+        "./src/shared-components/*"
+      ],
+      "@utils": [
+        "./src/utils"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@styles": [
+        "./src/styles"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@types": [
+        "./src/types"
+      ],
+      "@types/*": [
+        "./src/types/*"
+      ],
+      "@store": [
+        "./src/store"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@providers": [
+        "./src/providers"
+      ],
+      "@providers/*": [
+        "./src/providers/*"
+      ],
+      "@data": [
+        "./src/data"
+      ],
+      "@data/*": [
+        "./src/data/*"
+      ],
+      "@pages": [
+        "./src/pages"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@contexts": [
+        "./src/contexts"
+      ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@analytics": [
+        "./src/analytics"
+      ],
+      "@analytics/*": [
+        "./src/analytics/*"
+      ],
+      "@hooks": [
+        "./src/hooks"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ]
     },
     "allowSyntheticDefaultImports": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", ".clinerules", ".cursorrules", ".windsurfrules", "to-be-deleted/**/*"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".clinerules",
+    ".cursorrules",
+    ".windsurfrules",
+    "to-be-deleted/**/*",
+    "node_modules/**/*.d.cts"
+  ]
 }

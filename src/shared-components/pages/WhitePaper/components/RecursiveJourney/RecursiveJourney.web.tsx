@@ -44,7 +44,7 @@ export const RecursiveJourneyWeb: React.FC<RecursiveJourneyProps> = (props) => {
                     fz="sm"
                     tt="uppercase"
                     ta="center"
-                    c="dimmed"
+                    c="dark.4"
                     mb="lg"
                     mt="xl"
                 >

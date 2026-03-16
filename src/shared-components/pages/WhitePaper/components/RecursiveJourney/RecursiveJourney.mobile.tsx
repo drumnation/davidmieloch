@@ -260,7 +260,7 @@ export const RecursiveJourneyMobile: React.FC<RecursiveJourneyProps> = (props) =
                 fz="xs"
                 tt="uppercase"
                 ta="center"
-                c="dimmed"
+                c="dark.4"
                 mb="md"
                 mt="xl"
                 px="md"
