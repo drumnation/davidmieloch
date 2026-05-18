@@ -1,0 +1,65 @@
+{
+  "slug": "your-ai-isnt-hallucinating-its-lying",
+  "title": "Your AI Isn't Hallucinating. It's Lying.",
+  "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
+  "generatedAt": "2026-05-18T20:24:48.996Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "your-ai-isnt-hallucinating-its-lying/linkedin.md",
+      "checksum": "1fbb1a9e454f167371fabf11a5d620ac719b6fec8ff8bdb45caa46160759ccfa",
+      "mode": "manual-browser-draft",
+      "hasVariant": true
+    },
+    {
+      "platform": "reddit",
+      "file": "your-ai-isnt-hallucinating-its-lying/reddit.md",
+      "checksum": "e29aefa569691376d5a319f541cad99d8d7eeb7af3f38014d4a33ea12990deb5",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "your-ai-isnt-hallucinating-its-lying/medium.md",
+      "checksum": "8db82ba9c0e2c7a003d77c9be51c446da89b5cdf318d16a987c849ff6fad38fe",
+      "mode": "manual-import",
+      "hasVariant": true
+    },
+    {
+      "platform": "devto",
+      "file": "your-ai-isnt-hallucinating-its-lying/devto.md",
+      "checksum": "89e00b58a035b2c4e32df304f9eef36b3707d2c14d295575bbf48593e760ef47",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": true
+    },
+    {
+      "platform": "hashnode",
+      "file": "your-ai-isnt-hallucinating-its-lying/hashnode.md",
+      "checksum": "468fa5baa450657a02230e81985dff2ef01eb3831248649270c42d419779c95d",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": true
+    },
+    {
+      "platform": "hackernoon",
+      "file": "your-ai-isnt-hallucinating-its-lying/hackernoon.md",
+      "checksum": "27bab1fa93555705936cbea5716e01a81e4420ad56f3938924524cf597099437",
+      "mode": "manual-editorial-submission",
+      "hasVariant": true
+    },
+    {
+      "platform": "dzone",
+      "file": "your-ai-isnt-hallucinating-its-lying/dzone.md",
+      "checksum": "d7997af8372bca47101b5525d1e91479898a81e7cc9c19ae3163fe7fab82bcd4",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": true
+    },
+    {
+      "platform": "substack",
+      "file": "your-ai-isnt-hallucinating-its-lying/substack.md",
+      "checksum": "bb6bbd3568f354e50b0afeab6dabb4fca4e86f8eaed06f96aadfa0b1c2a9089c",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": true
+    }
+  ]
+}

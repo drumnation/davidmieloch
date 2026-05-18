@@ -1,0 +1,65 @@
+{
+  "slug": "how-to-make-your-ai-code-look-human",
+  "title": "How to Make Your AI Code Look Human",
+  "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
+  "generatedAt": "2026-05-18T20:24:50.104Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "how-to-make-your-ai-code-look-human/linkedin.md",
+      "checksum": "523db37ad37f3689a4f7e62d079633eac4c3fd04a48f0f0521a10cc2411e541f",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "how-to-make-your-ai-code-look-human/reddit.md",
+      "checksum": "baa54dfc092fd006d559960f498e57c6c9b4bc92a9f335a38b62d7baec2d24d4",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "how-to-make-your-ai-code-look-human/medium.md",
+      "checksum": "cd0250c662aed3aa2836d87514124af5c3a1602c48722ca69983303c7d505815",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "how-to-make-your-ai-code-look-human/devto.md",
+      "checksum": "f35003207481fcfb2d424e4d57881b93b5ae0cda1aced4f9f56a04851f0e3ffc",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "how-to-make-your-ai-code-look-human/hashnode.md",
+      "checksum": "538226fda1ebd36d85acd884983685ab1a41d31aa3d19eba59674a0194bd6929",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "how-to-make-your-ai-code-look-human/hackernoon.md",
+      "checksum": "772222de2e46626f2a0a47e56350ad073dd423f6a1e27602d5145ec27a6398bd",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "how-to-make-your-ai-code-look-human/dzone.md",
+      "checksum": "2d7b4a13fa482b65aa4d59ad21ce89168078bd1900a6f37f67019f9b7e3fa3e6",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "how-to-make-your-ai-code-look-human/substack.md",
+      "checksum": "dffad031771dc7b65e1749e05e5caf2437b67cb793de43cdee88c86b751d3c1d",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "slug": "every-company-is-sitting-on-sunken-treasure",
+  "title": "Every Company Is Sitting on Sunken Treasure",
+  "canonicalUrl": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
+  "generatedAt": "2026-05-18T20:24:49.832Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "every-company-is-sitting-on-sunken-treasure/linkedin.md",
+      "checksum": "13960c54d9847441b0799df2b247a354eb781714cddf625aeac220fa98b6fb38",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "every-company-is-sitting-on-sunken-treasure/reddit.md",
+      "checksum": "f26adfbf44d105c2f157b995d263857421e62e7fa3089e32d0b22a4d01f2e742",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "every-company-is-sitting-on-sunken-treasure/medium.md",
+      "checksum": "0090e36ed7fc6faf6fde159ffa223807a0255dca2b7f8f0eb9c2cee13faaceff",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "every-company-is-sitting-on-sunken-treasure/devto.md",
+      "checksum": "d32c4f66c0bed771feea5e02d8d48f074a0b87056d34f8760ee2476666ec751a",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "every-company-is-sitting-on-sunken-treasure/hashnode.md",
+      "checksum": "d4f543538077cbd6e39716a5647b9dce8bfbcf9e922e3835ae5e019ea511ed54",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "every-company-is-sitting-on-sunken-treasure/hackernoon.md",
+      "checksum": "2503877a6a8d7760597de31c65797b1cbec1a4635813edfe6e515e0321ef12a3",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "every-company-is-sitting-on-sunken-treasure/dzone.md",
+      "checksum": "471cb4b92bbf25adeb08e07f92bc82a6da4f153621007b4cc44ea8d422d798b3",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "every-company-is-sitting-on-sunken-treasure/substack.md",
+      "checksum": "a46f8141833a4665bf42fc21ceda06860b807295ce11966ffa346a5451d8d7c2",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

@@ -26,10 +26,10 @@
 - Create: `scripts/lib/obsidian-reader.mjs`
 - Modify: `scripts/content-pipeline.mjs`
 
-- [ ] Read from configured vault path.
-- [ ] Support `drafts`, `approved`, `published`, and `legacy` folders.
-- [ ] Return normalized article candidates without mutating vault files.
-- [ ] Emit ROM heartbeat observation for scan result.
+- [x] Read from configured vault path.
+- [x] Support recursive vault scans for current mixed folder structure.
+- [x] Return normalized article candidates without mutating vault files.
+- [x] Emit ROM heartbeat observation for scan result.
 
 ## Task 3: LinkedIn Published-State Reader
 
@@ -48,9 +48,9 @@
 - Create: `scripts/lib/website-importer.mjs`
 - Modify: `scripts/content-pipeline.mjs`
 
-- [ ] Convert approved article folder into `content/articles/<slug>/index.md`.
-- [ ] Copy images into `public/blog/<slug>/images`.
-- [ ] Add required website frontmatter.
+- [x] Convert approved article folder into `content/articles/<slug>/index.md`.
+- [x] Copy images into `public/blog/<slug>/images`.
+- [x] Add required website frontmatter.
 - [ ] Validate sitemap/RSS expectations after build.
 
 ## Task 5: Platform Package Generator
@@ -59,10 +59,10 @@
 - Create: `scripts/lib/platform-packages.mjs`
 - Create: `content/distribution/packages/`
 
-- [ ] Generate LinkedIn variant.
-- [ ] Generate Medium/Dev.to/Hashnode mirror package.
-- [ ] Generate social excerpt package.
-- [ ] Include canonical URL, backlinks, images, and manual posting checklist.
+- [x] Generate LinkedIn variant.
+- [x] Generate Medium/Dev.to/Hashnode mirror package.
+- [x] Generate social excerpt package.
+- [x] Include canonical URL, backlinks, images, and manual posting checklist.
 
 ## Task 6: Scheduling And Approval
 
@@ -73,7 +73,7 @@
 - [ ] Model publish windows and embargo delays.
 - [ ] Require `approvedBy` before any external platform draft or publish.
 - [ ] Keep `publish` disabled by default.
-- [ ] Add `dry-run` and `manual-package` commands first.
+- [x] Add `dry-run` and `manual-package` commands first.
 
 ## Task 7: Observability
 

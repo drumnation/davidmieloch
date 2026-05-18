@@ -1,0 +1,65 @@
+{
+  "slug": "the-overnight-shift",
+  "title": "The Overnight Shift",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
+  "generatedAt": "2026-05-18T20:24:49.536Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "the-overnight-shift/linkedin.md",
+      "checksum": "6f747ae014cd7dee62b0aa51717b0637590995b75d264269b4e32855649b36ee",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "the-overnight-shift/reddit.md",
+      "checksum": "871e0e9558de0144709d06d621ac86ece355908733b1590717761eb1845263e9",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "the-overnight-shift/medium.md",
+      "checksum": "f5b0174d5d59e1b984ed96c05533caa2732e018db29ef537c19c2e9965891bfb",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "the-overnight-shift/devto.md",
+      "checksum": "987fdad134fe091c15fb380468dbb9c6cecc6c56534f94fd7291c2b0cd3aecc0",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "the-overnight-shift/hashnode.md",
+      "checksum": "9e601b056474711a8a7ec8adb239b84856ae1017a7398b446485f8eca9b4f9a6",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "the-overnight-shift/hackernoon.md",
+      "checksum": "e154e741398dd4518a8dc22ca1e99652da8a68b02cb6ebf6cc8323984653ea48",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "the-overnight-shift/dzone.md",
+      "checksum": "d757b2853def2938928ecf27846282af065a0dab0e60f7a67f6a79999ebbc255",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "the-overnight-shift/substack.md",
+      "checksum": "1bd3df4022068f0bd37d971ee9366e7dbfbf396191af3ca1374694d4c0070436",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

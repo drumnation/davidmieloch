@@ -4,11 +4,18 @@ import path from 'node:path';
 
 import { loadDotEnvFile } from './lib/load-dotenv.mjs';
 import {
+  readObsidianArticle,
+  resolveObsidianBlogsRoot,
+  scanObsidianArticles,
+} from './lib/obsidian-reader.mjs';
+import {
   checksumPayload,
   readRecentObservations,
   resolveHeartbeatPath,
   writeObservation,
 } from './lib/observability.mjs';
+import { generatePlatformPackages, platformPackageDefaults } from './lib/platform-packages.mjs';
+import { importWebsiteArticle } from './lib/website-importer.mjs';
 
 const appRoot = process.cwd();
 const envPath = path.join(appRoot, '.env.local');
@@ -16,8 +23,10 @@ const contentRoot = process.env.CONTENT_ROOT
   ? path.resolve(process.env.CONTENT_ROOT)
   : path.join(appRoot, 'content');
 const articlesRoot = path.join(contentRoot, 'articles');
+const publicRoot = path.join(appRoot, 'public');
 const ledgerPath = path.join(contentRoot, 'distribution/platform-ledger.json');
 const statusPath = path.join(contentRoot, 'distribution/pipeline-status.json');
+const packagesRoot = path.join(contentRoot, 'distribution/packages');
 const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
@@ -83,6 +92,17 @@ function readVariant(slug, platform) {
     throw new Error(`Missing ${platform} variant: ${variantPath}`);
   }
   return readMarkdown(variantPath);
+}
+
+function readOptionalVariants(slug, platforms) {
+  const variants = {};
+  for (const platform of platforms) {
+    const variantPath = path.join(articlesRoot, slug, 'variants', `${platform}.md`);
+    if (fs.existsSync(variantPath)) {
+      variants[platform] = readMarkdown(variantPath);
+    }
+  }
+  return variants;
 }
 
 function readLedger() {
@@ -322,6 +342,7 @@ function scheduleDryRun(slug) {
   const platforms = {
     davidmieloch: { action: 'canonical-site-build', mode: 'local-build' },
     linkedin: { action: 'create-launch-post', mode: 'requires-browser-confirmation' },
+    reddit: { action: 'create-community-specific-discussion-package', mode: 'manual-package' },
     medium: { action: 'import-canonical-url', mode: 'requires-browser-confirmation' },
     devto: { action: 'create-unpublished-draft', mode: 'api-backed' },
     hashnode: { action: 'create-delisted-draft', mode: 'api-backed' },
@@ -337,6 +358,18 @@ function scheduleDryRun(slug) {
     publicPosting: 'not-performed-by-this-command',
     platforms,
   };
+}
+
+function manualPackage(slug, platform) {
+  const platforms = platform ? [platform] : platformPackageDefaults.platforms;
+  const article = readArticle(slug);
+  const variants = readOptionalVariants(slug, platforms);
+  return generatePlatformPackages({
+    article,
+    outputRoot: packagesRoot,
+    variants,
+    platforms,
+  });
 }
 
 async function createDevtoDraft(slug) {
@@ -414,18 +447,70 @@ function linkedinCaptureList() {
   };
 }
 
+function obsidianScan() {
+  const blogsRoot = resolveObsidianBlogsRoot();
+  const candidates = scanObsidianArticles(blogsRoot);
+  const ledger = fs.existsSync(ledgerPath) ? readLedger() : { articles: {} };
+  const ledgerSlugs = new Set(Object.keys(ledger.articles ?? {}));
+  return {
+    blogsRoot,
+    count: candidates.length,
+    candidates: candidates.map((candidate) => ({
+      ...candidate,
+      inLedger: ledgerSlugs.has(candidate.slug),
+      websiteExists: fs.existsSync(path.join(articlesRoot, candidate.slug, 'index.md')),
+    })),
+  };
+}
+
+function obsidianImport(slug, options = {}) {
+  const blogsRoot = resolveObsidianBlogsRoot();
+  const match = scanObsidianArticles(blogsRoot)
+    .filter((candidate) => candidate.slug === slug)
+    .sort((left, right) => {
+      const leftFinal = String(left.status).includes('final') ? 1 : 0;
+      const rightFinal = String(right.status).includes('final') ? 1 : 0;
+      if (rightFinal !== leftFinal) return rightFinal - leftFinal;
+      return right.imageCount - left.imageCount;
+    })[0];
+  if (!match) {
+    throw new Error(`No Obsidian article candidate found for slug: ${slug}`);
+  }
+
+  const ledger = fs.existsSync(ledgerPath) ? readLedger() : { articles: {} };
+  const ledgerArticle = ledger.articles?.[slug];
+  const article = readObsidianArticle(match.sourcePath, blogsRoot);
+  return importWebsiteArticle({
+    article,
+    articlesRoot,
+    publicRoot,
+    overwrite: Boolean(options.force),
+    options: {
+      publishedAt: ledgerArticle?.source?.publishedAt ?? article.date,
+      series: ledgerArticle?.series ?? 'AI Factory',
+      sourceUrl: ledgerArticle?.source?.url ?? '',
+      canonicalUrl: ledgerArticle?.canonicalUrl || `https://davidmieloch.com/blog/${slug}`,
+      tags: article.tags.length > 0 ? article.tags.filter((tag) => tag !== 'blog') : ['ai', 'agents'],
+    },
+  });
+}
+
 function usage() {
   console.log(`Usage:
   pnpm content:pipeline status
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline schedule:dry-run <slug>
+  pnpm content:pipeline manual-package <slug> [platform]
   pnpm content:pipeline devto:create-draft <slug>
   pnpm content:pipeline hashnode:create-draft <slug>
   pnpm content:pipeline linkedin:capture-list
+  pnpm content:pipeline obsidian:scan
+  pnpm content:pipeline obsidian:import <slug> [--force]
 
 Safety:
   - DEV and Hashnode commands create unpublished/delisted drafts only.
+  - manual-package writes local posting packages only.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
 `);
@@ -481,6 +566,9 @@ async function runCommand(command, slug) {
   if (command === 'schedule:dry-run' && slug) {
     return scheduleDryRun(slug);
   }
+  if (command === 'manual-package' && slug) {
+    return manualPackage(slug, process.argv[4]);
+  }
   if (command === 'devto:create-draft' && slug) {
     return createDevtoDraft(slug);
   }
@@ -489,6 +577,12 @@ async function runCommand(command, slug) {
   }
   if (command === 'linkedin:capture-list') {
     return linkedinCaptureList();
+  }
+  if (command === 'obsidian:scan') {
+    return obsidianScan();
+  }
+  if (command === 'obsidian:import' && slug) {
+    return obsidianImport(slug, { force: process.argv.includes('--force') });
   }
 
   usage();
