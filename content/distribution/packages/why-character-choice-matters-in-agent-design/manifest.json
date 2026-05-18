@@ -2,63 +2,88 @@
   "slug": "why-character-choice-matters-in-agent-design",
   "title": "Why Character Choice Matters in Agent Design",
   "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
-  "generatedAt": "2026-05-18T20:42:39.077Z",
+  "generatedAt": "2026-05-18T21:41:27.880Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "why-character-choice-matters-in-agent-design/linkedin.md",
-      "checksum": "56cffbc9c325ed7c9707a19ae8773966cb6bf3936f24227ee67f30ef63d8577f",
+      "checksum": "a8ea9c65a1d87071dea4ce582aefbb37ab9bf1804292d50451e31b81ad2988ae",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "why-character-choice-matters-in-agent-design/reddit.md",
-      "checksum": "7b6804f82611a3c0693ded2d0fc3e9bfef15b9b1e9e03705062af7ff01e04a48",
+      "checksum": "9aaeca0e21cde9f62692fcc7d758caac28f0f53b7bc234498c40e7bf8ad2f59b",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "why-character-choice-matters-in-agent-design/medium.md",
-      "checksum": "8c518136fac47be59e91ca6411612b32e7f27dbeafca2286c1a2bc72e4e47a46",
+      "checksum": "d19421434e4c1067bb361a0ba6fe5dd4d559c78355e32a7a663bd79b43f67d2d",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "why-character-choice-matters-in-agent-design/devto.md",
-      "checksum": "b5e119e8e0622af876aaadcef3ce602b562001398e6075a61026bf5af9b0ca55",
+      "checksum": "c96a0f4514653730260b55315bf82c1d920b0d6c9799e637a7c1709c2a86f73a",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "why-character-choice-matters-in-agent-design/hashnode.md",
-      "checksum": "d1e23f104c0aebfb41e55178b07b2b0ffec4c463f53b6ff5dc51ceeffc2ae281",
+      "checksum": "4f985e88369080770fb015515abae86fb231cc53f561159ac4af1da763a9d178",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "why-character-choice-matters-in-agent-design/hackernoon.md",
-      "checksum": "bba295c3b9e40939b1425800d0c9f42cd867266c20e8aacb9bf3ea467d8ca0e7",
+      "checksum": "5d9ae0e63dbacd027c1181b872c5414686e6fdb2d2d67f148fdcc70c91b45412",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "why-character-choice-matters-in-agent-design/dzone.md",
-      "checksum": "e740e797cd6e5466116db3ccfc51d654595caa2c84930ba29f804763cc7e7c9e",
+      "checksum": "3cecc4ba9f77df976724d3c5f7e8498b4873a0cc879cb0f3bd3f179f54ed3375",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "why-character-choice-matters-in-agent-design/substack.md",
-      "checksum": "13445cc88fd3766f2553893cd3a95f246451b898993ed62617ccc63fe3846e05",
+      "checksum": "6dddcf53f5e8ff78497ef31594321ffb35cd8a9e084ced4181bb97aa4c2dbce6",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

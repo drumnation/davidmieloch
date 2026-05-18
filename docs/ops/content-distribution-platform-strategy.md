@@ -6,19 +6,36 @@ davidmieloch.com is the canonical home. External sites are reach surfaces, not t
 
 The pipeline should create local packages and drafts first. Public posting requires an explicit receipt trail and David approval.
 
+The executable policy lives in:
+
+```text
+content/distribution/syndication-policy.json
+```
+
+That file is the source of truth for post mode, canonical support, approval rules, CTA language, and metric fields. The package generator consumes it directly.
+
 ## Platform Modes
 
 | Platform | Mode | Use |
 | --- | --- | --- |
 | Website | Canonical publish | SEO, AI indexing, durable archive |
-| LinkedIn | Native launch post or article variant | Professional audience and published-state reconciliation |
-| Reddit | Community-specific discussion package | Discovery and conversation, never blind mirroring |
-| Medium | Canonical import or mirror | Broader essay discovery |
-| DEV | API-created unpublished draft | Developer audience with canonical backlink |
-| Hashnode | API-created delisted draft | Developer audience with canonical backlink |
-| HackerNoon | Editorial submission package | Opinionated technical essay distribution |
-| DZone | Editorial rewrite package | Practical engineering version |
-| Substack | Newsletter intro | Direct audience and follow-up loop |
+| LinkedIn | `launch-post` | Professional audience and published-state reconciliation |
+| Reddit | `discussion` | Discovery and conversation, never blind mirroring |
+| Medium | `full-mirror` | Broader essay discovery with canonical source preserved |
+| DEV | `full-mirror` | Developer audience with canonical backlink |
+| Hashnode | `full-mirror` | Developer audience with canonical backlink |
+| HackerNoon | `editorial-republish` | Opinionated technical essay distribution |
+| DZone | `editorial-rewrite` | Practical engineering version |
+| Substack | `newsletter` | Direct audience and follow-up loop |
+
+## Package Rules
+
+- Full mirrors preserve the canonical URL and append a tracked canonical CTA.
+- Discussion packages are never mirrors; they are prompts that can include the canonical essay as context.
+- Newsletter packages are series/editorial wrappers, not raw cross-posts.
+- Editorial packages are starting drafts for human review.
+- All packages include `public_publish_allowed: false`.
+- UTM links use `utm_source=<platform>`, `utm_medium=syndication`, `utm_campaign=content_distribution`, and `utm_content=<slug>`.
 
 ## Reddit Policy
 
@@ -52,17 +69,40 @@ References:
 4. Generate packages with:
 
    ```bash
-   rtk pnpm content:pipeline manual-package <slug>
+   rtk pnpm content:pipeline manual-package <slug|all>
    ```
 
 5. Let agents rewrite platform packages for audience fit.
 6. Human approval gates any first publish on a platform.
 7. Record receipts in `content/distribution/platform-ledger.json`.
-8. Run drift checks against the website, ledger, and platform receipts.
+8. Record content metrics in `content/distribution/content-metrics.json`.
+9. Run drift checks against the website, ledger, platform receipts, and metrics records.
+
+## Metrics Loop
+
+The pipeline can record observed metrics after an external post exists:
+
+```bash
+rtk pnpm content:pipeline metrics:record the-factory medium \
+  --url=https://medium.com/@davidmieloch/the-factory \
+  --views=120 \
+  --clicks=9 \
+  --reactions=4 \
+  --comments=1 \
+  --shares=2
+```
+
+Then reconcile the package surface, ledger receipts, and metrics records:
+
+```bash
+rtk pnpm content:pipeline metrics:report
+```
+
+A published platform receipt without a metrics record is a degraded observation. That is intentional: the pipeline should notice when distribution happened but measurement did not.
 
 ## Observability
 
-Each package command writes Genesis heartbeat records through `scripts/lib/observability.mjs`.
+Each package and metrics command writes Genesis heartbeat records through `scripts/lib/observability.mjs`.
 
 Required claims:
 
@@ -70,11 +110,12 @@ Required claims:
 - manifest records output checksums
 - public publishing was not performed
 - receipt URL is missing until a human or approved publisher fills it
+- published receipts have metrics records
 
 Fallback chain:
 
 1. package manifest checksum
-2. ledger status readback
+2. ledger and metrics readback
 3. ROM heartbeat
 
 ## PIE-CI Review

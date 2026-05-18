@@ -1,10 +1,14 @@
 ---
 platform: "reddit"
 mode: "manual-community-post"
+post_mode: "discussion"
 title: "The Overnight Shift"
 canonical_url: "https://davidmieloch.com/blog/the-overnight-shift"
+tracked_url: "https://davidmieloch.com/blog/the-overnight-shift?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=the-overnight-shift"
 source_slug: "the-overnight-shift"
-generated_at: "2026-05-18T20:42:38.476Z"
+generated_at: "2026-05-18T21:41:27.872Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -20,7 +24,7 @@ Subreddit-specific discussion prompt that links to the canonical essay only when
 
 ## Copy
 
-Suggested starting shape, not a blind cross-post:
+Suggested discussion shape, not a blind cross-post:
 
 Title: The Overnight Shift
 
@@ -29,7 +33,7 @@ What happens when your code keeps working after you go to bed. I launched an exe
 
 Question for the community: does this pattern match anything you are seeing in real workflows, or does it break down in your environment?
 
-Canonical essay: https://davidmieloch.com/blog/the-overnight-shift
+Canonical essay: https://davidmieloch.com/blog/the-overnight-shift?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=the-overnight-shift
 
 Subreddit fit checklist:
 - Read the target subreddit rules before posting.

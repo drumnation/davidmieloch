@@ -1,10 +1,14 @@
 ---
 platform: "reddit"
 mode: "manual-community-post"
+post_mode: "discussion"
 title: "Reuse your code: Authoring your own Universal Library with Webpack"
 canonical_url: "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+tracked_url: "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack"
 source_slug: "reuse-your-code-authoring-your-own-universal-library-with-webpack"
-generated_at: "2026-05-18T20:42:36.811Z"
+generated_at: "2026-05-18T21:41:27.861Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -20,7 +24,7 @@ Subreddit-specific discussion prompt that links to the canonical essay only when
 
 ## Copy
 
-Suggested starting shape, not a blind cross-post:
+Suggested discussion shape, not a blind cross-post:
 
 Title: Reuse your code: Authoring your own Universal Library with Webpack
 
@@ -29,7 +33,7 @@ Are you looking to build a custom library using webpack? With the right setup, w
 
 Question for the community: does this pattern match anything you are seeing in real workflows, or does it break down in your environment?
 
-Canonical essay: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack
+Canonical essay: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack
 
 Subreddit fit checklist:
 - Read the target subreddit rules before posting.

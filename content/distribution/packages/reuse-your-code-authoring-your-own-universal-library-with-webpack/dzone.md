@@ -1,10 +1,14 @@
 ---
 platform: "dzone"
 mode: "manual-editorial-rewrite"
+post_mode: "editorial-rewrite"
 title: "Reuse your code: Authoring your own Universal Library with Webpack"
 canonical_url: "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+tracked_url: "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=dzone&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack"
 source_slug: "reuse-your-code-authoring-your-own-universal-library-with-webpack"
-generated_at: "2026-05-18T20:42:36.811Z"
+generated_at: "2026-05-18T21:41:27.861Z"
+canonical_support: "unknown"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -20,4 +24,8 @@ Practical engineering rewrite package for DZone review.
 
 ## Copy
 
-Manual dzone package pending. Use canonical source: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack
+Are you looking to build a custom library using webpack? With the right setup, webpack can help you create a library that can be used by other developers in their projects. This is also helpful if you’d like to share your own code with many of your own projects to avoid needless code repetition. In this blog post, we’ll discuss the steps to create a custom library with webpack. First, you need to install webpack and the necessary packages. npm install webpack After that, you’ll need to create a webpack.config.js file in your project root. This file will contain the configuration for webpack. Next, you’ll need to...
+
+Use one contextual source link back to the canonical article when editorial rules allow.
+
+Read the canonical version: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=dzone&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack

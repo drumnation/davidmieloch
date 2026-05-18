@@ -2,63 +2,88 @@
   "slug": "reality-needs-observers",
   "title": "Reality Needs Observers",
   "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
-  "generatedAt": "2026-05-18T20:42:36.488Z",
+  "generatedAt": "2026-05-18T21:41:27.858Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "reality-needs-observers/linkedin.md",
-      "checksum": "47734fe9facb5fce54d769966ff10380b7ffee9867b728feeb8a8c8b04412e58",
+      "checksum": "b956eb75dd101ca7288bab406a24f497ed1aaccb05451441e1ca05777128f517",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "reality-needs-observers/reddit.md",
-      "checksum": "afa978b2269542b4ac46b9995cae623c9a950d3002624fa43492235da0341762",
+      "checksum": "dbc24127afaac4fc6d7ccd3da77213c9b04e78e243055b00f00df4fe1977137f",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "reality-needs-observers/medium.md",
-      "checksum": "3e12225fe08294f7602b3d1d63b375121e4daad8fcbeac1ef32b8c4b6643d675",
+      "checksum": "872bb917e64bc9c264c8c722de45f5338c22afcfba9b3ca0056f82061f6ffe1b",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "reality-needs-observers/devto.md",
-      "checksum": "80a279b2bb8a85439824973538d83baa8c67e1326e6b854df92c956050f07379",
+      "checksum": "4b6563fc9ae71598374d91c96bd52c4b06f2e3fa0da236a5371238152e6db4dd",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "reality-needs-observers/hashnode.md",
-      "checksum": "42cb07166253f11406b88a41f053285a389be013577bd35a3fa4cb37945ccfc4",
+      "checksum": "ebf8b196a9c680a6e1692aed510077c9c58fa6d89f7b43a73e1ed562b14f4d34",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "reality-needs-observers/hackernoon.md",
-      "checksum": "b69a94cbe48244d9a3a906b04c7f615afb10b367712175d5b9a95c5f2d974cc7",
+      "checksum": "27d3747079660733a7db0baa0474974a94a1d561ef6fdb18c710b3243a8a8a02",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "reality-needs-observers/dzone.md",
-      "checksum": "8c14bc38507ceda0d6a14d6654b69234851ddbfbffb7b690e983acc601b3185c",
+      "checksum": "0deb65879a60300125eba75bcd134b42295e7b442c894084587d7d1a5f25b0a7",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "reality-needs-observers/substack.md",
-      "checksum": "d8851bb8e968c673e8e2e4a02e146468431bb527a53e5d1a6147a238fd652c8a",
+      "checksum": "78f4670a3c80687a4de7adf588fa089a110be567439247b2a82a4cc77d39090b",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

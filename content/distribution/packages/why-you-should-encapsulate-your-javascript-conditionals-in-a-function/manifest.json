@@ -2,63 +2,88 @@
   "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
   "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
   "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
-  "generatedAt": "2026-05-18T20:42:39.352Z",
+  "generatedAt": "2026-05-18T21:41:27.882Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/linkedin.md",
-      "checksum": "43f1e0733f20b735875ff9d9448c5158622c58b459334dc4df8838c111b62717",
+      "checksum": "34072ee0336d18ab45da41ec7da9a40de9ae16134a3be7462efd07134d14821c",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md",
-      "checksum": "db6c7cd4c9841e7260d9601e9d661456fa3f520a44d04f950d0c039635e71793",
+      "checksum": "15e2c340b990f612f44a14e2829ddbd8275e2108fd650ec17d6a7340f5bf6ebf",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/medium.md",
-      "checksum": "70dfe63cf1ce7b1979d26fc737c1a5c83653762f552367e49afee57c502ab03b",
+      "checksum": "5d50241df5adc00cdacc514084876a25a5692329e70f8dd1f424816bac905f48",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/devto.md",
-      "checksum": "487bbc299cfcf9091a773ce2c81051372c327ef2f31f6115e1c0492e9a3e8c99",
+      "checksum": "38e823c2c674688d234c7e0cfc1680bcee5ee80eb8e6f4544e4953bd08b01a67",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/hashnode.md",
-      "checksum": "a3f6a9cc28d5b329bd4ffaaf31a2abbeb1a00a77dd974c6cc496f9c2f8adf67f",
+      "checksum": "7c9d06ea2561ca1ec9ee0f36d7f64b0e3ba637397151dc25f7dbbf19a379f6d0",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/hackernoon.md",
-      "checksum": "f3e3e08765c3f75bdb8d783f22a068d1015f4edf1412bb1ff16ed0bd9c27a599",
+      "checksum": "ef12c1d78ec909bd81f5f915f65b960e755aae84720eac26ff5dd182d7f3a12d",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/dzone.md",
-      "checksum": "ebe463cef70f82d8a64f08eba95fa8f2d32395db44bb91d9d8798fdcd05d7201",
+      "checksum": "d9ebaf59830c48d9ec85c56a5d6ff7d94d0aee5209c921a92b4218c88d24adf3",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/substack.md",
-      "checksum": "fadc6eb60b26b7489d2a3ca31494ec126b7950d2c2bc565852817a9cccab75f5",
+      "checksum": "9ce70bdfbddf817820c4cd1fbdf58451bca0e4043785ef92a2d50312ca17962b",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

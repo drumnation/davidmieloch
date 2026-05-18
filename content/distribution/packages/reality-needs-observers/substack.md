@@ -1,10 +1,14 @@
 ---
 platform: "substack"
 mode: "manual-newsletter-draft"
+post_mode: "newsletter"
 title: "Reality Needs Observers"
 canonical_url: "https://davidmieloch.com/blog/reality-needs-observers"
+tracked_url: "https://davidmieloch.com/blog/reality-needs-observers?utm_source=substack&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reality-needs-observers"
 source_slug: "reality-needs-observers"
-generated_at: "2026-05-18T20:42:36.488Z"
+generated_at: "2026-05-18T21:41:27.858Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -12,7 +16,7 @@ public_publish_allowed: false
 
 ## Posting guidance
 
-Newsletter intro that sends readers to the canonical essay.
+Newsletter intro or series digest that sends readers to the canonical essay.
 
 - Do not publish without David approval.
 - Preserve canonical URL: https://davidmieloch.com/blog/reality-needs-observers
@@ -20,4 +24,14 @@ Newsletter intro that sends readers to the canonical essay.
 
 ## Copy
 
-Manual substack package pending. Use canonical source: https://davidmieloch.com/blog/reality-needs-observers
+Subject: Reality Needs Observers
+
+I published a new essay that belongs in the factory series:
+
+The machine is bigger than the builder now. I am not a physicist. That matters, because this essay starts from physics. Not from a vibe. Not from a YouTube metaphor about living in a video game. From a Nobel Prize. In 2022, the Nobel Prize in Physics was awarded to Alain Aspect, John Clauser, and Anton Zeilinger for experiments with entangled photons. Their work tested Bell inequalities and helped establish something that sounds impossible if you grew up with a normal, intuitive picture of reality: the universe...
+
+Subscribe for future factory notes and read the canonical article on davidmieloch.com.
+
+Read the canonical version: https://davidmieloch.com/blog/reality-needs-observers?utm_source=substack&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reality-needs-observers
+
+Mailing list destination: https://davidmieloch.com/blog/reality-needs-observers?utm_source=substack&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reality-needs-observers

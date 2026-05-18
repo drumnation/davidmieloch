@@ -2,63 +2,88 @@
   "slug": "the-foreman",
   "title": "The Foreman",
   "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
-  "generatedAt": "2026-05-18T20:42:37.644Z",
+  "generatedAt": "2026-05-18T21:41:27.866Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "the-foreman/linkedin.md",
-      "checksum": "22c2a68150ea2219e859f26903acb08271e8bf2d968ea82a94b29969f26a5240",
+      "checksum": "254508c9a7d14563b5c70b3c4afca981bf7b0b6ad94a9ae306d98bd93b6fe4a1",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "the-foreman/reddit.md",
-      "checksum": "95d357256721bef4478150162c3043fa50567c5ea108ea6dff28a5deff1c6570",
+      "checksum": "a227c1960057b14efd87ec5ee81347b9962c1d4a892b20206d8145230c872ea2",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "the-foreman/medium.md",
-      "checksum": "78eaa7e03eafaa588adc0923fc9975a21e558e9309f9c7eac99881da63999c38",
+      "checksum": "13276931c3d4f64bf6e90e652baf99d16610b0e82a2f4f495a073f9a6dbf2acd",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "the-foreman/devto.md",
-      "checksum": "b97bec270209b019147987222789a6c6a9c355a05f17066ee9990e272eaed966",
+      "checksum": "4d0f264d57a7c51bbbd67dc8471a2bed5aa84aa37999d941ce7e89840e41310b",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "the-foreman/hashnode.md",
-      "checksum": "39f469740b16e4a594ffe319f7bcf60e114ac7498198e4582a752ad54bce2228",
+      "checksum": "8c149516171b476a5feab8ad01c6605fe0650099ee6714879429ec6a29ca197f",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "the-foreman/hackernoon.md",
-      "checksum": "9245fd71d47572423ee6681c930c94f9afd4a4223b8b0a320c1bbfb77e819912",
+      "checksum": "53810df1dcba22cb98a8c1b46542ebd26a0efac7217c945db58264ccb21e71e9",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "the-foreman/dzone.md",
-      "checksum": "0df2e9f122c1781c821cbdb2a66b462a7feb159b7bc69a09362bba09f2f9ede7",
+      "checksum": "8dd8605863b6ab67822167e675d43ecd8df3586613b1307924a9c6ffabc377aa",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "the-foreman/substack.md",
-      "checksum": "76f05f4b394f3403fc00aa78215b2214c8e912ef655e2edd99ded3e9e703bb08",
+      "checksum": "1999c0bc9ff361e1ea8d4fcddb3ba7292e096fedd253c61cbeb222d81f6a3d2d",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

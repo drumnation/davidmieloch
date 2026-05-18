@@ -1,0 +1,120 @@
+{
+  "version": "syndication-policy-v1",
+  "canonicalHome": "https://davidmieloch.com",
+  "defaultCampaign": "content_distribution",
+  "mailingListUrl": "https://davidmieloch.com/blog",
+  "platforms": {
+    "linkedin": {
+      "displayName": "LinkedIn",
+      "postMode": "launch-post",
+      "workflow": "manual-browser-draft",
+      "canonicalSupport": "not-supported",
+      "intent": "Native launch post or article variant for the existing professional audience.",
+      "cta": "Read the canonical essay on davidmieloch.com and join the mailing list there.",
+      "approvalRequired": true,
+      "publicPublishAllowed": false,
+      "metrics": {
+        "source": "manual",
+        "fields": ["impressions", "clicks", "reactions", "comments", "shares", "followers"]
+      }
+    },
+    "reddit": {
+      "displayName": "Reddit",
+      "postMode": "discussion",
+      "workflow": "manual-community-post",
+      "canonicalSupport": "not-supported",
+      "intent": "Subreddit-specific discussion prompt that links to the canonical essay only when useful.",
+      "cta": "If useful, include the canonical essay link as context after the discussion prompt.",
+      "approvalRequired": true,
+      "publicPublishAllowed": false,
+      "metrics": {
+        "source": "manual",
+        "fields": ["upvotes", "comments", "clicks"]
+      }
+    },
+    "medium": {
+      "displayName": "Medium",
+      "postMode": "full-mirror",
+      "workflow": "manual-import",
+      "canonicalSupport": "supported",
+      "intent": "Canonical import or mirror with the original URL preserved.",
+      "cta": "Read the canonical version and the full series on davidmieloch.com.",
+      "approvalRequired": true,
+      "publicPublishAllowed": false,
+      "metrics": {
+        "source": "manual",
+        "fields": ["views", "reads", "fans", "clicks"]
+      }
+    },
+    "devto": {
+      "displayName": "DEV",
+      "postMode": "full-mirror",
+      "workflow": "api-draft-or-manual-copy",
+      "canonicalSupport": "supported",
+      "intent": "Developer-facing mirror draft with canonical URL preserved.",
+      "cta": "Read the canonical version and related series on davidmieloch.com.",
+      "approvalRequired": true,
+      "publicPublishAllowed": false,
+      "metrics": {
+        "source": "api-or-manual",
+        "fields": ["page_views_count", "public_reactions_count", "comments_count", "clicks"]
+      }
+    },
+    "hashnode": {
+      "displayName": "Hashnode",
+      "postMode": "full-mirror",
+      "workflow": "api-delisted-draft-or-manual-copy",
+      "canonicalSupport": "supported",
+      "intent": "Developer-facing draft with original article URL preserved.",
+      "cta": "Read the canonical version and related series on davidmieloch.com.",
+      "approvalRequired": true,
+      "publicPublishAllowed": false,
+      "metrics": {
+        "source": "api-or-manual",
+        "fields": ["views", "reactions", "comments", "clicks"]
+      }
+    },
+    "hackernoon": {
+      "displayName": "HackerNoon",
+      "postMode": "editorial-republish",
+      "workflow": "manual-editorial-submission",
+      "canonicalSupport": "supported",
+      "intent": "Editorial submission package with tags and first-seen URL.",
+      "cta": "Point readers to the canonical article and series page after editorial approval.",
+      "approvalRequired": true,
+      "publicPublishAllowed": false,
+      "metrics": {
+        "source": "manual",
+        "fields": ["reads", "reactions", "comments", "clicks"]
+      }
+    },
+    "dzone": {
+      "displayName": "DZone",
+      "postMode": "editorial-rewrite",
+      "workflow": "manual-editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "intent": "Practical engineering rewrite package for DZone review.",
+      "cta": "Use one contextual source link back to the canonical article when editorial rules allow.",
+      "approvalRequired": true,
+      "publicPublishAllowed": false,
+      "metrics": {
+        "source": "manual",
+        "fields": ["views", "comments", "clicks"]
+      }
+    },
+    "substack": {
+      "displayName": "Substack",
+      "postMode": "newsletter",
+      "workflow": "manual-newsletter-draft",
+      "canonicalSupport": "not-supported",
+      "intent": "Newsletter intro or series digest that sends readers to the canonical essay.",
+      "cta": "Subscribe for future factory notes and read the canonical article on davidmieloch.com.",
+      "approvalRequired": true,
+      "publicPublishAllowed": false,
+      "metrics": {
+        "source": "manual",
+        "fields": ["opens", "clicks", "likes", "comments", "subscribers"]
+      }
+    }
+  }
+}

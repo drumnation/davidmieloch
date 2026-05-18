@@ -69,11 +69,15 @@
 **Files:**
 - Create: `scripts/lib/platform-packages.mjs`
 - Create: `content/distribution/packages/`
+- Create: `content/distribution/syndication-policy.json`
 
 - [x] Generate LinkedIn variant.
 - [x] Generate Medium/Dev.to/Hashnode mirror package.
 - [x] Generate social excerpt package.
 - [x] Include canonical URL, backlinks, images, and manual posting checklist.
+- [x] Add policy-driven platform modes: full mirror, launch post, discussion, editorial rewrite, newsletter.
+- [x] Add tracked canonical CTAs with UTM source/campaign/content fields.
+- [x] Add `manual-package all` to regenerate the whole archive consistently.
 
 ## Task 6: Scheduling And Approval
 
@@ -91,18 +95,22 @@
 **Files:**
 - Modify: `scripts/lib/observability.mjs`
 - Create: `docs/ops/content-distribution-observability.md`
+- Create: `scripts/lib/content-metrics.mjs`
+- Create: `content/distribution/content-metrics.json`
 
-- [ ] Log every scan, transform, package generation, and publish attempt.
-- [ ] Record input and output checksums.
+- [x] Log every scan, transform, package generation, and metrics report command.
+- [x] Record input and output checksums.
 - [ ] Add receipt verification observer.
+- [x] Add metrics report command that reconciles packages, ledger receipts, and metrics records.
 - [ ] Add weekly drift report command.
-- [ ] Ensure every observer has at least one fallback: registry report, manual package, ROM heartbeat.
+- [x] Ensure every observer has at least one fallback: registry report, manual package, metrics report, ROM heartbeat.
 
 ## Task 8: Verification
 
 - [ ] `rtk pnpm type-check`
-- [ ] registry tests
-- [ ] `rtk pnpm content:pipeline -- dry-run`
+- [x] distribution package and metrics tests
+- [x] `rtk pnpm content:pipeline manual-package all`
+- [x] `rtk pnpm content:pipeline metrics:report`
 - [ ] `NEXT_TELEMETRY_DISABLED=1 OPENAI_API_KEY= rtk pnpm build`
 - [ ] staging synthetic checks for canonical article, RSS, sitemap
 

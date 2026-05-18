@@ -2,63 +2,88 @@
   "slug": "your-ai-isnt-hallucinating-its-lying",
   "title": "Your AI Isn't Hallucinating. It's Lying.",
   "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
-  "generatedAt": "2026-05-18T20:42:39.630Z",
+  "generatedAt": "2026-05-18T21:41:27.885Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "your-ai-isnt-hallucinating-its-lying/linkedin.md",
-      "checksum": "142ff6463bd6a9e4d7223641a51d9525bdc8f93146f8f27d34efd90635bccd8a",
+      "checksum": "345fb8034cd99358415f5b4b0c3fcb73522e97c711498653e333d34338a36051",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": true
     },
     {
       "platform": "reddit",
       "file": "your-ai-isnt-hallucinating-its-lying/reddit.md",
-      "checksum": "fcd87572672b03e7be3705acf32736a8954a645071bcf6e7ae7769066bab6019",
+      "checksum": "0147758be47c61c734ab1dc127778b7c8cddb7939ab5f9270273210172a02ee3",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "your-ai-isnt-hallucinating-its-lying/medium.md",
-      "checksum": "4a787875f5500e5b860e513866ee01340d5892f122c4088827ebdf6e754b6b27",
+      "checksum": "8bd7d7cbe0c1990c4bba3dabce4c6c1433bc222b12903e951ca2efd4bcf25e13",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": true
     },
     {
       "platform": "devto",
       "file": "your-ai-isnt-hallucinating-its-lying/devto.md",
-      "checksum": "ebd7478509cb7b26d3f8dff01f97920cbd6fe69ac4c1aab8b4f7cb30c09820dc",
+      "checksum": "de6c1fe3b0158a1accabd7a34d7af4895a364edb8785002468a4dcf35e2fe07c",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": true
     },
     {
       "platform": "hashnode",
       "file": "your-ai-isnt-hallucinating-its-lying/hashnode.md",
-      "checksum": "f115192b781ddad25d1e791221f3ee3e9c46260e70e3216c4bdb96defc41ecee",
+      "checksum": "3f0476a3eb07b5cbb2134ba560ef055c868ea10c367aed252b2e718e65553484",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": true
     },
     {
       "platform": "hackernoon",
       "file": "your-ai-isnt-hallucinating-its-lying/hackernoon.md",
-      "checksum": "88be2996f9b83a60069be23b0e9908bc484e5444a5b3a734b1887be89e355acf",
+      "checksum": "e01015f2fc5602e26bed4db7cd0de4666d4baa7d42b7b6b713537b501d7c9837",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": true
     },
     {
       "platform": "dzone",
       "file": "your-ai-isnt-hallucinating-its-lying/dzone.md",
-      "checksum": "e51e57b25085e413ba296572b5e7719fb892de6823d06022730cbfe22ca99f6d",
+      "checksum": "fe6699d5c8589d481d2d763a9fbf6c7d0bc76d5c3b900447b1500dc64809c143",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": true
     },
     {
       "platform": "substack",
       "file": "your-ai-isnt-hallucinating-its-lying/substack.md",
-      "checksum": "4a8d38fe32497841c0fb98fd31331d185e9ab52b605754e6b1cb422f2b5a9e6e",
+      "checksum": "f5aa2b2cae7343434efffc547700dde762e7dce0aac738b970f4aa3ad1bcaab1",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": true
     }
   ]

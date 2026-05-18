@@ -2,63 +2,88 @@
   "slug": "every-company-is-sitting-on-sunken-treasure",
   "title": "Every Company Is Sitting on Sunken Treasure",
   "canonicalUrl": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
-  "generatedAt": "2026-05-18T20:42:35.335Z",
+  "generatedAt": "2026-05-18T21:41:27.844Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "every-company-is-sitting-on-sunken-treasure/linkedin.md",
-      "checksum": "e098e0beefc3e0a1cc6772ab0cbe6243da019b42da32a50045a230d83dab496b",
+      "checksum": "ac12d41ac0d44e9ace0049cf2a62e551dd5d181cadace4ed0fff038fca11323d",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "every-company-is-sitting-on-sunken-treasure/reddit.md",
-      "checksum": "527b7255f107399ffa61b4c4679d704a8c16a59eb928a9630dc8bd7666f8b0df",
+      "checksum": "ddba7283e5d830962a7171868e3fb06ab0b0e74a6bc0ccb77f7969726a037264",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "every-company-is-sitting-on-sunken-treasure/medium.md",
-      "checksum": "bb51e20ff0aeebd92e339f129557fddd51962ec0138c1edc8b0e4740782a3980",
+      "checksum": "da4a90dc4f0e5b682fecbe902bf43e5810e65b144672ed1dd581d2a1c5f02ea6",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "every-company-is-sitting-on-sunken-treasure/devto.md",
-      "checksum": "8c45fbfc55602e4d3712f43aca39b1cc03507521a51eee40b8bf7b0630b9824a",
+      "checksum": "7414b5ca38d3084bf4871f441111744f02b7329964cb8c68cdad40c72c694926",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "every-company-is-sitting-on-sunken-treasure/hashnode.md",
-      "checksum": "92db5f9318bb726ece99b840553fcdfe570c8f1e5cd08901e06092d600f80304",
+      "checksum": "2fdaff16913b9f16f86f1adbfb863205b9f9c429ff01c57f18acf852fa91895f",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "every-company-is-sitting-on-sunken-treasure/hackernoon.md",
-      "checksum": "e8141ac7f9abf3890fc49dba6ed9eb54b157ac0ce23dcc6c629c5c1ff50dfe27",
+      "checksum": "ec6776668dd193b293687b3aec5a07dd73953be8340bc1d8e725cefbfb091f79",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "every-company-is-sitting-on-sunken-treasure/dzone.md",
-      "checksum": "92e117b1c5930fb1447e76515c3711b45b9d297d32f0ecaedc845c7596044cb2",
+      "checksum": "d959b07a287a6eef3a71c1b3b37195265f5640b59512784ffe704b2879ad9ddc",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "every-company-is-sitting-on-sunken-treasure/substack.md",
-      "checksum": "ddeb23b9754dcc0188a62b0455e8cad314c747266c1d19f932c797407c642866",
+      "checksum": "9828ab06ed2956edd4698c11b45de673400967b85d792acf0e9c5ea27a8e9e0c",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

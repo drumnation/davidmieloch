@@ -1,10 +1,14 @@
 ---
 platform: "hashnode"
 mode: "api-delisted-draft-or-manual-copy"
+post_mode: "full-mirror"
 title: "Your AI Isn't Hallucinating. It's Lying."
 canonical_url: "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying"
+tracked_url: "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying?utm_source=hashnode&utm_medium=syndication&utm_campaign=content_distribution&utm_content=your-ai-isnt-hallucinating-its-lying"
 source_slug: "your-ai-isnt-hallucinating-its-lying"
-generated_at: "2026-05-18T20:42:39.630Z"
+generated_at: "2026-05-18T21:41:27.885Z"
+canonical_support: "supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -12,7 +16,7 @@ public_publish_allowed: false
 
 ## Posting guidance
 
-Developer-facing draft with canonical URL preserved.
+Developer-facing draft with original article URL preserved.
 
 - Do not publish without David approval.
 - Preserve canonical URL: https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying
@@ -206,3 +210,9 @@ But fixing it once isn't the goal. You're trying to raise something that gets be
 - Nature: ["Detecting hallucinations in large language models using semantic entropy"](https://www.nature.com/articles/s41586-024-07421-0) (2024)
 - CoreProse: ["LLMs invent citations: 7 drivers, 6 fixes"](https://www.coreprose.com/kb-incidents/why-llms-invent-academic-citations-and-how-to-stop-ghost-references) (2025)
 - GAIR-NLP: ["Alignment for Honesty"](https://gair-nlp.github.io/alignment-for-honesty/)
+
+---
+
+Read the canonical version and related series on davidmieloch.com.
+
+Read the canonical version: https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying?utm_source=hashnode&utm_medium=syndication&utm_campaign=content_distribution&utm_content=your-ai-isnt-hallucinating-its-lying

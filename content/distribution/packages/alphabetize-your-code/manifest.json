@@ -2,63 +2,88 @@
   "slug": "alphabetize-your-code",
   "title": "Alphabetize your code.",
   "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
-  "generatedAt": "2026-05-18T20:42:34.504Z",
+  "generatedAt": "2026-05-18T21:41:27.837Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "alphabetize-your-code/linkedin.md",
-      "checksum": "8f188b84852c6efc0994273549a36a3d91ae7c524ce07a07c351d965a78b028c",
+      "checksum": "d52cb81095155e444a790caccfbb191a964454ee105537cbdf0e98468836a4a5",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "alphabetize-your-code/reddit.md",
-      "checksum": "7d1c6965c5403fe6a9db9ce49afed28f4846580f60b6cff828b8f2d2023b88a4",
+      "checksum": "477a393829feed9472b1eddddac7f315b0b829a51d423146ed615345239ba7eb",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "alphabetize-your-code/medium.md",
-      "checksum": "0c9d0d12fc818f560f24e788dcaedc98d6a17a02cfec35756c53ca8f75d95c7a",
+      "checksum": "f69cd83a48a46358edaf4c914f2dd76c2ccdceee9f5cd02abd2edbaf6c8f066c",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "alphabetize-your-code/devto.md",
-      "checksum": "80368fd00a1b7c3a06535bb95473dd66fa45b26f80edcbf1daed1a4df94362bc",
+      "checksum": "9d1d3487aead6ed5a5bb54086d8d2119545449846c4cd859200c2fbabcd037bd",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "alphabetize-your-code/hashnode.md",
-      "checksum": "70af53f1c57ee8f5a4547ddd4c19a10a493ec36d7cf598662533c632dafa3c92",
+      "checksum": "701c14398cc536deec1bb99b35080f48a55c524a9129d6948b368bb37f0df9c9",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "alphabetize-your-code/hackernoon.md",
-      "checksum": "e8664d7428fe525401e23d9eff4955c6252c8f312193a63d14e9143ab2f101b6",
+      "checksum": "9f07dfb129841a7545305a3a63f66402dde2f80c9cd8aa1b74a44157d1c88821",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "alphabetize-your-code/dzone.md",
-      "checksum": "94aafdb3fcef94ae02b388f25d94d555c704cc0a03a670e58b48095b26facda8",
+      "checksum": "09925f89528dd6662610270970d637243e28417aca521a8c3672022fbda8b290",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "alphabetize-your-code/substack.md",
-      "checksum": "ce0b0ba869da8dcdd6d4da733f23df9cea1be644708d26608bc4f877ccda024f",
+      "checksum": "db4d10c1e40f9db6c222dd37a2ccf85fa92c4f5db00aae901c1e9e3d2fc6a04a",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

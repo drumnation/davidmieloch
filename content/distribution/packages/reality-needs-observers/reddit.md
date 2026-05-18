@@ -1,10 +1,14 @@
 ---
 platform: "reddit"
 mode: "manual-community-post"
+post_mode: "discussion"
 title: "Reality Needs Observers"
 canonical_url: "https://davidmieloch.com/blog/reality-needs-observers"
+tracked_url: "https://davidmieloch.com/blog/reality-needs-observers?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reality-needs-observers"
 source_slug: "reality-needs-observers"
-generated_at: "2026-05-18T20:42:36.488Z"
+generated_at: "2026-05-18T21:41:27.858Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -20,7 +24,7 @@ Subreddit-specific discussion prompt that links to the canonical essay only when
 
 ## Copy
 
-Suggested starting shape, not a blind cross-post:
+Suggested discussion shape, not a blind cross-post:
 
 Title: Reality Needs Observers
 
@@ -29,7 +33,7 @@ The machine is bigger than the builder now. I am not a physicist. That matters, 
 
 Question for the community: does this pattern match anything you are seeing in real workflows, or does it break down in your environment?
 
-Canonical essay: https://davidmieloch.com/blog/reality-needs-observers
+Canonical essay: https://davidmieloch.com/blog/reality-needs-observers?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reality-needs-observers
 
 Subreddit fit checklist:
 - Read the target subreddit rules before posting.

@@ -2,63 +2,88 @@
   "slug": "the-beauty-of-es6s-object-destructuring-assignment",
   "title": "The Beauty of ES6's Object Destructuring Assignment",
   "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
-  "generatedAt": "2026-05-18T20:42:37.087Z",
+  "generatedAt": "2026-05-18T21:41:27.862Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "the-beauty-of-es6s-object-destructuring-assignment/linkedin.md",
-      "checksum": "896180df4b29053625349a114d31e7c7f6ba2f12fd393a6aa62d5dcb01602760",
+      "checksum": "cba40ad34007ba878a5ff48068d4f6f55d4ba82e7e23d205ec01a275e13adcca",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "the-beauty-of-es6s-object-destructuring-assignment/reddit.md",
-      "checksum": "5ba1900dfec20e86afb14a0b8d2af3e20fb3784e07a61e225aefc1a08c33e48e",
+      "checksum": "b70c79bba711267b2efe2213aaad168f39e240103ac57c2f1b5984d3725416e5",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "the-beauty-of-es6s-object-destructuring-assignment/medium.md",
-      "checksum": "e0c4c76d440a81bfacad45b8b49fc20602c59cfb62c7e1d6c7c3318275e46ae5",
+      "checksum": "d755d88de27a2d0468e63aa3f4f340f951ccf38d935a074630df47036ebefa3a",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "the-beauty-of-es6s-object-destructuring-assignment/devto.md",
-      "checksum": "2507a0ad7a41857b36c5d5684ca4681c803dd77e9b82012f1480e5f913ba93ef",
+      "checksum": "9cd32f4020b9eb1544abb0dd0e03d4eb353e9487c51f2c143bc9d0bf7f2e3e2e",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "the-beauty-of-es6s-object-destructuring-assignment/hashnode.md",
-      "checksum": "799261e76b798f506d643729430f2ba806ddef4911a6416b34631c4fd3669a70",
+      "checksum": "06595ccb9bb89a07902098452345e6d7a93e5461d0b3fd0dc9745c41fb18cbcc",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "the-beauty-of-es6s-object-destructuring-assignment/hackernoon.md",
-      "checksum": "4944f0e46df36c226b8aea80f5e370976655778e4c0f0bd3eb0fcdacc4100849",
+      "checksum": "01958e5c16b971dbfad6d6f7c3431db90688630e8368b65408ea4538a0853a7e",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "the-beauty-of-es6s-object-destructuring-assignment/dzone.md",
-      "checksum": "6d430da058c2b69d3985cb486b82924f237aff5ab76f976c072664cf9c3462f1",
+      "checksum": "ac3b1466543724647a6c43635da1a66bc72e5317bf6366410bfed4223952b456",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "the-beauty-of-es6s-object-destructuring-assignment/substack.md",
-      "checksum": "b9e9f337d834086f9de19bfa4ecbd2c93d527e24f587a9d1bc8f6676bbb25a1a",
+      "checksum": "c8754996c86c59fc120a6395d1992681259513a01400187e5749974aee9aa941",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

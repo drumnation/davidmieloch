@@ -1,10 +1,14 @@
 ---
 platform: "linkedin"
 mode: "manual-browser-draft"
+post_mode: "launch-post"
 title: "The Beauty of ES6's Object Destructuring Assignment"
 canonical_url: "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment"
+tracked_url: "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment?utm_source=linkedin&utm_medium=syndication&utm_campaign=content_distribution&utm_content=the-beauty-of-es6s-object-destructuring-assignment"
 source_slug: "the-beauty-of-es6s-object-destructuring-assignment"
-generated_at: "2026-05-18T20:42:37.087Z"
+generated_at: "2026-05-18T21:41:27.862Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -12,7 +16,7 @@ public_publish_allowed: false
 
 ## Posting guidance
 
-Launch post or native article variant for the existing professional audience.
+Native launch post or article variant for the existing professional audience.
 
 - Do not publish without David approval.
 - Preserve canonical URL: https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment
@@ -20,4 +24,8 @@ Launch post or native article variant for the existing professional audience.
 
 ## Copy
 
-Manual linkedin package pending. Use canonical source: https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment
+Benefits - Key name can’t change, predictability - Keys can be in any order, and can be alphabetized - Inputs and outputs become incredibly clear Object destructuring is an incredibly powerful tool that allows developers to quickly and easily access data stored in complex object structures. By using object destructuring, developers can assign object properties to variables and pull out only the information they need. With object destructuring, inputs and outputs become incredibly clear, and the key name can’t change, providing predictability. Additionally, keys can be in any order and can be alphabetized to make...
+
+Read the canonical essay on davidmieloch.com and join the mailing list there.
+
+Read the canonical version: https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment?utm_source=linkedin&utm_medium=syndication&utm_campaign=content_distribution&utm_content=the-beauty-of-es6s-object-destructuring-assignment

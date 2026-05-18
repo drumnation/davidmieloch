@@ -1,10 +1,14 @@
 ---
 platform: "linkedin"
 mode: "manual-browser-draft"
+post_mode: "launch-post"
 title: "Judgment Over Keystrokes"
 canonical_url: "https://davidmieloch.com/blog/judgment-over-keystrokes"
+tracked_url: "https://davidmieloch.com/blog/judgment-over-keystrokes?utm_source=linkedin&utm_medium=syndication&utm_campaign=content_distribution&utm_content=judgment-over-keystrokes"
 source_slug: "judgment-over-keystrokes"
-generated_at: "2026-05-18T20:42:35.941Z"
+generated_at: "2026-05-18T21:41:27.851Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -12,7 +16,7 @@ public_publish_allowed: false
 
 ## Posting guidance
 
-Launch post or native article variant for the existing professional audience.
+Native launch post or article variant for the existing professional audience.
 
 - Do not publish without David approval.
 - Preserve canonical URL: https://davidmieloch.com/blog/judgment-over-keystrokes
@@ -20,4 +24,8 @@ Launch post or native article variant for the existing professional audience.
 
 ## Copy
 
-Manual linkedin package pending. Use canonical source: https://davidmieloch.com/blog/judgment-over-keystrokes
+Why Amplification — Not Manual Skill — Should Be Your New Hiring Signal Old rules test the keystrokes. New rules test the cognition behind them. I recently encountered a technical assessment that explicitly prohibited the use of AI tools — for a role focused on building AI-assisted features. The contradiction was clear. But it also pointed to something deeper: most interviews today are still optimized for evaluating pre-AI engineers. Not the ones who are learning to think, build, and collaborate with AI. We’re at a turning point in how software is built. The tools, the workflows, the scale of output — it’s all...
+
+Read the canonical essay on davidmieloch.com and join the mailing list there.
+
+Read the canonical version: https://davidmieloch.com/blog/judgment-over-keystrokes?utm_source=linkedin&utm_medium=syndication&utm_campaign=content_distribution&utm_content=judgment-over-keystrokes

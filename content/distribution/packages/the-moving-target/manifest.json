@@ -2,63 +2,88 @@
   "slug": "the-moving-target",
   "title": "The Moving Target",
   "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
-  "generatedAt": "2026-05-18T20:42:38.197Z",
+  "generatedAt": "2026-05-18T21:41:27.870Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "the-moving-target/linkedin.md",
-      "checksum": "b00e3b479663a797b818e28e8062480297a71d9a80589fedeabcb11d1dbc86e5",
+      "checksum": "064922897befee7f97e1d587ddd9bd937ab8f7aa87dad329be3364bd2cde7ac1",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "the-moving-target/reddit.md",
-      "checksum": "299752077453157e6be43f0b53df8e94ea6f65e607ce622c3fd0af4f821ff955",
+      "checksum": "ce2cf198bdae2359a4ca0d0f691c83f7a4e72ce8bac760f1c8ef4bed7b95ed71",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "the-moving-target/medium.md",
-      "checksum": "1fd0a3c1ac1c7a5914c1bef6034b58cbeef7d7c3a09bf6af9f683edbc54f9f58",
+      "checksum": "2df763de726b66fdab08fe5eafe3883dfdd9665379530919785f9b2e9622e51f",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "the-moving-target/devto.md",
-      "checksum": "f53e621f31de71bdcdf7442e409cf87fb8fed70ed2229a5214ddad0d1d3e6906",
+      "checksum": "ba90d30b9c4b333c3e6bce6e223b33984b22054597a29b43d1fa0a6414f69062",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "the-moving-target/hashnode.md",
-      "checksum": "669dea0f6b4a49afc19edb649d10d1689443499e82ca39a49894eabd68776fbc",
+      "checksum": "95694dae08c59de0c7f79ed4b6cc11bcad09adf5a7b7cab90789a9920126e5f2",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "the-moving-target/hackernoon.md",
-      "checksum": "088bbe566f2e1fc6ccac48a5c3322c4930df0607d5008855fb422320e74fd504",
+      "checksum": "acab4d07fa9d734aecaee648debca2b10ae60cb7ac26559eb8f457fbfe610c7a",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "the-moving-target/dzone.md",
-      "checksum": "550fb18929b2e428361c9f43c4db5492d3a558f279346c825c3e1b795edeeb5b",
+      "checksum": "65d4f1fbb9fb08e77bbd3b1e70adbf56c8b6660e36678803e2cf3afb5e07e987",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "the-moving-target/substack.md",
-      "checksum": "ebc91df4982b7950fab54337dc5a28d0f2466b309de35d8a58f90290a7b03710",
+      "checksum": "99866918fce2d6c93ee920cb728221e5ccce6759ce33b0bb9d1d521ab6d9a579",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

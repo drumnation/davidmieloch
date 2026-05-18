@@ -2,63 +2,88 @@
   "slug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
   "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
   "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
-  "generatedAt": "2026-05-18T20:42:34.777Z",
+  "generatedAt": "2026-05-18T21:41:27.840Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/linkedin.md",
-      "checksum": "3086e0014eae37f272751649872a120e286cef511803f51a0e7b39badf66a2f5",
+      "checksum": "4a1b4a936965e59370f9231ca18013575e186c49a9dbcbb0481440927733d25b",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/reddit.md",
-      "checksum": "15ea23b013c1ca35e8de5b80f0c4201446c2297d2649481992b6fa494d1f09be",
+      "checksum": "f65a175ac2e82179e8da4e08bc8feeea70bc5312aeefc80e10e91bb05db5529c",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/medium.md",
-      "checksum": "124e9c6baf05d7144c08c5a54a1706a60060d4e4403f092578327bf8046c37cd",
+      "checksum": "ac50b24b263eaf7058950f61baa7feea3b185297dc04019876f5427c8c97187d",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/devto.md",
-      "checksum": "f15b1cc962c8296fc91d4ca70ce895fa948fc923837c24cabc390adf395e141e",
+      "checksum": "019ae3199a0d544d1721910afb826420cc7004a1624ac93490588eed911ae160",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/hashnode.md",
-      "checksum": "d841ee2727277aa2b726a363149c6fd45e49b170dfc163623544f391c6f3416f",
+      "checksum": "4a3824573faab09099c03030c691058527877ce520ba9ce108cc59c316cf582e",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/hackernoon.md",
-      "checksum": "8948bdcacadd8df8ddda47dda72196892f87281fc3afe375247c67ffcbeeca61",
+      "checksum": "2e9677d609193f179b1926277ab2f2ec7c9b3ebfd41e10a2598c40a43ca0ecd2",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/dzone.md",
-      "checksum": "18706124297fe043c35e5331a99eab2fbb4ef6b1ceb3b73287b69f8435d8f78c",
+      "checksum": "d48681a611fb2dc22fb88fbc39a983e32e5980bc8ee96c7de2c69b6a8c278c3e",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/substack.md",
-      "checksum": "f2dacf1b76e12080074a7bd9f315f66b93bf45ce9706e32117725a2e85029fdc",
+      "checksum": "3844cc67bdf515e5ae54ddc6144157786fcc8c41ad851751cd886c1424db875a",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

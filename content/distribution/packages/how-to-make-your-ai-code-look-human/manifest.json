@@ -2,63 +2,88 @@
   "slug": "how-to-make-your-ai-code-look-human",
   "title": "How to Make Your AI Code Look Human",
   "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
-  "generatedAt": "2026-05-18T20:42:35.612Z",
+  "generatedAt": "2026-05-18T21:41:27.847Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "how-to-make-your-ai-code-look-human/linkedin.md",
-      "checksum": "30053630dfe568ea5d6c7df5267dd1107a98c23c18313a5539dbfc1c9a38a02a",
+      "checksum": "de4f2a868c48bda4b4ebe0a2ed96e4b865f020935f5b35f3a12b395f1ff3b403",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "how-to-make-your-ai-code-look-human/reddit.md",
-      "checksum": "10dc6750d3d2973500c5a33826dac223097aa2388d2c76e96fa778a6522917b5",
+      "checksum": "0d49094a8c68be8eb1eedf467950331bf96e633917788c1e190e06d8ed505736",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "how-to-make-your-ai-code-look-human/medium.md",
-      "checksum": "7ba504e7c02a40e71fc301927a0edddaa30e80234f2813a1fcefdea241cd5588",
+      "checksum": "d337f9413604a93ed3bddfbd3ced873a5f90a949dd3fdb3de6f6f1408c1b7e1b",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "how-to-make-your-ai-code-look-human/devto.md",
-      "checksum": "b4828f2ba0446b9d6907b0765e65a7e7a683dd7912c9e5e87297b4537b38e39a",
+      "checksum": "ec6c7b5ce55c437c46e1e9c567f05b0001022a0d5c8943ed2faf304e0d8a1d89",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "how-to-make-your-ai-code-look-human/hashnode.md",
-      "checksum": "ccf3350e9c98413a281b72f65f2864e0cdb6590b371acf189db791b95433aaff",
+      "checksum": "3f4c923bcb926b4f19b45d9cffddb08defbbba1b6b72273e5073f177725c2ec3",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "how-to-make-your-ai-code-look-human/hackernoon.md",
-      "checksum": "de6b4749582d2f74470508583d7de29d1146d5e1949e7e4d3c997769b1fbe874",
+      "checksum": "186451a5959e8bd9322b19808433e4bd94ea97862619d586cedf2d87311b0f3b",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "how-to-make-your-ai-code-look-human/dzone.md",
-      "checksum": "1c70afe3bb008f8750ef179b72558d83f0a789e7d6f8ad46ae99719ffc0d44d8",
+      "checksum": "d622f21b01b81dda8b7f07afe98636222befdd7423ccfa276260a784faf73b69",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "how-to-make-your-ai-code-look-human/substack.md",
-      "checksum": "1a6bc714629e8c3a241d57271425903423aa2154d191c82c8e399a15f389166d",
+      "checksum": "d6e7cd81f4cf727b066ce959b60b6de36273d431eb0dc6ace7085430cd550e9f",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

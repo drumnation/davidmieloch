@@ -2,63 +2,88 @@
   "slug": "developing-with-a-team-of-ai-s",
   "title": "Developing with a Team of AI’s",
   "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
-  "generatedAt": "2026-05-18T20:42:35.057Z",
+  "generatedAt": "2026-05-18T21:41:27.842Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "developing-with-a-team-of-ai-s/linkedin.md",
-      "checksum": "7d98559f816d8844777992764d7a7d66b5de58d22704d1719135be3fca43989f",
+      "checksum": "1461c6055ecb6716594b4387974d77b1619c52d3fae4f444530c666a558c24b8",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "developing-with-a-team-of-ai-s/reddit.md",
-      "checksum": "d35c12d9dbf28aa6871c2d3c4633003583a6414c31e3370b210cc846f59fada0",
+      "checksum": "978384a99047474c2aa9634fde3bd8f46582738f21b32af4dfc901ca9d534263",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "developing-with-a-team-of-ai-s/medium.md",
-      "checksum": "a7d3eb33540039e2dd8c19ed4aa671d168090f5dc3b1a025642d3d8e5f058f52",
+      "checksum": "844cbde5a81b1505a2df064c53383e0a32daf11d805043593c795b1e5c06e61b",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "developing-with-a-team-of-ai-s/devto.md",
-      "checksum": "21a3ba4eb21ad522b6885fa3f8ddef288a37dd3cb731e35612c3d7869ac3e44a",
+      "checksum": "7c0f8a0159c67d8c49139382addd5c1f4b815eebf563753072caf9591069b143",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "developing-with-a-team-of-ai-s/hashnode.md",
-      "checksum": "ea1e01abb9cdc3433bcd0fde5ccab75bf44d96dbc4e2de420531cf371487d64c",
+      "checksum": "29a4005bb9b0bf677e293b4ddc781e00ab0a6e310490e60c59ed792ead20e717",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "developing-with-a-team-of-ai-s/hackernoon.md",
-      "checksum": "cf679bd3bccc2bb62d929a1c148e20fe8724da691ee5f09b9a40eb38f00d0b1f",
+      "checksum": "d952673ad014b9ad7f03db9b3cb665eb028ef081b0e79abce439b0a1f860763e",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "developing-with-a-team-of-ai-s/dzone.md",
-      "checksum": "328f766b8a66717c229add7d464d2433dc885b0baa443b437c3505bce8df7488",
+      "checksum": "4c7d6945ab94b93b4ca560effec450c3e3b521d11278e4dc3c2881c447311681",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "developing-with-a-team-of-ai-s/substack.md",
-      "checksum": "e5973357bf99b886cbf2d445d3566222155278fe0f3d8a67fdced0eb8a57b023",
+      "checksum": "58c49d0f6ed4d99d2bdff1b97ac3e61fc46ea55c1b2e89dd633e403b3ddbca0c",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

@@ -1,10 +1,14 @@
 ---
 platform: "devto"
 mode: "api-draft-or-manual-copy"
+post_mode: "full-mirror"
 title: "Your AI Isn't Hallucinating. It's Lying."
 canonical_url: "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying"
+tracked_url: "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying?utm_source=devto&utm_medium=syndication&utm_campaign=content_distribution&utm_content=your-ai-isnt-hallucinating-its-lying"
 source_slug: "your-ai-isnt-hallucinating-its-lying"
-generated_at: "2026-05-18T20:42:39.630Z"
+generated_at: "2026-05-18T21:41:27.885Z"
+canonical_support: "supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -210,3 +214,9 @@ But fixing it once isn't the goal. You're trying to raise something that gets be
 ---
 
 Canonical version: https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying
+
+---
+
+Read the canonical version and related series on davidmieloch.com.
+
+Read the canonical version: https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying?utm_source=devto&utm_medium=syndication&utm_campaign=content_distribution&utm_content=your-ai-isnt-hallucinating-its-lying

@@ -10,6 +10,10 @@ import {
   parseMediumFeed,
 } from './lib/medium-reader.mjs';
 import {
+  contentMetricsReport,
+  recordContentMetric,
+} from './lib/content-metrics.mjs';
+import {
   readObsidianArticle,
   resolveObsidianBlogsRoot,
   scanObsidianArticles,
@@ -33,6 +37,7 @@ const publicRoot = path.join(appRoot, 'public');
 const ledgerPath = path.join(contentRoot, 'distribution/platform-ledger.json');
 const statusPath = path.join(contentRoot, 'distribution/pipeline-status.json');
 const packagesRoot = path.join(contentRoot, 'distribution/packages');
+const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
 const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
@@ -368,6 +373,26 @@ function scheduleDryRun(slug) {
 
 function manualPackage(slug, platform) {
   const platforms = platform ? [platform] : platformPackageDefaults.platforms;
+  if (slug === 'all') {
+    const slugs = fs
+      .readdirSync(articlesRoot, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .filter((entry) => fs.existsSync(path.join(articlesRoot, entry.name, 'index.md')))
+      .map((entry) => entry.name)
+      .sort();
+    return {
+      generated: slugs.map((articleSlug) => {
+        const article = readArticle(articleSlug);
+        const variants = readOptionalVariants(articleSlug, platforms);
+        return generatePlatformPackages({
+          article,
+          outputRoot: packagesRoot,
+          variants,
+          platforms,
+        });
+      }),
+    };
+  }
   const article = readArticle(slug);
   const variants = readOptionalVariants(slug, platforms);
   return generatePlatformPackages({
@@ -376,6 +401,59 @@ function manualPackage(slug, platform) {
     variants,
     platforms,
   });
+}
+
+function parseMetricRecordArgs(args) {
+  const values = {};
+  for (const arg of args) {
+    if (!arg.startsWith('--')) continue;
+    const separator = arg.indexOf('=');
+    if (separator === -1) {
+      values[arg.slice(2)] = true;
+      continue;
+    }
+    values[arg.slice(2, separator)] = arg.slice(separator + 1);
+  }
+  return values;
+}
+
+function metricsReport() {
+  return contentMetricsReport({
+    ledgerPath,
+    packagesRoot,
+    metricsPath,
+  });
+}
+
+function metricsRecord(slug, platform) {
+  const args = parseMetricRecordArgs(process.argv.slice(4));
+  const url = args.url;
+  if (!url) {
+    throw new Error('metrics:record requires --url=<published-url>.');
+  }
+  const record = recordContentMetric({
+    metricsPath,
+    slug,
+    platform,
+    url,
+    source: args.source ?? 'manual',
+    observedAt: args.observedAt ?? new Date().toISOString(),
+    metrics: {
+      views: args.views,
+      impressions: args.impressions,
+      reads: args.reads,
+      clicks: args.clicks,
+      reactions: args.reactions,
+      likes: args.likes,
+      fans: args.fans,
+      comments: args.comments,
+      shares: args.shares,
+      subscribers: args.subscribers,
+      followers: args.followers,
+    },
+    notes: args.notes ?? '',
+  });
+  return { slug, platform, record };
 }
 
 async function createDevtoDraft(slug) {
@@ -554,7 +632,7 @@ function usage() {
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline schedule:dry-run <slug>
-  pnpm content:pipeline manual-package <slug> [platform]
+  pnpm content:pipeline manual-package <slug|all> [platform]
   pnpm content:pipeline devto:create-draft <slug>
   pnpm content:pipeline hashnode:create-draft <slug>
   pnpm content:pipeline linkedin:capture-list
@@ -562,10 +640,13 @@ function usage() {
   pnpm content:pipeline obsidian:import <slug> [--force]
   pnpm content:pipeline medium:scan
   pnpm content:pipeline medium:import <slug|all> [--force]
+  pnpm content:pipeline metrics:report
+  pnpm content:pipeline metrics:record <slug> <platform> --url=<published-url> [--views=0] [--clicks=0] [--reactions=0] [--comments=0] [--shares=0] [--subscribers=0]
 
 Safety:
   - DEV and Hashnode commands create unpublished/delisted drafts only.
   - manual-package writes local posting packages only.
+  - metrics commands write local observation data only.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
 `);
@@ -623,6 +704,12 @@ async function runCommand(command, slug) {
   }
   if (command === 'manual-package' && slug) {
     return manualPackage(slug, process.argv[4]);
+  }
+  if (command === 'metrics:report') {
+    return metricsReport();
+  }
+  if (command === 'metrics:record' && slug && process.argv[4]) {
+    return metricsRecord(slug, process.argv[4]);
   }
   if (command === 'devto:create-draft' && slug) {
     return createDevtoDraft(slug);

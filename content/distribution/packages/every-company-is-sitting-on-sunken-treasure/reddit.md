@@ -1,10 +1,14 @@
 ---
 platform: "reddit"
 mode: "manual-community-post"
+post_mode: "discussion"
 title: "Every Company Is Sitting on Sunken Treasure"
 canonical_url: "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure"
+tracked_url: "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=every-company-is-sitting-on-sunken-treasure"
 source_slug: "every-company-is-sitting-on-sunken-treasure"
-generated_at: "2026-05-18T20:42:35.335Z"
+generated_at: "2026-05-18T21:41:27.844Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -20,7 +24,7 @@ Subreddit-specific discussion prompt that links to the canonical essay only when
 
 ## Copy
 
-Suggested starting shape, not a blind cross-post:
+Suggested discussion shape, not a blind cross-post:
 
 Title: Every Company Is Sitting on Sunken Treasure
 
@@ -29,7 +33,7 @@ The cost of the dive just dropped by 90%. Every company has one. A cancelled pro
 
 Question for the community: does this pattern match anything you are seeing in real workflows, or does it break down in your environment?
 
-Canonical essay: https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure
+Canonical essay: https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=every-company-is-sitting-on-sunken-treasure
 
 Subreddit fit checklist:
 - Read the target subreddit rules before posting.

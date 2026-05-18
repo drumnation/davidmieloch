@@ -1,10 +1,14 @@
 ---
 platform: "medium"
 mode: "manual-import"
+post_mode: "full-mirror"
 title: "Reuse your code: Authoring your own Universal Library with Webpack"
 canonical_url: "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+tracked_url: "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=medium&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack"
 source_slug: "reuse-your-code-authoring-your-own-universal-library-with-webpack"
-generated_at: "2026-05-18T20:42:36.811Z"
+generated_at: "2026-05-18T21:41:27.861Z"
+canonical_support: "supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -12,7 +16,7 @@ public_publish_allowed: false
 
 ## Posting guidance
 
-Canonical import or mirror with canonical URL preserved.
+Canonical import or mirror with the original URL preserved.
 
 - Do not publish without David approval.
 - Preserve canonical URL: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack
@@ -20,4 +24,84 @@ Canonical import or mirror with canonical URL preserved.
 
 ## Copy
 
-Manual medium package pending. Use canonical source: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack
+Are you looking to build a custom library using webpack? With the right setup, webpack can help you create a library that can be used by other developers in their projects. This is also helpful if you’d like to share your own code with many of your own projects to avoid needless code repetition.
+
+In this blog post, we’ll discuss the steps to create a custom library with webpack.
+
+![medium 01](/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack/images/medium-01.png)
+
+First, you need to install webpack and the necessary packages.
+
+
+
+```
+npm install webpack
+```
+
+
+
+After that, you’ll need to create a webpack.config.js file in your project root. This file will contain the configuration for webpack.
+
+Next, you’ll need to create the library itself. This can be done by creating a new folder in your project root and adding the necessary files. These files should include the code for your library, as well as any HTML, CSS, and JS files needed for the library to function properly.
+
+Once the library is created, you’ll need to configure webpack to bundle the library. This can be done by adding the following code to your webpack.config.js file:
+
+
+
+```
+module.exports = {
+ entry: './src/index.js',
+ output: {
+ path: path.resolve(__dirname, 'dist'),
+ filename: 'my-library.js',
+ library: 'myLibrary',
+ libraryTarget: 'umd',
+ umdNamedDefine: true
+ },
+ …
+};
+```
+
+
+
+This code will tell webpack to bundle the library and export it as a UMD module, which can be imported into other projects.
+
+Finally, you’ll need to run webpack to build the library. This can be done by running the command “webpack”.
+
+
+
+```
+webpack
+```
+
+
+
+Once the build is complete, you’ll have a custom library that can be imported into other projects.
+
+![medium 02](/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack/images/medium-02.png)
+
+### Publish your package to NPM
+
+Once you have that you’ll want to publish your library either publicly or privately on NPM so it can be easily installed in other projects.
+
+[Creating and publishing private packages | npm Docs](https://docs.npmjs.com/creating-and-publishing-private-packages)
+
+### Helpful Tools
+
+While developing your library locally you might want to avoid having to build and republish it to npm after every single code change. This handy library exists to automatically build the code on each save, copying over what’s installed in your project’s /node_modules folder.
+
+[GitHub - mweststrate/relative-deps: Installs local dependencies for optimal developer experience](https://github.com/mweststrate/relative-deps)
+
+### Conclusion
+
+By following these steps, you can easily create a custom library with webpack. This can be a great way to share code with other developers and create reusable components for your projects.
+
+### For more information see the webpack docs:
+
+[Authoring Libraries | webpack](https://webpack.js.org/guides/author-libraries/)
+
+---
+
+Read the canonical version and the full series on davidmieloch.com.
+
+Read the canonical version: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=medium&utm_medium=syndication&utm_campaign=content_distribution&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack

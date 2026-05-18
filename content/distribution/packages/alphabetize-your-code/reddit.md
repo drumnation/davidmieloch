@@ -1,10 +1,14 @@
 ---
 platform: "reddit"
 mode: "manual-community-post"
+post_mode: "discussion"
 title: "Alphabetize your code."
 canonical_url: "https://davidmieloch.com/blog/alphabetize-your-code"
+tracked_url: "https://davidmieloch.com/blog/alphabetize-your-code?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=alphabetize-your-code"
 source_slug: "alphabetize-your-code"
-generated_at: "2026-05-18T20:42:34.504Z"
+generated_at: "2026-05-18T21:41:27.837Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -20,7 +24,7 @@ Subreddit-specific discussion prompt that links to the canonical essay only when
 
 ## Copy
 
-Suggested starting shape, not a blind cross-post:
+Suggested discussion shape, not a blind cross-post:
 
 Title: Alphabetize your code.
 
@@ -29,7 +33,7 @@ Why? As humans, we thrive on structure and order, and labeling things is a great
 
 Question for the community: does this pattern match anything you are seeing in real workflows, or does it break down in your environment?
 
-Canonical essay: https://davidmieloch.com/blog/alphabetize-your-code
+Canonical essay: https://davidmieloch.com/blog/alphabetize-your-code?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=alphabetize-your-code
 
 Subreddit fit checklist:
 - Read the target subreddit rules before posting.

@@ -2,63 +2,88 @@
   "slug": "the-golden-hammer",
   "title": "The Golden Hammer",
   "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
-  "generatedAt": "2026-05-18T20:42:37.923Z",
+  "generatedAt": "2026-05-18T21:41:27.868Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "the-golden-hammer/linkedin.md",
-      "checksum": "cc69b2cfb4e83be3cf6a6137b312bd3358fe7b85b8180cce8a04437f30aae39f",
+      "checksum": "d8264253034e04e6fea0d71b8817e3eaf68bde97dbec6afcf3811e20a1a21451",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "the-golden-hammer/reddit.md",
-      "checksum": "2f0fd1aa7612be3152b1ed6e52d9a28bb894783d1dd9a5b3733feeb0ebdeb32f",
+      "checksum": "7208f0a3ab45eec8fce19e5898508e83f9ca825f09405b2a6cb6cc9e45c5ec6c",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "the-golden-hammer/medium.md",
-      "checksum": "2211d17689a1447d53b9494e910643a34782a13968e3dda73f468408458f9ab4",
+      "checksum": "fb38c21fea47d5a9b34c5c01c73e19f45d2714e9216acf5730f084dc9133843a",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "the-golden-hammer/devto.md",
-      "checksum": "b775d8b8921ed67aff4924553524f3848bfa2800b1f536bd5411d6766ea88447",
+      "checksum": "7ac466334cec9fe70119493c917afee0c49d8c041f331f7c99b941db370b846b",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "the-golden-hammer/hashnode.md",
-      "checksum": "fb898442b3d77282779a7517f3a86bbab2593ecb6e2ce36bd40cf50b512aca4b",
+      "checksum": "5e14ec8de3244a85c8d60973b4ab53ccf4666257a6d10a9b47904ff9ea6aa0b4",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "the-golden-hammer/hackernoon.md",
-      "checksum": "622deeb036b87061d96003836feebecf1193583af2a2bfa07304131cf05e025d",
+      "checksum": "4bf3a6d3d04254b2001cff84dc07cc844fba0a71def2213a0b24a04b651e9b33",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "the-golden-hammer/dzone.md",
-      "checksum": "9f9f59db2e6ec562efefe7b1b3a98a6a160696f851227b3777b0cf96085faa16",
+      "checksum": "0d2e692324132b5bd41cf53870e862d2ed122ffe7b6c10274036ffbe81d9e2b3",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "the-golden-hammer/substack.md",
-      "checksum": "fdf2f5be1cee8025011e4c11b9cf9c16dfbd91940cc375f8befb5f3b8a219f6a",
+      "checksum": "8741504310de58110005b4548c8ff63bbba771408d0ce0d574de37efed37dff6",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

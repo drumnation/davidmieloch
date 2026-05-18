@@ -2,63 +2,88 @@
   "slug": "judgment-over-keystrokes",
   "title": "Judgment Over Keystrokes",
   "canonicalUrl": "https://davidmieloch.com/blog/judgment-over-keystrokes",
-  "generatedAt": "2026-05-18T20:42:35.941Z",
+  "generatedAt": "2026-05-18T21:41:27.851Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "judgment-over-keystrokes/linkedin.md",
-      "checksum": "6146da5c5863cae41ac8c60f55127a08c217563c1031ea44e8252d70e51ba45a",
+      "checksum": "03414a6cb4b94eebeb99857fb5e306bb00cb86e44ef743ee3271dad09029a8b2",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "judgment-over-keystrokes/reddit.md",
-      "checksum": "c1370555746333609bf0ffb5a79c68ce9b6f987954bc619491d86f858025cfab",
+      "checksum": "c9c1809cce4590c4ffacb7a67648462f8e630c72edbf80c98ba0366d06324ed3",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "judgment-over-keystrokes/medium.md",
-      "checksum": "e3b9e6d3062737bb5c4bbefb8922991da6925b72cc8053b0d1678613111f3e6a",
+      "checksum": "78f0fd787e79d6b66869b711e6288a9147a727fdc57bab751215e1cd2bd61a1c",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "judgment-over-keystrokes/devto.md",
-      "checksum": "4934a17135d95a5e5777ce60e3126a58d9e1105bd864ada3169a7d930392dce2",
+      "checksum": "9d6ece638c4c6a5e15ddea8a6a1bb4eff12a3a59d7f37871c3b4ab4bf7ed334f",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "judgment-over-keystrokes/hashnode.md",
-      "checksum": "649f87c4b1820da95ee71bb7096c1d6e53d83e03e19aa0935fe82d62b8166e22",
+      "checksum": "5745c8968eefe19244130930420f8be06b08633ead3022ef9c78f2624803837e",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "judgment-over-keystrokes/hackernoon.md",
-      "checksum": "5b32df70cffef40f01fd300dad0ebd240d674577250f16d2ac18c31348d36ae1",
+      "checksum": "ad80e8d46597402e70b10077a140d03d2aea9456806ae43b010c3c3b692e70ee",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "judgment-over-keystrokes/dzone.md",
-      "checksum": "b8ab3c7b451cd73c16dbd2f18b6a21d47091d26c9bee7b8344eb9c26eb2f2811",
+      "checksum": "36929f3ed48941a5bb93256bd9d4752687325e7f9401bcba8504ee28fc44a8ca",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "judgment-over-keystrokes/substack.md",
-      "checksum": "dc48c3bcf1b6a091c515727fbe8fbfa03913fb049bfbfc7488da1c2901751b3d",
+      "checksum": "dee206ed5e7c1b1f33ed12848013bdb73c1ba429086a3d1c2507f857e602d046",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

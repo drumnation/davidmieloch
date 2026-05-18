@@ -2,63 +2,88 @@
   "slug": "the-overnight-shift",
   "title": "The Overnight Shift",
   "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
-  "generatedAt": "2026-05-18T20:42:38.476Z",
+  "generatedAt": "2026-05-18T21:41:27.872Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "the-overnight-shift/linkedin.md",
-      "checksum": "cde6e01cb3da0d0027854fdd8b9ece32eee10bb8577a97d0bb3ecc603a7db19e",
+      "checksum": "7c1c969ad3d3c4f5a03939d0c3b938a9e8c2dffa94b93dda32e076d1a1675fa6",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "the-overnight-shift/reddit.md",
-      "checksum": "b33984ec31ce065b0be7a3e952865064ea38f1085e0d2943ff0162e7bffe31f0",
+      "checksum": "2a65eda91d4165072567b0aa7d36cd8e488091d6d4cccb86ca308e9c2b758339",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "the-overnight-shift/medium.md",
-      "checksum": "b043128a61a08db314570980a227077709460a89f8663c323f7510f8b1dc7033",
+      "checksum": "fcfe681d7ad22351c899ab59a3898f7b3316af0486dcc7500bc52394dd421087",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "the-overnight-shift/devto.md",
-      "checksum": "caf697743822c13a8885d11239cc15ea78262084d38263f15a8958f91d33bc6d",
+      "checksum": "2dd66ab7f607af2ae5b624796904cc322ad30234a36fd0338c28d330cbe1d4dd",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "the-overnight-shift/hashnode.md",
-      "checksum": "687e963bb99f9b3fe7fcc667daf47aef2d49a7d45de6154307ffccbd771fa56c",
+      "checksum": "4138166fdffaf759b6ebe1e886b44a6a2dcb7b280162a8e65ec34464449f7126",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "the-overnight-shift/hackernoon.md",
-      "checksum": "a82fd4f02c45cba0d7d8bb396e35eeba545a55cd19a03ecde601a64de6bd7994",
+      "checksum": "75c688be614ea8fe5a4ea35c80ba11e2a7d38e9cec2da22e670103d4b6eefd94",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "the-overnight-shift/dzone.md",
-      "checksum": "57ac7ada78c22f0fdddb029ccb5c1f4ae44e93c0801cdf6270d2207fbe3dd1db",
+      "checksum": "4a65e2e53fa8a0affacfc992e6527294c74ddb53c9ec69087782876ba38eda32",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "the-overnight-shift/substack.md",
-      "checksum": "7f6030bb9c39d57d631df5b1ff83e67e42fba87ac787b996297ea82a05b1094f",
+      "checksum": "b0bbbac493973c31fc49d11def4ca4adf1610e1024ab04c2e95fba1413269761",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

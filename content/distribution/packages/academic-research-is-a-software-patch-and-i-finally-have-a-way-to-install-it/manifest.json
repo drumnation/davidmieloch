@@ -2,63 +2,88 @@
   "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
   "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
   "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
-  "generatedAt": "2026-05-18T20:42:34.226Z",
+  "generatedAt": "2026-05-18T21:41:27.832Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/linkedin.md",
-      "checksum": "149e909b91728b8801e782ca3f9b8fd4e10cb7c97bd40f1eab799eeb463b82a7",
+      "checksum": "72ae85e2efbc53c10e64b64a3aa7a34a1084ce06ac12c2353df91d61b1d9019d",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/reddit.md",
-      "checksum": "0004ce9e82f88123863c116f0b0fa6ea0489e0d9c9216eb10300769a65df79ea",
+      "checksum": "71aaf37cbef5692892481cc47f8285dce3c5229bd6cc70afa76a24c3ce6666be",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/medium.md",
-      "checksum": "64e1dfd5c85bf16342883981dde73f9dbcf15f6ec33b403617de96fe3db9ecf6",
+      "checksum": "ae6036bfb888127657e5e98480a3afae597410eebbea9a131d92be70815db50f",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/devto.md",
-      "checksum": "35a882cebc5ec2f70d8e30f3c24ed21c1925564faf6116a270a7079a5995d30d",
+      "checksum": "39abf199e2aab66cd775f4affd0ae8efa1710194ae72ee6cb42d35118e19d264",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/hashnode.md",
-      "checksum": "3786f859a500bc845a28cee82b2acafbeda31a3aef99190be7b0bf532a1510fe",
+      "checksum": "fa2eb10fe3d95ff10caf1ddfd38898b3908b8ec4a5146feaea3359e685b8d67d",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/hackernoon.md",
-      "checksum": "5f84e5dedae4368f5ca81ab04209e531ad6244b309fa4ef8e9d4bfb40b675cc2",
+      "checksum": "ac653b102cf9179db1c592e2d88760c1b94aea6959718301568383f236d80c89",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/dzone.md",
-      "checksum": "9024a82750f529fb6ece54573f5ab1458c37f74a32b240f7595a39a44fb18f2e",
+      "checksum": "a4114e7cb60f60334f62feaaf79710b0d15a43c388e27805e5c428f2021bba2e",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/substack.md",
-      "checksum": "8ae376db01acf206c6e9f75d11794a72d4405d8865b5ddbdc4087ca9e3bce361",
+      "checksum": "710d1abecb31a1a7361d7a011ef7bee54d1514a5ce5b181f8a8e68970470eca7",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

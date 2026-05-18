@@ -2,63 +2,88 @@
   "slug": "what-i-learned-building-a-photoshop-in-the-browser",
   "title": "What I Learned Building a Photoshop in the Browser",
   "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
-  "generatedAt": "2026-05-18T20:42:38.793Z",
+  "generatedAt": "2026-05-18T21:41:27.876Z",
+  "policyVersion": "syndication-policy-v1",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "what-i-learned-building-a-photoshop-in-the-browser/linkedin.md",
-      "checksum": "986cb5679cfbba451bd1056951bef81b10cc32e1d4267de4cffe8f18437fdbcf",
+      "checksum": "de633f15b967f2c0285e632807a96d6bbc906dd29639c4df0841a404e46271a8",
       "mode": "manual-browser-draft",
+      "postMode": "launch-post",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "what-i-learned-building-a-photoshop-in-the-browser/reddit.md",
-      "checksum": "2ed8e14e68f06eb37dcd16e075798e0848050ac36e347230e65aa71e141f5cc2",
+      "checksum": "a19639298ce5254c3e0564307b2a984573c0f4a93313e167cbe84401b78ff391",
       "mode": "manual-community-post",
+      "postMode": "discussion",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "what-i-learned-building-a-photoshop-in-the-browser/medium.md",
-      "checksum": "136f766201ac1252dd496a9374ecda4b0029cd05a6d9be42cb0c0092275cd611",
+      "checksum": "a05aea3f33db804b2b19e04942e18c8a8ad8ed358583f9d739bb0a47851220de",
       "mode": "manual-import",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "what-i-learned-building-a-photoshop-in-the-browser/devto.md",
-      "checksum": "a9e0d44b6c947243d39d1d1df9744a5795e09c830973da40056ebbe973a42dd3",
+      "checksum": "f330ed1797f96c348181573761690c541e1e3490561760f6234db07104d266ab",
       "mode": "api-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "what-i-learned-building-a-photoshop-in-the-browser/hashnode.md",
-      "checksum": "f95efd30832aea4bfb5bef148b1f4d441d37b7777ace26e472038b24762ca331",
+      "checksum": "ee0dc08b0f202c8b639842ecb02d90e08f4e3b4e512b1209828c45053f3ea5a6",
       "mode": "api-delisted-draft-or-manual-copy",
+      "postMode": "full-mirror",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "what-i-learned-building-a-photoshop-in-the-browser/hackernoon.md",
-      "checksum": "3797e339e0cd6aef67c7c9c2951503b4fb8f8f0a04d4659e8bfd8490c099b927",
+      "checksum": "f33cb0f1a462b852bc7dcdc0eb0cb5243084990bba80a37e0986ab27a3641762",
       "mode": "manual-editorial-submission",
+      "postMode": "editorial-republish",
+      "canonicalSupport": "supported",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "what-i-learned-building-a-photoshop-in-the-browser/dzone.md",
-      "checksum": "aea027e5d7d224a685230f781b84bf95802827ff3115191965ca40393896f698",
+      "checksum": "b9f19276a241e3483794cb97dc5737baf85e93b0e37127dff2189cf776637771",
       "mode": "manual-editorial-rewrite",
+      "postMode": "editorial-rewrite",
+      "canonicalSupport": "unknown",
+      "approvalRequired": true,
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "what-i-learned-building-a-photoshop-in-the-browser/substack.md",
-      "checksum": "f03178ff7a8e6e10210d56ba4b9672ecefa3775d496c646025238eccd42c78b8",
+      "checksum": "d35c77f860bd730fc76423d360fbda082ef2f5f71d31d21bf00d23cddf27ffab",
       "mode": "manual-newsletter-draft",
+      "postMode": "newsletter",
+      "canonicalSupport": "not-supported",
+      "approvalRequired": true,
       "hasVariant": false
     }
   ]

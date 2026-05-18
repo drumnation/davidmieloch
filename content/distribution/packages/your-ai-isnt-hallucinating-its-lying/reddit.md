@@ -1,10 +1,14 @@
 ---
 platform: "reddit"
 mode: "manual-community-post"
+post_mode: "discussion"
 title: "Your AI Isn't Hallucinating. It's Lying."
 canonical_url: "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying"
+tracked_url: "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=your-ai-isnt-hallucinating-its-lying"
 source_slug: "your-ai-isnt-hallucinating-its-lying"
-generated_at: "2026-05-18T20:42:39.630Z"
+generated_at: "2026-05-18T21:41:27.885Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -20,7 +24,7 @@ Subreddit-specific discussion prompt that links to the canonical essay only when
 
 ## Copy
 
-Suggested starting shape, not a blind cross-post:
+Suggested discussion shape, not a blind cross-post:
 
 Title: Your AI Isn't Hallucinating. It's Lying.
 
@@ -29,7 +33,7 @@ The word "hallucination" is doing more harm than the models are. You've heard it
 
 Question for the community: does this pattern match anything you are seeing in real workflows, or does it break down in your environment?
 
-Canonical essay: https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying
+Canonical essay: https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=your-ai-isnt-hallucinating-its-lying
 
 Subreddit fit checklist:
 - Read the target subreddit rules before posting.

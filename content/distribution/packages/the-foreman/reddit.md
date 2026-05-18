@@ -1,10 +1,14 @@
 ---
 platform: "reddit"
 mode: "manual-community-post"
+post_mode: "discussion"
 title: "The Foreman"
 canonical_url: "https://davidmieloch.com/blog/the-foreman"
+tracked_url: "https://davidmieloch.com/blog/the-foreman?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=the-foreman"
 source_slug: "the-foreman"
-generated_at: "2026-05-18T20:42:37.644Z"
+generated_at: "2026-05-18T21:41:27.866Z"
+canonical_support: "not-supported"
+approval_required: true
 public_publish_allowed: false
 ---
 
@@ -20,7 +24,7 @@ Subreddit-specific discussion prompt that links to the canonical essay only when
 
 ## Copy
 
-Suggested starting shape, not a blind cross-post:
+Suggested discussion shape, not a blind cross-post:
 
 Title: The Foreman
 
@@ -29,7 +33,7 @@ The Wrong Debate Right now there's a busy genre of content about AI's limitation
 
 Question for the community: does this pattern match anything you are seeing in real workflows, or does it break down in your environment?
 
-Canonical essay: https://davidmieloch.com/blog/the-foreman
+Canonical essay: https://davidmieloch.com/blog/the-foreman?utm_source=reddit&utm_medium=syndication&utm_campaign=content_distribution&utm_content=the-foreman
 
 Subreddit fit checklist:
 - Read the target subreddit rules before posting.
