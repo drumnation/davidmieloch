@@ -38,10 +38,11 @@ export const LoadingProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   // Reset page ready state on route change
   useEffect(() => {
-    console.log(`[LoadingContext] Route changed to: ${pathname}. Resetting page ready, setting loading.`);
+    console.log(`[LoadingContext] Route changed to: ${pathname}. Resetting page ready.`);
+    isNavCompleteRef.current = true;
     isPageReadyRef.current = false;
-    setIsLoading(true);
-    setLoadingText('Loading page...'); // Set default text on route change
+    setIsLoading(false);
+    setLoadingText(null);
   }, [pathname]);
 
   const showLoading = useCallback((text?: string) => {
@@ -60,10 +61,8 @@ export const LoadingProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const hideLoading = useCallback(() => {
     console.log('[LoadingContext] hideLoading called (Nav Complete Signal)');
     isNavCompleteRef.current = true;
-    if (isPageReadyRef.current) {
-      console.log('[LoadingContext] hideLoading: Page was ready, setting isLoading=false');
-      setIsLoading(false);
-    }
+    setIsLoading(false);
+    setLoadingText(null);
   }, []);
 
   const signalPageReady = useCallback(() => {
@@ -72,6 +71,7 @@ export const LoadingProvider: React.FC<{ children: React.ReactNode }> = ({ child
     if (isNavCompleteRef.current) {
       console.log('[LoadingContext] signalPageReady: Nav was complete, setting isLoading=false');
       setIsLoading(false);
+      setLoadingText(null);
     }
   }, []);
 
