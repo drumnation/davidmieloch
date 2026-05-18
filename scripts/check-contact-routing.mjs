@@ -1,26 +1,10 @@
 #!/usr/bin/env node
-import fs from 'node:fs';
 import path from 'node:path';
+
+import { loadDotEnvFile } from './lib/load-dotenv.mjs';
 
 const appRoot = process.cwd();
 const envPath = path.join(appRoot, '.env.local');
-
-function loadEnv(filePath) {
-  if (!fs.existsSync(filePath)) return;
-  const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/);
-  for (const line of lines) {
-    if (!line || line.trim().startsWith('#')) continue;
-    const match = line.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
-    if (!match) continue;
-    const [, key, rawValue] = match;
-    if (process.env[key]) continue;
-    const trimmed = rawValue.trim();
-    const unquoted = trimmed.startsWith('"') || trimmed.startsWith("'")
-      ? trimmed.replace(/^['"]|['"]$/g, '')
-      : trimmed.split(/\s+#/)[0].trim();
-    process.env[key] = unquoted;
-  }
-}
 
 function requireEnv(names) {
   const missing = names.filter((name) => !process.env[name]);
@@ -34,7 +18,7 @@ function marker() {
 }
 
 async function main() {
-  loadEnv(envPath);
+  loadDotEnvFile(envPath);
 
   const shouldSend = process.argv.includes('--send');
   const required = [

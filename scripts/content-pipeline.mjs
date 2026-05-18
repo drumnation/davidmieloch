@@ -2,6 +2,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { loadDotEnvFile } from './lib/load-dotenv.mjs';
+
 const appRoot = process.cwd();
 const envPath = path.join(appRoot, '.env.local');
 const contentRoot = process.env.CONTENT_ROOT
@@ -10,19 +12,6 @@ const contentRoot = process.env.CONTENT_ROOT
 const articlesRoot = path.join(contentRoot, 'articles');
 const ledgerPath = path.join(contentRoot, 'distribution/platform-ledger.json');
 const statusPath = path.join(contentRoot, 'distribution/pipeline-status.json');
-
-function loadEnv(filePath) {
-  if (!fs.existsSync(filePath)) return;
-  const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/);
-  for (const line of lines) {
-    if (!line || line.trim().startsWith('#')) continue;
-    const match = line.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
-    if (!match) continue;
-    const [, key, rawValue] = match;
-    if (process.env[key]) continue;
-    process.env[key] = rawValue.replace(/^['"]|['"]$/g, '');
-  }
-}
 
 function redact(value) {
   if (!value) return null;
@@ -364,7 +353,7 @@ Safety:
 `);
 }
 
-loadEnv(envPath);
+loadDotEnvFile(envPath);
 
 const [command, slug] = process.argv.slice(2);
 

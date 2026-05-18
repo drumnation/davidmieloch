@@ -153,7 +153,7 @@ export function getAllArticles(): Article[] {
   return loadArticlesFromDirectory(ARTICLES_DIRECTORY);
 }
 
-export function loadArticlesFromDirectory(rootDirectory: string): Article[] {
+function loadArticlesFromDirectory(rootDirectory: string): Article[] {
   if (!existsSync(rootDirectory)) {
     return [];
   }
@@ -173,10 +173,6 @@ export function getPublishedArticles(): Article[] {
 
 export function getPublishedArticle(slug: string): Article | undefined {
   return getPublishedArticles().find((article) => article.slug === slug);
-}
-
-export function getArticleBySlug(slug: string): Article | undefined {
-  return getAllArticles().find((article) => article.slug === slug);
 }
 
 export function getSiteUrl(): string {

@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import type { CSSProperties } from 'react';
 
 import {
-  getArticleBySlug,
+  getPublishedArticle,
   getPublishedArticles,
   getSiteUrl,
 } from '../../../src/content/articles';
@@ -19,9 +19,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = getPublishedArticle(slug);
 
-  if (!article || article.status !== 'published') {
+  if (!article) {
     return {};
   }
 
@@ -45,9 +45,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = getPublishedArticle(slug);
 
-  if (!article || article.status !== 'published') {
+  if (!article) {
     notFound();
   }
 
