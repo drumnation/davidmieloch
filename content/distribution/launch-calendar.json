@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "launch-calendar-v1",
+  "updatedAt": "2026-05-18",
+  "launches": [
+    {
+      "id": "linkedin-source-2026-05-19-1100-et",
+      "title": "Scheduled LinkedIn source article",
+      "sourcePlatform": "linkedin",
+      "scheduledAt": "2026-05-19T11:00:00-04:00",
+      "articleSlug": null,
+      "pendingSource": {
+        "status": "awaiting-source-url",
+        "note": "Confirm the final LinkedIn source URL and imported website slug before preparing external drafts."
+      },
+      "targetPlatforms": [
+        {
+          "platform": "medium",
+          "approvalMode": "manual-approval"
+        },
+        {
+          "platform": "devto",
+          "approvalMode": "draft-only"
+        },
+        {
+          "platform": "hashnode",
+          "approvalMode": "draft-only"
+        }
+      ],
+      "excludedPlatforms": [
+        {
+          "platform": "linkedin",
+          "reason": "LinkedIn is source/reference only for this launch. Do not post anything new there without explicit David approval."
+        },
+        {
+          "platform": "reddit",
+          "reason": "Requires community-specific discussion rewrite."
+        },
+        {
+          "platform": "substack",
+          "reason": "Requires series/newsletter framing."
+        }
+      ],
+      "approvalPolicy": {
+        "requiresDavidApproval": true,
+        "publicPublishAllowed": false,
+        "notes": "Prepare external drafts and stop before irreversible public publish actions unless David explicitly approves in the active thread."
+      }
+    }
+  ]
+}

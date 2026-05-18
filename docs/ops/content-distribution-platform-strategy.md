@@ -14,6 +14,14 @@ content/distribution/syndication-policy.json
 
 That file is the source of truth for post mode, canonical support, approval rules, CTA language, and metric fields. The package generator consumes it directly.
 
+Scheduled launches live in:
+
+```text
+content/distribution/launch-calendar.json
+```
+
+That file is the source of truth for launch timing, source article readiness, target platform allow-lists, explicit exclusions, and approval mode. It does not grant permission to publish.
+
 ## Platform Modes
 
 | Platform | Mode | Use |
@@ -61,22 +69,43 @@ References:
 - Forem/DEV API docs: https://developers.forem.com/api/v1
 - Hashnode GraphQL docs: https://docs.hashnode.com/quickstart/introduction
 
+## Launch Calendar Policy
+
+Each launch entry declares:
+
+- `sourcePlatform`: where the source article appears first.
+- `scheduledAt`: the expected launch time with timezone offset.
+- `articleSlug`: the canonical website slug, or `null` while the source URL is pending.
+- `targetPlatforms`: an explicit allow-list of platform ids and approval modes.
+- `excludedPlatforms`: platform ids that must not be touched during that launch.
+- `approvalPolicy`: the human approval requirements for public publishing.
+
+Allowed target approval modes:
+
+- `draft-only`: creating an unpublished draft is allowed when credentials and package validation pass.
+- `manual-approval`: prepare the package or browser import, then stop before public publish.
+- `publish-approved`: public publishing is allowed only when an entry records explicit approval.
+- `manual-only`: no automation; human/browser action only.
+
+LinkedIn is a source/reference channel by default. Do not post new LinkedIn content from a launch calendar entry unless the entry explicitly includes LinkedIn with `manual-only`, `publish-approved`, and a concrete David approval record.
+
 ## Operating Loop
 
 1. Reconcile LinkedIn published articles into the ledger.
 2. Reconcile Medium legacy posts through `https://medium.com/feed/@davidmieloch`.
 3. Import website-missing articles into `content/articles`.
-4. Generate packages with:
+4. Check due launch entries in `content/distribution/launch-calendar.json`.
+5. Generate packages with:
 
    ```bash
    rtk pnpm content:pipeline manual-package <slug|all>
    ```
 
-5. Let agents rewrite platform packages for audience fit.
-6. Human approval gates any first publish on a platform.
-7. Record receipts in `content/distribution/platform-ledger.json`.
-8. Record content metrics in `content/distribution/content-metrics.json`.
-9. Run drift checks against the website, ledger, platform receipts, and metrics records.
+6. Let agents rewrite platform packages for audience fit.
+7. Human approval gates any first publish on a platform.
+8. Record receipts in `content/distribution/platform-ledger.json`.
+9. Record content metrics in `content/distribution/content-metrics.json`.
+10. Run drift checks against the website, ledger, platform receipts, launch calendar, and metrics records.
 
 ## Metrics Loop
 
