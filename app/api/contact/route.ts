@@ -48,9 +48,14 @@ const buildHtmlEmailSection = (label: string, value: string | undefined | null):
     return `<p><strong>${label}:</strong> ${displayValue}</p>`;
 };
 
+const getContactReceiverEmail = (): string | undefined => {
+    return process.env.CONTACT_FORM_RECEIVER_EMAIL?.split(/\s+#/)[0]?.trim();
+};
+
 export async function POST(request: Request) {
     // Check required environment variables
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS || !process.env.CONTACT_FORM_RECEIVER_EMAIL) {
+    const contactReceiverEmail = getContactReceiverEmail();
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS || !contactReceiverEmail) {
         console.error('Missing required SMTP environment variables');
         return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 });
     }
@@ -178,7 +183,7 @@ ${section}`;
         const mailOptions: nodemailer.SendMailOptions = {
             from: `"${name}" <${process.env.SMTP_USER}>`, // Send FROM the configured user, but show sender's name
             replyTo: email, // Set Reply-To to the actual sender's email
-            to: process.env.CONTACT_FORM_RECEIVER_EMAIL, // The email address handled by Forward Email
+            to: contactReceiverEmail, // The email address handled by Forward Email
             subject: `[New Contact] from ${name} about ${topic}`,
             text: plainText.trim(), // Trim whitespace
             html: htmlText, // Use dynamically generated HTML

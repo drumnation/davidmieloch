@@ -10,8 +10,18 @@ import '@mantine/carousel/styles.css';
 import { JoyrideProvider } from '@/providers/JoyrideProvider';
 
 export const metadata: Metadata = {
-  title: 'David Mieloch Portfolio',
-  description: 'Software developer and architect portfolio showing various projects and examples',
+  metadataBase: new URL('https://davidmieloch.com'),
+  title: {
+    default: 'David Mieloch',
+    template: '%s | David Mieloch',
+  },
+  description: 'AI-native software engineer and systems builder writing about agents, developer tools, and software factories.',
+  alternates: {
+    canonical: 'https://davidmieloch.com',
+    types: {
+      'application/rss+xml': 'https://davidmieloch.com/rss.xml',
+    },
+  },
 };
 
 export default function RootLayout({

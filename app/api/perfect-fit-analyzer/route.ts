@@ -84,7 +84,7 @@ async function extractTextFromPDF(fileBuffer: Buffer, filename: string): Promise
 
     // Create form data with the PDF file
     const formData = new FormData();
-    const blob = new Blob([fileBuffer], { type: 'application/pdf' });
+    const blob = new Blob([new Uint8Array(fileBuffer)], { type: 'application/pdf' });
     formData.append('file', blob, filename);
     formData.append('model', 'gpt-4o');
     formData.append('purpose', 'document-extraction');

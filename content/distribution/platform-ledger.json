@@ -1,0 +1,235 @@
+{
+  "updatedAt": "2026-05-18",
+  "sourceOfTruth": {
+    "publishedArticles": "linkedin",
+    "canonicalArchive": "davidmieloch.com",
+    "workingDrafts": "obsidian"
+  },
+  "articles": {
+    "your-ai-isnt-hallucinating-its-lying": {
+      "title": "Your AI Isn't Hallucinating. It's Lying.",
+      "series": "The Observer Series",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
+      "source": {
+        "platform": "linkedin",
+        "url": "",
+        "publishedAt": "2026-03-20"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-golden-hammer": {
+      "title": "The Golden Hammer",
+      "series": "Golden Hammer",
+      "status": "needs-linkedin-capture",
+      "canonicalUrl": "",
+      "source": {
+        "platform": "linkedin",
+        "url": "",
+        "publishedAt": "2026-04-15"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "not-published",
+          "url": ""
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-overnight-shift": {
+      "title": "The Overnight Shift",
+      "series": "AI Factory",
+      "status": "needs-linkedin-capture",
+      "canonicalUrl": "",
+      "source": {
+        "platform": "linkedin",
+        "url": "",
+        "publishedAt": "2026-04-03"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "not-published",
+          "url": ""
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "every-company-is-sitting-on-sunken-treasure": {
+      "title": "Every Company Is Sitting on Sunken Treasure",
+      "series": "AI Factory",
+      "status": "needs-linkedin-capture",
+      "canonicalUrl": "",
+      "source": {
+        "platform": "linkedin",
+        "url": "",
+        "publishedAt": "2026-04-02"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "not-published",
+          "url": ""
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "how-to-make-your-ai-code-look-human": {
+      "title": "How to Make Your AI Code Look Human",
+      "series": "AI Factory",
+      "status": "needs-linkedin-capture",
+      "canonicalUrl": "",
+      "source": {
+        "platform": "linkedin",
+        "url": "",
+        "publishedAt": "2026-04-01"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "not-published",
+          "url": ""
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import * as S from './Navbar.styles';
 // Define the navigation items
 const navItems = [
   { name: 'Home', path: '/' },
+  { name: 'Writing', path: '/blog' },
   { name: 'AI Development Framework', path: '/enterprise-ai-development-framework' },
   { name: 'AI Integration Flow', path: '/ai-integration-flow-diagram' },
   { name: 'Best Practices', path: '/fullstack-react-best-practices-integration' },

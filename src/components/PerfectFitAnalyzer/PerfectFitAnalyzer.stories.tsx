@@ -54,17 +54,18 @@ export const Default: Story = {
 if (typeof window !== 'undefined') {
   // Mock the fetch API for Storybook preview
   const originalFetch = window.fetch;
-  window.fetch = async (input, init) => {
-    // Only mock API calls to our specific endpoint
-    if (input === '/api/perfect-fit-analyzer' && init?.method === 'POST') {
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Return mock data
-      return {
-        ok: true,
-        json: async () => ({
-          summary: `# Why You're Perfect for This Role
+  const mockedFetch: typeof window.fetch = Object.assign(
+    async (input: Parameters<typeof window.fetch>[0], init?: Parameters<typeof window.fetch>[1]) => {
+      // Only mock API calls to our specific endpoint
+      if (input === '/api/perfect-fit-analyzer' && init?.method === 'POST') {
+        // Simulate network delay
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Return mock data
+        return {
+          ok: true,
+          json: async () => ({
+            summary: `# Why You're Perfect for This Role
 
 You have extensive experience with React, Next.js, and TypeScript, which are the primary technologies requested in this job description. Your background in developing responsive web applications with modern frontend frameworks directly aligns with what they're looking for. You've worked with RESTful APIs and have experience with state management solutions like Redux, which they specifically mentioned.
 
@@ -77,7 +78,7 @@ You have extensive experience with React, Next.js, and TypeScript, which are the
 
 Your past role at XYZ Company involved similar responsibilities, where you successfully reduced load times by 40% through code optimization and implemented CI/CD pipelines, demonstrating both your technical skills and your impact on business metrics.`,
 
-          coverLetter: `Dear Hiring Manager,
+            coverLetter: `Dear Hiring Manager,
 
 I am writing to express my interest in the Senior Frontend Developer position at Acme Inc. After reviewing the job description, I believe my experience and skills make me an excellent candidate for this role.
 
@@ -92,7 +93,7 @@ I look forward to discussing how my skills and experience align with your needs 
 Sincerely,
 David Mieloch`,
 
-          recruiterPitch: `David Mieloch would be an exceptional candidate for your Senior Frontend Developer position. With 5+ years of specialized experience in React, Next.js, and TypeScript, he brings exactly the technical expertise your client is seeking.
+            recruiterPitch: `David Mieloch would be an exceptional candidate for your Senior Frontend Developer position. With 5+ years of specialized experience in React, Next.js, and TypeScript, he brings exactly the technical expertise your client is seeking.
 
 Key selling points that match the job requirements:
 1. Led frontend development for high-traffic applications serving 100,000+ daily users
@@ -106,11 +107,15 @@ Additionally, David has experience mentoring junior developers and collaborating
 David is currently available for interviews and could start within [timeframe]. He's particularly interested in this role because of the company's innovative approach to [relevant aspect] and the opportunity to work with cutting-edge technologies.
 
 I'd be happy to arrange an interview or provide additional information about his background and qualifications.`
-        }),
-      } as Response;
-    }
-    
-    // For all other requests, use the original fetch
-    return originalFetch(input as RequestInfo, init);
-  };
+          }),
+        } as Response;
+      }
+
+      // For all other requests, use the original fetch
+      return originalFetch(input, init);
+    },
+    originalFetch,
+  );
+
+  window.fetch = mockedFetch;
 } 
