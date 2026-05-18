@@ -61,9 +61,11 @@
 **Files:**
 - Create: `docs/ops/ltx-video-hero-pilot.md`
 
-- [ ] Select a 15-second section of one David track.
+- [ ] Select a 15-30 second section of `Reality Tunnel`.
+- [ ] Select a 15-30 second section of `Frenetic Puzzle Game - Gameplay`.
 - [ ] Define LTX prompt and negative constraints.
-- [ ] Estimate cost for 10, 25, and 50 iterations.
+- [ ] Estimate cost for 10, 25, and 50 iterations across both tracks.
+- [ ] Define comparison criteria for artsy/world-building versus promo/kinetic impact.
 - [ ] Define acceptance criteria for a loopable website hero.
 - [ ] Do not run paid video generation until David approves the pilot budget.
 

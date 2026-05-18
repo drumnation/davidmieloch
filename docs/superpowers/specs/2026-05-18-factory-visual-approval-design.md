@@ -137,11 +137,20 @@ Macro photograph style render of chocolate computer chips, glossy dark cocoa waf
 
 ## LTX Music Video Pilot
 
-Goal: test whether a short segment of one David track can drive a busy dark chocolate software factory video hero.
+Goal: test whether short segments from David's existing site music can drive a busy dark chocolate software factory video hero or commercial.
+
+Candidate tracks already on the site:
+
+| Track | File | Duration | Full audio-to-video estimate at `$0.10/sec` |
+| --- | --- | ---: | ---: |
+| Reality Tunnel | `public/audio/music/reality-tunnel.mp3` | `480.287s` | `$48.03` |
+| Frenetic Puzzle Game - Gameplay | `public/audio/music/frenetic-puzzle-game-gameplay.mp3` | `224.444s` | `$22.44` |
+
+Reality Tunnel is more artsy and world-building. Frenetic Puzzle Game - Gameplay is less refined as a composition but likely has stronger promo energy. The pilot should compare both instead of selecting one by intuition.
 
 Recommended pilot:
 
-- Length: `15 seconds`
+- Length: `15-30 seconds` per track.
 - Format: `16:9`, 1080p.
 - Mode: audio-to-video if the goal is music synchronization; image-to-video if the goal is visual style control.
 - Output: website hero loop candidate plus a 9:16 crop test for social.
@@ -150,7 +159,7 @@ Cost model:
 
 - LTX audio-to-video 1080p at `$0.10/sec`: `15s = $1.50` per generation, `30s = $3.00`, `60s = $6.00`.
 - LTX-2.3 pro text/image-to-video 1080p at `$0.08/sec`: `15s = $1.20`, `30s = $2.40`, `60s = $4.80`.
-- Real budget should assume iteration, not one render. A practical pilot is `10-25` generations, roughly `$15-$75` using audio-to-video API pricing.
+- Real budget should assume iteration, not one render. A practical two-track pilot is `10-25` generations total, roughly `$15-$75` using audio-to-video API pricing.
 - Studio credit pricing is less transparent in API terms; Standard at `$35/mo` is the lowest sensible self-serve tier for commercial work.
 
 Pilot prompt:
@@ -158,6 +167,12 @@ Pilot prompt:
 ```text
 A busy dark chocolate software factory synchronized to electronic music. Conveyor belts carry glossy chocolate computer chips through robotic inspection stations. Amber furnaces glow, blue status lights pulse to the beat, agentic workflow diagrams appear as abstract reflections on glass panels, camera glides through the factory floor with premium cinematic movement. Serious, precise, technical, luxurious, not whimsical, no readable text, no logos.
 ```
+
+Comparison criteria:
+
+- Reality Tunnel wins if the site needs mystery, depth, and a sense of discovery.
+- Frenetic Puzzle Game wins if the site needs kinetic promo energy, fast cuts, and a commercial trailer feel.
+- Neither full track should be generated until a short segment proves the direction.
 
 ## Approval Criteria
 
