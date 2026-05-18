@@ -2,62 +2,62 @@
   "slug": "how-to-make-your-ai-code-look-human",
   "title": "How to Make Your AI Code Look Human",
   "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
-  "generatedAt": "2026-05-18T20:24:50.104Z",
+  "generatedAt": "2026-05-18T20:42:35.612Z",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "how-to-make-your-ai-code-look-human/linkedin.md",
-      "checksum": "523db37ad37f3689a4f7e62d079633eac4c3fd04a48f0f0521a10cc2411e541f",
+      "checksum": "30053630dfe568ea5d6c7df5267dd1107a98c23c18313a5539dbfc1c9a38a02a",
       "mode": "manual-browser-draft",
       "hasVariant": false
     },
     {
       "platform": "reddit",
       "file": "how-to-make-your-ai-code-look-human/reddit.md",
-      "checksum": "baa54dfc092fd006d559960f498e57c6c9b4bc92a9f335a38b62d7baec2d24d4",
+      "checksum": "10dc6750d3d2973500c5a33826dac223097aa2388d2c76e96fa778a6522917b5",
       "mode": "manual-community-post",
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "how-to-make-your-ai-code-look-human/medium.md",
-      "checksum": "cd0250c662aed3aa2836d87514124af5c3a1602c48722ca69983303c7d505815",
+      "checksum": "7ba504e7c02a40e71fc301927a0edddaa30e80234f2813a1fcefdea241cd5588",
       "mode": "manual-import",
       "hasVariant": false
     },
     {
       "platform": "devto",
       "file": "how-to-make-your-ai-code-look-human/devto.md",
-      "checksum": "f35003207481fcfb2d424e4d57881b93b5ae0cda1aced4f9f56a04851f0e3ffc",
+      "checksum": "b4828f2ba0446b9d6907b0765e65a7e7a683dd7912c9e5e87297b4537b38e39a",
       "mode": "api-draft-or-manual-copy",
       "hasVariant": false
     },
     {
       "platform": "hashnode",
       "file": "how-to-make-your-ai-code-look-human/hashnode.md",
-      "checksum": "538226fda1ebd36d85acd884983685ab1a41d31aa3d19eba59674a0194bd6929",
+      "checksum": "ccf3350e9c98413a281b72f65f2864e0cdb6590b371acf189db791b95433aaff",
       "mode": "api-delisted-draft-or-manual-copy",
       "hasVariant": false
     },
     {
       "platform": "hackernoon",
       "file": "how-to-make-your-ai-code-look-human/hackernoon.md",
-      "checksum": "772222de2e46626f2a0a47e56350ad073dd423f6a1e27602d5145ec27a6398bd",
+      "checksum": "de6b4749582d2f74470508583d7de29d1146d5e1949e7e4d3c997769b1fbe874",
       "mode": "manual-editorial-submission",
       "hasVariant": false
     },
     {
       "platform": "dzone",
       "file": "how-to-make-your-ai-code-look-human/dzone.md",
-      "checksum": "2d7b4a13fa482b65aa4d59ad21ce89168078bd1900a6f37f67019f9b7e3fa3e6",
+      "checksum": "1c70afe3bb008f8750ef179b72558d83f0a789e7d6f8ad46ae99719ffc0d44d8",
       "mode": "manual-editorial-rewrite",
       "hasVariant": false
     },
     {
       "platform": "substack",
       "file": "how-to-make-your-ai-code-look-human/substack.md",
-      "checksum": "dffad031771dc7b65e1749e05e5caf2437b67cb793de43cdee88c86b751d3c1d",
+      "checksum": "1a6bc714629e8c3a241d57271425903423aa2154d191c82c8e399a15f389166d",
       "mode": "manual-newsletter-draft",
       "hasVariant": false
     }

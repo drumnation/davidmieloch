@@ -1,0 +1,65 @@
+{
+  "slug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+  "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
+  "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+  "generatedAt": "2026-05-18T20:42:36.217Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/linkedin.md",
+      "checksum": "5e0c79b82c01f0b3af3f3857363a944ccbaca986f788086f112cb5a6bd04db56",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/reddit.md",
+      "checksum": "f9d25f346a01558de0bfe481130f2cb87a7f1eec0f87b008747e53a310dec284",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/medium.md",
+      "checksum": "3813a79b9e611cd5e60a3e5cec74ef5c105dc8d467fd642cb89c48cabf5305ae",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/devto.md",
+      "checksum": "8748446989305a81e20d1ae843da378d039346e695d1021051145d5289ec8743",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/hashnode.md",
+      "checksum": "14e7ee9a9806944a23d9a26c4c340b91c9e24d15738c198e27e89af5199da0c7",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/hackernoon.md",
+      "checksum": "3c13b6d13253e4c6921458e9648e07dbf5fa20cdbdf21ba23bc879e40c862167",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/dzone.md",
+      "checksum": "1d03bdb3c70c9e9e291da159b190d9a370e83779768c9b8ace623bae989afbfb",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/substack.md",
+      "checksum": "e446eef0d6ea8b1ba9da2d790d9527c58ae3d9f9a355a9ce665a9f39a5100048",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

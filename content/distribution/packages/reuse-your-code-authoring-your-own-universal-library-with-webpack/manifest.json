@@ -1,0 +1,65 @@
+{
+  "slug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+  "title": "Reuse your code: Authoring your own Universal Library with Webpack",
+  "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+  "generatedAt": "2026-05-18T20:42:36.811Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "reuse-your-code-authoring-your-own-universal-library-with-webpack/linkedin.md",
+      "checksum": "6d4028f60a81985821087a05cd4e1fd64468b7aba4d052be838e89df7286519b",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "reuse-your-code-authoring-your-own-universal-library-with-webpack/reddit.md",
+      "checksum": "ea3c7b6dcca6b7191e1488d4380f209dea1c57331bebe95925b19f501af7ce12",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "reuse-your-code-authoring-your-own-universal-library-with-webpack/medium.md",
+      "checksum": "8ab5de51df8da9214f30822d1615d4f7ce5954090da95472473fb295e93a9b95",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "reuse-your-code-authoring-your-own-universal-library-with-webpack/devto.md",
+      "checksum": "cc52607d05e5286dcea017109088423a0ff16437eb50b48af98ed76c5e240fcf",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "reuse-your-code-authoring-your-own-universal-library-with-webpack/hashnode.md",
+      "checksum": "8dd4366fe8c06dc56c36b867f408a9c92f1ca764fe6fdd3621da45b5571e1134",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "reuse-your-code-authoring-your-own-universal-library-with-webpack/hackernoon.md",
+      "checksum": "70641fb580c715fbb0b8f9d7be1d97c89c72457a594359b57e433ec6073534cb",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "reuse-your-code-authoring-your-own-universal-library-with-webpack/dzone.md",
+      "checksum": "3ec11160aad34c5821e7926adbc2276372fa368fc71523db6255e7a1a8b8e540",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "reuse-your-code-authoring-your-own-universal-library-with-webpack/substack.md",
+      "checksum": "8f4747910e6ca31ff07b4574ff353333b209b6beb1f3cafbadfe7c340748bfac",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

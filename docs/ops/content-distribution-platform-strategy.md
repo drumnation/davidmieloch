@@ -47,17 +47,18 @@ References:
 ## Operating Loop
 
 1. Reconcile LinkedIn published articles into the ledger.
-2. Import website-missing articles into `content/articles`.
-3. Generate packages with:
+2. Reconcile Medium legacy posts through `https://medium.com/feed/@davidmieloch`.
+3. Import website-missing articles into `content/articles`.
+4. Generate packages with:
 
    ```bash
    rtk pnpm content:pipeline manual-package <slug>
    ```
 
-4. Let agents rewrite platform packages for audience fit.
-5. Human approval gates any first publish on a platform.
-6. Record receipts in `content/distribution/platform-ledger.json`.
-7. Run drift checks against the website, ledger, and platform receipts.
+5. Let agents rewrite platform packages for audience fit.
+6. Human approval gates any first publish on a platform.
+7. Record receipts in `content/distribution/platform-ledger.json`.
+8. Run drift checks against the website, ledger, and platform receipts.
 
 ## Observability
 

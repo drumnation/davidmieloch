@@ -1,0 +1,65 @@
+{
+  "slug": "developing-with-a-team-of-ai-s",
+  "title": "Developing with a Team of AI’s",
+  "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
+  "generatedAt": "2026-05-18T20:42:35.057Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "developing-with-a-team-of-ai-s/linkedin.md",
+      "checksum": "7d98559f816d8844777992764d7a7d66b5de58d22704d1719135be3fca43989f",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "developing-with-a-team-of-ai-s/reddit.md",
+      "checksum": "d35c12d9dbf28aa6871c2d3c4633003583a6414c31e3370b210cc846f59fada0",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "developing-with-a-team-of-ai-s/medium.md",
+      "checksum": "a7d3eb33540039e2dd8c19ed4aa671d168090f5dc3b1a025642d3d8e5f058f52",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "developing-with-a-team-of-ai-s/devto.md",
+      "checksum": "21a3ba4eb21ad522b6885fa3f8ddef288a37dd3cb731e35612c3d7869ac3e44a",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "developing-with-a-team-of-ai-s/hashnode.md",
+      "checksum": "ea1e01abb9cdc3433bcd0fde5ccab75bf44d96dbc4e2de420531cf371487d64c",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "developing-with-a-team-of-ai-s/hackernoon.md",
+      "checksum": "cf679bd3bccc2bb62d929a1c148e20fe8724da691ee5f09b9a40eb38f00d0b1f",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "developing-with-a-team-of-ai-s/dzone.md",
+      "checksum": "328f766b8a66717c229add7d464d2433dc885b0baa443b437c3505bce8df7488",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "developing-with-a-team-of-ai-s/substack.md",
+      "checksum": "e5973357bf99b886cbf2d445d3566222155278fe0f3d8a67fdced0eb8a57b023",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "slug": "the-factory",
+  "title": "The Factory",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
+  "generatedAt": "2026-05-18T20:42:37.362Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "the-factory/linkedin.md",
+      "checksum": "73c26fa0f89cd0bd8502785a06162293998cd0f24a87213247604d13c38400e7",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "the-factory/reddit.md",
+      "checksum": "384082c78d84f8472ee270224b460ae5117f091f8d1d595b99e8ec486fb1525a",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "the-factory/medium.md",
+      "checksum": "cc64f4904ba38881a1acea71b68931e7226e3aa2c31b1c50e0b7c3f876c4a0b2",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "the-factory/devto.md",
+      "checksum": "1af8181498c7797dc80e1a4536813a4fdd90dda9fec2767cb8476187bd3b0ff6",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "the-factory/hashnode.md",
+      "checksum": "3b64db92d4e707fb7377febe9ec590919bc708fe9d8a8bf375643a33f5dc286d",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "the-factory/hackernoon.md",
+      "checksum": "212435343754e851ea1c6e53ebed76654c9135c9742d8b097e8d83d94535de17",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "the-factory/dzone.md",
+      "checksum": "7d47209dfd91961cecd3ccaa48410f9f31513b566d20f76372fd89b1b9209bb8",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "the-factory/substack.md",
+      "checksum": "9f55e80acdf31b7cd1f47c7f49c1037fbe964d3f6fb7517dfe375fdfb6dbd9d0",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

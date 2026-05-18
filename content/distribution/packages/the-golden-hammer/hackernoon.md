@@ -4,7 +4,7 @@ mode: "manual-editorial-submission"
 title: "The Golden Hammer"
 canonical_url: "https://davidmieloch.com/blog/the-golden-hammer"
 source_slug: "the-golden-hammer"
-generated_at: "2026-05-18T20:24:49.266Z"
+generated_at: "2026-05-18T20:42:37.923Z"
 public_publish_allowed: false
 ---
 

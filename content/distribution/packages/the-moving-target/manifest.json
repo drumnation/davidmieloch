@@ -1,0 +1,65 @@
+{
+  "slug": "the-moving-target",
+  "title": "The Moving Target",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
+  "generatedAt": "2026-05-18T20:42:38.197Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "the-moving-target/linkedin.md",
+      "checksum": "b00e3b479663a797b818e28e8062480297a71d9a80589fedeabcb11d1dbc86e5",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "the-moving-target/reddit.md",
+      "checksum": "299752077453157e6be43f0b53df8e94ea6f65e607ce622c3fd0af4f821ff955",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "the-moving-target/medium.md",
+      "checksum": "1fd0a3c1ac1c7a5914c1bef6034b58cbeef7d7c3a09bf6af9f683edbc54f9f58",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "the-moving-target/devto.md",
+      "checksum": "f53e621f31de71bdcdf7442e409cf87fb8fed70ed2229a5214ddad0d1d3e6906",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "the-moving-target/hashnode.md",
+      "checksum": "669dea0f6b4a49afc19edb649d10d1689443499e82ca39a49894eabd68776fbc",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "the-moving-target/hackernoon.md",
+      "checksum": "088bbe566f2e1fc6ccac48a5c3322c4930df0607d5008855fb422320e74fd504",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "the-moving-target/dzone.md",
+      "checksum": "550fb18929b2e428361c9f43c4db5492d3a558f279346c825c3e1b795edeeb5b",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "the-moving-target/substack.md",
+      "checksum": "ebc91df4982b7950fab54337dc5a28d0f2466b309de35d8a58f90290a7b03710",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

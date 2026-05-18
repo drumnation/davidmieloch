@@ -11,6 +11,12 @@ function slugify(value) {
     .replace(/^-|-$/g, '');
 }
 
+function safeAssetName(value) {
+  const extension = path.extname(value);
+  const baseName = path.basename(value, extension);
+  return `${slugify(baseName)}${extension.toLowerCase()}`;
+}
+
 function parseScalar(value) {
   const trimmed = value.trim();
   if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
@@ -72,9 +78,17 @@ function firstHeading(body) {
   return match ? match[1].trim() : null;
 }
 
-function imageSourcePath(blogsRoot, embedPath) {
+function existingPath(candidates) {
+  return candidates.find((candidate) => fs.existsSync(candidate)) ?? candidates[0];
+}
+
+function imageSourcePath(blogsRoot, articleDir, embedPath) {
   const normalized = embedPath.replace(/^blogs\//, '');
-  return path.join(blogsRoot, normalized);
+  return existingPath([
+    path.join(articleDir, embedPath),
+    path.join(blogsRoot, normalized),
+    path.join(path.dirname(blogsRoot), embedPath),
+  ]);
 }
 
 function collectImageEmbeds(body) {
@@ -113,17 +127,20 @@ export function readObsidianArticle(sourcePath, blogsRoot = resolveObsidianBlogs
   const title = firstHeading(body);
   if (!title) throw new Error(`Missing H1 title in ${sourcePath}`);
   const slug = slugify(title);
-  const images = collectImageEmbeds(body).map((embedPath) => ({
-    embedPath,
-    fileName: path.basename(embedPath),
-    sourcePath: imageSourcePath(blogsRoot, embedPath),
-    publicPath: `/blog/${slug}/images/${path.basename(embedPath)}`,
-  }));
+  const images = collectImageEmbeds(body).map((embedPath) => {
+    const fileName = safeAssetName(embedPath);
+    return {
+      embedPath,
+      fileName,
+      sourcePath: imageSourcePath(blogsRoot, path.dirname(sourcePath), embedPath),
+      publicPath: `/blog/${slug}/images/${fileName}`,
+    };
+  });
 
   const normalizedBody = body
     .replace(/^#\s+.+\n+/, '')
     .replace(/!\[\[([^\]]+)]]/g, (_match, embedPath) => {
-      const fileName = path.basename(embedPath.trim());
+      const fileName = safeAssetName(embedPath.trim());
       return `![${fileName.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ')}](/blog/${slug}/images/${fileName})`;
     })
     .trim();

@@ -1,0 +1,65 @@
+{
+  "slug": "the-beauty-of-es6s-object-destructuring-assignment",
+  "title": "The Beauty of ES6's Object Destructuring Assignment",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
+  "generatedAt": "2026-05-18T20:42:37.087Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "the-beauty-of-es6s-object-destructuring-assignment/linkedin.md",
+      "checksum": "896180df4b29053625349a114d31e7c7f6ba2f12fd393a6aa62d5dcb01602760",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "the-beauty-of-es6s-object-destructuring-assignment/reddit.md",
+      "checksum": "5ba1900dfec20e86afb14a0b8d2af3e20fb3784e07a61e225aefc1a08c33e48e",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "the-beauty-of-es6s-object-destructuring-assignment/medium.md",
+      "checksum": "e0c4c76d440a81bfacad45b8b49fc20602c59cfb62c7e1d6c7c3318275e46ae5",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "the-beauty-of-es6s-object-destructuring-assignment/devto.md",
+      "checksum": "2507a0ad7a41857b36c5d5684ca4681c803dd77e9b82012f1480e5f913ba93ef",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "the-beauty-of-es6s-object-destructuring-assignment/hashnode.md",
+      "checksum": "799261e76b798f506d643729430f2ba806ddef4911a6416b34631c4fd3669a70",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "the-beauty-of-es6s-object-destructuring-assignment/hackernoon.md",
+      "checksum": "4944f0e46df36c226b8aea80f5e370976655778e4c0f0bd3eb0fcdacc4100849",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "the-beauty-of-es6s-object-destructuring-assignment/dzone.md",
+      "checksum": "6d430da058c2b69d3985cb486b82924f237aff5ab76f976c072664cf9c3462f1",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "the-beauty-of-es6s-object-destructuring-assignment/substack.md",
+      "checksum": "b9e9f337d834086f9de19bfa4ecbd2c93d527e24f587a9d1bc8f6676bbb25a1a",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

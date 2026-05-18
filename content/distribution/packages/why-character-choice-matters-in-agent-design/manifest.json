@@ -1,0 +1,65 @@
+{
+  "slug": "why-character-choice-matters-in-agent-design",
+  "title": "Why Character Choice Matters in Agent Design",
+  "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
+  "generatedAt": "2026-05-18T20:42:39.077Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "why-character-choice-matters-in-agent-design/linkedin.md",
+      "checksum": "56cffbc9c325ed7c9707a19ae8773966cb6bf3936f24227ee67f30ef63d8577f",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "why-character-choice-matters-in-agent-design/reddit.md",
+      "checksum": "7b6804f82611a3c0693ded2d0fc3e9bfef15b9b1e9e03705062af7ff01e04a48",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "why-character-choice-matters-in-agent-design/medium.md",
+      "checksum": "8c518136fac47be59e91ca6411612b32e7f27dbeafca2286c1a2bc72e4e47a46",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "why-character-choice-matters-in-agent-design/devto.md",
+      "checksum": "b5e119e8e0622af876aaadcef3ce602b562001398e6075a61026bf5af9b0ca55",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "why-character-choice-matters-in-agent-design/hashnode.md",
+      "checksum": "d1e23f104c0aebfb41e55178b07b2b0ffec4c463f53b6ff5dc51ceeffc2ae281",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "why-character-choice-matters-in-agent-design/hackernoon.md",
+      "checksum": "bba295c3b9e40939b1425800d0c9f42cd867266c20e8aacb9bf3ea467d8ca0e7",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "why-character-choice-matters-in-agent-design/dzone.md",
+      "checksum": "e740e797cd6e5466116db3ccfc51d654595caa2c84930ba29f804763cc7e7c9e",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "why-character-choice-matters-in-agent-design/substack.md",
+      "checksum": "13445cc88fd3766f2553893cd3a95f246451b898993ed62617ccc63fe3846e05",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

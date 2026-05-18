@@ -1,0 +1,65 @@
+{
+  "slug": "alphabetize-your-code",
+  "title": "Alphabetize your code.",
+  "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
+  "generatedAt": "2026-05-18T20:42:34.504Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "alphabetize-your-code/linkedin.md",
+      "checksum": "8f188b84852c6efc0994273549a36a3d91ae7c524ce07a07c351d965a78b028c",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "alphabetize-your-code/reddit.md",
+      "checksum": "7d1c6965c5403fe6a9db9ce49afed28f4846580f60b6cff828b8f2d2023b88a4",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "alphabetize-your-code/medium.md",
+      "checksum": "0c9d0d12fc818f560f24e788dcaedc98d6a17a02cfec35756c53ca8f75d95c7a",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "alphabetize-your-code/devto.md",
+      "checksum": "80368fd00a1b7c3a06535bb95473dd66fa45b26f80edcbf1daed1a4df94362bc",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "alphabetize-your-code/hashnode.md",
+      "checksum": "70af53f1c57ee8f5a4547ddd4c19a10a493ec36d7cf598662533c632dafa3c92",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "alphabetize-your-code/hackernoon.md",
+      "checksum": "e8664d7428fe525401e23d9eff4955c6252c8f312193a63d14e9143ab2f101b6",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "alphabetize-your-code/dzone.md",
+      "checksum": "94aafdb3fcef94ae02b388f25d94d555c704cc0a03a670e58b48095b26facda8",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "alphabetize-your-code/substack.md",
+      "checksum": "ce0b0ba869da8dcdd6d4da733f23df9cea1be644708d26608bc4f877ccda024f",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

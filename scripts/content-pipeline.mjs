@@ -4,6 +4,12 @@ import path from 'node:path';
 
 import { loadDotEnvFile } from './lib/load-dotenv.mjs';
 import {
+  fetchMediumFeed,
+  importMediumArticle,
+  mediumFeedUrl,
+  parseMediumFeed,
+} from './lib/medium-reader.mjs';
+import {
   readObsidianArticle,
   resolveObsidianBlogsRoot,
   scanObsidianArticles,
@@ -495,6 +501,53 @@ function obsidianImport(slug, options = {}) {
   });
 }
 
+function existingArticleSourcePlatform(slug) {
+  const articlePath = path.join(articlesRoot, slug, 'index.md');
+  if (!fs.existsSync(articlePath)) return null;
+  return readMarkdown(articlePath).meta.sourcePlatform ?? null;
+}
+
+async function mediumScan() {
+  const items = parseMediumFeed(await fetchMediumFeed());
+  return {
+    feedUrl: mediumFeedUrl,
+    count: items.length,
+    items: items.map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      sourceUrl: item.sourceUrl,
+      publishedAt: item.publishedAt,
+      tags: item.tags,
+      imageCount: item.imageUrls.length,
+      websiteExists: fs.existsSync(path.join(articlesRoot, item.slug, 'index.md')),
+    })),
+  };
+}
+
+async function mediumImport(slug, options = {}) {
+  const items = parseMediumFeed(await fetchMediumFeed());
+  const selected = slug === 'all'
+    ? items.filter((item) => {
+        const existingSource = existingArticleSourcePlatform(item.slug);
+        return !existingSource || (options.force && existingSource === 'medium');
+      })
+    : items.filter((item) => item.slug === slug);
+  if (selected.length === 0) {
+    throw new Error(`No Medium item selected for "${slug}".`);
+  }
+
+  const imported = [];
+  for (const item of selected) {
+    imported.push(await importMediumArticle({
+      item,
+      articlesRoot,
+      publicRoot,
+      overwrite: Boolean(options.force),
+    }));
+  }
+  return { imported };
+}
+
 function usage() {
   console.log(`Usage:
   pnpm content:pipeline status
@@ -507,6 +560,8 @@ function usage() {
   pnpm content:pipeline linkedin:capture-list
   pnpm content:pipeline obsidian:scan
   pnpm content:pipeline obsidian:import <slug> [--force]
+  pnpm content:pipeline medium:scan
+  pnpm content:pipeline medium:import <slug|all> [--force]
 
 Safety:
   - DEV and Hashnode commands create unpublished/delisted drafts only.
@@ -583,6 +638,12 @@ async function runCommand(command, slug) {
   }
   if (command === 'obsidian:import' && slug) {
     return obsidianImport(slug, { force: process.argv.includes('--force') });
+  }
+  if (command === 'medium:scan') {
+    return mediumScan();
+  }
+  if (command === 'medium:import' && slug) {
+    return mediumImport(slug, { force: process.argv.includes('--force') });
   }
 
   usage();

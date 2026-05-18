@@ -4,7 +4,7 @@ mode: "manual-editorial-rewrite"
 title: "Verification Agents Cannot Fake"
 canonical_url: "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying"
 source_slug: "your-ai-isnt-hallucinating-its-lying"
-generated_at: "2026-05-18T20:24:48.996Z"
+generated_at: "2026-05-18T20:42:39.630Z"
 public_publish_allowed: false
 ---
 

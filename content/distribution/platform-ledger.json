@@ -250,6 +250,741 @@
           "url": ""
         }
       }
+    },
+    "reality-needs-observers": {
+      "title": "Reality Needs Observers",
+      "series": "The Observer Series",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
+      "source": {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/pulse/reality-needs-observers-david-mieloch-4aqae",
+        "publishedAt": "2026-04-30"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": "https://www.linkedin.com/pulse/reality-needs-observers-david-mieloch-4aqae"
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/reality-needs-observers"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-moving-target": {
+      "title": "The Moving Target",
+      "series": "Golden Hammer",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
+      "source": {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/pulse/moving-target-david-mieloch-qrzse",
+        "publishedAt": "2026-04-21"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": "https://www.linkedin.com/pulse/moving-target-david-mieloch-qrzse"
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/the-moving-target"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-foreman": {
+      "title": "The Foreman",
+      "series": "Golden Hammer",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
+      "source": {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/pulse/foreman-david-mieloch-dqjgf",
+        "publishedAt": "2026-04-17"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": "https://www.linkedin.com/pulse/foreman-david-mieloch-dqjgf"
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/the-foreman"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-factory": {
+      "title": "The Factory",
+      "series": "Golden Hammer",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
+      "source": {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/pulse/factory-david-mieloch-dkwte",
+        "publishedAt": "2026-04-14"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": "https://www.linkedin.com/pulse/factory-david-mieloch-dkwte"
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/the-factory"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it": {
+      "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+      "series": "AI Factory",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+      "source": {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/pulse/academic-research-software-patch-i-finally-have-way-install-mieloch-ycike",
+        "publishedAt": "2026-03-20"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": "https://www.linkedin.com/pulse/academic-research-software-patch-i-finally-have-way-install-mieloch-ycike"
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "why-character-choice-matters-in-agent-design": {
+      "title": "Why Character Choice Matters in Agent Design",
+      "series": "Agent Design",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
+      "source": {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/pulse/character-choice-agent-design-david-mieloch-6rm4e",
+        "publishedAt": "2026-03-18"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "source",
+          "url": "https://www.linkedin.com/pulse/character-choice-agent-design-david-mieloch-6rm4e"
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design"
+        },
+        "medium": {
+          "status": "secondary-source",
+          "url": "https://medium.com/@davidmieloch/why-character-choice-matters-in-agent-design-38d4841d8490"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud": {
+      "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud-1cdad85bb36d",
+        "publishedAt": "2025-05-08"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud-1cdad85bb36d"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "judgment-over-keystrokes": {
+      "title": "Judgment Over Keystrokes",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/judgment-over-keystrokes",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/judgment-over-keystrokes-562f3500e845",
+        "publishedAt": "2025-05-07"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/judgment-over-keystrokes"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/judgment-over-keystrokes-562f3500e845"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "building-with-brain-garden-real-world-lessons-in-practical-ai": {
+      "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/building-with-brain-garden-real-world-lessons-in-practical-ai-07cb45169341",
+        "publishedAt": "2025-04-28"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/building-with-brain-garden-real-world-lessons-in-practical-ai-07cb45169341"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "what-i-learned-building-a-photoshop-in-the-browser": {
+      "title": "What I Learned Building a Photoshop in the Browser",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/what-i-learned-building-a-photoshop-in-the-browser-da72c963b185",
+        "publishedAt": "2025-04-25"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/what-i-learned-building-a-photoshop-in-the-browser-da72c963b185"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "developing-with-a-team-of-ai-s": {
+      "title": "Developing with a Team of AI’s",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/developing-with-a-team-of-ais-b1b2019ea44c",
+        "publishedAt": "2024-03-28"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/developing-with-a-team-of-ais-b1b2019ea44c"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "reuse-your-code-authoring-your-own-universal-library-with-webpack": {
+      "title": "Reuse your code: Authoring your own Universal Library with Webpack",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/reuse-your-code-authoring-your-own-universal-library-with-webpack-89d43e6ea9df",
+        "publishedAt": "2023-02-03"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/reuse-your-code-authoring-your-own-universal-library-with-webpack-89d43e6ea9df"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-beauty-of-es6s-object-destructuring-assignment": {
+      "title": "The Beauty of ES6's Object Destructuring Assignment",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/the-beauty-of-es6s-object-destructuring-assignment-3d547fcf5d8b",
+        "publishedAt": "2023-02-02"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/the-beauty-of-es6s-object-destructuring-assignment-3d547fcf5d8b"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "why-you-should-encapsulate-your-javascript-conditionals-in-a-function": {
+      "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/why-you-should-encapsulate-your-javascript-conditionals-in-a-function-4a492853c397",
+        "publishedAt": "2023-02-01"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/why-you-should-encapsulate-your-javascript-conditionals-in-a-function-4a492853c397"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "alphabetize-your-code": {
+      "title": "Alphabetize your code.",
+      "series": "Legacy Engineering Notes",
+      "status": "ready-local",
+      "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
+      "source": {
+        "platform": "medium",
+        "url": "https://medium.com/@davidmieloch/alphabetize-your-code-3f5df98b83ef",
+        "publishedAt": "2023-01-31"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "not-started",
+          "url": ""
+        },
+        "davidmieloch": {
+          "status": "ready-local",
+          "url": "https://davidmieloch.com/blog/alphabetize-your-code"
+        },
+        "medium": {
+          "status": "source",
+          "url": "https://medium.com/@davidmieloch/alphabetize-your-code-3f5df98b83ef"
+        },
+        "reddit": {
+          "status": "manual-package-required",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
     }
   }
 }

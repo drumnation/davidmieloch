@@ -4,7 +4,7 @@ mode: "api-draft-or-manual-copy"
 title: "The Overnight Shift"
 canonical_url: "https://davidmieloch.com/blog/the-overnight-shift"
 source_slug: "the-overnight-shift"
-generated_at: "2026-05-18T20:24:49.536Z"
+generated_at: "2026-05-18T20:42:38.476Z"
 public_publish_allowed: false
 ---
 

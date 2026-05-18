@@ -4,7 +4,7 @@ mode: "manual-import"
 title: "How to Make Your AI Code Look Human"
 canonical_url: "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human"
 source_slug: "how-to-make-your-ai-code-look-human"
-generated_at: "2026-05-18T20:24:50.104Z"
+generated_at: "2026-05-18T20:42:35.612Z"
 public_publish_allowed: false
 ---
 

@@ -1,0 +1,65 @@
+{
+  "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+  "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
+  "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+  "generatedAt": "2026-05-18T20:42:39.352Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/linkedin.md",
+      "checksum": "43f1e0733f20b735875ff9d9448c5158622c58b459334dc4df8838c111b62717",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md",
+      "checksum": "db6c7cd4c9841e7260d9601e9d661456fa3f520a44d04f950d0c039635e71793",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/medium.md",
+      "checksum": "70dfe63cf1ce7b1979d26fc737c1a5c83653762f552367e49afee57c502ab03b",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/devto.md",
+      "checksum": "487bbc299cfcf9091a773ce2c81051372c327ef2f31f6115e1c0492e9a3e8c99",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/hashnode.md",
+      "checksum": "a3f6a9cc28d5b329bd4ffaaf31a2abbeb1a00a77dd974c6cc496f9c2f8adf67f",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/hackernoon.md",
+      "checksum": "f3e3e08765c3f75bdb8d783f22a068d1015f4edf1412bb1ff16ed0bd9c27a599",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/dzone.md",
+      "checksum": "ebe463cef70f82d8a64f08eba95fa8f2d32395db44bb91d9d8798fdcd05d7201",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function/substack.md",
+      "checksum": "fadc6eb60b26b7489d2a3ca31494ec126b7950d2c2bc565852817a9cccab75f5",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "slug": "the-foreman",
+  "title": "The Foreman",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
+  "generatedAt": "2026-05-18T20:42:37.644Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "the-foreman/linkedin.md",
+      "checksum": "22c2a68150ea2219e859f26903acb08271e8bf2d968ea82a94b29969f26a5240",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "the-foreman/reddit.md",
+      "checksum": "95d357256721bef4478150162c3043fa50567c5ea108ea6dff28a5deff1c6570",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "the-foreman/medium.md",
+      "checksum": "78eaa7e03eafaa588adc0923fc9975a21e558e9309f9c7eac99881da63999c38",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "the-foreman/devto.md",
+      "checksum": "b97bec270209b019147987222789a6c6a9c355a05f17066ee9990e272eaed966",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "the-foreman/hashnode.md",
+      "checksum": "39f469740b16e4a594ffe319f7bcf60e114ac7498198e4582a752ad54bce2228",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "the-foreman/hackernoon.md",
+      "checksum": "9245fd71d47572423ee6681c930c94f9afd4a4223b8b0a320c1bbfb77e819912",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "the-foreman/dzone.md",
+      "checksum": "0df2e9f122c1781c821cbdb2a66b462a7feb159b7bc69a09362bba09f2f9ede7",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "the-foreman/substack.md",
+      "checksum": "76f05f4b394f3403fc00aa78215b2214c8e912ef655e2edd99ded3e9e703bb08",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

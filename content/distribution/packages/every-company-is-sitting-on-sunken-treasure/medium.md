@@ -4,7 +4,7 @@ mode: "manual-import"
 title: "Every Company Is Sitting on Sunken Treasure"
 canonical_url: "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure"
 source_slug: "every-company-is-sitting-on-sunken-treasure"
-generated_at: "2026-05-18T20:24:49.832Z"
+generated_at: "2026-05-18T20:42:35.335Z"
 public_publish_allowed: false
 ---
 

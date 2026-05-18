@@ -1,0 +1,65 @@
+{
+  "slug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+  "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
+  "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
+  "generatedAt": "2026-05-18T20:42:34.777Z",
+  "publicPublishAllowed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/linkedin.md",
+      "checksum": "3086e0014eae37f272751649872a120e286cef511803f51a0e7b39badf66a2f5",
+      "mode": "manual-browser-draft",
+      "hasVariant": false
+    },
+    {
+      "platform": "reddit",
+      "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/reddit.md",
+      "checksum": "15ea23b013c1ca35e8de5b80f0c4201446c2297d2649481992b6fa494d1f09be",
+      "mode": "manual-community-post",
+      "hasVariant": false
+    },
+    {
+      "platform": "medium",
+      "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/medium.md",
+      "checksum": "124e9c6baf05d7144c08c5a54a1706a60060d4e4403f092578327bf8046c37cd",
+      "mode": "manual-import",
+      "hasVariant": false
+    },
+    {
+      "platform": "devto",
+      "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/devto.md",
+      "checksum": "f15b1cc962c8296fc91d4ca70ce895fa948fc923837c24cabc390adf395e141e",
+      "mode": "api-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hashnode",
+      "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/hashnode.md",
+      "checksum": "d841ee2727277aa2b726a363149c6fd45e49b170dfc163623544f391c6f3416f",
+      "mode": "api-delisted-draft-or-manual-copy",
+      "hasVariant": false
+    },
+    {
+      "platform": "hackernoon",
+      "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/hackernoon.md",
+      "checksum": "8948bdcacadd8df8ddda47dda72196892f87281fc3afe375247c67ffcbeeca61",
+      "mode": "manual-editorial-submission",
+      "hasVariant": false
+    },
+    {
+      "platform": "dzone",
+      "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/dzone.md",
+      "checksum": "18706124297fe043c35e5331a99eab2fbb4ef6b1ceb3b73287b69f8435d8f78c",
+      "mode": "manual-editorial-rewrite",
+      "hasVariant": false
+    },
+    {
+      "platform": "substack",
+      "file": "building-with-brain-garden-real-world-lessons-in-practical-ai/substack.md",
+      "checksum": "f2dacf1b76e12080074a7bd9f315f66b93bf45ce9706e32117725a2e85029fdc",
+      "mode": "manual-newsletter-draft",
+      "hasVariant": false
+    }
+  ]
+}

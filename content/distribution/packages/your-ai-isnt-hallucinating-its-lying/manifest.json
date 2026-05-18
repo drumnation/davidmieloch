@@ -2,62 +2,62 @@
   "slug": "your-ai-isnt-hallucinating-its-lying",
   "title": "Your AI Isn't Hallucinating. It's Lying.",
   "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
-  "generatedAt": "2026-05-18T20:24:48.996Z",
+  "generatedAt": "2026-05-18T20:42:39.630Z",
   "publicPublishAllowed": false,
   "files": [
     {
       "platform": "linkedin",
       "file": "your-ai-isnt-hallucinating-its-lying/linkedin.md",
-      "checksum": "1fbb1a9e454f167371fabf11a5d620ac719b6fec8ff8bdb45caa46160759ccfa",
+      "checksum": "142ff6463bd6a9e4d7223641a51d9525bdc8f93146f8f27d34efd90635bccd8a",
       "mode": "manual-browser-draft",
       "hasVariant": true
     },
     {
       "platform": "reddit",
       "file": "your-ai-isnt-hallucinating-its-lying/reddit.md",
-      "checksum": "e29aefa569691376d5a319f541cad99d8d7eeb7af3f38014d4a33ea12990deb5",
+      "checksum": "fcd87572672b03e7be3705acf32736a8954a645071bcf6e7ae7769066bab6019",
       "mode": "manual-community-post",
       "hasVariant": false
     },
     {
       "platform": "medium",
       "file": "your-ai-isnt-hallucinating-its-lying/medium.md",
-      "checksum": "8db82ba9c0e2c7a003d77c9be51c446da89b5cdf318d16a987c849ff6fad38fe",
+      "checksum": "4a787875f5500e5b860e513866ee01340d5892f122c4088827ebdf6e754b6b27",
       "mode": "manual-import",
       "hasVariant": true
     },
     {
       "platform": "devto",
       "file": "your-ai-isnt-hallucinating-its-lying/devto.md",
-      "checksum": "89e00b58a035b2c4e32df304f9eef36b3707d2c14d295575bbf48593e760ef47",
+      "checksum": "ebd7478509cb7b26d3f8dff01f97920cbd6fe69ac4c1aab8b4f7cb30c09820dc",
       "mode": "api-draft-or-manual-copy",
       "hasVariant": true
     },
     {
       "platform": "hashnode",
       "file": "your-ai-isnt-hallucinating-its-lying/hashnode.md",
-      "checksum": "468fa5baa450657a02230e81985dff2ef01eb3831248649270c42d419779c95d",
+      "checksum": "f115192b781ddad25d1e791221f3ee3e9c46260e70e3216c4bdb96defc41ecee",
       "mode": "api-delisted-draft-or-manual-copy",
       "hasVariant": true
     },
     {
       "platform": "hackernoon",
       "file": "your-ai-isnt-hallucinating-its-lying/hackernoon.md",
-      "checksum": "27bab1fa93555705936cbea5716e01a81e4420ad56f3938924524cf597099437",
+      "checksum": "88be2996f9b83a60069be23b0e9908bc484e5444a5b3a734b1887be89e355acf",
       "mode": "manual-editorial-submission",
       "hasVariant": true
     },
     {
       "platform": "dzone",
       "file": "your-ai-isnt-hallucinating-its-lying/dzone.md",
-      "checksum": "d7997af8372bca47101b5525d1e91479898a81e7cc9c19ae3163fe7fab82bcd4",
+      "checksum": "e51e57b25085e413ba296572b5e7719fb892de6823d06022730cbfe22ca99f6d",
       "mode": "manual-editorial-rewrite",
       "hasVariant": true
     },
     {
       "platform": "substack",
       "file": "your-ai-isnt-hallucinating-its-lying/substack.md",
-      "checksum": "bb6bbd3568f354e50b0afeab6dabb4fca4e86f8eaed06f96aadfa0b1c2a9089c",
+      "checksum": "4a8d38fe32497841c0fb98fd31331d185e9ab52b605754e6b1cb422f2b5a9e6e",
       "mode": "manual-newsletter-draft",
       "hasVariant": true
     }

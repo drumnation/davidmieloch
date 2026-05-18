@@ -1,0 +1,38 @@
+---
+platform: "reddit"
+mode: "manual-community-post"
+title: "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)"
+canonical_url: "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it"
+source_slug: "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it"
+generated_at: "2026-05-18T20:42:34.226Z"
+public_publish_allowed: false
+---
+
+# Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
+
+## Posting guidance
+
+Subreddit-specific discussion prompt that links to the canonical essay only when useful.
+
+- Do not publish without David approval.
+- Preserve canonical URL: https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it
+- Record the final platform URL back in content/distribution/platform-ledger.json.
+
+## Copy
+
+Suggested starting shape, not a blind cross-post:
+
+Title: Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
+
+Body:
+Most research dies between the PDF and the person who could use it. I saw a paper on Reddit. "Recursive Language Models" from MIT CSAIL. Opened the PDF. Closed it immediately. I build complex systems for a living, but academic notation is a language designed for peer review, not adoption. Dense math, formal proofs, terminology that assumes you already read the last ten years of related work. I bookmarked it because the title sounded useful. That bookmark would have died there like a thousand before it. This time...
+
+Question for the community: does this pattern match anything you are seeing in real workflows, or does it break down in your environment?
+
+Canonical essay: https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it
+
+Subreddit fit checklist:
+- Read the target subreddit rules before posting.
+- Prefer a discussion prompt over a link dump.
+- Rewrite examples for the local community.
+- Do not post the same package to multiple subreddits unchanged.

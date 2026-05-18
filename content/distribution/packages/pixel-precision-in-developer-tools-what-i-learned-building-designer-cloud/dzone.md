@@ -1,0 +1,23 @@
+---
+platform: "dzone"
+mode: "manual-editorial-rewrite"
+title: "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud"
+canonical_url: "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud"
+source_slug: "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud"
+generated_at: "2026-05-18T20:42:36.217Z"
+public_publish_allowed: false
+---
+
+# Pixel Precision in Developer Tools: What I Learned Building Designer Cloud
+
+## Posting guidance
+
+Practical engineering rewrite package for DZone review.
+
+- Do not publish without David approval.
+- Preserve canonical URL: https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud
+- Record the final platform URL back in content/distribution/platform-ledger.json.
+
+## Copy
+
+Manual dzone package pending. Use canonical source: https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud

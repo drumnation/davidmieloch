@@ -39,8 +39,8 @@
 
 - [ ] Start with browser/manual export or saved HTML/JSON input, not direct login automation.
 - [ ] Parse title, URL, publish date, and article id.
-- [ ] Reconcile LinkedIn published articles against registry.
-- [ ] Flag website-missing published articles.
+- [x] Reconcile LinkedIn published articles against registry.
+- [x] Flag website-missing published articles.
 
 ## Task 4: Website Importer
 
@@ -51,7 +51,18 @@
 - [x] Convert approved article folder into `content/articles/<slug>/index.md`.
 - [x] Copy images into `public/blog/<slug>/images`.
 - [x] Add required website frontmatter.
-- [ ] Validate sitemap/RSS expectations after build.
+- [x] Validate sitemap/RSS expectations after build.
+
+## Task 4b: Medium Legacy Import
+
+**Files:**
+- Create: `scripts/lib/medium-reader.mjs`
+- Modify: `scripts/content-pipeline.mjs`
+
+- [x] Read public Medium RSS feed.
+- [x] Import Medium-only posts with original release dates.
+- [x] Copy Medium images into per-article folders.
+- [x] Preserve Medium as source platform in the ledger.
 
 ## Task 5: Platform Package Generator
 
