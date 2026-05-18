@@ -109,3 +109,20 @@ Design constraints from the consultation:
 - Avoid cyber-noir, sinister, or overly cute chocolate/factory wordplay.
 - Avoid stacking too many abstractions at once. Keep one role, one metaphor, one promise.
 - Use the homepage for credibility and the blog/editorial surface for the stranger, richer factory world.
+
+## 2026-05-18 Factory Process Follow-Up
+
+Additional planning runs:
+
+| Agent | Run id | Session file | Focus |
+| --- | --- | --- | --- |
+| `hari` | `a3be2133-2d3b-4b02-8758-4f02c41cc815` | `/home/dave/.openclaw/agents/hari/sessions/619aac2c-b44c-489d-81c3-cefdad281527.jsonl` | Mockup and distribution plan critique |
+| `stamets` | `61fddb56-7d92-4cf0-8682-f035960e1ec2` | `/home/dave/.openclaw/agents/stamets/sessions/76f7535a-a860-4839-b1a1-806c0866eb94.jsonl` | Minimal content distribution architecture |
+
+Follow-up conclusions:
+
+- The first deliverable should be approval mockups, not a production rebrand merge.
+- Visual direction should be hand-approved before agents implement it.
+- Distribution should be registry-centered and read-only first.
+- Browser automation should support setup/manual fallback, not become the primary publishing system.
+- External direct-publish should stay behind platform-specific approval gates.
