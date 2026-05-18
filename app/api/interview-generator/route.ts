@@ -4,9 +4,14 @@ import { masterPrompt } from './prompts/masterPrompt';
 
 export const runtime = 'edge';
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+function getOpenAIClient() {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+        throw new Error('Missing OpenAI API key for interview generation');
+    }
+
+    return new OpenAI({ apiKey });
+}
 
 // Add type interface at the top of the file
 interface InterviewInputs {
@@ -77,6 +82,7 @@ export async function POST(request: Request) {
         const promptContent = formatPromptWithInputs(masterPrompt, inputs, enrichedRoleContext);
 
         // Call OpenAI API with streaming
+        const openai = getOpenAIClient();
         const response = await openai.chat.completions.create({
             model: "gpt-4",
             messages: [
