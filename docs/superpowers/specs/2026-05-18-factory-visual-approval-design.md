@@ -143,23 +143,25 @@ Candidate tracks already on the site:
 
 | Track | File | Duration | Full audio-to-video estimate at `$0.10/sec` |
 | --- | --- | ---: | ---: |
+| Epic Battle Game - Opening Credits | `public/audio/music/epic-battle-game-opening-credits.mp3` | `52.846s` | `$5.28` |
 | Reality Tunnel | `public/audio/music/reality-tunnel.mp3` | `480.287s` | `$48.03` |
 | Frenetic Puzzle Game - Gameplay | `public/audio/music/frenetic-puzzle-game-gameplay.mp3` | `224.444s` | `$22.44` |
 
-Reality Tunnel is more artsy and world-building. Frenetic Puzzle Game - Gameplay is less refined as a composition but likely has stronger promo energy. The pilot should compare both instead of selecting one by intuition.
+Epic Battle Game - Opening Credits is now the primary trailer candidate. It is already the correct length for a bombastic homepage commercial, and the first 9-second LTX-2.3 Pro test proved the visual language can work. Reality Tunnel remains the artsy/world-building option. Frenetic Puzzle Game - Gameplay remains a kinetic promo option.
 
 Recommended pilot:
 
-- Length: `15-30 seconds` per track.
+- Length: `6-8 synced clips` covering the `52.846s` Epic Battle track.
 - Format: `16:9`, 1080p.
 - Mode: audio-to-video if the goal is music synchronization; image-to-video if the goal is visual style control.
-- Output: website hero loop candidate plus a 9:16 crop test for social.
+- Output: a 52-second homepage trailer, a 15-second cutdown, and a 9:16 social crop test.
 
 Cost model:
 
 - LTX audio-to-video 1080p at `$0.10/sec`: `15s = $1.50` per generation, `30s = $3.00`, `60s = $6.00`.
 - LTX-2.3 pro text/image-to-video 1080p at `$0.08/sec`: `15s = $1.20`, `30s = $2.40`, `60s = $4.80`.
-- Real budget should assume iteration, not one render. A practical two-track pilot is `10-25` generations total, roughly `$15-$75` using audio-to-video API pricing.
+- A single full pass over Epic Battle costs about `$5.28` using API audio-to-video pricing.
+- Real budget should assume iteration, not one render. A practical Epic Battle trailer pass is `3 variations x 7 clips`, roughly `21 clips` and about `$15.85` at `$0.10/sec` if the clips cover the full track once per variation set. Budget `$25-$75` to allow failed shots, retakes, and alternate prompts.
 - Studio credit pricing is less transparent in API terms; Standard at `$35/mo` is the lowest sensible self-serve tier for commercial work.
 
 Pilot prompt:
@@ -168,8 +170,29 @@ Pilot prompt:
 A busy dark chocolate software factory synchronized to electronic music. Conveyor belts carry glossy chocolate computer chips through robotic inspection stations. Amber furnaces glow, blue status lights pulse to the beat, agentic workflow diagrams appear as abstract reflections on glass panels, camera glides through the factory floor with premium cinematic movement. Serious, precise, technical, luxurious, not whimsical, no readable text, no logos.
 ```
 
+Epic Battle trailer structure:
+
+| Time | Shot role | Visual direction |
+| --- | --- | --- |
+| `0:00-0:08` | Establishing blast | Wide factory floor, chocolate chip conveyors, brass-hit lighting pulses. |
+| `0:08-0:16` | Assembly escalation | Robotic arms stamping cocoa-silicon chips, snare-driven mechanical precision. |
+| `0:16-0:24` | Brain Garden reveal | Central factory intelligence as glowing orchestration core, no face, no copied sci-fi character. |
+| `0:24-0:32` | Dark chocolate forge | Molten chocolate, graphite machinery, circuit molds, military orchestral intensity. |
+| `0:32-0:40` | Software factory proof | Build queues, agent consoles, test lights, code artifacts reflected in glass. |
+| `0:40-0:48` | Bombastic climax | Camera flies down the production line into a cathedral-scale machine hall. |
+| `0:48-0:52.846` | Cliff ending | Sudden drop to logo/title card or hard cut to homepage claim. |
+
+Working title options:
+
+- `Brain Garden: Dark Chocolate Software Factory`
+- `Mieloch's Dark Chocolate Software Factory`
+- `David Mieloch, AI Architect`
+
+Recommendation: keep the homepage brand as David Mieloch / AI Architect, use Brain Garden as the system name, and use Dark Chocolate Software Factory as the cinematic world. "No humans allowed" can be an internal creative constraint for the video, but the public message should be "human taste, machine throughput" rather than anti-human.
+
 Comparison criteria:
 
+- Epic Battle wins if the site needs a bombastic homepage trailer and immediate cinematic authority.
 - Reality Tunnel wins if the site needs mystery, depth, and a sense of discovery.
 - Frenetic Puzzle Game wins if the site needs kinetic promo energy, fast cuts, and a commercial trailer feel.
 - Neither full track should be generated until a short segment proves the direction.

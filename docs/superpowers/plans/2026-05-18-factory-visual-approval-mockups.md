@@ -61,10 +61,12 @@
 **Files:**
 - Create: `docs/ops/ltx-video-hero-pilot.md`
 
-- [ ] Select a 15-30 second section of `Reality Tunnel`.
-- [ ] Select a 15-30 second section of `Frenetic Puzzle Game - Gameplay`.
+- [ ] Treat `Epic Battle Game - Opening Credits` as the primary 52-second trailer candidate.
+- [ ] Split `public/audio/music/epic-battle-game-opening-credits.mp3` into 6-8 audio clips, each within LTX's request duration limits.
+- [ ] Generate multiple visual feed variations per clip so the final edit can cut between synchronized outputs like a music video.
+- [ ] Keep `Reality Tunnel` and `Frenetic Puzzle Game - Gameplay` as alternate tests, not the primary trailer.
 - [ ] Define LTX prompt and negative constraints.
-- [ ] Estimate cost for 10, 25, and 50 iterations across both tracks.
+- [ ] Estimate cost for 10, 25, and 50 iterations across Epic Battle clips.
 - [ ] Define comparison criteria for artsy/world-building versus promo/kinetic impact.
 - [ ] Define acceptance criteria for a loopable website hero.
 - [ ] Do not run paid video generation until David approves the pilot budget.
