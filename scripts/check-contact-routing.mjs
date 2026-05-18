@@ -2,6 +2,7 @@
 import path from 'node:path';
 
 import { loadDotEnvFile } from './lib/load-dotenv.mjs';
+import { checksumPayload, readRecentObservations, writeObservation } from './lib/observability.mjs';
 
 const appRoot = process.cwd();
 const envPath = path.join(appRoot, '.env.local');
@@ -15,6 +16,56 @@ function requireEnv(names) {
 
 function marker() {
   return `[BG-OPPORTUNITY-ROUTING-TEST ${new Date().toISOString()}]`;
+}
+
+function observeContactCheck(statusValue, data = {}) {
+  const primary = writeObservation(appRoot, {
+    source: 'contact-routing-check',
+    observer_id: 'contact-routing-check.primary',
+    event: statusValue === 'PASS' ? 'OBSERVER_FIRED' : 'FAILURE',
+    claim: 'contact routing configuration is observable before sending opportunity email',
+    status: statusValue,
+    recursion_depth: 0,
+    fallback_chain_index: 0,
+    data: {
+      fallback_chain: [
+        'structured contact-check JSON output',
+        'SMTP send test after confirmation',
+        'ROM heartbeat',
+      ],
+      ...data,
+    },
+  });
+  const { heartbeatPath, records, corruptLines } = readRecentObservations(appRoot, 25);
+  const foundPrimary = records.some((record) => record.checksum === primary.record.checksum);
+  const readback = writeObservation(appRoot, {
+    source: 'contact-routing-check-readback',
+    observer_id: 'contact-routing-check.readback',
+    event: foundPrimary ? 'OBSERVER_FIRED' : 'FAILURE',
+    claim: 'contact routing heartbeat readback observed contact-routing-check.primary',
+    status: foundPrimary ? 'PASS' : 'FAIL',
+    recursion_depth: 1,
+    fallback_chain_index: 1,
+    data: {
+      heartbeatPath,
+      observed_checksum: primary.record.checksum,
+      records_checked: records.length,
+      corrupt_lines: corruptLines,
+    },
+  });
+  writeObservation(appRoot, {
+    source: 'contact-routing-check-readback-cross-check',
+    observer_id: 'contact-routing-check.readback-cross-check',
+    event: readback.record.status === 'PASS' ? 'OBSERVER_FIRED' : 'FAILURE',
+    claim: 'contact routing readback observer is itself observable',
+    status: readback.record.status,
+    recursion_depth: 2,
+    fallback_chain_index: 2,
+    data: {
+      observed_observer_id: readback.record.observer_id,
+      observed_checksum: readback.record.checksum,
+    },
+  });
 }
 
 async function main() {
@@ -38,10 +89,15 @@ async function main() {
   };
 
   if (!shouldSend) {
-    console.log(JSON.stringify({
+    const payload = {
       ...state,
       nextStep: 'Run `node scripts/check-contact-routing.mjs --send` only after confirming the test email destination.',
-    }, null, 2));
+    };
+    observeContactCheck('PASS', {
+      mode: payload.mode,
+      output_checksum: checksumPayload(payload),
+    });
+    console.log(JSON.stringify(payload, null, 2));
     return;
   }
 
@@ -71,15 +127,21 @@ async function main() {
     text: `${testMarker}\n\nThis is a marked routing test for davidmieloch.com opportunity email delivery.`,
   });
 
-  console.log(JSON.stringify({
+  const payload = {
     ...state,
     marker: testMarker,
     messageId: info.messageId,
     sentTo: to,
-  }, null, 2));
+  };
+  observeContactCheck('PASS', {
+    mode: payload.mode,
+    output_checksum: checksumPayload(payload),
+  });
+  console.log(JSON.stringify(payload, null, 2));
 }
 
 main().catch((error) => {
+  observeContactCheck('FAIL', { error: error.message });
   console.error(error.message);
   process.exit(1);
 });

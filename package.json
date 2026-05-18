@@ -19,6 +19,7 @@
     "build-storybook": "storybook build",
     "killports": "kill-port 3000 3001 3002 3003 3004 3333 6006 6007 7000 4000 || true",
     "content:pipeline": "node scripts/content-pipeline.mjs",
+    "content:observe": "node scripts/content-pipeline.mjs observe:bootstrap",
     "contact:check": "node scripts/check-contact-routing.mjs",
     "postinstall": "node scripts/patch-react-floater-types.mjs",
     "process-linkedin": "node scripts/process-linkedin-data.js",

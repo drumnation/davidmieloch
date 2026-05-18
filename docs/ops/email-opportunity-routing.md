@@ -98,3 +98,5 @@ Verify:
 - Message arrives in the agent-visible triage destination.
 - Attachments survive if sent through the contact form.
 - Reply-To is the external sender, not the SMTP sender.
+
+`pnpm contact:check` writes a ROM heartbeat observation before any send test. A failed check still records a `FAILURE` event so the opportunity-routing observer is not silently dead.

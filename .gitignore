@@ -49,4 +49,5 @@ next-env.d.ts
 # LinkedIn data processing
 .brain/linkedin-cookies.json
 .brain/linkedInDataExport
+.brain/observability
 debug_*.png

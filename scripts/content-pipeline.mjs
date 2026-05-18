@@ -3,6 +3,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { loadDotEnvFile } from './lib/load-dotenv.mjs';
+import {
+  checksumPayload,
+  readRecentObservations,
+  resolveHeartbeatPath,
+  writeObservation,
+} from './lib/observability.mjs';
 
 const appRoot = process.cwd();
 const envPath = path.join(appRoot, '.env.local');
@@ -12,6 +18,7 @@ const contentRoot = process.env.CONTENT_ROOT
 const articlesRoot = path.join(contentRoot, 'articles');
 const ledgerPath = path.join(contentRoot, 'distribution/platform-ledger.json');
 const statusPath = path.join(contentRoot, 'distribution/pipeline-status.json');
+const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
   if (!value) return null;
@@ -87,6 +94,76 @@ function readLedger() {
 
 function hashnodeToken() {
   return process.env.HASHNODE_TOKEN ?? process.env.HASHNODE_API_KEY;
+}
+
+function commandClaim(command, slug) {
+  return slug
+    ? `content pipeline command "${command}" produced an observable result for "${slug}"`
+    : `content pipeline command "${command}" produced an observable result`;
+}
+
+function observeCommand(command, slug, statusValue, data = {}) {
+  return writeObservation(appRoot, {
+    source: 'content-pipeline',
+    observer_id: `content-pipeline.${command}`,
+    event: statusValue === 'PASS' ? 'OBSERVER_FIRED' : 'FAILURE',
+    claim: commandClaim(command, slug),
+    status: statusValue,
+    recursion_depth: 0,
+    fallback_chain_index: 0,
+    data: {
+      command,
+      slug: slug ?? null,
+      system_classes: PIPELINE_CLASSES,
+      fallback_chain: [
+        'structured command result checksum',
+        'heartbeat readback',
+        'ROM heartbeat',
+      ],
+      ...data,
+    },
+  });
+}
+
+function observeFallbackReadback(command, slug, primaryRecord) {
+  const { heartbeatPath, records, corruptLines } = readRecentObservations(appRoot, 25);
+  const foundPrimary = records.some((record) => record.checksum === primaryRecord.checksum);
+  return writeObservation(appRoot, {
+    source: 'content-pipeline-readback',
+    observer_id: `content-pipeline.${command}.readback`,
+    event: foundPrimary ? 'OBSERVER_FIRED' : 'FAILURE',
+    claim: `heartbeat readback observed content-pipeline.${command}`,
+    status: foundPrimary ? 'PASS' : 'FAIL',
+    recursion_depth: 1,
+    fallback_chain_index: 1,
+    observation_strength: foundPrimary ? 3 : 1,
+    data: {
+      command,
+      slug: slug ?? null,
+      heartbeatPath,
+      observed_checksum: primaryRecord.checksum,
+      records_checked: records.length,
+      corrupt_lines: corruptLines,
+    },
+  });
+}
+
+function observeReadbackCrossCheck(command, slug, readbackRecord) {
+  return writeObservation(appRoot, {
+    source: 'content-pipeline-readback-cross-check',
+    observer_id: `content-pipeline.${command}.readback-cross-check`,
+    event: readbackRecord.status === 'PASS' ? 'OBSERVER_FIRED' : 'FAILURE',
+    claim: `readback observer for content-pipeline.${command} is itself observable`,
+    status: readbackRecord.status,
+    recursion_depth: 2,
+    fallback_chain_index: 2,
+    data: {
+      command,
+      slug: slug ?? null,
+      observed_observer_id: readbackRecord.observer_id,
+      observed_checksum: readbackRecord.checksum,
+    },
+  });
 }
 
 async function devto(pathname, options = {}) {
@@ -189,7 +266,7 @@ async function status() {
 
   fs.mkdirSync(path.dirname(statusPath), { recursive: true });
   fs.writeFileSync(statusPath, `${JSON.stringify(result, null, 2)}\n`);
-  console.log(JSON.stringify(result, null, 2));
+  return result;
 }
 
 function validate() {
@@ -234,10 +311,10 @@ function validate() {
 
   if (errors.length > 0) {
     console.error(`Validation failed:\n- ${errors.join('\n- ')}`);
-    process.exit(1);
+    throw new Error(`Validation failed:\n- ${errors.join('\n- ')}`);
   }
 
-  console.log(JSON.stringify({ ok: true, articles: articleSlugs.length }, null, 2));
+  return { ok: true, articles: articleSlugs.length };
 }
 
 function scheduleDryRun(slug) {
@@ -253,13 +330,13 @@ function scheduleDryRun(slug) {
     substack: { action: 'prepare-newsletter-draft', mode: 'requires-browser-confirmation' },
   };
 
-  console.log(JSON.stringify({
+  return {
     slug,
     title: article.meta.title,
     canonicalUrl: article.meta.canonicalUrl,
     publicPosting: 'not-performed-by-this-command',
     platforms,
-  }, null, 2));
+  };
 }
 
 async function createDevtoDraft(slug) {
@@ -279,14 +356,14 @@ async function createDevtoDraft(slug) {
     method: 'POST',
     body: JSON.stringify(payload),
   });
-  console.log(JSON.stringify({
+  return {
     platform: 'devto',
     action: 'created-unpublished-draft',
     id: created.id,
     title: created.title,
     published: created.published,
     url: created.url,
-  }, null, 2));
+  };
 }
 
 async function createHashnodeDraft(slug) {
@@ -320,27 +397,28 @@ async function createHashnodeDraft(slug) {
       },
     },
   });
-  console.log(JSON.stringify({
+  return {
     platform: 'hashnode',
     action: 'created-delisted-draft',
     draft: data.createDraft.draft,
-  }, null, 2));
+  };
 }
 
 function linkedinCaptureList() {
-  console.log(JSON.stringify({
+  return {
     sourceOfTruth: 'linkedin',
     url: 'https://www.linkedin.com/in/davidmieloch/recent-activity/articles/',
     status: 'authenticated-browser-required',
     outputConvention: 'content/articles/<slug>/source-linkedin.md',
     note: 'If browser capture is unavailable, request a fresh LinkedIn data export and normalize each article into the same source-linkedin.md convention.',
-  }, null, 2));
+  };
 }
 
 function usage() {
   console.log(`Usage:
   pnpm content:pipeline status
   pnpm content:pipeline validate
+  pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline schedule:dry-run <slug>
   pnpm content:pipeline devto:create-draft <slug>
   pnpm content:pipeline hashnode:create-draft <slug>
@@ -353,28 +431,90 @@ Safety:
 `);
 }
 
-loadDotEnvFile(envPath);
+function observeBootstrap() {
+  const heartbeatPath = resolveHeartbeatPath(appRoot);
+  const primary = writeObservation(appRoot, {
+    source: 'content-pipeline-bootstrap',
+    observer_id: 'content-pipeline.bootstrap.primary',
+    event: 'OBSERVER_FIRED',
+    claim: 'content pipeline observability can write a ROM heartbeat record',
+    status: 'PASS',
+    recursion_depth: 0,
+    fallback_chain_index: 0,
+    data: {
+      heartbeatPath,
+      system_classes: PIPELINE_CLASSES,
+      fallback_chain: [
+        'content-pipeline.bootstrap.readback',
+        'content-pipeline.bootstrap.cross-check',
+        'ROM heartbeat',
+      ],
+    },
+  });
 
-const [command, slug] = process.argv.slice(2);
+  const readback = observeFallbackReadback('bootstrap', null, primary.record);
+  const crossCheck = observeReadbackCrossCheck('bootstrap', null, readback.record);
 
-try {
-  if (command === 'status') {
-    await status();
-  } else if (command === 'validate') {
-    validate();
-  } else if (command === 'schedule:dry-run' && slug) {
-    scheduleDryRun(slug);
-  } else if (command === 'devto:create-draft' && slug) {
-    await createDevtoDraft(slug);
-  } else if (command === 'hashnode:create-draft' && slug) {
-    await createHashnodeDraft(slug);
-  } else if (command === 'linkedin:capture-list') {
-    linkedinCaptureList();
-  } else {
-    usage();
-    process.exit(command ? 1 : 0);
-  }
-} catch (error) {
-  console.error(error.message);
-  process.exit(1);
+  return {
+    ok: primary.record.status === 'PASS' && readback.record.status === 'PASS',
+    heartbeatPath,
+    observers: [
+      primary.record.observer_id,
+      readback.record.observer_id,
+      crossCheck.record.observer_id,
+    ],
+    fallbackChainLength: 3,
+    systemClasses: PIPELINE_CLASSES,
+  };
 }
+
+async function runCommand(command, slug) {
+  if (command === 'status') {
+    return status();
+  }
+  if (command === 'validate') {
+    return validate();
+  }
+  if (command === 'observe:bootstrap') {
+    return observeBootstrap();
+  }
+  if (command === 'schedule:dry-run' && slug) {
+    return scheduleDryRun(slug);
+  }
+  if (command === 'devto:create-draft' && slug) {
+    return createDevtoDraft(slug);
+  }
+  if (command === 'hashnode:create-draft' && slug) {
+    return createHashnodeDraft(slug);
+  }
+  if (command === 'linkedin:capture-list') {
+    return linkedinCaptureList();
+  }
+
+  usage();
+  process.exit(command ? 1 : 0);
+}
+
+async function main() {
+  const [command, slug] = process.argv.slice(2);
+
+  try {
+    const payload = await runCommand(command, slug);
+    const primary = observeCommand(command, slug, 'PASS', {
+      output_checksum: checksumPayload(payload),
+      output_shape: Array.isArray(payload) ? 'array' : typeof payload,
+    });
+    const readback = observeFallbackReadback(command, slug, primary.record);
+    observeReadbackCrossCheck(command, slug, readback.record);
+    console.log(JSON.stringify(payload, null, 2));
+  } catch (error) {
+    observeCommand(command ?? 'unknown', slug, 'FAIL', {
+      error: error.message,
+    });
+    console.error(error.message);
+    process.exit(1);
+  }
+}
+
+loadDotEnvFile(envPath);
+await main();
