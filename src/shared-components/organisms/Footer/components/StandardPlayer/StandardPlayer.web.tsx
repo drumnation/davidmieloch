@@ -102,7 +102,7 @@ export const StandardPlayerWeb = (props: StandardPlayerProps) => {
     const { handleManualStart: handleStartTour } = useJoyrideTour({
         steps: basePlayerTourSteps,
         storageKey: TOUR_STORAGE_KEY,
-        options: { autoStartDelay: 150 } // Optional: Adjust delay if needed
+        options: { autoStart: false, autoStartDelay: 150 }
     });
 
     const {

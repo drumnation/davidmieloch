@@ -50,4 +50,5 @@ next-env.d.ts
 .brain/linkedin-cookies.json
 .brain/linkedInDataExport
 .brain/observability
+.brain/visual-pass
 debug_*.png

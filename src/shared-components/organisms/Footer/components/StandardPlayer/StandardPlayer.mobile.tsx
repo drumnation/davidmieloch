@@ -83,7 +83,7 @@ export const StandardPlayerMobile = (props: StandardPlayerProps) => {
     const { handleManualStart: handleStartTour } = useJoyrideTour({
         steps: mobilePlayerTourSteps,
         storageKey: TOUR_STORAGE_KEY,
-        options: { autoStartDelay: 150 } // Using 150ms delay as before
+        options: { autoStart: false, autoStartDelay: 150 }
     });
     // --- End Joyride Setup ---
 

@@ -7,6 +7,7 @@ interface UseJoyrideTourProps {
     storageKey: string;
     options?: {
         autoStartDelay?: number; // Optional delay for auto-start
+        autoStart?: boolean;
     };
 }
 
@@ -28,7 +29,7 @@ export const useJoyrideTour = ({
     const didAttemptSchedulingRef = useRef(false);
     const autoStartTimeoutIdRef = useRef<NodeJS.Timeout | null>(null);
     const isMountedRef = useRef(false);
-    const { autoStartDelay = 250 } = options;
+    const { autoStart = true, autoStartDelay = 250 } = options;
 
     // --- Mount/Unmount Effect ---
     useEffect(() => {
@@ -88,7 +89,9 @@ export const useJoyrideTour = ({
             console.log(`[useJoyrideTour - ${hookId}] Registering ${stepsFromProps.length} steps.`);
             setTour(stepsFromProps);
 
-            if (!didAttemptSchedulingRef.current && autoStartTimeoutIdRef.current === null) {
+            if (!autoStart) {
+                console.log(`[useJoyrideTour - ${hookId}] Skipping schedule: Auto-start disabled.`);
+            } else if (!didAttemptSchedulingRef.current && autoStartTimeoutIdRef.current === null) {
                 console.log(`[useJoyrideTour - ${hookId}] Attempting scheduleAutoStart (conditions met)...`);
                 didAttemptSchedulingRef.current = true;
                 scheduleAutoStart();
@@ -116,7 +119,7 @@ export const useJoyrideTour = ({
         return () => {
             console.log(`[useJoyrideTour - ${hookId}] Register/Schedule Effect cleanup.`);
         };
-    }, [stepsFromProps, storageKey, setTour, scheduleAutoStart]);
+    }, [stepsFromProps, storageKey, setTour, scheduleAutoStart, autoStart]);
 
 
     // --- Manual Start Handler ---
