@@ -174,6 +174,8 @@ rtk pnpm content:pipeline queue:write --lane=factory-front-door --blocked=false 
 
 `queue:write` persists that checklist to `docs/ops/content-distribution-next-actions.md` by default. Use `--output=<path>` for a platform- or session-specific checklist.
 
+When a generated package exists, queue entries include its `Package:` path so browser/manual platforms can be opened with the exact copy source.
+
 Browser/manual work must be recorded through the receipt command instead of hand-editing ledger JSON:
 
 ```bash

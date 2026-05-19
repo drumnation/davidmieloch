@@ -9,8 +9,9 @@ const CURRENT_BRAND_SERIES = new Set([
   'Agent Design',
 ]);
 
-function packageExists(packagesRoot, slug, platform) {
-  return fs.existsSync(path.join(packagesRoot, slug, `${platform}.md`));
+function packageFilePath(packagesRoot, slug, platform) {
+  const filePath = path.join(packagesRoot, slug, `${platform}.md`);
+  return fs.existsSync(filePath) ? filePath : null;
 }
 
 function policyFor(policy, platform) {
@@ -68,7 +69,7 @@ function releaseLane(article) {
   };
 }
 
-function actionFor({ slug, article, platform, receipt, policy, hasPackage, configured, canonicalReady }) {
+function actionFor({ slug, article, platform, receipt, policy, packagePath, configured, canonicalReady }) {
   const status = receipt?.status ?? 'missing';
   if (PASSIVE_STATUSES.has(status)) return null;
 
@@ -86,7 +87,8 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
     postMode: platformPolicy.postMode ?? 'unknown',
     approvalRequired: platformPolicy.approvalRequired !== false,
     publicPublishingAllowed: platformPolicy.publicPublishAllowed === true,
-    hasPackage,
+    hasPackage: Boolean(packagePath),
+    packagePath,
     url: receipt?.url ?? '',
     releaseLane: lane.lane,
     laneNote: lane.laneNote,
@@ -122,7 +124,7 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
       action: 'blocked-until-ready',
       blocked: true,
       blocker: readiness.blocker,
-      nextCommand: hasPackage ? null : `pnpm content:pipeline manual-package ${slug} ${platform}`,
+      nextCommand: packagePath ? null : `pnpm content:pipeline manual-package ${slug} ${platform}`,
       note: 'Resolve blocker before draft creation or platform import.',
     };
   }
@@ -154,7 +156,7 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
     priority: 50 + lane.priorityAdjustment,
     action: 'prepare-manual-draft',
     blocked: false,
-    nextCommand: hasPackage ? null : `pnpm content:pipeline manual-package ${slug} ${platform}`,
+    nextCommand: packagePath ? null : `pnpm content:pipeline manual-package ${slug} ${platform}`,
     note: 'Manual/editorial workflow; stop before public publish until approved.',
   };
 }
@@ -221,7 +223,7 @@ export function buildDistributionQueue({
         platform,
         receipt,
         policy,
-        hasPackage: packageExists(packagesRoot, slug, platform),
+        packagePath: packageFilePath(packagesRoot, slug, platform),
         configured,
         canonicalReady,
       });
@@ -264,8 +266,9 @@ export function filterDistributionQueue(queue, filters = {}) {
 
 function checkboxLine(action) {
   const command = action.nextCommand ? ` Command: \`${action.nextCommand}\`.` : '';
+  const packageRef = action.packagePath ? ` Package: \`${action.packagePath}\`.` : '';
   const blocker = action.blocked ? ` Blocker: ${action.blocker}` : '';
-  return `- [ ] ${action.displayName} / ${action.title} (\`${action.slug}\`) - ${action.action}.${command}${blocker}`;
+  return `- [ ] ${action.displayName} / ${action.title} (\`${action.slug}\`) - ${action.action}.${packageRef}${command}${blocker}`;
 }
 
 export function distributionQueueMarkdown(queue) {

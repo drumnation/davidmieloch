@@ -518,6 +518,7 @@ describe('distribution queue planning', () => {
           action: 'create-api-draft',
           blocked: false,
           releaseLane: 'factory-front-door',
+          packagePath: join(packagesRoot, 'the-factory', 'devto.md'),
           nextCommand: 'pnpm content:pipeline draft:create the-factory devto',
         }),
         expect.objectContaining({
@@ -636,6 +637,8 @@ describe('distribution queue planning', () => {
 
   it('renders filtered queue output as a Markdown execution checklist', () => {
     const root = tempRoot();
+    mkdirSync(join(root, 'the-factory'), { recursive: true });
+    writeFileSync(join(root, 'the-factory', 'devto.md'), 'dev package');
     const queue = buildDistributionQueue({
       ledger: {
         articles: {
@@ -661,6 +664,7 @@ describe('distribution queue planning', () => {
     expect(markdown).toContain('- Total actions: 1');
     expect(markdown).toContain('- factory-front-door: 1 total, 1 unblocked, 0 blocked');
     expect(markdown).toContain('- [ ] DEV / The Factory (`the-factory`) - create-api-draft.');
+    expect(markdown).toContain(`Package: \`${join(root, 'the-factory', 'devto.md')}\``);
     expect(markdown).toContain('Command: `pnpm content:pipeline draft:create the-factory devto`');
   });
 });
@@ -979,6 +983,12 @@ describe('platform readiness governance', () => {
   it('prints filtered queue output and Markdown checklist payloads', () => {
     const root = tempRoot();
     writeLedgerFixture(root);
+    generatePlatformPackages({
+      article: article(),
+      outputRoot: join(root, 'content/distribution/packages'),
+      platforms: ['hackernoon'],
+      generatedAt: '2026-05-18T00:00:00.000Z',
+    });
     writeFileSync(
       join(root, 'content/distribution/syndication-policy.json'),
       JSON.stringify(loadSyndicationPolicy()),
@@ -1002,6 +1012,7 @@ describe('platform readiness governance', () => {
     expect(queuePayload.actions[0]).toMatchObject({
       platform: 'hackernoon',
       blocked: false,
+      packagePath: join(root, 'content/distribution/packages/the-factory/hackernoon.md'),
     });
 
     const markdownResult = runPipelineCommand(root, [
@@ -1016,6 +1027,7 @@ describe('platform readiness governance', () => {
     expect(markdownPayload.publicPublishingPerformed).toBe(false);
     expect(markdownPayload.markdown).toContain('# Content Distribution Execution Queue');
     expect(markdownPayload.markdown).toContain('HackerNoon / The Factory');
+    expect(markdownPayload.markdown).toContain(`Package: \`${join(root, 'content/distribution/packages/the-factory/hackernoon.md')}\``);
     expect(markdownPayload.observation).toMatchObject({
       claim: 'content distribution queue can be rendered as a human execution checklist',
       status: 'PASS',
@@ -1025,6 +1037,12 @@ describe('platform readiness governance', () => {
   it('writes a filtered queue Markdown checklist to disk', () => {
     const root = tempRoot();
     writeLedgerFixture(root);
+    generatePlatformPackages({
+      article: article(),
+      outputRoot: join(root, 'content/distribution/packages'),
+      platforms: ['hackernoon'],
+      generatedAt: '2026-05-18T00:00:00.000Z',
+    });
     writeFileSync(
       join(root, 'content/distribution/syndication-policy.json'),
       JSON.stringify(loadSyndicationPolicy()),
@@ -1053,5 +1071,6 @@ describe('platform readiness governance', () => {
     const markdown = readFileSync(outputPath, 'utf8');
     expect(markdown).toContain('# Content Distribution Execution Queue');
     expect(markdown).toContain('HackerNoon / The Factory');
+    expect(markdown).toContain(`Package: \`${join(root, 'content/distribution/packages/the-factory/hackernoon.md')}\``);
   });
 });
