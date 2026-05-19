@@ -155,6 +155,12 @@ rtk pnpm content:pipeline queue
 
 `queue` is non-publishing. It reads ledger statuses, generated packages, platform policy, credential readiness, and canonical URL readiness, then returns prioritized next actions. The recommended next actions are draft/review steps only; blocked actions explain whether the blocker is canonical routing, missing platform credentials, or approval policy.
 
+Queue entries are also assigned release lanes:
+
+- `factory-front-door`: current AI Architect/factory brand material. Prefer first.
+- `legacy-backfill`: historical engineering notes. Curate before broad syndication.
+- `general`: uncategorized archive items.
+
 Browser/manual work must be recorded through the receipt command instead of hand-editing ledger JSON:
 
 ```bash

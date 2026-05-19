@@ -2,6 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const PASSIVE_STATUSES = new Set(['source', 'secondary-source', 'ready-local', 'published', 'skipped']);
+const CURRENT_BRAND_SERIES = new Set([
+  'AI Factory',
+  'Golden Hammer',
+  'The Observer Series',
+  'Agent Design',
+]);
 
 function packageExists(packagesRoot, slug, platform) {
   return fs.existsSync(path.join(packagesRoot, slug, `${platform}.md`));
@@ -40,12 +46,35 @@ function platformReadiness({ platform, configured = {}, canonicalReady }) {
   return { ready: true };
 }
 
+function releaseLane(article) {
+  if (CURRENT_BRAND_SERIES.has(article.series)) {
+    return {
+      lane: 'factory-front-door',
+      priorityAdjustment: -10,
+      laneNote: 'Current AI Architect/factory brand. Prefer this before legacy backfill.',
+    };
+  }
+  if (article.series === 'Legacy Engineering Notes' || article.source?.platform === 'medium') {
+    return {
+      lane: 'legacy-backfill',
+      priorityAdjustment: 25,
+      laneNote: 'Historical engineering archive. Curate before syndicating broadly.',
+    };
+  }
+  return {
+    lane: 'general',
+    priorityAdjustment: 0,
+    laneNote: 'General archive item.',
+  };
+}
+
 function actionFor({ slug, article, platform, receipt, policy, hasPackage, configured, canonicalReady }) {
   const status = receipt?.status ?? 'missing';
   if (PASSIVE_STATUSES.has(status)) return null;
 
   const platformPolicy = policyFor(policy, platform);
   const readiness = platformReadiness({ platform, configured, canonicalReady });
+  const lane = releaseLane(article);
   const base = {
     slug,
     title: article.title,
@@ -59,12 +88,14 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
     publicPublishingAllowed: platformPolicy.publicPublishAllowed === true,
     hasPackage,
     url: receipt?.url ?? '',
+    releaseLane: lane.lane,
+    laneNote: lane.laneNote,
   };
 
   if (status === 'draft') {
     return {
       ...base,
-      priority: 20,
+      priority: 20 + lane.priorityAdjustment,
       action: 'review-existing-draft',
       blocked: false,
       nextCommand: `pnpm content:pipeline receipt:record ${slug} ${platform} --status=published --url=<published-url>`,
@@ -75,7 +106,7 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
   if (platform === 'reddit') {
     return {
       ...base,
-      priority: 90,
+      priority: 90 + lane.priorityAdjustment,
       action: 'prepare-discussion-seed',
       blocked: true,
       blocker: readiness.blocker,
@@ -87,7 +118,7 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
   if (!readiness.ready) {
     return {
       ...base,
-      priority: platform === 'hashnode' ? 70 : 80,
+      priority: (platform === 'hashnode' ? 70 : 80) + lane.priorityAdjustment,
       action: 'blocked-until-ready',
       blocked: true,
       blocker: readiness.blocker,
@@ -99,7 +130,7 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
   if (platform === 'devto' || platform === 'hashnode') {
     return {
       ...base,
-      priority: 30,
+      priority: 30 + lane.priorityAdjustment,
       action: 'create-api-draft',
       blocked: false,
       nextCommand: `pnpm content:pipeline draft:create ${slug} ${platform}`,
@@ -110,7 +141,7 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
   if (platform === 'substack') {
     return {
       ...base,
-      priority: 60,
+      priority: 60 + lane.priorityAdjustment,
       action: 'prepare-newsletter-framing',
       blocked: false,
       nextCommand: `pnpm content:pipeline manual-package ${slug} substack`,
@@ -120,7 +151,7 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
 
   return {
     ...base,
-    priority: 50,
+    priority: 50 + lane.priorityAdjustment,
     action: 'prepare-manual-draft',
     blocked: false,
     nextCommand: hasPackage ? null : `pnpm content:pipeline manual-package ${slug} ${platform}`,
@@ -130,14 +161,20 @@ function actionFor({ slug, article, platform, receipt, policy, hasPackage, confi
 
 function groupedCounts(actions) {
   const groups = {};
+  const lanes = {};
   for (const action of actions) {
     groups[action.action] ??= { total: 0, blocked: 0, platforms: {} };
     groups[action.action].total += 1;
     if (action.blocked) groups[action.action].blocked += 1;
     groups[action.action].platforms[action.platform] ??= 0;
     groups[action.action].platforms[action.platform] += 1;
+
+    lanes[action.releaseLane] ??= { total: 0, blocked: 0, unblocked: 0 };
+    lanes[action.releaseLane].total += 1;
+    if (action.blocked) lanes[action.releaseLane].blocked += 1;
+    else lanes[action.releaseLane].unblocked += 1;
   }
-  return groups;
+  return { actions: groups, lanes };
 }
 
 export function buildDistributionQueue({
@@ -172,6 +209,8 @@ export function buildDistributionQueue({
     return left.slug.localeCompare(right.slug);
   });
 
+  const counts = groupedCounts(actions);
+
   return {
     generatedAt,
     publicPublishingPerformed: false,
@@ -179,7 +218,8 @@ export function buildDistributionQueue({
       totalActions: actions.length,
       unblockedActions: actions.filter((action) => !action.blocked).length,
       blockedActions: actions.filter((action) => action.blocked).length,
-      grouped: groupedCounts(actions),
+      grouped: counts.actions,
+      lanes: counts.lanes,
     },
     actions,
     recommendedNext: actions.filter((action) => !action.blocked).slice(0, 10),

@@ -494,6 +494,13 @@ describe('distribution queue planning', () => {
       totalActions: 5,
       unblockedActions: 2,
       blockedActions: 3,
+      lanes: {
+        'factory-front-door': {
+          total: 5,
+          blocked: 3,
+          unblocked: 2,
+        },
+      },
     });
     expect(queue.recommendedNext.map((action) => action.action)).toEqual([
       'review-existing-draft',
@@ -505,6 +512,7 @@ describe('distribution queue planning', () => {
           platform: 'devto',
           action: 'create-api-draft',
           blocked: false,
+          releaseLane: 'factory-front-door',
           nextCommand: 'pnpm content:pipeline draft:create the-factory devto',
         }),
         expect.objectContaining({
@@ -524,6 +532,47 @@ describe('distribution queue planning', () => {
     expect(queue.observation).toMatchObject({
       claim: 'content distribution next actions are derived from ledger, packages, policy, and readiness',
       status: 'DEGRADED',
+    });
+  });
+
+  it('pushes legacy backfill behind the current factory brand lane', () => {
+    const root = tempRoot();
+    const ledger = {
+      articles: {
+        'legacy-post': {
+          title: 'Legacy Post',
+          series: 'Legacy Engineering Notes',
+          source: { platform: 'medium' },
+          platforms: {
+            hackernoon: { status: 'not-started', url: '' },
+          },
+        },
+        'factory-post': {
+          title: 'Factory Post',
+          series: 'AI Factory',
+          source: { platform: 'linkedin' },
+          platforms: {
+            hackernoon: { status: 'not-started', url: '' },
+          },
+        },
+      },
+    };
+
+    const queue = buildDistributionQueue({
+      ledger,
+      policy: loadSyndicationPolicy(),
+      packagesRoot: root,
+      canonicalReady: true,
+    });
+
+    expect(queue.actions.map((action) => action.slug)).toEqual(['factory-post', 'legacy-post']);
+    expect(queue.actions[0]).toMatchObject({
+      releaseLane: 'factory-front-door',
+      priority: 40,
+    });
+    expect(queue.actions[1]).toMatchObject({
+      releaseLane: 'legacy-backfill',
+      priority: 75,
     });
   });
 });
