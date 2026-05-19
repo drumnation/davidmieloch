@@ -8,7 +8,11 @@ import {
   generatePlatformPackages,
   loadSyndicationPolicy,
 } from '../../scripts/lib/platform-packages.mjs';
-import { buildDistributionQueue } from '../../scripts/lib/distribution-queue.mjs';
+import {
+  buildDistributionQueue,
+  distributionQueueMarkdown,
+  filterDistributionQueue,
+} from '../../scripts/lib/distribution-queue.mjs';
 import {
   contentMetricsChecklist,
   contentMetricsReport,
@@ -502,7 +506,8 @@ describe('distribution queue planning', () => {
         },
       },
     });
-    expect(queue.recommendedNext.map((action) => action.action)).toEqual([
+    const recommendedNext = queue.recommendedNext as Array<{ action: string }>;
+    expect(recommendedNext.map((action) => action.action)).toEqual([
       'review-existing-draft',
       'create-api-draft',
     ]);
@@ -565,7 +570,8 @@ describe('distribution queue planning', () => {
       canonicalReady: true,
     });
 
-    expect(queue.actions.map((action) => action.slug)).toEqual(['factory-post', 'legacy-post']);
+    const actions = queue.actions as Array<{ slug: string }>;
+    expect(actions.map((action) => action.slug)).toEqual(['factory-post', 'legacy-post']);
     expect(queue.actions[0]).toMatchObject({
       releaseLane: 'factory-front-door',
       priority: 40,
@@ -574,6 +580,88 @@ describe('distribution queue planning', () => {
       releaseLane: 'legacy-backfill',
       priority: 75,
     });
+  });
+
+  it('filters queue output by lane, platform, action, blocked state, and limit', () => {
+    const root = tempRoot();
+    const ledger = {
+      articles: {
+        'factory-post': {
+          title: 'Factory Post',
+          series: 'AI Factory',
+          platforms: {
+            devto: { status: 'not-started', url: '' },
+            medium: { status: 'not-started', url: '' },
+            reddit: { status: 'manual-package-required', url: '' },
+          },
+        },
+      },
+    };
+    const queue = buildDistributionQueue({
+      ledger,
+      policy: loadSyndicationPolicy(),
+      packagesRoot: root,
+      configured: { devto: true },
+      canonicalReady: false,
+    });
+
+    const filtered = filterDistributionQueue(queue, {
+      lane: 'factory-front-door',
+      platform: 'devto',
+      action: 'create-api-draft',
+      blocked: false,
+      limit: 1,
+    });
+
+    expect(filtered.filters).toMatchObject({
+      lane: 'factory-front-door',
+      platform: 'devto',
+      action: 'create-api-draft',
+      blocked: false,
+      limit: 1,
+    });
+    expect(filtered.actions).toHaveLength(1);
+    expect(filtered.actions[0]).toMatchObject({
+      slug: 'factory-post',
+      platform: 'devto',
+      action: 'create-api-draft',
+      blocked: false,
+    });
+    expect(filtered.summary).toMatchObject({
+      totalActions: 1,
+      unblockedActions: 1,
+      blockedActions: 0,
+    });
+  });
+
+  it('renders filtered queue output as a Markdown execution checklist', () => {
+    const root = tempRoot();
+    const queue = buildDistributionQueue({
+      ledger: {
+        articles: {
+          'the-factory': {
+            title: 'The Factory',
+            series: 'AI Factory',
+            platforms: {
+              devto: { status: 'not-started', url: '' },
+            },
+          },
+        },
+      },
+      policy: loadSyndicationPolicy(),
+      packagesRoot: root,
+      configured: { devto: true },
+      canonicalReady: true,
+      generatedAt: '2026-05-19T00:00:00.000Z',
+    });
+
+    const markdown = distributionQueueMarkdown(queue);
+
+    expect(markdown).toContain('# Content Distribution Execution Queue');
+    expect(markdown).toContain('- Total actions: 1');
+    expect(markdown).toContain('- factory-front-door: 1 total, 1 unblocked, 0 blocked');
+    expect(markdown).toContain('- [ ] DEV / The Factory (`the-factory`) - create-api-draft.');
+    expect(markdown).toContain('Command: `pnpm content:pipeline draft:create the-factory devto`');
   });
 });
 
@@ -885,6 +973,52 @@ describe('platform readiness governance', () => {
     );
     expect(payload.observation).toMatchObject({
       status: 'DEGRADED',
+    });
+  });
+
+  it('prints filtered queue output and Markdown checklist payloads', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+    writeFileSync(
+      join(root, 'content/distribution/syndication-policy.json'),
+      JSON.stringify(loadSyndicationPolicy()),
+    );
+
+    const queueResult = runPipelineCommand(root, [
+      'queue',
+      '--skip-network',
+      '--platform=hackernoon',
+      '--blocked=false',
+      '--limit=1',
+    ]);
+    expect(queueResult.status, queueResult.stderr).toBe(0);
+    const queuePayload = JSON.parse(queueResult.stdout);
+    expect(queuePayload.filters).toMatchObject({
+      platform: 'hackernoon',
+      blocked: false,
+      limit: 1,
+    });
+    expect(queuePayload.actions).toHaveLength(1);
+    expect(queuePayload.actions[0]).toMatchObject({
+      platform: 'hackernoon',
+      blocked: false,
+    });
+
+    const markdownResult = runPipelineCommand(root, [
+      'queue:markdown',
+      '--skip-network',
+      '--platform=hackernoon',
+      '--blocked=false',
+      '--limit=1',
+    ]);
+    expect(markdownResult.status, markdownResult.stderr).toBe(0);
+    const markdownPayload = JSON.parse(markdownResult.stdout);
+    expect(markdownPayload.publicPublishingPerformed).toBe(false);
+    expect(markdownPayload.markdown).toContain('# Content Distribution Execution Queue');
+    expect(markdownPayload.markdown).toContain('HackerNoon / The Factory');
+    expect(markdownPayload.observation).toMatchObject({
+      claim: 'content distribution queue can be rendered as a human execution checklist',
+      status: 'PASS',
     });
   });
 });

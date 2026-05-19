@@ -177,6 +177,33 @@ function groupedCounts(actions) {
   return { actions: groups, lanes };
 }
 
+function queueFromActions(actions, generatedAt, filters = {}) {
+  const counts = groupedCounts(actions);
+  return {
+    generatedAt,
+    publicPublishingPerformed: false,
+    filters,
+    summary: {
+      totalActions: actions.length,
+      unblockedActions: actions.filter((action) => !action.blocked).length,
+      blockedActions: actions.filter((action) => action.blocked).length,
+      grouped: counts.actions,
+      lanes: counts.lanes,
+    },
+    actions,
+    recommendedNext: actions.filter((action) => !action.blocked).slice(0, 10),
+    observation: {
+      claim: 'content distribution next actions are derived from ledger, packages, policy, and readiness',
+      status: actions.some((action) => action.blocked) ? 'DEGRADED' : 'PASS',
+      fallbackChain: [
+        'platform ledger status readback',
+        'syndication policy workflow readback',
+        'ROM heartbeat',
+      ],
+    },
+  };
+}
+
 export function buildDistributionQueue({
   ledger,
   policy,
@@ -209,28 +236,75 @@ export function buildDistributionQueue({
     return left.slug.localeCompare(right.slug);
   });
 
-  const counts = groupedCounts(actions);
+  return queueFromActions(actions, generatedAt);
+}
 
-  return {
-    generatedAt,
-    publicPublishingPerformed: false,
-    summary: {
-      totalActions: actions.length,
-      unblockedActions: actions.filter((action) => !action.blocked).length,
-      blockedActions: actions.filter((action) => action.blocked).length,
-      grouped: counts.actions,
-      lanes: counts.lanes,
-    },
-    actions,
-    recommendedNext: actions.filter((action) => !action.blocked).slice(0, 10),
-    observation: {
-      claim: 'content distribution next actions are derived from ledger, packages, policy, and readiness',
-      status: actions.some((action) => action.blocked) ? 'DEGRADED' : 'PASS',
-      fallbackChain: [
-        'platform ledger status readback',
-        'syndication policy workflow readback',
-        'ROM heartbeat',
-      ],
-    },
-  };
+export function filterDistributionQueue(queue, filters = {}) {
+  let actions = queue.actions;
+  if (filters.platform) {
+    actions = actions.filter((action) => action.platform === filters.platform);
+  }
+  if (filters.action) {
+    actions = actions.filter((item) => item.action === filters.action);
+  }
+  if (filters.lane) {
+    actions = actions.filter((action) => action.releaseLane === filters.lane);
+  }
+  if (filters.blocked !== undefined) {
+    actions = actions.filter((action) => action.blocked === filters.blocked);
+  }
+
+  const limit = Number(filters.limit);
+  if (Number.isFinite(limit) && limit >= 0) {
+    actions = actions.slice(0, limit);
+  }
+
+  return queueFromActions(actions, queue.generatedAt, filters);
+}
+
+function checkboxLine(action) {
+  const command = action.nextCommand ? ` Command: \`${action.nextCommand}\`.` : '';
+  const blocker = action.blocked ? ` Blocker: ${action.blocker}` : '';
+  return `- [ ] ${action.displayName} / ${action.title} (\`${action.slug}\`) - ${action.action}.${command}${blocker}`;
+}
+
+export function distributionQueueMarkdown(queue) {
+  const lines = [
+    '# Content Distribution Execution Queue',
+    '',
+    `Generated: ${queue.generatedAt}`,
+    `Public publishing performed: ${queue.publicPublishingPerformed ? 'yes' : 'no'}`,
+    '',
+    '## Summary',
+    '',
+    `- Total actions: ${queue.summary.totalActions}`,
+    `- Unblocked actions: ${queue.summary.unblockedActions}`,
+    `- Blocked actions: ${queue.summary.blockedActions}`,
+    '',
+    '## Release Lanes',
+    '',
+  ];
+
+  for (const [lane, counts] of Object.entries(queue.summary.lanes ?? {})) {
+    lines.push(`- ${lane}: ${counts.total} total, ${counts.unblocked} unblocked, ${counts.blocked} blocked`);
+  }
+
+  lines.push('', '## Recommended Next', '');
+  if (queue.recommendedNext.length === 0) {
+    lines.push('- [ ] No unblocked recommended actions in this filtered queue.');
+  } else {
+    for (const action of queue.recommendedNext) {
+      lines.push(checkboxLine(action));
+    }
+  }
+
+  const blocked = queue.actions.filter((action) => action.blocked);
+  if (blocked.length > 0) {
+    lines.push('', '## Blocked', '');
+    for (const action of blocked.slice(0, 25)) {
+      lines.push(checkboxLine(action));
+    }
+  }
+
+  return `${lines.join('\n')}\n`;
 }

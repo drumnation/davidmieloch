@@ -10,7 +10,11 @@ import {
   mediumFeedUrl,
   parseMediumFeed,
 } from './lib/medium-reader.mjs';
-import { buildDistributionQueue } from './lib/distribution-queue.mjs';
+import {
+  buildDistributionQueue,
+  distributionQueueMarkdown,
+  filterDistributionQueue,
+} from './lib/distribution-queue.mjs';
 import {
   contentMetricsChecklist,
   contentMetricsReport,
@@ -853,7 +857,7 @@ async function distributionQueue() {
   const options = parseCommandOptions(2);
   const skipNetwork = Boolean(options['skip-network']);
   const { canonicalReady } = await canonicalReadiness(skipNetwork);
-  return buildDistributionQueue({
+  const queue = buildDistributionQueue({
     ledger: readLedger(),
     policy: loadSyndicationPolicy(syndicationPolicyPath),
     packagesRoot,
@@ -864,6 +868,44 @@ async function distributionQueue() {
       hashnodePublication: Boolean(process.env.HASHNODE_PUBLICATION_ID),
     },
   });
+  return filterDistributionQueue(queue, parseQueueFilters(options));
+}
+
+function parseBooleanOption(value) {
+  if (value === undefined) return undefined;
+  if (value === true || value === 'true') return true;
+  if (value === 'false') return false;
+  throw new Error(`Expected boolean option value, got: ${value}`);
+}
+
+function parseQueueFilters(options) {
+  return {
+    ...(options.platform ? { platform: options.platform } : {}),
+    ...(options.action ? { action: options.action } : {}),
+    ...(options.lane ? { lane: options.lane } : {}),
+    ...(options.blocked !== undefined ? { blocked: parseBooleanOption(options.blocked) } : {}),
+    ...(options.limit !== undefined ? { limit: Number(options.limit) } : {}),
+  };
+}
+
+async function distributionQueueMarkdownCommand() {
+  const queue = await distributionQueue();
+  return {
+    generatedAt: queue.generatedAt,
+    publicPublishingPerformed: false,
+    filters: queue.filters,
+    summary: queue.summary,
+    markdown: distributionQueueMarkdown(queue),
+    observation: {
+      claim: 'content distribution queue can be rendered as a human execution checklist',
+      status: 'PASS',
+      fallbackChain: [
+        'filtered queue JSON',
+        'markdown checklist output',
+        'ROM heartbeat',
+      ],
+    },
+  };
 }
 
 function metricsReport() {
@@ -1081,7 +1123,8 @@ function usage() {
   console.log(`Usage:
   pnpm content:pipeline status
   pnpm content:pipeline readiness [--skip-network]
-  pnpm content:pipeline queue [--skip-network]
+  pnpm content:pipeline queue [--skip-network] [--platform=<id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
+  pnpm content:pipeline queue:markdown [--skip-network] [--platform=<id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline launch:due [--now=<iso-date>]
@@ -1107,6 +1150,7 @@ Safety:
   - manual-package writes local posting packages only.
   - readiness and receipt commands write local governance artifacts only.
   - queue reports next actions only; it does not create drafts or publish.
+  - queue:markdown renders a checklist only; it does not create drafts or publish.
   - metrics commands write local observation data only.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
@@ -1159,6 +1203,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'queue') {
     return distributionQueue();
+  }
+  if (command === 'queue:markdown') {
+    return distributionQueueMarkdownCommand();
   }
   if (command === 'validate') {
     return validate();

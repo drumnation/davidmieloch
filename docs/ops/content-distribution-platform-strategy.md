@@ -161,6 +161,16 @@ Queue entries are also assigned release lanes:
 - `legacy-backfill`: historical engineering notes. Curate before broad syndication.
 - `general`: uncategorized archive items.
 
+Use filters when executing a focused pass:
+
+```bash
+rtk pnpm content:pipeline queue --lane=factory-front-door --blocked=false --limit=10
+rtk pnpm content:pipeline queue --platform=hackernoon --blocked=false
+rtk pnpm content:pipeline queue:markdown --lane=factory-front-door --blocked=false --limit=10
+```
+
+`queue:markdown` returns a checkbox checklist payload for governance notes or a manual posting session. It is still non-publishing.
+
 Browser/manual work must be recorded through the receipt command instead of hand-editing ledger JSON:
 
 ```bash
