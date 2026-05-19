@@ -10,6 +10,7 @@ import {
   mediumFeedUrl,
   parseMediumFeed,
 } from './lib/medium-reader.mjs';
+import { buildDistributionQueue } from './lib/distribution-queue.mjs';
 import {
   contentMetricsChecklist,
   contentMetricsReport,
@@ -26,7 +27,11 @@ import {
   resolveHeartbeatPath,
   writeObservation,
 } from './lib/observability.mjs';
-import { generatePlatformPackages, platformPackageDefaults } from './lib/platform-packages.mjs';
+import {
+  generatePlatformPackages,
+  loadSyndicationPolicy,
+  platformPackageDefaults,
+} from './lib/platform-packages.mjs';
 import { importWebsiteArticle } from './lib/website-importer.mjs';
 
 const appRoot = process.cwd();
@@ -552,16 +557,29 @@ function readinessStatus({ ready = false, blocked = false, manual = false }) {
   return 'needs-work';
 }
 
+async function canonicalReadiness(skipNetwork) {
+  const canonicalProbe = await probeUrl('https://davidmieloch.com/blog/the-factory', skipNetwork);
+  const stagingProbe = await probeUrl('https://davidmieloch.brain-garden.io/blog/the-factory', skipNetwork);
+  return {
+    canonicalProbe,
+    stagingProbe,
+    canonicalReady: canonicalProbe.ok === true,
+    stagingReady: stagingProbe.ok !== false,
+  };
+}
+
 async function readinessReport() {
   const options = parseCommandOptions(2);
   const skipNetwork = Boolean(options['skip-network']);
   const ledger = readLedger();
   const packageCoverage = summarizePackageCoverage();
   const ledgerStatusCounts = summarizeLedgerReadiness(ledger);
-  const canonicalProbe = await probeUrl('https://davidmieloch.com/blog/the-factory', skipNetwork);
-  const stagingProbe = await probeUrl('https://davidmieloch.brain-garden.io/blog/the-factory', skipNetwork);
-  const canonicalReady = canonicalProbe.ok === true;
-  const stagingReady = stagingProbe.ok !== false;
+  const {
+    canonicalProbe,
+    stagingProbe,
+    canonicalReady,
+    stagingReady,
+  } = await canonicalReadiness(skipNetwork);
   const hashnodeHasToken = Boolean(hashnodeToken());
   const hashnodeHasPublication = Boolean(process.env.HASHNODE_PUBLICATION_ID);
   const devtoReady = Boolean(process.env.DEVTO_API_KEY);
@@ -831,6 +849,23 @@ function receiptsReport() {
   };
 }
 
+async function distributionQueue() {
+  const options = parseCommandOptions(2);
+  const skipNetwork = Boolean(options['skip-network']);
+  const { canonicalReady } = await canonicalReadiness(skipNetwork);
+  return buildDistributionQueue({
+    ledger: readLedger(),
+    policy: loadSyndicationPolicy(syndicationPolicyPath),
+    packagesRoot,
+    canonicalReady,
+    configured: {
+      devto: Boolean(process.env.DEVTO_API_KEY),
+      hashnode: Boolean(hashnodeToken()),
+      hashnodePublication: Boolean(process.env.HASHNODE_PUBLICATION_ID),
+    },
+  });
+}
+
 function metricsReport() {
   return contentMetricsReport({
     ledgerPath,
@@ -1046,6 +1081,7 @@ function usage() {
   console.log(`Usage:
   pnpm content:pipeline status
   pnpm content:pipeline readiness [--skip-network]
+  pnpm content:pipeline queue [--skip-network]
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline launch:due [--now=<iso-date>]
@@ -1070,6 +1106,7 @@ Safety:
   - draft:create creates only unpublished/delisted API-backed drafts and skips browser/manual platforms.
   - manual-package writes local posting packages only.
   - readiness and receipt commands write local governance artifacts only.
+  - queue reports next actions only; it does not create drafts or publish.
   - metrics commands write local observation data only.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
@@ -1119,6 +1156,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'readiness') {
     return readinessReport();
+  }
+  if (command === 'queue') {
+    return distributionQueue();
   }
   if (command === 'validate') {
     return validate();

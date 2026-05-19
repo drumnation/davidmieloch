@@ -147,6 +147,14 @@ rtk pnpm content:pipeline readiness
 
 It reconciles canonical URL probes, package coverage, platform credentials, approval modes, and ledger receipts. Use `--skip-network` for local test runs.
 
+To turn the ledger into an execution queue, run:
+
+```bash
+rtk pnpm content:pipeline queue
+```
+
+`queue` is non-publishing. It reads ledger statuses, generated packages, platform policy, credential readiness, and canonical URL readiness, then returns prioritized next actions. The recommended next actions are draft/review steps only; blocked actions explain whether the blocker is canonical routing, missing platform credentials, or approval policy.
+
 Browser/manual work must be recorded through the receipt command instead of hand-editing ledger JSON:
 
 ```bash

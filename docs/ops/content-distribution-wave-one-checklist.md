@@ -303,6 +303,7 @@ Future synchronized wave:
 - [x] Add `launch:due` command to read `launch-calendar.json`.
 - [x] Add guarded `draft:create` command for API-backed draft targets.
 - [x] Add `readiness` command to report platform blockers and manual-ready states.
+- [x] Add `queue` command to convert ledger gaps into prioritized next actions.
 - [x] Add receipt writer for browser/manual workflows.
 - [x] Add metrics capture checklist per platform.
 - [x] Add observer that reports missing receipts and missing metrics as degraded states.

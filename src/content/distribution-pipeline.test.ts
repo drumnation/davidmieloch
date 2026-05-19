@@ -8,6 +8,7 @@ import {
   generatePlatformPackages,
   loadSyndicationPolicy,
 } from '../../scripts/lib/platform-packages.mjs';
+import { buildDistributionQueue } from '../../scripts/lib/distribution-queue.mjs';
 import {
   contentMetricsChecklist,
   contentMetricsReport,
@@ -450,6 +451,83 @@ describe('content metrics observability', () => {
   });
 });
 
+describe('distribution queue planning', () => {
+  it('derives approval-aware next actions from ledger, packages, and readiness', () => {
+    const root = tempRoot();
+    const packagesRoot = join(root, 'packages');
+    const ledger = {
+      articles: {
+        'the-factory': {
+          title: 'The Factory',
+          series: 'AI Factory',
+          platforms: {
+            devto: { status: 'not-started', url: '' },
+            hashnode: { status: 'not-started', url: '' },
+            medium: { status: 'not-started', url: '' },
+            reddit: { status: 'manual-package-required', url: '' },
+            hackernoon: { status: 'draft', url: 'https://app.hackernoon.com/mobile/draft' },
+            linkedin: { status: 'source', url: 'https://linkedin.com/pulse/the-factory' },
+          },
+        },
+      },
+    };
+    mkdirSync(join(packagesRoot, 'the-factory'), { recursive: true });
+    writeFileSync(join(packagesRoot, 'the-factory', 'devto.md'), 'dev package');
+    writeFileSync(join(packagesRoot, 'the-factory', 'medium.md'), 'medium package');
+    const policy = loadSyndicationPolicy();
+
+    const queue = buildDistributionQueue({
+      ledger,
+      policy,
+      packagesRoot,
+      configured: {
+        devto: true,
+        hashnode: true,
+        hashnodePublication: false,
+      },
+      canonicalReady: false,
+      generatedAt: '2026-05-19T00:00:00.000Z',
+    });
+
+    expect(queue.publicPublishingPerformed).toBe(false);
+    expect(queue.summary).toMatchObject({
+      totalActions: 5,
+      unblockedActions: 2,
+      blockedActions: 3,
+    });
+    expect(queue.recommendedNext.map((action) => action.action)).toEqual([
+      'review-existing-draft',
+      'create-api-draft',
+    ]);
+    expect(queue.actions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          platform: 'devto',
+          action: 'create-api-draft',
+          blocked: false,
+          nextCommand: 'pnpm content:pipeline draft:create the-factory devto',
+        }),
+        expect.objectContaining({
+          platform: 'medium',
+          action: 'blocked-until-ready',
+          blocked: true,
+          blocker: 'Canonical davidmieloch.com blog URLs are not verified.',
+        }),
+        expect.objectContaining({
+          platform: 'hashnode',
+          action: 'blocked-until-ready',
+          blocked: true,
+          blocker: 'Missing working Hashnode token/publication id pair.',
+        }),
+      ]),
+    );
+    expect(queue.observation).toMatchObject({
+      claim: 'content distribution next actions are derived from ledger, packages, policy, and readiness',
+      status: 'DEGRADED',
+    });
+  });
+});
+
 describe('platform draft commands', () => {
   it('creates DEV drafts from generated package markdown when article variant is absent', () => {
     const root = tempRoot();
@@ -715,6 +793,48 @@ describe('platform readiness governance', () => {
     ]);
     expect(payload.observation).toMatchObject({
       claim: 'published platform receipts have a concrete metrics capture checklist',
+      status: 'DEGRADED',
+    });
+  });
+
+  it('prints an approval-aware distribution queue without network access', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+    generatePlatformPackages({
+      article: article(),
+      outputRoot: join(root, 'content/distribution/packages'),
+      platforms: ['devto', 'medium', 'hackernoon'],
+      generatedAt: '2026-05-18T00:00:00.000Z',
+    });
+    writeFileSync(
+      join(root, 'content/distribution/syndication-policy.json'),
+      JSON.stringify(loadSyndicationPolicy()),
+    );
+
+    const result = runPipelineCommand(root, ['queue', '--skip-network']);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload.publicPublishingPerformed).toBe(false);
+    expect(payload.summary).toMatchObject({
+      totalActions: 3,
+      blockedActions: 2,
+    });
+    expect(payload.actions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          platform: 'devto',
+          action: 'blocked-until-ready',
+          blocker: 'Missing DEVTO_API_KEY.',
+        }),
+        expect.objectContaining({
+          platform: 'hackernoon',
+          action: 'prepare-manual-draft',
+          blocked: false,
+        }),
+      ]),
+    );
+    expect(payload.observation).toMatchObject({
       status: 'DEGRADED',
     });
   });
