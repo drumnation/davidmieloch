@@ -169,7 +169,7 @@ HackerNoon is logged in as `@drumnation`.
 
 Candidate submissions:
 
-- [ ] The Factory
+- [x] The Factory (saved draft shell; not submitted)
 - [ ] The Golden Hammer
 - [ ] The Foreman
 - [ ] Reality Needs Observers
@@ -180,7 +180,8 @@ HackerNoon execution notes:
 
 - [ ] Treat HackerNoon as editorial submission, not instant mirror.
 - [ ] Use `content/distribution/packages/<slug>/hackernoon.md` as submission copy.
-- [ ] Record submission status and final editorial result.
+- [x] Record draft status for The Factory.
+- [ ] Record final editorial submission/result after David approval.
 
 ## DZone
 
