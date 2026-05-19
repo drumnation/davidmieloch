@@ -51,6 +51,7 @@ const packagesRoot = path.join(contentRoot, 'distribution/packages');
 const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
 const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
+const defaultQueueOutputPath = path.join(appRoot, 'docs/ops/content-distribution-next-actions.md');
 const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
@@ -890,18 +891,45 @@ function parseQueueFilters(options) {
 
 async function distributionQueueMarkdownCommand() {
   const queue = await distributionQueue();
+  const markdown = distributionQueueMarkdown(queue);
   return {
     generatedAt: queue.generatedAt,
     publicPublishingPerformed: false,
     filters: queue.filters,
     summary: queue.summary,
-    markdown: distributionQueueMarkdown(queue),
+    markdown,
     observation: {
       claim: 'content distribution queue can be rendered as a human execution checklist',
       status: 'PASS',
       fallbackChain: [
         'filtered queue JSON',
         'markdown checklist output',
+        'ROM heartbeat',
+      ],
+    },
+  };
+}
+
+async function distributionQueueWriteCommand() {
+  const options = parseCommandOptions(2);
+  const payload = await distributionQueueMarkdownCommand();
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : defaultQueueOutputPath;
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, payload.markdown);
+  return {
+    generatedAt: payload.generatedAt,
+    publicPublishingPerformed: false,
+    filters: payload.filters,
+    summary: payload.summary,
+    outputPath,
+    observation: {
+      claim: 'content distribution queue markdown was written as a durable execution artifact',
+      status: 'PASS',
+      fallbackChain: [
+        'written markdown checklist',
+        'queue:markdown payload',
         'ROM heartbeat',
       ],
     },
@@ -1125,6 +1153,7 @@ function usage() {
   pnpm content:pipeline readiness [--skip-network]
   pnpm content:pipeline queue [--skip-network] [--platform=<id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
   pnpm content:pipeline queue:markdown [--skip-network] [--platform=<id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
+  pnpm content:pipeline queue:write [--skip-network] [--platform=<id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10] [--output=<path>]
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline launch:due [--now=<iso-date>]
@@ -1151,6 +1180,7 @@ Safety:
   - readiness and receipt commands write local governance artifacts only.
   - queue reports next actions only; it does not create drafts or publish.
   - queue:markdown renders a checklist only; it does not create drafts or publish.
+  - queue:write writes a checklist file only; it does not create drafts or publish.
   - metrics commands write local observation data only.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
@@ -1206,6 +1236,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'queue:markdown') {
     return distributionQueueMarkdownCommand();
+  }
+  if (command === 'queue:write') {
+    return distributionQueueWriteCommand();
   }
   if (command === 'validate') {
     return validate();

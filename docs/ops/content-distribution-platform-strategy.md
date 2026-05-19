@@ -167,9 +167,12 @@ Use filters when executing a focused pass:
 rtk pnpm content:pipeline queue --lane=factory-front-door --blocked=false --limit=10
 rtk pnpm content:pipeline queue --platform=hackernoon --blocked=false
 rtk pnpm content:pipeline queue:markdown --lane=factory-front-door --blocked=false --limit=10
+rtk pnpm content:pipeline queue:write --lane=factory-front-door --blocked=false --limit=10
 ```
 
 `queue:markdown` returns a checkbox checklist payload for governance notes or a manual posting session. It is still non-publishing.
+
+`queue:write` persists that checklist to `docs/ops/content-distribution-next-actions.md` by default. Use `--output=<path>` for a platform- or session-specific checklist.
 
 Browser/manual work must be recorded through the receipt command instead of hand-editing ledger JSON:
 

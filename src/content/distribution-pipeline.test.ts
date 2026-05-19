@@ -1021,4 +1021,37 @@ describe('platform readiness governance', () => {
       status: 'PASS',
     });
   });
+
+  it('writes a filtered queue Markdown checklist to disk', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+    writeFileSync(
+      join(root, 'content/distribution/syndication-policy.json'),
+      JSON.stringify(loadSyndicationPolicy()),
+    );
+    const outputPath = join(root, 'docs/ops/session-next-actions.md');
+
+    const result = runPipelineCommand(root, [
+      'queue:write',
+      '--skip-network',
+      '--platform=hackernoon',
+      '--blocked=false',
+      '--limit=1',
+      `--output=${outputPath}`,
+    ]);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload).toMatchObject({
+      publicPublishingPerformed: false,
+      outputPath,
+      observation: {
+        claim: 'content distribution queue markdown was written as a durable execution artifact',
+        status: 'PASS',
+      },
+    });
+    const markdown = readFileSync(outputPath, 'utf8');
+    expect(markdown).toContain('# Content Distribution Execution Queue');
+    expect(markdown).toContain('HackerNoon / The Factory');
+  });
 });
