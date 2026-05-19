@@ -11,6 +11,7 @@ import {
   parseMediumFeed,
 } from './lib/medium-reader.mjs';
 import {
+  contentMetricsChecklist,
   contentMetricsReport,
   recordContentMetric,
 } from './lib/content-metrics.mjs';
@@ -40,6 +41,7 @@ const statusPath = path.join(contentRoot, 'distribution/pipeline-status.json');
 const packagesRoot = path.join(contentRoot, 'distribution/packages');
 const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
 const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.json');
+const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
 const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
@@ -837,12 +839,25 @@ function metricsReport() {
   });
 }
 
+function metricsChecklist() {
+  return contentMetricsChecklist({
+    ledgerPath,
+    metricsPath,
+    policyPath: syndicationPolicyPath,
+  });
+}
+
 function metricsRecord(slug, platform) {
   const args = parseMetricRecordArgs(process.argv.slice(4));
   const url = args.url;
   if (!url) {
     throw new Error('metrics:record requires --url=<published-url>.');
   }
+  const metricValues = { ...args };
+  delete metricValues.url;
+  delete metricValues.source;
+  delete metricValues.observedAt;
+  delete metricValues.notes;
   const record = recordContentMetric({
     metricsPath,
     slug,
@@ -850,19 +865,7 @@ function metricsRecord(slug, platform) {
     url,
     source: args.source ?? 'manual',
     observedAt: args.observedAt ?? new Date().toISOString(),
-    metrics: {
-      views: args.views,
-      impressions: args.impressions,
-      reads: args.reads,
-      clicks: args.clicks,
-      reactions: args.reactions,
-      likes: args.likes,
-      fans: args.fans,
-      comments: args.comments,
-      shares: args.shares,
-      subscribers: args.subscribers,
-      followers: args.followers,
-    },
+    metrics: metricValues,
     notes: args.notes ?? '',
   });
   return { slug, platform, record };
@@ -1059,6 +1062,7 @@ function usage() {
   pnpm content:pipeline medium:scan
   pnpm content:pipeline medium:import <slug|all> [--force]
   pnpm content:pipeline metrics:report
+  pnpm content:pipeline metrics:checklist
   pnpm content:pipeline metrics:record <slug> <platform> --url=<published-url> [--views=0] [--clicks=0] [--reactions=0] [--comments=0] [--shares=0] [--subscribers=0]
 
 Safety:
@@ -1136,6 +1140,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'metrics:report') {
     return metricsReport();
+  }
+  if (command === 'metrics:checklist') {
+    return metricsChecklist();
   }
   if (command === 'metrics:record' && slug && process.argv[4]) {
     return metricsRecord(slug, process.argv[4]);

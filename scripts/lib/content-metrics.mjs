@@ -76,10 +76,10 @@ export function recordContentMetric({
     url,
     source,
     metrics: {
-      views: Number(metrics.views ?? metrics.impressions ?? metrics.reads ?? 0),
+      views: Number(metrics.views ?? metrics.impressions ?? metrics.reads ?? metrics.page_views_count ?? metrics.opens ?? 0),
       clicks: Number(metrics.clicks ?? 0),
-      reactions: Number(metrics.reactions ?? metrics.likes ?? metrics.fans ?? 0),
-      comments: Number(metrics.comments ?? 0),
+      reactions: Number(metrics.reactions ?? metrics.likes ?? metrics.fans ?? metrics.public_reactions_count ?? metrics.upvotes ?? 0),
+      comments: Number(metrics.comments ?? metrics.comments_count ?? 0),
       shares: Number(metrics.shares ?? 0),
       subscribers: Number(metrics.subscribers ?? metrics.followers ?? 0),
     },
@@ -89,6 +89,82 @@ export function recordContentMetric({
   contentMetrics.updatedAt = observedAt;
   writeJson(metricsPath, contentMetrics);
   return contentMetrics.records[slug].platforms[platform];
+}
+
+function policyPlatform(policy, platform) {
+  return policy.platforms?.[platform] ?? {
+    displayName: platform,
+    metrics: {
+      source: 'manual',
+      fields: ['views', 'clicks', 'reactions', 'comments'],
+    },
+  };
+}
+
+export function contentMetricsChecklist({ ledgerPath, metricsPath, policyPath }) {
+  const ledger = readJson(ledgerPath, { articles: {} });
+  const metrics = readContentMetrics(metricsPath);
+  const policy = readJson(policyPath, { platforms: {} });
+  const platforms = {};
+  const captureQueue = [];
+
+  for (const [slug, article] of Object.entries(ledger.articles ?? {})) {
+    for (const [platform, receipt] of Object.entries(article.platforms ?? {})) {
+      const platformPolicy = policyPlatform(policy, platform);
+      platforms[platform] ??= {
+        displayName: platformPolicy.displayName ?? platform,
+        source: platformPolicy.metrics?.source ?? 'manual',
+        fields: platformPolicy.metrics?.fields ?? [],
+        publishedReceipts: 0,
+        metricRecords: 0,
+        missingMetricRecords: 0,
+      };
+
+      const hasMetrics = Boolean(metrics.records?.[slug]?.platforms?.[platform]);
+      if (hasMetrics) platforms[platform].metricRecords += 1;
+      if (receipt?.status !== 'published') continue;
+
+      platforms[platform].publishedReceipts += 1;
+      if (hasMetrics) continue;
+
+      platforms[platform].missingMetricRecords += 1;
+      const fields = platformPolicy.metrics?.fields ?? [];
+      captureQueue.push({
+        slug,
+        title: article.title,
+        platform,
+        displayName: platformPolicy.displayName ?? platform,
+        url: receipt.url,
+        source: platformPolicy.metrics?.source ?? 'manual',
+        fields,
+        command: [
+          'pnpm content:pipeline metrics:record',
+          slug,
+          platform,
+          `--url=${receipt.url}`,
+          ...fields.map((field) => `--${field}=0`),
+        ].join(' '),
+      });
+    }
+  }
+
+  return {
+    schemaVersion: METRICS_SCHEMA_VERSION,
+    generatedAt: new Date().toISOString(),
+    publicPublishingPerformed: false,
+    status: captureQueue.length === 0 ? 'PASS' : 'DEGRADED',
+    platforms,
+    captureQueue,
+    observation: {
+      claim: 'published platform receipts have a concrete metrics capture checklist',
+      status: captureQueue.length === 0 ? 'PASS' : 'DEGRADED',
+      fallbackChain: [
+        'syndication-policy metric fields',
+        'content-metrics.json records',
+        'ROM heartbeat',
+      ],
+    },
+  };
 }
 
 export function contentMetricsReport({ ledgerPath, packagesRoot, metricsPath }) {

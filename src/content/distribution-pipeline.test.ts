@@ -9,6 +9,7 @@ import {
   loadSyndicationPolicy,
 } from '../../scripts/lib/platform-packages.mjs';
 import {
+  contentMetricsChecklist,
   contentMetricsReport,
   recordContentMetric,
 } from '../../scripts/lib/content-metrics.mjs';
@@ -353,6 +354,100 @@ describe('content metrics observability', () => {
       ],
     });
   });
+
+  it('builds a platform-specific metrics capture queue for published receipts without metrics', () => {
+    const root = tempRoot();
+    const ledgerPath = join(root, 'platform-ledger.json');
+    const metricsPath = join(root, 'content-metrics.json');
+    const policyPath = join(root, 'syndication-policy.json');
+
+    writeFileSync(
+      ledgerPath,
+      JSON.stringify({
+        articles: {
+          'the-factory': {
+            title: 'The Factory',
+            platforms: {
+              devto: {
+                status: 'published',
+                url: 'https://dev.to/david/the-factory',
+              },
+              medium: {
+                status: 'draft',
+                url: 'https://medium.com/@david/the-factory',
+              },
+            },
+          },
+        },
+      }),
+    );
+    writeFileSync(
+      policyPath,
+      JSON.stringify({
+        platforms: {
+          devto: {
+            displayName: 'DEV',
+            metrics: {
+              source: 'api-or-manual',
+              fields: ['page_views_count', 'public_reactions_count', 'comments_count'],
+            },
+          },
+        },
+      }),
+    );
+
+    const checklist = contentMetricsChecklist({ ledgerPath, metricsPath, policyPath });
+
+    expect(checklist.status).toBe('DEGRADED');
+    expect(checklist.captureQueue).toEqual([
+      {
+        slug: 'the-factory',
+        title: 'The Factory',
+        platform: 'devto',
+        displayName: 'DEV',
+        url: 'https://dev.to/david/the-factory',
+        source: 'api-or-manual',
+        fields: ['page_views_count', 'public_reactions_count', 'comments_count'],
+        command: 'pnpm content:pipeline metrics:record the-factory devto --url=https://dev.to/david/the-factory --page_views_count=0 --public_reactions_count=0 --comments_count=0',
+      },
+    ]);
+    const platforms = checklist.platforms as Record<string, {
+      publishedReceipts: number;
+      missingMetricRecords: number;
+    }>;
+    expect(platforms.devto).toMatchObject({
+      publishedReceipts: 1,
+      missingMetricRecords: 1,
+    });
+  });
+
+  it('normalizes platform-native metric aliases into comparable counts', () => {
+    const root = tempRoot();
+    const metricsPath = join(root, 'content-metrics.json');
+
+    const record = recordContentMetric({
+      metricsPath,
+      slug: 'the-factory',
+      platform: 'devto',
+      url: 'https://dev.to/david/the-factory',
+      metrics: {
+        page_views_count: 42,
+        public_reactions_count: 7,
+        comments_count: 3,
+      },
+    });
+
+    expect(record.metrics).toMatchObject({
+      views: 42,
+      reactions: 7,
+      comments: 3,
+    });
+    expect(record.raw).toMatchObject({
+      page_views_count: 42,
+      public_reactions_count: 7,
+      comments_count: 3,
+    });
+  });
 });
 
 describe('platform draft commands', () => {
@@ -582,6 +677,44 @@ describe('platform readiness governance', () => {
     ]);
     expect(payload.observation).toMatchObject({
       claim: 'platform receipts and published metrics are observable from the ledger',
+      status: 'DEGRADED',
+    });
+  });
+
+  it('prints a metrics capture checklist from policy fields', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+    writeFileSync(
+      join(root, 'content/distribution/syndication-policy.json'),
+      JSON.stringify({
+        platforms: {
+          medium: {
+            displayName: 'Medium',
+            metrics: {
+              source: 'manual',
+              fields: ['views', 'reads', 'fans', 'clicks'],
+            },
+          },
+        },
+      }),
+    );
+
+    const result = runPipelineCommand(root, ['metrics:checklist']);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload.publicPublishingPerformed).toBe(false);
+    expect(payload.captureQueue).toEqual([
+      expect.objectContaining({
+        slug: 'the-factory',
+        platform: 'medium',
+        displayName: 'Medium',
+        fields: ['views', 'reads', 'fans', 'clicks'],
+        command: 'pnpm content:pipeline metrics:record the-factory medium --url=https://medium.com/@davidmieloch/the-factory --views=0 --reads=0 --fans=0 --clicks=0',
+      }),
+    ]);
+    expect(payload.observation).toMatchObject({
+      claim: 'published platform receipts have a concrete metrics capture checklist',
       status: 'DEGRADED',
     });
   });

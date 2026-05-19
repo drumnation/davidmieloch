@@ -129,6 +129,14 @@ rtk pnpm content:pipeline metrics:report
 
 A published platform receipt without a metrics record is a degraded observation. That is intentional: the pipeline should notice when distribution happened but measurement did not.
 
+Before a metric capture pass, generate the exact collection queue from the policy and ledger:
+
+```bash
+rtk pnpm content:pipeline metrics:checklist
+```
+
+`metrics:checklist` reports the platform-specific fields from `syndication-policy.json` and prints one `metrics:record` command per published receipt that lacks metrics. This keeps manual analytics capture bounded: open the platform dashboard, fill in the zeros in the generated command, run it, and the metrics observer has a receipt.
+
 ## Readiness And Receipts
 
 Use the readiness report before a distribution session:
