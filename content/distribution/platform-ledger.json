@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-18",
+  "updatedAt": "2026-05-19",
   "sourceOfTruth": {
     "publishedArticles": "linkedin",
     "canonicalArchive": "davidmieloch.com",
@@ -34,8 +34,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/your-ai-isnt-hallucinating-its-lying-3dl3-temp-slug-69003",
+          "observedAt": "2026-05-19T04:11:41.373Z",
+          "id": "3697112",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -135,8 +138,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/the-overnight-shift-3im8-temp-slug-9764554",
+          "observedAt": "2026-05-19T04:11:38.796Z",
+          "id": "3697111",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -184,8 +190,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/every-company-is-sitting-on-sunken-treasure-5gjf-temp-slug-831956",
+          "observedAt": "2026-05-19T04:09:27.736Z",
+          "id": "3697102",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -285,8 +294,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/reality-needs-observers-p2o-temp-slug-738704",
+          "observedAt": "2026-05-19T04:11:20.386Z",
+          "id": "3697109",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -334,8 +346,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/the-moving-target-1n5a-temp-slug-5514512",
+          "observedAt": "2026-05-19T04:11:36.232Z",
+          "id": "3697110",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",

@@ -95,21 +95,24 @@ globalThis.fetch = async (url, options = {}) => {
     };
   }
 
+  const hashnodePayload = {
+    data: {
+      createDraft: {
+        draft: {
+          id: 'draft-123',
+          slug: 'package-only-article',
+          title: body.variables.input.title,
+          canonicalUrl: body.variables.input.originalArticleURL
+        }
+      }
+    }
+  };
+
   return {
     ok: true,
     status: 200,
-    json: async () => ({
-      data: {
-        createDraft: {
-          draft: {
-            id: 'draft-123',
-            slug: 'package-only-article',
-            title: body.variables.input.title,
-            canonicalUrl: body.variables.input.originalArticleURL
-          }
-        }
-      }
-    })
+    json: async () => hashnodePayload,
+    text: async () => JSON.stringify(hashnodePayload)
   };
 };
 `,
@@ -130,6 +133,46 @@ function runDraftCommand(root: string, command: string, slug: string, capturePat
         DEVTO_API_KEY: 'dev-token',
         HASHNODE_TOKEN: 'hash-token',
         HASHNODE_PUBLICATION_ID: 'publication-123',
+      },
+    },
+  );
+}
+
+function writeLedgerFixture(root: string) {
+  mkdirSync(join(root, 'content/distribution'), { recursive: true });
+  writeFileSync(
+    join(root, 'content/distribution/platform-ledger.json'),
+    JSON.stringify({
+      updatedAt: '2026-05-18',
+      articles: {
+        'the-factory': {
+          title: 'The Factory',
+          canonicalUrl: 'https://davidmieloch.com/blog/the-factory',
+          platforms: {
+            davidmieloch: { status: 'ready-local', url: 'https://davidmieloch.com/blog/the-factory' },
+            devto: { status: 'not-started', url: '' },
+            hackernoon: { status: 'not-started', url: '' },
+          },
+        },
+      },
+    }, null, 2),
+  );
+}
+
+function runPipelineCommand(root: string, args: string[]) {
+  return spawnSync(
+    process.execPath,
+    [join(process.cwd(), 'scripts/content-pipeline.mjs'), ...args],
+    {
+      cwd: root,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        CONTENT_ROOT: join(root, 'content'),
+        DEVTO_API_KEY: '',
+        HASHNODE_TOKEN: '',
+        HASHNODE_API_KEY: '',
+        HASHNODE_PUBLICATION_ID: '',
       },
     },
   );
@@ -364,5 +407,73 @@ Packaged devto body.
       { name: 'distribution', slug: 'distribution' },
       { name: 'draft', slug: 'draft' },
     ]);
+  });
+});
+
+describe('platform readiness governance', () => {
+  it('records manual platform receipts without patching the ledger by hand', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+
+    const result = runPipelineCommand(root, [
+      'receipt:record',
+      'the-factory',
+      'hackernoon',
+      '--status=draft',
+      '--url=https://app.hackernoon.com/mobile/draft-123',
+      '--notes=Saved draft shell; not submitted.',
+    ]);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload).toMatchObject({
+      slug: 'the-factory',
+      platform: 'hackernoon',
+      receipt: {
+        status: 'draft',
+        url: 'https://app.hackernoon.com/mobile/draft-123',
+        notes: 'Saved draft shell; not submitted.',
+      },
+    });
+
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    expect(ledger.articles['the-factory'].platforms.hackernoon).toMatchObject({
+      status: 'draft',
+      url: 'https://app.hackernoon.com/mobile/draft-123',
+      notes: 'Saved draft shell; not submitted.',
+    });
+  });
+
+  it('reports platform readiness without requiring network access', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+    generatePlatformPackages({
+      article: article(),
+      outputRoot: join(root, 'content/distribution/packages'),
+      platforms: ['medium', 'devto', 'hackernoon'],
+      generatedAt: '2026-05-18T00:00:00.000Z',
+    });
+
+    const result = runPipelineCommand(root, ['readiness', '--skip-network']);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload).toMatchObject({
+      purpose: 'content distribution platform readiness',
+      publicPublishingPerformed: false,
+      probes: {
+        canonical: { status: 'SKIPPED' },
+      },
+      packageCoverage: {
+        packagedArticles: 1,
+        platformPackageCounts: {
+          medium: 1,
+          devto: 1,
+          hackernoon: 1,
+        },
+      },
+    });
+    expect(payload.platforms.linkedin.status).toBe('source-only');
+    expect(payload.platforms.reddit.status).toBe('approval-gated');
   });
 });

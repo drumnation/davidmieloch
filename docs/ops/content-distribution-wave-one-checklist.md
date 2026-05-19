@@ -122,21 +122,22 @@ Observed DEV state:
 Posts to draft on DEV:
 
 - [x] Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
-- [ ] Every Company Is Sitting on Sunken Treasure
+- [x] Every Company Is Sitting on Sunken Treasure
 - [x] How to Make Your AI Code Look Human
-- [ ] Reality Needs Observers
+- [x] Reality Needs Observers
 - [x] The Factory
 - [x] The Foreman
 - [x] The Golden Hammer
-- [ ] The Moving Target
-- [ ] The Overnight Shift
-- [ ] Your AI Isn't Hallucinating. It's Lying.
+- [x] The Moving Target
+- [x] The Overnight Shift
+- [x] Your AI Isn't Hallucinating. It's Lying.
 
 DEV execution notes:
 
 - [x] Patch `devto:create-draft` to read generated package files from `content/distribution/packages/<slug>/devto.md`.
 - [ ] Keep DEV creates draft-only until reviewed.
 - [ ] Publish developer-practical posts first; hold broader philosophy posts if they feel weak for DEV.
+- [x] Resume DEV draft creation after rate limit clears; all modern LinkedIn-source DEV drafts are now created.
 
 ## Hashnode
 
@@ -298,10 +299,11 @@ Future synchronized wave:
 
 ## Pipeline Work Needed
 
-- [ ] Patch platform draft commands to consume generated package files instead of requiring article-local variants.
+- [x] Patch platform draft commands to consume generated package files instead of requiring article-local variants.
 - [ ] Add `launch:due` command to read `launch-calendar.json`.
 - [ ] Add `draft:create` command that creates approved drafts per platform allow-list.
-- [ ] Add receipt writer for browser/manual workflows.
+- [x] Add `readiness` command to report platform blockers and manual-ready states.
+- [x] Add receipt writer for browser/manual workflows.
 - [ ] Add metrics capture checklist per platform.
 - [ ] Add observer that reports missing receipts and missing metrics as degraded states.
 

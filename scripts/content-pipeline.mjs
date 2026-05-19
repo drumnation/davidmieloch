@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 import { loadDotEnvFile } from './lib/load-dotenv.mjs';
 import {
@@ -129,6 +130,11 @@ function readLedger() {
   return JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
 }
 
+function writeJson(filePath, payload) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, `${JSON.stringify(payload, null, 2)}\n`);
+}
+
 function hashnodeToken() {
   return process.env.HASHNODE_TOKEN ?? process.env.HASHNODE_API_KEY;
 }
@@ -228,7 +234,14 @@ async function devto(pathname, options = {}) {
     },
   });
   const text = await response.text();
-  const payload = text ? JSON.parse(text) : null;
+  let payload = null;
+  if (text) {
+    try {
+      payload = JSON.parse(text);
+    } catch {
+      payload = { raw: text };
+    }
+  }
   if (!response.ok) throw new Error(`DEV API ${response.status}: ${JSON.stringify(payload)}`);
   return payload;
 }
@@ -246,7 +259,13 @@ async function hashnode(query, variables = {}) {
     },
     body: JSON.stringify({ query, variables }),
   });
-  const payload = await response.json();
+  const text = await response.text();
+  let payload = null;
+  try {
+    payload = text ? JSON.parse(text) : null;
+  } catch {
+    payload = { errors: [{ message: text || 'Hashnode returned a non-JSON response.' }] };
+  }
   if (!response.ok || payload.errors) {
     throw new Error(`Hashnode API ${response.status}: ${JSON.stringify(payload.errors ?? payload)}`);
   }
@@ -432,6 +451,222 @@ function parseMetricRecordArgs(args) {
     values[arg.slice(2, separator)] = arg.slice(separator + 1);
   }
   return values;
+}
+
+function parseCommandOptions(startIndex = 3) {
+  return parseMetricRecordArgs(process.argv.slice(startIndex));
+}
+
+function listPackageManifests() {
+  if (!fs.existsSync(packagesRoot)) return [];
+  return fs
+    .readdirSync(packagesRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => path.join(packagesRoot, entry.name, 'manifest.json'))
+    .filter((manifestPath) => fs.existsSync(manifestPath))
+    .map((manifestPath) => JSON.parse(fs.readFileSync(manifestPath, 'utf8')));
+}
+
+function summarizePackageCoverage() {
+  const manifests = listPackageManifests();
+  const platforms = {};
+  for (const manifest of manifests) {
+    for (const file of manifest.files ?? []) {
+      platforms[file.platform] ??= 0;
+      platforms[file.platform] += 1;
+    }
+  }
+  return {
+    packagedArticles: manifests.length,
+    platformPackageCounts: platforms,
+  };
+}
+
+function summarizeLedgerReadiness(ledger) {
+  const platforms = {};
+  for (const article of Object.values(ledger.articles ?? {})) {
+    for (const [platform, record] of Object.entries(article.platforms ?? {})) {
+      platforms[platform] ??= {};
+      const statusValue = record?.status ?? 'missing';
+      platforms[platform][statusValue] ??= 0;
+      platforms[platform][statusValue] += 1;
+    }
+  }
+  return platforms;
+}
+
+async function probeUrl(url, skipNetwork) {
+  if (skipNetwork) {
+    return { url, status: 'SKIPPED', ok: null };
+  }
+  try {
+    const response = await fetch(url, { method: 'HEAD', redirect: 'follow' });
+    return { url, status: response.status, ok: response.ok };
+  } catch (error) {
+    const curl = spawnSync('curl', [
+      '-k',
+      '-I',
+      '-L',
+      '--max-time',
+      '15',
+      '-o',
+      '/dev/null',
+      '-w',
+      '%{http_code}',
+      url,
+    ], { encoding: 'utf8' });
+    const statusCode = Number(curl.stdout);
+    if (statusCode > 0) {
+      return {
+        url,
+        status: statusCode,
+        ok: statusCode >= 200 && statusCode < 400,
+        fallback: 'curl',
+        primaryError: error.message,
+      };
+    }
+    return {
+      url,
+      status: 'ERROR',
+      ok: false,
+      error: error.message,
+      fallbackError: curl.stderr.trim(),
+    };
+  }
+}
+
+function readinessStatus({ ready = false, blocked = false, manual = false }) {
+  if (ready) return 'ready';
+  if (blocked) return 'blocked';
+  if (manual) return 'manual-ready';
+  return 'needs-work';
+}
+
+async function readinessReport() {
+  const options = parseCommandOptions(2);
+  const skipNetwork = Boolean(options['skip-network']);
+  const ledger = readLedger();
+  const packageCoverage = summarizePackageCoverage();
+  const ledgerStatusCounts = summarizeLedgerReadiness(ledger);
+  const canonicalProbe = await probeUrl('https://davidmieloch.com/blog/the-factory', skipNetwork);
+  const stagingProbe = await probeUrl('https://davidmieloch.brain-garden.io/blog/the-factory', skipNetwork);
+  const canonicalReady = canonicalProbe.ok === true;
+  const stagingReady = stagingProbe.ok !== false;
+  const hashnodeHasToken = Boolean(hashnodeToken());
+  const hashnodeHasPublication = Boolean(process.env.HASHNODE_PUBLICATION_ID);
+  const devtoReady = Boolean(process.env.DEVTO_API_KEY);
+
+  return {
+    generatedAt: new Date().toISOString(),
+    purpose: 'content distribution platform readiness',
+    publicPublishingPerformed: false,
+    probes: {
+      canonical: canonicalProbe,
+      staging: stagingProbe,
+    },
+    packageCoverage,
+    ledgerStatusCounts,
+    platforms: {
+      website: {
+        status: readinessStatus({ ready: canonicalReady }),
+        blocker: canonicalReady ? null : 'Canonical davidmieloch.com blog URL is not verified as reachable.',
+        fallback: stagingReady ? 'Use davidmieloch.brain-garden.io for staging-only draft prep.' : 'Fix hosted site before import-based workflows.',
+        nextAction: canonicalReady
+          ? 'Keep website as canonical source of truth.'
+          : 'Finish DNS/Caddy/Vercel cutover so davidmieloch.com/blog/the-factory returns 200.',
+      },
+      devto: {
+        status: readinessStatus({ ready: devtoReady }),
+        blocker: devtoReady ? null : 'Missing DEVTO_API_KEY.',
+        nextAction: devtoReady
+          ? 'Create remaining unpublished DEV drafts from generated packages.'
+          : 'Add DEVTO_API_KEY before API-backed draft creation.',
+      },
+      hashnode: {
+        status: readinessStatus({ ready: hashnodeHasToken && hashnodeHasPublication, blocked: !hashnodeHasToken || !hashnodeHasPublication }),
+        blocker: hashnodeHasToken && hashnodeHasPublication
+          ? null
+          : 'Missing working Hashnode token/publication id pair.',
+        nextAction: 'Recover HASHNODE_PUBLICATION_ID and verify GraphQL JSON responses before draft creation.',
+      },
+      medium: {
+        status: readinessStatus({ manual: canonicalReady }),
+        blocker: canonicalReady ? null : 'Medium import should wait for canonical davidmieloch.com URLs.',
+        nextAction: canonicalReady
+          ? 'Use browser import/manual editor flow and record receipts.'
+          : 'Use local packages for prep only; do not import stale Vercel 404 URLs.',
+      },
+      hackernoon: {
+        status: readinessStatus({ manual: true }),
+        blocker: null,
+        nextAction: 'Use editorial/manual draft flow; stop before Submit Story for Review until approved.',
+      },
+      dzone: {
+        status: readinessStatus({ manual: true }),
+        blocker: null,
+        nextAction: 'Validate article submission path and record moderation receipts.',
+      },
+      substack: {
+        status: readinessStatus({ manual: true }),
+        blocker: null,
+        nextAction: 'Prepare newsletter/series roundup drafts, not one-to-one mirrors.',
+      },
+      reddit: {
+        status: 'approval-gated',
+        blocker: 'David approval required per subreddit/title/body/link.',
+        nextAction: 'Prepare discussion seeds only; do not post automatically.',
+      },
+      linkedin: {
+        status: 'source-only',
+        blocker: 'No automated posting by policy.',
+        nextAction: 'Use LinkedIn only for source reconciliation unless explicitly approved.',
+      },
+    },
+    observation: {
+      claim: 'platform readiness is reconciled from configuration, canonical probes, package manifests, and ledger receipts',
+      status: devtoReady && stagingReady ? 'PASS' : 'DEGRADED',
+      fallbackChain: [
+        'readiness report',
+        'content-distribution-wave-one-checklist.md',
+        'ROM heartbeat',
+      ],
+    },
+  };
+}
+
+function recordReceipt(slug, platform) {
+  const options = parseCommandOptions(4);
+  const statusValue = options.status;
+  const url = options.url ?? '';
+  if (!statusValue) {
+    throw new Error('receipt:record requires --status=<draft|submitted|published|skipped|blocked|rejected>.');
+  }
+
+  const ledger = readLedger();
+  const article = ledger.articles?.[slug];
+  if (!article) {
+    throw new Error(`Unknown article slug in ledger: ${slug}`);
+  }
+  if (!article.platforms?.[platform]) {
+    throw new Error(`Unknown platform "${platform}" for article "${slug}".`);
+  }
+
+  const nextRecord = {
+    status: statusValue,
+    url,
+    observedAt: options.observedAt ?? new Date().toISOString(),
+  };
+  if (options.id) nextRecord.id = options.id;
+  if (options.notes) nextRecord.notes = options.notes;
+  if (options.source) nextRecord.source = options.source;
+
+  article.platforms[platform] = {
+    ...article.platforms[platform],
+    ...nextRecord,
+  };
+  ledger.updatedAt = new Date().toISOString().slice(0, 10);
+  writeJson(ledgerPath, ledger);
+  return { slug, platform, receipt: article.platforms[platform] };
 }
 
 function metricsReport() {
@@ -647,12 +882,14 @@ async function mediumImport(slug, options = {}) {
 function usage() {
   console.log(`Usage:
   pnpm content:pipeline status
+  pnpm content:pipeline readiness [--skip-network]
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline schedule:dry-run <slug>
   pnpm content:pipeline manual-package <slug|all> [platform]
   pnpm content:pipeline devto:create-draft <slug>
   pnpm content:pipeline hashnode:create-draft <slug>
+  pnpm content:pipeline receipt:record <slug> <platform> --status=<status> [--url=<url>] [--notes=<text>] [--id=<id>]
   pnpm content:pipeline linkedin:capture-list
   pnpm content:pipeline obsidian:scan
   pnpm content:pipeline obsidian:import <slug> [--force]
@@ -664,6 +901,7 @@ function usage() {
 Safety:
   - DEV and Hashnode commands create unpublished/delisted drafts only.
   - manual-package writes local posting packages only.
+  - readiness and receipt commands write local governance artifacts only.
   - metrics commands write local observation data only.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
@@ -711,6 +949,9 @@ async function runCommand(command, slug) {
   if (command === 'status') {
     return status();
   }
+  if (command === 'readiness') {
+    return readinessReport();
+  }
   if (command === 'validate') {
     return validate();
   }
@@ -734,6 +975,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'hashnode:create-draft' && slug) {
     return createHashnodeDraft(slug);
+  }
+  if (command === 'receipt:record' && slug && process.argv[4]) {
+    return recordReceipt(slug, process.argv[4]);
   }
   if (command === 'linkedin:capture-list') {
     return linkedinCaptureList();

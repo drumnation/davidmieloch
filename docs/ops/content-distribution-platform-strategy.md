@@ -129,6 +129,27 @@ rtk pnpm content:pipeline metrics:report
 
 A published platform receipt without a metrics record is a degraded observation. That is intentional: the pipeline should notice when distribution happened but measurement did not.
 
+## Readiness And Receipts
+
+Use the readiness report before a distribution session:
+
+```bash
+rtk pnpm content:pipeline readiness
+```
+
+It reconciles canonical URL probes, package coverage, platform credentials, approval modes, and ledger receipts. Use `--skip-network` for local test runs.
+
+Browser/manual work must be recorded through the receipt command instead of hand-editing ledger JSON:
+
+```bash
+rtk pnpm content:pipeline receipt:record the-factory hackernoon \
+  --status=draft \
+  --url=https://app.hackernoon.com/mobile/example \
+  --notes="Saved draft shell; not submitted."
+```
+
+This keeps platform state updates attached to the intended article and makes manual surfaces observable.
+
 ## Observability
 
 Each package and metrics command writes Genesis heartbeat records through `scripts/lib/observability.mjs`.
