@@ -83,8 +83,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/the-golden-hammer-53mi-temp-slug-6550549",
+          "draftId": 3696883,
+          "observedAt": "2026-05-19T02:59:00-04:00",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -230,8 +233,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/how-to-make-your-ai-code-look-human-26jk-temp-slug-2678100",
+          "draftId": 3696886,
+          "observedAt": "2026-05-19T02:59:00-04:00",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -377,8 +383,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/the-foreman-2cif-temp-slug-5732199",
+          "draftId": 3696882,
+          "observedAt": "2026-05-19T02:59:00-04:00",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -426,8 +435,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/the-factory-2d8c-temp-slug-7448667",
+          "draftId": 3696881,
+          "observedAt": "2026-05-19T02:59:00-04:00",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -475,8 +487,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it-ma6-temp-slug-7862194",
+          "draftId": 3696887,
+          "observedAt": "2026-05-19T02:59:00-04:00",
+          "notes": "Created as unpublished DEV draft through content pipeline. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -524,8 +539,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/why-character-choice-matters-in-agent-design-n01-temp-slug-933990",
+          "draftId": 3594289,
+          "observedAt": "2026-05-19T03:04:00-04:00",
+          "notes": "Observed as existing unpublished DEV draft during wave-one verification."
         },
         "hashnode": {
           "status": "not-started",

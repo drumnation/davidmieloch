@@ -117,24 +117,24 @@ Medium execution notes:
 
 Observed DEV state:
 
-- [ ] Why Character Choice Matters in Agent Design is already present as a DEV draft.
+- [x] Why Character Choice Matters in Agent Design is already present as a DEV draft.
 
 Posts to draft on DEV:
 
-- [ ] Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
+- [x] Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
 - [ ] Every Company Is Sitting on Sunken Treasure
-- [ ] How to Make Your AI Code Look Human
+- [x] How to Make Your AI Code Look Human
 - [ ] Reality Needs Observers
-- [ ] The Factory
-- [ ] The Foreman
-- [ ] The Golden Hammer
+- [x] The Factory
+- [x] The Foreman
+- [x] The Golden Hammer
 - [ ] The Moving Target
 - [ ] The Overnight Shift
 - [ ] Your AI Isn't Hallucinating. It's Lying.
 
 DEV execution notes:
 
-- [ ] Patch `devto:create-draft` to read generated package files from `content/distribution/packages/<slug>/devto.md`.
+- [x] Patch `devto:create-draft` to read generated package files from `content/distribution/packages/<slug>/devto.md`.
 - [ ] Keep DEV creates draft-only until reviewed.
 - [ ] Publish developer-practical posts first; hold broader philosophy posts if they feel weak for DEV.
 
@@ -158,8 +158,9 @@ Posts to draft on Hashnode:
 
 Hashnode execution notes:
 
-- [ ] Confirm whether API draft creation still works under current Hashnode API plan limits.
-- [ ] Patch `hashnode:create-draft` to read generated package files from `content/distribution/packages/<slug>/hashnode.md`.
+- [x] Confirm whether API draft creation still works under current Hashnode API plan limits.
+- [x] Patch `hashnode:create-draft` to read generated package files from `content/distribution/packages/<slug>/hashnode.md`.
+- [ ] Recover Hashnode publication/API path; current GraphQL request returns HTML with the available local key.
 - [ ] Keep drafts delisted/unpublished until reviewed.
 
 ## HackerNoon
@@ -253,7 +254,7 @@ LinkedIn-source modern articles:
 - [ ] Academic Research Is a Software Patch: review existing Medium draft, then back-sync to DEV, Hashnode, HackerNoon, DZone.
 - [ ] Your AI Isn't Hallucinating. It's Lying.: back-sync to Medium, DEV, Hashnode, HackerNoon; prepare Reddit discussion seed.
 - [x] Why Character Choice Matters in Agent Design: already on LinkedIn, website, Medium; DEV draft observed.
-- [ ] Why Character Choice Matters in Agent Design: finish DEV draft, draft Hashnode, consider HackerNoon.
+- [ ] Why Character Choice Matters in Agent Design: review existing DEV draft, draft Hashnode, consider HackerNoon.
 
 Medium-source legacy articles:
 

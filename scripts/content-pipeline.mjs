@@ -99,10 +99,16 @@ function readArticle(slug) {
 
 function readVariant(slug, platform) {
   const variantPath = path.join(articlesRoot, slug, 'variants', `${platform}.md`);
-  if (!fs.existsSync(variantPath)) {
-    throw new Error(`Missing ${platform} variant: ${variantPath}`);
+  if (fs.existsSync(variantPath)) {
+    return readMarkdown(variantPath);
   }
-  return readMarkdown(variantPath);
+
+  const packagePath = path.join(packagesRoot, slug, `${platform}.md`);
+  if (fs.existsSync(packagePath)) {
+    return readMarkdown(packagePath);
+  }
+
+  throw new Error(`Missing ${platform} variant or package: ${variantPath} or ${packagePath}`);
 }
 
 function readOptionalVariants(slug, platforms) {
@@ -125,6 +131,17 @@ function readLedger() {
 
 function hashnodeToken() {
   return process.env.HASHNODE_TOKEN ?? process.env.HASHNODE_API_KEY;
+}
+
+function devtoTags(tags) {
+  if (!Array.isArray(tags)) return [];
+  const normalized = [];
+  for (const tag of tags) {
+    const value = String(tag).toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (value && !normalized.includes(value)) normalized.push(value);
+    if (normalized.length === 4) break;
+  }
+  return normalized;
 }
 
 function commandClaim(command, slug) {
@@ -459,12 +476,13 @@ function metricsRecord(slug, platform) {
 async function createDevtoDraft(slug) {
   const { body, meta } = readVariant(slug, 'devto');
   const article = readArticle(slug);
+  const tags = Array.isArray(meta.tags) ? meta.tags : article.meta.tags;
   const payload = {
     article: {
       title: meta.title ?? article.meta.title,
       body_markdown: body,
       published: false,
-      tags: Array.isArray(meta.tags) ? meta.tags.slice(0, 4) : article.meta.tags,
+      tags: devtoTags(tags),
       description: meta.description ?? article.meta.description,
       canonical_url: meta.canonical_url ?? article.meta.canonicalUrl,
     },
