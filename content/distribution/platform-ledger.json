@@ -42,10 +42,8 @@
           "url": ""
         },
         "hackernoon": {
-          "status": "draft",
-          "url": "https://app.hackernoon.com/mobile/6a0bdccbc4dbb9f3d6e47038",
-          "observedAt": "2026-05-18T23:49:04-04:00",
-          "notes": "Created as a saved HackerNoon draft shell through the browser. Contains title, 166-word thesis excerpt, and staging canonical link. Not submitted for editorial review and not published."
+          "status": "not-started",
+          "url": ""
         },
         "dzone": {
           "status": "not-started",
@@ -448,8 +446,10 @@
           "url": ""
         },
         "hackernoon": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://app.hackernoon.com/mobile/6a0bdccbc4dbb9f3d6e47038",
+          "observedAt": "2026-05-18T23:49:04-04:00",
+          "notes": "Created as a saved HackerNoon draft shell through the browser. Contains title, 166-word thesis excerpt, and staging canonical link. Not submitted for editorial review and not published."
         },
         "dzone": {
           "status": "not-started",
