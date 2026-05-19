@@ -150,6 +150,23 @@ rtk pnpm content:pipeline receipt:record the-factory hackernoon \
 
 This keeps platform state updates attached to the intended article and makes manual surfaces observable.
 
+Launch timing and receipt coverage are also queryable:
+
+```bash
+rtk pnpm content:pipeline launch:due
+rtk pnpm content:pipeline receipts:report
+```
+
+`launch:due` never publishes; it reports due launches, missing source URLs, and approval blockers. `receipts:report` marks missing receipts or published posts without metrics as degraded observations.
+
+For API-backed targets, use the guarded draft wrapper:
+
+```bash
+rtk pnpm content:pipeline draft:create the-factory devto
+```
+
+It skips existing receipts unless `--force` is supplied and skips browser/manual platforms with a handoff message.
+
 ## Observability
 
 Each package and metrics command writes Genesis heartbeat records through `scripts/lib/observability.mjs`.

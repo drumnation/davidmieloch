@@ -300,12 +300,12 @@ Future synchronized wave:
 ## Pipeline Work Needed
 
 - [x] Patch platform draft commands to consume generated package files instead of requiring article-local variants.
-- [ ] Add `launch:due` command to read `launch-calendar.json`.
-- [ ] Add `draft:create` command that creates approved drafts per platform allow-list.
+- [x] Add `launch:due` command to read `launch-calendar.json`.
+- [x] Add guarded `draft:create` command for API-backed draft targets.
 - [x] Add `readiness` command to report platform blockers and manual-ready states.
 - [x] Add receipt writer for browser/manual workflows.
 - [ ] Add metrics capture checklist per platform.
-- [ ] Add observer that reports missing receipts and missing metrics as degraded states.
+- [x] Add observer that reports missing receipts and missing metrics as degraded states.
 
 ## PIE-CI Review
 

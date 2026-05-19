@@ -120,11 +120,11 @@ globalThis.fetch = async (url, options = {}) => {
   return stubPath;
 }
 
-function runDraftCommand(root: string, command: string, slug: string, capturePath: string) {
+function runDraftCommand(root: string, command: string, slug: string, capturePath: string, extraArgs: string[] = []) {
   const stubPath = writeFetchStub(root, capturePath);
   return spawnSync(
     process.execPath,
-    ['--import', stubPath, join(process.cwd(), 'scripts/content-pipeline.mjs'), command, slug],
+    ['--import', stubPath, join(process.cwd(), 'scripts/content-pipeline.mjs'), command, slug, ...extraArgs],
     {
       cwd: root,
       encoding: 'utf8',
@@ -151,10 +151,50 @@ function writeLedgerFixture(root: string) {
           platforms: {
             davidmieloch: { status: 'ready-local', url: 'https://davidmieloch.com/blog/the-factory' },
             devto: { status: 'not-started', url: '' },
+            hashnode: { status: 'not-started', url: '' },
             hackernoon: { status: 'not-started', url: '' },
+            medium: { status: 'published', url: 'https://medium.com/@davidmieloch/the-factory' },
           },
         },
       },
+    }, null, 2),
+  );
+}
+
+function writeLaunchCalendarFixture(root: string) {
+  mkdirSync(join(root, 'content/distribution'), { recursive: true });
+  writeFileSync(
+    join(root, 'content/distribution/launch-calendar.json'),
+    JSON.stringify({
+      schemaVersion: 'launch-calendar-v1',
+      updatedAt: '2026-05-18',
+      launches: [
+        {
+          id: 'launch-1',
+          title: 'Due launch',
+          sourcePlatform: 'linkedin',
+          scheduledAt: '2026-05-19T11:00:00-04:00',
+          articleSlug: null,
+          pendingSource: { status: 'awaiting-source-url' },
+          targetPlatforms: [{ platform: 'devto', approvalMode: 'draft-only' }],
+          approvalPolicy: {
+            requiresDavidApproval: true,
+            publicPublishAllowed: false,
+          },
+        },
+        {
+          id: 'launch-2',
+          title: 'Future launch',
+          sourcePlatform: 'linkedin',
+          scheduledAt: '2026-05-20T11:00:00-04:00',
+          articleSlug: 'the-factory',
+          targetPlatforms: [{ platform: 'devto', approvalMode: 'draft-only' }],
+          approvalPolicy: {
+            requiresDavidApproval: true,
+            publicPublishAllowed: false,
+          },
+        },
+      ],
     }, null, 2),
   );
 }
@@ -475,5 +515,74 @@ describe('platform readiness governance', () => {
     });
     expect(payload.platforms.linkedin.status).toBe('source-only');
     expect(payload.platforms.reddit.status).toBe('approval-gated');
+  });
+
+  it('reports due launches and source blockers from the launch calendar', () => {
+    const root = tempRoot();
+    writeLaunchCalendarFixture(root);
+
+    const result = runPipelineCommand(root, [
+      'launch:due',
+      '--now=2026-05-19T12:00:00-04:00',
+    ]);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload.publicPublishingPerformed).toBe(false);
+    expect(payload.due).toHaveLength(1);
+    expect(payload.due[0]).toMatchObject({
+      id: 'launch-1',
+      due: true,
+      blockers: ['missing articleSlug', 'awaiting-source-url', 'public publish disabled'],
+    });
+    expect(payload.pending[0]).toMatchObject({
+      id: 'launch-2',
+      due: false,
+    });
+  });
+
+  it('skips manual draft creation targets and explains the handoff', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+
+    const result = runPipelineCommand(root, [
+      'draft:create',
+      'the-factory',
+      'hackernoon',
+    ]);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload).toMatchObject({
+      slug: 'the-factory',
+      platform: 'hackernoon',
+      skipped: true,
+      reason: 'hackernoon is a browser/manual workflow; use receipt:record after manual draft setup.',
+    });
+  });
+
+  it('reports missing receipts and missing metrics as observable state', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+
+    const result = runPipelineCommand(root, ['receipts:report']);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload.publicPublishingPerformed).toBe(false);
+    expect(payload.status).toBe('DEGRADED');
+    expect(payload.missingReceipts).toEqual(
+      expect.arrayContaining([
+        { slug: 'the-factory', platform: 'devto', status: 'not-started' },
+        { slug: 'the-factory', platform: 'hackernoon', status: 'not-started' },
+      ]),
+    );
+    expect(payload.missingMetrics).toEqual([
+      { slug: 'the-factory', platform: 'medium', url: 'https://medium.com/@davidmieloch/the-factory' },
+    ]);
+    expect(payload.observation).toMatchObject({
+      claim: 'platform receipts and published metrics are observable from the ledger',
+      status: 'DEGRADED',
+    });
   });
 });

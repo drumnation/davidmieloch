@@ -39,6 +39,7 @@ const ledgerPath = path.join(contentRoot, 'distribution/platform-ledger.json');
 const statusPath = path.join(contentRoot, 'distribution/pipeline-status.json');
 const packagesRoot = path.join(contentRoot, 'distribution/packages');
 const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
+const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.json');
 const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
@@ -128,6 +129,13 @@ function readLedger() {
     throw new Error(`Missing distribution ledger: ${ledgerPath}`);
   }
   return JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
+}
+
+function readLaunchCalendar() {
+  if (!fs.existsSync(launchCalendarPath)) {
+    throw new Error(`Missing launch calendar: ${launchCalendarPath}`);
+  }
+  return JSON.parse(fs.readFileSync(launchCalendarPath, 'utf8'));
 }
 
 function writeJson(filePath, payload) {
@@ -637,36 +645,188 @@ async function readinessReport() {
 function recordReceipt(slug, platform) {
   const options = parseCommandOptions(4);
   const statusValue = options.status;
-  const url = options.url ?? '';
   if (!statusValue) {
     throw new Error('receipt:record requires --status=<draft|submitted|published|skipped|blocked|rejected>.');
   }
+  const receipt = recordReceiptWithValues(slug, platform, {
+    status: statusValue,
+    url: options.url ?? '',
+    observedAt: options.observedAt ?? new Date().toISOString(),
+    id: options.id,
+    notes: options.notes,
+    source: options.source,
+  });
+  return { slug, platform, receipt };
+}
 
+function parseNow(value) {
+  if (!value) return new Date();
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) {
+    throw new Error(`Invalid --now value: ${value}`);
+  }
+  return parsed;
+}
+
+function launchDue() {
+  const options = parseCommandOptions(2);
+  const now = parseNow(options.now);
+  const calendar = readLaunchCalendar();
+  const launches = (calendar.launches ?? []).map((launch) => {
+    const scheduledAt = new Date(launch.scheduledAt);
+    const isDue = !Number.isNaN(scheduledAt.getTime()) && scheduledAt <= now;
+    const blockers = [];
+    if (!launch.articleSlug) blockers.push('missing articleSlug');
+    if (launch.pendingSource?.status) blockers.push(launch.pendingSource.status);
+    if (launch.approvalPolicy?.publicPublishAllowed !== true) {
+      blockers.push('public publish disabled');
+    }
+    return {
+      id: launch.id,
+      title: launch.title,
+      scheduledAt: launch.scheduledAt,
+      articleSlug: launch.articleSlug,
+      due: isDue,
+      sourcePlatform: launch.sourcePlatform,
+      targetPlatforms: launch.targetPlatforms ?? [],
+      excludedPlatforms: launch.excludedPlatforms ?? [],
+      approvalPolicy: launch.approvalPolicy ?? {},
+      blockers,
+      nextAction: launch.articleSlug
+        ? 'Generate packages and create draft-only targets allowed by approval mode.'
+        : 'Confirm source URL and import the article before creating platform drafts.',
+    };
+  });
+  return {
+    generatedAt: new Date().toISOString(),
+    now: now.toISOString(),
+    publicPublishingPerformed: false,
+    due: launches.filter((launch) => launch.due),
+    pending: launches.filter((launch) => !launch.due),
+  };
+}
+
+async function createDraftForPlatform(slug, platform) {
+  const options = parseCommandOptions(4);
   const ledger = readLedger();
   const article = ledger.articles?.[slug];
-  if (!article) {
-    throw new Error(`Unknown article slug in ledger: ${slug}`);
+  if (!article) throw new Error(`Unknown article slug in ledger: ${slug}`);
+  const existing = article.platforms?.[platform];
+  if (!existing) throw new Error(`Unknown platform "${platform}" for article "${slug}".`);
+  if (existing.status !== 'not-started' && !options.force) {
+    return {
+      slug,
+      platform,
+      skipped: true,
+      reason: `existing platform status is "${existing.status}"`,
+      receipt: existing,
+    };
   }
+
+  if (platform === 'devto') {
+    const draft = await createDevtoDraft(slug);
+    const receipt = recordReceiptWithValues(slug, platform, {
+      status: 'draft',
+      url: draft.url,
+      id: String(draft.id),
+      notes: 'Created as unpublished DEV draft through draft:create. Not publicly published.',
+    });
+    return { slug, platform, draft, receipt };
+  }
+
+  if (platform === 'hashnode') {
+    const draft = await createHashnodeDraft(slug);
+    const receipt = recordReceiptWithValues(slug, platform, {
+      status: 'draft',
+      url: draft.draft?.slug ? `hashnode:draft:${draft.draft.slug}` : '',
+      id: draft.draft?.id,
+      notes: 'Created as delisted Hashnode draft through draft:create. Not publicly published.',
+    });
+    return { slug, platform, draft, receipt };
+  }
+
+  return {
+    slug,
+    platform,
+    skipped: true,
+    reason: `${platform} is a browser/manual workflow; use receipt:record after manual draft setup.`,
+  };
+}
+
+function recordReceiptWithValues(slug, platform, values) {
+  const ledger = readLedger();
+  const article = ledger.articles?.[slug];
+  if (!article) throw new Error(`Unknown article slug in ledger: ${slug}`);
   if (!article.platforms?.[platform]) {
     throw new Error(`Unknown platform "${platform}" for article "${slug}".`);
   }
-
-  const nextRecord = {
-    status: statusValue,
-    url,
-    observedAt: options.observedAt ?? new Date().toISOString(),
-  };
-  if (options.id) nextRecord.id = options.id;
-  if (options.notes) nextRecord.notes = options.notes;
-  if (options.source) nextRecord.source = options.source;
-
   article.platforms[platform] = {
     ...article.platforms[platform],
-    ...nextRecord,
+    status: values.status,
+    url: values.url ?? '',
+    observedAt: values.observedAt ?? new Date().toISOString(),
+    ...(values.id ? { id: values.id } : {}),
+    ...(values.notes ? { notes: values.notes } : {}),
+    ...(values.source ? { source: values.source } : {}),
   };
   ledger.updatedAt = new Date().toISOString().slice(0, 10);
   writeJson(ledgerPath, ledger);
-  return { slug, platform, receipt: article.platforms[platform] };
+  return article.platforms[platform];
+}
+
+async function createDraftCommand(slug) {
+  const platform = process.argv[4];
+  if (!platform) {
+    throw new Error('draft:create requires <slug> <platform|all>.');
+  }
+  if (platform !== 'all') {
+    return createDraftForPlatform(slug, platform);
+  }
+  const targets = ['devto', 'hashnode', 'medium', 'hackernoon', 'dzone', 'substack'];
+  const results = [];
+  for (const target of targets) {
+    results.push(await createDraftForPlatform(slug, target));
+  }
+  return { slug, results };
+}
+
+function receiptsReport() {
+  const ledger = readLedger();
+  const metrics = fs.existsSync(metricsPath)
+    ? JSON.parse(fs.readFileSync(metricsPath, 'utf8'))
+    : { records: {} };
+  const missingReceipts = [];
+  const missingMetrics = [];
+  const statusCounts = summarizeLedgerReadiness(ledger);
+
+  for (const [slug, article] of Object.entries(ledger.articles ?? {})) {
+    for (const [platform, record] of Object.entries(article.platforms ?? {})) {
+      if (record.status === 'not-started') {
+        missingReceipts.push({ slug, platform, status: record.status });
+      }
+      if (record.status === 'published' && !metrics.records?.[slug]?.platforms?.[platform]) {
+        missingMetrics.push({ slug, platform, url: record.url });
+      }
+    }
+  }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    status: missingReceipts.length > 0 || missingMetrics.length > 0 ? 'DEGRADED' : 'PASS',
+    publicPublishingPerformed: false,
+    statusCounts,
+    missingReceipts,
+    missingMetrics,
+    observation: {
+      claim: 'platform receipts and published metrics are observable from the ledger',
+      status: missingReceipts.length > 0 || missingMetrics.length > 0 ? 'DEGRADED' : 'PASS',
+      fallbackChain: [
+        'platform-ledger.json status counts',
+        'content-metrics.json published receipt reconciliation',
+        'ROM heartbeat',
+      ],
+    },
+  };
 }
 
 function metricsReport() {
@@ -885,11 +1045,14 @@ function usage() {
   pnpm content:pipeline readiness [--skip-network]
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
+  pnpm content:pipeline launch:due [--now=<iso-date>]
   pnpm content:pipeline schedule:dry-run <slug>
   pnpm content:pipeline manual-package <slug|all> [platform]
+  pnpm content:pipeline draft:create <slug> <platform|all> [--force]
   pnpm content:pipeline devto:create-draft <slug>
   pnpm content:pipeline hashnode:create-draft <slug>
   pnpm content:pipeline receipt:record <slug> <platform> --status=<status> [--url=<url>] [--notes=<text>] [--id=<id>]
+  pnpm content:pipeline receipts:report
   pnpm content:pipeline linkedin:capture-list
   pnpm content:pipeline obsidian:scan
   pnpm content:pipeline obsidian:import <slug> [--force]
@@ -900,6 +1063,7 @@ function usage() {
 
 Safety:
   - DEV and Hashnode commands create unpublished/delisted drafts only.
+  - draft:create creates only unpublished/delisted API-backed drafts and skips browser/manual platforms.
   - manual-package writes local posting packages only.
   - readiness and receipt commands write local governance artifacts only.
   - metrics commands write local observation data only.
@@ -958,8 +1122,14 @@ async function runCommand(command, slug) {
   if (command === 'observe:bootstrap') {
     return observeBootstrap();
   }
+  if (command === 'launch:due') {
+    return launchDue();
+  }
   if (command === 'schedule:dry-run' && slug) {
     return scheduleDryRun(slug);
+  }
+  if (command === 'draft:create' && slug) {
+    return createDraftCommand(slug);
   }
   if (command === 'manual-package' && slug) {
     return manualPackage(slug, process.argv[4]);
@@ -978,6 +1148,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'receipt:record' && slug && process.argv[4]) {
     return recordReceipt(slug, process.argv[4]);
+  }
+  if (command === 'receipts:report') {
+    return receiptsReport();
   }
   if (command === 'linkedin:capture-list') {
     return linkedinCaptureList();
