@@ -764,8 +764,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/what-i-learned-building-a-photoshop-in-the-browser-4kn5-temp-slug-7356891",
+          "observedAt": "2026-05-20T21:32:36.051Z",
+          "id": "3711826",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -969,8 +972,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/why-you-should-encapsulate-your-javascript-conditionals-in-a-function-b11-temp-slug-4427194",
+          "observedAt": "2026-05-20T21:32:36.718Z",
+          "id": "3711827",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",

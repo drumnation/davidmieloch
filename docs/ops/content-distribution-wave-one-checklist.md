@@ -122,14 +122,24 @@ Observed DEV state:
 Posts to draft on DEV:
 
 - [x] Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
+- [x] Alphabetize your code.
+- [x] Building with Brain Garden: Real-World Lessons in Practical AI
+- [x] Developing with a Team of AI's
 - [x] Every Company Is Sitting on Sunken Treasure
 - [x] How to Make Your AI Code Look Human
+- [x] Judgment Over Keystrokes
+- [x] Pixel Precision in Developer Tools: What I Learned Building Designer Cloud
 - [x] Reality Needs Observers
+- [x] Reuse your code: Authoring your own Universal Library with Webpack
+- [x] The Beauty of ES6's Object Destructuring Assignment
 - [x] The Factory
 - [x] The Foreman
 - [x] The Golden Hammer
 - [x] The Moving Target
 - [x] The Overnight Shift
+- [x] What I Learned Building a Photoshop in the Browser
+- [x] Why Character Choice Matters in Agent Design
+- [x] Why you should Encapsulate your Javascript Conditionals in a Function
 - [x] Your AI Isn't Hallucinating. It's Lying.
 
 DEV execution notes:
@@ -137,7 +147,7 @@ DEV execution notes:
 - [x] Patch `devto:create-draft` to read generated package files from `content/distribution/packages/<slug>/devto.md`.
 - [ ] Keep DEV creates draft-only until reviewed.
 - [ ] Publish developer-practical posts first; hold broader philosophy posts if they feel weak for DEV.
-- [x] Resume DEV draft creation after rate limit clears; all modern LinkedIn-source DEV drafts are now created.
+- [x] Resume DEV draft creation after rate limit clears; all 20 DEV drafts are now created.
 
 ## Hashnode
 

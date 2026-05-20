@@ -17,7 +17,7 @@ Current state:
 - Local canonical archive: 20/20 articles ready locally.
 - Platform packages: 20/20 articles packaged for LinkedIn, Reddit, Medium, DEV, Hashnode, HackerNoon, DZone, and Substack.
 - Public website canonical: blocked by `davidmieloch.com/blog/...` routing; staging/internal is usable, production canonical is not verified.
-- Remote external drafts: 19 total known remote drafts or draft shells.
+- Remote external drafts: 21 total known remote drafts or draft shells.
 - Public publish automation: intentionally 0. Public publishing still requires David approval.
 - Metrics: no missing metrics for published external receipts because no new syndicated public receipts have been recorded yet.
 
@@ -89,7 +89,7 @@ Blocker:
 
 ### DEV
 
-Status: 18/20 remote unpublished drafts, 2 remaining.
+Status: 20/20 remote unpublished drafts, 0 remaining.
 
 Remote DEV drafts recorded:
 
@@ -109,21 +109,21 @@ Remote DEV drafts recorded:
 - The Golden Hammer
 - The Moving Target
 - The Overnight Shift
+- What I Learned Building a Photoshop in the Browser
 - Why Character Choice Matters in Agent Design
+- Why you should Encapsulate your Javascript Conditionals in a Function
 - Your AI Isn't Hallucinating. It's Lying.
 
 Remaining DEV drafts:
 
-- What I Learned Building a Photoshop in the Browser
-- Why you should Encapsulate your Javascript Conditionals in a Function
+- None.
 
 Blocker:
 
-- DEV API rate-limited the last backfill pass. Retry the remaining 2 later.
+- None for draft creation. Public publishing still requires review and David approval.
 
 Next:
 
-- Create the remaining 2 unpublished DEV drafts through `draft:create`.
 - Review all 20 before any public publish.
 
 ### HackerNoon
@@ -242,7 +242,7 @@ Pipeline stages:
 - Platform package generation: 100%.
 - Scheduling spine: 100%.
 - Website public canonical: blocked.
-- DEV draft backfill: 90%.
+- DEV draft backfill: 100%.
 - HackerNoon draft loading: 5%.
 - DZone draft loading: 0%, but prep/schedule is 100%.
 - Substack draft loading: 0%, but prep/schedule is 100%.
@@ -253,9 +253,8 @@ Pipeline stages:
 ## Immediate Next Moves
 
 1. Fix production canonical routing for `davidmieloch.com/blog/...`.
-2. Retry the 2 remaining DEV drafts after the API rate limit cools down.
-3. Run one manual/browser loading pass for DZone and Substack to prove the draft path.
-4. Turn the proven browser steps into issue #18 execution adapters.
+2. Run one manual/browser loading pass for DZone and Substack to prove the draft path.
+3. Turn the proven browser steps into issue #18 execution adapters.
 5. Build the admin/editor and calendar surfaces from issues #16 and #17.
 
 ## Core Judgment
