@@ -1006,8 +1006,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/alphabetize-your-code-1743-temp-slug-6945484",
+          "observedAt": "2026-05-20T17:02:27.531Z",
+          "id": "3710789",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
