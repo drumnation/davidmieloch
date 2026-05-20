@@ -712,8 +712,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/building-with-brain-garden-real-world-lessons-in-practical-ai-3ojn-temp-slug-9512253",
+          "observedAt": "2026-05-20T18:32:33.565Z",
+          "id": "3711196",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
