@@ -813,8 +813,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/developing-with-a-team-of-ais-2lm8-temp-slug-3250751",
+          "observedAt": "2026-05-20T20:03:04.163Z",
+          "id": "3711471",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -862,8 +865,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/reuse-your-code-authoring-your-own-universal-library-with-webpack-bih-temp-slug-2021970",
+          "observedAt": "2026-05-20T20:03:04.665Z",
+          "id": "3711472",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -911,8 +917,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/the-beauty-of-es6s-object-destructuring-assignment-56he-temp-slug-3376991",
+          "observedAt": "2026-05-20T20:03:05.623Z",
+          "id": "3711473",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
