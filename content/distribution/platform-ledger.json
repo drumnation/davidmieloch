@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-19",
+  "updatedAt": "2026-05-20",
   "sourceOfTruth": {
     "publishedArticles": "linkedin",
     "canonicalArchive": "davidmieloch.com",
@@ -608,8 +608,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud-2df-temp-slug-26509",
+          "observedAt": "2026-05-20T15:28:37.829Z",
+          "id": "3710397",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
@@ -657,8 +660,11 @@
           "url": ""
         },
         "devto": {
-          "status": "not-started",
-          "url": ""
+          "status": "draft",
+          "url": "https://dev.to/david_mieloch_fa3979619a7/judgment-over-keystrokes-4gbb-temp-slug-3250000",
+          "observedAt": "2026-05-20T15:28:38.621Z",
+          "id": "3710398",
+          "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
         },
         "hashnode": {
           "status": "not-started",
