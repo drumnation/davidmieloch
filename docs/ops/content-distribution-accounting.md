@@ -203,22 +203,23 @@ Next:
 
 ## Schedule State
 
-`content/distribution/publish-schedule.json` contains 40 approval-gated prep entries:
+`content/distribution/publish-schedule.json` contains 60 approval-gated prep entries:
 
+- HackerNoon: 20 entries.
 - DZone: 20 entries.
 - Substack: 20 entries.
-- Factory-front-door lane: 22 entries.
-- Legacy-backfill lane: 18 entries.
+- Factory-front-door lane: 33 entries.
+- Legacy-backfill lane: 27 entries.
 - Public publishing allowed: false.
 - Safe default: `do-not-publish`.
 
 First scheduled entry:
 
-- 2026-05-21T13:00:00.000Z: DZone / Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
+- 2026-05-21T13:00:00.000Z: HackerNoon / The Factory
 
 Last scheduled entry:
 
-- 2026-06-10T01:00:00.000Z: Substack / Why you should Encapsulate your Javascript Conditionals in a Function
+- 2026-06-10T05:00:00.000Z: Substack / Why you should Encapsulate your Javascript Conditionals in a Function
 
 ## Forgejo Pipeline
 
