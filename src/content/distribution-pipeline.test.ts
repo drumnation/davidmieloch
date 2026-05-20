@@ -14,6 +14,11 @@ import {
   filterDistributionQueue,
 } from '../../scripts/lib/distribution-queue.mjs';
 import {
+  buildPublishSchedule,
+  dueScheduleEntries,
+  publishScheduleMarkdown,
+} from '../../scripts/lib/content-scheduler.mjs';
+import {
   contentMetricsChecklist,
   contentMetricsReport,
   recordContentMetric,
@@ -635,6 +640,43 @@ describe('distribution queue planning', () => {
     });
   });
 
+  it('filters queue output by multiple platforms before limiting', () => {
+    const root = tempRoot();
+    const ledger = {
+      articles: {
+        'factory-post': {
+          title: 'Factory Post',
+          series: 'AI Factory',
+          platforms: {
+            dzone: { status: 'not-started', url: '' },
+            substack: { status: 'not-started', url: '' },
+            reddit: { status: 'manual-package-required', url: '' },
+          },
+        },
+      },
+    };
+    const queue = buildDistributionQueue({
+      ledger,
+      policy: loadSyndicationPolicy(),
+      packagesRoot: root,
+      canonicalReady: true,
+    });
+
+    const filtered = filterDistributionQueue(queue, {
+      platforms: ['dzone', 'substack'],
+      blocked: false,
+      limit: 2,
+    });
+
+    const actions = filtered.actions as Array<{ platform: string }>;
+    expect(actions.map((action) => action.platform).sort()).toEqual(['dzone', 'substack']);
+    expect(filtered.summary).toMatchObject({
+      totalActions: 2,
+      unblockedActions: 2,
+      blockedActions: 0,
+    });
+  });
+
   it('renders filtered queue output as a Markdown execution checklist', () => {
     const root = tempRoot();
     mkdirSync(join(root, 'the-factory'), { recursive: true });
@@ -666,6 +708,160 @@ describe('distribution queue planning', () => {
     expect(markdown).toContain('- [ ] DEV / The Factory (`the-factory`) - create-api-draft.');
     expect(markdown).toContain(`Package: \`${join(root, 'the-factory', 'devto.md')}\``);
     expect(markdown).toContain('Command: `pnpm content:pipeline draft:create the-factory devto`');
+  });
+
+  it('renders remaining queue actions beyond the recommended first page', () => {
+    const actions = Array.from({ length: 12 }, (_, index) => ({
+      slug: `post-${index}`,
+      title: `Post ${index}`,
+      series: 'AI Factory',
+      platform: 'dzone',
+      displayName: 'DZone',
+      status: 'not-started',
+      workflow: 'manual',
+      postMode: 'editorial-rewrite',
+      approvalRequired: true,
+      publicPublishingAllowed: false,
+      hasPackage: false,
+      packagePath: null,
+      url: '',
+      releaseLane: 'factory-front-door',
+      laneNote: 'Current brand',
+      priority: 40,
+      action: 'prepare-manual-draft',
+      blocked: false,
+      nextCommand: null,
+      note: 'Manual workflow',
+    }));
+    const queue = {
+      generatedAt: '2026-05-19T00:00:00.000Z',
+      publicPublishingPerformed: false,
+      filters: {},
+      summary: {
+        totalActions: 12,
+        unblockedActions: 12,
+        blockedActions: 0,
+        grouped: {},
+        lanes: {
+          'factory-front-door': { total: 12, blocked: 0, unblocked: 12 },
+        },
+      },
+      actions,
+      recommendedNext: actions.slice(0, 10),
+      observation: {},
+    };
+
+    const markdown = distributionQueueMarkdown(queue);
+
+    expect(markdown).toContain('## Remaining Actions');
+    expect(markdown).toContain('DZone / Post 11 (`post-11`)');
+  });
+});
+
+describe('content publish scheduling', () => {
+  it('turns a filtered queue into approval-gated schedule entries', () => {
+    const root = tempRoot();
+    mkdirSync(join(root, 'the-factory'), { recursive: true });
+    writeFileSync(join(root, 'the-factory', 'dzone.md'), 'dzone package');
+    const queue = buildDistributionQueue({
+      ledger: {
+        articles: {
+          'the-factory': {
+            title: 'The Factory',
+            series: 'AI Factory',
+            platforms: {
+              dzone: { status: 'not-started', url: '' },
+            },
+          },
+        },
+      },
+      policy: loadSyndicationPolicy(),
+      packagesRoot: root,
+      canonicalReady: true,
+      generatedAt: '2026-05-20T00:00:00.000Z',
+    });
+
+    const schedule = buildPublishSchedule({
+      queue,
+      generatedAt: '2026-05-20T12:00:00.000Z',
+      startAt: '2026-05-21T13:00:00-04:00',
+      intervalDays: 2,
+    });
+
+    expect(schedule.publicPublishingPerformed).toBe(false);
+    expect(schedule.decisionSeam).toMatchObject({
+      name: 'public-publish-approval',
+      safeDefault: 'do-not-publish',
+    });
+    expect(schedule.entries[0]).toMatchObject({
+      scheduledAt: '2026-05-21T17:00:00.000Z',
+      platform: 'dzone',
+      articleSlug: 'the-factory',
+      executionMode: 'browser-manual',
+      publicPublishingAllowed: false,
+      safeDefault: 'do-not-publish',
+      approval: {
+        required: true,
+        status: 'missing',
+      },
+      packagePath: join(root, 'the-factory', 'dzone.md'),
+    });
+  });
+
+  it('reports due schedule entries without executing publication', () => {
+    const schedule = {
+      entries: [
+        {
+          id: 'schedule:dzone:one:2026-05-20',
+          scheduledAt: '2026-05-20T10:00:00.000Z',
+          blocked: false,
+        },
+        {
+          id: 'schedule:dzone:two:2026-05-21',
+          scheduledAt: '2026-05-21T10:00:00.000Z',
+          blocked: false,
+        },
+      ],
+    };
+
+    const result = dueScheduleEntries(schedule, new Date('2026-05-20T12:00:00.000Z'));
+
+    expect(result.publicPublishingPerformed).toBe(false);
+    expect(result.due).toHaveLength(1);
+    expect(result.pending).toHaveLength(1);
+  });
+
+  it('renders the schedule as a human fallback checklist', () => {
+    const markdown = publishScheduleMarkdown({
+      generatedAt: '2026-05-20T12:00:00.000Z',
+      publicPublishingPerformed: false,
+      decisionSeam: {
+        name: 'public-publish-approval',
+        safeDefault: 'do-not-publish',
+      },
+      summary: {
+        totalEntries: 1,
+        blockedEntries: 0,
+      },
+      entries: [
+        {
+          scheduledAt: '2026-05-21T17:00:00.000Z',
+          displayName: 'DZone',
+          title: 'The Factory',
+          articleSlug: 'the-factory',
+          action: 'prepare-manual-draft',
+          safeDefault: 'do-not-publish',
+          packagePath: '/tmp/the-factory/dzone.md',
+          nextCommand: null,
+          blocked: false,
+        },
+      ],
+    });
+
+    expect(markdown).toContain('# Content Publish Schedule');
+    expect(markdown).toContain('Decision seam: public-publish-approval');
+    expect(markdown).toContain('Package: `/tmp/the-factory/dzone.md`');
+    expect(markdown).toContain('Stop before publish, submit, or send unless David explicitly approves.');
   });
 });
 
@@ -873,6 +1069,52 @@ describe('platform readiness governance', () => {
       skipped: true,
       reason: 'hackernoon is a browser/manual workflow; use receipt:record after manual draft setup.',
     });
+  });
+
+  it('writes and reads a local publish schedule through the CLI', () => {
+    const root = tempRoot();
+    writeLedgerFixture(root);
+    const outputPath = join(root, 'content/distribution/test-publish-schedule.json');
+
+    const generated = runPipelineCommand(root, [
+      'schedule:generate',
+      '--skip-network',
+      '--platform=hackernoon',
+      '--blocked=false',
+      '--start=2026-05-21T09:00:00-04:00',
+      '--interval-days=2',
+      '--write',
+      `--output=${outputPath}`,
+    ]);
+
+    expect(generated.status, generated.stderr).toBe(0);
+    const payload = JSON.parse(generated.stdout);
+    expect(payload).toMatchObject({
+      schemaVersion: 'content-publish-schedule-v1',
+      publicPublishingPerformed: false,
+      outputPath,
+      summary: {
+        totalEntries: 1,
+      },
+    });
+    expect(payload.entries[0]).toMatchObject({
+      platform: 'hackernoon',
+      articleSlug: 'the-factory',
+      safeDefault: 'do-not-publish',
+      approval: {
+        required: true,
+        status: 'missing',
+      },
+    });
+
+    const due = runPipelineCommand(root, [
+      'schedule:due',
+      `--input=${outputPath}`,
+      '--now=2026-05-21T10:00:00-04:00',
+    ]);
+
+    expect(due.status, due.stderr).toBe(0);
+    expect(JSON.parse(due.stdout).due).toHaveLength(1);
   });
 
   it('reports missing receipts and missing metrics as observable state', () => {

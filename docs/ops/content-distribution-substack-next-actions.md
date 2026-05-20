@@ -1,0 +1,41 @@
+# Content Distribution Execution Queue
+
+Generated: 2026-05-20T16:45:27.176Z
+Public publishing performed: no
+
+## Summary
+
+- Total actions: 20
+- Unblocked actions: 20
+- Blocked actions: 0
+
+## Release Lanes
+
+- factory-front-door: 11 total, 11 unblocked, 0 blocked
+- legacy-backfill: 9 total, 9 unblocked, 0 blocked
+
+## Recommended Next
+
+- [ ] Substack / Academic Research Is a Software Patch (And I Finally Have a Way to Install It) (`academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/substack.md`. Command: `pnpm content:pipeline manual-package academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it substack`.
+- [ ] Substack / Every Company Is Sitting on Sunken Treasure (`every-company-is-sitting-on-sunken-treasure`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/every-company-is-sitting-on-sunken-treasure/substack.md`. Command: `pnpm content:pipeline manual-package every-company-is-sitting-on-sunken-treasure substack`.
+- [ ] Substack / How to Make Your AI Code Look Human (`how-to-make-your-ai-code-look-human`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/how-to-make-your-ai-code-look-human/substack.md`. Command: `pnpm content:pipeline manual-package how-to-make-your-ai-code-look-human substack`.
+- [ ] Substack / Reality Needs Observers (`reality-needs-observers`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/reality-needs-observers/substack.md`. Command: `pnpm content:pipeline manual-package reality-needs-observers substack`.
+- [ ] Substack / The Factory (`the-factory`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/the-factory/substack.md`. Command: `pnpm content:pipeline manual-package the-factory substack`.
+- [ ] Substack / The Foreman (`the-foreman`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/the-foreman/substack.md`. Command: `pnpm content:pipeline manual-package the-foreman substack`.
+- [ ] Substack / The Golden Hammer (`the-golden-hammer`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/the-golden-hammer/substack.md`. Command: `pnpm content:pipeline manual-package the-golden-hammer substack`.
+- [ ] Substack / The Moving Target (`the-moving-target`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/the-moving-target/substack.md`. Command: `pnpm content:pipeline manual-package the-moving-target substack`.
+- [ ] Substack / The Overnight Shift (`the-overnight-shift`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/the-overnight-shift/substack.md`. Command: `pnpm content:pipeline manual-package the-overnight-shift substack`.
+- [ ] Substack / Why Character Choice Matters in Agent Design (`why-character-choice-matters-in-agent-design`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/why-character-choice-matters-in-agent-design/substack.md`. Command: `pnpm content:pipeline manual-package why-character-choice-matters-in-agent-design substack`.
+
+## Remaining Actions
+
+- [ ] Substack / Your AI Isn't Hallucinating. It's Lying. (`your-ai-isnt-hallucinating-its-lying`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/your-ai-isnt-hallucinating-its-lying/substack.md`. Command: `pnpm content:pipeline manual-package your-ai-isnt-hallucinating-its-lying substack`.
+- [ ] Substack / Alphabetize your code. (`alphabetize-your-code`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/alphabetize-your-code/substack.md`. Command: `pnpm content:pipeline manual-package alphabetize-your-code substack`.
+- [ ] Substack / Building with Brain Garden: Real-World Lessons in Practical AI (`building-with-brain-garden-real-world-lessons-in-practical-ai`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/building-with-brain-garden-real-world-lessons-in-practical-ai/substack.md`. Command: `pnpm content:pipeline manual-package building-with-brain-garden-real-world-lessons-in-practical-ai substack`.
+- [ ] Substack / Developing with a Team of AI’s (`developing-with-a-team-of-ai-s`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/developing-with-a-team-of-ai-s/substack.md`. Command: `pnpm content:pipeline manual-package developing-with-a-team-of-ai-s substack`.
+- [ ] Substack / Judgment Over Keystrokes (`judgment-over-keystrokes`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/judgment-over-keystrokes/substack.md`. Command: `pnpm content:pipeline manual-package judgment-over-keystrokes substack`.
+- [ ] Substack / Pixel Precision in Developer Tools: What I Learned Building Designer Cloud (`pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/substack.md`. Command: `pnpm content:pipeline manual-package pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud substack`.
+- [ ] Substack / Reuse your code: Authoring your own Universal Library with Webpack (`reuse-your-code-authoring-your-own-universal-library-with-webpack`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/substack.md`. Command: `pnpm content:pipeline manual-package reuse-your-code-authoring-your-own-universal-library-with-webpack substack`.
+- [ ] Substack / The Beauty of ES6's Object Destructuring Assignment (`the-beauty-of-es6s-object-destructuring-assignment`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/the-beauty-of-es6s-object-destructuring-assignment/substack.md`. Command: `pnpm content:pipeline manual-package the-beauty-of-es6s-object-destructuring-assignment substack`.
+- [ ] Substack / What I Learned Building a Photoshop in the Browser (`what-i-learned-building-a-photoshop-in-the-browser`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/what-i-learned-building-a-photoshop-in-the-browser/substack.md`. Command: `pnpm content:pipeline manual-package what-i-learned-building-a-photoshop-in-the-browser substack`.
+- [ ] Substack / Why you should Encapsulate your Javascript Conditionals in a Function (`why-you-should-encapsulate-your-javascript-conditionals-in-a-function`) - prepare-newsletter-framing. Package: `/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/substack.md`. Command: `pnpm content:pipeline manual-package why-you-should-encapsulate-your-javascript-conditionals-in-a-function substack`.

@@ -22,6 +22,14 @@ content/distribution/launch-calendar.json
 
 That file is the source of truth for launch timing, source article readiness, target platform allow-lists, explicit exclusions, and approval mode. It does not grant permission to publish.
 
+Operational publish schedules live in:
+
+```text
+content/distribution/publish-schedule.json
+```
+
+That file is the source of truth for a specific cross-platform work queue. It is generated from the ledger and queue filters, and it keeps the approval seam explicit. It does not grant permission to publish.
+
 ## Platform Modes
 
 | Platform | Mode | Use |
@@ -175,6 +183,26 @@ rtk pnpm content:pipeline queue:write --lane=factory-front-door --blocked=false 
 `queue:write` persists that checklist to `docs/ops/content-distribution-next-actions.md` by default. Use `--output=<path>` for a platform- or session-specific checklist.
 
 When a generated package exists, queue entries include its `Package:` path so browser/manual platforms can be opened with the exact copy source.
+
+To turn a queue slice into a visible schedule, run:
+
+```bash
+rtk pnpm content:pipeline schedule:generate \
+  --platforms=dzone,substack \
+  --blocked=false \
+  --start=2026-05-21T09:00:00-04:00 \
+  --interval-days=1 \
+  --write
+```
+
+Then inspect due work without publishing:
+
+```bash
+rtk pnpm content:pipeline schedule:due
+rtk pnpm content:pipeline schedule:markdown --write
+```
+
+Schedule entries include the package path, intended platform action, manual fallback, safe default, and approval status. The safe default is always `do-not-publish` until David explicitly approves a public publish/submit action.
 
 Browser/manual work must be recorded through the receipt command instead of hand-editing ledger JSON:
 

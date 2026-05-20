@@ -16,6 +16,11 @@ import {
   filterDistributionQueue,
 } from './lib/distribution-queue.mjs';
 import {
+  buildPublishSchedule,
+  dueScheduleEntries,
+  publishScheduleMarkdown,
+} from './lib/content-scheduler.mjs';
+import {
   contentMetricsChecklist,
   contentMetricsReport,
   recordContentMetric,
@@ -50,8 +55,10 @@ const statusPath = path.join(contentRoot, 'distribution/pipeline-status.json');
 const packagesRoot = path.join(contentRoot, 'distribution/packages');
 const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
 const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.json');
+const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
 const defaultQueueOutputPath = path.join(appRoot, 'docs/ops/content-distribution-next-actions.md');
+const defaultScheduleOutputPath = path.join(appRoot, 'docs/ops/content-distribution-schedule.md');
 const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
@@ -882,6 +889,7 @@ function parseBooleanOption(value) {
 function parseQueueFilters(options) {
   return {
     ...(options.platform ? { platform: options.platform } : {}),
+    ...(options.platforms ? { platforms: String(options.platforms).split(',').map((item) => item.trim()).filter(Boolean) } : {}),
     ...(options.action ? { action: options.action } : {}),
     ...(options.lane ? { lane: options.lane } : {}),
     ...(options.blocked !== undefined ? { blocked: parseBooleanOption(options.blocked) } : {}),
@@ -930,6 +938,79 @@ async function distributionQueueWriteCommand() {
       fallbackChain: [
         'written markdown checklist',
         'queue:markdown payload',
+        'ROM heartbeat',
+      ],
+    },
+  };
+}
+
+async function publishScheduleGenerateCommand() {
+  const options = parseCommandOptions(2);
+  const queue = await distributionQueue();
+  const schedule = buildPublishSchedule({
+    queue,
+    generatedAt: new Date().toISOString(),
+    startAt: options.start ?? new Date().toISOString(),
+    intervalDays: options['interval-days'] ?? 1,
+    intervalHours: options['interval-hours'] ?? 0,
+    title: options.title ?? 'Content Distribution Schedule',
+  });
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : publishSchedulePath;
+
+  if (options.write) {
+    writeJson(outputPath, schedule);
+  }
+
+  return {
+    ...schedule,
+    ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function readPublishSchedule(filePath = publishSchedulePath) {
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`Missing publish schedule: ${filePath}`);
+  }
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+function publishScheduleDueCommand() {
+  const options = parseCommandOptions(2);
+  const inputPath = options.input
+    ? path.resolve(appRoot, options.input)
+    : publishSchedulePath;
+  const schedule = readPublishSchedule(inputPath);
+  return dueScheduleEntries(schedule, parseNow(options.now));
+}
+
+function publishScheduleMarkdownCommand() {
+  const options = parseCommandOptions(2);
+  const inputPath = options.input
+    ? path.resolve(appRoot, options.input)
+    : publishSchedulePath;
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : defaultScheduleOutputPath;
+  const schedule = readPublishSchedule(inputPath);
+  const markdown = publishScheduleMarkdown(schedule);
+  if (options.write) {
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, markdown);
+  }
+  return {
+    generatedAt: new Date().toISOString(),
+    publicPublishingPerformed: false,
+    inputPath,
+    ...(options.write ? { outputPath } : {}),
+    markdown,
+    observation: {
+      claim: 'content publish schedule can be rendered as a manual execution checklist',
+      status: 'PASS',
+      fallbackChain: [
+        'publish-schedule.json',
+        'schedule markdown file',
         'ROM heartbeat',
       ],
     },
@@ -1152,11 +1233,14 @@ function usage() {
   pnpm content:pipeline status
   pnpm content:pipeline readiness [--skip-network]
   pnpm content:pipeline queue [--skip-network] [--platform=<id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
-  pnpm content:pipeline queue:markdown [--skip-network] [--platform=<id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
-  pnpm content:pipeline queue:write [--skip-network] [--platform=<id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10] [--output=<path>]
+  pnpm content:pipeline queue:markdown [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
+  pnpm content:pipeline queue:write [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10] [--output=<path>]
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline launch:due [--now=<iso-date>]
+  pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]
+  pnpm content:pipeline schedule:due [--now=<iso-date>] [--input=<path>]
+  pnpm content:pipeline schedule:markdown [--input=<path>] [--write] [--output=<path>]
   pnpm content:pipeline schedule:dry-run <slug>
   pnpm content:pipeline manual-package <slug|all> [platform]
   pnpm content:pipeline draft:create <slug> <platform|all> [--force]
@@ -1181,6 +1265,7 @@ Safety:
   - queue reports next actions only; it does not create drafts or publish.
   - queue:markdown renders a checklist only; it does not create drafts or publish.
   - queue:write writes a checklist file only; it does not create drafts or publish.
+  - schedule commands create/read local schedule artifacts only; they do not create drafts or publish.
   - metrics commands write local observation data only.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
@@ -1248,6 +1333,15 @@ async function runCommand(command, slug) {
   }
   if (command === 'launch:due') {
     return launchDue();
+  }
+  if (command === 'schedule:generate') {
+    return publishScheduleGenerateCommand();
+  }
+  if (command === 'schedule:due') {
+    return publishScheduleDueCommand();
+  }
+  if (command === 'schedule:markdown') {
+    return publishScheduleMarkdownCommand();
   }
   if (command === 'schedule:dry-run' && slug) {
     return scheduleDryRun(slug);

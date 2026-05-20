@@ -246,6 +246,10 @@ export function filterDistributionQueue(queue, filters = {}) {
   if (filters.platform) {
     actions = actions.filter((action) => action.platform === filters.platform);
   }
+  if (filters.platforms?.length) {
+    const platforms = new Set(filters.platforms);
+    actions = actions.filter((action) => platforms.has(action.platform));
+  }
   if (filters.action) {
     actions = actions.filter((item) => item.action === filters.action);
   }
@@ -297,6 +301,19 @@ export function distributionQueueMarkdown(queue) {
     lines.push('- [ ] No unblocked recommended actions in this filtered queue.');
   } else {
     for (const action of queue.recommendedNext) {
+      lines.push(checkboxLine(action));
+    }
+  }
+
+  const recommendedKeys = new Set(
+    queue.recommendedNext.map((action) => `${action.platform}:${action.slug}:${action.action}`),
+  );
+  const remaining = queue.actions.filter(
+    (action) => !recommendedKeys.has(`${action.platform}:${action.slug}:${action.action}`),
+  );
+  if (remaining.length > 0) {
+    lines.push('', '## Remaining Actions', '');
+    for (const action of remaining) {
       lines.push(checkboxLine(action));
     }
   }

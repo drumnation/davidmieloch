@@ -190,11 +190,26 @@ DZone is logged in and the contributor process is documented at `/pages/contribu
 
 Candidate DZone submissions:
 
-- [ ] How to Make Your AI Code Look Human
-- [ ] The Factory
-- [ ] The Foreman
 - [ ] Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
 - [ ] Every Company Is Sitting on Sunken Treasure
+- [ ] How to Make Your AI Code Look Human
+- [ ] Reality Needs Observers
+- [ ] The Factory
+- [ ] The Foreman
+- [ ] The Golden Hammer
+- [ ] The Moving Target
+- [ ] The Overnight Shift
+- [ ] Why Character Choice Matters in Agent Design
+- [ ] Your AI Isn't Hallucinating. It's Lying.
+- [ ] Alphabetize your code.
+- [ ] Building with Brain Garden: Real-World Lessons in Practical AI
+- [ ] Developing with a Team of AI's
+- [ ] Judgment Over Keystrokes
+- [ ] Pixel Precision in Developer Tools: What I Learned Building Designer Cloud
+- [ ] Reuse your code: Authoring your own Universal Library with Webpack
+- [ ] The Beauty of ES6's Object Destructuring Assignment
+- [ ] What I Learned Building a Photoshop in the Browser
+- [ ] Why you should Encapsulate your Javascript Conditionals in a Function
 
 DZone execution notes:
 
@@ -202,6 +217,7 @@ DZone execution notes:
 - [ ] Prefer practical engineering rewrites over philosophy mirrors.
 - [ ] Use `content/distribution/packages/<slug>/dzone.md` as a starting point.
 - [ ] Record moderation result.
+- [ ] Use `docs/ops/content-distribution-dzone-next-actions.md` as the current all-post DZone loading checklist.
 
 ## Substack
 
@@ -209,17 +225,33 @@ Substack is logged in.
 
 Newsletter candidates:
 
-- [ ] Launch note: "The Factory is now the front door"
-- [ ] Golden Hammer series roundup
-- [ ] Observer Series roundup
-- [ ] Dark Chocolate Software Factory manifesto
-- [ ] Monthly field note: what the factory shipped
+- [ ] Academic Research Is a Software Patch (And I Finally Have a Way to Install It)
+- [ ] Every Company Is Sitting on Sunken Treasure
+- [ ] How to Make Your AI Code Look Human
+- [ ] Reality Needs Observers
+- [ ] The Factory
+- [ ] The Foreman
+- [ ] The Golden Hammer
+- [ ] The Moving Target
+- [ ] The Overnight Shift
+- [ ] Why Character Choice Matters in Agent Design
+- [ ] Your AI Isn't Hallucinating. It's Lying.
+- [ ] Alphabetize your code.
+- [ ] Building with Brain Garden: Real-World Lessons in Practical AI
+- [ ] Developing with a Team of AI's
+- [ ] Judgment Over Keystrokes
+- [ ] Pixel Precision in Developer Tools: What I Learned Building Designer Cloud
+- [ ] Reuse your code: Authoring your own Universal Library with Webpack
+- [ ] The Beauty of ES6's Object Destructuring Assignment
+- [ ] What I Learned Building a Photoshop in the Browser
+- [ ] Why you should Encapsulate your Javascript Conditionals in a Function
 
 Substack execution notes:
 
 - [ ] Do not mirror every article one by one.
 - [ ] Use Substack as a direct-audience layer with series framing.
 - [ ] Route readers to the website series pages and mailing list.
+- [ ] Use `docs/ops/content-distribution-substack-next-actions.md` as the current all-post Substack loading checklist.
 
 ## Reddit
 
@@ -307,9 +339,14 @@ Future synchronized wave:
 - [x] Add queue filters and Markdown checklist output for focused execution passes.
 - [x] Add queue writer for durable next-action checklist artifacts.
 - [x] Add generated package paths to queue checklists for browser/manual execution.
+- [x] Show remaining queue actions beyond the first recommended page.
 - [x] Add receipt writer for browser/manual workflows.
 - [x] Add metrics capture checklist per platform.
 - [x] Add observer that reports missing receipts and missing metrics as degraded states.
+- [x] Add approval-gated `schedule:generate`, `schedule:due`, and `schedule:markdown` commands.
+- [ ] Add browser/API execution adapters after each platform flow has a known safe draft path. Governance: http://forge.brain-garden.io:4040/singularity-labs/davidmieloch-site/issues/18
+- [ ] Build logged-in website markdown editor. Governance: http://forge.brain-garden.io:4040/singularity-labs/davidmieloch-site/issues/16
+- [ ] Build visual content calendar backed by the CLI schedule. Governance: http://forge.brain-garden.io:4040/singularity-labs/davidmieloch-site/issues/17
 
 ## PIE-CI Review
 
