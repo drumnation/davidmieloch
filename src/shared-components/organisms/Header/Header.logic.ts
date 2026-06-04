@@ -2,7 +2,8 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandMedium,
-  IconBuildingArch,
+  IconArticle,
+  IconBuildingFactory,
   IconCode,
   IconMessageCircle,
   IconUser
@@ -11,8 +12,8 @@ import { NavLink, SocialLink } from './Header.types';
 
 export const navLinks: NavLink[] = [
   // { label: 'Home', href: '/' },
-  { label: 'AI Transformation', href: '/enterprise-ai-development-framework', icon: IconBuildingArch },
-  { label: 'React Best Practices', href: '/fullstack-react-best-practices-integration', icon: IconCode },
+  { label: 'Factory', href: '/blog/the-factory', icon: IconBuildingFactory },
+  { label: 'Writing', href: '/blog', icon: IconArticle },
   { label: 'Biography', href: '/bio', icon: IconUser },
   { label: 'Code', href: '/code-examples', icon: IconCode },
   { label: 'Let\'s Connect', href: '/contact', icon: IconMessageCircle },
@@ -33,4 +34,4 @@ export const getIsActive = (pathname: string, href: string): boolean => {
     return false;
   }
   return false;
-}; 
+};

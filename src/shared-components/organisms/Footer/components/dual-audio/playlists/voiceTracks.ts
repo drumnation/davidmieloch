@@ -8,8 +8,7 @@ import { AudioTrack } from '../DualAudio.types'; // Assuming AudioTrack type is 
         'code-examples',
         'enterprise-ai-development-framework',
         'experience',
-        'fullstack-react-best-practices-integration',
-        'home'
+        'fullstack-react-best-practices-integration'
     ]);
 })();
 
@@ -70,12 +69,5 @@ export const voiceTracks: AudioTrack[] = [
         artist: 'Narration by David Mieloch',
         src: '/audio/voice/fullstack-react-best-practices-integration.mp3',
         description: 'Narrated guide covering fullstack React development best practices.'
-    },
-    {
-        id: 'home',
-        title: 'Home Page Welcome',
-        artist: 'Narration by David Mieloch',
-        src: '/audio/voice/home.mp3',
-        description: 'Welcome message for new site visitors and overview of Brain Garden.'
     },
 ];

@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '@store/index';
 import { AppShell } from '@mantine/core';
+import { usePathname } from 'next/navigation';
 // import { useDisclosure } from '@mantine/hooks'; // No longer needed?
 // import { MantineProvider } from '@mantine/core'; // No longer needed?
 import { ThemeProvider } from '@providers/ThemeProvider'; // Keep ThemeProvider for now
@@ -22,6 +23,8 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isRootPath = pathname?.split('?')[0].replace(/\/+$/, '') === '';
   // No need to get colorScheme here anymore
 
   // Initialize spring debugger in both dev and production
@@ -90,7 +93,7 @@ export default function ClientLayout({
           {/* Test footer removed */}
 
           {/* Render the actual PersistentFooter here */}
-          <PersistentFooter data-print-hidden="true" />
+          {isRootPath ? null : <PersistentFooter data-print-hidden="true" />}
 
         </AppShell.Footer>
 
@@ -111,4 +114,4 @@ export default function ClientLayout({
       </ThemeProvider>
     </Provider>
   );
-} 
+}
