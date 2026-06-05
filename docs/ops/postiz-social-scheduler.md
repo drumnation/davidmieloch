@@ -8,12 +8,24 @@ Forgejo issue: http://forge.brain-garden.io:4040/singularity-labs/davidmieloch-s
 
 Postiz is the self-hosted scheduling substrate for social teasers and platform distribution work around canonical davidmieloch.com articles.
 
-## Public URL
+## Internal URL
 
 - Primary: https://social-davidmieloch.brain-garden.io
 - Avoid: `https://social.davidmieloch.brain-garden.io`
 
-The nested hostname fails at the Cloudflare edge because the current wildcard certificate covers `*.brain-garden.io`, not `*.*.brain-garden.io`.
+Postiz is an internal Brain Garden operator tool. It should be reached through the internal Brain Garden network, not exposed as a public marketing surface.
+
+Do not route this through Cloudflare Tunnel or make it publicly reachable unless David explicitly asks for that deployment path.
+
+Exposure gate:
+
+```text
+Does anybody but Dave need to touch this GUI?
+```
+
+If the answer is no or unknown, keep Postiz internal.
+
+The nested hostname is also a bad fit for public edge TLS because the current wildcard certificate covers `*.brain-garden.io`, not `*.*.brain-garden.io`.
 
 ## Server Deployment
 
@@ -27,7 +39,7 @@ Health check:
 
 ```bash
 rtk fleet run dawn 'bash -lc "cd /home/dave/platform-repos/postiz-docker-compose && docker compose -f docker-compose.yaml -f docker-compose.brain-garden.yaml ps"'
-rtk bash -lc 'curl -sSIL --max-time 20 https://social-davidmieloch.brain-garden.io | sed -n "1,24p"'
+rtk fleet run dawn 'bash -lc "curl -k -sSIL --resolve social-davidmieloch.brain-garden.io:443:127.0.0.1 --max-time 20 https://social-davidmieloch.brain-garden.io | sed -n '\''1,24p'\''"'
 ```
 
 ## Credential State
@@ -78,6 +90,21 @@ Manual-heavy later wave:
 
 Use Postiz for scheduling and channel state. Keep davidmieloch.com as the canonical article source.
 
+## n8n / Commander Data Integration
+
+Postiz and n8n should be combined rather than treated as competing schedulers.
+
+Preferred split:
+
+- davidmieloch.com/content ledger owns canonical article metadata, copy, hero images, approvals, and receipts.
+- Postiz owns social channel connection state, calendar UI, and scheduled dispatch state.
+- n8n owns workflow orchestration: watch approved schedule packets, call Postiz APIs, run reminders, request missing assets, and trigger metrics capture.
+- Commander Data owns n8n workflow design and maintenance.
+
+This keeps the decision seam explicit. n8n may move approved packets and produce reminders, but it should not invent public publishing approval.
+
+Open discovery item: n8n credentials and workflow packages exist on `singularity-one`, but no live `n8n` container or `:5678` listener was observed during the 2026-06-05 Postiz setup pass.
+
 ## Decision Seam
 
 Name: `public-social-post-approval`
@@ -103,9 +130,12 @@ Future CLI seam:
 rtk pnpm content:pipeline social:package <slug|all>
 rtk pnpm content:pipeline social:schedule --platforms=x,reddit,linkedin --start=<iso>
 rtk pnpm content:pipeline social:postiz:push --dry-run
+rtk pnpm content:pipeline social:n8n:export --dry-run
 ```
 
 `social:postiz:push` should refuse public dispatch unless an approval receipt exists.
+
+`social:n8n:export` should emit workflow-ready schedule packets for Commander Data/n8n without posting.
 
 ## Observability
 
@@ -114,6 +144,7 @@ Primary checks:
 - Postiz container health through Docker Compose.
 - Caddy route HTTP probe.
 - Screenshot or browser render of `/auth` or the logged-in dashboard.
+- n8n workflow execution receipts once n8n is wired in.
 - Ledger receipt for every draft, schedule, approval, and public dispatch.
 
 Fallback chain:

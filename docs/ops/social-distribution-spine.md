@@ -59,6 +59,30 @@ Disallowed without explicit approval:
 - Bluesky/Mastodon: good early API candidates if accounts are created.
 - Substack Notes: browser/manual unless API support is confirmed.
 
+## Postiz And n8n Split
+
+Postiz is the internal scheduling/channel substrate. n8n is the workflow
+orchestrator. They should be combined through deterministic packets, not by
+letting either tool become the source of truth.
+
+- Website ledger: canonical content, approvals, schedule intent, receipts.
+- Postiz: connected channels, calendar UI, social dispatch state.
+- n8n: reminders, workflow transitions, calls into Postiz APIs, metrics capture jobs.
+- Commander Data: owns the n8n workflow buildout and maintenance.
+
+Safe default remains `do-not-post`. n8n may move approved packets and notify
+agents, but it must not create public posting approval.
+
+Exposure gate for every GUI:
+
+```text
+Does anybody but Dave need to touch this GUI?
+```
+
+If the answer is no or unknown, keep the GUI internal. This applies especially
+to Postiz, n8n, analytics, credentials, content admin, agent-control surfaces,
+and scheduling dashboards.
+
 ## CLI Shape
 
 - `pnpm content:pipeline social:package <slug|all>` creates teaser packages.
@@ -67,6 +91,7 @@ Disallowed without explicit approval:
 - `pnpm content:pipeline social:approve <slug> <platform> --post-id=<id>` records approval only.
 - `pnpm content:pipeline social:dispatch <slug> <platform>` refuses unless approval is present.
 - `pnpm content:pipeline social:receipt <slug> <platform> --status=<draft|posted|blocked|rejected>` records outcome.
+- `pnpm content:pipeline social:n8n:export --dry-run` emits workflow-ready schedule packets.
 
 ## Teaser Rules
 
