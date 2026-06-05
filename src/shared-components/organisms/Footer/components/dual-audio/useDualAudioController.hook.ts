@@ -30,6 +30,7 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
     const [isVoiceMuted, setIsVoiceMuted] = useState(false);
     const musicAudioRef = useRef<HTMLAudioElement | null>(null);
     const voiceAudioRef = useRef<HTMLAudioElement | null>(null);
+    const voicePlaybackIntentRef = useRef(false);
     const [isAudioReady, setIsAudioReady] = useState(false);
 
     const applyMusicVolume = useCallback((targetVolume: number) => {
@@ -94,7 +95,10 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
         if (!isNarrationEnabled) return;
         if (voiceAudioRef.current && activeVoiceTrack) {
             voiceAudioRef.current.play()
-                .then(() => setIsVoicePlaying(true))
+                .then(() => {
+                    voicePlaybackIntentRef.current = true;
+                    setIsVoicePlaying(true);
+                })
                 .catch(error => handleAudioError('voice', error, setMusicError, setVoiceError, setIsMusicPlaying, setIsVoicePlaying));
         } else {
             if (!activeVoiceTrack) setVoiceError('No voice track loaded for this page.');
@@ -102,6 +106,7 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
     }, [isNarrationEnabled, activeVoiceTrack]);
 
     const pauseVoice = useCallback(() => {
+        voicePlaybackIntentRef.current = false;
         voiceAudioRef.current?.pause();
         setIsVoicePlaying(false);
     }, []);
@@ -201,27 +206,46 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
         if (voiceAudioRef.current) {
             try {
                 setVoiceError(null);
-                const currentSrc = voiceAudioRef.current.src.replace(window.location.origin, '');
+                const audio = voiceAudioRef.current;
+                const currentSrc = audio.src.replace(window.location.origin, '');
+                const shouldResume = isNarrationEnabled && voicePlaybackIntentRef.current;
                 if (track && track.src !== currentSrc) {
-                    pauseVoice();
+                    audio.pause();
+                    setIsVoicePlaying(false);
                     setVoiceCurrentTime(0);
                     setVoiceDuration(0);
                     const errorHandler = () => {
-                        const error = voiceAudioRef.current?.error;
+                        const error = audio.error;
                         if (error) {
+                            voicePlaybackIntentRef.current = false;
                             const errorMessage = `Voice error (${error.code}): ${error.message}`;
                             setVoiceError(errorMessage);
                         }
+                        audio.removeEventListener('canplay', canPlayHandler);
+                        audio.removeEventListener('error', errorHandler);
                     };
-                    voiceAudioRef.current.onerror = errorHandler;
-                    voiceAudioRef.current.src = track.src;
-                    voiceAudioRef.current.load();
+                    const canPlayHandler = () => {
+                        if (shouldResume) {
+                            audio.play()
+                                .then(() => {
+                                    voicePlaybackIntentRef.current = true;
+                                    setIsVoicePlaying(true);
+                                })
+                                .catch(error => handleAudioError('voice', error, setMusicError, setVoiceError, setIsMusicPlaying, setIsVoicePlaying));
+                        }
+                        audio.removeEventListener('canplay', canPlayHandler);
+                        audio.removeEventListener('error', errorHandler);
+                    };
+                    audio.addEventListener('canplay', canPlayHandler);
+                    audio.addEventListener('error', errorHandler);
+                    audio.src = track.src;
+                    audio.load();
                     setActiveVoiceTrack(track);
                     if (isNarrationEnabled) setVoiceVolumeHandler(voiceVolume);
-                } else if (!track && voiceAudioRef.current.hasAttribute('src') && voiceAudioRef.current.src !== '') {
+                } else if (!track && audio.hasAttribute('src') && audio.src !== '') {
                     pauseVoice();
-                    voiceAudioRef.current.removeAttribute('src');
-                    voiceAudioRef.current.load();
+                    audio.removeAttribute('src');
+                    audio.load();
                     setActiveVoiceTrack(null);
                     setVoiceCurrentTime(0);
                     setVoiceDuration(0);
@@ -230,7 +254,13 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
                 if (error instanceof Error) setVoiceError(error.message);
             }
         }
-    }, [pauseVoice, setVoiceVolumeHandler, isNarrationEnabled, voiceVolume]);
+    }, [
+        isNarrationEnabled,
+        isVoicePlaying,
+        pauseVoice,
+        setVoiceVolumeHandler,
+        voiceVolume,
+    ]);
 
     const playNextMusicTrack = useCallback(() => {
         const nextTrack = getNextMusicTrack(activeMusicTrack, isMusicLooping);
@@ -340,6 +370,7 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
             playNextMusicTrack();
         };
         const handleVoiceEnded = () => {
+            voicePlaybackIntentRef.current = false;
             setIsVoicePlaying(false);
             if (isMusicEnabled) applyMusicVolume(musicTargetVolumeRef.current);
         };

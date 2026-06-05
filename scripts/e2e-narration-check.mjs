@@ -69,6 +69,32 @@ try {
       result,
     });
   }
+
+  await page.click('button[aria-label="Play"]');
+  await page.waitForFunction(() => {
+    return Array.from(document.querySelectorAll('audio')).some((element) => (
+      (element.currentSrc || element.src).includes('/audio/voice/blog/') &&
+      !element.paused &&
+      element.currentTime > 0.5
+    ));
+  }, { timeout: 10_000 });
+
+  const nextTarget = tracks.find((track) => track.id === 'the-golden-hammer') || tracks[1];
+  await page.evaluate(() => {
+    const writingButton = Array.from(document.querySelectorAll('button'))
+      .find((button) => button.textContent?.trim() === 'Writing');
+    writingButton?.click();
+  });
+  await page.waitForFunction(() => location.pathname === '/blog', { timeout: 15_000 });
+  await page.waitForSelector(`a[href="/blog/${nextTarget.id}"]`, { timeout: 15_000 });
+  await page.click(`a[href="/blog/${nextTarget.id}"]`);
+  await page.waitForFunction((expectedSrc) => {
+    return Array.from(document.querySelectorAll('audio')).some((element) => (
+      (element.currentSrc || element.src).includes(expectedSrc) &&
+      !element.paused &&
+      element.currentTime > 0.5
+    ));
+  }, { timeout: 15_000 }, nextTarget.src);
 } finally {
   await browser.close();
 }
@@ -79,6 +105,8 @@ if (failures.length > 0) {
 } else {
   console.log(JSON.stringify({ ok: true, baseUrl, checkedTracks: tracks.length }, null, 2));
 }
+
+process.exit();
 
 async function findChromeExecutable() {
   const candidates = [

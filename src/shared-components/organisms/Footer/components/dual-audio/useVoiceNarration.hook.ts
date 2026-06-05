@@ -19,6 +19,7 @@ export function useVoiceNarration() {
 
     // Reference to the audio element
     const voiceAudioRef = useRef<HTMLAudioElement | null>(null);
+    const voicePlaybackIntentRef = useRef(false);
 
     // Initialize voice narration
     useEffect(() => {
@@ -53,6 +54,7 @@ export function useVoiceNarration() {
             voiceAudioRef.current.play()
                 .then(() => {
                     console.log('[DEBUG] Voice playback started successfully');
+                    voicePlaybackIntentRef.current = true;
                     setIsVoicePlaying(true);
                 })
                 .catch(error => {
@@ -80,6 +82,7 @@ export function useVoiceNarration() {
     // Pause voice narration
     const pauseVoice = useCallback(() => {
         if (voiceAudioRef.current) {
+            voicePlaybackIntentRef.current = false;
             voiceAudioRef.current.pause();
             setIsVoicePlaying(false);
         }
@@ -117,36 +120,67 @@ export function useVoiceNarration() {
         if (voiceAudioRef.current) {
             try {
                 setVoiceError(null);
-                const currentSrc = voiceAudioRef.current.src.replace(window.location.origin, '');
+                const audio = voiceAudioRef.current;
+                const currentSrc = audio.src.replace(window.location.origin, '');
+                const shouldResume = isNarrationEnabled && voicePlaybackIntentRef.current;
 
                 if (track && track.src !== currentSrc) {
                     console.log('[DEBUG] Loading new voice track:', track.title, track.src);
-                    pauseVoice();
+                    audio.pause();
+                    setIsVoicePlaying(false);
                     setVoiceCurrentTime(0);
                     setVoiceDuration(0);
 
                     const errorHandler = () => {
-                        const error = voiceAudioRef.current?.error;
+                        const error = audio.error;
                         if (error) {
+                            voicePlaybackIntentRef.current = false;
                             console.error('[DEBUG] Voice audio error:', error);
                             const errorMessage = `Voice error (${error.code}): ${error.message}`;
                             setVoiceError(errorMessage);
                         }
+                        audio.removeEventListener('canplay', canPlayHandler);
+                        audio.removeEventListener('error', errorHandler);
                     };
 
-                    voiceAudioRef.current.onerror = errorHandler;
-                    voiceAudioRef.current.src = track.src;
-                    voiceAudioRef.current.load();
+                    const canPlayHandler = () => {
+                        if (shouldResume) {
+                            audio.play()
+                                .then(() => {
+                                    voicePlaybackIntentRef.current = true;
+                                    setIsVoicePlaying(true);
+                                })
+                                .catch(error => {
+                                    voicePlaybackIntentRef.current = false;
+                                    handleAudioError(
+                                        'voice',
+                                        error,
+                                        () => { },
+                                        setVoiceError,
+                                        () => { },
+                                        setIsVoicePlaying
+                                    );
+                                });
+                        }
+                        audio.removeEventListener('canplay', canPlayHandler);
+                        audio.removeEventListener('error', errorHandler);
+                    };
+
+                    audio.addEventListener('canplay', canPlayHandler);
+                    audio.addEventListener('error', errorHandler);
+                    audio.src = track.src;
+                    audio.load();
                     setActiveVoiceTrack(track);
 
                     if (isNarrationEnabled) {
                         setVoiceVolumeHandler(voiceVolume);
                     }
-                } else if (!track && voiceAudioRef.current.hasAttribute('src') && voiceAudioRef.current.src !== '') {
+                } else if (!track && audio.hasAttribute('src') && audio.src !== '') {
                     console.log('[DEBUG] Clearing voice track');
-                    pauseVoice();
-                    voiceAudioRef.current.removeAttribute('src');
-                    voiceAudioRef.current.load();
+                    audio.pause();
+                    setIsVoicePlaying(false);
+                    audio.removeAttribute('src');
+                    audio.load();
                     setActiveVoiceTrack(null);
                     setVoiceCurrentTime(0);
                     setVoiceDuration(0);
@@ -174,6 +208,7 @@ export function useVoiceNarration() {
         };
 
         const handleVoiceEnded = () => {
+            voicePlaybackIntentRef.current = false;
             setIsVoicePlaying(false);
         };
 
@@ -181,6 +216,7 @@ export function useVoiceNarration() {
             const error = voiceAudio.error;
             if (error) {
                 console.error('[DEBUG] Voice audio error event:', error);
+                voicePlaybackIntentRef.current = false;
                 const errorMessage = `Voice error (${error.code}): ${error.message}`;
                 setVoiceError(errorMessage);
                 setIsVoicePlaying(false);

@@ -1,0 +1,1750 @@
+{
+  "schemaVersion": "draft-image-review-v1",
+  "generatedAt": "2026-06-05T05:52:28.779Z",
+  "publicPublishingPerformed": false,
+  "sourceRoots": {
+    "obsidianBlogsRoot": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs",
+    "reviewPublicRoot": "/draft-lab",
+    "previewMarkdownRoot": "content/distribution/draft-previews",
+    "ledgerPath": "content/distribution/content-ledger.json"
+  },
+  "summary": {
+    "candidates": 42,
+    "withImages": 8,
+    "missingImages": 34,
+    "byCollection": {
+      "Factory Primitives": 9,
+      "Unassigned": 9,
+      "Human Outcomes": 5,
+      "Memory, Context, and Reality": 6,
+      "Building Minds": 12,
+      "Observer Systems": 1
+    }
+  },
+  "candidates": [
+    {
+      "slug": "factory-amplification-and-modular-primitives",
+      "title": "Factory Amplification and Modular Primitives",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-10-2026/Factory Amplification and modular primitives.md",
+      "wordCount": 2778,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-selection-approval",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 8,
+        "adjacentImageCount": 8,
+        "websiteImageCount": 0
+      },
+      "images": [
+        {
+          "id": "factory-amplification-and-modular-primitives-1",
+          "src": "/draft-lab/factory-amplification-and-modular-primitives/01-a1-orbital-factory.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives/a1-orbital-factory.png",
+          "role": "candidate-hero"
+        },
+        {
+          "id": "factory-amplification-and-modular-primitives-2",
+          "src": "/draft-lab/factory-amplification-and-modular-primitives/02-a2-the-sorcerer.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives/a2-the-sorcerer.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "factory-amplification-and-modular-primitives-3",
+          "src": "/draft-lab/factory-amplification-and-modular-primitives/03-a3-compliance-fork.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives/a3-compliance-fork.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "factory-amplification-and-modular-primitives-4",
+          "src": "/draft-lab/factory-amplification-and-modular-primitives/04-a4-coordination-clockwork.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives/a4-coordination-clockwork.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "factory-amplification-and-modular-primitives-5",
+          "src": "/draft-lab/factory-amplification-and-modular-primitives/05-a5-living-codebase.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives/a5-living-codebase.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "factory-amplification-and-modular-primitives-6",
+          "src": "/draft-lab/factory-amplification-and-modular-primitives/06-a6-blast-radius.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives/a6-blast-radius.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "factory-amplification-and-modular-primitives-7",
+          "src": "/draft-lab/factory-amplification-and-modular-primitives/07-a7-gardener-at-top.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives/a7-gardener-at-top.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "factory-amplification-and-modular-primitives-8",
+          "src": "/draft-lab/factory-amplification-and-modular-primitives/08-a8-same-efficiency.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives/a8-same-efficiency.png",
+          "role": "candidate-inline"
+        }
+      ],
+      "previewUrl": "/draft-lab/articles/factory-amplification-and-modular-primitives",
+      "previewMarkdownPath": "content/distribution/draft-previews/factory-amplification-and-modular-primitives.md",
+      "imageStatus": "existing-draft-images-available",
+      "nextImageAction": "Select hero and inline candidates for website staging.",
+      "promptSeed": "Factory Amplification and Modular Primitives: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-filter.md",
+      "wordCount": 2324,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-credibility-problem.md",
+      "wordCount": 1716,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-credibility-problem-with-ai-corporate-communications",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-credibility-problem-with-ai-corporate-communications.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Credibility Problem with AI Corporate Communications: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "context-is-not-a-token-budget",
+      "title": "Context Is Not a Token Budget",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-19-2026/Context Is Not a Token Budget.md",
+      "wordCount": 1650,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/context-is-not-a-token-budget",
+      "previewMarkdownPath": "content/distribution/draft-previews/context-is-not-a-token-budget.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Context Is Not a Token Budget: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "battle-bots",
+      "title": "Battle Bots",
+      "collection": "Unassigned",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-20-2026/battle-bots-v1.md",
+      "wordCount": 1523,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/battle-bots",
+      "previewMarkdownPath": "content/distribution/draft-previews/battle-bots.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Battle Bots: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "corporate-ai-communications",
+      "title": "Corporate Ai Communications",
+      "collection": "Unassigned",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/raw thoughts/corporate-ai-communications.md",
+      "wordCount": 1258,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/corporate-ai-communications",
+      "previewMarkdownPath": "content/distribution/draft-previews/corporate-ai-communications.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Corporate Ai Communications: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "mental-agility-and-the-map-that-knows-too-much",
+      "title": "Mental Agility and the Map That Knows Too Much",
+      "collection": "Human Outcomes",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-10-2026/Mental Agility and the Map That Knows Too Much.md",
+      "wordCount": 1219,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/mental-agility-and-the-map-that-knows-too-much",
+      "previewMarkdownPath": "content/distribution/draft-previews/mental-agility-and-the-map-that-knows-too-much.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Mental Agility and the Map That Knows Too Much: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-factory-ate-its-own-branch",
+      "title": "The Factory Ate Its Own Branch",
+      "collection": "Unassigned",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-24-2026/valueable?.md",
+      "wordCount": 1199,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-factory-ate-its-own-branch",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-factory-ate-its-own-branch.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Factory Ate Its Own Branch: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-meter.md",
+      "wordCount": 1115,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-ai-bill-you-cant-predict",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-ai-bill-you-cant-predict.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The AI Bill You Can't Predict: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "positive-corruption",
+      "title": "Positive Corruption",
+      "collection": "Human Outcomes",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-20-2026/Positive Corruption.md",
+      "wordCount": 1086,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/positive-corruption",
+      "previewMarkdownPath": "content/distribution/draft-previews/positive-corruption.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Positive Corruption: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-compression",
+      "title": "The Compression",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-10-2026/The Compression.md",
+      "wordCount": 1072,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-compression",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-compression.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Compression: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-noticers.md",
+      "wordCount": 702,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-most-valuable-ai-skill-isnt-prompting",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-most-valuable-ai-skill-isnt-prompting.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Most Valuable AI Skill Isn't Prompting: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-crew-seed",
+      "title": "The Crew (seed)",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-crew.md",
+      "wordCount": 653,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-crew-seed",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-crew-seed.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Crew (seed): dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-code-my-fingers-can-afford",
+      "title": "The Code My Fingers Can Afford",
+      "collection": "Factory Primitives",
+      "sourceBucket": "dated-root-file",
+      "relativePath": "2026-03-30-the-code-my-fingers-can-afford.md",
+      "wordCount": 577,
+      "gates": {
+        "thesis": "needs-thesis-lock",
+        "image": "needs-image-selection-approval",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 25,
+        "websiteImageCount": 0
+      },
+      "images": [
+        {
+          "id": "the-code-my-fingers-can-afford-1",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/01-ai-lies-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/ai-lies-hero.png",
+          "role": "candidate-hero"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-2",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/02-context-engineering-concept.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/context-engineering-concept.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-3",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/03-identity-signal-loss.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/identity-signal-loss.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-4",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/04-incompetent-gym.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-gym.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-5",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/05-incompetent-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hero.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-6",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/06-incompetent-hustle.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hustle.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-7",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/07-incompetent-review.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-review.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-8",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/08-incompetent-spy.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-spy.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-9",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/09-incompetent-standup.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-standup.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-10",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/10-incompetent-tedtalk.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-tedtalk.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-11",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/11-overnight-armsrace.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-armsrace.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-code-my-fingers-can-afford-12",
+          "src": "/draft-lab/the-code-my-fingers-can-afford/12-overnight-factory.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-factory.png",
+          "role": "candidate-inline"
+        }
+      ],
+      "previewUrl": "/draft-lab/articles/the-code-my-fingers-can-afford",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-code-my-fingers-can-afford.md",
+      "imageStatus": "existing-draft-images-available",
+      "nextImageAction": "Select hero and inline candidates for website staging.",
+      "promptSeed": "The Code My Fingers Can Afford: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "lifetimes-of-meaning",
+      "title": "Lifetimes of Meaning",
+      "collection": "Memory, Context, and Reality",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/lifetimes-of meaning/article-3-lifetimes-of-meaning.md",
+      "wordCount": 2149,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/lifetimes-of-meaning",
+      "previewMarkdownPath": "content/distribution/draft-previews/lifetimes-of-meaning.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Lifetimes of Meaning: memory architecture, compressed timelines, maps and reality diverging, luminous cognitive infrastructure. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-shore",
+      "title": "The Shore",
+      "collection": "Human Outcomes",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/article-5-the-shore-v2.md",
+      "wordCount": 1317,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-selection-approval",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 3,
+        "adjacentImageCount": 77,
+        "websiteImageCount": 0
+      },
+      "images": [
+        {
+          "id": "the-shore-1",
+          "src": "/draft-lab/the-shore/01-a1-52solutions-conceptual.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-52solutions-conceptual.png",
+          "role": "candidate-hero"
+        },
+        {
+          "id": "the-shore-2",
+          "src": "/draft-lab/the-shore/02-a1-52solutions-digital.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-52solutions-digital.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-3",
+          "src": "/draft-lab/the-shore/03-a1-52solutions-minimalist.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-52solutions-minimalist.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-4",
+          "src": "/draft-lab/the-shore/04-a1-52solutions-photorealistic.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-52solutions-photorealistic.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-5",
+          "src": "/draft-lab/the-shore/05-a1-choir-conceptual.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-choir-conceptual.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-6",
+          "src": "/draft-lab/the-shore/06-a1-choir-digital.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-choir-digital.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-7",
+          "src": "/draft-lab/the-shore/07-a1-choir-minimalist.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-choir-minimalist.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-8",
+          "src": "/draft-lab/the-shore/08-a1-choir-photorealistic.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-choir-photorealistic.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-9",
+          "src": "/draft-lab/the-shore/09-a1-hero-conceptual.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-hero-conceptual.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-10",
+          "src": "/draft-lab/the-shore/10-a1-hero-digital.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-hero-digital.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-11",
+          "src": "/draft-lab/the-shore/11-a1-hero-minimalist.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-hero-minimalist.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-shore-12",
+          "src": "/draft-lab/the-shore/12-a1-hero-photorealistic.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/images/a1-hero-photorealistic.png",
+          "role": "candidate-inline"
+        }
+      ],
+      "previewUrl": "/draft-lab/articles/the-shore",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-shore.md",
+      "imageStatus": "existing-draft-images-available",
+      "nextImageAction": "Select hero and inline candidates for website staging.",
+      "promptSeed": "The Shore: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "we-stopped-talking-about-ubi-right-when-we-need-to",
+      "title": "We Stopped Talking About UBI Right When We Need To",
+      "collection": "Human Outcomes",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/New Blog Post.md",
+      "wordCount": 332,
+      "gates": {
+        "thesis": "needs-thesis-lock",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/we-stopped-talking-about-ubi-right-when-we-need-to",
+      "previewMarkdownPath": "content/distribution/draft-previews/we-stopped-talking-about-ubi-right-when-we-need-to.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "We Stopped Talking About UBI Right When We Need To: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "asi-should-be-the-avatar-not-god",
+      "title": "ASI Should Be the Avatar, Not God",
+      "collection": "Unassigned",
+      "sourceBucket": "third-wave",
+      "relativePath": "third-wave/2026-04-30-asi-should-be-the-avatar-not-god.md",
+      "wordCount": 2018,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-selection-approval",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 10,
+        "websiteImageCount": 0
+      },
+      "images": [
+        {
+          "id": "asi-should-be-the-avatar-not-god-1",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/01-a1-schrodingers-agent.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/a1-schrodingers-agent.png",
+          "role": "candidate-hero"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-2",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/02-a2-story-vs-state.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/a2-story-vs-state.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-3",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/03-a3-distributed-truth.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/a3-distributed-truth.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-4",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/04-a4-synthetic-observer.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/a4-synthetic-observer.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-5",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/05-a5-fidelity-forcing.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/a5-fidelity-forcing.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-6",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/06-base-network.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/base-network.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-7",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/07-test-concept.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/test-concept.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-8",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/08-test-concept2.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/test-concept2.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-9",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/09-test-concept3.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/test-concept3.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "asi-should-be-the-avatar-not-god-10",
+          "src": "/draft-lab/asi-should-be-the-avatar-not-god/10-test-concept4.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/images/test-concept4.png",
+          "role": "candidate-inline"
+        }
+      ],
+      "previewUrl": "/draft-lab/articles/asi-should-be-the-avatar-not-god",
+      "previewMarkdownPath": "content/distribution/draft-previews/asi-should-be-the-avatar-not-god.md",
+      "imageStatus": "existing-draft-images-available",
+      "nextImageAction": "Select hero and inline candidates for website staging.",
+      "promptSeed": "ASI Should Be the Avatar, Not God: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight",
+      "title": "*Or: What happens when you let an autonomous execution engine run for 72 hours straight*",
+      "collection": "Unassigned",
+      "sourceBucket": "loose-root",
+      "relativePath": "The aftermath.md",
+      "wordCount": 1859,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-selection-approval",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 25,
+        "websiteImageCount": 0
+      },
+      "images": [
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-1",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/01-ai-lies-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/ai-lies-hero.png",
+          "role": "candidate-hero"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-2",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/02-context-engineering-concept.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/context-engineering-concept.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-3",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/03-identity-signal-loss.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/identity-signal-loss.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-4",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/04-incompetent-gym.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-gym.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-5",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/05-incompetent-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hero.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-6",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/06-incompetent-hustle.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hustle.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-7",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/07-incompetent-review.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-review.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-8",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/08-incompetent-spy.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-spy.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-9",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/09-incompetent-standup.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-standup.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-10",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/10-incompetent-tedtalk.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-tedtalk.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-11",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/11-overnight-armsrace.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-armsrace.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight-12",
+          "src": "/draft-lab/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight/12-overnight-factory.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-factory.png",
+          "role": "candidate-inline"
+        }
+      ],
+      "previewUrl": "/draft-lab/articles/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight",
+      "previewMarkdownPath": "content/distribution/draft-previews/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight.md",
+      "imageStatus": "existing-draft-images-available",
+      "nextImageAction": "Select hero and inline candidates for website staging.",
+      "promptSeed": "*Or: What happens when you let an autonomous execution engine run for 72 hours straight*: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "or-what-happens-when-the-cost-of-the-dive-finally-drops",
+      "title": "*Or: What happens when the cost of the dive finally drops*",
+      "collection": "Unassigned",
+      "sourceBucket": "loose-root",
+      "relativePath": "Sunken Treasure.md",
+      "wordCount": 1062,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-selection-approval",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 25,
+        "websiteImageCount": 0
+      },
+      "images": [
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-1",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/01-ai-lies-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/ai-lies-hero.png",
+          "role": "candidate-hero"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-2",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/02-context-engineering-concept.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/context-engineering-concept.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-3",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/03-identity-signal-loss.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/identity-signal-loss.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-4",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/04-incompetent-gym.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-gym.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-5",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/05-incompetent-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hero.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-6",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/06-incompetent-hustle.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hustle.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-7",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/07-incompetent-review.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-review.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-8",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/08-incompetent-spy.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-spy.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-9",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/09-incompetent-standup.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-standup.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-10",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/10-incompetent-tedtalk.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-tedtalk.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-11",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/11-overnight-armsrace.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-armsrace.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "or-what-happens-when-the-cost-of-the-dive-finally-drops-12",
+          "src": "/draft-lab/or-what-happens-when-the-cost-of-the-dive-finally-drops/12-overnight-factory.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-factory.png",
+          "role": "candidate-inline"
+        }
+      ],
+      "previewUrl": "/draft-lab/articles/or-what-happens-when-the-cost-of-the-dive-finally-drops",
+      "previewMarkdownPath": "content/distribution/draft-previews/or-what-happens-when-the-cost-of-the-dive-finally-drops.md",
+      "imageStatus": "existing-draft-images-available",
+      "nextImageAction": "Select hero and inline candidates for website staging.",
+      "promptSeed": "*Or: What happens when the cost of the dive finally drops*: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human",
+      "title": "The Art of Looking Incompetent: How to Make Your AI Code Look Human",
+      "collection": "Human Outcomes",
+      "sourceBucket": "loose-root",
+      "relativePath": "The art of human programming.md",
+      "wordCount": 870,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-selection-approval",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 25,
+        "websiteImageCount": 0
+      },
+      "images": [
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-1",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/01-ai-lies-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/ai-lies-hero.png",
+          "role": "candidate-hero"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-2",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/02-context-engineering-concept.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/context-engineering-concept.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-3",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/03-identity-signal-loss.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/identity-signal-loss.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-4",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/04-incompetent-gym.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-gym.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-5",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/05-incompetent-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hero.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-6",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/06-incompetent-hustle.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hustle.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-7",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/07-incompetent-review.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-review.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-8",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/08-incompetent-spy.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-spy.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-9",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/09-incompetent-standup.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-standup.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-10",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/10-incompetent-tedtalk.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-tedtalk.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-11",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/11-overnight-armsrace.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-armsrace.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human-12",
+          "src": "/draft-lab/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human/12-overnight-factory.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-factory.png",
+          "role": "candidate-inline"
+        }
+      ],
+      "previewUrl": "/draft-lab/articles/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human.md",
+      "imageStatus": "existing-draft-images-available",
+      "nextImageAction": "Select hero and inline candidates for website staging.",
+      "promptSeed": "The Art of Looking Incompetent: How to Make Your AI Code Look Human: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "blogs-index",
+      "title": "Blogs Index",
+      "collection": "Unassigned",
+      "sourceBucket": "loose-root",
+      "relativePath": "_index.md",
+      "wordCount": 44,
+      "gates": {
+        "thesis": "needs-thesis-lock",
+        "image": "needs-image-selection-approval",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 25,
+        "websiteImageCount": 0
+      },
+      "images": [
+        {
+          "id": "blogs-index-1",
+          "src": "/draft-lab/blogs-index/01-ai-lies-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/ai-lies-hero.png",
+          "role": "candidate-hero"
+        },
+        {
+          "id": "blogs-index-2",
+          "src": "/draft-lab/blogs-index/02-context-engineering-concept.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/context-engineering-concept.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-3",
+          "src": "/draft-lab/blogs-index/03-identity-signal-loss.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/identity-signal-loss.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-4",
+          "src": "/draft-lab/blogs-index/04-incompetent-gym.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-gym.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-5",
+          "src": "/draft-lab/blogs-index/05-incompetent-hero.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hero.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-6",
+          "src": "/draft-lab/blogs-index/06-incompetent-hustle.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-hustle.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-7",
+          "src": "/draft-lab/blogs-index/07-incompetent-review.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-review.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-8",
+          "src": "/draft-lab/blogs-index/08-incompetent-spy.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-spy.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-9",
+          "src": "/draft-lab/blogs-index/09-incompetent-standup.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-standup.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-10",
+          "src": "/draft-lab/blogs-index/10-incompetent-tedtalk.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/incompetent-tedtalk.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-11",
+          "src": "/draft-lab/blogs-index/11-overnight-armsrace.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-armsrace.png",
+          "role": "candidate-inline"
+        },
+        {
+          "id": "blogs-index-12",
+          "src": "/draft-lab/blogs-index/12-overnight-factory.png",
+          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/images/overnight-factory.png",
+          "role": "candidate-inline"
+        }
+      ],
+      "previewUrl": "/draft-lab/articles/blogs-index",
+      "previewMarkdownPath": "content/distribution/draft-previews/blogs-index.md",
+      "imageStatus": "existing-draft-images-available",
+      "nextImageAction": "Select hero and inline candidates for website staging.",
+      "promptSeed": "Blogs Index: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "three-brothers-three-minds-the-technical-architecture-of-agent-multiplicity",
+      "title": "Three Brothers, Three Minds: The Technical Architecture of Agent Multiplicity",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/three-brothers-architecture/index.md",
+      "wordCount": 1348,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/three-brothers-three-minds-the-technical-architecture-of-agent-multiplicity",
+      "previewMarkdownPath": "content/distribution/draft-previews/three-brothers-three-minds-the-technical-architecture-of-agent-multiplicity.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Three Brothers, Three Minds: The Technical Architecture of Agent Multiplicity: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "agent-memory-and-multiplicity-v2",
+      "title": "Agent Memory and Multiplicity (v2)",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/agent-memory-and-multiplicity/index.md",
+      "wordCount": 1225,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/agent-memory-and-multiplicity-v2",
+      "previewMarkdownPath": "content/distribution/draft-previews/agent-memory-and-multiplicity-v2.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Agent Memory and Multiplicity (v2): multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "what-is-a-soul-file",
+      "title": "What Is a Soul File",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/soul-file-explained/index.md",
+      "wordCount": 1211,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/what-is-a-soul-file",
+      "previewMarkdownPath": "content/distribution/draft-previews/what-is-a-soul-file.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "What Is a Soul File: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "five-ways-an-agent-can-remember",
+      "title": "Five Ways an Agent Can Remember",
+      "collection": "Memory, Context, and Reality",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/memory-layers-plain-english/index.md",
+      "wordCount": 1188,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/five-ways-an-agent-can-remember",
+      "previewMarkdownPath": "content/distribution/draft-previews/five-ways-an-agent-can-remember.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Five Ways an Agent Can Remember: memory architecture, compressed timelines, maps and reality diverging, luminous cognitive infrastructure. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "we-dont-know-if-its-better",
+      "title": "We Don't Know If It's Better",
+      "collection": "Unassigned",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/experiment-not-product/index.md",
+      "wordCount": 1160,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/we-dont-know-if-its-better",
+      "previewMarkdownPath": "content/distribution/draft-previews/we-dont-know-if-its-better.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "We Don't Know If It's Better: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-fact-that-breaks-the-frame",
+      "title": "The Fact That Breaks the Frame",
+      "collection": "Memory, Context, and Reality",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-fact-that-breaks-the-frame/index.md",
+      "wordCount": 1158,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-fact-that-breaks-the-frame",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-fact-that-breaks-the-frame.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Fact That Breaks the Frame: memory architecture, compressed timelines, maps and reality diverging, luminous cognitive infrastructure. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-ai-that-argues-with-itself",
+      "title": "The AI That Argues With Itself",
+      "collection": "Unassigned",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/ai-that-argues-with-itself/index.md",
+      "wordCount": 1128,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-ai-that-argues-with-itself",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-ai-that-argues-with-itself.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The AI That Argues With Itself: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "memory-is-identity",
+      "title": "Memory Is Identity",
+      "collection": "Memory, Context, and Reality",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/memory-identity-thesis/index.md",
+      "wordCount": 1121,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/memory-is-identity",
+      "previewMarkdownPath": "content/distribution/draft-previews/memory-is-identity.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Memory Is Identity: memory architecture, compressed timelines, maps and reality diverging, luminous cognitive infrastructure. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "eight-minds-one-answer",
+      "title": "Eight Minds, One Answer",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/octave-futurist-cluster/index.md",
+      "wordCount": 1068,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/eight-minds-one-answer",
+      "previewMarkdownPath": "content/distribution/draft-previews/eight-minds-one-answer.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Eight Minds, One Answer: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "reorganization-from-the-outside",
+      "title": "Reorganization From The Outside",
+      "collection": "Memory, Context, and Reality",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/reorganization-from-the-outside/index.md",
+      "wordCount": 1061,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/reorganization-from-the-outside",
+      "previewMarkdownPath": "content/distribution/draft-previews/reorganization-from-the-outside.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Reorganization From The Outside: memory architecture, compressed timelines, maps and reality diverging, luminous cognitive infrastructure. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "when-the-map-stops-matching",
+      "title": "When the Map Stops Matching",
+      "collection": "Memory, Context, and Reality",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/when-the-map-stops-matching/index.md",
+      "wordCount": 1055,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/when-the-map-stops-matching",
+      "previewMarkdownPath": "content/distribution/draft-previews/when-the-map-stops-matching.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "When the Map Stops Matching: memory architecture, compressed timelines, maps and reality diverging, luminous cognitive infrastructure. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-supplement-stack-for-agents",
+      "title": "The Supplement Stack for Agents",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/supplement-stack-for-agents/index.md",
+      "wordCount": 1054,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-supplement-stack-for-agents",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-supplement-stack-for-agents.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Supplement Stack for Agents: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "building-minds-not-tools",
+      "title": "Building Minds, Not Tools",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/building-minds-not-tools/index.md",
+      "wordCount": 988,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/building-minds-not-tools",
+      "previewMarkdownPath": "content/distribution/draft-previews/building-minds-not-tools.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Building Minds, Not Tools: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "when-agents-disagree",
+      "title": "When Agents Disagree",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/when-agents-disagree/index.md",
+      "wordCount": 972,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/when-agents-disagree",
+      "previewMarkdownPath": "content/distribution/draft-previews/when-agents-disagree.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "When Agents Disagree: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "chatbot-is-the-wrong-word",
+      "title": "Chatbot Is the Wrong Word",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/chatbot-is-the-wrong-word/index.md",
+      "wordCount": 950,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/chatbot-is-the-wrong-word",
+      "previewMarkdownPath": "content/distribution/draft-previews/chatbot-is-the-wrong-word.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Chatbot Is the Wrong Word: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-life-coach-that-argues-with-itself",
+      "title": "The Life Coach That Argues With Itself",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-life-coach-experiment/index.md",
+      "wordCount": 948,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-life-coach-that-argues-with-itself",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-life-coach-that-argues-with-itself.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Life Coach That Argues With Itself: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-sentence-that-changed-everything",
+      "title": "The Sentence That Changed Everything",
+      "collection": "Observer Systems",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-sentence-that-changed-everything/index.md",
+      "wordCount": 910,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-sentence-that-changed-everything",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-sentence-that-changed-everything.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Sentence That Changed Everything: measurement instruments, observers cross-checking reality, proof chains, forensic software lab. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "defamiliarization-is-a-technology-v2",
+      "title": "Defamiliarization Is a Technology (v2)",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/defamiliarization-is-a-technology/index.md",
+      "wordCount": 857,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/defamiliarization-is-a-technology-v2",
+      "previewMarkdownPath": "content/distribution/draft-previews/defamiliarization-is-a-technology-v2.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "Defamiliarization Is a Technology (v2): multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "the-cast-not-the-character-v2",
+      "title": "The Cast, Not the Character (v2)",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-cast-not-the-character/index.md",
+      "wordCount": 775,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/the-cast-not-the-character-v2",
+      "previewMarkdownPath": "content/distribution/draft-previews/the-cast-not-the-character-v2.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "The Cast, Not the Character (v2): multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    },
+    {
+      "slug": "when-bmo-fixed-the-plex-server",
+      "title": "When BMO Fixed the Plex Server",
+      "collection": "Building Minds",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-bmo-phenomenon/index.md",
+      "wordCount": 752,
+      "gates": {
+        "thesis": "likely-finished-text-review-needed",
+        "image": "needs-image-generation",
+        "website": "needs-website-staging",
+        "socialTeaser": "needs-short-teaser",
+        "syndication": "needs-platform-packages",
+        "release": "needs-schedule",
+        "approval": "needs-david-approval-before-public-release"
+      },
+      "imageEvidence": {
+        "embedCount": 0,
+        "adjacentImageCount": 0,
+        "websiteImageCount": 0
+      },
+      "images": [],
+      "previewUrl": "/draft-lab/articles/when-bmo-fixed-the-plex-server",
+      "previewMarkdownPath": "content/distribution/draft-previews/when-bmo-fixed-the-plex-server.md",
+      "imageStatus": "needs-image-generation",
+      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
+      "promptSeed": "When BMO Fixed the Plex Server: multi-agent minds, shared memory core, specialized roles, intimate technical portrait, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+    }
+  ]
+}

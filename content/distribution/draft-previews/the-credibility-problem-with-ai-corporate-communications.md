@@ -1,0 +1,115 @@
+# The Credibility Problem with AI Corporate Communications
+
+I recently went through a corporate onboarding experience that left me thinking about something I couldn't quite name at first.
+
+The videos were professional. The AI avatars were incredibly lifelike: hair moving, faces animating with precision I hadn't seen before. And yet something was deeply wrong. The body stayed almost perfectly still while the face performed. Classic uncanny valley. But that wasn't what bothered me. The visual thing was actually the smaller problem.
+
+What bothered me was something harder to locate. An epistemic uncanny valley, if you want to put words to it.
+
+---
+
+## Persuasion Has Always Required a Person
+
+When your CEO gives a speech about the company's values, about why you should believe in the mission, about what the future holds, you're not just receiving information. You're receiving *a claim made by a specific person who has skin in the game.* Their reputation is attached to those words. You can watch their face and ask: do they actually believe this? Their hesitations, their word choices, their energy: all of it carries signal about whether the message is true.
+
+Aristotle called this *ethos*: the credibility of the speaker. It's one of the three pillars of rhetoric, alongside logos (logic) and pathos (emotion). For most of human history, we understood intuitively that persuasion requires a credible source. The message cannot be separated from the messenger.
+
+When an AI avatar delivers the same words, the source has been quietly removed. There is no person staking their credibility. No one whose reputation rides on whether this turns out to be true. The words float free of any human who could be held to them.
+
+And you feel it. Even if you can't name it.
+
+---
+
+## What Persuasion Actually Requires
+
+I should be precise here, because there's a version of this argument that's too strong.
+
+AI persuades us all the time. I've had conversations with AI systems that genuinely changed my mind, helped me see something I'd missed, talked me into a course of action I was skeptical of. That's real persuasion.
+
+But it works through a completely different mechanism.
+
+When you're in a conversation with an AI, there's something distinctive about the epistemic structure. You know what the AI knows, because you put it there. The context window is the shared space: everything you've said, everything it's responded to, the documents you've given it. There's a kind of radical transparency to it. The AI can only reason from what's in that space, and you can feel safe that it's working from the same information you are.
+
+That's what builds trust. Not a face or a history or a reputation. A shared mental model. A verifiable record of the conversation you're having together.
+
+A corporate onboarding video has none of this. It doesn't know your name, your role, your concerns, your history. It's a broadcast aimed at a statistical average of "new employee." The mechanism that makes AI persuasive in a real conversation is entirely absent. What's left is just words, optimized to sound reassuring, delivered without any knowledge of the person receiving them.
+
+---
+
+## The Medium Contradicts the Message
+
+Here's the deeper irony: using AI to communicate company values *demonstrates, in the act of delivering them*, that authenticity isn't actually valued.
+
+If the message is "we care about our people, we have real standards, we're building something worth believing in," and that message is delivered by a synthetic entity with no stake in any of it, the medium has already answered the question. The subtext is loud: *not enough to put a real person in front of you.*
+
+This isn't a knock on AI as a technology. AI-generated training materials, documentation, onboarding logistics: all fine. The failure mode is specific: using AI to do *persuasion*, which has always required a credible source. It's the right tool applied to the wrong job.
+
+The cost savings are real. Video production is expensive. I get why the math works. But motivation isn't a content delivery problem. You can't reduce the ROI on human belief in an organization to a production budget line item.
+
+---
+
+## Who Is Telling Me This?
+
+The thing is, when a real employee (even a mid-level manager, even someone you've never met) delivers a message about company culture, there's something implicit in that moment: *this person chose to say this.* They could have said something else. They work here. They've seen things. And they're still saying this.
+
+That implicit endorsement is invisible until it's gone.
+
+When a prompted LLM generates the values, and a synthetic avatar reads them back, that endorsement disappears entirely. You don't know if anyone at the company believes any of it. You don't know if anyone at the company even *read* it before it shipped. The message is indistinguishable from corporate lorem ipsum dressed up with a face.
+
+And if you're already feeling uncertain about the organization, already wondering whether leadership actually means what it says, that gap doesn't close. It widens.
+
+---
+
+## What This Actually Signals
+
+Someone at my company made the call to build this. I don't know who. I can imagine them: maybe a younger person who was genuinely excited by the technology, saw the lifelike avatars and thought *this is so much better than the talking-head videos we used to make.* Maybe they spent real time on it, cared about it, felt proud of what they shipped.
+
+There's a darker reading too: someone who sensed it was hollow but didn't feel they had the standing to say so, who shipped it because the budget was there and it was expected. I've been in that position. I'm not going to assume the worst.
+
+What I can say is that watching it, I felt like a compliance checkbox, not a person being welcomed. An automated system had been flagging me for weeks about the overdue module. I finished it not because I was inspired, but because in an environment where everyone is watching their back, a flag against your name for skipping an onboarding video feels like a risk not worth taking. That's the actual mechanism at work: not motivation, but anxiety dressed as motivation. Compliance theater running on a loop, designed to look like belief formation.
+
+The uncanny valley I felt wasn't just the slightly-too-still body. It was the moment I realized: no one is accountable for what this thing is telling me. No face I can look up. No name I can test against what I later experience here.
+
+Just words, delivered with perfect diction, by no one.
+
+---
+
+## The Lens I Can't Stop Using
+
+Here's where I have to be honest about my own vantage point.
+
+I spend a lot of time thinking about what I'd call a factory model for AI: the idea that if you want to build something that scales, you have to assume agents can handle everything, or you get bottlenecked by humans at every step. I've watched this play out in software: code review automated, CI automated, merges gated and eventually automated, deployment automated. Each human removed from a loop doesn't eliminate the loop. It just lets it run faster, cheaper, more consistently.
+
+I don't assume everyone sees the world this way. It's a pattern I've internalized from daily work, not a universal given. But once you've built that mental model, you start applying it everywhere. And sitting there watching the onboarding video, I couldn't stop applying it.
+
+*Who is this trying to convince?*
+
+A human employee. Someone who needs to feel valued, to believe the company's values are real, to be motivated to stay.
+
+*How long will companies need to do that?*
+
+The question sounds more provocative than I mean it to. It's really just pattern-matching. Everywhere I look in software, the loops that required a human convincing another human are either gone or going. Code review. Testing. Approval gates. Not out of malice. Because it turns out the human was the bottleneck, and removing them makes the loop faster and more consistent.
+
+Corporate motivation is a loop. It requires humans on both ends.
+
+---
+
+## The Puzzle Solves Itself
+
+Once you hold that frame, the uncanny valley resolves into something else.
+
+The video doesn't feel wrong because AI is bad at persuasion. It feels wrong because it's trying to solve a human problem (belief formation, motivation, loyalty) using the same tools that are, right now, quietly making that problem obsolete. The entire apparatus of corporate persuasion exists *because of humans*. The onboarding video, the values statement, the equity incentive designed to make you want to stay: none of these need to exist in a world without employees who need to be convinced.
+
+We're not there yet. That's what makes it uncomfortable. We're in the transition: still human enough to feel the absence of credibility, still in roles where the motivation apparatus is pointed at us, but close enough to the edge that you can see the seams.
+
+Code review. CI. Auto-merge. Living factory. Recursive self-improvement loops. Each step compresses the human touchpoint: first assisted, then optional, then vestigial, then gone. I've built parts of that system myself. Watching this video, I found myself pattern-matching the same trajectory onto the room I was sitting in.
+
+I want to be clear: I say this not as someone certain of the timeline or excited about the endpoint. I say it as someone who has spent a lot of time building exactly this kind of thing, and who watched an onboarding video today and found themselves thinking: *I might be one of the last cohorts of employees this was ever made for.*
+
+That's not a comfortable thought. But it's the one I actually had. And I'd rather write it honestly than wrap it in something safer.
+
+---
+
+*The person who made this video was probably doing their best. They were doing a job, trying to build something better than what came before. I don't want to be dismissive of that.*
+
+*But the larger pattern is hard to unsee once you see it. The uncanny valley isn't in the avatar's slightly-still body. It's in the moment you realize you're looking at an artifact of a world that's already in the process of changing, and that you're part of the thing doing the changing.*
