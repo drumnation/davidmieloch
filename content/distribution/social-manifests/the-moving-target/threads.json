@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:threads:the-moving-target:ceddb361b7a1",
+  "source": {
+    "articleSlug": "the-moving-target",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/threads.md"
+  },
+  "destination": {
+    "platform": "threads",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Moving Target\n\nWhen you learned to code in the 1990s, that skill lasted thirty years. The same investment made a decade later bought you ten. Made five years ago, you might already be rebuilding. The half life is compressing. That's not a metaphor. It's a pattern with a direction. There are three waves of people\n\nhttps://davidmieloch.com/blog/the-moving-target?utm_source=threads&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-moving-target",
+    "links": [
+      "https://davidmieloch.com/blog/the-moving-target"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "9b82571278c5477693eca61e6ff4fecff46e6d045b844f3248923d90e7cf21c4"
+  }
+}

@@ -124,18 +124,19 @@ Source data:
 - `content/distribution/social-ledger.json`
 - article Markdown and hero image metadata
 
-Future CLI seam:
+Current CLI seam:
 
 ```bash
 rtk pnpm content:pipeline social:package <slug|all>
-rtk pnpm content:pipeline social:schedule --platforms=x,reddit,linkedin --start=<iso>
+rtk pnpm content:pipeline social:manifest <slug|all> <platform|all> --write
+rtk pnpm content:pipeline social:schedule --start=<iso> --interval-hours=8 --write
+rtk pnpm content:pipeline social:n8n:export --write
 rtk pnpm content:pipeline social:postiz:push --dry-run
-rtk pnpm content:pipeline social:n8n:export --dry-run
 ```
 
-`social:postiz:push` should refuse public dispatch unless an approval receipt exists.
+`social:postiz:push` currently refuses until credential custody and a Postiz API adapter exist. The future non-dry-run implementation should create Postiz drafts or schedules only from signed manifests and should refuse public dispatch unless an approval receipt exists.
 
-`social:n8n:export` should emit workflow-ready schedule packets for Commander Data/n8n without posting.
+`social:n8n:export` emits workflow-ready schedule packets for Commander Data/n8n without posting.
 
 ## Observability
 

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:mastodon:what-i-learned-building-a-photoshop-in-the-browser:af1a92fbc027",
+  "source": {
+    "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+    "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/mastodon.md"
+  },
+  "destination": {
+    "platform": "mastodon",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "What I Learned Building a Photoshop in the Browser\n\nLessons in architecture, state management, and engineering leadership from four years building an enterprise grade design tool. Introduction The Designer Cloud interface — our browser based design platform inspired by Photoshop’s layered editing model. What I Learned Building a Photoshop in the Browser When I first joined the Designer Cloud project\n\nCanonical essay: https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser?utm_source=mastodon&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=what-i-learned-building-a-photoshop-in-the-browser",
+    "links": [
+      "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "0e96879b2e9bf5e8276c2b70aa252c956faf43a8e3289afd503039ac703c8253"
+  }
+}

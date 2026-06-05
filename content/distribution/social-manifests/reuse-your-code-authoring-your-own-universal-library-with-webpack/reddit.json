@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:reuse-your-code-authoring-your-own-universal-library-with-webpack:742bcb0cd74f",
+  "source": {
+    "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: Reuse your code: Authoring your own Universal Library with Webpack\n\nBody:\nAre you looking to build a custom library using webpack? With the right setup, webpack can help you create a library that can be used by other developers in their projects. This is also helpful if you’d like to share your own code with many of your own projects to avoid needless code repetition. In this blog post, we’ll discuss the steps to create a custom...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "c311ae96f18f6cc0974c3647b2aaf774aa991de3ec3fe4a3961fefbc370d5825"
+  }
+}

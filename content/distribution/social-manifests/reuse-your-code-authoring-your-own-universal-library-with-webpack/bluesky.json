@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:bluesky:reuse-your-code-authoring-your-own-universal-library-with-webpack:3109eaced90c",
+  "source": {
+    "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/bluesky.md"
+  },
+  "destination": {
+    "platform": "bluesky",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Reuse your code: Authoring your own Universal Library with Webpack\n\nAre you looking to build a custom library using webpack? With the right setup, webpack can help you create a library that can be used by other developers in their projects. This is also helpful if you’d like\n\nhttps://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=bluesky&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "links": [
+      "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "adc0d1b595e8697211439e16d0379d70f52cbc9fa1d66d99712aedac79b455ab"
+  }
+}

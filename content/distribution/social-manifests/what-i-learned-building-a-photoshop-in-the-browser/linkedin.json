@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:what-i-learned-building-a-photoshop-in-the-browser:54f2e7e89de2",
+  "source": {
+    "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+    "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "What I Learned Building a Photoshop in the Browser\n\nLessons in architecture, state management, and engineering leadership from four years building an enterprise grade design tool. Introduction The Designer Cloud interface — our browser based design platform inspired by Photoshop’s layered editing model. What I Learned Building a Photoshop in the Browser When I first joined the Designer Cloud project at...\n\nRead the canonical essay: https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=what-i-learned-building-a-photoshop-in-the-browser",
+    "links": [
+      "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "a5b6664ab7b1cdb8f491486ff71b238eb9d80442554de403f77c4d220c3f2e41"
+  }
+}

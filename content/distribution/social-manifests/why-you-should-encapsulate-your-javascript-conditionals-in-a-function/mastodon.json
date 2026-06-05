@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:mastodon:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:4313152ca37c",
+  "source": {
+    "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+    "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/mastodon.md"
+  },
+  "destination": {
+    "platform": "mastodon",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Why you should Encapsulate your Javascript Conditionals in a Function\n\nConditional statements are a crucial aspect of programming but can often be challenging to read and understand. They tend to be long and detailed, including multiple edge cases that might not be relevant while scanning the code. This makes it difficult for developers to understand the flow of the program and what the conditional statement is doing. One\n\nCanonical essay: https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function?utm_source=mastodon&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+    "links": [
+      "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "33b79a7bd4e44f4d714187da9a6e906da1c75aaa5f0a9ac439715b46f137a63c"
+  }
+}

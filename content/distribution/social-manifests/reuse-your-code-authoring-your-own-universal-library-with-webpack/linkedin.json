@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:reuse-your-code-authoring-your-own-universal-library-with-webpack:e8bb843b7500",
+  "source": {
+    "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Reuse your code: Authoring your own Universal Library with Webpack\n\nAre you looking to build a custom library using webpack? With the right setup, webpack can help you create a library that can be used by other developers in their projects. This is also helpful if you’d like to share your own code with many of your own projects to avoid needless code repetition. In this blog post, we’ll discuss the steps to create a custom...\n\nRead the canonical essay: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "links": [
+      "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "2fd3c64204cc46aa57a74cba2baf1d2c5c0ba50bb1200b072dd889e69920185a"
+  }
+}

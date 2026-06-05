@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "reality-needs-observers",
+  "title": "Reality Needs Observers",
+  "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/linkedin.md",
+      "checksum": "05dafebfc1880056d590483fc61991602f3fc90bf00dba1bc03f2a1d2c342322"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/x-twitter.md",
+      "checksum": "ce5280e99694c81eb4b1d6143142375e81f9b9ceb55e119ef47f35794dcee0d1"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/reddit.md",
+      "checksum": "0ebf8c61b22c4a52c714604f44866eb2803d3d71db6bec62906f43d3f1119564"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/bluesky.md",
+      "checksum": "0f6cc0f7c916968e8219a05c6f248f095512c14dc6621604170a28d90377c5a0"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/mastodon.md",
+      "checksum": "755799fbcdc090f3d6a55ecddbf5979fc26f469d6a048947ea00efa22ffa0b72"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/threads.md",
+      "checksum": "c22fe7e0d28db7efa838b1052501a0c19ebe2fe561adf5245bdf7c6ab33e68d7"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/facebook-page.md",
+      "checksum": "a048706563d63b0cd7968226872530eef7edf37cb8b016245781d74fc3dbdc30"
+    }
+  ]
+}

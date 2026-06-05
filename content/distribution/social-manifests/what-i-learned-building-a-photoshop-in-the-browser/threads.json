@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:threads:what-i-learned-building-a-photoshop-in-the-browser:d1731d282021",
+  "source": {
+    "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+    "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/threads.md"
+  },
+  "destination": {
+    "platform": "threads",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "What I Learned Building a Photoshop in the Browser\n\nLessons in architecture, state management, and engineering leadership from four years building an enterprise grade design tool. Introduction The Designer Cloud interface — our browser based design platform inspired by Photoshop’s layered editing model. What I Learned Building a Photoshop in the\n\nhttps://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser?utm_source=threads&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=what-i-learned-building-a-photoshop-in-the-browser",
+    "links": [
+      "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "5941264cd5fac647732139dec14eebfeb7e17c4447909021dc3b3d0132ef4256"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:what-i-learned-building-a-photoshop-in-the-browser:7e9a52a2a338",
+  "source": {
+    "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+    "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: What I Learned Building a Photoshop in the Browser\n\nBody:\nLessons in architecture, state management, and engineering leadership from four years building an enterprise grade design tool. Introduction The Designer Cloud interface — our browser based design platform inspired by Photoshop’s layered editing model. What I Learned Building a Photoshop in the Browser When I first joined the Designer Cloud project at...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=what-i-learned-building-a-photoshop-in-the-browser\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "ab1b1eec22c8323a0fc8dd2b7e2179f962f1dc70a52f220c9ff7de7030129bf4"
+  }
+}

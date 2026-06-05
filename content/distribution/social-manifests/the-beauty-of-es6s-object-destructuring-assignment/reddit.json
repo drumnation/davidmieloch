@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:the-beauty-of-es6s-object-destructuring-assignment:d9faef44bc7e",
+  "source": {
+    "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: The Beauty of ES6's Object Destructuring Assignment\n\nBody:\nBenefits Key name can’t change, predictability Keys can be in any order, and can be alphabetized Inputs and outputs become incredibly clear Object destructuring is an incredibly powerful tool that allows developers to quickly and easily access data stored in complex object structures. By using object destructuring, developers can assign object properties to...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-beauty-of-es6s-object-destructuring-assignment\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "f425561745897cac5ff1d9c0dbf156693b5b539d8d312c4b096c17af13ac93e6"
+  }
+}

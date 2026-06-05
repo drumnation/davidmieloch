@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:bluesky:the-beauty-of-es6s-object-destructuring-assignment:afdf526e96a7",
+  "source": {
+    "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/bluesky.md"
+  },
+  "destination": {
+    "platform": "bluesky",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Beauty of ES6's Object Destructuring Assignment\n\nBenefits Key name can’t change, predictability Keys can be in any order, and can be alphabetized Inputs and outputs become incredibly clear Object destructuring is an incredibly powerful tool that allows\n\nhttps://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment?utm_source=bluesky&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-beauty-of-es6s-object-destructuring-assignment",
+    "links": [
+      "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "f6dbc8802d86ce9c7fa0199a1b6fd2883d380b4b3cbb4c5dd579824bd4553b07"
+  }
+}

@@ -55,6 +55,14 @@ import {
   loadSyndicationPolicy,
   platformPackageDefaults,
 } from './lib/platform-packages.mjs';
+import {
+  buildN8nExport,
+  buildSocialPackages,
+  buildSocialPostManifest,
+  buildSocialReadiness,
+  buildSocialSchedule,
+  recordSocialRefusal,
+} from './lib/social-automation.mjs';
 import { importWebsiteArticle } from './lib/website-importer.mjs';
 
 const appRoot = process.cwd();
@@ -67,11 +75,17 @@ const publicRoot = path.join(appRoot, 'public');
 const ledgerPath = path.join(contentRoot, 'distribution/platform-ledger.json');
 const statusPath = path.join(contentRoot, 'distribution/pipeline-status.json');
 const packagesRoot = path.join(contentRoot, 'distribution/packages');
+const socialPackagesRoot = path.join(contentRoot, 'distribution/social-packages');
 const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
 const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.json');
 const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
 const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
+const socialAccountInventoryPath = path.join(contentRoot, 'distribution/social-account-inventory.json');
+const socialCalendarPath = path.join(contentRoot, 'distribution/social-calendar.json');
+const socialN8nExportPath = path.join(contentRoot, 'distribution/n8n/social-dispatch-packets.json');
+const socialManifestRoot = path.join(contentRoot, 'distribution/social-manifests');
+const socialRefusalInboxPath = path.join(contentRoot, 'distribution/refusal-inbox.json');
 const audioBooksRoot = path.join(contentRoot, 'distribution/audio-books');
 const defaultQueueOutputPath = path.join(appRoot, 'docs/ops/content-distribution-next-actions.md');
 const defaultScheduleOutputPath = path.join(appRoot, 'docs/ops/content-distribution-schedule.md');
@@ -176,6 +190,13 @@ function readLaunchCalendar() {
     throw new Error(`Missing launch calendar: ${launchCalendarPath}`);
   }
   return JSON.parse(fs.readFileSync(launchCalendarPath, 'utf8'));
+}
+
+function readSocialAccountInventory() {
+  if (!fs.existsSync(socialAccountInventoryPath)) {
+    throw new Error(`Missing social account inventory: ${socialAccountInventoryPath}`);
+  }
+  return JSON.parse(fs.readFileSync(socialAccountInventoryPath, 'utf8'));
 }
 
 function writeJson(filePath, payload) {
@@ -485,6 +506,208 @@ function manualPackage(slug, platform) {
     variants,
     platforms,
   });
+}
+
+function socialReadinessCommand() {
+  return buildSocialReadiness({
+    inventory: readSocialAccountInventory(),
+  });
+}
+
+function socialPackageCommand(slug) {
+  if (!slug) throw new Error('social:package requires <slug|all> [platform].');
+  const platform = process.argv[4];
+  return buildSocialPackages({
+    ledger: readLedger(),
+    inventory: readSocialAccountInventory(),
+    articlesRoot,
+    outputRoot: socialPackagesRoot,
+    slug,
+    platform,
+  });
+}
+
+function socialScheduleCommand() {
+  const options = parseCommandOptions(2);
+  const schedule = buildSocialSchedule({
+    packageRoot: socialPackagesRoot,
+    inventory: readSocialAccountInventory(),
+    startAt: options.start ?? new Date().toISOString(),
+    intervalHours: options['interval-hours'] ?? 8,
+  });
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : socialCalendarPath;
+  if (options.write) {
+    writeJson(outputPath, schedule);
+  }
+  return {
+    ...schedule,
+    ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function readSocialCalendar(inputPath = socialCalendarPath) {
+  if (!fs.existsSync(inputPath)) {
+    throw new Error(`Missing social calendar: ${inputPath}`);
+  }
+  return JSON.parse(fs.readFileSync(inputPath, 'utf8'));
+}
+
+function socialDueCommand() {
+  const options = parseCommandOptions(2);
+  const inputPath = options.input
+    ? path.resolve(appRoot, options.input)
+    : socialCalendarPath;
+  const now = parseNow(options.now);
+  const calendar = readSocialCalendar(inputPath);
+  const due = [];
+  const pending = [];
+  for (const entry of calendar.entries ?? []) {
+    const scheduledAt = new Date(entry.scheduledAt);
+    if (!Number.isNaN(scheduledAt.getTime()) && scheduledAt <= now) due.push(entry);
+    else pending.push(entry);
+  }
+  return {
+    generatedAt: new Date().toISOString(),
+    publicPublishingPerformed: false,
+    inputPath,
+    now: now.toISOString(),
+    due,
+    pending,
+  };
+}
+
+function socialManifestCommand(slug) {
+  const platform = process.argv[4];
+  if (!slug || !platform) throw new Error('social:manifest requires <slug|all> <platform|all>.');
+  const options = parseCommandOptions(5);
+  if (slug === 'all') {
+    if (!fs.existsSync(socialPackagesRoot)) {
+      throw new Error(`Missing social packages root: ${socialPackagesRoot}`);
+    }
+    const slugs = fs
+      .readdirSync(socialPackagesRoot, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .sort();
+    const generated = [];
+    for (const articleSlug of slugs) {
+      const packageManifestPath = path.join(socialPackagesRoot, articleSlug, 'manifest.json');
+      if (!fs.existsSync(packageManifestPath)) continue;
+      const packageManifest = JSON.parse(fs.readFileSync(packageManifestPath, 'utf8'));
+      const targets = platform === 'all'
+        ? (packageManifest.files ?? []).map((file) => file.platform)
+        : [platform];
+      for (const target of targets) {
+        const targetPackagePath = path.join(socialPackagesRoot, articleSlug, `${target}.md`);
+        if (!fs.existsSync(targetPackagePath)) continue;
+        const manifest = buildSocialPostManifest({
+          ledger: readLedger(),
+          inventory: readSocialAccountInventory(),
+          slug: articleSlug,
+          platform: target,
+          packagePath: targetPackagePath,
+          mode: options.mode ?? 'draft',
+          approvalStatus: options.approval ?? 'missing',
+        });
+        const outputPath = path.join(socialManifestRoot, articleSlug, `${target}.json`);
+        if (options.write) writeJson(outputPath, manifest);
+        generated.push({
+          slug: articleSlug,
+          platform: target,
+          manifestId: manifest.manifestId,
+          signature: manifest.signature,
+          ...(options.write ? { outputPath } : {}),
+        });
+      }
+    }
+    return {
+      generatedAt: new Date().toISOString(),
+      publicPublishingPerformed: false,
+      safeDefault: 'do-not-post',
+      generated,
+    };
+  }
+  const packagePath = options.package
+    ? path.resolve(appRoot, options.package)
+    : path.join(socialPackagesRoot, slug, `${platform}.md`);
+  const manifest = buildSocialPostManifest({
+    ledger: readLedger(),
+    inventory: readSocialAccountInventory(),
+    slug,
+    platform,
+    packagePath,
+    mode: options.mode ?? 'draft',
+    approvalStatus: options.approval ?? 'missing',
+  });
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : path.join(socialManifestRoot, slug, `${platform}.json`);
+  if (options.write) {
+    writeJson(outputPath, manifest);
+  }
+  return {
+    ...manifest,
+    publicPublishingPerformed: false,
+    ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function socialN8nExportCommand() {
+  const options = parseCommandOptions(2);
+  const inputPath = options.input
+    ? path.resolve(appRoot, options.input)
+    : socialCalendarPath;
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : socialN8nExportPath;
+  const payload = buildN8nExport({
+    socialCalendar: readSocialCalendar(inputPath),
+    inventory: readSocialAccountInventory(),
+  });
+  if (options.write) {
+    writeJson(outputPath, payload);
+  }
+  return {
+    ...payload,
+    inputPath,
+    ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function socialRefusalCommand() {
+  const platform = process.argv[3];
+  const action = process.argv[4];
+  const options = parseCommandOptions(5);
+  return recordSocialRefusal({
+    refusalPath: socialRefusalInboxPath,
+    platform,
+    action,
+    reason: options.reason,
+    notes: options.notes ?? '',
+    screenshotPath: options.screenshot ?? null,
+  });
+}
+
+function socialPostizPushCommand() {
+  const options = parseCommandOptions(2);
+  const dryRun = options['dry-run'] !== false;
+  const readiness = buildSocialReadiness({ inventory: readSocialAccountInventory() });
+  return {
+    generatedAt: new Date().toISOString(),
+    publicPublishingPerformed: false,
+    dryRun,
+    status: 'blocked',
+    reason: readiness.credentialStore?.writeStatus === 'ready'
+      ? 'Postiz API push is not implemented yet; use social:n8n:export packets and internal Postiz UI.'
+      : readiness.credentialStore?.blocker ?? 'Credential custody is not verified.',
+    safeDefault: 'do-not-post',
+    nextAction: readiness.credentialStore?.writeStatus === 'ready'
+      ? 'Build a Postiz API adapter that creates drafts/schedules only from signed manifests.'
+      : 'Fix 1Password Brain Garden vault create/update permission before creating accounts or connector tests.',
+    readiness,
+  };
 }
 
 function parseMetricRecordArgs(args) {
@@ -1393,6 +1616,14 @@ function usage() {
   pnpm content:pipeline metrics:checklist
   pnpm content:pipeline metrics:record <slug> <platform> --url=<published-url> [--views=0] [--clicks=0] [--reactions=0] [--comments=0] [--shares=0] [--subscribers=0]
   pnpm content:pipeline content:ledger [--write] [--output=<path>] [--report=<path>] [--obsidian-root=<path>]
+  pnpm content:pipeline social:readiness
+  pnpm content:pipeline social:package <slug|all> [platform]
+  pnpm content:pipeline social:schedule [--start=<iso-date>] [--interval-hours=8] [--write] [--output=<path>]
+  pnpm content:pipeline social:due [--now=<iso-date>] [--input=<path>]
+  pnpm content:pipeline social:manifest <slug|all> <platform|all> [--mode=draft] [--approval=missing] [--write] [--output=<path>]
+  pnpm content:pipeline social:n8n:export [--input=<path>] [--write] [--output=<path>]
+  pnpm content:pipeline social:refusal <platform> <action> --reason=<reason> [--notes=<text>] [--screenshot=<path>]
+  pnpm content:pipeline social:postiz:push --dry-run
   pnpm content:pipeline audio:prepare <slug> [--force]
   pnpm content:pipeline audio:approve <slug>
   pnpm content:pipeline audio:status [slug|all]
@@ -1412,6 +1643,8 @@ Safety:
   - schedule commands create/read local schedule artifacts only; they do not create drafts or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
+  - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
+  - social:postiz:push is a dry-run/refusal command until a Postiz API adapter exists.
   - audio:prepare, audio:approve, audio:status, audio:quote, and audio:tracks do not call Speechify.
   - audio:generate calls Speechify only with --spend-approved and requires an approved audio script.
   - audio:book does not call Speechify; --write concatenates already-current article MP3 files.
@@ -1511,6 +1744,30 @@ async function runCommand(command, slug) {
   }
   if (command === 'content:ledger') {
     return contentLedgerCommand();
+  }
+  if (command === 'social:readiness') {
+    return socialReadinessCommand();
+  }
+  if (command === 'social:package') {
+    return socialPackageCommand(slug);
+  }
+  if (command === 'social:schedule') {
+    return socialScheduleCommand();
+  }
+  if (command === 'social:due') {
+    return socialDueCommand();
+  }
+  if (command === 'social:manifest') {
+    return socialManifestCommand(slug);
+  }
+  if (command === 'social:n8n:export') {
+    return socialN8nExportCommand();
+  }
+  if (command === 'social:refusal') {
+    return socialRefusalCommand();
+  }
+  if (command === 'social:postiz:push') {
+    return socialPostizPushCommand();
   }
   if (command === 'audio:prepare') {
     return audioPrepareCommand(slug);

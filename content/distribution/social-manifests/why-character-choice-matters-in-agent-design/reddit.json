@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:why-character-choice-matters-in-agent-design:6096aa0d5ae5",
+  "source": {
+    "articleSlug": "why-character-choice-matters-in-agent-design",
+    "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: Why Character Choice Matters in Agent Design\n\nBody:\nMost people assume that giving an AI agent a fictional persona is just for fun. A novelty. A skin on top of the real system. I've found the opposite. Personas carry serious engineering weight, and the people dismissing them are probably underestimating what a single character name actually invokes. The Training Data Shortcut When you name an agent after a...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=why-character-choice-matters-in-agent-design\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "f7543e5ec68aaefb4c23a4f724f9e0055593dcf921453d34ee5835872eb8effb"
+  }
+}

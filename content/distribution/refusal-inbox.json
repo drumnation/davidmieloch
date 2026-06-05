@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "social-refusal-inbox-v1",
+  "records": [
+    {
+      "id": "refusal:1password:create-credential-item:50a026015970",
+      "ts": "2026-06-05T07:44:37.952Z",
+      "platform": "1password",
+      "action": "create-credential-item",
+      "status": "blocked",
+      "reason": "service-account-lacks-create-update-permission",
+      "notes": "Blocks Postiz first user, fresh account credentials, recovery codes, and connector tests.",
+      "screenshotPath": null,
+      "nextHumanAction": "David or an authorized operator must resolve this manually."
+    }
+  ]
+}

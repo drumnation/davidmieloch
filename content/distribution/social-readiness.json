@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-06-05T07:49:09.836Z",
+  "publicPublishingPerformed": false,
+  "exposureGate": "Does anybody but Dave need to touch this GUI?",
+  "credentialStore": {
+    "provider": "1Password",
+    "vault": "Brain Garden",
+    "writeStatus": "blocked",
+    "blocker": "Current 1Password service account can read the vault but cannot create or update items.",
+    "requiredBeforeAccountCreation": true
+  },
+  "postiz": {
+    "url": "https://social-davidmieloch.brain-garden.io",
+    "network": "internal-brain-garden",
+    "status": "running",
+    "firstUserStatus": "blocked-on-1password-write",
+    "publicExposure": "forbidden-unless-explicitly-approved"
+  },
+  "n8n": {
+    "role": "workflow-orchestrator",
+    "ownerAgent": "Commander Data",
+    "status": "discovery-needed",
+    "notes": "n8n workflow packages and credentials were found on singularity-one, but no live n8n container or :5678 listener was observed during the 2026-06-05 Postiz setup pass."
+  },
+  "summary": {
+    "accounts": 12,
+    "blocked": 12,
+    "canaryEligible": 6,
+    "connectorTestReady": 0
+  },
+  "accounts": [
+    {
+      "platform": "linkedin",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "later",
+      "testPostPolicy": "no-public-test-posts",
+      "canaryEligible": false,
+      "personalAccount": true,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "medium",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "medium",
+      "testPostPolicy": "draft-or-private-only",
+      "canaryEligible": false,
+      "personalAccount": true,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "x-twitter",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "medium",
+      "testPostPolicy": "no-public-test-posts-on-personal-account",
+      "canaryEligible": false,
+      "personalAccount": true,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "reddit",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "low",
+      "testPostPolicy": "no-automation-until-subreddit-specific-approval",
+      "canaryEligible": false,
+      "personalAccount": true,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "facebook",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "low",
+      "testPostPolicy": "draft-or-page-only",
+      "canaryEligible": false,
+      "personalAccount": true,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "instagram",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "medium",
+      "testPostPolicy": "no-public-test-posts-on-personal-account",
+      "canaryEligible": false,
+      "personalAccount": true,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "bluesky",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-canary",
+      "knownState": "not-created",
+      "postizPriority": "first-wave",
+      "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
+      "canaryEligible": true,
+      "personalAccount": false,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "mastodon",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-canary",
+      "knownState": "not-created",
+      "postizPriority": "first-wave",
+      "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
+      "canaryEligible": true,
+      "personalAccount": false,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "threads",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-canary",
+      "knownState": "not-created",
+      "postizPriority": "first-wave",
+      "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
+      "canaryEligible": true,
+      "personalAccount": false,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "youtube",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-reservation",
+      "knownState": "not-created",
+      "postizPriority": "reserve-now",
+      "testPostPolicy": "no-public-test-video",
+      "canaryEligible": true,
+      "personalAccount": false,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "tiktok",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-reservation",
+      "knownState": "not-created",
+      "postizPriority": "reserve-now",
+      "testPostPolicy": "no-public-test-video",
+      "canaryEligible": true,
+      "personalAccount": false,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    },
+    {
+      "platform": "facebook-page",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-page",
+      "knownState": "not-created",
+      "postizPriority": "reserve-now",
+      "testPostPolicy": "page-only-bland-test-after-1password-custody",
+      "canaryEligible": true,
+      "personalAccount": false,
+      "readyForCredentialedSetup": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+    }
+  ],
+  "observation": {
+    "claim": "social account readiness is derived from account inventory and credential custody",
+    "status": "DEGRADED",
+    "fallbackChain": [
+      "social-account-inventory.json",
+      "1Password write probe",
+      "ROM heartbeat"
+    ]
+  }
+}

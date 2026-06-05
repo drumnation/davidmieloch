@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:mastodon:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:b785864ef444",
+  "source": {
+    "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/mastodon.md"
+  },
+  "destination": {
+    "platform": "mastodon",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)\n\nMost research dies between the PDF and the person who could use it. I saw a paper on Reddit. \"Recursive Language Models\" from MIT CSAIL. Opened the PDF. Closed it immediately. I build complex systems for a living, but academic notation is a language designed for peer review, not adoption. Dense math, formal proofs, terminology that assumes you already\n\nCanonical essay: https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it?utm_source=mastodon&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "links": [
+      "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "ae672df72428ac11d8abc06ec9b0ac5941dad558bad085f629c63bc0de6d9462"
+  }
+}

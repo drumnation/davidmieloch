@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:mastodon:reuse-your-code-authoring-your-own-universal-library-with-webpack:3f9dc93a27fa",
+  "source": {
+    "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/mastodon.md"
+  },
+  "destination": {
+    "platform": "mastodon",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Reuse your code: Authoring your own Universal Library with Webpack\n\nAre you looking to build a custom library using webpack? With the right setup, webpack can help you create a library that can be used by other developers in their projects. This is also helpful if you’d like to share your own code with many of your own projects to avoid needless code repetition. In this blog post, we’ll discuss the steps to create a\n\nCanonical essay: https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=mastodon&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "links": [
+      "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "83fe2718c0f71e1ea2e3a194dcc89d8db72217b9a0463ad93d53633b9c682d1b"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "the-golden-hammer",
+  "title": "The Golden Hammer",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/linkedin.md",
+      "checksum": "32ab0c313207fe2e3ab1744b2cb2389c99744172d0350edca3abe1ee9f5817fc"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/x-twitter.md",
+      "checksum": "fba8daea66adbed950e0ebad5d47cdebc28a5b6829ce37ffc1530e9ff2c2e78b"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/reddit.md",
+      "checksum": "6be5c07f64c1c9fcf49ea35b7e4f765b7f61901aca68a000b0c8fe46584aa562"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/bluesky.md",
+      "checksum": "0033e87f06cb4964102fb3d7df4f5548d147cf3fba7d10e7633cb8c9900281b5"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/mastodon.md",
+      "checksum": "fe8c056be3d1ad76d6dfbd8d1104cb529427d8f1017cfa763c0f1c6aff809632"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/threads.md",
+      "checksum": "7ad44df4d880d81b5f6fd1c1bfba7c11f1ee236cb2e9566c4407fb809fd2caa6"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/facebook-page.md",
+      "checksum": "599cf6e1e310d56107b37b1c910976af5c95f73892c55671432a0a45b1ee7179"
+    }
+  ]
+}

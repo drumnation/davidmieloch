@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:bluesky:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:5c280dfc5d3c",
+  "source": {
+    "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+    "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/bluesky.md"
+  },
+  "destination": {
+    "platform": "bluesky",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud\n\nPart 2 of “What I Learned Building a Photoshop in the Browser” 🎧 Listen on Spotify https //spotifycreators web.app.link/e/egT1bXbddTb When I published https //medium.com/@davidmieloch/what i learned building\n\nhttps://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud?utm_source=bluesky&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+    "links": [
+      "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "5752bb1f1d595810569d4e8005b82be7e8755efeae585b2e3d5d92f7564ea030"
+  }
+}

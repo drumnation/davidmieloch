@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "the-moving-target",
+  "title": "The Moving Target",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/linkedin.md",
+      "checksum": "b7d118675c4f9df7c22c01589f1ff27be9352bfbe93b563e403ded6186ff8daf"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/x-twitter.md",
+      "checksum": "76200498455211ea38548cb1e3b3cc546d8cc0d7c3bcf5a79b8a0f3425802133"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/reddit.md",
+      "checksum": "6426e45d561536bf952df8c463634d14ad0306ea17b0128cabf67c7d01007865"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/bluesky.md",
+      "checksum": "ce3a6541eb210863cb34c987597c4cfc8356c63544a484e901ae964b487b7e67"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/mastodon.md",
+      "checksum": "d936c0c4e86ef9b27db46596bd1d493124be9128aa030e1517d027ae0c0ff714"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/threads.md",
+      "checksum": "88186cc3cbce30d122c053832b5fe47b84da1fb8621b3d64e2766e0ca39ca50f"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/facebook-page.md",
+      "checksum": "3b4a7cc21f56df8ea11b7dd8ff0e58848071fdce9e4d6641d1fb9c3ab2672b23"
+    }
+  ]
+}

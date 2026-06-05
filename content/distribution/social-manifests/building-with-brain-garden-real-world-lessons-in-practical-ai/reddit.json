@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:building-with-brain-garden-real-world-lessons-in-practical-ai:7c222cf6e124",
+  "source": {
+    "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+    "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: Building with Brain Garden: Real-World Lessons in Practical AI\n\nBody:\nBeyond Hype — How We Actually Use Rules, Prompts, Skill Jacks, and Task Lists to Work Smarter with AI Introduction When I first started developing Brain Garden, it wasn’t a polished “framework” — it was a pile of messy experiments. Over time, by layering structured rules, prompts, task systems, and skill jacks, Brain Garden evolved into a practical,...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=building-with-brain-garden-real-world-lessons-in-practical-ai\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "7e23ad706809b0013d88aad093ee3a5ba7d2af3cc4ef6cbc2d4b77411d545ecd"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+  "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
+  "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/linkedin.md",
+      "checksum": "652deff796fbca25a86d719ae423a22069a8785f20521b74df02f85ba2a8e44a"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/x-twitter.md",
+      "checksum": "912185879a00ce9e89098c732be4d3c540c23967738f836b46d7d3611e43f433"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/reddit.md",
+      "checksum": "9545e9d6eaa68999cf3d0658eab32c281410b956f9140ec269d0328aa47a6c11"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/bluesky.md",
+      "checksum": "5403dfcfa1d7512d3b8cd6420fe99028521e0607e3f6fb5d7a5536d74b6e245f"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/mastodon.md",
+      "checksum": "1edca3913bad66f3c13be609e2becd03fe585bc50b5bdd2ff601b49eff16d878"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/threads.md",
+      "checksum": "34cbd80da499b0ed54f682b3a8c7373c26195de82f2924debc0a75a860fd3425"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/facebook-page.md",
+      "checksum": "8e0d07e2632415033794ef37264b958bf6a14ad8fa16e646ad90d8d74c9c9711"
+    }
+  ]
+}

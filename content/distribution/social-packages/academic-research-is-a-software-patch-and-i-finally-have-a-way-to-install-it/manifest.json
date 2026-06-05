@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+  "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+  "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/linkedin.md",
+      "checksum": "d3b7c2f6b99c7ca06c8838ba5a333f9cebb0eb02a3bc7575894295bb75e981ff"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/x-twitter.md",
+      "checksum": "46c621f303716e648121022b9cb71eb87d8a5710808abb6720e063bcfeb2b3c6"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/reddit.md",
+      "checksum": "ce8f4f7ac78c4f5c3e68f0d326f98c869b5c226511cee5c9c816626b4fb1d8cd"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/bluesky.md",
+      "checksum": "854e380f47b1a0fd34a1a0200d2e3b76ce5e0ee29e77b8c6dff2caa086a0db02"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/mastodon.md",
+      "checksum": "dd12aaae76f007c01c8e2d8de25325665cac0630c96fbea0d688131038162ec4"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/threads.md",
+      "checksum": "c418828366c965ef9e27fe02ec0870102755760bb0c9c58378968acf2bd0b1c5"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/facebook-page.md",
+      "checksum": "561c8210f976584759af7bc9d43160ecd06bbea765205e3f746c58a6a288cea7"
+    }
+  ]
+}

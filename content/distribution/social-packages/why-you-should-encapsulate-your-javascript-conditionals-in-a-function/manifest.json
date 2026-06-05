@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+  "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
+  "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/linkedin.md",
+      "checksum": "aa4ef7192e5d45267372a3ab65390b03946560d310be7fe8e30bdeb7543d0205"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/x-twitter.md",
+      "checksum": "d676803f5634f3a7eddb627fb1809cfefa01af25477f67935609475c5e00349c"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md",
+      "checksum": "956a57e9c9869edb7c9b4223a4898108f0ccdd6c1d594d02466a5a12f9e1c399"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/bluesky.md",
+      "checksum": "3c2cbd2d60cfffc89cba3fbc62be61540984cdc0fef53dd256cf200e2cd6b84c"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/mastodon.md",
+      "checksum": "0d21499e7368e6b0f413e92b7ad2ae64356f515d89b1e00f09ae1b97c7795deb"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/threads.md",
+      "checksum": "5aa6071ec7cced5ef56b3726826bebba3be3709cac968017b4907a63be227002"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/facebook-page.md",
+      "checksum": "c759acc798aee7d47660265d58b091ba6baee510e705129aa2ca225584365bce"
+    }
+  ]
+}

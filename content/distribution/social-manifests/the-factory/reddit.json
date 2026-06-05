@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:the-factory:0772a16545dd",
+  "source": {
+    "articleSlug": "the-factory",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: The Factory\n\nBody:\nThe Productivity Trap In the 1880s, factories started replacing steam engines with electric motors. On paper, it was a revolution. Electric motors were smaller, cleaner, more precise, and individually controllable. The productivity gains should have been immediate and obvious. They weren't. For thirty years, nothing much changed. The reason was simple...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/the-factory?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-factory\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/the-factory"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "6e11a85f84e76bea54160accdc59b2d4dfd4611810f7375a1aaa9c12353106e7"
+  }
+}

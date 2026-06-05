@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "the-overnight-shift",
+  "title": "The Overnight Shift",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/linkedin.md",
+      "checksum": "bf5629c4d916b881eafabecbaf6e89fe3be70bf3627cb3f09373b78e432fa81e"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/x-twitter.md",
+      "checksum": "672cda51fafcfebc3b2136cca5f17f5c1e9e45c97b99f27f9343818b8ea86a46"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/reddit.md",
+      "checksum": "bc2779e1c7f8a1185b4863eb8ba5845c414fe46370f72a19764a08e1b2b46a9e"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/bluesky.md",
+      "checksum": "2401c53b024fc35e1b5b10897352dab03ecc86ae0749319bbce80f3c63f1a73e"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/mastodon.md",
+      "checksum": "f80c966591347ffab58f53b78a311d2d19a6fc13477fafe5567404a9286a0d10"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/threads.md",
+      "checksum": "1b7ceacd9b32671aa785e2a042f601f6ff7272814386fc56223d9cda84f46f69"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/facebook-page.md",
+      "checksum": "9ed0a1951c997318ee8ed49b314d65b7b17ce11cf4bc4a595d48cd786bcf620d"
+    }
+  ]
+}

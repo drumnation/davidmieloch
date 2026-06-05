@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+  "title": "Reuse your code: Authoring your own Universal Library with Webpack",
+  "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/linkedin.md",
+      "checksum": "80408c804b9162357c8fadb74afe2589ebac5b1d873a3774b94c1b4f9d88d83c"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/x-twitter.md",
+      "checksum": "379ee50a8b30ee83c014b0ea2e7a8150fa51671d81c30900cd816c34fcddd380"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/reddit.md",
+      "checksum": "9637257aba117cea871dfbf4568a88b69efedd1dcc36df1c6207f4e38a90f500"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/bluesky.md",
+      "checksum": "95cbfcad8e342d93f55915ec023eeed6952a6f7fbc4d66ba4141c44d7d75b178"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/mastodon.md",
+      "checksum": "9bca20b9b5e1ec0c73f3ef91346396885c629e6eedf4872e02d98205170f4580"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/threads.md",
+      "checksum": "9cf2c827f993b011407c9854dcb3e05d46714bb745e5d0fcd0a7e126cc7ce692"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/facebook-page.md",
+      "checksum": "be84eeb5090d01e2099d2198876b77d87a8a824815c51e7b4fb1e2ab2f367f50"
+    }
+  ]
+}

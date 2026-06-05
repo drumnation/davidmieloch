@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:threads:alphabetize-your-code:86ec833c7bb6",
+  "source": {
+    "articleSlug": "alphabetize-your-code",
+    "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/threads.md"
+  },
+  "destination": {
+    "platform": "threads",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Alphabetize your code.\n\nWhy? As humans, we thrive on structure and order, and labeling things is a great way to help our brains process information more effectively. Have you ever noticed how you can quickly identify the alphabetical ordering of items within the first three elements? This is because the alphabetical order\n\nhttps://davidmieloch.com/blog/alphabetize-your-code?utm_source=threads&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=alphabetize-your-code",
+    "links": [
+      "https://davidmieloch.com/blog/alphabetize-your-code"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "31e23468f62f146b1a7e6617c9674e5a64be2d33951f632ffc9d0b587fee0bf2"
+  }
+}

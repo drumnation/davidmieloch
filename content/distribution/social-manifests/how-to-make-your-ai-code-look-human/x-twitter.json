@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:how-to-make-your-ai-code-look-human:d88acf76dabd",
+  "source": {
+    "articleSlug": "how-to-make-your-ai-code-look-human",
+    "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "How to Make Your AI Code Look Human: A compliance guide for the overly productive. Your code is too clean. Your tests are too thorough. Your PR descriptions are too helpful. Someone is\n\nhttps://davidmieloch.com/blog/how-to-make-your-ai-code-look-human?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=how-to-make-your-ai-code-look-human",
+    "links": [
+      "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "a97aaac7e4eb44b2c2f15013beb0cfbeb254c3bce407ec23a4c834ef1bd5c9ec"
+  }
+}

@@ -1,0 +1,3090 @@
+{
+  "schemaVersion": "social-n8n-export-v1",
+  "generatedAt": "2026-06-05T07:48:57.311Z",
+  "publicPublishingPerformed": false,
+  "ownerAgent": "Commander Data",
+  "status": "blocked-on-credential-custody",
+  "blocker": "Current 1Password service account can read the vault but cannot create or update items.",
+  "packets": [
+    {
+      "packetId": "n8n:social:linkedin:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-06",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+        "scheduledAt": "2026-06-06T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-06",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+        "scheduledAt": "2026-06-06T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-07",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+        "scheduledAt": "2026-06-07T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-07",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+        "scheduledAt": "2026-06-07T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-07",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+        "scheduledAt": "2026-06-07T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-07",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+        "scheduledAt": "2026-06-07T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-08",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+        "scheduledAt": "2026-06-08T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:alphabetize-your-code:2026-06-08",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "alphabetize-your-code",
+        "scheduledAt": "2026-06-08T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:alphabetize-your-code:2026-06-08",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "alphabetize-your-code",
+        "scheduledAt": "2026-06-08T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:alphabetize-your-code:2026-06-08",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "alphabetize-your-code",
+        "scheduledAt": "2026-06-08T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:alphabetize-your-code:2026-06-09",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "alphabetize-your-code",
+        "scheduledAt": "2026-06-09T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:alphabetize-your-code:2026-06-09",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "alphabetize-your-code",
+        "scheduledAt": "2026-06-09T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:alphabetize-your-code:2026-06-09",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "alphabetize-your-code",
+        "scheduledAt": "2026-06-09T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:alphabetize-your-code:2026-06-09",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "alphabetize-your-code",
+        "scheduledAt": "2026-06-09T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-10",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+        "scheduledAt": "2026-06-10T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-10",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+        "scheduledAt": "2026-06-10T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-10",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+        "scheduledAt": "2026-06-10T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-10",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+        "scheduledAt": "2026-06-10T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-11",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+        "scheduledAt": "2026-06-11T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-11",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+        "scheduledAt": "2026-06-11T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-11",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+        "scheduledAt": "2026-06-11T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:developing-with-a-team-of-ai-s:2026-06-11",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "developing-with-a-team-of-ai-s",
+        "scheduledAt": "2026-06-11T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:developing-with-a-team-of-ai-s:2026-06-12",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "developing-with-a-team-of-ai-s",
+        "scheduledAt": "2026-06-12T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:developing-with-a-team-of-ai-s:2026-06-12",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "developing-with-a-team-of-ai-s",
+        "scheduledAt": "2026-06-12T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:developing-with-a-team-of-ai-s:2026-06-12",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "developing-with-a-team-of-ai-s",
+        "scheduledAt": "2026-06-12T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:developing-with-a-team-of-ai-s:2026-06-12",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "developing-with-a-team-of-ai-s",
+        "scheduledAt": "2026-06-12T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:developing-with-a-team-of-ai-s:2026-06-13",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "developing-with-a-team-of-ai-s",
+        "scheduledAt": "2026-06-13T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:developing-with-a-team-of-ai-s:2026-06-13",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "developing-with-a-team-of-ai-s",
+        "scheduledAt": "2026-06-13T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:every-company-is-sitting-on-sunken-treasure:2026-06-13",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+        "scheduledAt": "2026-06-13T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:every-company-is-sitting-on-sunken-treasure:2026-06-13",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+        "scheduledAt": "2026-06-13T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:every-company-is-sitting-on-sunken-treasure:2026-06-14",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+        "scheduledAt": "2026-06-14T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:every-company-is-sitting-on-sunken-treasure:2026-06-14",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+        "scheduledAt": "2026-06-14T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:every-company-is-sitting-on-sunken-treasure:2026-06-14",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+        "scheduledAt": "2026-06-14T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:every-company-is-sitting-on-sunken-treasure:2026-06-14",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+        "scheduledAt": "2026-06-14T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:every-company-is-sitting-on-sunken-treasure:2026-06-15",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+        "scheduledAt": "2026-06-15T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:how-to-make-your-ai-code-look-human:2026-06-15",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "how-to-make-your-ai-code-look-human",
+        "scheduledAt": "2026-06-15T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:how-to-make-your-ai-code-look-human:2026-06-15",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "how-to-make-your-ai-code-look-human",
+        "scheduledAt": "2026-06-15T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:how-to-make-your-ai-code-look-human:2026-06-15",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "how-to-make-your-ai-code-look-human",
+        "scheduledAt": "2026-06-15T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:how-to-make-your-ai-code-look-human:2026-06-16",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "how-to-make-your-ai-code-look-human",
+        "scheduledAt": "2026-06-16T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:how-to-make-your-ai-code-look-human:2026-06-16",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "how-to-make-your-ai-code-look-human",
+        "scheduledAt": "2026-06-16T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:how-to-make-your-ai-code-look-human:2026-06-16",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "how-to-make-your-ai-code-look-human",
+        "scheduledAt": "2026-06-16T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:how-to-make-your-ai-code-look-human:2026-06-16",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "how-to-make-your-ai-code-look-human",
+        "scheduledAt": "2026-06-16T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:judgment-over-keystrokes:2026-06-17",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "judgment-over-keystrokes",
+        "scheduledAt": "2026-06-17T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:judgment-over-keystrokes:2026-06-17",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "judgment-over-keystrokes",
+        "scheduledAt": "2026-06-17T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:judgment-over-keystrokes:2026-06-17",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "judgment-over-keystrokes",
+        "scheduledAt": "2026-06-17T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:judgment-over-keystrokes:2026-06-17",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "judgment-over-keystrokes",
+        "scheduledAt": "2026-06-17T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:judgment-over-keystrokes:2026-06-18",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "judgment-over-keystrokes",
+        "scheduledAt": "2026-06-18T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:judgment-over-keystrokes:2026-06-18",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "judgment-over-keystrokes",
+        "scheduledAt": "2026-06-18T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:judgment-over-keystrokes:2026-06-18",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "judgment-over-keystrokes",
+        "scheduledAt": "2026-06-18T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-18",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+        "scheduledAt": "2026-06-18T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-19",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+        "scheduledAt": "2026-06-19T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-19",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+        "scheduledAt": "2026-06-19T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-19",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+        "scheduledAt": "2026-06-19T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-19",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+        "scheduledAt": "2026-06-19T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-20",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+        "scheduledAt": "2026-06-20T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-20",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+        "scheduledAt": "2026-06-20T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:reality-needs-observers:2026-06-20",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "reality-needs-observers",
+        "scheduledAt": "2026-06-20T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:reality-needs-observers:2026-06-20",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "reality-needs-observers",
+        "scheduledAt": "2026-06-20T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:reality-needs-observers:2026-06-21",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "reality-needs-observers",
+        "scheduledAt": "2026-06-21T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:reality-needs-observers:2026-06-21",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "reality-needs-observers",
+        "scheduledAt": "2026-06-21T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:reality-needs-observers:2026-06-21",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "reality-needs-observers",
+        "scheduledAt": "2026-06-21T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:reality-needs-observers:2026-06-21",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "reality-needs-observers",
+        "scheduledAt": "2026-06-21T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:reality-needs-observers:2026-06-22",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "reality-needs-observers",
+        "scheduledAt": "2026-06-22T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-22",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+        "scheduledAt": "2026-06-22T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-22",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+        "scheduledAt": "2026-06-22T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-22",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+        "scheduledAt": "2026-06-22T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-23",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+        "scheduledAt": "2026-06-23T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-23",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+        "scheduledAt": "2026-06-23T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-23",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+        "scheduledAt": "2026-06-23T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-23",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+        "scheduledAt": "2026-06-23T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:the-beauty-of-es6s-object-destructuring-assignment:2026-06-24",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+        "scheduledAt": "2026-06-24T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:the-beauty-of-es6s-object-destructuring-assignment:2026-06-24",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+        "scheduledAt": "2026-06-24T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:the-beauty-of-es6s-object-destructuring-assignment:2026-06-24",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+        "scheduledAt": "2026-06-24T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:the-beauty-of-es6s-object-destructuring-assignment:2026-06-24",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+        "scheduledAt": "2026-06-24T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:the-beauty-of-es6s-object-destructuring-assignment:2026-06-25",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+        "scheduledAt": "2026-06-25T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:the-beauty-of-es6s-object-destructuring-assignment:2026-06-25",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+        "scheduledAt": "2026-06-25T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:the-beauty-of-es6s-object-destructuring-assignment:2026-06-25",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+        "scheduledAt": "2026-06-25T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:the-factory:2026-06-25",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "the-factory",
+        "scheduledAt": "2026-06-25T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:the-factory:2026-06-26",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "the-factory",
+        "scheduledAt": "2026-06-26T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:the-factory:2026-06-26",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "the-factory",
+        "scheduledAt": "2026-06-26T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:the-factory:2026-06-26",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "the-factory",
+        "scheduledAt": "2026-06-26T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:the-factory:2026-06-26",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "the-factory",
+        "scheduledAt": "2026-06-26T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:the-factory:2026-06-27",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "the-factory",
+        "scheduledAt": "2026-06-27T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:the-factory:2026-06-27",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "the-factory",
+        "scheduledAt": "2026-06-27T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:the-foreman:2026-06-27",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "the-foreman",
+        "scheduledAt": "2026-06-27T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:the-foreman:2026-06-27",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "the-foreman",
+        "scheduledAt": "2026-06-27T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:the-foreman:2026-06-28",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "the-foreman",
+        "scheduledAt": "2026-06-28T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:the-foreman:2026-06-28",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "the-foreman",
+        "scheduledAt": "2026-06-28T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:the-foreman:2026-06-28",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "the-foreman",
+        "scheduledAt": "2026-06-28T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:the-foreman:2026-06-28",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "the-foreman",
+        "scheduledAt": "2026-06-28T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:the-foreman:2026-06-29",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "the-foreman",
+        "scheduledAt": "2026-06-29T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:the-golden-hammer:2026-06-29",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "the-golden-hammer",
+        "scheduledAt": "2026-06-29T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:the-golden-hammer:2026-06-29",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "the-golden-hammer",
+        "scheduledAt": "2026-06-29T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:the-golden-hammer:2026-06-29",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "the-golden-hammer",
+        "scheduledAt": "2026-06-29T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:the-golden-hammer:2026-06-30",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "the-golden-hammer",
+        "scheduledAt": "2026-06-30T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:the-golden-hammer:2026-06-30",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "the-golden-hammer",
+        "scheduledAt": "2026-06-30T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:the-golden-hammer:2026-06-30",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "the-golden-hammer",
+        "scheduledAt": "2026-06-30T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:the-golden-hammer:2026-06-30",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "the-golden-hammer",
+        "scheduledAt": "2026-06-30T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:the-moving-target:2026-07-01",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "the-moving-target",
+        "scheduledAt": "2026-07-01T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:the-moving-target:2026-07-01",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "the-moving-target",
+        "scheduledAt": "2026-07-01T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:the-moving-target:2026-07-01",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "the-moving-target",
+        "scheduledAt": "2026-07-01T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:the-moving-target:2026-07-01",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "the-moving-target",
+        "scheduledAt": "2026-07-01T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:the-moving-target:2026-07-02",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "the-moving-target",
+        "scheduledAt": "2026-07-02T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:the-moving-target:2026-07-02",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "the-moving-target",
+        "scheduledAt": "2026-07-02T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:the-moving-target:2026-07-02",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "the-moving-target",
+        "scheduledAt": "2026-07-02T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:the-overnight-shift:2026-07-02",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "the-overnight-shift",
+        "scheduledAt": "2026-07-02T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:the-overnight-shift:2026-07-03",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "the-overnight-shift",
+        "scheduledAt": "2026-07-03T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:the-overnight-shift:2026-07-03",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "the-overnight-shift",
+        "scheduledAt": "2026-07-03T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:the-overnight-shift:2026-07-03",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "the-overnight-shift",
+        "scheduledAt": "2026-07-03T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:the-overnight-shift:2026-07-03",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "the-overnight-shift",
+        "scheduledAt": "2026-07-03T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:the-overnight-shift:2026-07-04",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "the-overnight-shift",
+        "scheduledAt": "2026-07-04T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:the-overnight-shift:2026-07-04",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "the-overnight-shift",
+        "scheduledAt": "2026-07-04T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:what-i-learned-building-a-photoshop-in-the-browser:2026-07-04",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+        "scheduledAt": "2026-07-04T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:what-i-learned-building-a-photoshop-in-the-browser:2026-07-04",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+        "scheduledAt": "2026-07-04T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:what-i-learned-building-a-photoshop-in-the-browser:2026-07-05",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+        "scheduledAt": "2026-07-05T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:what-i-learned-building-a-photoshop-in-the-browser:2026-07-05",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+        "scheduledAt": "2026-07-05T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:what-i-learned-building-a-photoshop-in-the-browser:2026-07-05",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+        "scheduledAt": "2026-07-05T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:what-i-learned-building-a-photoshop-in-the-browser:2026-07-05",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+        "scheduledAt": "2026-07-05T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:what-i-learned-building-a-photoshop-in-the-browser:2026-07-06",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+        "scheduledAt": "2026-07-06T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:why-character-choice-matters-in-agent-design:2026-07-06",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "why-character-choice-matters-in-agent-design",
+        "scheduledAt": "2026-07-06T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:why-character-choice-matters-in-agent-design:2026-07-06",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "why-character-choice-matters-in-agent-design",
+        "scheduledAt": "2026-07-06T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:why-character-choice-matters-in-agent-design:2026-07-06",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "why-character-choice-matters-in-agent-design",
+        "scheduledAt": "2026-07-06T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:why-character-choice-matters-in-agent-design:2026-07-07",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "why-character-choice-matters-in-agent-design",
+        "scheduledAt": "2026-07-07T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:why-character-choice-matters-in-agent-design:2026-07-07",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "why-character-choice-matters-in-agent-design",
+        "scheduledAt": "2026-07-07T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:why-character-choice-matters-in-agent-design:2026-07-07",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "why-character-choice-matters-in-agent-design",
+        "scheduledAt": "2026-07-07T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:why-character-choice-matters-in-agent-design:2026-07-07",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "why-character-choice-matters-in-agent-design",
+        "scheduledAt": "2026-07-07T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-08",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+        "scheduledAt": "2026-07-08T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-08",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+        "scheduledAt": "2026-07-08T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-08",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+        "scheduledAt": "2026-07-08T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-08",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+        "scheduledAt": "2026-07-08T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-09",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+        "scheduledAt": "2026-07-09T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-09",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+        "scheduledAt": "2026-07-09T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-09",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+        "scheduledAt": "2026-07-09T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:linkedin:your-ai-isnt-hallucinating-its-lying:2026-07-09",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "linkedin",
+        "articleSlug": "your-ai-isnt-hallucinating-its-lying",
+        "scheduledAt": "2026-07-09T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/linkedin.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:x-twitter:your-ai-isnt-hallucinating-its-lying:2026-07-10",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "x-twitter",
+        "articleSlug": "your-ai-isnt-hallucinating-its-lying",
+        "scheduledAt": "2026-07-10T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/x-twitter.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:reddit:your-ai-isnt-hallucinating-its-lying:2026-07-10",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "reddit",
+        "articleSlug": "your-ai-isnt-hallucinating-its-lying",
+        "scheduledAt": "2026-07-10T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/reddit.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:bluesky:your-ai-isnt-hallucinating-its-lying:2026-07-10",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "bluesky",
+        "articleSlug": "your-ai-isnt-hallucinating-its-lying",
+        "scheduledAt": "2026-07-10T17:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/bluesky.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:mastodon:your-ai-isnt-hallucinating-its-lying:2026-07-10",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "mastodon",
+        "articleSlug": "your-ai-isnt-hallucinating-its-lying",
+        "scheduledAt": "2026-07-10T23:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/mastodon.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:threads:your-ai-isnt-hallucinating-its-lying:2026-07-11",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "threads",
+        "articleSlug": "your-ai-isnt-hallucinating-its-lying",
+        "scheduledAt": "2026-07-11T05:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/threads.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    },
+    {
+      "packetId": "n8n:social:facebook-page:your-ai-isnt-hallucinating-its-lying:2026-07-11",
+      "generatedAt": "2026-06-05T07:48:57.311Z",
+      "target": {
+        "platform": "facebook-page",
+        "articleSlug": "your-ai-isnt-hallucinating-its-lying",
+        "scheduledAt": "2026-07-11T11:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/facebook-page.md"
+      },
+      "policy": {
+        "publicPublishingAllowed": false,
+        "safeDefault": "do-not-post",
+        "requiresApproval": true,
+        "credentialCustodyVerified": false,
+        "allowedAction": "blocked"
+      },
+      "postiz": {
+        "url": "https://social-davidmieloch.brain-garden.io",
+        "network": "internal-brain-garden",
+        "publicExposure": "forbidden-unless-explicitly-approved"
+      }
+    }
+  ]
+}

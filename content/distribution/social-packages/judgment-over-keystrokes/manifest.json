@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "judgment-over-keystrokes",
+  "title": "Judgment Over Keystrokes",
+  "canonicalUrl": "https://davidmieloch.com/blog/judgment-over-keystrokes",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/linkedin.md",
+      "checksum": "4d1dc42b1530fc4c1fee807f0b4e82fd8424a0581cde1d66f31bc1cd36ae012d"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/x-twitter.md",
+      "checksum": "a4bb168ece61965a330b8dacade71ecac5eceb849c395f72253bb311ea9c16b0"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/reddit.md",
+      "checksum": "283a0b3a0b5545161b28310ac230c63c11bd228de727118dbb7939d28a1eed06"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/bluesky.md",
+      "checksum": "6d12fc6ae2690e6f53d9eb2691febcb7a60084b46d519c1675d9af9c7efd04cd"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/mastodon.md",
+      "checksum": "65bedf79e41cdf850e71ad9ac1943f60566366a17ddd3c9f371c10c209564585"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/threads.md",
+      "checksum": "d1a496f3939a00cdc306bee137bcc15f8c32ac9cfd8273cafe52d95c1247902f"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/facebook-page.md",
+      "checksum": "213968ba5a53c740ffc0a26222bf1ffe5ba70f02860a55971b930c7f63eae640"
+    }
+  ]
+}

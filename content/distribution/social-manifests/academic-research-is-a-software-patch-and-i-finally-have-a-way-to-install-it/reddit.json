@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:f4d082d68a03",
+  "source": {
+    "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: Academic Research Is a Software Patch (And I Finally Have a Way to Install It)\n\nBody:\nMost research dies between the PDF and the person who could use it. I saw a paper on Reddit. \"Recursive Language Models\" from MIT CSAIL. Opened the PDF. Closed it immediately. I build complex systems for a living, but academic notation is a language designed for peer review, not adoption. Dense math, formal proofs, terminology that assumes you already read...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "5e8ea6dca915447796ca3e9dc72378a8664e984ceaa900142c2c4102e582a16b"
+  }
+}

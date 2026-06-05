@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:what-i-learned-building-a-photoshop-in-the-browser:c22bb4c2e8f7",
+  "source": {
+    "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+    "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "What I Learned Building a Photoshop in the Browser: Lessons in architecture, state management, and engineering leadership from four years building an enterprise grade design tool. Introduction The\n\nhttps://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=what-i-learned-building-a-photoshop-in-the-browser",
+    "links": [
+      "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "d8f047dc5353e383fcff7f9de0416191d6ddb8dfd0afc4005c0a6e12a86efe1c"
+  }
+}

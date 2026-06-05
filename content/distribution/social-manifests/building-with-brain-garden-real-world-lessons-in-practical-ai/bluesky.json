@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:bluesky:building-with-brain-garden-real-world-lessons-in-practical-ai:f88e3bb79c59",
+  "source": {
+    "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+    "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/bluesky.md"
+  },
+  "destination": {
+    "platform": "bluesky",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Building with Brain Garden: Real-World Lessons in Practical AI\n\nBeyond Hype — How We Actually Use Rules, Prompts, Skill Jacks, and Task Lists to Work Smarter with AI Introduction When I first started developing Brain Garden, it wasn’t a polished “framework” — it was a pile\n\nhttps://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai?utm_source=bluesky&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=building-with-brain-garden-real-world-lessons-in-practical-ai",
+    "links": [
+      "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "d596b10aaaddc690e29ce8f9502e865772723ff2dec1b83e18d7bf073f3d0034"
+  }
+}

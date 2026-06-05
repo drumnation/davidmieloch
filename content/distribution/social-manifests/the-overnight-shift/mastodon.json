@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:mastodon:the-overnight-shift:6e304cc80011",
+  "source": {
+    "articleSlug": "the-overnight-shift",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/mastodon.md"
+  },
+  "destination": {
+    "platform": "mastodon",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Overnight Shift\n\nWhat happens when your code keeps working after you go to bed. I launched an execution engine on a Saturday evening and went to have dinner. When I came back, it was still running. When I went to bed, it was still running. When I woke up Sunday morning, it had completed 40% of a migration plan and hit a problem it couldn't solve without me. I made tea,\n\nCanonical essay: https://davidmieloch.com/blog/the-overnight-shift?utm_source=mastodon&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-overnight-shift",
+    "links": [
+      "https://davidmieloch.com/blog/the-overnight-shift"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "92c098cf38cb75a7ff39818fe76e8a68016771c59ba92047de27397f01b91549"
+  }
+}

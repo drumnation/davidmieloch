@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:threads:reality-needs-observers:25f9f3923070",
+  "source": {
+    "articleSlug": "reality-needs-observers",
+    "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/threads.md"
+  },
+  "destination": {
+    "platform": "threads",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Reality Needs Observers\n\nThe machine is bigger than the builder now. I am not a physicist. That matters, because this essay starts from physics. Not from a vibe. Not from a YouTube metaphor about living in a video game. From a Nobel Prize. In 2022, the Nobel Prize in Physics was awarded to Alain Aspect, John Clauser, and\n\nhttps://davidmieloch.com/blog/reality-needs-observers?utm_source=threads&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=reality-needs-observers",
+    "links": [
+      "https://davidmieloch.com/blog/reality-needs-observers"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "d30091f8d6c0afb6805b145700d00837fccf2ddbd1c154034852adcebcc99fe2"
+  }
+}

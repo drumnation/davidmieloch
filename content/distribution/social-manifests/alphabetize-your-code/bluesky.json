@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:bluesky:alphabetize-your-code:1ff3b18361ac",
+  "source": {
+    "articleSlug": "alphabetize-your-code",
+    "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/bluesky.md"
+  },
+  "destination": {
+    "platform": "bluesky",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Alphabetize your code.\n\nWhy? As humans, we thrive on structure and order, and labeling things is a great way to help our brains process information more effectively. Have you ever noticed how you can quickly identify the alphabetical\n\nhttps://davidmieloch.com/blog/alphabetize-your-code?utm_source=bluesky&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=alphabetize-your-code",
+    "links": [
+      "https://davidmieloch.com/blog/alphabetize-your-code"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "c83e62fd3faede5735e33a9bc0a741bb1a6eec50f3f1e4489d17c5ac561c43cc"
+  }
+}

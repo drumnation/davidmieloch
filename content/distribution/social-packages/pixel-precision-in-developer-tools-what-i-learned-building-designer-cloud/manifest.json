@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+  "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
+  "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/linkedin.md",
+      "checksum": "e0e25141749d37c36199b85f661b7aa2387c3b35f6be1cec949a06e9b179cdb9"
+    },
+    {
+      "platform": "x-twitter",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/x-twitter.md",
+      "checksum": "cdfc74500afd797d7936f4ee8423f1581467cd71f1b4ce67c44d44fdcc572901"
+    },
+    {
+      "platform": "reddit",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/reddit.md",
+      "checksum": "f1d327d252e9d2a7575a02d463cbdb6b325f0711cbab379ac71ef7a9c58ba43e"
+    },
+    {
+      "platform": "bluesky",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/bluesky.md",
+      "checksum": "eca6a81852fe0ba40974c18da02128ee425878b3466a05b711d96e3c248286bf"
+    },
+    {
+      "platform": "mastodon",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/mastodon.md",
+      "checksum": "92b4b63425793444dc5a4e373a44d1d97d36e431536842e3057a29ee9e50a05f"
+    },
+    {
+      "platform": "threads",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/threads.md",
+      "checksum": "b50c52a862a952fc33948412ec1d7c73b5f50530a8b1354fe8ac9a8dfe8830f6"
+    },
+    {
+      "platform": "facebook-page",
+      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/facebook-page.md",
+      "checksum": "b876cc1ebcc47bd0b3325ecf5dcbb8c68fc365b2a0295dc084a188c4ea6417a0"
+    }
+  ]
+}

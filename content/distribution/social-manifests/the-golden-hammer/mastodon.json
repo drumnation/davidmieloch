@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:mastodon:the-golden-hammer:b3e95adf403a",
+  "source": {
+    "articleSlug": "the-golden-hammer",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/mastodon.md"
+  },
+  "destination": {
+    "platform": "mastodon",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Golden Hammer\n\nAn Ensemble of Agents I learned to code by reverse engineering other people's answers rather than struggling to figure them out myself. Nine years later, I accidentally rebuilt the same pattern with AI agents. The Accidental Rediscovery Nine years later, I'm building something I'll write about separately an autonomous software factory where AI agents\n\nCanonical essay: https://davidmieloch.com/blog/the-golden-hammer?utm_source=mastodon&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-golden-hammer",
+    "links": [
+      "https://davidmieloch.com/blog/the-golden-hammer"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "55632109698e1004c93b3b1e44270f7102f5e49f8cfddefc263437b6d7842326"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:1511dd578499",
+  "source": {
+    "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+    "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: Why you should Encapsulate your Javascript Conditionals in a Function\n\nBody:\nConditional statements are a crucial aspect of programming but can often be challenging to read and understand. They tend to be long and detailed, including multiple edge cases that might not be relevant while scanning the code. This makes it difficult for developers to understand the flow of the program and what the conditional statement is doing. One way...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=why-you-should-encapsulate-your-javascript-conditionals-in-a-function\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "c5ba031c58584ea88733b6c80062019d387b171441f0342181b40f62d3e1851e"
+  }
+}

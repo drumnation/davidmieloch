@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2814d724765e",
+  "source": {
+    "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It): Most research dies between the PDF and the person who could use it. I saw a paper on Reddit. \"Recursive Language Models\" from MIT CSAIL. Opened the\n\nhttps://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "links": [
+      "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "4ea1b2d01145419384e3acb2a7a827ac9c6e39219eb0604205456a4ff6613901"
+  }
+}

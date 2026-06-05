@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:mastodon:why-character-choice-matters-in-agent-design:85d65c5b4e48",
+  "source": {
+    "articleSlug": "why-character-choice-matters-in-agent-design",
+    "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/mastodon.md"
+  },
+  "destination": {
+    "platform": "mastodon",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Why Character Choice Matters in Agent Design\n\nMost people assume that giving an AI agent a fictional persona is just for fun. A novelty. A skin on top of the real system. I've found the opposite. Personas carry serious engineering weight, and the people dismissing them are probably underestimating what a single character name actually invokes. The Training Data Shortcut When you name an agent after\n\nCanonical essay: https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design?utm_source=mastodon&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=why-character-choice-matters-in-agent-design",
+    "links": [
+      "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "d2f8c7b7da3e88d1d5ce66f1b89d1eaabf6feb3896d2005ba81bbc78691bde4f"
+  }
+}

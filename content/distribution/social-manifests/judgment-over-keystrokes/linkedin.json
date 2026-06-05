@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:judgment-over-keystrokes:00716b1b43e5",
+  "source": {
+    "articleSlug": "judgment-over-keystrokes",
+    "canonicalUrl": "https://davidmieloch.com/blog/judgment-over-keystrokes",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Judgment Over Keystrokes\n\nWhy Amplification — Not Manual Skill — Should Be Your New Hiring Signal Old rules test the keystrokes. New rules test the cognition behind them. I recently encountered a technical assessment that explicitly prohibited the use of AI tools — for a role focused on building AI assisted features. The contradiction was clear. But it also pointed to something...\n\nRead the canonical essay: https://davidmieloch.com/blog/judgment-over-keystrokes?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=judgment-over-keystrokes",
+    "links": [
+      "https://davidmieloch.com/blog/judgment-over-keystrokes"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "ba5e595b5dd971f869b0721590a63b540180d12f8c714bf9190f72927c1b1955"
+  }
+}

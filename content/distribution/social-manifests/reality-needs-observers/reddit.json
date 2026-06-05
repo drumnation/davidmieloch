@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:reality-needs-observers:08afac97b91b",
+  "source": {
+    "articleSlug": "reality-needs-observers",
+    "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: Reality Needs Observers\n\nBody:\nThe machine is bigger than the builder now. I am not a physicist. That matters, because this essay starts from physics. Not from a vibe. Not from a YouTube metaphor about living in a video game. From a Nobel Prize. In 2022, the Nobel Prize in Physics was awarded to Alain Aspect, John Clauser, and Anton Zeilinger for experiments with entangled photons. Their...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/reality-needs-observers?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=reality-needs-observers\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/reality-needs-observers"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "89b37177fdf17950ccde30c81b491fa3c46d5d8ea80adfc52c7e12c772388a04"
+  }
+}

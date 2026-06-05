@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:developing-with-a-team-of-ai-s:6792d5aceb32",
+  "source": {
+    "articleSlug": "developing-with-a-team-of-ai-s",
+    "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Developing with a Team of AI’s: A virtual developer round table discussion led by you and the prompts/software I used to make it happen Human led round table discussion with AI’s\n\nhttps://davidmieloch.com/blog/developing-with-a-team-of-ai-s?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=developing-with-a-team-of-ai-s",
+    "links": [
+      "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "ba94eaa7e65c7a1bed3f2d4bef0d29b479ddcca30f9b34e92e5d606322ef99b5"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:mastodon:building-with-brain-garden-real-world-lessons-in-practical-ai:3d8c3c099bdb",
+  "source": {
+    "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+    "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/mastodon.md"
+  },
+  "destination": {
+    "platform": "mastodon",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Building with Brain Garden: Real-World Lessons in Practical AI\n\nBeyond Hype — How We Actually Use Rules, Prompts, Skill Jacks, and Task Lists to Work Smarter with AI Introduction When I first started developing Brain Garden, it wasn’t a polished “framework” — it was a pile of messy experiments. Over time, by layering structured rules, prompts, task systems, and skill jacks, Brain Garden evolved into a\n\nCanonical essay: https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai?utm_source=mastodon&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=building-with-brain-garden-real-world-lessons-in-practical-ai",
+    "links": [
+      "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "f1bde3450607bdc204a650ac783795c8704b46c437643ee7594827df8a96ce61"
+  }
+}

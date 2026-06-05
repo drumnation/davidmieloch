@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:the-moving-target:b4457af3e1de",
+  "source": {
+    "articleSlug": "the-moving-target",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Moving Target: When you learned to code in the 1990s, that skill lasted thirty years. The same investment made a decade later bought you ten. Made five years ago,\n\nhttps://davidmieloch.com/blog/the-moving-target?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-moving-target",
+    "links": [
+      "https://davidmieloch.com/blog/the-moving-target"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "f22198102bfef5c4fcb2dd0b55a4858204ed4370813630d66db867b8149380c0"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:alphabetize-your-code:ed54480848fd",
+  "source": {
+    "articleSlug": "alphabetize-your-code",
+    "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Alphabetize your code.: Why? As humans, we thrive on structure and order, and labeling things is a great way to help our brains process information more effectively. Have\n\nhttps://davidmieloch.com/blog/alphabetize-your-code?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=alphabetize-your-code",
+    "links": [
+      "https://davidmieloch.com/blog/alphabetize-your-code"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "572925a0fab25c827a0bca6d9c74f543266d751bbdfaf1c8b1466c0d381f89e1"
+  }
+}

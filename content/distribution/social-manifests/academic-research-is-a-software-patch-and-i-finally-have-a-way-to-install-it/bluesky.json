@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:bluesky:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:88f9c57b4373",
+  "source": {
+    "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/bluesky.md"
+  },
+  "destination": {
+    "platform": "bluesky",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)\n\nMost research dies between the PDF and the person who could use it. I saw a paper on Reddit. \"Recursive Language Models\" from MIT CSAIL. Opened the PDF. Closed it immediately. I build complex systems for a\n\nhttps://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it?utm_source=bluesky&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+    "links": [
+      "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "6494dea2adec643302eaf0b1242567b6c1867e6289fc58c6ef1cfea712f1279e"
+  }
+}

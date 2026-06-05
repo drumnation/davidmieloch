@@ -17,9 +17,12 @@ Raw inputs:
 
 Derived artifacts:
 
-- `content/distribution/social-ledger.json`
 - `content/distribution/social-calendar.json`
 - `content/distribution/social-packages/<slug>/<platform>.md`
+- `content/distribution/social-packages/<slug>/manifest.json`
+- `content/distribution/social-manifests/<slug>/<platform>.json`
+- `content/distribution/n8n/social-dispatch-packets.json`
+- `content/distribution/refusal-inbox.json`
 - receipt records for every draft, approval, dispatch, rejection, and metric capture
 
 ## Decision Seam
@@ -86,12 +89,13 @@ and scheduling dashboards.
 ## CLI Shape
 
 - `pnpm content:pipeline social:package <slug|all>` creates teaser packages.
-- `pnpm content:pipeline social:schedule --platforms=x,reddit,linkedin --start=<iso>` writes `social-calendar.json`.
+- `pnpm content:pipeline social:readiness` reports account and credential custody state.
+- `pnpm content:pipeline social:schedule --start=<iso> --interval-hours=8 --write` writes `social-calendar.json`.
 - `pnpm content:pipeline social:due --now=<iso>` reports due approved/unapproved posts.
-- `pnpm content:pipeline social:approve <slug> <platform> --post-id=<id>` records approval only.
-- `pnpm content:pipeline social:dispatch <slug> <platform>` refuses unless approval is present.
-- `pnpm content:pipeline social:receipt <slug> <platform> --status=<draft|posted|blocked|rejected>` records outcome.
-- `pnpm content:pipeline social:n8n:export --dry-run` emits workflow-ready schedule packets.
+- `pnpm content:pipeline social:manifest <slug|all> <platform|all> --write` writes signed post manifests.
+- `pnpm content:pipeline social:n8n:export --write` emits workflow-ready schedule packets.
+- `pnpm content:pipeline social:refusal <platform> <action> --reason=<reason>` records blocked actions.
+- `pnpm content:pipeline social:postiz:push --dry-run` refuses until credential custody and a Postiz adapter are ready.
 
 ## Teaser Rules
 
@@ -120,4 +124,36 @@ Fallback chain:
 
 ## Next Build Step
 
-Implement `social:package` first. It should consume the content ledger and create draft teaser packages for LinkedIn, X, and Reddit without posting anything.
+Build the Postiz adapter behind `social:postiz:push`. It should read signed manifests, refuse unless credential custody and David approval are present, and create Postiz drafts or schedules only. It must not publish public posts.
+
+## PIE-CI Review
+
+### P — Purpose
+Score: ✅
+Notes: This file owns one concern: the deterministic social distribution spine.
+
+### I — Interface
+Score: ✅
+Notes: The CLI commands expose package, schedule, manifest, n8n, refusal, and dry-run push surfaces without exposing provider internals.
+
+### E — Encapsulation
+Score: ✅
+Notes: Credentials remain outside repo custody; manifests carry copy and approval state, not secrets.
+
+### C — Connection
+Score: ✅
+Notes: The website ledger, Postiz, n8n, and platform accounts connect through packet files and approval receipts.
+
+### I — Implementation
+Score: ⚠️
+Notes: The deterministic packet layer exists; the Postiz API adapter and provider connections remain blocked on 1Password write access.
+
+## Merge Decision
+
+Pass for substrate. Block connector execution until credential custody is fixed.
+
+## Core Judgment
+
+Does this reduce the surface area of the next change?
+
+Answer: Yes. It turns social distribution from browser labor into package, manifest, schedule, and workflow packets with explicit refusal states.

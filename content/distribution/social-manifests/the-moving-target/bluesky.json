@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:bluesky:the-moving-target:a2d438247373",
+  "source": {
+    "articleSlug": "the-moving-target",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/bluesky.md"
+  },
+  "destination": {
+    "platform": "bluesky",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Moving Target\n\nWhen you learned to code in the 1990s, that skill lasted thirty years. The same investment made a decade later bought you ten. Made five years ago, you might already be rebuilding. The half life is\n\nhttps://davidmieloch.com/blog/the-moving-target?utm_source=bluesky&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-moving-target",
+    "links": [
+      "https://davidmieloch.com/blog/the-moving-target"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "e3931073d38dfa8460543d34a9863182417e81c2ed7453d0931a12df05669eb3"
+  }
+}

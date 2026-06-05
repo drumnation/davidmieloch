@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:the-foreman:615bc9a5420f",
+  "source": {
+    "articleSlug": "the-foreman",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Foreman: The Wrong Debate Right now there's a busy genre of content about AI's limitations. The model hallucinated a library that doesn't exist. It got the\n\nhttps://davidmieloch.com/blog/the-foreman?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-foreman",
+    "links": [
+      "https://davidmieloch.com/blog/the-foreman"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "7125655be22fdf9a35c2bbbb12946b4ac0a8a62d156966ce3b64971b3c804cc7"
+  }
+}

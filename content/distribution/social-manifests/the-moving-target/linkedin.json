@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:the-moving-target:20107859b48e",
+  "source": {
+    "articleSlug": "the-moving-target",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Moving Target\n\nWhen you learned to code in the 1990s, that skill lasted thirty years. The same investment made a decade later bought you ten. Made five years ago, you might already be rebuilding. The half life is compressing. That's not a metaphor. It's a pattern with a direction. There are three waves of people building with AI right now. Most companies are hiring from...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-moving-target?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-moving-target",
+    "links": [
+      "https://davidmieloch.com/blog/the-moving-target"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "4a6ee467ad68b1888061c77f2b1fde10bc6a6e45af96533d11966b42b9a35986"
+  }
+}

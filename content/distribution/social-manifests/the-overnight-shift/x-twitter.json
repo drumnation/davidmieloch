@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:the-overnight-shift:c2d5e1557282",
+  "source": {
+    "articleSlug": "the-overnight-shift",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Overnight Shift: What happens when your code keeps working after you go to bed. I launched an execution engine on a Saturday evening and went to have dinner. When I\n\nhttps://davidmieloch.com/blog/the-overnight-shift?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-overnight-shift",
+    "links": [
+      "https://davidmieloch.com/blog/the-overnight-shift"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "a72e93f8e4082799afa6b85ce603e99c58daa961c27a73cfd68e8376491bb1d5"
+  }
+}

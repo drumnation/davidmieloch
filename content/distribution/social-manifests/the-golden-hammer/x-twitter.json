@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:the-golden-hammer:f87699d3a5ab",
+  "source": {
+    "articleSlug": "the-golden-hammer",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Golden Hammer: An Ensemble of Agents I learned to code by reverse engineering other people's answers rather than struggling to figure them out myself. Nine years\n\nhttps://davidmieloch.com/blog/the-golden-hammer?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-golden-hammer",
+    "links": [
+      "https://davidmieloch.com/blog/the-golden-hammer"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "11d8cc3c4c56d607d7b8492d7087a4f157ebf22817168197ac8fc91a29942b66"
+  }
+}

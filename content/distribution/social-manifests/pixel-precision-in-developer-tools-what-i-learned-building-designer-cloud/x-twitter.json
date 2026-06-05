@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:x-twitter:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:8ebb7f176c31",
+  "source": {
+    "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+    "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/x-twitter.md"
+  },
+  "destination": {
+    "platform": "x-twitter",
+    "accountId": "x-twitter",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud: Part 2 of “What I Learned Building a Photoshop in the Browser” 🎧 Listen on Spotify https //spotifycreators web.app.link/e/egT1bXbddTb When I\n\nhttps://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud?utm_source=x-twitter&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+    "links": [
+      "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "125f39bf68844601bdd41391c5f6a6797cfe577770cd30718d610f97fb88416d"
+  }
+}

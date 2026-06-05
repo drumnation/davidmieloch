@@ -35,6 +35,14 @@ import {
   quoteArticleAudio,
   writeGeneratedBlogVoiceTracks,
 } from '../../scripts/lib/audio-narration.mjs';
+import {
+  buildN8nExport,
+  buildSocialPackages,
+  buildSocialPostManifest,
+  buildSocialReadiness,
+  buildSocialSchedule,
+  recordSocialRefusal,
+} from '../../scripts/lib/social-automation.mjs';
 
 type ContentLedgerOptions = {
   obsidianBlogsRoot: string;
@@ -80,6 +88,56 @@ type AudioTracksOptions = {
   outputPath: string;
 };
 
+type SocialPackageOptions = {
+  ledger: Record<string, unknown>;
+  inventory: Record<string, unknown>;
+  articlesRoot: string;
+  outputRoot: string;
+  slug: string;
+  platform?: string;
+  generatedAt?: string;
+};
+
+type SocialManifestOptions = {
+  ledger: Record<string, unknown>;
+  inventory: Record<string, unknown>;
+  slug: string;
+  platform: string;
+  packagePath?: string;
+  mode?: string;
+  generatedAt?: string;
+  approvalStatus?: string;
+};
+
+type SocialScheduleOptions = {
+  packageRoot: string;
+  inventory: Record<string, unknown>;
+  startAt?: string;
+  intervalHours?: number;
+  generatedAt?: string;
+};
+
+type SocialN8nExportOptions = {
+  socialCalendar: ReturnType<typeof buildSocialSchedule>;
+  inventory: Record<string, unknown>;
+  generatedAt?: string;
+};
+
+type SocialReadinessOptions = {
+  inventory: Record<string, unknown>;
+  generatedAt?: string;
+};
+
+type SocialRefusalOptions = {
+  refusalPath: string;
+  platform: string;
+  action: string;
+  reason: string;
+  notes?: string;
+  screenshotPath?: string | null;
+  generatedAt?: string;
+};
+
 const prepareAudio = prepareArticleAudio as unknown as (
   options: AudioPrepareOptions
 ) => ReturnType<typeof prepareArticleAudio>;
@@ -98,6 +156,24 @@ const generateAudio = generateArticleAudio as unknown as (
 const writeVoiceTracks = writeGeneratedBlogVoiceTracks as unknown as (
   options: AudioTracksOptions
 ) => ReturnType<typeof writeGeneratedBlogVoiceTracks>;
+const generateSocialPackages = buildSocialPackages as unknown as (
+  options: SocialPackageOptions
+) => ReturnType<typeof buildSocialPackages>;
+const generateSocialManifest = buildSocialPostManifest as unknown as (
+  options: SocialManifestOptions
+) => ReturnType<typeof buildSocialPostManifest>;
+const generateSocialSchedule = buildSocialSchedule as unknown as (
+  options: SocialScheduleOptions
+) => ReturnType<typeof buildSocialSchedule>;
+const generateN8nExport = buildN8nExport as unknown as (
+  options: SocialN8nExportOptions
+) => ReturnType<typeof buildN8nExport>;
+const generateSocialReadiness = buildSocialReadiness as unknown as (
+  options: SocialReadinessOptions
+) => ReturnType<typeof buildSocialReadiness>;
+const createSocialRefusal = recordSocialRefusal as unknown as (
+  options: SocialRefusalOptions
+) => ReturnType<typeof recordSocialRefusal>;
 
 const roots: string[] = [];
 
@@ -282,6 +358,52 @@ function writeLedgerFixture(root: string) {
   );
 }
 
+function socialAccountInventory(writeStatus: 'ready' | 'blocked' = 'blocked') {
+  return {
+    exposureGate: {
+      default: 'internal-only',
+      question: 'Does anybody but Dave need to touch this GUI?',
+    },
+    credentialStore: {
+      provider: '1Password',
+      vault: 'Brain Garden',
+      writeStatus,
+      blocker: writeStatus === 'ready'
+        ? null
+        : 'Current 1Password service account can read the vault but cannot create or update items.',
+    },
+    postiz: {
+      url: 'https://social-davidmieloch.brain-garden.io',
+      network: 'internal-brain-garden',
+      publicExposure: 'not-required',
+    },
+    n8n: {
+      ownerAgent: 'Commander Data',
+      workflowStatus: 'planned',
+    },
+    accounts: [
+      {
+        platform: 'bluesky',
+        identityLayer: 'brand-lab',
+        accountKind: 'new-canary',
+        knownState: 'not-created',
+        proposedHandle: 'brain-garden-factory',
+        postizPriority: 1,
+        testPostPolicy: 'public-bland-test-allowed-after-1password-custody',
+      },
+      {
+        platform: 'linkedin',
+        identityLayer: 'personal-authority',
+        accountKind: 'existing-personal',
+        knownState: 'exists',
+        proposedHandle: 'davidmieloch',
+        postizPriority: 9,
+        testPostPolicy: 'no-public-test-posts',
+      },
+    ],
+  };
+}
+
 function writeLaunchCalendarFixture(root: string) {
   mkdirSync(join(root, 'content/distribution'), { recursive: true });
   writeFileSync(
@@ -391,6 +513,162 @@ describe('platform package generation', () => {
     expect(markdown).toContain('Suggested discussion shape, not a blind cross-post');
     expect(markdown).toContain('Do not post the same package to multiple subreddits unchanged.');
     expect(markdown).not.toContain('## The Productivity Trap');
+  });
+});
+
+describe('social automation substrate', () => {
+  it('generates safe social teaser packages with credential custody gates', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+
+    const generated = generateSocialPackages({
+      ledger: JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8')),
+      inventory: socialAccountInventory(),
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'bluesky',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const markdown = readFileSync(join(outputRoot, 'the-factory', 'bluesky.md'), 'utf8');
+    const manifest = JSON.parse(readFileSync(join(outputRoot, 'the-factory', 'manifest.json'), 'utf8'));
+
+    expect(generated.publicPublishingPerformed).toBe(false);
+    expect(generated.safeDefault).toBe('do-not-post');
+    expect(markdown).toContain('Safe default: do-not-post');
+    expect(markdown).toContain('Public posting requires explicit David approval.');
+    expect(markdown).toContain('Credential custody verified: no');
+    expect(markdown).toContain('utm_source=bluesky');
+    expect(manifest.files[0]).toMatchObject({
+      platform: 'bluesky',
+    });
+  });
+
+  it('builds signed post manifests without granting publish permission', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory();
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'bluesky',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const manifest = generateSocialManifest({
+      ledger,
+      inventory,
+      slug: 'the-factory',
+      platform: 'bluesky',
+      packagePath: join(outputRoot, 'the-factory', 'bluesky.md'),
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(manifest.payload.text).toContain('The Factory');
+    expect(manifest.approval).toMatchObject({
+      status: 'missing',
+      approvedBy: '',
+    });
+    expect(manifest.safety).toMatchObject({
+      safeDefault: 'do-not-post',
+      credentialCustodyVerified: false,
+      deletePathKnown: false,
+    });
+    expect(manifest.signature.digest).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it('exports blocked n8n dispatch packets until credentials are safely stored', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory();
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'bluesky',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const readiness = generateSocialReadiness({ inventory, generatedAt: '2026-06-05T00:00:00.000Z' });
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    const exportPayload = generateN8nExport({
+      socialCalendar: schedule,
+      inventory,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(readiness.summary).toMatchObject({
+      accounts: 2,
+      blocked: 2,
+      canaryEligible: 1,
+      connectorTestReady: 0,
+    });
+    expect(schedule.summary).toMatchObject({
+      totalEntries: 1,
+      blockedEntries: 1,
+    });
+    expect(schedule.entries[0]).toMatchObject({
+      platform: 'bluesky',
+      safeDefault: 'do-not-post',
+      publicPublishingAllowed: false,
+      blocked: true,
+    });
+    expect(exportPayload).toMatchObject({
+      status: 'blocked-on-credential-custody',
+      publicPublishingPerformed: false,
+      ownerAgent: 'Commander Data',
+    });
+    expect(exportPayload.packets[0].policy).toMatchObject({
+      publicPublishingAllowed: false,
+      safeDefault: 'do-not-post',
+      allowedAction: 'blocked',
+    });
+  });
+
+  it('records refusal receipts for manual or credential blockers', () => {
+    const root = tempRoot();
+    const refusalPath = join(root, 'content/distribution/refusal-inbox.json');
+
+    const refusal = createSocialRefusal({
+      refusalPath,
+      platform: '1password',
+      action: 'create-credential-item',
+      reason: 'service-account-lacks-create-update-permission',
+      notes: 'Blocks account creation and connector tests.',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const inbox = JSON.parse(readFileSync(refusalPath, 'utf8'));
+    expect(refusal.publicPublishingPerformed).toBe(false);
+    expect(inbox.records).toHaveLength(1);
+    expect(inbox.records[0]).toMatchObject({
+      platform: '1password',
+      action: 'create-credential-item',
+      status: 'blocked',
+      reason: 'service-account-lacks-create-update-permission',
+    });
   });
 });
 

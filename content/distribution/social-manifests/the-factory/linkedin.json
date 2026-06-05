@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:the-factory:8eb69a990241",
+  "source": {
+    "articleSlug": "the-factory",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Factory\n\nThe Productivity Trap In the 1880s, factories started replacing steam engines with electric motors. On paper, it was a revolution. Electric motors were smaller, cleaner, more precise, and individually controllable. The productivity gains should have been immediate and obvious. They weren't. For thirty years, nothing much changed. The reason was simple...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-factory?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-factory",
+    "links": [
+      "https://davidmieloch.com/blog/the-factory"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "55fbd62dd26b7b6c7cfbc77df3bbf0d86d66baa4b944cb0dae4f6598017019cb"
+  }
+}

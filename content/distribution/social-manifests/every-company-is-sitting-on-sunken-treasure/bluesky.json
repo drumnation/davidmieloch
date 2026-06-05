@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:bluesky:every-company-is-sitting-on-sunken-treasure:784968ec7c64",
+  "source": {
+    "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+    "canonicalUrl": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/bluesky.md"
+  },
+  "destination": {
+    "platform": "bluesky",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Every Company Is Sitting on Sunken Treasure\n\nThe cost of the dive just dropped by 90%. Every company has one. A cancelled project with thousands of hours baked in. A codebase nobody wants to touch because the people who built it left and the architecture\n\nhttps://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure?utm_source=bluesky&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=every-company-is-sitting-on-sunken-treasure",
+    "links": [
+      "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "57f5c7762b8ec6da69329a3eb6096d668b15265cb85e60816ad748f95c2d7b5e"
+  }
+}

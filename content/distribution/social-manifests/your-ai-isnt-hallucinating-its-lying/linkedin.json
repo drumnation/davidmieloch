@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:your-ai-isnt-hallucinating-its-lying:8528dc983e81",
+  "source": {
+    "articleSlug": "your-ai-isnt-hallucinating-its-lying",
+    "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Your AI Isn't Hallucinating. It's Lying.\n\nThe word \"hallucination\" is doing more harm than the models are. You've heard it a thousand times. \"The AI hallucinated.\" \"ChatGPT made things up.\" \"LLMs can't be trusted because they hallucinate.\" Stop. That word is letting you off the hook. We Trained Them to Lie The training process itself is the problem RLHF penalizes the words \"I don't know.\" When a...\n\nRead the canonical essay: https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=your-ai-isnt-hallucinating-its-lying",
+    "links": [
+      "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "ce295a0f88ccb58e7c0c3720799db872a77ad9f820f1b4ae9c1f3cf9ef039c0b"
+  }
+}

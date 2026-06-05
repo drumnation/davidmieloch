@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:reddit:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:f741580c8a9a",
+  "source": {
+    "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+    "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/reddit.md"
+  },
+  "destination": {
+    "platform": "reddit",
+    "accountId": "reddit",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Suggested discussion seed, not a blind link post.\n\nTitle: Pixel Precision in Developer Tools: What I Learned Building Designer Cloud\n\nBody:\nPart 2 of “What I Learned Building a Photoshop in the Browser” 🎧 Listen on Spotify https //spotifycreators web.app.link/e/egT1bXbddTb When I published https //medium.com/@davidmieloch/what i learned building a photoshop in the browser da72c963b185, I focused on architecture, leadership, and all the heavy systems thinking that comes with building a full...\n\nQuestion: does this match what you are seeing in your own workflows, or does it break down in practice?\n\nContext link: https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud?utm_source=reddit&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud\n\nRules:\n- Pick one target subreddit.\n- Rewrite for that community.\n- Do not post without David approval.",
+    "links": [
+      "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "5cf0d3704559a128c8d234ea0c1f8eeb1ea8a1ff713064a43aa0d68bea5ca6a2"
+  }
+}

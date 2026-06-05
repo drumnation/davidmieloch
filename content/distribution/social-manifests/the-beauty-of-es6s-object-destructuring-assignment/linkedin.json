@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:the-beauty-of-es6s-object-destructuring-assignment:4a646a7a986c",
+  "source": {
+    "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Beauty of ES6's Object Destructuring Assignment\n\nBenefits Key name can’t change, predictability Keys can be in any order, and can be alphabetized Inputs and outputs become incredibly clear Object destructuring is an incredibly powerful tool that allows developers to quickly and easily access data stored in complex object structures. By using object destructuring, developers can assign object properties to...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-beauty-of-es6s-object-destructuring-assignment",
+    "links": [
+      "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "e604a83330bb46913f5ea6c58ebf83c14318b6095a153a54020e784f616f9156"
+  }
+}

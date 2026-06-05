@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:threads:reuse-your-code-authoring-your-own-universal-library-with-webpack:176d5f8ee9ec",
+  "source": {
+    "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/threads.md"
+  },
+  "destination": {
+    "platform": "threads",
+    "accountId": "brain-garden",
+    "identityLayer": "brand-lab",
+    "mode": "draft",
+    "postizChannelId": null
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "Reuse your code: Authoring your own Universal Library with Webpack\n\nAre you looking to build a custom library using webpack? With the right setup, webpack can help you create a library that can be used by other developers in their projects. This is also helpful if you’d like to share your own code with many of your own projects to avoid needless code repetition. In\n\nhttps://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack?utm_source=threads&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=reuse-your-code-authoring-your-own-universal-library-with-webpack",
+    "links": [
+      "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "2aeac40e98c5f80bc3d321c39e29c3049a14e793e6c6180c987df50b3778f6c5"
+  }
+}
