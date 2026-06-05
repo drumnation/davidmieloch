@@ -46,19 +46,19 @@ const upcomingPosts = [
 
 const operatingLanes = [
   {
-    label: "Canonical archive",
-    value: "20 essays",
-    text: "Factory-era writing and selected legacy work are collected on the site first.",
+    label: "For builders",
+    value: "Start with the factory",
+    text: "A practical path from prompt stacks and scripts toward durable agent workflows.",
   },
   {
-    label: "Distribution",
-    value: "Multi-surface",
-    text: "DEV drafts are staged; Medium, HackerNoon, DZone, Substack, Hashnode, and Reddit route back here.",
+    label: "For leaders",
+    value: "See the operating model",
+    text: "A clearer way to judge whether AI work is becoming capability or just theater.",
   },
   {
-    label: "Next wave",
-    value: "June series",
-    text: "New posts focus on cost, credibility, noticing, crews, and what survives the factory transition.",
+    label: "For teams",
+    value: "Build the substrate",
+    text: "Governance, observability, memory, and roles that make agent output trustworthy.",
   },
 ];
 
@@ -98,9 +98,9 @@ export const Home: React.FC<HomePageProps> = ({
             I build software factories.
           </h1>
           <p className={styles.lede}>
-            Brain Garden is the operating system: agents, governance,
-            observability, and human judgment arranged into a factory that keeps
-            working after the individual task is done.
+            David Mieloch designs AI-native systems where agents, tools,
+            governance, observability, and human judgment work together as
+            durable production machinery.
           </p>
           <div className={styles.actions}>
             <Link href="/blog/the-factory" className={styles.primaryAction}>
@@ -130,12 +130,12 @@ export const Home: React.FC<HomePageProps> = ({
           />
           <div className={styles.posterOverlay} />
           <div className={styles.posterLabel}>
-            <span className={styles.posterKicker}>Launch frame</span>
+            <span className={styles.posterKicker}>Featured thesis</span>
             <strong className={styles.posterTitle}>
               Dark Software Factory
             </strong>
             <span className={styles.posterMeta}>
-              The trailer can arrive after the site is live.
+              A visual language for the next era of software work.
             </span>
           </div>
         </div>
@@ -145,7 +145,7 @@ export const Home: React.FC<HomePageProps> = ({
         <div className={styles.shelfLead}>
           <p className={styles.eyebrow}>Featured archive</p>
           <h2 className={styles.shelfTitle}>
-            The writing already has a visual world.
+            Essays for the factory era of software.
           </h2>
         </div>
         <div className={styles.shelfGrid}>
@@ -182,13 +182,14 @@ export const Home: React.FC<HomePageProps> = ({
 
       <section className={styles.statementBand} aria-label="Positioning">
         <p className={styles.statement}>
-          The old site was about learning to talk to AI. The new site is about
-          designing the factory that turns direction into shipped systems.
+          The question is no longer whether AI can help write code. The
+          question is whether the surrounding system can turn that speed into
+          trustworthy, repeatable outcomes.
         </p>
         <p className={styles.statementNote}>
-          Consulting work happens through{" "}
-          <a href="https://singularity-labs.org">Singularity Labs</a>: custom AI
-          factory design, factory builds, and foreman training.
+          Through <a href="https://singularity-labs.org">Singularity Labs</a>,
+          David helps teams design the operating model, tools, and governance
+          needed to run AI-assisted software work with confidence.
         </p>
       </section>
 
@@ -196,7 +197,7 @@ export const Home: React.FC<HomePageProps> = ({
         <div className={styles.sectionHeader}>
           <p className={styles.eyebrow}>Start here</p>
           <h2 id="proof-title" className={styles.sectionTitle}>
-            The current canon
+            Three ways into the work
           </h2>
         </div>
         <div className={styles.articleGrid}>
@@ -230,9 +231,9 @@ export const Home: React.FC<HomePageProps> = ({
       <section className={styles.darkBand} aria-labelledby="pipeline-title">
         <div className={styles.darkInner}>
           <div className={styles.sectionHeader}>
-            <p className={styles.darkEyebrow}>Launch pipeline</p>
+            <p className={styles.darkEyebrow}>What this is about</p>
             <h2 id="pipeline-title" className={styles.darkTitle}>
-              The site becomes the source of truth.
+              From AI assistance to AI production.
             </h2>
           </div>
           <div className={styles.laneGrid}>
@@ -252,13 +253,13 @@ export const Home: React.FC<HomePageProps> = ({
           <div>
             <p className={styles.eyebrow}>Next series</p>
             <h2 id="next-title" className={styles.sectionTitle}>
-              The June wave is about what survives when the factory works.
+              The next essays go deeper into factory operations.
             </h2>
             <p className={styles.sectionText}>
-              The upcoming posts shift from proving the factory exists to
-              explaining the operating consequences: cost filters, credibility
-              gaps, first-class noticing, and the temporary nature of the human
-              foreman role.
+              Upcoming writing explores the practical consequences of agentic
+              software work: what should be filtered, what must be measured,
+              what needs independent observation, and how teams should evolve
+              as more of the workflow becomes automated.
             </p>
           </div>
           <ol className={styles.postList}>
