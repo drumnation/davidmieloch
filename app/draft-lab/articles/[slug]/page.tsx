@@ -23,6 +23,11 @@ type DraftCandidate = {
   sourceBucket: string;
   promptSeed: string;
   previewMarkdownPath: string;
+  images: Array<{
+    src: string;
+    sourcePath: string;
+    role: string;
+  }>;
 };
 
 const candidates = review.candidates as DraftCandidate[];
@@ -54,7 +59,7 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
     notFound();
   }
 
-  const markdown = stripFrontmatter(fs.readFileSync(sourcePath, 'utf8'));
+  const markdown = renderDraftMarkdown(stripFrontmatter(fs.readFileSync(sourcePath, 'utf8')), candidate);
 
   return (
     <main style={styles.page}>
@@ -85,6 +90,14 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
                 {children}
               </a>
             ),
+            img: ({ src, alt }) => (
+              <img
+                src={src || ''}
+                alt={alt || ''}
+                style={styles.markdownImage}
+                loading="lazy"
+              />
+            ),
             blockquote: ({ children }) => <blockquote style={styles.blockquote}>{children}</blockquote>,
             ul: ({ children }) => <ul style={styles.list}>{children}</ul>,
             ol: ({ children }) => <ol style={styles.list}>{children}</ol>,
@@ -100,6 +113,30 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
 
 function stripFrontmatter(markdown: string) {
   return markdown.replace(/^---\n[\s\S]*?\n---\n\n?/, '').trim();
+}
+
+function renderDraftMarkdown(markdown: string, candidate: DraftCandidate) {
+  const imageBySource = new Map<string, DraftCandidate['images'][number]>();
+
+  for (const image of candidate.images) {
+    imageBySource.set(normalizeImageLookupKey(image.sourcePath), image);
+    imageBySource.set(normalizeImageLookupKey(path.basename(image.sourcePath)), image);
+  }
+
+  return markdown.replace(/!\[\[([^\]]+)]]/g, (_match, rawPath: string) => {
+    const lookupKey = normalizeImageLookupKey(rawPath);
+    const image = imageBySource.get(lookupKey) || imageBySource.get(normalizeImageLookupKey(path.basename(rawPath)));
+
+    if (!image) {
+      return `> Missing staged draft image: ${rawPath}`;
+    }
+
+    return `![${candidate.title} ${image.role}](${image.src})`;
+  });
+}
+
+function normalizeImageLookupKey(value: string) {
+  return value.replace(/\\/g, '/').trim().toLowerCase();
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -180,6 +217,16 @@ const styles: Record<string, CSSProperties> = {
   markdownLink: {
     color: '#4451a4',
     fontWeight: 800,
+  },
+  markdownImage: {
+    display: 'block',
+    width: '100%',
+    height: 'auto',
+    maxHeight: '560px',
+    objectFit: 'contain',
+    margin: '24px 0',
+    borderRadius: '8px',
+    background: '#111',
   },
   blockquote: {
     margin: '24px 0',
