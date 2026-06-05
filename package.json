@@ -37,6 +37,7 @@
     "test:storybook:normalize": "node scripts/normalize-snapshots.js",
     "test:storybook:stable": "pnpm test:storybook:update && pnpm test:storybook:normalize && pnpm test:storybook:all",
     "test:e2e:loader": "node scripts/e2e-loader-check.mjs",
+    "test:e2e:narration": "node scripts/e2e-narration-check.mjs",
     "test:ci": "pnpm exec vitest --config vitest.config.snapshot.ts --run && pnpm exec vitest --config vitest.config.stories.ts --run"
   },
   "// comments": {
