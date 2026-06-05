@@ -23,10 +23,12 @@ const ledger = buildContentLedger({
 });
 
 fs.mkdirSync(path.dirname(reviewOutputPath), { recursive: true });
-fs.rmSync(reviewPublicRoot, { recursive: true, force: true });
+resetReviewPublicRoot();
 fs.rmSync(previewMarkdownRoot, { recursive: true, force: true });
 fs.mkdirSync(reviewPublicRoot, { recursive: true });
 fs.mkdirSync(previewMarkdownRoot, { recursive: true });
+
+const claimedImageSetKeys = new Set();
 
 const candidates = ledger.items
   .filter((item) => item.gates.website === 'needs-website-staging')
@@ -94,6 +96,19 @@ console.log(JSON.stringify({
 
 function copyReviewImages(item) {
   const sourceImages = imagePathsFor(item);
+  const imageSetKey = sourceImages
+    .map((sourcePath) => path.normalize(sourcePath))
+    .sort()
+    .join('|');
+
+  if (imageSetKey && claimedImageSetKeys.has(imageSetKey)) {
+    return [];
+  }
+
+  if (imageSetKey) {
+    claimedImageSetKeys.add(imageSetKey);
+  }
+
   const destinationRoot = path.join(reviewPublicRoot, item.slug);
   fs.mkdirSync(destinationRoot, { recursive: true });
 
@@ -111,6 +126,14 @@ function copyReviewImages(item) {
   });
 }
 
+function resetReviewPublicRoot() {
+  fs.mkdirSync(reviewPublicRoot, { recursive: true });
+  for (const entry of fs.readdirSync(reviewPublicRoot, { withFileTypes: true })) {
+    if (entry.name === '_generated') continue;
+    fs.rmSync(path.join(reviewPublicRoot, entry.name), { recursive: true, force: true });
+  }
+}
+
 function copyPreviewMarkdown(item) {
   const sourcePath = path.join(obsidianBlogsRoot, item.relativePath);
   const outputRelativePath = `content/distribution/draft-previews/${item.slug}.md`;
@@ -120,11 +143,50 @@ function copyPreviewMarkdown(item) {
 }
 
 function imagePathsFor(item) {
+  const explicitImages = item.imageEvidence.embeds
+    .map((embedPath) => resolveImageEmbed(item, embedPath))
+    .filter(Boolean);
+
+  if (explicitImages.length > 0) {
+    return [...new Set(explicitImages)];
+  }
+
   const fromLedger = item.imageEvidence.adjacentImages
     .map((relativePath) => path.join(obsidianBlogsRoot, relativePath))
     .filter((filePath) => fs.existsSync(filePath) && imageExtensions.has(path.extname(filePath).toLowerCase()));
 
   return [...new Set(fromLedger)];
+}
+
+function resolveImageEmbed(item, embedPath) {
+  const cleanPath = embedPath
+    .replace(/^<|>$/g, '')
+    .split('#')[0]
+    .split('?')[0]
+    .trim();
+
+  if (!cleanPath || /^https?:\/\//i.test(cleanPath)) {
+    return null;
+  }
+
+  const articleDirectory = path.dirname(item.sourcePath);
+  const blogsParent = path.dirname(obsidianBlogsRoot);
+  const withoutLeadingSlash = cleanPath.replace(/^\/+/, '');
+  const withoutBlogsPrefix = withoutLeadingSlash.replace(/^blogs\//i, '');
+  const candidates = [
+    cleanPath,
+    path.join(articleDirectory, withoutLeadingSlash),
+    path.join(obsidianBlogsRoot, withoutLeadingSlash),
+    path.join(obsidianBlogsRoot, withoutBlogsPrefix),
+    path.join(blogsParent, withoutLeadingSlash),
+    path.join(articleDirectory, path.basename(withoutLeadingSlash)),
+  ];
+
+  return candidates.find((filePath) => (
+    fs.existsSync(filePath) &&
+    fs.statSync(filePath).isFile() &&
+    imageExtensions.has(path.extname(filePath).toLowerCase())
+  )) ?? null;
 }
 
 function safeBasename(filePath) {

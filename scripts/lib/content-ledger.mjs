@@ -158,7 +158,7 @@ function isSupportDocument(relativePath, title) {
   const normalizedPath = relativePath.toLowerCase();
   const normalizedTitle = String(title).toLowerCase();
   return (
-    /(^|[/\\])(notes|handoff|image-choices|revision-notes|content-grove|readme)\.md$/.test(normalizedPath) ||
+    /(^|[/\\])(_?index|notes|handoff|image-choices|revision-notes|content-grove|readme)\.md$/.test(normalizedPath) ||
     /(working notes|session handoff|image choices|revision notes)/.test(normalizedTitle)
   );
 }
