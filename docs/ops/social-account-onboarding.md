@@ -56,6 +56,92 @@ Existing personal accounts should be connected later and only after canary accou
 - Reddit
 - Facebook personal
 
+## Postiz Channel Capability Map
+
+Observed on 2026-06-05 in the self-hosted Postiz `v2.21.8` UI.
+
+Native channel types shown by Postiz:
+
+- X
+- LinkedIn
+- LinkedIn Page
+- Reddit
+- Instagram via Facebook Business
+- Instagram Standalone
+- Facebook Page
+- Threads
+- YouTube
+- Google My Business
+- TikTok
+- Pinterest
+- Dribbble
+- Discord
+- Slack
+- Kick
+- Twitch
+- Mastodon
+- Bluesky
+- Lemmy
+- Farcaster
+- Telegram
+- Nostr
+- VK
+- Medium
+- Dev.to
+- Hashnode
+- WordPress
+- ListMonk
+- Moltbook
+- Whop
+- Skool
+- MeWe
+
+Good first canary:
+
+- Bluesky. Postiz asks for service URL, identifier, and password/app password.
+- Mastodon. Postiz redirects to the selected instance login.
+- Dev.to, Medium, and Hashnode. Postiz asks for an API key.
+
+OAuth-app channels that need server-side provider credentials before connecting:
+
+- LinkedIn and LinkedIn Page require `LINKEDIN_CLIENT_ID` and `LINKEDIN_CLIENT_SECRET`.
+- Reddit requires its app credentials before OAuth can work.
+- X, Facebook, Instagram, Threads, YouTube, Google Business, TikTok, Pinterest, and similar platforms need provider-specific app credentials.
+
+Unsupported or unsuitable channels should not be forced into Postiz. Use the same deterministic content ledger, signed manifest, approval receipt, and metrics receipt, but route execution through the narrowest available adapter:
+
+- Native platform API from the content pipeline.
+- n8n workflow owned by Commander Data.
+- Browser/manual package with screenshot and URL receipt.
+- Future custom Postiz provider only if the integration becomes repeated enough to justify maintaining it.
+
+Postiz is the calendar/channel substrate, not the only possible execution engine.
+
+## LinkedIn Setup Path
+
+Postiz supports LinkedIn natively, but the provider must be configured first.
+
+1. Create a LinkedIn Developer app.
+2. Add the required LinkedIn products and permissions for posting and organization posting.
+3. Configure redirect URIs:
+   - Personal profile: `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin`
+   - Page provider: `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin-page`
+4. Store the app client id and client secret in 1Password.
+5. Add only references to the server deployment notes; never commit the secret values.
+6. Set `LINKEDIN_CLIENT_ID` and `LINKEDIN_CLIENT_SECRET` in the Postiz compose override or server environment.
+7. Restart Postiz.
+8. Connect LinkedIn from the Postiz Add Channel UI.
+9. Keep all LinkedIn posting behind explicit David approval.
+
+Observed failure before configuration:
+
+```text
+https://www.linkedin.com/oauth/v2/authorization?...&client_id=&...
+LinkedIn response: You need to pass the "client_id" parameter.
+```
+
+This means the LinkedIn provider exists, but its OAuth app credentials are missing.
+
 ## Credential Item Shape
 
 Each account gets one 1Password item:
