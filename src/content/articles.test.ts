@@ -64,6 +64,11 @@ coverImage: "/blog/newer-published/cover.png"
       {
         slug: 'newer-published',
         title: 'Newer Published',
+        publishedYear: 2026,
+        era: {
+          label: 'Factory era',
+          shortLabel: 'Factory',
+        },
         tags: ['ai', 'agents'],
         body: '# Published body',
       },
@@ -94,5 +99,22 @@ tags: ["assets"]
     expect(getPublishedArticle('derived-cover')?.coverImage).toBe(
       '/blog/derived-cover/images/hero-panel.png',
     );
+  });
+
+  it('classifies publication years into content eras', async () => {
+    const { getContentEra } = await import('./articles');
+
+    expect(getContentEra('2026-04-14')).toMatchObject({
+      year: 2026,
+      label: 'Factory era',
+    });
+    expect(getContentEra('2025-04-25')).toMatchObject({
+      year: 2025,
+      label: 'Transition era',
+    });
+    expect(getContentEra('2022-01-01')).toMatchObject({
+      year: 2022,
+      label: 'Earlier archive',
+    });
   });
 });

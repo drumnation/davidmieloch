@@ -6,6 +6,8 @@ export type Article = {
   title: string;
   description: string;
   publishedAt: string;
+  publishedYear: number;
+  era: ContentEra;
   updatedAt?: string;
   status: 'published' | 'draft' | 'archived';
   canonicalUrl: string;
@@ -17,6 +19,13 @@ export type Article = {
   body: string;
 };
 
+export type ContentEra = {
+  year: number;
+  label: string;
+  shortLabel: string;
+  description: string;
+};
+
 type FrontmatterValue = string | string[];
 type Frontmatter = Record<string, FrontmatterValue>;
 
@@ -26,6 +35,28 @@ const ARTICLES_DIRECTORY =
 const PUBLIC_DIRECTORY = process.env.CONTENT_PUBLIC_ROOT ?? join(process.cwd(), 'public');
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const COVER_NAME_PRIORITY = ['hero', 'cover', 'wall', 'factory', 'medium-01'];
+const ERA_BY_YEAR: Record<number, Omit<ContentEra, 'year'>> = {
+  2026: {
+    label: 'Factory era',
+    shortLabel: 'Factory',
+    description: 'Agents, governance, dark factories, and the shift from AI assistance to AI-operated systems.',
+  },
+  2025: {
+    label: 'Transition era',
+    shortLabel: 'Transition',
+    description: 'A year of AI transformation, workflow experiments, and the last bridge from prompt craft to factory thinking.',
+  },
+  2024: {
+    label: 'AI team era',
+    shortLabel: 'AI teams',
+    description: 'Early field notes on working with AI as a team member inside practical software work.',
+  },
+  2023: {
+    label: 'Engineering notes',
+    shortLabel: 'Engineering',
+    description: 'Older engineering writing from before the factory thesis took over the brand.',
+  },
+};
 
 function parseArray(value: string): string[] {
   const trimmed = value.trim();
@@ -151,6 +182,20 @@ function findDerivedCoverImage(slug: string): string | undefined {
   return image ? `/blog/${slug}/images/${image}` : undefined;
 }
 
+export function getContentEra(publishedAt: string): ContentEra {
+  const year = new Date(publishedAt).getUTCFullYear();
+  const era = ERA_BY_YEAR[year] ?? {
+    label: 'Earlier archive',
+    shortLabel: 'Archive',
+    description: 'Earlier writing kept for context, chronology, and the visible evolution of the work.',
+  };
+
+  return {
+    year,
+    ...era,
+  };
+}
+
 function parseStatus(frontmatter: Frontmatter, slug: string): Article['status'] {
   const status = requiredString(frontmatter, 'status', slug);
 
@@ -166,11 +211,16 @@ function readArticle(rootDirectory: string, slug: string): Article {
   const { frontmatter, body } = parseMarkdownFile(markdown);
   const tags = frontmatter.tags;
 
+  const publishedAt = requiredString(frontmatter, 'publishedAt', slug);
+  const era = getContentEra(publishedAt);
+
   return {
     slug,
     title: requiredString(frontmatter, 'title', slug),
     description: requiredString(frontmatter, 'description', slug),
-    publishedAt: requiredString(frontmatter, 'publishedAt', slug),
+    publishedAt,
+    publishedYear: era.year,
+    era,
     updatedAt: optionalString(frontmatter, 'updatedAt'),
     status: parseStatus(frontmatter, slug),
     canonicalUrl: requiredString(frontmatter, 'canonicalUrl', slug),

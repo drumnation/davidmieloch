@@ -52,6 +52,26 @@
   line-height: 1.58;
 }
 
+.metaLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  color: #cabba8;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.metaLine span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border: 1px solid rgba(248, 239, 224, 0.16);
+  border-radius: 999px;
+  background: rgba(248, 239, 224, 0.04);
+}
+
 .headerStats {
   display: grid;
   gap: 10px;
@@ -194,7 +214,61 @@
   letter-spacing: 0;
 }
 
+.archiveIntro {
+  max-width: 760px;
+  margin: 0;
+  color: #d7cab8;
+  font-size: 1rem;
+  line-height: 1.58;
+}
+
 .archiveList {
+  display: grid;
+  gap: 38px;
+}
+
+.yearSection {
+  display: grid;
+  gap: 18px;
+}
+
+.yearHeader {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.22fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: end;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(248, 239, 224, 0.16);
+}
+
+.yearTitle {
+  margin: 0;
+  color: #f8efe0;
+  font-size: clamp(2.5rem, 9vw, 6rem);
+  line-height: 0.85;
+  letter-spacing: 0;
+}
+
+.yearCopy {
+  max-width: 740px;
+}
+
+.yearEra {
+  margin: 0;
+  color: #ffbd68;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.yearDescription {
+  margin: 8px 0 0;
+  color: #d7cab8;
+  line-height: 1.5;
+}
+
+.yearArticles {
   display: grid;
   gap: 18px;
 }
@@ -299,7 +373,8 @@
 
   .headerStats,
   .featuredGrid,
-  .archiveCard {
+  .archiveCard,
+  .yearHeader {
     grid-template-columns: 1fr;
   }
 

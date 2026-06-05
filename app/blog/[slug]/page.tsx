@@ -58,6 +58,13 @@ export default async function ArticlePage({ params }: PageProps) {
           <p style={styles.eyebrow}>{article.series ?? 'Essay'}</p>
           <h1 style={styles.title}>{article.title}</h1>
           <p style={styles.description}>{article.description}</p>
+          <div style={styles.eraPanel} aria-label="Writing era">
+            <strong style={styles.eraYear}>{article.publishedYear}</strong>
+            <div>
+              <p style={styles.eraLabel}>{article.era.label}</p>
+              <p style={styles.eraDescription}>{article.era.description}</p>
+            </div>
+          </div>
           <div style={styles.meta}>
             <time dateTime={article.publishedAt}>
               {new Intl.DateTimeFormat('en', {
@@ -163,6 +170,33 @@ const styles: Record<string, CSSProperties> = {
     marginTop: '18px',
     color: '#666',
     fontSize: '0.9rem',
+  },
+  eraPanel: {
+    display: 'grid',
+    gridTemplateColumns: '86px minmax(0, 1fr)',
+    gap: '16px',
+    marginTop: '22px',
+    padding: '16px',
+    border: '1px solid #dedede',
+    borderRadius: '8px',
+    background: '#f7f3ed',
+  },
+  eraYear: {
+    color: '#171717',
+    fontSize: '1.8rem',
+    lineHeight: 1,
+  },
+  eraLabel: {
+    margin: 0,
+    color: '#4451a4',
+    fontSize: '0.82rem',
+    fontWeight: 800,
+    textTransform: 'uppercase',
+  },
+  eraDescription: {
+    margin: '6px 0 0',
+    color: '#444',
+    lineHeight: 1.48,
   },
   markdownH1: {
     margin: '38px 0 14px',

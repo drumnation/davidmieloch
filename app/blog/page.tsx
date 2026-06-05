@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
+import type { Article } from '../../src/content/articles';
 import { getPublishedArticles, getSiteUrl } from '../../src/content/articles';
 import styles from './Blog.module.css';
 
@@ -25,11 +26,44 @@ function formatDate(date: string) {
   }).format(new Date(date));
 }
 
+function groupByYear(articles: Article[]) {
+  return articles.reduce<Array<{ year: number; era: Article['era']; articles: Article[] }>>(
+    (groups, article) => {
+      const existing = groups.find((group) => group.year === article.publishedYear);
+
+      if (existing) {
+        existing.articles.push(article);
+        return groups;
+      }
+
+      return [
+        ...groups,
+        {
+          year: article.publishedYear,
+          era: article.era,
+          articles: [article],
+        },
+      ];
+    },
+    [],
+  );
+}
+
+function MetaLine({ article }: { article: Article }) {
+  return (
+    <span className={styles.metaLine}>
+      <span>{article.publishedYear}</span>
+      <span>{article.era.shortLabel}</span>
+      {article.series ? <span>{article.series}</span> : null}
+    </span>
+  );
+}
+
 export default function BlogPage() {
   const articles = getPublishedArticles();
   const [leadArticle, ...restArticles] = articles;
   const featuredArticles = restArticles.slice(0, 4);
-  const archiveArticles = restArticles.slice(4);
+  const yearGroups = groupByYear(articles);
 
   return (
     <main className={styles.page}>
@@ -43,7 +77,7 @@ export default function BlogPage() {
         </div>
         <div className={styles.headerStats} aria-label="Archive status">
           <span>{articles.length} essays</span>
-          <span>Factory first</span>
+          <span>{yearGroups.length} years</span>
           <span>Audio queue open</span>
         </div>
       </section>
@@ -64,7 +98,8 @@ export default function BlogPage() {
             <span className={styles.imageShade} />
           </Link>
           <div className={styles.leadCopy}>
-            <p className={styles.cardMeta}>{leadArticle.series ?? formatDate(leadArticle.publishedAt)}</p>
+            <p className={styles.cardMeta}>{leadArticle.era.label}</p>
+            <MetaLine article={leadArticle} />
             <h2 className={styles.leadTitle}>
               <Link href={`/blog/${leadArticle.slug}`}>{leadArticle.title}</Link>
             </h2>
@@ -90,7 +125,8 @@ export default function BlogPage() {
                 />
               ) : null}
             </span>
-            <span className={styles.cardMeta}>{article.series ?? formatDate(article.publishedAt)}</span>
+            <span className={styles.cardMeta}>{article.era.shortLabel}</span>
+            <MetaLine article={article} />
             <strong className={styles.featuredTitle}>{article.title}</strong>
           </Link>
         ))}
@@ -99,40 +135,56 @@ export default function BlogPage() {
       <section className={styles.archive} aria-label="Article archive">
         <div className={styles.archiveHeader}>
           <p className={styles.eyebrow}>Archive</p>
-          <h2 className={styles.archiveTitle}>All published writing</h2>
+          <h2 className={styles.archiveTitle}>Writing by year</h2>
+          <p className={styles.archiveIntro}>
+            The date is part of the argument. Older pieces stay visible as artifacts of the thinking at that time, while newer work carries the current factory thesis.
+          </p>
         </div>
         <div className={styles.archiveList}>
-          {archiveArticles.map((article) => (
-            <article key={article.slug} className={styles.archiveCard}>
-              <Link href={`/blog/${article.slug}`} className={styles.archiveImageLink}>
-                {article.coverImage ? (
-                  <Image
-                    src={article.coverImage}
-                    alt=""
-                    fill
-                    sizes="(max-width: 700px) 100vw, 180px"
-                    className={styles.archiveImage}
-                  />
-                ) : null}
-              </Link>
-              <div className={styles.archiveCopy}>
-                <div className={styles.meta}>
-                  <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
-                  {article.series ? <span>{article.series}</span> : null}
-                </div>
-                <h3 className={styles.articleTitle}>
-                  <Link href={`/blog/${article.slug}`}>{article.title}</Link>
-                </h3>
-                <p className={styles.summary}>{article.description}</p>
-                <div className={styles.tags}>
-                  {article.tags.slice(0, 4).map((tag) => (
-                    <span key={tag} className={styles.tag}>
-                      {tag}
-                    </span>
-                  ))}
+          {yearGroups.map((group) => (
+            <section key={group.year} className={styles.yearSection} aria-labelledby={`year-${group.year}`}>
+              <div className={styles.yearHeader}>
+                <h3 id={`year-${group.year}`} className={styles.yearTitle}>{group.year}</h3>
+                <div className={styles.yearCopy}>
+                  <p className={styles.yearEra}>{group.era.label}</p>
+                  <p className={styles.yearDescription}>{group.era.description}</p>
                 </div>
               </div>
-            </article>
+              <div className={styles.yearArticles}>
+                {group.articles.map((article) => (
+                  <article key={article.slug} className={styles.archiveCard}>
+                    <Link href={`/blog/${article.slug}`} className={styles.archiveImageLink}>
+                      {article.coverImage ? (
+                        <Image
+                          src={article.coverImage}
+                          alt=""
+                          fill
+                          sizes="(max-width: 700px) 100vw, 180px"
+                          className={styles.archiveImage}
+                        />
+                      ) : null}
+                    </Link>
+                    <div className={styles.archiveCopy}>
+                      <div className={styles.meta}>
+                        <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+                        {article.series ? <span>{article.series}</span> : null}
+                      </div>
+                      <h4 className={styles.articleTitle}>
+                        <Link href={`/blog/${article.slug}`}>{article.title}</Link>
+                      </h4>
+                      <p className={styles.summary}>{article.description}</p>
+                      <div className={styles.tags}>
+                        {article.tags.slice(0, 4).map((tag) => (
+                          <span key={tag} className={styles.tag}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </section>
