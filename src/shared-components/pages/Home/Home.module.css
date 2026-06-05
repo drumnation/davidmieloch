@@ -434,52 +434,82 @@
 
 .nextLayout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 36px;
+  gap: 28px;
   align-items: start;
 }
 
 .postList {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 .postItem {
+  position: relative;
+  display: grid;
+  min-height: 310px;
+  overflow: hidden;
   border: 1px solid #d8cdbd;
   border-radius: 8px;
-  background: #fffaf1;
-  color: #161412;
+  background: #101316;
+  color: #fff8ec;
 }
 
-.postLink {
-  display: grid;
-  gap: 5px;
-  padding: 14px 16px;
-  color: inherit;
-  text-decoration: none;
+.postImageWrap {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.postImage {
+  object-fit: cover;
+}
+
+.postTint {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 8, 9, 0.08), rgba(7, 8, 9, 0.86)),
+    linear-gradient(90deg, rgba(7, 8, 9, 0.45), transparent 62%);
+}
+
+.postBody {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+}
+
+.postStatus {
+  margin-bottom: 10px;
+  color: #ffcf82;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .postTitle {
+  color: #fff8ec;
   font-weight: 800;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.08;
 }
 
 .postText {
-  color: #66594d;
+  display: block;
+  margin-top: 8px;
+  color: #e2d8ca;
   font-size: 0.92rem;
-  line-height: 1.35;
-}
-
-.postLink:hover .postTitle {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  line-height: 1.42;
 }
 
 @media (max-width: 900px) {
   .hero,
-  .nextLayout,
   .visualShelf {
     grid-template-columns: 1fr;
   }
@@ -505,6 +535,10 @@
   .shelfGrid {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 170px;
+  }
+
+  .postList {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -537,6 +571,14 @@
 
   .shelfCardLarge {
     grid-row: span 1;
+  }
+
+  .postList {
+    grid-template-columns: 1fr;
+  }
+
+  .postItem {
+    min-height: 260px;
   }
 
   .primaryAction,

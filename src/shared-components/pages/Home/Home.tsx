@@ -40,27 +40,32 @@ const upcomingPosts = [
   {
     title: "The Filter",
     text: "Cost and scarcity return as useful pressure.",
-    href: "/draft-lab/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+    image: "/home/next-series/the-filter-1950s.png",
+    alt: "A 1950s space western factory gate filtering glowing compute ore on frontier rail carts",
   },
   {
     title: "The Meter",
     text: "Measure throughput before the story hardens.",
-    href: "/blog/reality-needs-observers",
+    image: "/home/next-series/the-meter-1950s.png",
+    alt: "A monumental 1950s analog meter tower over a retro space factory floor",
   },
   {
     title: "The Noticers",
     text: "Observation becomes a first-class role.",
-    href: "/blog/reality-needs-observers",
+    image: "/home/next-series/the-noticers-1950s.png",
+    alt: "Observers in a retro space western lookout booth watching factory robots below",
   },
   {
     title: "The Credibility Problem",
     text: "AI corporate language has to earn trust again.",
-    href: "/draft-lab/articles/the-credibility-problem-with-ai-corporate-communications",
+    image: "/home/next-series/the-credibility-problem-1950s.png",
+    alt: "A cracked 1950s broadcast screen being examined by a glowing proof-chain machine",
   },
   {
     title: "The Crew",
     text: "The human role moves from typing to orchestration.",
-    href: "/blog/the-foreman",
+    image: "/home/next-series/the-crew-1950s.png",
+    alt: "A western-hat foreman coordinating retro robot workers across a vast space factory",
   },
 ];
 
@@ -301,16 +306,27 @@ export const Home: React.FC<HomePageProps> = ({
               as more of the workflow becomes automated.
             </p>
           </div>
-          <ol className={styles.postList}>
+          <div className={styles.postList}>
             {upcomingPosts.map((post) => (
-              <li className={styles.postItem} key={post.title}>
-                <Link href={post.href} className={styles.postLink}>
+              <article className={styles.postItem} key={post.title}>
+                <span className={styles.postImageWrap}>
+                  <Image
+                    src={post.image}
+                    alt={post.alt}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 20vw"
+                    className={styles.postImage}
+                  />
+                  <span className={styles.postTint} />
+                </span>
+                <span className={styles.postBody}>
+                  <span className={styles.postStatus}>Coming soon</span>
                   <span className={styles.postTitle}>{post.title}</span>
                   <span className={styles.postText}>{post.text}</span>
-                </Link>
-              </li>
+                </span>
+              </article>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
     </main>
