@@ -35,17 +35,17 @@ const removedCandidates = (review.removedCandidates ?? []) as DraftCandidate[];
 const allCandidates = [...candidates, ...removedCandidates];
 const draftHeroImages: Record<string, { src: string; alt: string; caption: string }> = {
   'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter': {
-    src: '/home/next-series/the-filter-1950s.png',
+    src: '/home/next-series/article-heroes/the-filter-linkedin.png',
     alt: 'A 1950s space western factory gate filtering glowing compute ore on frontier rail carts',
     caption: 'The Filter: cost and scarcity return as useful pressure.',
   },
   'the-credibility-problem-with-ai-corporate-communications': {
-    src: '/home/next-series/the-credibility-problem-1950s.png',
+    src: '/home/next-series/article-heroes/the-credibility-problem-linkedin.png',
     alt: 'A cracked 1950s broadcast screen being examined by a glowing proof-chain machine',
     caption: 'The Credibility Problem: AI corporate language has to earn trust again.',
   },
   'the-crew-seed': {
-    src: '/home/next-series/the-crew-1950s.png',
+    src: '/home/next-series/article-heroes/the-crew-linkedin.png',
     alt: 'A western-hat foreman coordinating retro robot workers across a vast space factory',
     caption: 'The Crew: the human role moves from typing to orchestration.',
   },

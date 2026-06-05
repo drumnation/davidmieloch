@@ -129,16 +129,16 @@
       },
       "images": [
         {
-          "id": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter-1950s-series-hero",
-          "src": "/home/next-series/the-filter-1950s.png",
-          "sourcePath": "public/home/next-series/the-filter-1950s.png",
+          "id": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter-1950s-linkedin-hero",
+          "src": "/home/next-series/article-heroes/the-filter-linkedin.png",
+          "sourcePath": "public/home/next-series/article-heroes/the-filter-linkedin.png",
           "role": "candidate-hero"
         }
       ],
       "previewUrl": "/draft-lab/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
       "previewMarkdownPath": "content/distribution/draft-previews/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.md",
-      "imageStatus": "generated-1950s-series-hero-available",
-      "nextImageAction": "Review the 1950s space western hero in the draft article preview before public release.",
+      "imageStatus": "generated-1950s-landscape-hero-available",
+      "nextImageAction": "Review the 1950s space western landscape hero in the draft article preview before public release.",
       "promptSeed": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: 1950s retro-futurist space western software factory, atomic-age machinery, frontier composition, dark chocolate and brass palette, no readable text.",
       "decision": {
         "status": "maybe",
@@ -171,16 +171,16 @@
       },
       "images": [
         {
-          "id": "the-credibility-problem-with-ai-corporate-communications-1950s-series-hero",
-          "src": "/home/next-series/the-credibility-problem-1950s.png",
-          "sourcePath": "public/home/next-series/the-credibility-problem-1950s.png",
+          "id": "the-credibility-problem-with-ai-corporate-communications-1950s-linkedin-hero",
+          "src": "/home/next-series/article-heroes/the-credibility-problem-linkedin.png",
+          "sourcePath": "public/home/next-series/article-heroes/the-credibility-problem-linkedin.png",
           "role": "candidate-hero"
         }
       ],
       "previewUrl": "/draft-lab/articles/the-credibility-problem-with-ai-corporate-communications",
       "previewMarkdownPath": "content/distribution/draft-previews/the-credibility-problem-with-ai-corporate-communications.md",
-      "imageStatus": "generated-1950s-series-hero-available",
-      "nextImageAction": "Review the 1950s space western hero in the draft article preview before public release.",
+      "imageStatus": "generated-1950s-landscape-hero-available",
+      "nextImageAction": "Review the 1950s space western landscape hero in the draft article preview before public release.",
       "promptSeed": "The Credibility Problem with AI Corporate Communications: 1950s retro-futurist space western software factory, atomic-age machinery, frontier composition, dark chocolate and brass palette, no readable text.",
       "decision": {
         "status": "maybe",
@@ -519,16 +519,16 @@
       },
       "images": [
         {
-          "id": "the-crew-seed-1950s-series-hero",
-          "src": "/home/next-series/the-crew-1950s.png",
-          "sourcePath": "public/home/next-series/the-crew-1950s.png",
+          "id": "the-crew-seed-1950s-linkedin-hero",
+          "src": "/home/next-series/article-heroes/the-crew-linkedin.png",
+          "sourcePath": "public/home/next-series/article-heroes/the-crew-linkedin.png",
           "role": "candidate-hero"
         }
       ],
       "previewUrl": "/draft-lab/articles/the-crew-seed",
       "previewMarkdownPath": "content/distribution/draft-previews/the-crew-seed.md",
-      "imageStatus": "generated-1950s-series-hero-available",
-      "nextImageAction": "Review the 1950s space western hero in the draft article preview before public release.",
+      "imageStatus": "generated-1950s-landscape-hero-available",
+      "nextImageAction": "Review the 1950s space western landscape hero in the draft article preview before public release.",
       "promptSeed": "The Crew (seed): 1950s retro-futurist space western software factory, atomic-age machinery, frontier composition, dark chocolate and brass palette, no readable text.",
       "decision": {
         "status": "maybe",
