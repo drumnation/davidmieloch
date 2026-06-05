@@ -37,11 +37,31 @@ const fallbackArticles: HomeArticleTeaser[] = [
 ];
 
 const upcomingPosts = [
-  "The Filter",
-  "The Meter",
-  "The Noticers",
-  "The Credibility Problem",
-  "The Crew",
+  {
+    title: "The Filter",
+    text: "Cost and scarcity return as useful pressure.",
+    href: "/draft-lab/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+  },
+  {
+    title: "The Meter",
+    text: "Measure throughput before the story hardens.",
+    href: "/blog/reality-needs-observers",
+  },
+  {
+    title: "The Noticers",
+    text: "Observation becomes a first-class role.",
+    href: "/blog/reality-needs-observers",
+  },
+  {
+    title: "The Credibility Problem",
+    text: "AI corporate language has to earn trust again.",
+    href: "/draft-lab/articles/the-credibility-problem-with-ai-corporate-communications",
+  },
+  {
+    title: "The Crew",
+    text: "The human role moves from typing to orchestration.",
+    href: "/blog/the-foreman",
+  },
 ];
 
 const operatingLanes = [
@@ -49,16 +69,22 @@ const operatingLanes = [
     label: "For builders",
     value: "Start with the factory",
     text: "A practical path from prompt stacks and scripts toward durable agent workflows.",
+    href: "/blog/the-factory",
+    image: "/blog/the-factory/images/a2-hero-conceptual.png",
   },
   {
     label: "For leaders",
     value: "See the operating model",
     text: "A clearer way to judge whether AI work is becoming capability or just theater.",
+    href: "/blog/the-golden-hammer",
+    image: "/blog/the-golden-hammer/images/a1-hero-photorealistic.png",
   },
   {
     label: "For teams",
     value: "Build the substrate",
     text: "Governance, observability, memory, and roles that make agent output trustworthy.",
+    href: "/blog/reality-needs-observers",
+    image: "/blog/reality-needs-observers/images/hero.png",
   },
 ];
 
@@ -238,11 +264,24 @@ export const Home: React.FC<HomePageProps> = ({
           </div>
           <div className={styles.laneGrid}>
             {operatingLanes.map((lane) => (
-              <div className={styles.lane} key={lane.label}>
-                <span className={styles.laneLabel}>{lane.label}</span>
-                <strong className={styles.laneValue}>{lane.value}</strong>
-                <p className={styles.laneText}>{lane.text}</p>
-              </div>
+              <Link className={styles.lane} href={lane.href} key={lane.label}>
+                <span className={styles.laneImageWrap}>
+                  <Image
+                    src={lane.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 900px) 100vw, 32vw"
+                    className={styles.laneImage}
+                  />
+                  <span className={styles.laneTint} />
+                </span>
+                <span className={styles.laneBody}>
+                  <span className={styles.laneLabel}>{lane.label}</span>
+                  <strong className={styles.laneValue}>{lane.value}</strong>
+                  <span className={styles.laneText}>{lane.text}</span>
+                  <span className={styles.laneCta}>Read the path</span>
+                </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -264,8 +303,11 @@ export const Home: React.FC<HomePageProps> = ({
           </div>
           <ol className={styles.postList}>
             {upcomingPosts.map((post) => (
-              <li className={styles.postItem} key={post}>
-                {post}
+              <li className={styles.postItem} key={post.title}>
+                <Link href={post.href} className={styles.postLink}>
+                  <span className={styles.postTitle}>{post.title}</span>
+                  <span className={styles.postText}>{post.text}</span>
+                </Link>
               </li>
             ))}
           </ol>
