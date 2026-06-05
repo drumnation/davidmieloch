@@ -455,6 +455,17 @@
   border-radius: 8px;
   background: #101316;
   color: #fff8ec;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+a.postItem:hover,
+a.postItem:focus-visible {
+  border-color: #ffcf82;
+  transform: translateY(-2px);
+  outline: none;
 }
 
 .postImageWrap {

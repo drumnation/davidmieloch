@@ -39,10 +39,11 @@ const fallbackArticles: HomeArticleTeaser[] = [
 const upcomingPosts = [
   {
     title: "The Filter",
-    label: "Draft article",
+    label: "Coming soon",
     text: "Cost and scarcity return as useful pressure. The factory math starts to matter.",
     image: "/home/next-series/the-filter-1950s.png",
-    alt: "A 1950s space western factory gate filtering glowing compute ore on frontier rail carts",
+    alt: "A 1950s space western black hole filtering compute chips above a factory rail checkpoint",
+    href: "/draft-lab/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
   },
   {
     title: "The Meter",
@@ -60,17 +61,19 @@ const upcomingPosts = [
   },
   {
     title: "The Credibility Problem",
-    label: "Draft article",
+    label: "Coming soon",
     text: "AI corporate language has to earn trust again. Synthetic persuasion has a source problem.",
     image: "/home/next-series/the-credibility-problem-1950s.png",
     alt: "A cracked 1950s broadcast screen being examined by a glowing proof-chain machine",
+    href: "/draft-lab/articles/the-credibility-problem-with-ai-corporate-communications",
   },
   {
     title: "The Crew",
-    label: "Draft seed",
+    label: "Coming soon",
     text: "The human role moves from typing to orchestration. Three people, one operating floor.",
     image: "/home/next-series/the-crew-1950s.png",
     alt: "A western-hat foreman coordinating retro robot workers across a vast space factory",
+    href: "/draft-lab/articles/the-crew-seed",
   },
 ];
 
@@ -311,25 +314,37 @@ export const Home: React.FC<HomePageProps> = ({
             </p>
           </div>
           <div className={styles.postList}>
-            {upcomingPosts.map((post) => (
-              <article className={styles.postItem} key={post.title}>
-                <span className={styles.postImageWrap}>
-                  <Image
-                    src={post.image}
-                    alt={post.alt}
-                    fill
-                    sizes="(max-width: 900px) 100vw, 20vw"
-                    className={styles.postImage}
-                  />
-                  <span className={styles.postTint} />
-                </span>
-                <span className={styles.postBody}>
-                  <span className={styles.postStatus}>{post.label}</span>
-                  <span className={styles.postTitle}>{post.title}</span>
-                  <span className={styles.postText}>{post.text}</span>
-                </span>
-              </article>
-            ))}
+            {upcomingPosts.map((post) => {
+              const postContent = (
+                <>
+                  <span className={styles.postImageWrap}>
+                    <Image
+                      src={post.image}
+                      alt={post.alt}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 20vw"
+                      className={styles.postImage}
+                    />
+                    <span className={styles.postTint} />
+                  </span>
+                  <span className={styles.postBody}>
+                    <span className={styles.postStatus}>{post.label}</span>
+                    <span className={styles.postTitle}>{post.title}</span>
+                    <span className={styles.postText}>{post.text}</span>
+                  </span>
+                </>
+              );
+
+              return post.href ? (
+                <Link className={styles.postItem} href={post.href} key={post.title}>
+                  {postContent}
+                </Link>
+              ) : (
+                <article className={styles.postItem} key={post.title}>
+                  {postContent}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

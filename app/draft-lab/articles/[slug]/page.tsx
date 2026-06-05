@@ -36,7 +36,7 @@ const allCandidates = [...candidates, ...removedCandidates];
 const draftHeroImages: Record<string, { src: string; alt: string; caption: string }> = {
   'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter': {
     src: '/home/next-series/article-heroes/the-filter-linkedin.png',
-    alt: 'A 1950s space western factory gate filtering glowing compute ore on frontier rail carts',
+    alt: 'A 1950s space western black hole filtering compute chips above a factory rail checkpoint',
     caption: 'The Filter: cost and scarcity return as useful pressure.',
   },
   'the-credibility-problem-with-ai-corporate-communications': {
