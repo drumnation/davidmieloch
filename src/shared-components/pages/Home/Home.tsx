@@ -39,31 +39,36 @@ const fallbackArticles: HomeArticleTeaser[] = [
 const upcomingPosts = [
   {
     title: "The Filter",
-    text: "Cost and scarcity return as useful pressure.",
+    label: "Draft article",
+    text: "Cost and scarcity return as useful pressure. The factory math starts to matter.",
     image: "/home/next-series/the-filter-1950s.png",
     alt: "A 1950s space western factory gate filtering glowing compute ore on frontier rail carts",
   },
   {
     title: "The Meter",
-    text: "Measure throughput before the story hardens.",
+    label: "Series motif",
+    text: "Measure throughput before the story hardens. Factories need instruments, not vibes.",
     image: "/home/next-series/the-meter-1950s.png",
     alt: "A monumental 1950s analog meter tower over a retro space factory floor",
   },
   {
     title: "The Noticers",
-    text: "Observation becomes a first-class role.",
+    label: "Series motif",
+    text: "Observation becomes a first-class role. The work needs witnesses outside the loop.",
     image: "/home/next-series/the-noticers-1950s.png",
     alt: "Observers in a retro space western lookout booth watching factory robots below",
   },
   {
     title: "The Credibility Problem",
-    text: "AI corporate language has to earn trust again.",
+    label: "Draft article",
+    text: "AI corporate language has to earn trust again. Synthetic persuasion has a source problem.",
     image: "/home/next-series/the-credibility-problem-1950s.png",
     alt: "A cracked 1950s broadcast screen being examined by a glowing proof-chain machine",
   },
   {
     title: "The Crew",
-    text: "The human role moves from typing to orchestration.",
+    label: "Draft seed",
+    text: "The human role moves from typing to orchestration. Three people, one operating floor.",
     image: "/home/next-series/the-crew-1950s.png",
     alt: "A western-hat foreman coordinating retro robot workers across a vast space factory",
   },
@@ -297,13 +302,12 @@ export const Home: React.FC<HomePageProps> = ({
           <div>
             <p className={styles.eyebrow}>Next series</p>
             <h2 id="next-title" className={styles.sectionTitle}>
-              The next essays go deeper into factory operations.
+              The Factory Primitives queue is taking shape.
             </h2>
             <p className={styles.sectionText}>
-              Upcoming writing explores the practical consequences of agentic
-              software work: what should be filtered, what must be measured,
-              what needs independent observation, and how teams should evolve
-              as more of the workflow becomes automated.
+              Upcoming writing moves from the factory thesis into the operating
+              primitives: cost filters, measurement, observer roles, credible
+              claims, and the crew model for directing automated work.
             </p>
           </div>
           <div className={styles.postList}>
@@ -320,7 +324,7 @@ export const Home: React.FC<HomePageProps> = ({
                   <span className={styles.postTint} />
                 </span>
                 <span className={styles.postBody}>
-                  <span className={styles.postStatus}>Coming soon</span>
+                  <span className={styles.postStatus}>{post.label}</span>
                   <span className={styles.postTitle}>{post.title}</span>
                   <span className={styles.postText}>{post.text}</span>
                 </span>

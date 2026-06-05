@@ -33,6 +33,23 @@ type DraftCandidate = {
 const candidates = review.candidates as DraftCandidate[];
 const removedCandidates = (review.removedCandidates ?? []) as DraftCandidate[];
 const allCandidates = [...candidates, ...removedCandidates];
+const draftHeroImages: Record<string, { src: string; alt: string; caption: string }> = {
+  'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter': {
+    src: '/home/next-series/the-filter-1950s.png',
+    alt: 'A 1950s space western factory gate filtering glowing compute ore on frontier rail carts',
+    caption: 'The Filter: cost and scarcity return as useful pressure.',
+  },
+  'the-credibility-problem-with-ai-corporate-communications': {
+    src: '/home/next-series/the-credibility-problem-1950s.png',
+    alt: 'A cracked 1950s broadcast screen being examined by a glowing proof-chain machine',
+    caption: 'The Credibility Problem: AI corporate language has to earn trust again.',
+  },
+  'the-crew-seed': {
+    src: '/home/next-series/the-crew-1950s.png',
+    alt: 'A western-hat foreman coordinating retro robot workers across a vast space factory',
+    caption: 'The Crew: the human role moves from typing to orchestration.',
+  },
+};
 
 export const metadata: Metadata = {
   title: 'Draft Article Preview',
@@ -62,6 +79,17 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
   }
 
   const markdown = renderDraftMarkdown(stripFrontmatter(fs.readFileSync(sourcePath, 'utf8')), candidate);
+  const mappedHeroImage = draftHeroImages[candidate.slug];
+  const stagedHeroImage = candidate.images.find((image) => image.role === 'candidate-hero') ?? candidate.images[0];
+  const heroImage = mappedHeroImage ?? (
+    stagedHeroImage
+      ? {
+          src: stagedHeroImage.src,
+          alt: `${candidate.title} candidate hero image`,
+          caption: `${candidate.title} candidate hero`,
+        }
+      : undefined
+  );
 
   return (
     <main style={styles.page}>
@@ -80,6 +108,18 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
           <p style={styles.source}>{candidate.relativePath}</p>
           <blockquote style={styles.prompt}>{candidate.promptSeed}</blockquote>
         </header>
+        {heroImage ? (
+          <figure style={styles.heroFigure}>
+            <img
+              src={heroImage.src}
+              alt={heroImage.alt ?? `${candidate.title} hero image`}
+              style={styles.heroImage}
+            />
+            <figcaption style={styles.heroCaption}>
+              {heroImage.caption}
+            </figcaption>
+          </figure>
+        ) : null}
 
         <ReactMarkdown
           components={{
@@ -194,6 +234,26 @@ const styles: Record<string, CSSProperties> = {
     background: '#f3f0ec',
     color: '#333',
     lineHeight: 1.5,
+  },
+  heroFigure: {
+    margin: '0 0 36px',
+    overflow: 'hidden',
+    borderRadius: '10px',
+    background: '#111',
+    boxShadow: '0 18px 60px rgba(15, 12, 9, 0.2)',
+  },
+  heroImage: {
+    display: 'block',
+    width: '100%',
+    maxHeight: '720px',
+    objectFit: 'cover',
+  },
+  heroCaption: {
+    padding: '12px 16px',
+    background: '#15120f',
+    color: '#f4e8d8',
+    fontSize: '0.88rem',
+    lineHeight: 1.4,
   },
   markdownH1: {
     margin: '36px 0 12px',

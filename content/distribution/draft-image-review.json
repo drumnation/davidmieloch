@@ -1,6 +1,6 @@
 {
   "schemaVersion": "draft-image-review-v1",
-  "generatedAt": "2026-06-05T06:39:02.085Z",
+  "generatedAt": "2026-06-05T21:08:41.995Z",
   "publicPublishingPerformed": false,
   "sourceRoots": {
     "obsidianBlogsRoot": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs",
@@ -12,8 +12,8 @@
   "summary": {
     "candidates": 21,
     "removedCandidates": 0,
-    "withImages": 4,
-    "missingImages": 17,
+    "withImages": 7,
+    "missingImages": 14,
     "byCollection": {
       "Factory Primitives": 9,
       "Unassigned": 6,
@@ -124,14 +124,22 @@
       "imageEvidence": {
         "embedCount": 0,
         "adjacentImageCount": 0,
-        "websiteImageCount": 0
+        "websiteImageCount": 1,
+        "generatedHeroCount": 1
       },
-      "images": [],
+      "images": [
+        {
+          "id": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter-1950s-series-hero",
+          "src": "/home/next-series/the-filter-1950s.png",
+          "sourcePath": "public/home/next-series/the-filter-1950s.png",
+          "role": "candidate-hero"
+        }
+      ],
       "previewUrl": "/draft-lab/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
       "previewMarkdownPath": "content/distribution/draft-previews/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.md",
-      "imageStatus": "needs-image-generation",
-      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "imageStatus": "generated-1950s-series-hero-available",
+      "nextImageAction": "Review the 1950s space western hero in the draft article preview before public release.",
+      "promptSeed": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: 1950s retro-futurist space western software factory, atomic-age machinery, frontier composition, dark chocolate and brass palette, no readable text.",
       "decision": {
         "status": "maybe",
         "reason": "",
@@ -158,14 +166,22 @@
       "imageEvidence": {
         "embedCount": 0,
         "adjacentImageCount": 0,
-        "websiteImageCount": 0
+        "websiteImageCount": 1,
+        "generatedHeroCount": 1
       },
-      "images": [],
+      "images": [
+        {
+          "id": "the-credibility-problem-with-ai-corporate-communications-1950s-series-hero",
+          "src": "/home/next-series/the-credibility-problem-1950s.png",
+          "sourcePath": "public/home/next-series/the-credibility-problem-1950s.png",
+          "role": "candidate-hero"
+        }
+      ],
       "previewUrl": "/draft-lab/articles/the-credibility-problem-with-ai-corporate-communications",
       "previewMarkdownPath": "content/distribution/draft-previews/the-credibility-problem-with-ai-corporate-communications.md",
-      "imageStatus": "needs-image-generation",
-      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The Credibility Problem with AI Corporate Communications: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "imageStatus": "generated-1950s-series-hero-available",
+      "nextImageAction": "Review the 1950s space western hero in the draft article preview before public release.",
+      "promptSeed": "The Credibility Problem with AI Corporate Communications: 1950s retro-futurist space western software factory, atomic-age machinery, frontier composition, dark chocolate and brass palette, no readable text.",
       "decision": {
         "status": "maybe",
         "reason": "",
@@ -498,14 +514,22 @@
       "imageEvidence": {
         "embedCount": 0,
         "adjacentImageCount": 0,
-        "websiteImageCount": 0
+        "websiteImageCount": 1,
+        "generatedHeroCount": 1
       },
-      "images": [],
+      "images": [
+        {
+          "id": "the-crew-seed-1950s-series-hero",
+          "src": "/home/next-series/the-crew-1950s.png",
+          "sourcePath": "public/home/next-series/the-crew-1950s.png",
+          "role": "candidate-hero"
+        }
+      ],
       "previewUrl": "/draft-lab/articles/the-crew-seed",
       "previewMarkdownPath": "content/distribution/draft-previews/the-crew-seed.md",
-      "imageStatus": "needs-image-generation",
-      "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The Crew (seed): dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "imageStatus": "generated-1950s-series-hero-available",
+      "nextImageAction": "Review the 1950s space western hero in the draft article preview before public release.",
+      "promptSeed": "The Crew (seed): 1950s retro-futurist space western software factory, atomic-age machinery, frontier composition, dark chocolate and brass palette, no readable text.",
       "decision": {
         "status": "maybe",
         "reason": "",
