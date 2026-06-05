@@ -27,6 +27,14 @@ import {
   buildContentLedger,
   contentLedgerMarkdown,
 } from '../../scripts/lib/content-ledger.mjs';
+import {
+  approveArticleAudio,
+  audioStatus,
+  generateArticleAudio,
+  prepareArticleAudio,
+  quoteArticleAudio,
+  writeGeneratedBlogVoiceTracks,
+} from '../../scripts/lib/audio-narration.mjs';
 
 type ContentLedgerOptions = {
   obsidianBlogsRoot: string;
@@ -37,6 +45,59 @@ type ContentLedgerOptions = {
   publishSchedulePath: string;
   generatedAt: string;
 };
+
+type AudioPrepareOptions = {
+  articlesRoot: string;
+  slug: string;
+  force?: boolean;
+  generatedAt?: string;
+};
+
+type AudioSlugOptions = {
+  articlesRoot: string;
+  slug: string;
+};
+
+type AudioGenerateOptions = {
+  articlesRoot: string;
+  publicRoot: string;
+  slug: string;
+  spendApproved: boolean;
+  force?: boolean;
+  voiceId?: string;
+  generatedAt?: string;
+};
+
+type AudioStatusOptions = {
+  articlesRoot: string;
+  publicRoot: string;
+  slug?: string;
+};
+
+type AudioTracksOptions = {
+  articlesRoot: string;
+  publicRoot: string;
+  outputPath: string;
+};
+
+const prepareAudio = prepareArticleAudio as unknown as (
+  options: AudioPrepareOptions
+) => ReturnType<typeof prepareArticleAudio>;
+const approveAudio = approveArticleAudio as unknown as (
+  options: AudioSlugOptions
+) => ReturnType<typeof approveArticleAudio>;
+const quoteAudio = quoteArticleAudio as unknown as (
+  options: AudioSlugOptions
+) => ReturnType<typeof quoteArticleAudio>;
+const statusAudio = audioStatus as unknown as (
+  options: AudioStatusOptions
+) => ReturnType<typeof audioStatus>;
+const generateAudio = generateArticleAudio as unknown as (
+  options: AudioGenerateOptions
+) => ReturnType<typeof generateArticleAudio>;
+const writeVoiceTracks = writeGeneratedBlogVoiceTracks as unknown as (
+  options: AudioTracksOptions
+) => ReturnType<typeof writeGeneratedBlogVoiceTracks>;
 
 const roots: string[] = [];
 
@@ -95,6 +156,41 @@ Packaged ${platform} body.
 `,
   );
   return slug;
+}
+
+function writeAudioArticleFixture(root: string, slug = 'the-factory') {
+  mkdirSync(join(root, 'content/articles', slug), { recursive: true });
+  writeFileSync(
+    join(root, 'content/articles', slug, 'index.md'),
+    `---
+title: "The Factory"
+description: "Factory article"
+publishedAt: "2026-04-14"
+status: "published"
+canonicalUrl: "https://davidmieloch.com/blog/${slug}"
+tags: ["ai", "factory"]
+---
+
+![Factory image](/blog/${slug}/images/hero.png)
+
+## The AI Factory
+
+The AI factory is not just an API wrapper. It is a workflow.
+
+| Stage | Owner |
+| --- | --- |
+| Build | Agent |
+| Review | Skeptic |
+
+\`\`\`ts
+const invisible = "do not read code blocks";
+\`\`\`
+
+Read more at https://example.com/nope.
+
+The PRD gives the agent a target. The CLI gives the human a fallback.
+`,
+  );
 }
 
 function writeFetchStub(root: string, capturePath: string) {
@@ -643,6 +739,148 @@ ${longBody()}
       slug: 'the-meter',
     });
     expect(readFileSync(reportPath, 'utf8')).toContain('# Content Ledger');
+  });
+});
+
+describe('article audio narration pipeline', () => {
+  it('prepares a spoken audio script without images, tables, raw URLs, or code blocks', () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    writeAudioArticleFixture(root);
+
+    const prepared = prepareAudio({
+      articlesRoot,
+      slug: 'the-factory',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(prepared).toMatchObject({
+      slug: 'the-factory',
+      action: 'prepared-audio-script',
+    });
+    const script = readFileSync(join(articlesRoot, 'the-factory', 'audio.md'), 'utf8');
+    expect(script).toContain('The A.I. factory is not just an A.P.I. wrapper.');
+    expect(script).toContain('The P.R.D. gives the agent a target.');
+    expect(script).not.toContain('Factory image');
+    expect(script).not.toContain('Stage | Owner');
+    expect(script).not.toContain('invisible');
+    expect(script).not.toContain('https://example.com');
+
+    const status = statusAudio({
+      articlesRoot,
+      publicRoot,
+      slug: 'the-factory',
+    });
+    expect(status.articles[0]).toMatchObject({
+      slug: 'the-factory',
+      status: 'needs-script-approval',
+      audioExists: false,
+    });
+    expect(quoteAudio({ articlesRoot, slug: 'the-factory' }).quote).toMatchObject({
+      endpoint: 'https://api.speechify.ai/v1/audio/stream',
+      requiresChunking: false,
+    });
+  });
+
+  it('marks an audio script stale when the canonical article changes', () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    writeAudioArticleFixture(root);
+    prepareAudio({ articlesRoot, slug: 'the-factory' });
+
+    writeFileSync(
+      join(articlesRoot, 'the-factory', 'index.md'),
+      readFileSync(join(articlesRoot, 'the-factory', 'index.md'), 'utf8').replace(
+        'It is a workflow.',
+        'It is a workflow that now changed.',
+      ),
+    );
+
+    expect(statusAudio({ articlesRoot, publicRoot, slug: 'the-factory' }).articles[0]).toMatchObject({
+      status: 'audio-script-stale',
+    });
+  });
+
+  it('refuses paid Speechify generation unless spend is explicitly approved', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    writeAudioArticleFixture(root);
+    prepareAudio({ articlesRoot, slug: 'the-factory' });
+    approveAudio({ articlesRoot, slug: 'the-factory' });
+
+    await expect(generateAudio({
+      articlesRoot,
+      publicRoot,
+      slug: 'the-factory',
+      spendApproved: false,
+      voiceId: 'voice-id',
+    })).rejects.toThrow('requires --spend-approved');
+  });
+
+  it('writes a generated MP3 and native blog voice track after approved generation', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const outputPath = join(root, 'generatedBlogVoiceTracks.ts');
+    const originalFetch = globalThis.fetch;
+    const originalApiKey = process.env.SPEECHIFY_API_KEY;
+    const audioBytes = new Uint8Array([73, 68, 51, 4]);
+    writeAudioArticleFixture(root);
+    prepareAudio({ articlesRoot, slug: 'the-factory' });
+    approveAudio({ articlesRoot, slug: 'the-factory' });
+
+    process.env.SPEECHIFY_API_KEY = 'test-api-key';
+    globalThis.fetch = (async () => new Response(audioBytes, {
+      status: 200,
+      headers: { 'content-type': 'audio/mpeg' },
+    })) as typeof fetch;
+
+    try {
+      const generated = await generateAudio({
+        articlesRoot,
+        publicRoot,
+        slug: 'the-factory',
+        spendApproved: true,
+        voiceId: 'voice-id',
+        generatedAt: '2026-06-05T00:00:00.000Z',
+      });
+      const tracks = writeVoiceTracks({
+        articlesRoot,
+        publicRoot,
+        outputPath,
+      });
+
+      expect(generated).toMatchObject({
+        slug: 'the-factory',
+        action: 'generated-audio',
+        publicSrc: '/audio/voice/blog/the-factory.mp3',
+        bytes: 4,
+      });
+      expect(readFileSync(join(publicRoot, 'audio/voice/blog/the-factory.mp3'))).toEqual(
+        Buffer.from(audioBytes),
+      );
+      expect(tracks.tracks).toEqual([
+        {
+          id: 'the-factory',
+          title: 'The Factory',
+          artist: 'Narration by David Mieloch',
+          src: '/audio/voice/blog/the-factory.mp3',
+          description: 'Audio version of The Factory.',
+        },
+      ]);
+      expect(readFileSync(outputPath, 'utf8')).toContain('generatedBlogVoiceTracks');
+      expect(readFileSync(outputPath, 'utf8')).toContain('/audio/voice/blog/the-factory.mp3');
+    } finally {
+      globalThis.fetch = originalFetch;
+      if (originalApiKey === undefined) {
+        delete process.env.SPEECHIFY_API_KEY;
+      } else {
+        process.env.SPEECHIFY_API_KEY = originalApiKey;
+      }
+    }
   });
 });
 

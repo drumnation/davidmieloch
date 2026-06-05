@@ -41,6 +41,14 @@ import {
   writeObservation,
 } from './lib/observability.mjs';
 import {
+  approveArticleAudio,
+  audioStatus,
+  generateArticleAudio,
+  prepareArticleAudio,
+  quoteArticleAudio,
+  writeGeneratedBlogVoiceTracks,
+} from './lib/audio-narration.mjs';
+import {
   generatePlatformPackages,
   loadSyndicationPolicy,
   platformPackageDefaults,
@@ -65,6 +73,10 @@ const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-p
 const defaultQueueOutputPath = path.join(appRoot, 'docs/ops/content-distribution-next-actions.md');
 const defaultScheduleOutputPath = path.join(appRoot, 'docs/ops/content-distribution-schedule.md');
 const defaultContentLedgerOutputPath = path.join(appRoot, 'docs/ops/content-ledger.md');
+const generatedBlogVoiceTracksPath = path.join(
+  appRoot,
+  'src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts',
+);
 const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
@@ -1095,6 +1107,74 @@ function contentLedgerCommand() {
   };
 }
 
+function audioPrepareCommand(slug) {
+  if (!slug) throw new Error('audio:prepare requires <slug>.');
+  return prepareArticleAudio({
+    articlesRoot,
+    slug,
+    force: process.argv.includes('--force'),
+  });
+}
+
+function audioApproveCommand(slug) {
+  if (!slug) throw new Error('audio:approve requires <slug>.');
+  return approveArticleAudio({
+    articlesRoot,
+    slug,
+  });
+}
+
+function audioStatusCommand(slug) {
+  return audioStatus({
+    articlesRoot,
+    publicRoot,
+    slug: slug ?? 'all',
+  });
+}
+
+function audioQuoteCommand(slug) {
+  if (!slug) throw new Error('audio:quote requires <slug>.');
+  return quoteArticleAudio({
+    articlesRoot,
+    slug,
+  });
+}
+
+function audioTracksCommand() {
+  return {
+    publicPublishingPerformed: false,
+    paidGenerationPerformed: false,
+    ...writeGeneratedBlogVoiceTracks({
+      articlesRoot,
+      publicRoot,
+      outputPath: generatedBlogVoiceTracksPath,
+    }),
+  };
+}
+
+async function audioGenerateCommand(slug) {
+  if (!slug) throw new Error('audio:generate requires <slug>.');
+  const options = parseCommandOptions(3);
+  const result = await generateArticleAudio({
+    articlesRoot,
+    publicRoot,
+    slug,
+    spendApproved: Boolean(options['spend-approved']),
+    force: Boolean(options.force),
+    voiceId: options['voice-id'],
+  });
+  const tracks = writeGeneratedBlogVoiceTracks({
+    articlesRoot,
+    publicRoot,
+    outputPath: generatedBlogVoiceTracksPath,
+  });
+  return {
+    ...result,
+    generatedBlogVoiceTracksPath,
+    trackCount: tracks.tracks.length,
+  };
+}
+
 async function createDevtoDraft(slug) {
   const { body, meta } = readVariant(slug, 'devto');
   const article = readArticle(slug);
@@ -1295,6 +1375,12 @@ function usage() {
   pnpm content:pipeline metrics:checklist
   pnpm content:pipeline metrics:record <slug> <platform> --url=<published-url> [--views=0] [--clicks=0] [--reactions=0] [--comments=0] [--shares=0] [--subscribers=0]
   pnpm content:pipeline content:ledger [--write] [--output=<path>] [--report=<path>] [--obsidian-root=<path>]
+  pnpm content:pipeline audio:prepare <slug> [--force]
+  pnpm content:pipeline audio:approve <slug>
+  pnpm content:pipeline audio:status [slug|all]
+  pnpm content:pipeline audio:quote <slug>
+  pnpm content:pipeline audio:generate <slug> --spend-approved [--voice-id=<id>] [--force]
+  pnpm content:pipeline audio:tracks
 
 Safety:
   - DEV and Hashnode commands create unpublished/delisted drafts only.
@@ -1307,6 +1393,8 @@ Safety:
   - schedule commands create/read local schedule artifacts only; they do not create drafts or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
+  - audio:prepare, audio:approve, audio:status, audio:quote, and audio:tracks do not call Speechify.
+  - audio:generate calls Speechify only with --spend-approved and requires an approved audio script.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
 `);
@@ -1403,6 +1491,24 @@ async function runCommand(command, slug) {
   }
   if (command === 'content:ledger') {
     return contentLedgerCommand();
+  }
+  if (command === 'audio:prepare') {
+    return audioPrepareCommand(slug);
+  }
+  if (command === 'audio:approve') {
+    return audioApproveCommand(slug);
+  }
+  if (command === 'audio:status') {
+    return audioStatusCommand(slug);
+  }
+  if (command === 'audio:quote') {
+    return audioQuoteCommand(slug);
+  }
+  if (command === 'audio:generate') {
+    return audioGenerateCommand(slug);
+  }
+  if (command === 'audio:tracks') {
+    return audioTracksCommand();
   }
   if (command === 'devto:create-draft' && slug) {
     return createDevtoDraft(slug);

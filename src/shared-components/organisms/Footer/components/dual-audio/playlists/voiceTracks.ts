@@ -1,4 +1,5 @@
 import { AudioTrack } from '../DualAudio.types'; // Assuming AudioTrack type is shared
+import { generatedBlogVoiceTracks } from './generatedBlogVoiceTracks';
 
 // Debug log to verify this file is loaded - use IIFE to ensure it runs only once when imported
 (() => {
@@ -8,7 +9,8 @@ import { AudioTrack } from '../DualAudio.types'; // Assuming AudioTrack type is 
         'code-examples',
         'enterprise-ai-development-framework',
         'experience',
-        'fullstack-react-best-practices-integration'
+        'fullstack-react-best-practices-integration',
+        ...generatedBlogVoiceTracks.map((track) => track.id),
     ]);
 })();
 
@@ -70,4 +72,5 @@ export const voiceTracks: AudioTrack[] = [
         src: '/audio/voice/fullstack-react-best-practices-integration.mp3',
         description: 'Narrated guide covering fullstack React development best practices.'
     },
+    ...generatedBlogVoiceTracks,
 ];

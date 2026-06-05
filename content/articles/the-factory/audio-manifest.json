@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "article-audio-v1",
+  "slug": "the-factory",
+  "title": "The Factory",
+  "status": "script-prepared",
+  "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/the-factory/index.md",
+  "sourceHash": "aede0a696a2b49047f17f1070a4ebc9fd7cc1a8eca190450be1a103ddc0ebf82",
+  "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/the-factory/audio.md",
+  "scriptHash": "fa5d90cadbcff062a9c6121d6b1ee66465652237eb2c0d9da21a23050ae54c2a",
+  "preparedAt": "2026-06-05T04:33:17.120Z",
+  "voiceProvider": "speechify",
+  "voiceId": null,
+  "model": "simba-english",
+  "language": "en",
+  "audioFormat": "mp3",
+  "outputPath": null,
+  "publicSrc": null,
+  "audioBytes": null,
+  "audioHash": null,
+  "quote": {
+    "plainCharacters": 8760,
+    "ssmlCharacters": 10830,
+    "estimatedWords": 1379,
+    "estimatedMinutes": 9.2,
+    "endpoint": "https://api.speechify.ai/v1/audio/stream",
+    "requiresChunking": false,
+    "maxStreamCharacters": 20000
+  },
+  "decisionSeam": {
+    "name": "paid-audio-generation",
+    "safeDefault": "do-not-generate",
+    "approvalRequired": true
+  },
+  "observation": {
+    "claim": "article audio has a versioned script and generation receipt",
+    "status": "DEGRADED",
+    "fallbackChain": [
+      "audio-manifest.json",
+      "audio.md sourceHash and scriptHash",
+      "public MP3 checksum",
+      "ROM heartbeat"
+    ]
+  }
+}
