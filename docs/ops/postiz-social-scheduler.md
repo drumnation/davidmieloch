@@ -35,6 +35,14 @@ The nested hostname is also a bad fit for public edge TLS because the current wi
 - Runtime URL binding: `127.0.0.1:4007 -> postiz:5000`
 - Caddy route: `social-davidmieloch.brain-garden.io -> localhost:4007`
 
+2026-06-05 fix: Postiz was originally booted with `MAIN_URL`,
+`FRONTEND_URL`, and `NEXT_PUBLIC_BACKEND_URL` pointing at the nested hostname
+`social.davidmieloch.brain-garden.io`. That nested hostname does not match the
+internal TLS shape we want and caused the browser login flow to stall. The
+server override now points all public Postiz URLs at
+`https://social-davidmieloch.brain-garden.io`, and the nested hostname was
+removed from the Caddy route.
+
 Health check:
 
 ```bash
