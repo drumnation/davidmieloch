@@ -100,17 +100,23 @@ function credentialCustodyStatus(inventory) {
 }
 
 function accountReadinessBlocker(inventory, account) {
-  const custody = credentialCustodyStatus(inventory);
-  if (!custody.verified) {
-    return inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.';
-  }
   if (!account) {
     return 'No account inventory entry exists for this platform.';
   }
+  const custody = credentialCustodyStatus(inventory);
   if (account.knownState === 'not-created') {
+    if (!custody.verified) {
+      return inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.';
+    }
     return 'Account has not been created or reserved yet.';
   }
+  if (account.developerApp?.redirectStatus === 'blocked') {
+    return account.developerApp.redirectBlocker;
+  }
   if (account.postizChannelStatus !== 'connected') {
+    if (!custody.verified) {
+      return inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.';
+    }
     return 'Postiz channel is not connected for this platform.';
   }
   return null;

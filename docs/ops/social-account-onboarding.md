@@ -140,6 +140,24 @@ Postiz supports LinkedIn natively, but the provider must be configured first.
 8. Connect LinkedIn from the Postiz Add Channel UI.
 9. Keep all LinkedIn posting behind explicit David approval.
 
+Current LinkedIn state as of 2026-06-05:
+
+- Company Page: `https://www.linkedin.com/company/128373941/`
+- LinkedIn Developer app id: `237440067`
+- App name: `Singularity-Labs-Social-Scheduler`
+- Client id: recorded in `content/distribution/social-account-inventory.json`.
+- Client secret: generated in LinkedIn, but not yet stored in 1Password because the current CLI session is a read-only service account. Do not put this secret in git, shell history, chat, or docs.
+- Added products: Share on LinkedIn; Sign In with LinkedIn using OpenID Connect.
+- Redirect setup is blocked: LinkedIn rejects `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin` even though Postiz confirms that route is correct and the URL returns 200 inside Brain Garden.
+
+Redirect blocker:
+
+```text
+social-davidmieloch.brain-garden.io -> 100.71.79.54
+```
+
+That is the Tailscale/internal address for singularity-one. LinkedIn's Developer app validator treats it as an invalid redirect target. Keep the Postiz GUI internal. The next safe design is a narrow public callback-only `brain-garden.io` route or OAuth bridge that forwards only the two LinkedIn callback paths to Postiz. Do not expose the whole Postiz GUI unless Dave explicitly answers yes to: "Does anybody but Dave need to touch this GUI?"
+
 Observed failure before configuration:
 
 ```text

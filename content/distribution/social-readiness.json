@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-05T12:23:00.748Z",
+  "generatedAt": "2026-06-05T13:21:11.486Z",
   "publicPublishingPerformed": false,
   "exposureGate": "Does anybody but Dave need to touch this GUI?",
   "credentialStore": {
     "provider": "1Password",
     "vault": "Brain Garden",
-    "writeStatus": "ready",
-    "blocker": null,
+    "writeStatus": "interactive-required",
+    "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret.",
     "requiredBeforeAccountCreation": true,
     "verifiedAt": "2026-06-05T07:48:14-04:00",
     "readPath": "1Password service account can read created Brain Garden vault items.",
@@ -30,9 +30,9 @@
     "notes": "n8n workflow packages and credentials were found on singularity-one, but no live n8n container or :5678 listener was observed during the 2026-06-05 Postiz setup pass."
   },
   "summary": {
-    "accounts": 13,
-    "blocked": 12,
-    "canaryEligible": 6,
+    "accounts": 14,
+    "blocked": 13,
+    "canaryEligible": 7,
     "connectorTestReady": 0
   },
   "accounts": [
@@ -46,11 +46,27 @@
       "testPostPolicy": "no-public-test-posts",
       "canaryEligible": false,
       "personalAccount": true,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Postiz channel is not connected for this platform."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+    },
+    {
+      "platform": "linkedin-page",
+      "identityLayer": "brand-lab",
+      "accountKind": "existing-company-page",
+      "knownState": "exists",
+      "postizChannelStatus": "not-connected",
+      "postizPriority": "main-channel-unblocker",
+      "testPostPolicy": "no-public-test-posts",
+      "canaryEligible": true,
+      "personalAccount": false,
+      "readyForCredentialedSetup": false,
+      "readyForPostizDrafts": false,
+      "readyForConnectorTest": false,
+      "blocked": true,
+      "blocker": "LinkedIn rejects the internal brain-garden.io callback because social-davidmieloch.brain-garden.io resolves to the Tailscale address 100.71.79.54. Postiz confirms these are the correct callback paths, but LinkedIn needs a public/non-private redirect target."
     },
     {
       "platform": "medium",
@@ -62,11 +78,11 @@
       "testPostPolicy": "draft-or-private-only",
       "canaryEligible": false,
       "personalAccount": true,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Postiz channel is not connected for this platform."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "devto",
@@ -78,7 +94,7 @@
       "testPostPolicy": "draft-or-private-only",
       "canaryEligible": false,
       "personalAccount": true,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": true,
       "readyForConnectorTest": false,
       "blocked": false,
@@ -94,11 +110,11 @@
       "testPostPolicy": "no-public-test-posts-on-personal-account",
       "canaryEligible": false,
       "personalAccount": true,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Postiz channel is not connected for this platform."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "reddit",
@@ -110,11 +126,11 @@
       "testPostPolicy": "no-automation-until-subreddit-specific-approval",
       "canaryEligible": false,
       "personalAccount": true,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Postiz channel is not connected for this platform."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "facebook",
@@ -126,11 +142,11 @@
       "testPostPolicy": "draft-or-page-only",
       "canaryEligible": false,
       "personalAccount": true,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Postiz channel is not connected for this platform."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "instagram",
@@ -142,11 +158,11 @@
       "testPostPolicy": "no-public-test-posts-on-personal-account",
       "canaryEligible": false,
       "personalAccount": true,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Postiz channel is not connected for this platform."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "bluesky",
@@ -158,11 +174,11 @@
       "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
       "canaryEligible": true,
       "personalAccount": false,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Account has not been created or reserved yet."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "mastodon",
@@ -174,11 +190,11 @@
       "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
       "canaryEligible": true,
       "personalAccount": false,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Account has not been created or reserved yet."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "threads",
@@ -190,11 +206,11 @@
       "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
       "canaryEligible": true,
       "personalAccount": false,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Account has not been created or reserved yet."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "youtube",
@@ -206,11 +222,11 @@
       "testPostPolicy": "no-public-test-video",
       "canaryEligible": true,
       "personalAccount": false,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Account has not been created or reserved yet."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "tiktok",
@@ -222,11 +238,11 @@
       "testPostPolicy": "no-public-test-video",
       "canaryEligible": true,
       "personalAccount": false,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Account has not been created or reserved yet."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     },
     {
       "platform": "facebook-page",
@@ -238,16 +254,16 @@
       "testPostPolicy": "page-only-bland-test-after-1password-custody",
       "canaryEligible": true,
       "personalAccount": false,
-      "readyForCredentialedSetup": true,
+      "readyForCredentialedSetup": false,
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Account has not been created or reserved yet."
+      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
     }
   ],
   "observation": {
     "claim": "social account readiness is derived from account inventory and credential custody",
-    "status": "PASS",
+    "status": "DEGRADED",
     "fallbackChain": [
       "social-account-inventory.json",
       "1Password write probe",

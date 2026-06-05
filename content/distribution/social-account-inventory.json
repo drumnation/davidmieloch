@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-05T03:45:00-04:00",
+  "generatedAt": "2026-06-05T09:24:00-04:00",
   "owner": "David Mieloch",
   "exposureGate": "Does anybody but Dave need to touch this GUI?",
   "safeDefault": "do-not-post",
   "credentialStore": {
     "provider": "1Password",
     "vault": "Brain Garden",
-    "writeStatus": "ready",
-    "blocker": null,
+    "writeStatus": "interactive-required",
+    "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret.",
     "requiredBeforeAccountCreation": true,
     "verifiedAt": "2026-06-05T07:48:14-04:00",
     "readPath": "1Password service account can read created Brain Garden vault items.",
@@ -58,6 +58,38 @@
       "postizPriority": "later",
       "testPostPolicy": "no-public-test-posts",
       "notes": "Source-of-truth publishing channel. Do not post new LinkedIn content without explicit approval."
+    },
+    {
+      "platform": "linkedin-page",
+      "identityLayer": "brand-lab",
+      "accountKind": "existing-company-page",
+      "knownState": "exists",
+      "postizChannelStatus": "not-connected",
+      "postizPriority": "main-channel-unblocker",
+      "testPostPolicy": "no-public-test-posts",
+      "platformUrl": "https://www.linkedin.com/company/128373941/",
+      "adminUrl": "https://www.linkedin.com/company/128373941/admin/dashboard/",
+      "displayName": "Singularity Labs",
+      "companyId": "128373941",
+      "website": "https://singularity-labs.org",
+      "developerApp": {
+        "linkedinAppId": "237440067",
+        "clientId": "78drylg8kre4o6",
+        "name": "Singularity-Labs-Social-Scheduler",
+        "products": [
+          "Share on LinkedIn",
+          "Sign In with LinkedIn using OpenID Connect"
+        ],
+        "redirectStatus": "blocked",
+        "redirectBlocker": "LinkedIn rejects the internal brain-garden.io callback because social-davidmieloch.brain-garden.io resolves to the Tailscale address 100.71.79.54. Postiz confirms these are the correct callback paths, but LinkedIn needs a public/non-private redirect target.",
+        "requiredRedirects": [
+          "https://social-davidmieloch.brain-garden.io/integrations/social/linkedin",
+          "https://social-davidmieloch.brain-garden.io/integrations/social/linkedin-page"
+        ],
+        "safeNextStep": "Create an approved public callback-only brain-garden.io route, or configure a public OAuth bridge, then set the matching Postiz FRONTEND_URL before retrying LinkedIn callbacks."
+      },
+      "credentialItemTitle": "Social / LinkedIn Page / Singularity Labs / brand-lab",
+      "notes": "Created so the LinkedIn Developer app can be associated with the real company Page. Do not publish Page posts without explicit approval."
     },
     {
       "platform": "medium",
