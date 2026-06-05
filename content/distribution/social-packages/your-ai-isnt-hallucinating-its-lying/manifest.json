@@ -3,43 +3,43 @@
   "slug": "your-ai-isnt-hallucinating-its-lying",
   "title": "Your AI Isn't Hallucinating. It's Lying.",
   "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
-  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "generatedAt": "2026-06-05T11:52:15.017Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/linkedin.md",
-      "checksum": "0dd609978572284cc3c3892e9fa1d618885897eb45917468c468e7bd46908c92"
+      "checksum": "6fd45bfc96c6322d3a60f7a1a205183e62fecba6f1893810e82d87106a07bc82"
     },
     {
       "platform": "x-twitter",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/x-twitter.md",
-      "checksum": "6b4a8e6f552f409e6433a53713a7b271012e250488289fe85e0ed444e85cd832"
+      "checksum": "f2bdaa8ac90a2703d9e510930a0aec9615a94f04c622ee8317d6d97e4f4d0828"
     },
     {
       "platform": "reddit",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/reddit.md",
-      "checksum": "41ae462e108f42d5adc7fa3ff37833906aac43945a3ecb8a5252ae6ff89bd065"
+      "checksum": "642da088527a3cd628459730c723a735cbab1087aaa2a3d08a085b98391abafb"
     },
     {
       "platform": "bluesky",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/bluesky.md",
-      "checksum": "ee0699da8fc75bc226e70255bf31ad4279ba598885a9f2ff68733898c6b00769"
+      "checksum": "00a0e1152cad1b341c1045c24e48b883d749fc662da68d441540cb8f72c10245"
     },
     {
       "platform": "mastodon",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/mastodon.md",
-      "checksum": "7ae6af6cf6989a92a42a30875ace9fc9fe082f81630c9b64958de4af5cc4c17b"
+      "checksum": "a778b68ba5e26ecb34a38b2db99b4e2571fe1b0bbee15a45bd133b4f02039560"
     },
     {
       "platform": "threads",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/threads.md",
-      "checksum": "f979383b7486778342cf55ae15e400e8dad2e2a0d3851cd6476f186c307d9cbc"
+      "checksum": "27a01fe4b788ebae5efad0951351361bcae16eb21bfabf7a7349b5a84c0ee661"
     },
     {
       "platform": "facebook-page",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/facebook-page.md",
-      "checksum": "cc96ccabed9dd2ee9f5524dbf0d7b57a668473bdc4d13fdf49b3568b28b4587a"
+      "checksum": "c89f112da823b1976dc97b739938038ee71159ef1df338a5854f1d4bcb9cffd0"
     }
   ]
 }

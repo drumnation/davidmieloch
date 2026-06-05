@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:5c280dfc5d3c",
+  "manifestId": "social:bluesky:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2811672e5417",
   "source": {
     "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
     "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "5752bb1f1d595810569d4e8005b82be7e8755efeae585b2e3d5d92f7564ea030"
+    "digest": "9d619f9b28f5af09ebf05f42422427f549255eae1f2e8f705bed41ea71862854"
   }
 }

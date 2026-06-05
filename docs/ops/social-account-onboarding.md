@@ -19,20 +19,24 @@ Create a governed path for connecting personal and fresh brand accounts to Posti
 
 ## Current Blocker
 
-The current 1Password service account can read the `Brain Garden` vault but cannot create or update items. A write test returned permission denied on 2026-06-05.
+Credential custody is now available for Postiz:
 
-This blocks:
+- The Postiz admin login is stored in the `Brain Garden` 1Password vault.
+- The service account can read created items.
+- Create/update remains an interactive user-authenticated 1Password CLI path when Dave authorizes it.
 
-- Postiz first-user credential storage.
-- Fresh social account credential storage.
-- Recovery code storage.
-- Connector API token storage.
+The active blocker is channel readiness:
 
-Until this is fixed, account creation should stop at package/prep only.
+- Fresh/canary accounts still need to be created or reserved.
+- Provider channels still need to be connected in Postiz.
+- Delete paths, recovery artifacts, and channel ids still need to be recorded.
+- Public connector tests still need explicit approval.
+
+Until those are done, the pipeline should stop at package, manifest, schedule, and blocked n8n packet generation.
 
 ## First Wave
 
-Create or reserve these after 1Password write access is fixed:
+Create or reserve these now that credential custody is available, storing every credential and recovery artifact before moving on:
 
 | Platform | Account Kind | Identity Layer | Test Policy |
 | --- | --- | --- | --- |
@@ -166,11 +170,11 @@ Notes: Connections between website ledger, n8n, Postiz, and platforms are narrow
 
 ### I — Implementation
 Score: ⚠️
-Notes: Account creation is blocked until 1Password write access is available.
+Notes: Credential custody exists. Account creation, provider channels, and canary connector tests remain manual blockers.
 
 ## Merge Decision
 
-Pass for governance. Block account creation until 1Password write access is fixed.
+Pass for governance. Block public posting until canary account setup, channel connection, delete-path proof, and explicit approval are complete.
 
 ## Core Judgment
 

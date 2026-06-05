@@ -7,15 +7,22 @@
   "credentialStore": {
     "provider": "1Password",
     "vault": "Brain Garden",
-    "writeStatus": "blocked",
-    "blocker": "Current 1Password service account can read the vault but cannot create or update items.",
-    "requiredBeforeAccountCreation": true
+    "writeStatus": "ready",
+    "blocker": null,
+    "requiredBeforeAccountCreation": true,
+    "verifiedAt": "2026-06-05T07:48:14-04:00",
+    "readPath": "1Password service account can read created Brain Garden vault items.",
+    "writePath": "Interactive user-authenticated 1Password CLI path can create/update items when Dave authorizes it."
   },
   "postiz": {
     "url": "https://social-davidmieloch.brain-garden.io",
     "network": "internal-brain-garden",
     "status": "running",
-    "firstUserStatus": "blocked-on-1password-write",
+    "firstUserStatus": "created-and-login-verified",
+    "credentialItemTitle": "Postiz / social-davidmieloch / admin / login",
+    "credentialItemId": "mpxdavee2l4mquo5maiocwcv3a",
+    "loginVerifiedAt": "2026-06-05T07:48:14-04:00",
+    "dashboardPath": "/launches",
     "publicExposure": "forbidden-unless-explicitly-approved"
   },
   "n8n": {
@@ -47,6 +54,7 @@
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
       "knownState": "exists",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "later",
       "testPostPolicy": "no-public-test-posts",
       "notes": "Source-of-truth publishing channel. Do not post new LinkedIn content without explicit approval."
@@ -56,6 +64,7 @@
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
       "knownState": "exists",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "medium",
       "testPostPolicy": "draft-or-private-only",
       "notes": "Essay mirror and archive surface."
@@ -65,6 +74,7 @@
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
       "knownState": "exists",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "medium",
       "testPostPolicy": "no-public-test-posts-on-personal-account",
       "notes": "Use carefully for short-form factory-era observations."
@@ -74,6 +84,7 @@
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
       "knownState": "exists",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "low",
       "testPostPolicy": "no-automation-until-subreddit-specific-approval",
       "notes": "David personally consumes Reddit. Treat as participation, not broadcast."
@@ -83,6 +94,7 @@
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
       "knownState": "exists",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "low",
       "testPostPolicy": "draft-or-page-only",
       "notes": "A page is safer than a group until there is a community thesis."
@@ -92,6 +104,7 @@
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
       "knownState": "exists",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "medium",
       "testPostPolicy": "no-public-test-posts-on-personal-account",
       "notes": "Good home for factory visuals if the visual system stabilizes."
@@ -101,6 +114,7 @@
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
       "knownState": "not-created",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "first-wave",
       "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
       "proposedHandle": "brain-garden",
@@ -111,6 +125,7 @@
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
       "knownState": "not-created",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "first-wave",
       "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
       "proposedHandle": "brain-garden",
@@ -121,6 +136,7 @@
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
       "knownState": "not-created",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "first-wave",
       "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
       "proposedHandle": "brain-garden",
@@ -131,6 +147,7 @@
       "identityLayer": "brand-lab",
       "accountKind": "new-reservation",
       "knownState": "not-created",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "reserve-now",
       "testPostPolicy": "no-public-test-video",
       "proposedHandle": "brain-garden",
@@ -141,6 +158,7 @@
       "identityLayer": "brand-lab",
       "accountKind": "new-reservation",
       "knownState": "not-created",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "reserve-now",
       "testPostPolicy": "no-public-test-video",
       "proposedHandle": "brain-garden",
@@ -151,6 +169,7 @@
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
       "knownState": "not-created",
+      "postizChannelStatus": "not-connected",
       "postizPriority": "reserve-now",
       "testPostPolicy": "page-only-bland-test-after-1password-custody",
       "proposedHandle": "brain-garden",

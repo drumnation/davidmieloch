@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:the-factory:0772a16545dd",
+  "manifestId": "social:reddit:the-factory:eb7674e4b91c",
   "source": {
     "articleSlug": "the-factory",
     "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "6e11a85f84e76bea54160accdc59b2d4dfd4611810f7375a1aaa9c12353106e7"
+    "digest": "54c8da125ad13e9b82f5b6ff6f7e40b841d9f556bcfccb8430d26d34495aefef"
   }
 }

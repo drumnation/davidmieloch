@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:the-overnight-shift:6e304cc80011",
+  "manifestId": "social:mastodon:the-overnight-shift:a4d1cb8b915e",
   "source": {
     "articleSlug": "the-overnight-shift",
     "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "92c098cf38cb75a7ff39818fe76e8a68016771c59ba92047de27397f01b91549"
+    "digest": "5a07cb040cb888502addd6e1852071393c2061f686468c9f94bde01dfae716f8"
   }
 }

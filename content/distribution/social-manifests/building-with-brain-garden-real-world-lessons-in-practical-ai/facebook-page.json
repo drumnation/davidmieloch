@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:facebook-page:building-with-brain-garden-real-world-lessons-in-practical-ai:425858e31cc6",
+  "manifestId": "social:facebook-page:building-with-brain-garden-real-world-lessons-in-practical-ai:22f0bb47381a",
   "source": {
     "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
     "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "ee813bf1ae8dfc872c779199bcd9b7fdb0ce4a77b42b19a1a49e45de4322d554"
+    "digest": "b6c4112f7a1925fda197f3dbad1f9ff3809c0defc6c0d0ce9e5e8bf413908007"
   }
 }

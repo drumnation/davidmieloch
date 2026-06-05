@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:how-to-make-your-ai-code-look-human:a110deab4ecd",
+  "manifestId": "social:mastodon:how-to-make-your-ai-code-look-human:ef4cc866ef59",
   "source": {
     "articleSlug": "how-to-make-your-ai-code-look-human",
     "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "b116f5f08492e7ec2a2a2d2094806261be03576f2023880c4bd89d654f84c09e"
+    "digest": "f1cd5395fd55dec42849b10ae491cdc86dc5c036e5bdaa77d31bdc713cf3a79f"
   }
 }

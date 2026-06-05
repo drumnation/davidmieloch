@@ -1,6 +1,6 @@
 {
   "schemaVersion": "social-calendar-v1",
-  "generatedAt": "2026-06-05T07:48:57.191Z",
+  "generatedAt": "2026-06-05T11:52:15.289Z",
   "publicPublishingPerformed": false,
   "decisionSeam": {
     "name": "public-social-post-approval",
@@ -19,9 +19,10 @@
       "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/linkedin.md",
-      "checksum": "d3b7c2f6b99c7ca06c8838ba5a333f9cebb0eb02a3bc7575894295bb75e981ff",
+      "checksum": "67e79f621b9340678cb3e1f1ec3a832ae93a76e27a299bc0cd1f0f0e551e7c07",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -31,7 +32,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-06",
@@ -40,9 +41,10 @@
       "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/x-twitter.md",
-      "checksum": "46c621f303716e648121022b9cb71eb87d8a5710808abb6720e063bcfeb2b3c6",
+      "checksum": "f1e547df72dc7fa49d5a77bd9601501cf6149cefab0ec5cbc1c949624cab7f8c",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -52,7 +54,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-07",
@@ -61,9 +63,10 @@
       "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/reddit.md",
-      "checksum": "ce8f4f7ac78c4f5c3e68f0d326f98c869b5c226511cee5c9c816626b4fb1d8cd",
+      "checksum": "9fbfa6b4930aca3f973d94c64f5b8e42a7f6e17eb9b89f8c8f3c5a7d57d34579",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -73,7 +76,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-07",
@@ -82,9 +85,10 @@
       "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/bluesky.md",
-      "checksum": "854e380f47b1a0fd34a1a0200d2e3b76ce5e0ee29e77b8c6dff2caa086a0db02",
+      "checksum": "88e4210b1002999b97e3c77031ced2206c2caad9559f3941bd5a6425531bc73c",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -94,7 +98,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-07",
@@ -103,9 +107,10 @@
       "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/mastodon.md",
-      "checksum": "dd12aaae76f007c01c8e2d8de25325665cac0630c96fbea0d688131038162ec4",
+      "checksum": "bbbdb695b77d6a43e4efff90da7218c41f86c398efbeb0501920c53e8143102f",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -115,7 +120,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-07",
@@ -124,9 +129,10 @@
       "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/threads.md",
-      "checksum": "c418828366c965ef9e27fe02ec0870102755760bb0c9c58378968acf2bd0b1c5",
+      "checksum": "223ee92c0ec7e06abf378365b4d05b7d3f0cac84beda87ce90ba798cb716e345",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -136,7 +142,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:2026-06-08",
@@ -145,9 +151,10 @@
       "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/facebook-page.md",
-      "checksum": "561c8210f976584759af7bc9d43160ecd06bbea765205e3f746c58a6a288cea7",
+      "checksum": "ffe24f3cf51b3c324bae6f4101d916b2d7858129941c77bab6f02f2b2968d250",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -157,7 +164,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:alphabetize-your-code:2026-06-08",
@@ -166,9 +173,10 @@
       "title": "Alphabetize your code.",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/linkedin.md",
-      "checksum": "83cfaac1733f1a33f0404d8e039b330dcdc52426cbc70899dffecdafd6da64e3",
+      "checksum": "d930113e50cf5db671275019f1a1ff9e853b9e7d0eba9fbbbdf8054efb91eea1",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -178,7 +186,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:alphabetize-your-code:2026-06-08",
@@ -187,9 +195,10 @@
       "title": "Alphabetize your code.",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/x-twitter.md",
-      "checksum": "1cd9578349aa7e577572fc90b5b80f8431ede82ffd0b793e267bf74a16c57371",
+      "checksum": "ca2d62c9ebafe24b7ef0a29c5286c92f69a74486eda3495c5cc4d267b3cce30f",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -199,7 +208,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:alphabetize-your-code:2026-06-08",
@@ -208,9 +217,10 @@
       "title": "Alphabetize your code.",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/reddit.md",
-      "checksum": "06f13814685a665990d7aa994b6200b6d24e6df22031a97ebd99aeaf6c37004a",
+      "checksum": "3b83274ac5c82a2871ce552c09db1ab6db317b2289356cbafa051fbdcaa26827",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -220,7 +230,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:alphabetize-your-code:2026-06-09",
@@ -229,9 +239,10 @@
       "title": "Alphabetize your code.",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/bluesky.md",
-      "checksum": "eeb8c4d042865f49b3214f801a7da8cceda63bafea065dfb442b27cf079f028c",
+      "checksum": "352729bc2fd0fe5d3a0a7a76bf8e1b49c005ec31d725c43ccbe39efd3f1c84e9",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -241,7 +252,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:alphabetize-your-code:2026-06-09",
@@ -250,9 +261,10 @@
       "title": "Alphabetize your code.",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/mastodon.md",
-      "checksum": "399b8fd031a5c968efa4719e14426b10e0a425cf14bf1514b720ba5274af2677",
+      "checksum": "300377aeedd431335a3bb38aba3059c9b4f6355a280d9148516c2e0bb8fadcab",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -262,7 +274,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:alphabetize-your-code:2026-06-09",
@@ -271,9 +283,10 @@
       "title": "Alphabetize your code.",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/threads.md",
-      "checksum": "e3c6f91978f16358ad1e9d12a38cc7117690b7745054aa892b9e0b438077d975",
+      "checksum": "30dd58fc43b04bb90273bd17eb5b93239d06822e7d3291d55380ccb0dc2f6472",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -283,7 +296,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:alphabetize-your-code:2026-06-09",
@@ -292,9 +305,10 @@
       "title": "Alphabetize your code.",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/facebook-page.md",
-      "checksum": "5fdd41718eb74f98c13707e322fdf0ac34ae57511ef1735ce21a59b1bc92c2e0",
+      "checksum": "0371c24b072f2fc2661cba721888b3f324db485e35e35cc39517105675899800",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -304,7 +318,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-10",
@@ -313,9 +327,10 @@
       "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/linkedin.md",
-      "checksum": "652deff796fbca25a86d719ae423a22069a8785f20521b74df02f85ba2a8e44a",
+      "checksum": "f565e6b3ef0b474da56e1cd1d4b7b03a81254a75d40944f314fde72bb75321d2",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -325,7 +340,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-10",
@@ -334,9 +349,10 @@
       "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/x-twitter.md",
-      "checksum": "912185879a00ce9e89098c732be4d3c540c23967738f836b46d7d3611e43f433",
+      "checksum": "3439d42afa1d845d6c89a8dde820fb41ac964324d680a3558ad2c702c66caa2c",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -346,7 +362,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-10",
@@ -355,9 +371,10 @@
       "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/reddit.md",
-      "checksum": "9545e9d6eaa68999cf3d0658eab32c281410b956f9140ec269d0328aa47a6c11",
+      "checksum": "fd86c7fa7109e0c20daaf0e9c87254af9cd4c9cd5fe6287c6dc59fc217d0a6ce",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -367,7 +384,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-10",
@@ -376,9 +393,10 @@
       "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/bluesky.md",
-      "checksum": "5403dfcfa1d7512d3b8cd6420fe99028521e0607e3f6fb5d7a5536d74b6e245f",
+      "checksum": "f8c7c36e1f1dce709c6640b7667bcd343584579021099efe7638a809f5fee8a6",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -388,7 +406,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-11",
@@ -397,9 +415,10 @@
       "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/mastodon.md",
-      "checksum": "1edca3913bad66f3c13be609e2becd03fe585bc50b5bdd2ff601b49eff16d878",
+      "checksum": "f36e076e7285a2dd9c7c7eff1caa91a66ca3d4c85a733ebbd03412585d78be50",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -409,7 +428,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-11",
@@ -418,9 +437,10 @@
       "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/threads.md",
-      "checksum": "34cbd80da499b0ed54f682b3a8c7373c26195de82f2924debc0a75a860fd3425",
+      "checksum": "05b0e9ea530d38056664cf8fb9e1ef7dcd3d0583c1ba8a4c051f06b474c54556",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -430,7 +450,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:building-with-brain-garden-real-world-lessons-in-practical-ai:2026-06-11",
@@ -439,9 +459,10 @@
       "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/facebook-page.md",
-      "checksum": "8e0d07e2632415033794ef37264b958bf6a14ad8fa16e646ad90d8d74c9c9711",
+      "checksum": "b6c49d545d4e5d4c072df3125dbbdfb3e3481647cd1b94a082219566906a79cb",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -451,7 +472,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:developing-with-a-team-of-ai-s:2026-06-11",
@@ -460,9 +481,10 @@
       "title": "Developing with a Team of AI’s",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/linkedin.md",
-      "checksum": "d395649cbba3f2f694c11a056b1b22e7c859189988c9a48577da0ff7d2a2c77b",
+      "checksum": "102a4b3601b132d98c9504c756e736eacaea4e44d839e5b80ebff8b8f25f6d7f",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -472,7 +494,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:developing-with-a-team-of-ai-s:2026-06-12",
@@ -481,9 +503,10 @@
       "title": "Developing with a Team of AI’s",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/x-twitter.md",
-      "checksum": "0b01bde2c04bee1fbad69f1bf3cb7b0e4e16dbcd17ad79ab2142cded97baa2b2",
+      "checksum": "d673762416a38237c365363b9e65585e7dc7b5997eff62f2e1e42b9b68922ddf",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -493,7 +516,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:developing-with-a-team-of-ai-s:2026-06-12",
@@ -502,9 +525,10 @@
       "title": "Developing with a Team of AI’s",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/reddit.md",
-      "checksum": "603d4f83fd4900337803c92b5ae92e33ea7e9537ae98585c98c39da33e5141be",
+      "checksum": "0c7219b81bb8d9eb579c0778f2a873718b10dc17774799565f59e70f465462f0",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -514,7 +538,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:developing-with-a-team-of-ai-s:2026-06-12",
@@ -523,9 +547,10 @@
       "title": "Developing with a Team of AI’s",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/bluesky.md",
-      "checksum": "00dd9ba294a3bd82afd67bfaf9ddd9b42db1e255c5d1c9396198d028422fab37",
+      "checksum": "ba9eacd9ae4c77706ce9e30b08667b2b04f9d403ad7c6b35aec55951f12df6b5",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -535,7 +560,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:developing-with-a-team-of-ai-s:2026-06-12",
@@ -544,9 +569,10 @@
       "title": "Developing with a Team of AI’s",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/mastodon.md",
-      "checksum": "0fb645ca080d29e0a5736cc57d80fb7e80ad048a0f78446c021c7acbddf79669",
+      "checksum": "1e9aea850bba102a7fac71b3e9b18bf229cf1fa13c06005a2e6186bf3621e9fb",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -556,7 +582,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:developing-with-a-team-of-ai-s:2026-06-13",
@@ -565,9 +591,10 @@
       "title": "Developing with a Team of AI’s",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/threads.md",
-      "checksum": "759c87861dc454479b6c483f09d639cc3f30c173297464d0661277b3e5cd6a1c",
+      "checksum": "2b201b850609862deaa9263b5a3ef894947ee5262c0aab76e0353c7a9943e0cc",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -577,7 +604,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:developing-with-a-team-of-ai-s:2026-06-13",
@@ -586,9 +613,10 @@
       "title": "Developing with a Team of AI’s",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/facebook-page.md",
-      "checksum": "f640587590e460c9049298c27a03490b3f225ae23a0b2a53fd62b38a13db7592",
+      "checksum": "8ca61a8962def9dda7314c19b583b7572c683dd64af1451ad3047ce35a464366",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -598,7 +626,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:every-company-is-sitting-on-sunken-treasure:2026-06-13",
@@ -607,9 +635,10 @@
       "title": "Every Company Is Sitting on Sunken Treasure",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/linkedin.md",
-      "checksum": "25298b008942373efde8893fb6669a41cfda743ca8ee79825c627d7867d42840",
+      "checksum": "beaaed1ec15cefc28158561cef5b54606f53b6c7f6c8a21663ba6ae43e88b7e3",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -619,7 +648,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:every-company-is-sitting-on-sunken-treasure:2026-06-13",
@@ -628,9 +657,10 @@
       "title": "Every Company Is Sitting on Sunken Treasure",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/x-twitter.md",
-      "checksum": "e478838bb291062782fe6d0924af3ba30a2abb4dd509846ee78703b3f328e4f0",
+      "checksum": "a9e0548009a203806cce78dfcd9898856f297fb354c64cd7ed8f23e097312010",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -640,7 +670,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:every-company-is-sitting-on-sunken-treasure:2026-06-14",
@@ -649,9 +679,10 @@
       "title": "Every Company Is Sitting on Sunken Treasure",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/reddit.md",
-      "checksum": "33ba04abd6a6f8c9e4062f7f24df8d50eaed8a3b9309737f684ab78211c4c5a1",
+      "checksum": "6d9779db7dd21024e16b1a63a053d8a35a380cbcb78709598d19a949d8538c19",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -661,7 +692,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:every-company-is-sitting-on-sunken-treasure:2026-06-14",
@@ -670,9 +701,10 @@
       "title": "Every Company Is Sitting on Sunken Treasure",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/bluesky.md",
-      "checksum": "4919b17496f4016ddcc90134e249f7fc7fe65a4cd5f29da2805aedacca8c11b8",
+      "checksum": "80ebda0ac8a08a689fc3d843de9ee652ede3e50f91ff44bb08cbb541a2d2074d",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -682,7 +714,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:every-company-is-sitting-on-sunken-treasure:2026-06-14",
@@ -691,9 +723,10 @@
       "title": "Every Company Is Sitting on Sunken Treasure",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/mastodon.md",
-      "checksum": "1e6b04e52321f7e6ce2ccfd0a1a75f5727a93deba6951c112eb7d328bcd28d7c",
+      "checksum": "d806a56154acb19918485f7a1c6bd9e0e3532f6b65e7888ddd66536eb3614e13",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -703,7 +736,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:every-company-is-sitting-on-sunken-treasure:2026-06-14",
@@ -712,9 +745,10 @@
       "title": "Every Company Is Sitting on Sunken Treasure",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/threads.md",
-      "checksum": "8183bc19412c800b60e136d5a240c4eefde73074f5b053e22c58f92a85e8a5db",
+      "checksum": "7b389ab127612e42ce4224b97d9a2bbe12a78b507a990e4120ba1581ac28116d",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -724,7 +758,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:every-company-is-sitting-on-sunken-treasure:2026-06-15",
@@ -733,9 +767,10 @@
       "title": "Every Company Is Sitting on Sunken Treasure",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/facebook-page.md",
-      "checksum": "b19564bbb4c75bcefb23c1f0cd5b5f3027b8ae184b91d71dfb06659ab6dcae0f",
+      "checksum": "3a047422d50545f36b3a52167d5f15eeb1fc4afba882bf6e8eeb536066048a3f",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -745,7 +780,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:how-to-make-your-ai-code-look-human:2026-06-15",
@@ -754,9 +789,10 @@
       "title": "How to Make Your AI Code Look Human",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/linkedin.md",
-      "checksum": "243ac5755f307138b284f8dc5270566bd6498269ba2f54400f97ebc9d5f3ba06",
+      "checksum": "79ad7b89c89163f05f95c8a49d104fe95be307f855d2d2ee670223a84d097c0e",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -766,7 +802,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:how-to-make-your-ai-code-look-human:2026-06-15",
@@ -775,9 +811,10 @@
       "title": "How to Make Your AI Code Look Human",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/x-twitter.md",
-      "checksum": "d814b4c6a6887ae2255fb6ddad17eadbe9ac314afc72f0820366d9a088818629",
+      "checksum": "08e74402c01b76a6fdf204fdc857c37033fec7d1f6233908ff493c5ebefd46b6",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -787,7 +824,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:how-to-make-your-ai-code-look-human:2026-06-15",
@@ -796,9 +833,10 @@
       "title": "How to Make Your AI Code Look Human",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/reddit.md",
-      "checksum": "da23e06ada0fb259729c1ed9bc43fe44d7965356c41fbede6d1bc84b76471f60",
+      "checksum": "6d1fea46e22b3f92539b1ba3f9f9520714319c49069aabd953ce6bfa31e4fb0f",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -808,7 +846,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:how-to-make-your-ai-code-look-human:2026-06-16",
@@ -817,9 +855,10 @@
       "title": "How to Make Your AI Code Look Human",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/bluesky.md",
-      "checksum": "a21d7a6a00f4d45effa8f020a56ab80d8203b729192815696bcc3f4e683d8571",
+      "checksum": "48406fad12ab0bc194b32cc2c8d394db9776956f543f423ec27c1a2dad9be1c5",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -829,7 +868,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:how-to-make-your-ai-code-look-human:2026-06-16",
@@ -838,9 +877,10 @@
       "title": "How to Make Your AI Code Look Human",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/mastodon.md",
-      "checksum": "7dc5d3933414ad00a3e77d0c52fd01f1804c46287c45ae0d9716ad4d450e8266",
+      "checksum": "58d2796da8e131c3d75148a08d66156357fa9647929467a9fcc4a8d6675c6a69",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -850,7 +890,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:how-to-make-your-ai-code-look-human:2026-06-16",
@@ -859,9 +899,10 @@
       "title": "How to Make Your AI Code Look Human",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/threads.md",
-      "checksum": "0ca240ea47cb1fb61ad819be56679f6176b820afcab2c3b34617ba41dfaa684d",
+      "checksum": "2f21a561a60f2fc3ac36c9212c9c0eb87649d1f69e233de4d0b3ca6ac262daea",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -871,7 +912,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:how-to-make-your-ai-code-look-human:2026-06-16",
@@ -880,9 +921,10 @@
       "title": "How to Make Your AI Code Look Human",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/facebook-page.md",
-      "checksum": "dfdecc8e8131f8527d45e9f7ce260c1eb9c4606f47d8b13523645fe9f04528c0",
+      "checksum": "11a864d38cf803ffbef1b5e097519613e1a9d984ccd0578d5a0c1a46eb0135f9",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -892,7 +934,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:judgment-over-keystrokes:2026-06-17",
@@ -901,9 +943,10 @@
       "title": "Judgment Over Keystrokes",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/linkedin.md",
-      "checksum": "4d1dc42b1530fc4c1fee807f0b4e82fd8424a0581cde1d66f31bc1cd36ae012d",
+      "checksum": "f6632ba90fd307e3e233d756d873a89b934b134fab02f56c6db5378ac5a252fa",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -913,7 +956,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:judgment-over-keystrokes:2026-06-17",
@@ -922,9 +965,10 @@
       "title": "Judgment Over Keystrokes",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/x-twitter.md",
-      "checksum": "a4bb168ece61965a330b8dacade71ecac5eceb849c395f72253bb311ea9c16b0",
+      "checksum": "514b0d92875d26c24af3bafd3a4985564dafa13bd43c499f04a83f399ad749bd",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -934,7 +978,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:judgment-over-keystrokes:2026-06-17",
@@ -943,9 +987,10 @@
       "title": "Judgment Over Keystrokes",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/reddit.md",
-      "checksum": "283a0b3a0b5545161b28310ac230c63c11bd228de727118dbb7939d28a1eed06",
+      "checksum": "96a880dff21b259358bc55c4419314154df79eb204577f6eb2862ad1ea95d861",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -955,7 +1000,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:judgment-over-keystrokes:2026-06-17",
@@ -964,9 +1009,10 @@
       "title": "Judgment Over Keystrokes",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/bluesky.md",
-      "checksum": "6d12fc6ae2690e6f53d9eb2691febcb7a60084b46d519c1675d9af9c7efd04cd",
+      "checksum": "f3874c8063aa0dab5bf9ff7b66cadf22bf7babe696dc3310577d87b29d1c2a96",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -976,7 +1022,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:judgment-over-keystrokes:2026-06-18",
@@ -985,9 +1031,10 @@
       "title": "Judgment Over Keystrokes",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/mastodon.md",
-      "checksum": "65bedf79e41cdf850e71ad9ac1943f60566366a17ddd3c9f371c10c209564585",
+      "checksum": "c39e4edd534407c5635df473369a6c5bee5a28ce2c7f7053edd628610b55db48",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -997,7 +1044,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:judgment-over-keystrokes:2026-06-18",
@@ -1006,9 +1053,10 @@
       "title": "Judgment Over Keystrokes",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/threads.md",
-      "checksum": "d1a496f3939a00cdc306bee137bcc15f8c32ac9cfd8273cafe52d95c1247902f",
+      "checksum": "7223ddc56c4fab79a2588f0bd00cf203d96fa3bcc78d4fb5afe9e78ec72e7613",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1018,7 +1066,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:judgment-over-keystrokes:2026-06-18",
@@ -1027,9 +1075,10 @@
       "title": "Judgment Over Keystrokes",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/facebook-page.md",
-      "checksum": "213968ba5a53c740ffc0a26222bf1ffe5ba70f02860a55971b930c7f63eae640",
+      "checksum": "ba73c196f53cab0b5f55b63587fb6dc5bbfa108dac51a87bc93da288b8c099b6",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1039,7 +1088,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-18",
@@ -1048,9 +1097,10 @@
       "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/linkedin.md",
-      "checksum": "e0e25141749d37c36199b85f661b7aa2387c3b35f6be1cec949a06e9b179cdb9",
+      "checksum": "c65b485d20195e1816fae9c49e62e994afc219e8e8ecd0996aed7a2682fdd756",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1060,7 +1110,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-19",
@@ -1069,9 +1119,10 @@
       "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/x-twitter.md",
-      "checksum": "cdfc74500afd797d7936f4ee8423f1581467cd71f1b4ce67c44d44fdcc572901",
+      "checksum": "41084c8d1ff69108abd9d663a8bf38f521073ddaab82b48b262d925682111880",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1081,7 +1132,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-19",
@@ -1090,9 +1141,10 @@
       "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/reddit.md",
-      "checksum": "f1d327d252e9d2a7575a02d463cbdb6b325f0711cbab379ac71ef7a9c58ba43e",
+      "checksum": "73d2dc856b949a162d490681cdec9d91e1d1cdd4cae13eac01c43150921fb501",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1102,7 +1154,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-19",
@@ -1111,9 +1163,10 @@
       "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/bluesky.md",
-      "checksum": "eca6a81852fe0ba40974c18da02128ee425878b3466a05b711d96e3c248286bf",
+      "checksum": "8172d45b1bdadb96fc10b039cda9d18ded563cfbedcc2f00dcb8835d59816b8a",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1123,7 +1176,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-19",
@@ -1132,9 +1185,10 @@
       "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/mastodon.md",
-      "checksum": "92b4b63425793444dc5a4e373a44d1d97d36e431536842e3057a29ee9e50a05f",
+      "checksum": "19e3dc6687acc2dd494354f352090afc153373e9ee685e1dbdf7cddea893d7f8",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1144,7 +1198,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-20",
@@ -1153,9 +1207,10 @@
       "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/threads.md",
-      "checksum": "b50c52a862a952fc33948412ec1d7c73b5f50530a8b1354fe8ac9a8dfe8830f6",
+      "checksum": "05e02d81c86ce019bf8d448d250558b70127fe79d23668e87fc819fc82c44557",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1165,7 +1220,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:2026-06-20",
@@ -1174,9 +1229,10 @@
       "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/facebook-page.md",
-      "checksum": "b876cc1ebcc47bd0b3325ecf5dcbb8c68fc365b2a0295dc084a188c4ea6417a0",
+      "checksum": "7d5a3264873ee008d869a87dc659d024fc069ff6456106c9d99a8c7645eb28c8",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1186,7 +1242,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:reality-needs-observers:2026-06-20",
@@ -1195,9 +1251,10 @@
       "title": "Reality Needs Observers",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/linkedin.md",
-      "checksum": "05dafebfc1880056d590483fc61991602f3fc90bf00dba1bc03f2a1d2c342322",
+      "checksum": "3d680cc687711fa2d5fc8e7e40c022a27f77c45121dd5f49f49490f7e516170f",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1207,7 +1264,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:reality-needs-observers:2026-06-20",
@@ -1216,9 +1273,10 @@
       "title": "Reality Needs Observers",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/x-twitter.md",
-      "checksum": "ce5280e99694c81eb4b1d6143142375e81f9b9ceb55e119ef47f35794dcee0d1",
+      "checksum": "5bbc5f507106313640d10859ba0c49d59a39a70c7d8236d5b007fec791034e12",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1228,7 +1286,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:reality-needs-observers:2026-06-21",
@@ -1237,9 +1295,10 @@
       "title": "Reality Needs Observers",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/reddit.md",
-      "checksum": "0ebf8c61b22c4a52c714604f44866eb2803d3d71db6bec62906f43d3f1119564",
+      "checksum": "a4a05cb508fb25abb9bf90ea29db2af258f0601c94880a11111d23e707f5cede",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1249,7 +1308,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:reality-needs-observers:2026-06-21",
@@ -1258,9 +1317,10 @@
       "title": "Reality Needs Observers",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/bluesky.md",
-      "checksum": "0f6cc0f7c916968e8219a05c6f248f095512c14dc6621604170a28d90377c5a0",
+      "checksum": "cc15bfaa3c3ea9e8adec7d4b9f561d450d6218b896722a66dd9fb79c474124e1",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1270,7 +1330,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:reality-needs-observers:2026-06-21",
@@ -1279,9 +1339,10 @@
       "title": "Reality Needs Observers",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/mastodon.md",
-      "checksum": "755799fbcdc090f3d6a55ecddbf5979fc26f469d6a048947ea00efa22ffa0b72",
+      "checksum": "3bd3fab8deed1fd791bf11fe239df0b52800881ce9f9bc3041e8ca9e84518121",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1291,7 +1352,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:reality-needs-observers:2026-06-21",
@@ -1300,9 +1361,10 @@
       "title": "Reality Needs Observers",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/threads.md",
-      "checksum": "c22fe7e0d28db7efa838b1052501a0c19ebe2fe561adf5245bdf7c6ab33e68d7",
+      "checksum": "2688eaa0b4355799c3530eb4b0913a106fb9be2217c36534f7bc309ba5b1e068",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1312,7 +1374,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:reality-needs-observers:2026-06-22",
@@ -1321,9 +1383,10 @@
       "title": "Reality Needs Observers",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/facebook-page.md",
-      "checksum": "a048706563d63b0cd7968226872530eef7edf37cb8b016245781d74fc3dbdc30",
+      "checksum": "2197c865cb4cea51a1c2aa9f423122116495fdafee2fb6bc1de5a5fee4595e4a",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1333,7 +1396,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-22",
@@ -1342,9 +1405,10 @@
       "title": "Reuse your code: Authoring your own Universal Library with Webpack",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/linkedin.md",
-      "checksum": "80408c804b9162357c8fadb74afe2589ebac5b1d873a3774b94c1b4f9d88d83c",
+      "checksum": "8958154f3043b12f3b13586238d91c9857fdbd6334978789a27617e273214ead",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1354,7 +1418,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-22",
@@ -1363,9 +1427,10 @@
       "title": "Reuse your code: Authoring your own Universal Library with Webpack",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/x-twitter.md",
-      "checksum": "379ee50a8b30ee83c014b0ea2e7a8150fa51671d81c30900cd816c34fcddd380",
+      "checksum": "f42d23ea950a73251a9eafbb1820edbe13c82b59f38e3d4371817e3a2593d8c4",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1375,7 +1440,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-22",
@@ -1384,9 +1449,10 @@
       "title": "Reuse your code: Authoring your own Universal Library with Webpack",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/reddit.md",
-      "checksum": "9637257aba117cea871dfbf4568a88b69efedd1dcc36df1c6207f4e38a90f500",
+      "checksum": "53d176e120999491b4b059c493aece11f9743e1eff3f64ef0aae923ef2bf0730",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1396,7 +1462,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-23",
@@ -1405,9 +1471,10 @@
       "title": "Reuse your code: Authoring your own Universal Library with Webpack",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/bluesky.md",
-      "checksum": "95cbfcad8e342d93f55915ec023eeed6952a6f7fbc4d66ba4141c44d7d75b178",
+      "checksum": "c532a4ce8d76317879d9d2eac029fdac226d6846f40463b5197ebcfa0588e8a2",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1417,7 +1484,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-23",
@@ -1426,9 +1493,10 @@
       "title": "Reuse your code: Authoring your own Universal Library with Webpack",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/mastodon.md",
-      "checksum": "9bca20b9b5e1ec0c73f3ef91346396885c629e6eedf4872e02d98205170f4580",
+      "checksum": "197874d5dd883fb614f336139c48bfae7636d2ce159a49a1f02cd63a91bac99c",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1438,7 +1506,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-23",
@@ -1447,9 +1515,10 @@
       "title": "Reuse your code: Authoring your own Universal Library with Webpack",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/threads.md",
-      "checksum": "9cf2c827f993b011407c9854dcb3e05d46714bb745e5d0fcd0a7e126cc7ce692",
+      "checksum": "2f2821aba8a1433e751b19231e297d22cfe8486ee2139ddcd9e133e1b7a2e860",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1459,7 +1528,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:reuse-your-code-authoring-your-own-universal-library-with-webpack:2026-06-23",
@@ -1468,9 +1537,10 @@
       "title": "Reuse your code: Authoring your own Universal Library with Webpack",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/facebook-page.md",
-      "checksum": "be84eeb5090d01e2099d2198876b77d87a8a824815c51e7b4fb1e2ab2f367f50",
+      "checksum": "9d033a9e86ffb52dd1d176ee4449127667ea039149bfe53d89d04658ac9679dd",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1480,7 +1550,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:the-beauty-of-es6s-object-destructuring-assignment:2026-06-24",
@@ -1489,9 +1559,10 @@
       "title": "The Beauty of ES6's Object Destructuring Assignment",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/linkedin.md",
-      "checksum": "2c07045e4edeb74b0786196b2a20e6fb68a1fe4e9ee73273f026ce2210e79e03",
+      "checksum": "ef3244fb5d7678c44c206c03ada127647f379e92b809ae3e4abf5071410acdc9",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1501,7 +1572,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:the-beauty-of-es6s-object-destructuring-assignment:2026-06-24",
@@ -1510,9 +1581,10 @@
       "title": "The Beauty of ES6's Object Destructuring Assignment",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/x-twitter.md",
-      "checksum": "76fa0a8d562085476fc7eb9bbb28c4602c8c9f72879375ebde86ca099664ede8",
+      "checksum": "7fed840910a589599b9c3043426006a10ce78fb1afc8263c14132320f6a2b2d7",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1522,7 +1594,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:the-beauty-of-es6s-object-destructuring-assignment:2026-06-24",
@@ -1531,9 +1603,10 @@
       "title": "The Beauty of ES6's Object Destructuring Assignment",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/reddit.md",
-      "checksum": "b62dd4a711ba7be056b182f74a02a530be84bb849fe81251b6727eb56b8f5611",
+      "checksum": "f39c9fc81cfbc8f5eba624eb8aa63001a81de68ac6a7d01df87ecfc689bb5766",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1543,7 +1616,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:the-beauty-of-es6s-object-destructuring-assignment:2026-06-24",
@@ -1552,9 +1625,10 @@
       "title": "The Beauty of ES6's Object Destructuring Assignment",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/bluesky.md",
-      "checksum": "d5e64efbf50c5dc13c5fca66d494bbdc341b95bf99a45ed4a0cec2d9b2528ca8",
+      "checksum": "f66c9f085877e116ae713f660bbe7d82ca1ccda224d15e6d18e7fb95a29e6289",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1564,7 +1638,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:the-beauty-of-es6s-object-destructuring-assignment:2026-06-25",
@@ -1573,9 +1647,10 @@
       "title": "The Beauty of ES6's Object Destructuring Assignment",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/mastodon.md",
-      "checksum": "323cd3cf96fbed9c582d6f5cdf4a043ddc5f57901f6d33141e1c762ae273d9e2",
+      "checksum": "65933048da3ae86ab2cf0df4afca14e049b25d41088ceafbbefc23efdd8bcee4",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1585,7 +1660,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:the-beauty-of-es6s-object-destructuring-assignment:2026-06-25",
@@ -1594,9 +1669,10 @@
       "title": "The Beauty of ES6's Object Destructuring Assignment",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/threads.md",
-      "checksum": "9f9f7919c1d9a847bd3fd9058fa9ab0e1dfa15bb52a894883d5a1db3222c5076",
+      "checksum": "24ca5eda751ee1bac65a0809cd51a1aba01f2f7ff936dc6445eb74463ad93b45",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1606,7 +1682,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:the-beauty-of-es6s-object-destructuring-assignment:2026-06-25",
@@ -1615,9 +1691,10 @@
       "title": "The Beauty of ES6's Object Destructuring Assignment",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/facebook-page.md",
-      "checksum": "8317bf75eec555211ec43840d681ceb1e54613cfb380e3793902c4ea8f19b7e2",
+      "checksum": "358b73f2f500f0126f86bd4059af8710ce7a399ab5a6895fa25f775419ab4c44",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1627,7 +1704,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:the-factory:2026-06-25",
@@ -1636,9 +1713,10 @@
       "title": "The Factory",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/linkedin.md",
-      "checksum": "34c9f02fb0a5db4d7adb16a90810d4450b450288a05992f9a46cf40da546a5e7",
+      "checksum": "a345778c54d25ec9a5b7ebecd69e71bdde027ab727cd63fd5c6176438b323cdc",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1648,7 +1726,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:the-factory:2026-06-26",
@@ -1657,9 +1735,10 @@
       "title": "The Factory",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/x-twitter.md",
-      "checksum": "7379eb21e60a397cdfa09464a926c85771674e7d37b4ca296b74ba0df5373ea3",
+      "checksum": "3c0d83fbe58d6b242ac91e398f1647b67c4ac7012228ac1801dd8a6d3380acce",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1669,7 +1748,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:the-factory:2026-06-26",
@@ -1678,9 +1757,10 @@
       "title": "The Factory",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/reddit.md",
-      "checksum": "4b898672c89ba4d0247d7be9077ebf50ef8752828da2159d74dac29730e370b4",
+      "checksum": "db8b303bad38cb06c4fb0666643c6fbaca06dcca36845b9e2d6821343518d0bc",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1690,7 +1770,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:the-factory:2026-06-26",
@@ -1699,9 +1779,10 @@
       "title": "The Factory",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/bluesky.md",
-      "checksum": "fdd4b3803d5e26b194b9d81d34517e84fe11f28f4820f45080ae91c49fbc27c3",
+      "checksum": "c08b33fd896b0e1634d5a00b6d789ce06fdcc7c77fbc3de1b43339b4d6b76074",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1711,7 +1792,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:the-factory:2026-06-26",
@@ -1720,9 +1801,10 @@
       "title": "The Factory",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/mastodon.md",
-      "checksum": "ed61d782ee1a251f2a039dd84c07217aba322e2d90190bea4379c6f32b895092",
+      "checksum": "7386cd27e885ab936a0e712c440090ec01a30cc197d912bf2c2f96325f1df541",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1732,7 +1814,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:the-factory:2026-06-27",
@@ -1741,9 +1823,10 @@
       "title": "The Factory",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/threads.md",
-      "checksum": "9a36724db275f33f9b1c750cad97be2ec5da70cafba096dcf39342130f154eb1",
+      "checksum": "7976bbf75155c0e9ba1762e06eef35979ae333ef089772159116ac802a735f1b",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1753,7 +1836,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:the-factory:2026-06-27",
@@ -1762,9 +1845,10 @@
       "title": "The Factory",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/facebook-page.md",
-      "checksum": "de6c95a2eae951ee506be31416655cc1e624657241e581a62128404d1ea81d7a",
+      "checksum": "a598ff133fd723ede1f10e72589d5737c42088c854f4b9be310b8a47d2734519",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1774,7 +1858,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:the-foreman:2026-06-27",
@@ -1783,9 +1867,10 @@
       "title": "The Foreman",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/linkedin.md",
-      "checksum": "8f1bca60e1fb17955121b7a6bcacd74c4af070068ce2a02dec0fff1091d2ff24",
+      "checksum": "7a1d74aaf6ec767b57c0f6f718e493059e25977fa780e4d9b0fe32f97d058a3e",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1795,7 +1880,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:the-foreman:2026-06-27",
@@ -1804,9 +1889,10 @@
       "title": "The Foreman",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/x-twitter.md",
-      "checksum": "cb22e228d1e7e3353f2c28723d45e90a37f993de70bb188879fb0f50bc3f48f8",
+      "checksum": "04329b569457a6644ef6e91ad0e03471c140b596a0448f66bbf1dfe1df9cee46",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1816,7 +1902,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:the-foreman:2026-06-28",
@@ -1825,9 +1911,10 @@
       "title": "The Foreman",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/reddit.md",
-      "checksum": "d592129dbe233872079c0dcda79d6a1c90e38d23befa438d5aad7250ffbed282",
+      "checksum": "0713afd4be53e92a72ba07769ba47c03289afc60f71ef1ee73264736301c4c9c",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1837,7 +1924,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:the-foreman:2026-06-28",
@@ -1846,9 +1933,10 @@
       "title": "The Foreman",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/bluesky.md",
-      "checksum": "e56096acb96a5436f5679d1bfb63cb839fbaf04c86aead61d9b19f8eae9d8bb5",
+      "checksum": "8b0429191593dab4a2cafba6f0ade0c433f1cb9b05164ad40acc60b77cd0aeeb",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1858,7 +1946,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:the-foreman:2026-06-28",
@@ -1867,9 +1955,10 @@
       "title": "The Foreman",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/mastodon.md",
-      "checksum": "5f4b7b97e6ee5d0064b594275502610a24b641f50160a536617ad95aa984573b",
+      "checksum": "3ab9e63b8735f4ec043d21dfb66447c443fbe25d4b7c4fad8e0268ecab243455",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1879,7 +1968,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:the-foreman:2026-06-28",
@@ -1888,9 +1977,10 @@
       "title": "The Foreman",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/threads.md",
-      "checksum": "2d8b4df13b4d2445e36c944fc29ab8d1c92b45ee3ef9908c69487b5f2314f819",
+      "checksum": "718143378931e5515799f73a60a6e662c633e7c637f0fe4b92f1c8fdbefeefd1",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1900,7 +1990,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:the-foreman:2026-06-29",
@@ -1909,9 +1999,10 @@
       "title": "The Foreman",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/facebook-page.md",
-      "checksum": "b947ee98a8092c235049e54a9fca6b5fe5c444b33c6c0fd5f3c3310d879cd371",
+      "checksum": "309c1fbeb6866454d9708ce6b4d98b78ddc8eb25bca18c6f6c2c58f1a53b9e1b",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1921,7 +2012,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:the-golden-hammer:2026-06-29",
@@ -1930,9 +2021,10 @@
       "title": "The Golden Hammer",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/linkedin.md",
-      "checksum": "32ab0c313207fe2e3ab1744b2cb2389c99744172d0350edca3abe1ee9f5817fc",
+      "checksum": "b8b9e4833a716001a3f3f514a1a84f42f07e798e95b35ef5daf15bc025fdd846",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1942,7 +2034,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:the-golden-hammer:2026-06-29",
@@ -1951,9 +2043,10 @@
       "title": "The Golden Hammer",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/x-twitter.md",
-      "checksum": "fba8daea66adbed950e0ebad5d47cdebc28a5b6829ce37ffc1530e9ff2c2e78b",
+      "checksum": "1423184b29aeca2756887a58b89ed3fd60c2c7dfb00a47abfc6198f6f55be546",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1963,7 +2056,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:the-golden-hammer:2026-06-29",
@@ -1972,9 +2065,10 @@
       "title": "The Golden Hammer",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/reddit.md",
-      "checksum": "6be5c07f64c1c9fcf49ea35b7e4f765b7f61901aca68a000b0c8fe46584aa562",
+      "checksum": "203b9a55a790bdaa5808ab5915255b72fd5c7fceba7f4d6fc6e46b00484b86e7",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -1984,7 +2078,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:the-golden-hammer:2026-06-30",
@@ -1993,9 +2087,10 @@
       "title": "The Golden Hammer",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/bluesky.md",
-      "checksum": "0033e87f06cb4964102fb3d7df4f5548d147cf3fba7d10e7633cb8c9900281b5",
+      "checksum": "996cdbeb2c8bb933ebbd61c8a1bb601262490dc1e73eba885d9f15943daabd2b",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2005,7 +2100,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:the-golden-hammer:2026-06-30",
@@ -2014,9 +2109,10 @@
       "title": "The Golden Hammer",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/mastodon.md",
-      "checksum": "fe8c056be3d1ad76d6dfbd8d1104cb529427d8f1017cfa763c0f1c6aff809632",
+      "checksum": "ad0d2fdc0224255bdc20ec9df3cf069a7feb1cd3d2a9cec10913832a5dde102a",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2026,7 +2122,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:the-golden-hammer:2026-06-30",
@@ -2035,9 +2131,10 @@
       "title": "The Golden Hammer",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/threads.md",
-      "checksum": "7ad44df4d880d81b5f6fd1c1bfba7c11f1ee236cb2e9566c4407fb809fd2caa6",
+      "checksum": "ea228473795e7aa6262f215d7ffd875b18375d6abbb28137fbd05e0757322bcd",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2047,7 +2144,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:the-golden-hammer:2026-06-30",
@@ -2056,9 +2153,10 @@
       "title": "The Golden Hammer",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/facebook-page.md",
-      "checksum": "599cf6e1e310d56107b37b1c910976af5c95f73892c55671432a0a45b1ee7179",
+      "checksum": "0fcb605a989e1e8d76e65d0c184e72fd3508bb74ae7e375049c4cc7e14a6e22d",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2068,7 +2166,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:the-moving-target:2026-07-01",
@@ -2077,9 +2175,10 @@
       "title": "The Moving Target",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/linkedin.md",
-      "checksum": "b7d118675c4f9df7c22c01589f1ff27be9352bfbe93b563e403ded6186ff8daf",
+      "checksum": "1bcc81c49f505ecf037087fe1ec11fa2953af93a29f47560cecf44c7a0cbd690",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2089,7 +2188,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:the-moving-target:2026-07-01",
@@ -2098,9 +2197,10 @@
       "title": "The Moving Target",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/x-twitter.md",
-      "checksum": "76200498455211ea38548cb1e3b3cc546d8cc0d7c3bcf5a79b8a0f3425802133",
+      "checksum": "82220d5f48a62258fff074e1c14f43f06f1d9fc9d03457251887aa4f5da22660",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2110,7 +2210,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:the-moving-target:2026-07-01",
@@ -2119,9 +2219,10 @@
       "title": "The Moving Target",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/reddit.md",
-      "checksum": "6426e45d561536bf952df8c463634d14ad0306ea17b0128cabf67c7d01007865",
+      "checksum": "ec43a550dab2849c6f8ea7a2db7df3c8014ef5295df43b8905af6e2e60ec7444",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2131,7 +2232,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:the-moving-target:2026-07-01",
@@ -2140,9 +2241,10 @@
       "title": "The Moving Target",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/bluesky.md",
-      "checksum": "ce3a6541eb210863cb34c987597c4cfc8356c63544a484e901ae964b487b7e67",
+      "checksum": "17c158343d26ae48aedc03f9b38b5b156e6bdbfed04ad62ef1f948fc4dcd83dd",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2152,7 +2254,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:the-moving-target:2026-07-02",
@@ -2161,9 +2263,10 @@
       "title": "The Moving Target",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/mastodon.md",
-      "checksum": "d936c0c4e86ef9b27db46596bd1d493124be9128aa030e1517d027ae0c0ff714",
+      "checksum": "7d1b0a82328e34e3a17fb506e7dff2ca3761ae8ed62da5ac2e29a272e83dfd9c",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2173,7 +2276,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:the-moving-target:2026-07-02",
@@ -2182,9 +2285,10 @@
       "title": "The Moving Target",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/threads.md",
-      "checksum": "88186cc3cbce30d122c053832b5fe47b84da1fb8621b3d64e2766e0ca39ca50f",
+      "checksum": "f5719bf872c88ede6e1a58c2f5ddc81bdb3cc8772f71926218f5a1d9239bd2f2",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2194,7 +2298,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:the-moving-target:2026-07-02",
@@ -2203,9 +2307,10 @@
       "title": "The Moving Target",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/facebook-page.md",
-      "checksum": "3b4a7cc21f56df8ea11b7dd8ff0e58848071fdce9e4d6641d1fb9c3ab2672b23",
+      "checksum": "f4b7936605a3e8a3e5c297008e48a7efff549ae453b1254f0e6241c4252f9079",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2215,7 +2320,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:the-overnight-shift:2026-07-02",
@@ -2224,9 +2329,10 @@
       "title": "The Overnight Shift",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/linkedin.md",
-      "checksum": "bf5629c4d916b881eafabecbaf6e89fe3be70bf3627cb3f09373b78e432fa81e",
+      "checksum": "e206ae6bd79095d30fbbe5966c0e517934a6ffabad80dd4bc8a7f96c46c99af1",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2236,7 +2342,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:the-overnight-shift:2026-07-03",
@@ -2245,9 +2351,10 @@
       "title": "The Overnight Shift",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/x-twitter.md",
-      "checksum": "672cda51fafcfebc3b2136cca5f17f5c1e9e45c97b99f27f9343818b8ea86a46",
+      "checksum": "41e13109326271491906a69691a2dadee1866afca50b4faf5f4922d32c9ccd81",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2257,7 +2364,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:the-overnight-shift:2026-07-03",
@@ -2266,9 +2373,10 @@
       "title": "The Overnight Shift",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/reddit.md",
-      "checksum": "bc2779e1c7f8a1185b4863eb8ba5845c414fe46370f72a19764a08e1b2b46a9e",
+      "checksum": "c4f8a2a473f7ff8d75f58bc1ddc7f6f4dacd02213a05cedb7c8e46484a191ac3",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2278,7 +2386,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:the-overnight-shift:2026-07-03",
@@ -2287,9 +2395,10 @@
       "title": "The Overnight Shift",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/bluesky.md",
-      "checksum": "2401c53b024fc35e1b5b10897352dab03ecc86ae0749319bbce80f3c63f1a73e",
+      "checksum": "342db323eec88ab89649b34b1acf62dddcfc8f5ae05da9d1b9e496d900480f37",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2299,7 +2408,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:the-overnight-shift:2026-07-03",
@@ -2308,9 +2417,10 @@
       "title": "The Overnight Shift",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/mastodon.md",
-      "checksum": "f80c966591347ffab58f53b78a311d2d19a6fc13477fafe5567404a9286a0d10",
+      "checksum": "cc2bff4cd2a91944b62e8d3af887fa4698507dbd37522997d050261d99be173a",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2320,7 +2430,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:the-overnight-shift:2026-07-04",
@@ -2329,9 +2439,10 @@
       "title": "The Overnight Shift",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/threads.md",
-      "checksum": "1b7ceacd9b32671aa785e2a042f601f6ff7272814386fc56223d9cda84f46f69",
+      "checksum": "eff5b317b1b640d1ea9568f0e046d777bcdf4105f316b67bcb2969f2ac6e78bc",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2341,7 +2452,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:the-overnight-shift:2026-07-04",
@@ -2350,9 +2461,10 @@
       "title": "The Overnight Shift",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/facebook-page.md",
-      "checksum": "9ed0a1951c997318ee8ed49b314d65b7b17ce11cf4bc4a595d48cd786bcf620d",
+      "checksum": "be79852220cc3f72f0f05bf50423fd34e6cf91c1a04e3fa83e94b4ea0beaaa72",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2362,7 +2474,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:what-i-learned-building-a-photoshop-in-the-browser:2026-07-04",
@@ -2371,9 +2483,10 @@
       "title": "What I Learned Building a Photoshop in the Browser",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/linkedin.md",
-      "checksum": "9d361c67921b06af385723527e732e13eb53a7e367066e4e1647c4f25ec7aaad",
+      "checksum": "7c940f152e203360dac6c73af34c12f874a463a3a6a6dd78b9e6b9834d310de6",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2383,7 +2496,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:what-i-learned-building-a-photoshop-in-the-browser:2026-07-04",
@@ -2392,9 +2505,10 @@
       "title": "What I Learned Building a Photoshop in the Browser",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/x-twitter.md",
-      "checksum": "30782d48ea8888807b3b17e5c0921425d3f3213fd78860b6c08f739d468ea903",
+      "checksum": "03232910693a59b97c3314044cad574010336b5b1c3ab1d6b56dee7a4e894cfe",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2404,7 +2518,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:what-i-learned-building-a-photoshop-in-the-browser:2026-07-05",
@@ -2413,9 +2527,10 @@
       "title": "What I Learned Building a Photoshop in the Browser",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/reddit.md",
-      "checksum": "03a528b0625cac485c4a9db07e13c0f12b9988c38cfbe19d586f1c01e0d7052a",
+      "checksum": "c59cdde4664ce89af6b972d8608e0cff58f3000f027164ddea72fde734e4418b",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2425,7 +2540,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:what-i-learned-building-a-photoshop-in-the-browser:2026-07-05",
@@ -2434,9 +2549,10 @@
       "title": "What I Learned Building a Photoshop in the Browser",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/bluesky.md",
-      "checksum": "07f931b100314d16cb7abadec8d6feda2a2a69216b55ece18e9926659ba14568",
+      "checksum": "e303f314551c8a0b2003e4a4b742db988801a52829176e647bd730741b07554f",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2446,7 +2562,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:what-i-learned-building-a-photoshop-in-the-browser:2026-07-05",
@@ -2455,9 +2571,10 @@
       "title": "What I Learned Building a Photoshop in the Browser",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/mastodon.md",
-      "checksum": "9d490a67ebddeb75cc29e870bda8887b94e171bfffbd6ae66bc940148e8eea3a",
+      "checksum": "b58891a772aa7795a475fd2cef92961247f19bebffef2b00077b07f820c2a6c1",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2467,7 +2584,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:what-i-learned-building-a-photoshop-in-the-browser:2026-07-05",
@@ -2476,9 +2593,10 @@
       "title": "What I Learned Building a Photoshop in the Browser",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/threads.md",
-      "checksum": "8ec9dd19859fbfe98300332f109fa851c4f2dbf635ee76ef9110097e824aea2c",
+      "checksum": "e9205ef259be49d887a26e14f5d8c44d3e50c85a6ca9a7249473c63067aa40c1",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2488,7 +2606,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:what-i-learned-building-a-photoshop-in-the-browser:2026-07-06",
@@ -2497,9 +2615,10 @@
       "title": "What I Learned Building a Photoshop in the Browser",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/facebook-page.md",
-      "checksum": "07ae3905954682edfb76fa94d00e423e93a093331e9629f039e82c3c4e063d79",
+      "checksum": "30443e27b11a6a9e5b6a2012a9114f4559217e52ea5b7adc9c4bf7a24cb6ffab",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2509,7 +2628,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:why-character-choice-matters-in-agent-design:2026-07-06",
@@ -2518,9 +2637,10 @@
       "title": "Why Character Choice Matters in Agent Design",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/linkedin.md",
-      "checksum": "b9108325bc728545cbacdd31ae6f768d86c19928a099dcee99d0e053625b1a56",
+      "checksum": "bbae8ee5988e6bbb855764320c938971fe9dea41b3ae84697d554161ee3cb7ff",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2530,7 +2650,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:why-character-choice-matters-in-agent-design:2026-07-06",
@@ -2539,9 +2659,10 @@
       "title": "Why Character Choice Matters in Agent Design",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/x-twitter.md",
-      "checksum": "97d752ebbdcf486c2def04ab2b634abe1ab5d37ae152d78d9efd6061c402f9c2",
+      "checksum": "9f3e96e9e8c4f052ec617e30e834426df55f75f22258fd39b794f79266afc23f",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2551,7 +2672,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:why-character-choice-matters-in-agent-design:2026-07-06",
@@ -2560,9 +2681,10 @@
       "title": "Why Character Choice Matters in Agent Design",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/reddit.md",
-      "checksum": "b5283833f5430b3e2a1e0bc6dc62b112b3d7244ce1be6457812b78dc096684bf",
+      "checksum": "7eee87585f5a34288c0f91970a99a10df889576d8e23b8c078af33565977fdc7",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2572,7 +2694,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:why-character-choice-matters-in-agent-design:2026-07-07",
@@ -2581,9 +2703,10 @@
       "title": "Why Character Choice Matters in Agent Design",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/bluesky.md",
-      "checksum": "1e5c8bc39fb60856b25fd8884199a239a7f46c5e384080eb0ebcc4bb4296eedf",
+      "checksum": "d6e74ec8286c63a92402904b7ae50678fe358f04fa116dbda3cc6bb2d4ae2578",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2593,7 +2716,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:why-character-choice-matters-in-agent-design:2026-07-07",
@@ -2602,9 +2725,10 @@
       "title": "Why Character Choice Matters in Agent Design",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/mastodon.md",
-      "checksum": "b10e2c430f82361db3a1719ad7641b7c711fa0c128c07da973de735212436681",
+      "checksum": "2500c9b401becbbaf4c0072b09d6721a5b1b69a63bc2677aad1e455cc896eea2",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2614,7 +2738,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:why-character-choice-matters-in-agent-design:2026-07-07",
@@ -2623,9 +2747,10 @@
       "title": "Why Character Choice Matters in Agent Design",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/threads.md",
-      "checksum": "41007def84fca70ea6e6a6081b099aac7965265833f9684dcbee1a69944f168d",
+      "checksum": "a50e8e768510a99236f90dccb6dba860319a4581e23ac6c42ba3dbe3b49659dd",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2635,7 +2760,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:why-character-choice-matters-in-agent-design:2026-07-07",
@@ -2644,9 +2769,10 @@
       "title": "Why Character Choice Matters in Agent Design",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/facebook-page.md",
-      "checksum": "50a764b399e5dae0eab0122c2b6ce9fba212fcedea7ea386e3c1c143f984ce65",
+      "checksum": "2acd46b776e614f2ed7c9e4454da25849f908711677becadf69752b168de2cc5",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2656,7 +2782,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-08",
@@ -2665,9 +2791,10 @@
       "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/linkedin.md",
-      "checksum": "aa4ef7192e5d45267372a3ab65390b03946560d310be7fe8e30bdeb7543d0205",
+      "checksum": "aad55b30a0c57badb5f40684b4754926c8142268272ad3559933cdff665176c9",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2677,7 +2804,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-08",
@@ -2686,9 +2813,10 @@
       "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/x-twitter.md",
-      "checksum": "d676803f5634f3a7eddb627fb1809cfefa01af25477f67935609475c5e00349c",
+      "checksum": "2e3aa0e89592ffcaeac0dfa8e85e4c79c11c40552428c7ee7de990f210eb10c2",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2698,7 +2826,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-08",
@@ -2707,9 +2835,10 @@
       "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md",
-      "checksum": "956a57e9c9869edb7c9b4223a4898108f0ccdd6c1d594d02466a5a12f9e1c399",
+      "checksum": "b5c4bed2d4b4a64952474ee3106fea4b7d04cf0ba3391e45cee99197be252a9b",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2719,7 +2848,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-08",
@@ -2728,9 +2857,10 @@
       "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/bluesky.md",
-      "checksum": "3c2cbd2d60cfffc89cba3fbc62be61540984cdc0fef53dd256cf200e2cd6b84c",
+      "checksum": "5dbec21e257fdb6070be8b5a4e36e36a42bd7b664b59ad96ca467da813594f3d",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2740,7 +2870,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-09",
@@ -2749,9 +2879,10 @@
       "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/mastodon.md",
-      "checksum": "0d21499e7368e6b0f413e92b7ad2ae64356f515d89b1e00f09ae1b97c7795deb",
+      "checksum": "973bec07810712150307319595277b4844d87ef31b912fa3c8888c9e69e2961d",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2761,7 +2892,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-09",
@@ -2770,9 +2901,10 @@
       "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/threads.md",
-      "checksum": "5aa6071ec7cced5ef56b3726826bebba3be3709cac968017b4907a63be227002",
+      "checksum": "477277720424da735244d5c85c397674e5457a31bc3d678c926400614c21d1e4",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2782,7 +2914,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:2026-07-09",
@@ -2791,9 +2923,10 @@
       "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/facebook-page.md",
-      "checksum": "c759acc798aee7d47660265d58b091ba6baee510e705129aa2ca225584365bce",
+      "checksum": "238d20efa2f9663d3d3c6d795040b9c2183ad5b41556e416aff9614b02758040",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2803,7 +2936,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:linkedin:your-ai-isnt-hallucinating-its-lying:2026-07-09",
@@ -2812,9 +2945,10 @@
       "title": "Your AI Isn't Hallucinating. It's Lying.",
       "platform": "linkedin",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/linkedin.md",
-      "checksum": "0dd609978572284cc3c3892e9fa1d618885897eb45917468c468e7bd46908c92",
+      "checksum": "6fd45bfc96c6322d3a60f7a1a205183e62fecba6f1893810e82d87106a07bc82",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2824,7 +2958,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:x-twitter:your-ai-isnt-hallucinating-its-lying:2026-07-10",
@@ -2833,9 +2967,10 @@
       "title": "Your AI Isn't Hallucinating. It's Lying.",
       "platform": "x-twitter",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/x-twitter.md",
-      "checksum": "6b4a8e6f552f409e6433a53713a7b271012e250488289fe85e0ed444e85cd832",
+      "checksum": "f2bdaa8ac90a2703d9e510930a0aec9615a94f04c622ee8317d6d97e4f4d0828",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2845,7 +2980,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:reddit:your-ai-isnt-hallucinating-its-lying:2026-07-10",
@@ -2854,9 +2989,10 @@
       "title": "Your AI Isn't Hallucinating. It's Lying.",
       "platform": "reddit",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/reddit.md",
-      "checksum": "41ae462e108f42d5adc7fa3ff37833906aac43945a3ecb8a5252ae6ff89bd065",
+      "checksum": "642da088527a3cd628459730c723a735cbab1087aaa2a3d08a085b98391abafb",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2866,7 +3002,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Postiz channel is not connected for this platform."
     },
     {
       "id": "social:bluesky:your-ai-isnt-hallucinating-its-lying:2026-07-10",
@@ -2875,9 +3011,10 @@
       "title": "Your AI Isn't Hallucinating. It's Lying.",
       "platform": "bluesky",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/bluesky.md",
-      "checksum": "ee0699da8fc75bc226e70255bf31ad4279ba598885a9f2ff68733898c6b00769",
+      "checksum": "00a0e1152cad1b341c1045c24e48b883d749fc662da68d441540cb8f72c10245",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2887,7 +3024,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:mastodon:your-ai-isnt-hallucinating-its-lying:2026-07-10",
@@ -2896,9 +3033,10 @@
       "title": "Your AI Isn't Hallucinating. It's Lying.",
       "platform": "mastodon",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/mastodon.md",
-      "checksum": "7ae6af6cf6989a92a42a30875ace9fc9fe082f81630c9b64958de4af5cc4c17b",
+      "checksum": "a778b68ba5e26ecb34a38b2db99b4e2571fe1b0bbee15a45bd133b4f02039560",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2908,7 +3046,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:threads:your-ai-isnt-hallucinating-its-lying:2026-07-11",
@@ -2917,9 +3055,10 @@
       "title": "Your AI Isn't Hallucinating. It's Lying.",
       "platform": "threads",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/threads.md",
-      "checksum": "f979383b7486778342cf55ae15e400e8dad2e2a0d3851cd6476f186c307d9cbc",
+      "checksum": "27a01fe4b788ebae5efad0951351361bcae16eb21bfabf7a7349b5a84c0ee661",
       "identityLayer": "brand-lab",
       "accountKind": "new-canary",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2929,7 +3068,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     },
     {
       "id": "social:facebook-page:your-ai-isnt-hallucinating-its-lying:2026-07-11",
@@ -2938,9 +3077,10 @@
       "title": "Your AI Isn't Hallucinating. It's Lying.",
       "platform": "facebook-page",
       "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/facebook-page.md",
-      "checksum": "cc96ccabed9dd2ee9f5524dbf0d7b57a668473bdc4d13fdf49b3568b28b4587a",
+      "checksum": "c89f112da823b1976dc97b739938038ee71159ef1df338a5854f1d4bcb9cffd0",
       "identityLayer": "brand-lab",
       "accountKind": "new-page",
+      "postizChannelStatus": "not-connected",
       "status": "planned",
       "publicPublishingAllowed": false,
       "safeDefault": "do-not-post",
@@ -2950,7 +3090,7 @@
         "requiredFrom": "David"
       },
       "blocked": true,
-      "blocker": "Current 1Password service account can read the vault but cannot create or update items."
+      "blocker": "Account has not been created or reserved yet."
     }
   ]
 }

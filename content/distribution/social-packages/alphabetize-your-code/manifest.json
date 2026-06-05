@@ -3,43 +3,43 @@
   "slug": "alphabetize-your-code",
   "title": "Alphabetize your code.",
   "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
-  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "generatedAt": "2026-06-05T11:52:15.017Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/linkedin.md",
-      "checksum": "83cfaac1733f1a33f0404d8e039b330dcdc52426cbc70899dffecdafd6da64e3"
+      "checksum": "d930113e50cf5db671275019f1a1ff9e853b9e7d0eba9fbbbdf8054efb91eea1"
     },
     {
       "platform": "x-twitter",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/x-twitter.md",
-      "checksum": "1cd9578349aa7e577572fc90b5b80f8431ede82ffd0b793e267bf74a16c57371"
+      "checksum": "ca2d62c9ebafe24b7ef0a29c5286c92f69a74486eda3495c5cc4d267b3cce30f"
     },
     {
       "platform": "reddit",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/reddit.md",
-      "checksum": "06f13814685a665990d7aa994b6200b6d24e6df22031a97ebd99aeaf6c37004a"
+      "checksum": "3b83274ac5c82a2871ce552c09db1ab6db317b2289356cbafa051fbdcaa26827"
     },
     {
       "platform": "bluesky",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/bluesky.md",
-      "checksum": "eeb8c4d042865f49b3214f801a7da8cceda63bafea065dfb442b27cf079f028c"
+      "checksum": "352729bc2fd0fe5d3a0a7a76bf8e1b49c005ec31d725c43ccbe39efd3f1c84e9"
     },
     {
       "platform": "mastodon",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/mastodon.md",
-      "checksum": "399b8fd031a5c968efa4719e14426b10e0a425cf14bf1514b720ba5274af2677"
+      "checksum": "300377aeedd431335a3bb38aba3059c9b4f6355a280d9148516c2e0bb8fadcab"
     },
     {
       "platform": "threads",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/threads.md",
-      "checksum": "e3c6f91978f16358ad1e9d12a38cc7117690b7745054aa892b9e0b438077d975"
+      "checksum": "30dd58fc43b04bb90273bd17eb5b93239d06822e7d3291d55380ccb0dc2f6472"
     },
     {
       "platform": "facebook-page",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/facebook-page.md",
-      "checksum": "5fdd41718eb74f98c13707e322fdf0ac34ae57511ef1735ce21a59b1bc92c2e0"
+      "checksum": "0371c24b072f2fc2661cba721888b3f324db485e35e35cc39517105675899800"
     }
   ]
 }

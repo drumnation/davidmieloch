@@ -3,43 +3,43 @@
   "slug": "the-beauty-of-es6s-object-destructuring-assignment",
   "title": "The Beauty of ES6's Object Destructuring Assignment",
   "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
-  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "generatedAt": "2026-06-05T11:52:15.017Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/linkedin.md",
-      "checksum": "2c07045e4edeb74b0786196b2a20e6fb68a1fe4e9ee73273f026ce2210e79e03"
+      "checksum": "ef3244fb5d7678c44c206c03ada127647f379e92b809ae3e4abf5071410acdc9"
     },
     {
       "platform": "x-twitter",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/x-twitter.md",
-      "checksum": "76fa0a8d562085476fc7eb9bbb28c4602c8c9f72879375ebde86ca099664ede8"
+      "checksum": "7fed840910a589599b9c3043426006a10ce78fb1afc8263c14132320f6a2b2d7"
     },
     {
       "platform": "reddit",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/reddit.md",
-      "checksum": "b62dd4a711ba7be056b182f74a02a530be84bb849fe81251b6727eb56b8f5611"
+      "checksum": "f39c9fc81cfbc8f5eba624eb8aa63001a81de68ac6a7d01df87ecfc689bb5766"
     },
     {
       "platform": "bluesky",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/bluesky.md",
-      "checksum": "d5e64efbf50c5dc13c5fca66d494bbdc341b95bf99a45ed4a0cec2d9b2528ca8"
+      "checksum": "f66c9f085877e116ae713f660bbe7d82ca1ccda224d15e6d18e7fb95a29e6289"
     },
     {
       "platform": "mastodon",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/mastodon.md",
-      "checksum": "323cd3cf96fbed9c582d6f5cdf4a043ddc5f57901f6d33141e1c762ae273d9e2"
+      "checksum": "65933048da3ae86ab2cf0df4afca14e049b25d41088ceafbbefc23efdd8bcee4"
     },
     {
       "platform": "threads",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/threads.md",
-      "checksum": "9f9f7919c1d9a847bd3fd9058fa9ab0e1dfa15bb52a894883d5a1db3222c5076"
+      "checksum": "24ca5eda751ee1bac65a0809cd51a1aba01f2f7ff936dc6445eb74463ad93b45"
     },
     {
       "platform": "facebook-page",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/facebook-page.md",
-      "checksum": "8317bf75eec555211ec43840d681ceb1e54613cfb380e3793902c4ea8f19b7e2"
+      "checksum": "358b73f2f500f0126f86bd4059af8710ce7a399ab5a6895fa25f775419ab4c44"
     }
   ]
 }

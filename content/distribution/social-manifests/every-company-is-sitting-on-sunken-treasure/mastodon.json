@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:every-company-is-sitting-on-sunken-treasure:7f6441b41564",
+  "manifestId": "social:mastodon:every-company-is-sitting-on-sunken-treasure:7568a44f73ef",
   "source": {
     "articleSlug": "every-company-is-sitting-on-sunken-treasure",
     "canonicalUrl": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "0645570ca52f8f810a03aa4a176adc90d14861ab311fd6864b1904e73d08456d"
+    "digest": "2c288872e3d4b62cc2670533844037a81d48aa5909915c1fabd63890f5a6fe2f"
   }
 }

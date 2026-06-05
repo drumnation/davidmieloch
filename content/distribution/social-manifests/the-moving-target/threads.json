@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:threads:the-moving-target:ceddb361b7a1",
+  "manifestId": "social:threads:the-moving-target:df0cf5866bec",
   "source": {
     "articleSlug": "the-moving-target",
     "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "9b82571278c5477693eca61e6ff4fecff46e6d045b844f3248923d90e7cf21c4"
+    "digest": "0038d643c48d3455a88009e99b1815a2b6452ec94c1c751bc45cbc28a284f5a0"
   }
 }

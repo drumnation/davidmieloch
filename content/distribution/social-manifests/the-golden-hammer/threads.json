@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:threads:the-golden-hammer:a137156b1d8b",
+  "manifestId": "social:threads:the-golden-hammer:82c0c17511e9",
   "source": {
     "articleSlug": "the-golden-hammer",
     "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "71e8a14b4f52a2f30a1b159905a2c231a12d2a300e638f2b1ffd719ed1d1385c"
+    "digest": "aeef66cb0fa2cb9015ab333228a9d4ed602c75e8b6080848b8e57cf13d4dc9c2"
   }
 }

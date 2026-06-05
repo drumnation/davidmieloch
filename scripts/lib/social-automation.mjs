@@ -99,6 +99,23 @@ function credentialCustodyStatus(inventory) {
   };
 }
 
+function accountReadinessBlocker(inventory, account) {
+  const custody = credentialCustodyStatus(inventory);
+  if (!custody.verified) {
+    return inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.';
+  }
+  if (!account) {
+    return 'No account inventory entry exists for this platform.';
+  }
+  if (account.knownState === 'not-created') {
+    return 'Account has not been created or reserved yet.';
+  }
+  if (account.postizChannelStatus !== 'connected') {
+    return 'Postiz channel is not connected for this platform.';
+  }
+  return null;
+}
+
 function articleFromLedger(ledger, articlesRoot, slug) {
   const ledgerArticle = ledger.articles?.[slug];
   if (!ledgerArticle) {
@@ -170,6 +187,7 @@ function socialPackageMarkdown({ article, platform, inventory, generatedAt }) {
     identity_layer: account?.identityLayer ?? 'unknown',
     account_kind: account?.accountKind ?? 'unknown',
     known_state: account?.knownState ?? 'unknown',
+    postiz_channel_status: account?.postizChannelStatus ?? 'not-connected',
     test_post_policy: account?.testPostPolicy ?? 'unknown',
     generated_at: generatedAt,
     public_publish_allowed: false,
@@ -253,24 +271,22 @@ export function buildSocialReadiness({ inventory, generatedAt = new Date().toISO
   const accounts = (inventory.accounts ?? []).map((account) => {
     const personal = account.identityLayer === 'personal-authority';
     const canary = account.accountKind?.includes('canary') || account.identityLayer === 'brand-lab';
-    const blocked = !custody.verified || account.knownState === 'not-created';
+    const blocker = accountReadinessBlocker(inventory, account);
     return {
       platform: account.platform,
       identityLayer: account.identityLayer,
       accountKind: account.accountKind,
       knownState: account.knownState,
+      postizChannelStatus: account.postizChannelStatus ?? 'not-connected',
       postizPriority: account.postizPriority,
       testPostPolicy: account.testPostPolicy,
       canaryEligible: canary && !personal,
       personalAccount: personal,
       readyForCredentialedSetup: custody.verified,
-      readyForConnectorTest: custody.verified && canary && account.knownState !== 'not-created',
-      blocked,
-      blocker: !custody.verified
-        ? inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.'
-        : account.knownState === 'not-created'
-          ? 'Account has not been created or reserved yet.'
-          : null,
+      readyForPostizDrafts: !blocker,
+      readyForConnectorTest: !blocker && canary && account.deletePathKnown === true,
+      blocked: Boolean(blocker),
+      blocker,
     };
   });
 
@@ -307,7 +323,6 @@ export function buildSocialSchedule({
   intervalHours = 8,
   generatedAt = new Date().toISOString(),
 }) {
-  const custody = credentialCustodyStatus(inventory);
   const start = new Date(startAt);
   if (Number.isNaN(start.getTime())) throw new Error(`Invalid --start value: ${startAt}`);
 
@@ -324,6 +339,7 @@ export function buildSocialSchedule({
       const manifest = readJson(manifestPath, {});
       for (const file of manifest.files ?? []) {
         const account = accountByPlatform(inventory, file.platform);
+        const blocker = accountReadinessBlocker(inventory, account);
         const scheduledAt = new Date(start.getTime() + entries.length * Number(intervalHours) * 60 * 60 * 1000).toISOString();
         entries.push({
           id: `social:${file.platform}:${slug}:${scheduledAt.slice(0, 10)}`,
@@ -335,6 +351,7 @@ export function buildSocialSchedule({
           checksum: file.checksum,
           identityLayer: account?.identityLayer ?? 'unknown',
           accountKind: account?.accountKind ?? 'unknown',
+          postizChannelStatus: account?.postizChannelStatus ?? 'not-connected',
           status: 'planned',
           publicPublishingAllowed: false,
           safeDefault: 'do-not-post',
@@ -343,8 +360,8 @@ export function buildSocialSchedule({
             status: 'missing',
             requiredFrom: 'David',
           },
-          blocked: !custody.verified,
-          blocker: custody.verified ? null : inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.',
+          blocked: Boolean(blocker),
+          blocker,
         });
       }
     }
@@ -436,6 +453,7 @@ export function buildN8nExport({
   generatedAt = new Date().toISOString(),
 }) {
   const custody = credentialCustodyStatus(inventory);
+  const blockedPackets = (socialCalendar.entries ?? []).filter((entry) => entry.blocked);
   const packets = (socialCalendar.entries ?? []).map((entry) => ({
     packetId: `n8n:${entry.id}`,
     generatedAt,
@@ -450,7 +468,8 @@ export function buildN8nExport({
       safeDefault: 'do-not-post',
       requiresApproval: true,
       credentialCustodyVerified: custody.verified,
-      allowedAction: custody.verified ? 'create-postiz-draft-or-schedule' : 'blocked',
+      allowedAction: entry.blocked ? 'blocked' : 'create-postiz-draft-or-schedule',
+      blocker: entry.blocker ?? null,
     },
     postiz: {
       url: inventory.postiz?.url,
@@ -464,8 +483,16 @@ export function buildN8nExport({
     generatedAt,
     publicPublishingPerformed: false,
     ownerAgent: inventory.n8n?.ownerAgent ?? 'Commander Data',
-    status: custody.verified ? 'ready-for-internal-workflow-build' : 'blocked-on-credential-custody',
-    blocker: custody.verified ? null : inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.',
+    status: custody.verified
+      ? blockedPackets.length > 0
+        ? 'blocked-on-channel-setup'
+        : 'ready-for-internal-workflow-build'
+      : 'blocked-on-credential-custody',
+    blocker: custody.verified
+      ? blockedPackets.length > 0
+        ? `${blockedPackets.length} packets blocked by account or channel readiness.`
+        : null
+      : inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.',
     packets,
   };
 }

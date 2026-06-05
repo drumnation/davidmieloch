@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:threads:why-character-choice-matters-in-agent-design:20ae433dca78",
+  "manifestId": "social:threads:why-character-choice-matters-in-agent-design:12a0b275a7ac",
   "source": {
     "articleSlug": "why-character-choice-matters-in-agent-design",
     "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "504895be35ffc197913f0d24363153b0f10aaac34abe48efe97ac7997f2b81da"
+    "digest": "530cc70aa86ebc897fbb1238d9f0cfb0d2d48fcb7728c7db4b114c8778504423"
   }
 }

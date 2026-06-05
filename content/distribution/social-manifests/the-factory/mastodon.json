@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:the-factory:7f8b3503f477",
+  "manifestId": "social:mastodon:the-factory:c949aa9993bc",
   "source": {
     "articleSlug": "the-factory",
     "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "f06058775c016c4f47d6c08d3c014306bf5cff8523ad3cc97afe1d626386a1eb"
+    "digest": "a4d9d1cc4842cd7998dc0052bd41990c9af718e20ff79d3b923bfe18d73e8e59"
   }
 }

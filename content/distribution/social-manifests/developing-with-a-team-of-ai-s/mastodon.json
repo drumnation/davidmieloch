@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:developing-with-a-team-of-ai-s:f80e1d8d1e86",
+  "manifestId": "social:mastodon:developing-with-a-team-of-ai-s:5755b3aaaaef",
   "source": {
     "articleSlug": "developing-with-a-team-of-ai-s",
     "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "334d57ecab1a363ca3ba6a55f3f93757906a53e1d1314ee403eec58a77be69d4"
+    "digest": "df8fa3530cebab0f04a3c5db8625526f9c445bbeb448486dfe40d49e24acb031"
   }
 }

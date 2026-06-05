@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-foreman:3e5794caeeec",
+  "manifestId": "social:linkedin:the-foreman:3edf620febfb",
   "source": {
     "articleSlug": "the-foreman",
     "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "c9207e29398cfc8e09e9fae71c4a4cc1ae39ae04d77096ca3c35c20f3fe0a868"
+    "digest": "8764c42c9b1c46f0bca183fa98aa5cacf59278d7d2070d07f67dcdc80cfd35d2"
   }
 }

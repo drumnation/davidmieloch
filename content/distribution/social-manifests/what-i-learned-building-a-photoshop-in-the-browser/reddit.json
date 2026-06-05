@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:what-i-learned-building-a-photoshop-in-the-browser:7e9a52a2a338",
+  "manifestId": "social:reddit:what-i-learned-building-a-photoshop-in-the-browser:dfaa76323b8c",
   "source": {
     "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
     "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "ab1b1eec22c8323a0fc8dd2b7e2179f962f1dc70a52f220c9ff7de7030129bf4"
+    "digest": "ea1160ac9eccd3edd3c11af8fffbc18de98ed5ce2f65f0d615f89e423c4a13a8"
   }
 }

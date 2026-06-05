@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:alphabetize-your-code:ed54480848fd",
+  "manifestId": "social:x-twitter:alphabetize-your-code:13f897f3e441",
   "source": {
     "articleSlug": "alphabetize-your-code",
     "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "572925a0fab25c827a0bca6d9c74f543266d751bbdfaf1c8b1466c0d381f89e1"
+    "digest": "b2858542d4247394634c0053177d2db46cf4c52249e27af44b7fa21cda17eacf"
   }
 }

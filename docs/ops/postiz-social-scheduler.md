@@ -44,26 +44,27 @@ rtk fleet run dawn 'bash -lc "curl -k -sSIL --resolve social-davidmieloch.brain-
 
 ## Credential State
 
-Postiz secrets currently exist only on the server in the deployment directory because the available 1Password service account can read the `Brain Garden` vault but cannot create or update items.
+The Postiz admin credential is stored in 1Password:
 
-Do not print, paste, or commit the server secrets file.
+- Vault: `Brain Garden`
+- Item: `Postiz / social-davidmieloch / admin / login`
+- Item id: `mpxdavee2l4mquo5maiocwcv3a`
 
-Before this is fully governed, either:
+The service account can read created Brain Garden vault items. Create/update still uses the interactive user-authenticated 1Password CLI path when Dave authorizes it.
 
-1. Grant the Codex/Brain Garden 1Password service account create/update access to the vault.
-2. Manually create a `Postiz self-host` item in 1Password and move the generated credentials there.
+Do not print, paste, or commit the server secrets file or 1Password field values.
 
 ## First User
 
 `DISABLE_REGISTRATION=true` is configured. Postiz allows the first user signup, then disables the sign-up page.
 
-The first account still needs to be created interactively at:
+The first account is created and login verified. Authenticated users land on:
 
 ```text
-https://social-davidmieloch.brain-garden.io
+https://social-davidmieloch.brain-garden.io/launches
 ```
 
-Do not create the first user with an unstored password. The password must be stored in 1Password as part of the same setup pass.
+Do not create additional users unless Dave explicitly approves the operator access model.
 
 ## Provider Setup
 
@@ -134,7 +135,7 @@ rtk pnpm content:pipeline social:n8n:export --write
 rtk pnpm content:pipeline social:postiz:push --dry-run
 ```
 
-`social:postiz:push` currently refuses until credential custody and a Postiz API adapter exist. The future non-dry-run implementation should create Postiz drafts or schedules only from signed manifests and should refuse public dispatch unless an approval receipt exists.
+`social:postiz:push` currently refuses until a Postiz API adapter and connected target channel exist. The future non-dry-run implementation should create Postiz drafts or schedules only from signed manifests and should refuse public dispatch unless an approval receipt exists.
 
 `social:n8n:export` emits workflow-ready schedule packets for Commander Data/n8n without posting.
 
@@ -166,8 +167,8 @@ Score: ✅
 Notes: Public URL, health commands, credential state, and future CLI seam are explicit.
 
 ### E — Encapsulation
-Score: ⚠️
-Notes: Secrets must move from the server-only file into 1Password before the deployment is fully governed.
+Score: ✅
+Notes: The admin credential is stored in 1Password; docs record only references, not secret values.
 
 ### C — Connection
 Score: ✅
@@ -175,18 +176,18 @@ Notes: The deployment connects Caddy, Docker Compose, and future content pipelin
 
 ### I — Implementation
 Score: ⚠️
-Notes: Base infrastructure is live. Provider credentials and first-user setup remain manual blockers.
+Notes: Base infrastructure and first-user login are live. Provider credentials and channel connections remain manual blockers.
 
 ## Merge Decision
 
-Pass for infrastructure documentation. Block automated public posting until the 1Password and approval seams are complete.
+Pass for infrastructure documentation. Block automated public posting until provider channels, canary tests, and approval seams are complete.
 
 ## Required Fixes
 
-1. Store Postiz credentials in 1Password.
-2. Create the first Postiz user.
-3. Add provider credentials and connect channels.
-4. Build the dry-run Postiz push CLI from canonical content metadata.
+1. Connect first-wave canary provider channels.
+2. Record channel ids and delete paths in the social inventory.
+3. Build the Postiz push CLI from canonical content metadata.
+4. Keep public dispatch behind explicit David approval.
 
 ## Core Judgment
 

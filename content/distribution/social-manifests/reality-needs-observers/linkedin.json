@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:reality-needs-observers:3c23b875f8db",
+  "manifestId": "social:linkedin:reality-needs-observers:baff46f5e4c7",
   "source": {
     "articleSlug": "reality-needs-observers",
     "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "0cc9ce1b4e1db33223d22532711452fbcb1a884f36d26a1b3f6067074c463c8f"
+    "digest": "9dd71e33e6b108f2cfdb4ce13318181998d2cf58a8379647bcdf6529a1c34bca"
   }
 }

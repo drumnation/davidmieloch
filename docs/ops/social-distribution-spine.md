@@ -95,7 +95,7 @@ and scheduling dashboards.
 - `pnpm content:pipeline social:manifest <slug|all> <platform|all> --write` writes signed post manifests.
 - `pnpm content:pipeline social:n8n:export --write` emits workflow-ready schedule packets.
 - `pnpm content:pipeline social:refusal <platform> <action> --reason=<reason>` records blocked actions.
-- `pnpm content:pipeline social:postiz:push --dry-run` refuses until credential custody and a Postiz adapter are ready.
+- `pnpm content:pipeline social:postiz:push --dry-run` refuses until the target account exists, the Postiz channel is connected, and a Postiz adapter is ready.
 
 ## Teaser Rules
 
@@ -124,7 +124,7 @@ Fallback chain:
 
 ## Next Build Step
 
-Build the Postiz adapter behind `social:postiz:push`. It should read signed manifests, refuse unless credential custody and David approval are present, and create Postiz drafts or schedules only. It must not publish public posts.
+Connect first-wave canary channels, then build the Postiz adapter behind `social:postiz:push`. It should read signed manifests, refuse unless credential custody, channel readiness, and David approval are present, and create Postiz drafts or schedules only. It must not publish public posts.
 
 ## PIE-CI Review
 
@@ -146,11 +146,11 @@ Notes: The website ledger, Postiz, n8n, and platform accounts connect through pa
 
 ### I — Implementation
 Score: ⚠️
-Notes: The deterministic packet layer exists; the Postiz API adapter and provider connections remain blocked on 1Password write access.
+Notes: The deterministic packet layer exists and credential custody is available. The Postiz API adapter and provider connections remain blocked on channel/account setup.
 
 ## Merge Decision
 
-Pass for substrate. Block connector execution until credential custody is fixed.
+Pass for substrate. Block connector execution until canary accounts and Postiz channels are connected.
 
 ## Core Judgment
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:the-overnight-shift:270633410d94",
+  "manifestId": "social:reddit:the-overnight-shift:d78122fa83d6",
   "source": {
     "articleSlug": "the-overnight-shift",
     "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "214378c987f08ff19a705868e192d398394e607e12645cdfcad5f9c81b3d7984"
+    "digest": "7d2fcb0288feb924e0c4a9e3302c7bac1abe6227d0184c5dc67c532a82665d5d"
   }
 }

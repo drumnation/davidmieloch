@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:threads:judgment-over-keystrokes:aa8fcd1d476f",
+  "manifestId": "social:threads:judgment-over-keystrokes:4e9477666744",
   "source": {
     "articleSlug": "judgment-over-keystrokes",
     "canonicalUrl": "https://davidmieloch.com/blog/judgment-over-keystrokes",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "9ec2bb665dea025ea3222fcb59dc409b5901371ac74aca62f8ce069657f9832c"
+    "digest": "7aef626b0b603fb466c03f4863524ccb8cd6f1aa65fa9f8ca33f3b8e578ed15a"
   }
 }

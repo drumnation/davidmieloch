@@ -7,10 +7,11 @@ tracked_url: "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-
 identity_layer: "brand-lab"
 account_kind: "new-page"
 known_state: "not-created"
+postiz_channel_status: "not-connected"
 test_post_policy: "page-only-bland-test-after-1password-custody"
-generated_at: "2026-06-05T07:48:42.866Z"
+generated_at: "2026-06-05T11:52:15.017Z"
 public_publish_allowed: false
-credential_custody_verified: false
+credential_custody_verified: true
 ---
 
 # What I Learned Building a Photoshop in the Browser / facebook-page
@@ -20,8 +21,7 @@ credential_custody_verified: false
 - Safe default: do-not-post.
 - Public posting requires explicit David approval.
 - Personal accounts are not connector-test targets.
-- Credential custody verified: no.
-- Credential blocker: Current 1Password service account can read the vault but cannot create or update items.
+- Credential custody verified: yes.
 
 ## Copy
 

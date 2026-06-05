@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:your-ai-isnt-hallucinating-its-lying:8528dc983e81",
+  "manifestId": "social:linkedin:your-ai-isnt-hallucinating-its-lying:bebf8261abdb",
   "source": {
     "articleSlug": "your-ai-isnt-hallucinating-its-lying",
     "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "ce295a0f88ccb58e7c0c3720799db872a77ad9f820f1b4ae9c1f3cf9ef039c0b"
+    "digest": "908d465c3e58a7965b55d26bc277f2b454a7adb087138a3156b389349db73ea0"
   }
 }

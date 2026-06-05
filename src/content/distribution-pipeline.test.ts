@@ -358,7 +358,7 @@ function writeLedgerFixture(root: string) {
   );
 }
 
-function socialAccountInventory(writeStatus: 'ready' | 'blocked' = 'blocked') {
+function socialAccountInventory(writeStatus: 'ready' | 'blocked' = 'blocked'): Record<string, any> {
   return {
     exposureGate: {
       default: 'internal-only',
@@ -387,6 +387,7 @@ function socialAccountInventory(writeStatus: 'ready' | 'blocked' = 'blocked') {
         identityLayer: 'brand-lab',
         accountKind: 'new-canary',
         knownState: 'not-created',
+        postizChannelStatus: 'not-connected',
         proposedHandle: 'brain-garden-factory',
         postizPriority: 1,
         testPostPolicy: 'public-bland-test-allowed-after-1password-custody',
@@ -396,6 +397,7 @@ function socialAccountInventory(writeStatus: 'ready' | 'blocked' = 'blocked') {
         identityLayer: 'personal-authority',
         accountKind: 'existing-personal',
         knownState: 'exists',
+        postizChannelStatus: 'not-connected',
         proposedHandle: 'davidmieloch',
         postizPriority: 9,
         testPostPolicy: 'no-public-test-posts',
@@ -644,6 +646,113 @@ describe('social automation substrate', () => {
       publicPublishingAllowed: false,
       safeDefault: 'do-not-post',
       allowedAction: 'blocked',
+    });
+  });
+
+  it('keeps social dispatch blocked when credentials are stored but Postiz channels are not connected', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const readiness = generateSocialReadiness({ inventory, generatedAt: '2026-06-05T00:00:00.000Z' });
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    const exportPayload = generateN8nExport({
+      socialCalendar: schedule,
+      inventory,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(readiness.accounts.find((account: { platform: string }) => account.platform === 'linkedin')).toMatchObject({
+      readyForCredentialedSetup: true,
+      readyForPostizDrafts: false,
+      postizChannelStatus: 'not-connected',
+      blocked: true,
+      blocker: 'Postiz channel is not connected for this platform.',
+    });
+    expect(schedule.entries[0]).toMatchObject({
+      platform: 'linkedin',
+      postizChannelStatus: 'not-connected',
+      blocked: true,
+      blocker: 'Postiz channel is not connected for this platform.',
+    });
+    expect(exportPayload).toMatchObject({
+      status: 'blocked-on-channel-setup',
+      blocker: '1 packets blocked by account or channel readiness.',
+    });
+    expect(exportPayload.packets[0].policy).toMatchObject({
+      allowedAction: 'blocked',
+      blocker: 'Postiz channel is not connected for this platform.',
+    });
+  });
+
+  it('allows n8n to create Postiz draft packets only after the target channel is connected', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+    inventory.accounts[0] = {
+      ...inventory.accounts[0],
+      knownState: 'exists',
+      postizChannelStatus: 'connected',
+      deletePathKnown: true,
+    };
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'bluesky',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    const exportPayload = generateN8nExport({
+      socialCalendar: schedule,
+      inventory,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(schedule.entries[0]).toMatchObject({
+      platform: 'bluesky',
+      blocked: false,
+      blocker: null,
+    });
+    expect(exportPayload).toMatchObject({
+      status: 'ready-for-internal-workflow-build',
+      blocker: null,
+    });
+    expect(exportPayload.packets[0].policy).toMatchObject({
+      allowedAction: 'create-postiz-draft-or-schedule',
+      blocker: null,
     });
   });
 

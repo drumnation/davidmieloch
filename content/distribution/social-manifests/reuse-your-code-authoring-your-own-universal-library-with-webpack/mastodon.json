@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:reuse-your-code-authoring-your-own-universal-library-with-webpack:3f9dc93a27fa",
+  "manifestId": "social:mastodon:reuse-your-code-authoring-your-own-universal-library-with-webpack:e64e0938fcd8",
   "source": {
     "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
     "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "83fe2718c0f71e1ea2e3a194dcc89d8db72217b9a0463ad93d53633b9c682d1b"
+    "digest": "e8899b1d831a8e2c7868d17f3fe4f69de9d964086eca2ad9f0468605dda0797d"
   }
 }

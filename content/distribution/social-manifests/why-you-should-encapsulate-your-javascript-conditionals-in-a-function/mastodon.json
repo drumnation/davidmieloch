@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:4313152ca37c",
+  "manifestId": "social:mastodon:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:ed34a9aa9db3",
   "source": {
     "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "33b79a7bd4e44f4d714187da9a6e906da1c75aaa5f0a9ac439715b46f137a63c"
+    "digest": "4246b9342cd7c076101ff7c90cb91b6119f0f17432e4ed757a7aa0630bea9cdc"
   }
 }

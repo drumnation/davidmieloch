@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:reuse-your-code-authoring-your-own-universal-library-with-webpack:742bcb0cd74f",
+  "manifestId": "social:reddit:reuse-your-code-authoring-your-own-universal-library-with-webpack:26c4fe2d8179",
   "source": {
     "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
     "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "c311ae96f18f6cc0974c3647b2aaf774aa991de3ec3fe4a3961fefbc370d5825"
+    "digest": "2e08a28857b9e574ae19c39fabc60b10c188aebb13ec6bcc50140ad9ddf4ebc8"
   }
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:threads:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:9357267ec87b",
+  "manifestId": "social:threads:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:f17477df1798",
   "source": {
     "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "8c6d189208af8faf8e0bb44609bf2b5ae962b62d641a7e77721806c3415f24f3"
+    "digest": "3c693cd6c550dca7cb74521ebdeb7ba4839543ecf211efcae3fa77005a88b459"
   }
 }

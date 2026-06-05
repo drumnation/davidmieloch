@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:developing-with-a-team-of-ai-s:daf28bc4c9e6",
+  "manifestId": "social:linkedin:developing-with-a-team-of-ai-s:f8c6a4f14a4e",
   "source": {
     "articleSlug": "developing-with-a-team-of-ai-s",
     "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "4045d1bc5eec6ed56ec22bcd9dd0fdf2d2445cd8a57082e3501266ae9babbc66"
+    "digest": "c4aca2c9b0a37033f75d42383c1cb404f3b5904f212fcaa265739c9ed8dfc7d7"
   }
 }

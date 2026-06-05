@@ -3,43 +3,43 @@
   "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
   "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
   "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
-  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "generatedAt": "2026-06-05T11:52:15.017Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/linkedin.md",
-      "checksum": "aa4ef7192e5d45267372a3ab65390b03946560d310be7fe8e30bdeb7543d0205"
+      "checksum": "aad55b30a0c57badb5f40684b4754926c8142268272ad3559933cdff665176c9"
     },
     {
       "platform": "x-twitter",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/x-twitter.md",
-      "checksum": "d676803f5634f3a7eddb627fb1809cfefa01af25477f67935609475c5e00349c"
+      "checksum": "2e3aa0e89592ffcaeac0dfa8e85e4c79c11c40552428c7ee7de990f210eb10c2"
     },
     {
       "platform": "reddit",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md",
-      "checksum": "956a57e9c9869edb7c9b4223a4898108f0ccdd6c1d594d02466a5a12f9e1c399"
+      "checksum": "b5c4bed2d4b4a64952474ee3106fea4b7d04cf0ba3391e45cee99197be252a9b"
     },
     {
       "platform": "bluesky",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/bluesky.md",
-      "checksum": "3c2cbd2d60cfffc89cba3fbc62be61540984cdc0fef53dd256cf200e2cd6b84c"
+      "checksum": "5dbec21e257fdb6070be8b5a4e36e36a42bd7b664b59ad96ca467da813594f3d"
     },
     {
       "platform": "mastodon",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/mastodon.md",
-      "checksum": "0d21499e7368e6b0f413e92b7ad2ae64356f515d89b1e00f09ae1b97c7795deb"
+      "checksum": "973bec07810712150307319595277b4844d87ef31b912fa3c8888c9e69e2961d"
     },
     {
       "platform": "threads",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/threads.md",
-      "checksum": "5aa6071ec7cced5ef56b3726826bebba3be3709cac968017b4907a63be227002"
+      "checksum": "477277720424da735244d5c85c397674e5457a31bc3d678c926400614c21d1e4"
     },
     {
       "platform": "facebook-page",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/facebook-page.md",
-      "checksum": "c759acc798aee7d47660265d58b091ba6baee510e705129aa2ca225584365bce"
+      "checksum": "238d20efa2f9663d3d3c6d795040b9c2183ad5b41556e416aff9614b02758040"
     }
   ]
 }

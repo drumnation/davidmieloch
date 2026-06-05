@@ -3,43 +3,43 @@
   "slug": "the-golden-hammer",
   "title": "The Golden Hammer",
   "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
-  "generatedAt": "2026-06-05T07:48:42.866Z",
+  "generatedAt": "2026-06-05T11:52:15.017Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/linkedin.md",
-      "checksum": "32ab0c313207fe2e3ab1744b2cb2389c99744172d0350edca3abe1ee9f5817fc"
+      "checksum": "b8b9e4833a716001a3f3f514a1a84f42f07e798e95b35ef5daf15bc025fdd846"
     },
     {
       "platform": "x-twitter",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/x-twitter.md",
-      "checksum": "fba8daea66adbed950e0ebad5d47cdebc28a5b6829ce37ffc1530e9ff2c2e78b"
+      "checksum": "1423184b29aeca2756887a58b89ed3fd60c2c7dfb00a47abfc6198f6f55be546"
     },
     {
       "platform": "reddit",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/reddit.md",
-      "checksum": "6be5c07f64c1c9fcf49ea35b7e4f765b7f61901aca68a000b0c8fe46584aa562"
+      "checksum": "203b9a55a790bdaa5808ab5915255b72fd5c7fceba7f4d6fc6e46b00484b86e7"
     },
     {
       "platform": "bluesky",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/bluesky.md",
-      "checksum": "0033e87f06cb4964102fb3d7df4f5548d147cf3fba7d10e7633cb8c9900281b5"
+      "checksum": "996cdbeb2c8bb933ebbd61c8a1bb601262490dc1e73eba885d9f15943daabd2b"
     },
     {
       "platform": "mastodon",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/mastodon.md",
-      "checksum": "fe8c056be3d1ad76d6dfbd8d1104cb529427d8f1017cfa763c0f1c6aff809632"
+      "checksum": "ad0d2fdc0224255bdc20ec9df3cf069a7feb1cd3d2a9cec10913832a5dde102a"
     },
     {
       "platform": "threads",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/threads.md",
-      "checksum": "7ad44df4d880d81b5f6fd1c1bfba7c11f1ee236cb2e9566c4407fb809fd2caa6"
+      "checksum": "ea228473795e7aa6262f215d7ffd875b18375d6abbb28137fbd05e0757322bcd"
     },
     {
       "platform": "facebook-page",
       "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/facebook-page.md",
-      "checksum": "599cf6e1e310d56107b37b1c910976af5c95f73892c55671432a0a45b1ee7179"
+      "checksum": "0fcb605a989e1e8d76e65d0c184e72fd3508bb74ae7e375049c4cc7e14a6e22d"
     }
   ]
 }

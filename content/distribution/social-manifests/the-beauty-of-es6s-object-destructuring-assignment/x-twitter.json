@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:the-beauty-of-es6s-object-destructuring-assignment:642f9fc771e1",
+  "manifestId": "social:x-twitter:the-beauty-of-es6s-object-destructuring-assignment:09c9b520f14a",
   "source": {
     "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
     "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": false,
+    "credentialCustodyVerified": true,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "7d13893ea505bc108454e128c10c1054397a4782119ec72e4579834ff592c0ab"
+    "digest": "aa85c77a1e8dd4ba36060155ae62d6d4d0f75a587a432d7dbbf24d6c9cf5d74d"
   }
 }
