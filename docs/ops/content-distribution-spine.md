@@ -55,6 +55,19 @@ Decision seams:
 - `platform-fit-edit`: AI or David adapts the package to the surface before it becomes a draft.
 - `metric-response`: Emily/agents can recommend changes from metrics, but site/content edits still go through normal repo review.
 
+## Forgejo Reporting
+
+Every agent status update or final report for governed content-distribution work
+should include direct Forgejo links for the relevant issues, comments, pull
+requests, or comparison pages.
+
+Required metadata:
+
+- Forgejo issue/comment/PR number.
+- Direct URL.
+- One-line description of what that governance object owns.
+- Current status or blocker.
+
 ## Workflow Shape
 
 ```text
