@@ -11,7 +11,13 @@ const publicRoot = path.join(appRoot, 'public');
 const reviewPublicRoot = path.join(publicRoot, 'draft-lab');
 const previewMarkdownRoot = path.join(contentRoot, 'distribution', 'draft-previews');
 const reviewOutputPath = path.join(contentRoot, 'distribution', 'draft-image-review.json');
+const decisionsPath = path.join(contentRoot, 'distribution', 'draft-decisions.json');
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif']);
+const draftDecisions = readJsonIfExists(decisionsPath, {
+  schemaVersion: 'draft-decisions-v1',
+  updatedAt: new Date().toISOString(),
+  decisions: {},
+});
 
 const ledger = buildContentLedger({
   obsidianBlogsRoot,
@@ -30,7 +36,7 @@ fs.mkdirSync(previewMarkdownRoot, { recursive: true });
 
 const claimedImageSetKeys = new Set();
 
-const candidates = ledger.items
+const allCandidates = ledger.items
   .filter((item) => item.gates.website === 'needs-website-staging')
   .filter((item) => item.sourceBucket !== 'organized-published')
   .map((item) => {
@@ -60,8 +66,12 @@ const candidates = ledger.items
         ? 'Select hero and inline candidates for website staging.'
         : 'Generate 3-4 hero candidates, then approve one before public release.',
       promptSeed: promptSeedFor(item),
+      decision: decisionFor(item.slug),
     };
   });
+
+const candidates = allCandidates.filter((item) => item.decision.status !== 'remove');
+const removedCandidates = allCandidates.filter((item) => item.decision.status === 'remove');
 
 const review = {
   schemaVersion: 'draft-image-review-v1',
@@ -72,9 +82,11 @@ const review = {
     reviewPublicRoot: '/draft-lab',
     previewMarkdownRoot: 'content/distribution/draft-previews',
     ledgerPath: 'content/distribution/content-ledger.json',
+    decisionsPath: 'content/distribution/draft-decisions.json',
   },
   summary: {
     candidates: candidates.length,
+    removedCandidates: removedCandidates.length,
     withImages: candidates.filter((item) => item.images.length > 0).length,
     missingImages: candidates.filter((item) => item.images.length === 0).length,
     byCollection: candidates.reduce((groups, item) => {
@@ -84,6 +96,7 @@ const review = {
     }, {}),
   },
   candidates,
+  removedCandidates,
 };
 
 fs.writeFileSync(reviewOutputPath, `${JSON.stringify(review, null, 2)}\n`);
@@ -187,6 +200,21 @@ function resolveImageEmbed(item, embedPath) {
     fs.statSync(filePath).isFile() &&
     imageExtensions.has(path.extname(filePath).toLowerCase())
   )) ?? null;
+}
+
+function decisionFor(slug) {
+  const decision = draftDecisions.decisions?.[slug];
+  return {
+    status: decision?.status ?? 'maybe',
+    reason: decision?.reason ?? '',
+    decidedAt: decision?.decidedAt ?? null,
+    decidedBy: decision?.decidedBy ?? null,
+  };
+}
+
+function readJsonIfExists(filePath, fallback) {
+  if (!fs.existsSync(filePath)) return fallback;
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
 function safeBasename(filePath) {

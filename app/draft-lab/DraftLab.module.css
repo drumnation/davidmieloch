@@ -46,6 +46,24 @@
   line-height: 1.58;
 }
 
+.commandBox {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+  margin-top: 18px;
+}
+
+.commandBox code {
+  width: fit-content;
+  max-width: 100%;
+  padding: 8px 10px;
+  overflow-wrap: anywhere;
+  border: 1px solid rgba(248, 239, 224, 0.16);
+  border-radius: 6px;
+  background: rgba(248, 239, 224, 0.06);
+  color: #f8efe0;
+}
+
 .stats {
   display: grid;
   gap: 10px;
@@ -130,6 +148,17 @@
   font-size: 0.78rem;
 }
 
+.decision {
+  width: fit-content;
+  padding: 5px 7px;
+  border-radius: 6px;
+  background: rgba(255, 189, 104, 0.12);
+  color: #ffbd68;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .previewLink {
   display: inline-flex;
   align-items: center;
@@ -204,9 +233,37 @@
   line-height: 1.45;
 }
 
+.removedList {
+  display: grid;
+  gap: 12px;
+}
+
+.removedCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid rgba(255, 189, 104, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 189, 104, 0.08);
+}
+
+.removedCard h3 {
+  margin: 6px 0 8px;
+  font-size: 1.35rem;
+  line-height: 1.12;
+}
+
+.removedCard p {
+  margin: 0;
+  color: #d9cdbc;
+}
+
 @media (max-width: 900px) {
   .header,
-  .imageCard {
+  .imageCard,
+  .removedCard {
     grid-template-columns: 1fr;
   }
 

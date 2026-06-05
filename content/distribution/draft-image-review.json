@@ -1,15 +1,17 @@
 {
   "schemaVersion": "draft-image-review-v1",
-  "generatedAt": "2026-06-05T06:33:55.738Z",
+  "generatedAt": "2026-06-05T06:39:02.085Z",
   "publicPublishingPerformed": false,
   "sourceRoots": {
     "obsidianBlogsRoot": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs",
     "reviewPublicRoot": "/draft-lab",
     "previewMarkdownRoot": "content/distribution/draft-previews",
-    "ledgerPath": "content/distribution/content-ledger.json"
+    "ledgerPath": "content/distribution/content-ledger.json",
+    "decisionsPath": "content/distribution/draft-decisions.json"
   },
   "summary": {
     "candidates": 21,
+    "removedCandidates": 0,
     "withImages": 4,
     "missingImages": 17,
     "byCollection": {
@@ -95,7 +97,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/factory-amplification-and-modular-primitives.md",
       "imageStatus": "existing-draft-images-available",
       "nextImageAction": "Select hero and inline candidates for website staging.",
-      "promptSeed": "Factory Amplification and Modular Primitives: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "Factory Amplification and Modular Primitives: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
@@ -123,7 +131,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-credibility-problem-with-ai-corporate-communications",
@@ -151,7 +165,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-credibility-problem-with-ai-corporate-communications.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The Credibility Problem with AI Corporate Communications: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The Credibility Problem with AI Corporate Communications: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "context-is-not-a-token-budget",
@@ -179,7 +199,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/context-is-not-a-token-budget.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "Context Is Not a Token Budget: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "Context Is Not a Token Budget: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "battle-bots",
@@ -207,7 +233,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/battle-bots.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "Battle Bots: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "Battle Bots: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "corporate-ai-communications",
@@ -235,7 +267,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/corporate-ai-communications.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "Corporate Ai Communications: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "Corporate Ai Communications: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "mental-agility-and-the-map-that-knows-too-much",
@@ -263,7 +301,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/mental-agility-and-the-map-that-knows-too-much.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "Mental Agility and the Map That Knows Too Much: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "Mental Agility and the Map That Knows Too Much: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-factory-ate-its-own-branch",
@@ -291,7 +335,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-factory-ate-its-own-branch.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The Factory Ate Its Own Branch: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The Factory Ate Its Own Branch: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-ai-bill-you-cant-predict",
@@ -319,7 +369,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-ai-bill-you-cant-predict.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The AI Bill You Can't Predict: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The AI Bill You Can't Predict: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "positive-corruption",
@@ -347,7 +403,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/positive-corruption.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "Positive Corruption: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "Positive Corruption: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-compression",
@@ -375,7 +437,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-compression.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The Compression: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The Compression: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-most-valuable-ai-skill-isnt-prompting",
@@ -403,7 +471,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-most-valuable-ai-skill-isnt-prompting.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The Most Valuable AI Skill Isn't Prompting: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The Most Valuable AI Skill Isn't Prompting: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-crew-seed",
@@ -431,7 +505,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-crew-seed.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The Crew (seed): dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The Crew (seed): dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-code-my-fingers-can-afford",
@@ -532,7 +612,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-code-my-fingers-can-afford.md",
       "imageStatus": "existing-draft-images-available",
       "nextImageAction": "Select hero and inline candidates for website staging.",
-      "promptSeed": "The Code My Fingers Can Afford: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The Code My Fingers Can Afford: dark chocolate software factory, modular machines, deterministic workflow spine, glowing amber instrumentation. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "lifetimes-of-meaning",
@@ -560,7 +646,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/lifetimes-of-meaning.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "Lifetimes of Meaning: memory architecture, compressed timelines, maps and reality diverging, luminous cognitive infrastructure. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "Lifetimes of Meaning: memory architecture, compressed timelines, maps and reality diverging, luminous cognitive infrastructure. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-shore",
@@ -607,7 +699,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-shore.md",
       "imageStatus": "existing-draft-images-available",
       "nextImageAction": "Select hero and inline candidates for website staging.",
-      "promptSeed": "The Shore: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The Shore: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "we-stopped-talking-about-ubi-right-when-we-need-to",
@@ -635,7 +733,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/we-stopped-talking-about-ubi-right-when-we-need-to.md",
       "imageStatus": "needs-image-generation",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "We Stopped Talking About UBI Right When We Need To: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "We Stopped Talking About UBI Right When We Need To: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "asi-should-be-the-avatar-not-god",
@@ -724,7 +828,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/asi-should-be-the-avatar-not-god.md",
       "imageStatus": "existing-draft-images-available",
       "nextImageAction": "Select hero and inline candidates for website staging.",
-      "promptSeed": "ASI Should Be the Avatar, Not God: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "ASI Should Be the Avatar, Not God: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight",
@@ -752,7 +862,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight.md",
       "imageStatus": "needs-image-selection-approval",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "*Or: What happens when you let an autonomous execution engine run for 72 hours straight*: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "*Or: What happens when you let an autonomous execution engine run for 72 hours straight*: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "or-what-happens-when-the-cost-of-the-dive-finally-drops",
@@ -780,7 +896,13 @@
       "previewMarkdownPath": "content/distribution/draft-previews/or-what-happens-when-the-cost-of-the-dive-finally-drops.md",
       "imageStatus": "needs-image-selection-approval",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "*Or: What happens when the cost of the dive finally drops*: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "*Or: What happens when the cost of the dive finally drops*: AI-native software systems, cinematic editorial hero image, no readable text. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     },
     {
       "slug": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human",
@@ -808,7 +930,14 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human.md",
       "imageStatus": "needs-image-selection-approval",
       "nextImageAction": "Generate 3-4 hero candidates, then approve one before public release.",
-      "promptSeed": "The Art of Looking Incompetent: How to Make Your AI Code Look Human: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography."
+      "promptSeed": "The Art of Looking Incompetent: How to Make Your AI Code Look Human: human meaning under automation pressure, cinematic but grounded, warm contrast against industrial systems. Magazine-quality 16:9 hero image, visually specific, no typography.",
+      "decision": {
+        "status": "maybe",
+        "reason": "",
+        "decidedAt": null,
+        "decidedBy": null
+      }
     }
-  ]
+  ],
+  "removedCandidates": []
 }

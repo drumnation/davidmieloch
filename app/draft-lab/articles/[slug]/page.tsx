@@ -31,6 +31,8 @@ type DraftCandidate = {
 };
 
 const candidates = review.candidates as DraftCandidate[];
+const removedCandidates = (review.removedCandidates ?? []) as DraftCandidate[];
+const allCandidates = [...candidates, ...removedCandidates];
 
 export const metadata: Metadata = {
   title: 'Draft Article Preview',
@@ -42,12 +44,12 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  return candidates.map((candidate) => ({ slug: candidate.slug }));
+  return allCandidates.map((candidate) => ({ slug: candidate.slug }));
 }
 
 export default async function DraftArticlePreviewPage({ params }: PageProps) {
   const { slug } = await params;
-  const candidate = candidates.find((item) => item.slug === slug);
+  const candidate = allCandidates.find((item) => item.slug === slug);
 
   if (!candidate) {
     notFound();

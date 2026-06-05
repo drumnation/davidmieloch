@@ -23,6 +23,12 @@ type DraftCandidate = {
   nextImageAction: string;
   promptSeed: string;
   images: DraftImage[];
+  decision: {
+    status: string;
+    reason: string;
+    decidedAt: string | null;
+    decidedBy: string | null;
+  };
 };
 
 export const metadata: Metadata = {
@@ -35,6 +41,7 @@ export const metadata: Metadata = {
 };
 
 const candidates = review.candidates as DraftCandidate[];
+const removedCandidates = (review.removedCandidates ?? []) as DraftCandidate[];
 const withImages = candidates.filter((candidate) => candidate.images.length > 0);
 const missingImages = candidates.filter((candidate) => candidate.images.length === 0);
 
@@ -48,9 +55,14 @@ export default function DraftLabPage() {
           <p className={styles.description}>
             Existing vault images are staged here for review. Drafts without images are listed with prompt seeds so the next generation pass can fill the gaps without guessing.
           </p>
+          <div className={styles.commandBox} aria-label="Draft decision commands">
+            <code>pnpm draft:decision -- set &lt;slug&gt; remove &quot;reason&quot;</code>
+            <code>pnpm draft:decision -- set &lt;slug&gt; keep &quot;reason&quot;</code>
+          </div>
         </div>
         <div className={styles.stats} aria-label="Draft image status">
           <span>{review.summary.candidates} candidates</span>
+          <span>{review.summary.removedCandidates} marked remove</span>
           <span>{review.summary.withImages} with images</span>
           <span>{review.summary.missingImages} need images</span>
         </div>
@@ -83,6 +95,7 @@ export default function DraftLabPage() {
               <div className={styles.cardCopy}>
                 <span className={styles.collection}>{candidate.collection}</span>
                 <h3>{candidate.title}</h3>
+                <span className={styles.decision}>Decision: {candidate.decision.status}</span>
                 <p>{candidate.nextImageAction}</p>
                 <Link className={styles.previewLink} href={`/draft-lab/articles/${candidate.slug}`}>
                   Preview draft article
@@ -112,6 +125,7 @@ export default function DraftLabPage() {
             <article className={styles.missingCard} key={`${candidate.slug}-${candidate.sourceBucket}`}>
               <span className={styles.collection}>{candidate.collection}</span>
               <h3>{candidate.title}</h3>
+              <span className={styles.decision}>Decision: {candidate.decision.status}</span>
               <p className={styles.meta}>{candidate.wordCount.toLocaleString()} words · {candidate.sourceBucket}</p>
               <p>{candidate.nextImageAction}</p>
               <Link className={styles.previewLink} href={`/draft-lab/articles/${candidate.slug}`}>
@@ -122,6 +136,30 @@ export default function DraftLabPage() {
           ))}
         </div>
       </section>
+
+      {removedCandidates.length > 0 ? (
+        <section className={styles.section} aria-labelledby="removed-drafts">
+          <div className={styles.sectionHeader}>
+            <p className={styles.eyebrow}>Excluded</p>
+            <h2 id="removed-drafts" className={styles.sectionTitle}>Marked for removal</h2>
+          </div>
+          <div className={styles.removedList}>
+            {removedCandidates.map((candidate) => (
+              <article className={styles.removedCard} key={`${candidate.slug}-${candidate.sourceBucket}`}>
+                <div>
+                  <span className={styles.collection}>{candidate.collection}</span>
+                  <h3>{candidate.title}</h3>
+                  <p className={styles.meta}>{candidate.wordCount.toLocaleString()} words · {candidate.relativePath}</p>
+                  {candidate.decision.reason ? <p>{candidate.decision.reason}</p> : null}
+                </div>
+                <Link className={styles.previewLink} href={`/draft-lab/articles/${candidate.slug}`}>
+                  Preview removed draft
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }
