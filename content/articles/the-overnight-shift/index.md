@@ -8,6 +8,10 @@ sourceUrl: ""
 canonicalUrl: "https://davidmieloch.com/blog/the-overnight-shift"
 series: "AI Factory"
 tags: ["ai", "engineering", "agents", "workflow", "overnight"]
+channels: ["singularity-labs"]
+commercialConcept: "Work that continues after the human leaves"
+commercialSummary: "A useful factory can keep moving work forward between human check-ins, as long as review, logs, and recovery paths are part of the design."
+singularityLabsCta: "If your team needs work to keep moving between human check-ins, start with a Factory Sketch."
 coverImage: "/blog/the-overnight-shift/images/overnight-hero.png"
 ---
 

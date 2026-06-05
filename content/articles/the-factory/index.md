@@ -8,6 +8,10 @@ sourceUrl: "https://www.linkedin.com/pulse/factory-david-mieloch-dkwte"
 canonicalUrl: "https://davidmieloch.com/blog/the-factory"
 series: "Golden Hammer"
 tags: ["ai", "engineering", "agents", "factory", "efficiency", "cost"]
+channels: ["singularity-labs"]
+commercialConcept: "Agent labor needs different workflows"
+commercialSummary: "Old software processes do not automatically fit agent-operated work. The factory has to be designed around the new shape of labor."
+singularityLabsCta: "If your team needs to redesign work around agent labor, start with a Factory Sketch."
 coverImage: "/blog/the-factory/images/a2-hero-conceptual.png"
 ---
 
@@ -149,4 +153,4 @@ Build the factory while the materials are free. Run it on whatever you can affor
 
 ---
 
-*This is Part 2 of a series. [Part 1: The Golden Hammer]() covers the ensemble pattern and synthesis methodology.*
+_This is Part 2 of a series. [Part 1: The Golden Hammer]() covers the ensemble pattern and synthesis methodology._

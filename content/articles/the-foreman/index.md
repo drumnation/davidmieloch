@@ -8,6 +8,10 @@ sourceUrl: "https://www.linkedin.com/pulse/foreman-david-mieloch-dqjgf"
 canonicalUrl: "https://davidmieloch.com/blog/the-foreman"
 series: "Golden Hammer"
 tags: ["ai", "engineering", "agents", "factory", "future", "labor"]
+channels: ["singularity-labs"]
+commercialConcept: "Factory foreman training"
+commercialSummary: "The human role changes from doing every task to steering the system, noticing drift, approving risk, and stopping the line when needed."
+singularityLabsCta: "If your team needs a foreman loop for agent work, start with a Factory Sketch."
 coverImage: "/blog/the-foreman/images/a3-hero-foreman.png"
 ---
 
@@ -137,4 +141,4 @@ The question for anyone in software right now isn't whether to use AI. It's how 
 
 ---
 
-*This is Part 3 of a series. [Part 1: The Golden Hammer]() covers the synthesis pattern. [Part 2: The Factory]() covers how the factory is built.*
+_This is Part 3 of a series. [Part 1: The Golden Hammer]() covers the synthesis pattern. [Part 2: The Factory]() covers how the factory is built._

@@ -8,6 +8,10 @@ sourceUrl: ""
 canonicalUrl: "https://davidmieloch.com/blog/the-golden-hammer"
 series: "Golden Hammer"
 tags: ["ai", "engineering", "agents", "ensemble", "synthesis", "workflow"]
+channels: ["singularity-labs"]
+commercialConcept: "Many agent approaches, one synthesized operating loop"
+commercialSummary: "The practical advantage comes from sampling competing solutions, comparing their strengths, and turning the best parts into a stronger workflow."
+singularityLabsCta: "If your workflow needs competing agent approaches synthesized into one operating loop, start with a Factory Sketch."
 coverImage: "/blog/the-golden-hammer/images/a1-hero-photorealistic.png"
 ---
 
@@ -121,4 +125,4 @@ More on that in Part 2.
 
 ---
 
-*The [Golden Hammer](https://github.com/drumnation/the-golden-hammer) source code from 2017 is still on GitHub.*
+_The [Golden Hammer](https://github.com/drumnation/the-golden-hammer) source code from 2017 is still on GitHub._

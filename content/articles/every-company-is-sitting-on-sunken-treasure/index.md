@@ -8,6 +8,10 @@ sourceUrl: ""
 canonicalUrl: "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure"
 series: "AI Factory"
 tags: ["ai", "engineering", "legacy-code", "agents"]
+channels: ["singularity-labs"]
+commercialConcept: "Recovering value from dormant code, docs, and workflows"
+commercialSummary: "Many companies already paid for useful raw material. A factory can inspect, sort, repair, and reuse work that would otherwise stay buried."
+singularityLabsCta: "If your company has useful work trapped in old code, docs, or abandoned workflows, start with a Factory Sketch."
 coverImage: "/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-hero.png"
 ---
 

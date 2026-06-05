@@ -1,10 +1,10 @@
-import { mkdirSync, rmSync, writeFileSync } from 'fs';
-import { join } from 'path';
-import { afterEach, describe, expect, it } from 'vitest';
+import { mkdirSync, rmSync, writeFileSync } from "fs";
+import { join } from "path";
+import { afterEach, describe, expect, it } from "vitest";
 
-const contentRoot = join(process.cwd(), '..', 'content-test-fixture');
-const articlesRoot = join(contentRoot, 'articles');
-const publicRoot = join(contentRoot, 'public');
+const contentRoot = join(process.cwd(), "..", "content-test-fixture");
+const articlesRoot = join(contentRoot, "articles");
+const publicRoot = join(contentRoot, "public");
 
 process.env.CONTENT_ARTICLES_ROOT = articlesRoot;
 process.env.CONTENT_PUBLIC_ROOT = publicRoot;
@@ -17,18 +17,22 @@ function writeArticle(slug: string, frontmatter: string, body: string) {
   const directory = join(articlesRoot, slug);
   mkdirSync(directory, { recursive: true });
   writeFileSync(
-    join(directory, 'index.md'),
+    join(directory, "index.md"),
     `---\n${frontmatter.trim()}\n---\n\n${body}`,
-    'utf8',
+    "utf8",
   );
 }
 
-describe('article content loader', () => {
-  it('loads markdown articles with simple frontmatter sorted newest first', async () => {
-    const { getAllArticles, getPublishedArticles } = await import('./articles');
+describe("article content loader", () => {
+  it("loads markdown articles with simple frontmatter sorted newest first", async () => {
+    const {
+      getAllArticles,
+      getPublishedArticles,
+      getSingularityLabsFieldNotes,
+    } = await import("./articles");
 
     writeArticle(
-      'older-draft',
+      "older-draft",
       `
 title: "Older Draft"
 description: "Draft article"
@@ -37,10 +41,10 @@ status: "draft"
 canonicalUrl: "https://davidmieloch.com/blog/older-draft"
 tags: ["draft", "internal"]
 `,
-      'Draft body',
+      "Draft body",
     );
     writeArticle(
-      'newer-published',
+      "newer-published",
       `
 title: "Newer Published"
 description: "Published article"
@@ -51,35 +55,47 @@ sourcePlatform: "linkedin"
 sourceUrl: ""
 series: "Observer"
 tags: ["ai", "agents"]
+channels: ["singularity-labs"]
+commercialConcept: "Observer protocol"
+commercialSummary: "How proof chains turn fast agent output into work that can be trusted."
+singularityLabsCta: "Start with a Factory Sketch."
 coverImage: "/blog/newer-published/cover.png"
 `,
-      '# Published body',
+      "# Published body",
     );
 
     expect(getAllArticles().map((article) => article.slug)).toEqual([
-      'newer-published',
-      'older-draft',
+      "newer-published",
+      "older-draft",
     ]);
     expect(getPublishedArticles()).toMatchObject([
       {
-        slug: 'newer-published',
-        title: 'Newer Published',
+        slug: "newer-published",
+        title: "Newer Published",
         publishedYear: 2026,
         era: {
-          label: 'Factory era',
-          shortLabel: 'Factory',
+          label: "Factory era",
+          shortLabel: "Factory",
         },
-        tags: ['ai', 'agents'],
-        body: '# Published body',
+        tags: ["ai", "agents"],
+        channels: ["singularity-labs"],
+        commercialConcept: "Observer protocol",
+        commercialSummary:
+          "How proof chains turn fast agent output into work that can be trusted.",
+        singularityLabsCta: "Start with a Factory Sketch.",
+        body: "# Published body",
       },
     ]);
+    expect(
+      getSingularityLabsFieldNotes().map((article) => article.slug),
+    ).toEqual(["newer-published"]);
   });
 
-  it('derives a cover image from the public article image folder', async () => {
-    const { getPublishedArticle } = await import('./articles');
+  it("derives a cover image from the public article image folder", async () => {
+    const { getPublishedArticle } = await import("./articles");
 
     writeArticle(
-      'derived-cover',
+      "derived-cover",
       `
 title: "Derived Cover"
 description: "Article with image assets"
@@ -88,33 +104,33 @@ status: "published"
 canonicalUrl: "https://davidmieloch.com/blog/derived-cover"
 tags: ["assets"]
 `,
-      'Article body',
+      "Article body",
     );
 
-    const imageDirectory = join(publicRoot, 'blog', 'derived-cover', 'images');
+    const imageDirectory = join(publicRoot, "blog", "derived-cover", "images");
     mkdirSync(imageDirectory, { recursive: true });
-    writeFileSync(join(imageDirectory, 'medium-01.png'), '');
-    writeFileSync(join(imageDirectory, 'hero-panel.png'), '');
+    writeFileSync(join(imageDirectory, "medium-01.png"), "");
+    writeFileSync(join(imageDirectory, "hero-panel.png"), "");
 
-    expect(getPublishedArticle('derived-cover')?.coverImage).toBe(
-      '/blog/derived-cover/images/hero-panel.png',
+    expect(getPublishedArticle("derived-cover")?.coverImage).toBe(
+      "/blog/derived-cover/images/hero-panel.png",
     );
   });
 
-  it('classifies publication years into content eras', async () => {
-    const { getContentEra } = await import('./articles');
+  it("classifies publication years into content eras", async () => {
+    const { getContentEra } = await import("./articles");
 
-    expect(getContentEra('2026-04-14')).toMatchObject({
+    expect(getContentEra("2026-04-14")).toMatchObject({
       year: 2026,
-      label: 'Factory era',
+      label: "Factory era",
     });
-    expect(getContentEra('2025-04-25')).toMatchObject({
+    expect(getContentEra("2025-04-25")).toMatchObject({
       year: 2025,
-      label: 'Transition era',
+      label: "Transition era",
     });
-    expect(getContentEra('2022-01-01')).toMatchObject({
+    expect(getContentEra("2022-01-01")).toMatchObject({
       year: 2022,
-      label: 'Earlier archive',
+      label: "Earlier archive",
     });
   });
 });

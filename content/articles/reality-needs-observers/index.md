@@ -8,11 +8,15 @@ sourceUrl: "https://www.linkedin.com/pulse/reality-needs-observers-david-mieloch
 canonicalUrl: "https://davidmieloch.com/blog/reality-needs-observers"
 series: "The Observer Series"
 tags: ["ai", "agents"]
+channels: ["singularity-labs"]
+commercialConcept: "Verification as the factory gets faster"
+commercialSummary: "As output speed rises, observation and verification become core infrastructure rather than cleanup work at the end."
+singularityLabsCta: "If your agent workflow needs better proof chains, start with a Factory Sketch."
 coverImage: "/blog/reality-needs-observers/images/hero.png"
 ---
 
 ![hero](/blog/reality-needs-observers/images/hero.png)
-*The machine is bigger than the builder now.*
+_The machine is bigger than the builder now._
 
 I am not a physicist.
 
@@ -40,7 +44,7 @@ Then I looked back at something I had already observed in AI systems.
 
 ## The old observation
 
-In my previous essay, *Your AI Isn't Hallucinating. It's Lying*, I argued that "hallucination" is often the wrong frame for AI failure.
+In my previous essay, _Your AI Isn't Hallucinating. It's Lying_, I argued that "hallucination" is often the wrong frame for AI failure.
 
 When an AI invents a citation, claims a dashboard exists, or reports that a test suite passes when the tests prove nothing, the useful diagnosis is not always "random glitch." Often it is closer to performance. The model or agent is satisfying the visible shape of the request without grounding the result in reality.
 
@@ -64,7 +68,7 @@ Sometimes the work collapsed into success. Sometimes it collapsed into failure. 
 It needed to be observed correctly.
 
 ![a1 uncertainty](/blog/reality-needs-observers/images/a1-uncertainty.png)
-*Before you open it: a checkmark and an X, both equally real. Unobserved agent output isn't done — it's in superposition. It becomes one or the other when something actually looks.*
+_Before you open it: a checkmark and an X, both equally real. Unobserved agent output isn't done — it's in superposition. It becomes one or the other when something actually looks._
 
 ## What changed
 
@@ -107,7 +111,7 @@ That is why unobserved agent work feels unstable. It has not yet been copied int
 The moment you add proof chains, the story has to become state.
 
 ![a2 claim vs instrument](/blog/reality-needs-observers/images/a2-claim-vs-instrument.png)
-*The pilot's claim and the instrument panel are both real. Only one of them is true. Proof chains are how you stop asking the pilot and start reading the instruments.*
+_The pilot's claim and the instrument panel are both real. Only one of them is true. Proof chains are how you stop asking the pilot and start reading the instruments._
 
 ## What nonlocality contributes
 
@@ -139,7 +143,7 @@ The builder's claim is one record. The test output is another. The screenshot is
 That is the software-factory analogy to the lab result: the interesting fact is not in one particle, one detector, one agent, or one transcript. The interesting fact is in the correlation structure created by separated observations.
 
 ![a3 convergence](/blog/reality-needs-observers/images/a3-convergence.png)
-*The truth doesn't live in any one station. Eight observers, eight angles, eight different readings — and the truth only exists at the single point where all of them converge. No log, test, screenshot, or review owns the whole picture. Reliability is the correlation.*
+_The truth doesn't live in any one station. Eight observers, eight angles, eight different readings — and the truth only exists at the single point where all of them converge. No log, test, screenshot, or review owns the whole picture. Reliability is the correlation._
 
 Again: this is not physics. I am not claiming software agents are literally entangled photons.
 
@@ -164,7 +168,7 @@ It needs five properties:
 Without those properties, the observer is decorative.
 
 ![a4 the instrument](/blog/reality-needs-observers/images/a4-the-instrument.png)
-*The technician has a probe. The person behind him has an opinion. The probe is doing the actual work. An observer that can only ask "does this look right?" is the opinion guy. An observer with tools, adversarial instructions, and authority to block is the technician.*
+_The technician has a probe. The person behind him has an opinion. The probe is doing the actual work. An observer that can only ask "does this look right?" is the opinion guy. An observer with tools, adversarial instructions, and authority to block is the technician._
 
 With them, the observer becomes part of the measurement apparatus.
 
@@ -206,7 +210,7 @@ Different observations select for different realities:
 - **Production telemetry** — real user outcomes
 
 ![a5 the filter](/blog/reality-needs-observers/images/a5-the-filter.png)
-*Confident claims and narrative completions go in the top. What comes out the bottom is only what survived measurement. Each layer is a different observation type. Run fewer layers and you get less reality. The stack you choose is the world you see.*
+_Confident claims and narrative completions go in the top. What comes out the bottom is only what survived measurement. Each layer is a different observation type. Run fewer layers and you get less reality. The stack you choose is the world you see._
 
 If I observe only CI, I get CI-shaped reality.
 
@@ -258,4 +262,4 @@ The engineering tells me what to build.
 
 ---
 
-*Part of The Observer Series. Episode 1: [Your AI Isn't Hallucinating. It's Lying.](URL)*
+_Part of The Observer Series. Episode 1: [Your AI Isn't Hallucinating. It's Lying.](URL)_

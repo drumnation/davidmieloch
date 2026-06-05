@@ -60,7 +60,8 @@
 }
 
 .primaryAction,
-.secondaryAction {
+.secondaryAction,
+.tertiaryAction {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -79,6 +80,11 @@
 .secondaryAction {
   border: 1px solid #8d8070;
   color: #f8efe0;
+}
+
+.tertiaryAction {
+  border: 1px solid rgba(255, 189, 104, 0.5);
+  color: #ffcf82;
 }
 
 .posterWrap {
@@ -231,6 +237,21 @@
   font-weight: 800;
   line-height: 1.18;
   letter-spacing: 0;
+}
+
+.statementNote {
+  max-width: 1030px;
+  margin: 18px auto 0;
+  color: #eadfce;
+  font-size: 1rem;
+  line-height: 1.58;
+}
+
+.statementNote a {
+  color: #ffcf82;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .section,
