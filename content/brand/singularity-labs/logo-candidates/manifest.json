@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-06-05T12:44:35.548Z",
+  "brand": "Singularity Labs",
+  "purpose": "LinkedIn company page logo candidates",
+  "publicApprovalStatus": "needs-david-selection",
+  "variants": [
+    {
+      "variantId": "2026-06-05T12-44-35-548Z-custom",
+      "file": "2026-06-05T12-44-35-548Z-custom.png",
+      "provider": "zai",
+      "endpoint": "https://api.z.ai/api/paas/v4/images/generations",
+      "model": "glm-image",
+      "quality": "standard",
+      "size": "1280x1280",
+      "prompt": "Icon-only square logo for Singularity Labs, AI architecture and dark factory systems company. Create a clean abstract geometric brand mark only: a singularity core combined with factory conveyor geometry and circuit traces, dark graphite black with polished copper and deep red accents, premium software company, readable at tiny avatar size. Absolutely no text, no words, no letters, no typography, no mockup, no app icon border, no background scene, centered symbol on simple dark background.",
+      "checksumSha256": "4d8e753232342e48664c37ca561c102b3bd4d4731823c5ca39755bab9455818e",
+      "created": 1780663476,
+      "contentFilter": null,
+      "sourceUrlExpires": "Z.ai image URLs are temporary; local PNG is the durable artifact."
+    }
+  ],
+  "failures": []
+}

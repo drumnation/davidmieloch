@@ -19,6 +19,7 @@
     "build-storybook": "storybook build",
     "killports": "kill-port 3000 3001 3002 3003 3004 3333 6006 6007 7000 4000 || true",
     "content:pipeline": "node scripts/content-pipeline.mjs",
+    "brand:logo": "node scripts/generate-brand-logo.mjs",
     "draft:image-review": "node scripts/write-draft-image-review.mjs",
     "draft:decision": "node scripts/set-draft-decision.mjs",
     "content:observe": "node scripts/content-pipeline.mjs observe:bootstrap",
