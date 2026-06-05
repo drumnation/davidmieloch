@@ -70,6 +70,20 @@
       "notes": "Essay mirror and archive surface."
     },
     {
+      "platform": "devto",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-api-channel",
+      "knownState": "exists",
+      "postizChannelStatus": "connected",
+      "postizChannelId": "cmq0w8mk40001nz8648id4dck",
+      "postizChannelName": "David Mieloch",
+      "credentialItemTitle": "dev.to_api_key",
+      "connectedAt": "2026-06-05T08:21:41-04:00",
+      "postizPriority": "connected-proof",
+      "testPostPolicy": "draft-or-private-only",
+      "notes": "Connected through Postiz using the existing 1Password DEV API key. No public post was created during connector proof."
+    },
+    {
       "platform": "x-twitter",
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",

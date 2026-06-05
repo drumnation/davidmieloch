@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T11:52:15.421Z",
+  "generatedAt": "2026-06-05T12:23:00.748Z",
   "publicPublishingPerformed": false,
   "exposureGate": "Does anybody but Dave need to touch this GUI?",
   "credentialStore": {
@@ -30,7 +30,7 @@
     "notes": "n8n workflow packages and credentials were found on singularity-one, but no live n8n container or :5678 listener was observed during the 2026-06-05 Postiz setup pass."
   },
   "summary": {
-    "accounts": 12,
+    "accounts": 13,
     "blocked": 12,
     "canaryEligible": 6,
     "connectorTestReady": 0
@@ -67,6 +67,22 @@
       "readyForConnectorTest": false,
       "blocked": true,
       "blocker": "Postiz channel is not connected for this platform."
+    },
+    {
+      "platform": "devto",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-api-channel",
+      "knownState": "exists",
+      "postizChannelStatus": "connected",
+      "postizPriority": "connected-proof",
+      "testPostPolicy": "draft-or-private-only",
+      "canaryEligible": false,
+      "personalAccount": true,
+      "readyForCredentialedSetup": true,
+      "readyForPostizDrafts": true,
+      "readyForConnectorTest": false,
+      "blocked": false,
+      "blocker": null
     },
     {
       "platform": "x-twitter",

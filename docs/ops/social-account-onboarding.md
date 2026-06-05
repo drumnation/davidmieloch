@@ -102,6 +102,13 @@ Good first canary:
 - Mastodon. Postiz redirects to the selected instance login.
 - Dev.to, Medium, and Hashnode. Postiz asks for an API key.
 
+Connected proof:
+
+- Dev.to is connected in Postiz as `David Mieloch`.
+- Postiz integration id: `cmq0w8mk40001nz8648id4dck`.
+- Credential reference: 1Password `Brain Garden` item `dev.to_api_key`.
+- No public post was created during connector proof.
+
 OAuth-app channels that need server-side provider credentials before connecting:
 
 - LinkedIn and LinkedIn Page require `LINKEDIN_CLIENT_ID` and `LINKEDIN_CLIENT_SECRET`.
