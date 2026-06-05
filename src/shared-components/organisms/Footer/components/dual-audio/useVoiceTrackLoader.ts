@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation'; // Import usePathname instead
 import { voiceTracks } from './playlists/voiceTracks'; // <-- Our defined tracks
 import { AudioTrack } from './DualAudio.types';
+import { getVoiceTrackIdFromPathname } from './voiceTrackRouting';
 
 // Inside useDualAudioController (or a helper file):
 
@@ -40,14 +41,8 @@ export const useVoiceTrackLoader = (
             return;
         }
 
-        // Simple slug logic: remove leading/trailing slashes, handle root
-        let pageSlug = path.replace(/^\/|\/$/g, '');
-        if (pageSlug === '') {
-            pageSlug = 'home';
-        }
-        // Handle potential sub-paths if needed (e.g., /blog/post-name -> blog or post-name?)
-        // For now, assumes simple top-level slugs match track IDs
-        console.log(`[VoiceLoader] Pathname: ${path}, Initial Slug: ${path.replace(/^\/|\/$/g, '')}, Final Slug: ${pageSlug}`);
+        const pageSlug = getVoiceTrackIdFromPathname(path);
+        console.log(`[VoiceLoader] Pathname: ${path}, Voice Track ID: ${pageSlug}`);
 
         // Match the slug to a voiceTrack ID
         const matchingTrack = voiceTracks.find((track) => track.id === pageSlug);
@@ -62,4 +57,4 @@ export const useVoiceTrackLoader = (
         }
         // Dependency array now includes isReady
     }, [pathname, loadVoiceTrack, isReady]);
-}; 
+};

@@ -3,24 +3,33 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { HomePageProps } from './Home.types';
+import type { HomeArticleTeaser, HomePageProps } from './Home.types';
 import styles from './Home.module.css';
 
-const featuredArticles = [
+const fallbackArticles: HomeArticleTeaser[] = [
   {
+    slug: 'the-factory',
     title: 'The Factory',
-    href: '/blog/the-factory',
-    text: 'The front-door thesis: software work has to be redesigned around agents, not decorated with them.',
+    description: 'The front-door thesis: software work has to be redesigned around agents, not decorated with them.',
+    publishedAt: '2026-04-14',
+    series: 'Golden Hammer',
+    coverImage: '/blog/the-factory/images/a2-hero-conceptual.png',
   },
   {
+    slug: 'the-golden-hammer',
     title: 'The Golden Hammer',
-    href: '/blog/the-golden-hammer',
-    text: 'The ensemble pattern: sample the design space, synthesize the best answer, move up a floor.',
+    description: 'The ensemble pattern: sample the design space, synthesize the best answer, move up a floor.',
+    publishedAt: '2026-04-15',
+    series: 'Golden Hammer',
+    coverImage: '/blog/the-golden-hammer/images/a1-hero-photorealistic.png',
   },
   {
+    slug: 'reality-needs-observers',
     title: 'Reality Needs Observers',
-    href: '/blog/reality-needs-observers',
-    text: 'The governance layer: factories need independent observation before their output can be trusted.',
+    description: 'The governance layer: factories need independent observation before their output can be trusted.',
+    publishedAt: '2026-04-30',
+    series: 'The Observer Series',
+    coverImage: '/blog/reality-needs-observers/images/hero.png',
   },
 ];
 
@@ -50,7 +59,25 @@ const operatingLanes = [
   },
 ];
 
-export const Home: React.FC<HomePageProps> = ({ onReady }) => {
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat('en', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(date));
+}
+
+export const Home: React.FC<HomePageProps> = ({ launchArticles = [], onReady }) => {
+  const visualArticles = launchArticles.length > 0 ? launchArticles : fallbackArticles;
+  const featuredSlugs = new Set(['the-factory', 'the-golden-hammer', 'reality-needs-observers']);
+  const featuredArticles = visualArticles
+    .filter((article) => featuredSlugs.has(article.slug))
+    .slice(0, 3);
+  const magazineArticles = visualArticles
+    .filter((article) => !featuredSlugs.has(article.slug))
+    .slice(0, 7);
+
   return (
     <main className={styles.page}>
       <section className={styles.hero} aria-labelledby="home-title">
@@ -74,7 +101,7 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
           </div>
         </div>
 
-        <div className={styles.posterWrap} aria-label="Dark software factory trailer placeholder">
+        <div className={styles.posterWrap} aria-label="Dark software factory">
           <Image
             src="/blog/the-factory/images/a2-hero-conceptual.png"
             alt="Cinematic AI software factory with glowing machinery and conveyor rails"
@@ -86,10 +113,41 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
           />
           <div className={styles.posterOverlay} />
           <div className={styles.posterLabel}>
-            <span className={styles.posterKicker}>Video placeholder</span>
+            <span className={styles.posterKicker}>Launch frame</span>
             <strong className={styles.posterTitle}>Dark Software Factory</strong>
-            <span className={styles.posterMeta}>Static hero now. 52-second trailer later.</span>
+            <span className={styles.posterMeta}>The trailer can arrive after the site is live.</span>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.visualShelf} aria-label="Illustrated articles">
+        <div className={styles.shelfLead}>
+          <p className={styles.eyebrow}>Featured archive</p>
+          <h2 className={styles.shelfTitle}>The writing already has a visual world.</h2>
+        </div>
+        <div className={styles.shelfGrid}>
+          {magazineArticles.map((article, index) => (
+            <Link
+              href={`/blog/${article.slug}`}
+              className={`${styles.shelfCard} ${index === 0 ? styles.shelfCardLarge : ''}`}
+              key={article.slug}
+            >
+              {article.coverImage ? (
+                <Image
+                  src={article.coverImage}
+                  alt=""
+                  fill
+                  sizes={index === 0 ? '(max-width: 900px) 100vw, 42vw' : '(max-width: 900px) 50vw, 20vw'}
+                  className={styles.shelfImage}
+                />
+              ) : null}
+              <span className={styles.shelfTint} />
+              <span className={styles.shelfText}>
+                <span className={styles.shelfMeta}>{article.series ?? formatDate(article.publishedAt)}</span>
+                <strong>{article.title}</strong>
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -109,9 +167,21 @@ export const Home: React.FC<HomePageProps> = ({ onReady }) => {
         </div>
         <div className={styles.articleGrid}>
           {featuredArticles.map((article) => (
-            <Link href={article.href} className={styles.articleCard} key={article.title}>
+            <Link href={`/blog/${article.slug}`} className={styles.articleCard} key={article.title}>
+              {article.coverImage ? (
+                <span className={styles.articleImageWrap}>
+                  <Image
+                    src={article.coverImage}
+                    alt=""
+                    fill
+                    sizes="(max-width: 900px) 100vw, 32vw"
+                    className={styles.articleImage}
+                  />
+                </span>
+              ) : null}
+              <span className={styles.articleMeta}>{article.series ?? formatDate(article.publishedAt)}</span>
               <h3 className={styles.articleTitle}>{article.title}</h3>
-              <p className={styles.articleText}>{article.text}</p>
+              <p className={styles.articleText}>{article.description}</p>
             </Link>
           ))}
         </div>

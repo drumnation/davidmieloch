@@ -5,6 +5,7 @@ import { musicPlaylist } from './playlists/musicPlaylist';
 import { usePathname } from 'next/navigation';
 import { voiceTracks } from './playlists/voiceTracks';
 import { handleAudioError, getNextMusicTrack } from './useDualAudioController.logic';
+import { getVoiceTrackIdFromPathname } from './voiceTrackRouting';
 
 const FULL_VOLUME = 1;
 
@@ -384,8 +385,7 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
                 loadMusicTrack(musicPlaylist[0]);
             }
             if (pathname) {
-                let pageSlug = pathname.replace(/^\/|\/$/g, '');
-                if (pageSlug === '') pageSlug = 'home';
+                const pageSlug = getVoiceTrackIdFromPathname(pathname);
                 const initialVoiceTrack = voiceTracks.find((track: AudioTrack) => track.id === pageSlug);
                 if (initialVoiceTrack) {
                     loadVoiceTrack(initialVoiceTrack);
@@ -464,4 +464,4 @@ export function useDualAudioController(): DualAudioContextTypeWithRefs {
         musicAudioRef,
         voiceAudioRef,
     };
-} 
+}

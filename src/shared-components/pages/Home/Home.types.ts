@@ -72,5 +72,15 @@ export interface HomePageProps {
   heroProps?: HeroProps;
   personaNavData?: PersonaNavItem[];
   metaData?: MetaData;
+  launchArticles?: HomeArticleTeaser[];
   onReady?: () => void;
-} 
+}
+
+export interface HomeArticleTeaser {
+  slug: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  series?: string;
+  coverImage?: string;
+}

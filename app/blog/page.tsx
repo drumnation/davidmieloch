@@ -1,8 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import type { CSSProperties } from 'react';
 
 import { getPublishedArticles, getSiteUrl } from '../../src/content/articles';
+import styles from './Blog.module.css';
 
 export const metadata: Metadata = {
   title: 'Writing',
@@ -15,130 +16,126 @@ export const metadata: Metadata = {
   },
 };
 
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat('en', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(date));
+}
+
 export default function BlogPage() {
   const articles = getPublishedArticles();
+  const [leadArticle, ...restArticles] = articles;
+  const featuredArticles = restArticles.slice(0, 4);
+  const archiveArticles = restArticles.slice(4);
 
   return (
-    <main style={styles.page}>
-      <section style={styles.header}>
-        <p style={styles.eyebrow}>Writing</p>
-        <h1 style={styles.title}>Field notes from AI-native software work.</h1>
-        <p style={styles.description}>
-          Essays about agents, developer tools, software factories, and the strange parts of building while the tools are changing underneath us.
-        </p>
+    <main className={styles.page}>
+      <section className={styles.header}>
+        <div className={styles.headerCopy}>
+          <p className={styles.eyebrow}>Writing</p>
+          <h1 className={styles.title}>Field notes from the software factory.</h1>
+          <p className={styles.description}>
+            The current canon starts with agents, governance, dark factories, and the work that survives when the tools keep moving.
+          </p>
+        </div>
+        <div className={styles.headerStats} aria-label="Archive status">
+          <span>{articles.length} essays</span>
+          <span>Factory first</span>
+          <span>Audio queue open</span>
+        </div>
       </section>
 
-      <section style={styles.list} aria-label="Articles">
-        {articles.map((article) => (
-          <article key={article.slug} style={styles.card}>
-            <div style={styles.meta}>
-              <time dateTime={article.publishedAt}>
-                {new Intl.DateTimeFormat('en', {
-                  month: 'short',
-                  day: 'numeric',
-                  year: 'numeric',
-                  timeZone: 'UTC',
-                }).format(new Date(article.publishedAt))}
-              </time>
-              {article.series ? <span>{article.series}</span> : null}
-            </div>
-            <h2 style={styles.articleTitle}>
-              <Link href={`/blog/${article.slug}`} style={styles.link}>
-                {article.title}
-              </Link>
+      {leadArticle ? (
+        <section className={styles.lead} aria-label="Lead essay">
+          <Link href={`/blog/${leadArticle.slug}`} className={styles.leadImageLink}>
+            {leadArticle.coverImage ? (
+              <Image
+                src={leadArticle.coverImage}
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 58vw"
+                className={styles.leadImage}
+              />
+            ) : null}
+            <span className={styles.imageShade} />
+          </Link>
+          <div className={styles.leadCopy}>
+            <p className={styles.cardMeta}>{leadArticle.series ?? formatDate(leadArticle.publishedAt)}</p>
+            <h2 className={styles.leadTitle}>
+              <Link href={`/blog/${leadArticle.slug}`}>{leadArticle.title}</Link>
             </h2>
-            <p style={styles.summary}>{article.description}</p>
-            <div style={styles.tags}>
-              {article.tags.map((tag) => (
-                <span key={tag} style={styles.tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </article>
+            <p className={styles.leadSummary}>{leadArticle.description}</p>
+            <Link href={`/blog/${leadArticle.slug}`} className={styles.readLink}>
+              Read the essay
+            </Link>
+          </div>
+        </section>
+      ) : null}
+
+      <section className={styles.featuredGrid} aria-label="Featured essays">
+        {featuredArticles.map((article) => (
+          <Link href={`/blog/${article.slug}`} className={styles.featuredCard} key={article.slug}>
+            <span className={styles.featuredImageWrap}>
+              {article.coverImage ? (
+                <Image
+                  src={article.coverImage}
+                  alt=""
+                  fill
+                  sizes="(max-width: 900px) 50vw, 24vw"
+                  className={styles.featuredImage}
+                />
+              ) : null}
+            </span>
+            <span className={styles.cardMeta}>{article.series ?? formatDate(article.publishedAt)}</span>
+            <strong className={styles.featuredTitle}>{article.title}</strong>
+          </Link>
         ))}
+      </section>
+
+      <section className={styles.archive} aria-label="Article archive">
+        <div className={styles.archiveHeader}>
+          <p className={styles.eyebrow}>Archive</p>
+          <h2 className={styles.archiveTitle}>All published writing</h2>
+        </div>
+        <div className={styles.archiveList}>
+          {archiveArticles.map((article) => (
+            <article key={article.slug} className={styles.archiveCard}>
+              <Link href={`/blog/${article.slug}`} className={styles.archiveImageLink}>
+                {article.coverImage ? (
+                  <Image
+                    src={article.coverImage}
+                    alt=""
+                    fill
+                    sizes="(max-width: 700px) 100vw, 180px"
+                    className={styles.archiveImage}
+                  />
+                ) : null}
+              </Link>
+              <div className={styles.archiveCopy}>
+                <div className={styles.meta}>
+                  <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+                  {article.series ? <span>{article.series}</span> : null}
+                </div>
+                <h3 className={styles.articleTitle}>
+                  <Link href={`/blog/${article.slug}`}>{article.title}</Link>
+                </h3>
+                <p className={styles.summary}>{article.description}</p>
+                <div className={styles.tags}>
+                  {article.tags.slice(0, 4).map((tag) => (
+                    <span key={tag} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );
 }
-
-const styles: Record<string, CSSProperties> = {
-  page: {
-    maxWidth: '920px',
-    margin: '0 auto',
-    padding: '128px 24px 80px',
-    color: '#141414',
-  },
-  header: {
-    borderBottom: '1px solid #dedede',
-    paddingBottom: '32px',
-    marginBottom: '28px',
-  },
-  eyebrow: {
-    margin: '0 0 12px',
-    textTransform: 'uppercase',
-    letterSpacing: '0.08em',
-    fontSize: '0.78rem',
-    fontWeight: 700,
-    color: '#4451a4',
-  },
-  title: {
-    margin: 0,
-    maxWidth: '760px',
-    fontSize: 'clamp(2.1rem, 6vw, 4rem)',
-    lineHeight: 1,
-    letterSpacing: 0,
-  },
-  description: {
-    maxWidth: '680px',
-    margin: '20px 0 0',
-    color: '#4d4d4d',
-    fontSize: '1.08rem',
-    lineHeight: 1.6,
-  },
-  list: {
-    display: 'grid',
-    gap: '0',
-  },
-  card: {
-    padding: '28px 0',
-    borderBottom: '1px solid #e7e7e7',
-  },
-  meta: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '12px',
-    marginBottom: '10px',
-    color: '#666',
-    fontSize: '0.88rem',
-  },
-  articleTitle: {
-    margin: 0,
-    fontSize: '1.55rem',
-    lineHeight: 1.2,
-    letterSpacing: 0,
-  },
-  link: {
-    color: '#111',
-    textDecoration: 'none',
-  },
-  summary: {
-    maxWidth: '720px',
-    margin: '10px 0 0',
-    color: '#424242',
-    lineHeight: 1.6,
-  },
-  tags: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '8px',
-    marginTop: '14px',
-  },
-  tag: {
-    border: '1px solid #d7d7d7',
-    borderRadius: '999px',
-    padding: '4px 9px',
-    color: '#555',
-    fontSize: '0.78rem',
-  },
-};
