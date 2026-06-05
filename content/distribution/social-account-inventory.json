@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-05T03:45:00-04:00",
+  "owner": "David Mieloch",
+  "exposureGate": "Does anybody but Dave need to touch this GUI?",
+  "safeDefault": "do-not-post",
+  "credentialStore": {
+    "provider": "1Password",
+    "vault": "Brain Garden",
+    "writeStatus": "blocked",
+    "blocker": "Current 1Password service account can read the vault but cannot create or update items.",
+    "requiredBeforeAccountCreation": true
+  },
+  "postiz": {
+    "url": "https://social-davidmieloch.brain-garden.io",
+    "network": "internal-brain-garden",
+    "status": "running",
+    "firstUserStatus": "blocked-on-1password-write",
+    "publicExposure": "forbidden-unless-explicitly-approved"
+  },
+  "n8n": {
+    "role": "workflow-orchestrator",
+    "ownerAgent": "Commander Data",
+    "status": "discovery-needed",
+    "notes": "n8n workflow packages and credentials were found on singularity-one, but no live n8n container or :5678 listener was observed during the 2026-06-05 Postiz setup pass."
+  },
+  "identityLayers": [
+    {
+      "id": "personal-authority",
+      "purpose": "High-trust posts where David's personal identity is the asset.",
+      "publicPostingAllowedByDefault": false
+    },
+    {
+      "id": "brand-lab",
+      "purpose": "Fresh accounts for experiments, canary test posts, and brand exploration.",
+      "publicPostingAllowedByDefault": false
+    },
+    {
+      "id": "campaign-series",
+      "purpose": "Temporary or semi-permanent identities for campaigns like Dark Chocolate Software Factory.",
+      "publicPostingAllowedByDefault": false
+    }
+  ],
+  "accounts": [
+    {
+      "platform": "linkedin",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "later",
+      "testPostPolicy": "no-public-test-posts",
+      "notes": "Source-of-truth publishing channel. Do not post new LinkedIn content without explicit approval."
+    },
+    {
+      "platform": "medium",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "medium",
+      "testPostPolicy": "draft-or-private-only",
+      "notes": "Essay mirror and archive surface."
+    },
+    {
+      "platform": "x-twitter",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "medium",
+      "testPostPolicy": "no-public-test-posts-on-personal-account",
+      "notes": "Use carefully for short-form factory-era observations."
+    },
+    {
+      "platform": "reddit",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "low",
+      "testPostPolicy": "no-automation-until-subreddit-specific-approval",
+      "notes": "David personally consumes Reddit. Treat as participation, not broadcast."
+    },
+    {
+      "platform": "facebook",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "low",
+      "testPostPolicy": "draft-or-page-only",
+      "notes": "A page is safer than a group until there is a community thesis."
+    },
+    {
+      "platform": "instagram",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizPriority": "medium",
+      "testPostPolicy": "no-public-test-posts-on-personal-account",
+      "notes": "Good home for factory visuals if the visual system stabilizes."
+    },
+    {
+      "platform": "bluesky",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-canary",
+      "knownState": "not-created",
+      "postizPriority": "first-wave",
+      "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
+      "proposedHandle": "brain-garden",
+      "notes": "Low-friction place to test short factory positioning and links."
+    },
+    {
+      "platform": "mastodon",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-canary",
+      "knownState": "not-created",
+      "postizPriority": "first-wave",
+      "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
+      "proposedHandle": "brain-garden",
+      "notes": "Good open-source/agent-builder credibility surface."
+    },
+    {
+      "platform": "threads",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-canary",
+      "knownState": "not-created",
+      "postizPriority": "first-wave",
+      "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
+      "proposedHandle": "brain-garden",
+      "notes": "Likely tied to Instagram account setup."
+    },
+    {
+      "platform": "youtube",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-reservation",
+      "knownState": "not-created",
+      "postizPriority": "reserve-now",
+      "testPostPolicy": "no-public-test-video",
+      "proposedHandle": "brain-garden",
+      "notes": "Reserve for future trailer, audio essays, and factory visuals."
+    },
+    {
+      "platform": "tiktok",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-reservation",
+      "knownState": "not-created",
+      "postizPriority": "reserve-now",
+      "testPostPolicy": "no-public-test-video",
+      "proposedHandle": "brain-garden",
+      "notes": "Reserve if cinematic short-form becomes real."
+    },
+    {
+      "platform": "facebook-page",
+      "identityLayer": "brand-lab",
+      "accountKind": "new-page",
+      "knownState": "not-created",
+      "postizPriority": "reserve-now",
+      "testPostPolicy": "page-only-bland-test-after-1password-custody",
+      "proposedHandle": "brain-garden",
+      "notes": "Page first. Group only after a moderation/community plan exists."
+    }
+  ],
+  "testPostTemplate": {
+    "purpose": "Connector proof only.",
+    "copy": "Brain Garden social scheduler test. This is a connector verification post from the internal content distribution pipeline.",
+    "requirements": [
+      "fresh or canary account only",
+      "credential item stored in 1Password",
+      "delete path known",
+      "screenshot captured",
+      "platform URL recorded",
+      "automation paused after test"
+    ]
+  }
+}

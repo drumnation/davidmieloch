@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://davidmieloch.com/schemas/social-post-manifest.schema.json",
+  "title": "Social Post Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "manifestId",
+    "source",
+    "destination",
+    "approval",
+    "payload",
+    "safety",
+    "signature"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "manifestId": {
+      "type": "string",
+      "minLength": 8
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["articleSlug", "canonicalUrl", "ledgerPath"],
+      "properties": {
+        "articleSlug": { "type": "string" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "ledgerPath": { "type": "string" },
+        "packagePath": { "type": "string" }
+      }
+    },
+    "destination": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platform", "accountId", "identityLayer", "mode"],
+      "properties": {
+        "platform": { "type": "string" },
+        "accountId": { "type": "string" },
+        "identityLayer": {
+          "type": "string",
+          "enum": ["personal-authority", "brand-lab", "campaign-series"]
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["draft", "scheduled", "public-test", "public-production"]
+        },
+        "postizChannelId": { "type": "string" }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "approvedBy", "approvedAt", "approvalArtifact"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["missing", "approved", "rejected", "revoked"]
+        },
+        "approvedBy": { "type": "string" },
+        "approvedAt": { "type": "string" },
+        "approvalArtifact": { "type": "string" }
+      }
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "links"],
+      "properties": {
+        "text": { "type": "string" },
+        "links": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "alt"],
+            "properties": {
+              "path": { "type": "string" },
+              "alt": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "safeDefault",
+        "credentialCustodyVerified",
+        "deletePathKnown",
+        "publicExposureGateAnswered",
+        "refusalInboxPath"
+      ],
+      "properties": {
+        "safeDefault": {
+          "type": "string",
+          "const": "do-not-post"
+        },
+        "credentialCustodyVerified": { "type": "boolean" },
+        "deletePathKnown": { "type": "boolean" },
+        "publicExposureGateAnswered": { "type": "boolean" },
+        "refusalInboxPath": { "type": "string" }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "digest"],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "const": "sha256"
+        },
+        "digest": { "type": "string" }
+      }
+    }
+  }
+}
