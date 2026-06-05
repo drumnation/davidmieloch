@@ -180,9 +180,9 @@ export const BioPage: React.FC<BioPageProps> = ({
 
       <Hero {...heroProps}>
         <Text component="p" className="hero-subtitle-custom" mt="md">
-          <HeroSubtitleSpan className="orchestrating">Orchestrating</HeroSubtitleSpan> Code
+          <HeroSubtitleSpan className="orchestrating">Music</HeroSubtitleSpan>, Software
           <br />
-          · With <HeroSubtitleSpan className="rhythmic">Rhythmic</HeroSubtitleSpan> Precision
+          · and the <HeroSubtitleSpan className="rhythmic">Systems</HeroSubtitleSpan> Between Them
         </Text>
       </Hero>
 
