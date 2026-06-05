@@ -2,21 +2,21 @@
   "schemaVersion": "article-audio-v1",
   "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
   "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
-  "status": "script-prepared",
+  "status": "current",
   "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/index.md",
   "sourceHash": "b77fd1d112922c20389276448e97bd1ac3f8e8d3531b99402f9f55b5f30ab304",
   "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/audio.md",
   "scriptHash": "366e7635431171811749eba1ca74dc2db3bc247001fc0473bc4639c864f88851",
-  "preparedAt": "2026-06-05T04:38:37.281Z",
+  "preparedAt": "2026-06-05T05:02:51.424Z",
   "voiceProvider": "speechify",
-  "voiceId": null,
+  "voiceId": "df8916b9-6a24-4d02-982a-39768698aea7",
   "model": "simba-english",
   "language": "en",
   "audioFormat": "mp3",
-  "outputPath": null,
-  "publicSrc": null,
-  "audioBytes": null,
-  "audioHash": null,
+  "outputPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/public/audio/voice/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function.mp3",
+  "publicSrc": "/audio/voice/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function.mp3",
+  "audioBytes": 1145516,
+  "audioHash": "465de413f8e05c75951a49aa22e6a44a3e75b7cfe892e4290a8e057dc2afb336",
   "quote": {
     "plainCharacters": 2216,
     "ssmlCharacters": 2626,
@@ -35,12 +35,18 @@
   },
   "observation": {
     "claim": "article audio has a versioned script and generation receipt",
-    "status": "DEGRADED",
+    "status": "PASS",
     "fallbackChain": [
       "audio-manifest.json",
       "audio.md sourceHash and scriptHash",
       "public MP3 checksum",
       "ROM heartbeat"
     ]
-  }
+  },
+  "generatedAt": "2026-06-05T05:02:51.424Z",
+  "approvedAt": "2026-06-05T04:44:23.304Z",
+  "chunkCount": 1,
+  "chunkCharacters": [
+    2626
+  ]
 }

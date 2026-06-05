@@ -1,0 +1,251 @@
+{
+  "schemaVersion": "article-audio-book-v1",
+  "collectionId": "all",
+  "title": "All Published Articles Audiobook",
+  "series": null,
+  "status": "planned",
+  "publicSrc": null,
+  "outputPath": null,
+  "audioBytes": 79243120,
+  "audioHash": null,
+  "chapterCount": 20,
+  "totalEstimatedMinutes": 203.5,
+  "chapters": [
+    {
+      "index": 1,
+      "slug": "alphabetize-your-code",
+      "title": "Alphabetize your code.",
+      "publishedAt": "2023-01-31",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/alphabetize-your-code.mp3",
+      "audioBytes": 1463276,
+      "audioHash": "5848d69860232cd05a4b7a8db71d32618210b9a838c9db86a31a25c815c591f2",
+      "estimatedMinutes": 2.5
+    },
+    {
+      "index": 2,
+      "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+      "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
+      "publishedAt": "2023-02-01",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function.mp3",
+      "audioBytes": 1145516,
+      "audioHash": "465de413f8e05c75951a49aa22e6a44a3e75b7cfe892e4290a8e057dc2afb336",
+      "estimatedMinutes": 2.5
+    },
+    {
+      "index": 3,
+      "slug": "the-beauty-of-es6s-object-destructuring-assignment",
+      "title": "The Beauty of ES6's Object Destructuring Assignment",
+      "publishedAt": "2023-02-02",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/the-beauty-of-es6s-object-destructuring-assignment.mp3",
+      "audioBytes": 1034348,
+      "audioHash": "7e01f8da91accc6330ac4fb6516675a9876b1c5f176e24f7dddaa116f860f7a2",
+      "estimatedMinutes": 1.9
+    },
+    {
+      "index": 4,
+      "slug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+      "title": "Reuse your code: Authoring your own Universal Library with Webpack",
+      "publishedAt": "2023-02-03",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack.mp3",
+      "audioBytes": 1321004,
+      "audioHash": "f204a719b86a999d32a9ed35847b46fba55924cd16a2416011e8f92ffaee3140",
+      "estimatedMinutes": 2.5
+    },
+    {
+      "index": 5,
+      "slug": "developing-with-a-team-of-ai-s",
+      "title": "Developing with a Team of AI’s",
+      "publishedAt": "2024-03-28",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/developing-with-a-team-of-ai-s.mp3",
+      "audioBytes": 3664364,
+      "audioHash": "9333eaf250e2eb4dcf2a262f8c29e0a8c573ab1ad2c47ad150668d23762d94c9",
+      "estimatedMinutes": 8
+    },
+    {
+      "index": 6,
+      "slug": "what-i-learned-building-a-photoshop-in-the-browser",
+      "title": "What I Learned Building a Photoshop in the Browser",
+      "publishedAt": "2025-04-25",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/what-i-learned-building-a-photoshop-in-the-browser.mp3",
+      "audioBytes": 6473900,
+      "audioHash": "b0872407609d72f888b3ae410594c1669a32f10ae033ce8ea7395bf30bce8b67",
+      "estimatedMinutes": 19.3
+    },
+    {
+      "index": 7,
+      "slug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+      "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
+      "publishedAt": "2025-04-28",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/building-with-brain-garden-real-world-lessons-in-practical-ai.mp3",
+      "audioBytes": 3788204,
+      "audioHash": "cbcb2aa35d57cca7c3b910749a18002b3fbf23dff711efaf7206ddfb5ee5c1ea",
+      "estimatedMinutes": 6.4
+    },
+    {
+      "index": 8,
+      "slug": "judgment-over-keystrokes",
+      "title": "Judgment Over Keystrokes",
+      "publishedAt": "2025-05-07",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/judgment-over-keystrokes.mp3",
+      "audioBytes": 8482796,
+      "audioHash": "ffdf95182ce4724b107724fe2d1dab530a2fcde3d69a6919005cdd2cfa7d88df",
+      "estimatedMinutes": 30.4
+    },
+    {
+      "index": 9,
+      "slug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+      "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
+      "publishedAt": "2025-05-08",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud.mp3",
+      "audioBytes": 3755372,
+      "audioHash": "b1d27efdf63ee94fca8b0662dcdcc3f305644d0686404dbff71537144e3906bd",
+      "estimatedMinutes": 7.4
+    },
+    {
+      "index": 10,
+      "slug": "why-character-choice-matters-in-agent-design",
+      "title": "Why Character Choice Matters in Agent Design",
+      "publishedAt": "2026-03-18",
+      "series": "Agent Design",
+      "publicSrc": "/audio/voice/blog/why-character-choice-matters-in-agent-design.mp3",
+      "audioBytes": 4903916,
+      "audioHash": "782833fb0c7c19c7a80a128adcce8ef47cbc9700555ce2c5f2c3b10f727429f3",
+      "estimatedMinutes": 11.1
+    },
+    {
+      "index": 11,
+      "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+      "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+      "publishedAt": "2026-03-20",
+      "series": "AI Factory",
+      "publicSrc": "/audio/voice/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it.mp3",
+      "audioBytes": 3546668,
+      "audioHash": "055fae7fe05bbd27341363af1c68efe77711b1a6d34b536c24e9dacb57655c5d",
+      "estimatedMinutes": 6.9
+    },
+    {
+      "index": 12,
+      "slug": "your-ai-isnt-hallucinating-its-lying",
+      "title": "Your AI Isn't Hallucinating. It's Lying.",
+      "publishedAt": "2026-03-20",
+      "series": "The Observer Series",
+      "publicSrc": "/audio/voice/blog/your-ai-isnt-hallucinating-its-lying.mp3",
+      "audioBytes": 4278380,
+      "audioHash": "e10f2f19391412e99ea0115b500ca32283180745ef94f09374bdc61cf6d6ceaf",
+      "estimatedMinutes": 17.2
+    },
+    {
+      "index": 13,
+      "slug": "how-to-make-your-ai-code-look-human",
+      "title": "How to Make Your AI Code Look Human",
+      "publishedAt": "2026-04-01",
+      "series": "AI Factory",
+      "publicSrc": "/audio/voice/blog/how-to-make-your-ai-code-look-human.mp3",
+      "audioBytes": 4098092,
+      "audioHash": "d354b94b9f57315f6f079bd93c2316fda64492b44d3893ad48dee2ff6058f120",
+      "estimatedMinutes": 7.2
+    },
+    {
+      "index": 14,
+      "slug": "every-company-is-sitting-on-sunken-treasure",
+      "title": "Every Company Is Sitting on Sunken Treasure",
+      "publishedAt": "2026-04-02",
+      "series": "AI Factory",
+      "publicSrc": "/audio/voice/blog/every-company-is-sitting-on-sunken-treasure.mp3",
+      "audioBytes": 3943532,
+      "audioHash": "9167285da23774a75d86ccb2f777bcfbb30d1c0aae56e916b3a75c21391fe877",
+      "estimatedMinutes": 11.8
+    },
+    {
+      "index": 15,
+      "slug": "the-overnight-shift",
+      "title": "The Overnight Shift",
+      "publishedAt": "2026-04-03",
+      "series": "AI Factory",
+      "publicSrc": "/audio/voice/blog/the-overnight-shift.mp3",
+      "audioBytes": 4626860,
+      "audioHash": "d2765c6c8b18fdeaadcd7eeaa4abd3b96a8abbbbdeee035e99466eeec0d07ebb",
+      "estimatedMinutes": 14.1
+    },
+    {
+      "index": 16,
+      "slug": "the-factory",
+      "title": "The Factory",
+      "publishedAt": "2026-04-14",
+      "series": "Golden Hammer",
+      "publicSrc": "/audio/voice/blog/the-factory.mp3",
+      "audioBytes": 4419308,
+      "audioHash": "9e139548e2460fb66e9e974eef97e94816d5a82e4c55a58767c715ff43e12da7",
+      "estimatedMinutes": 9.2
+    },
+    {
+      "index": 17,
+      "slug": "the-golden-hammer",
+      "title": "The Golden Hammer",
+      "publishedAt": "2026-04-15",
+      "series": "Golden Hammer",
+      "publicSrc": "/audio/voice/blog/the-golden-hammer.mp3",
+      "audioBytes": 5114156,
+      "audioHash": "032823f840847e962f0b611570ed11c36572637f6ff18b95eab9aaadf32c190f",
+      "estimatedMinutes": 10
+    },
+    {
+      "index": 18,
+      "slug": "the-foreman",
+      "title": "The Foreman",
+      "publishedAt": "2026-04-17",
+      "series": "Golden Hammer",
+      "publicSrc": "/audio/voice/blog/the-foreman.mp3",
+      "audioBytes": 4876652,
+      "audioHash": "7305aae8ff63dc2be8aa0879417dad01afcfb5fc73490631a758fd235e3f8de0",
+      "estimatedMinutes": 11.8
+    },
+    {
+      "index": 19,
+      "slug": "the-moving-target",
+      "title": "The Moving Target",
+      "publishedAt": "2026-04-21",
+      "series": "Golden Hammer",
+      "publicSrc": "/audio/voice/blog/the-moving-target.mp3",
+      "audioBytes": 4585196,
+      "audioHash": "2aaa199665dfa50e71386393a82838dbf47e95b5d25c8ad1666dd13b8bb2a276",
+      "estimatedMinutes": 10
+    },
+    {
+      "index": 20,
+      "slug": "reality-needs-observers",
+      "title": "Reality Needs Observers",
+      "publishedAt": "2026-04-30",
+      "series": "The Observer Series",
+      "publicSrc": "/audio/voice/blog/reality-needs-observers.mp3",
+      "audioBytes": 3721580,
+      "audioHash": "63f20ce6ddec706704921173840f9101f5dbe90d53ed82137ba971915628db39",
+      "estimatedMinutes": 13.3
+    }
+  ],
+  "decisionSeam": {
+    "name": "audiobook-assembly",
+    "safeDefault": "dry-run-only",
+    "approvalRequired": false,
+    "note": "This combines already-approved article MP3 files and does not call a paid TTS API."
+  },
+  "observation": {
+    "claim": "audiobook chapters are derived from current article audio manifests and MP3 checksums",
+    "status": "PASS",
+    "fallbackChain": [
+      "per-article audio-manifest.json",
+      "public/audio/voice/blog MP3 checksums",
+      "audiobook manifest",
+      "ROM heartbeat"
+    ]
+  }
+}

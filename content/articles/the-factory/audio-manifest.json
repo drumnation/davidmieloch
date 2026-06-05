@@ -2,21 +2,21 @@
   "schemaVersion": "article-audio-v1",
   "slug": "the-factory",
   "title": "The Factory",
-  "status": "script-prepared",
+  "status": "current",
   "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/the-factory/index.md",
   "sourceHash": "aede0a696a2b49047f17f1070a4ebc9fd7cc1a8eca190450be1a103ddc0ebf82",
   "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/the-factory/audio.md",
   "scriptHash": "fa5d90cadbcff062a9c6121d6b1ee66465652237eb2c0d9da21a23050ae54c2a",
-  "preparedAt": "2026-06-05T04:38:36.976Z",
+  "preparedAt": "2026-06-05T04:55:11.728Z",
   "voiceProvider": "speechify",
-  "voiceId": null,
+  "voiceId": "df8916b9-6a24-4d02-982a-39768698aea7",
   "model": "simba-english",
   "language": "en",
   "audioFormat": "mp3",
-  "outputPath": null,
-  "publicSrc": null,
-  "audioBytes": null,
-  "audioHash": null,
+  "outputPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/public/audio/voice/blog/the-factory.mp3",
+  "publicSrc": "/audio/voice/blog/the-factory.mp3",
+  "audioBytes": 4419308,
+  "audioHash": "9e139548e2460fb66e9e974eef97e94816d5a82e4c55a58767c715ff43e12da7",
   "quote": {
     "plainCharacters": 8760,
     "ssmlCharacters": 10830,
@@ -35,12 +35,18 @@
   },
   "observation": {
     "claim": "article audio has a versioned script and generation receipt",
-    "status": "DEGRADED",
+    "status": "PASS",
     "fallbackChain": [
       "audio-manifest.json",
       "audio.md sourceHash and scriptHash",
       "public MP3 checksum",
       "ROM heartbeat"
     ]
-  }
+  },
+  "generatedAt": "2026-06-05T04:55:11.728Z",
+  "approvedAt": "2026-06-05T04:44:23.008Z",
+  "chunkCount": 1,
+  "chunkCharacters": [
+    10830
+  ]
 }

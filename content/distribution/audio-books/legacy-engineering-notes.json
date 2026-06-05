@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "article-audio-book-v1",
+  "collectionId": "legacy-engineering-notes",
+  "title": "Legacy Engineering Notes Audiobook",
+  "series": "Legacy Engineering Notes",
+  "status": "planned",
+  "publicSrc": null,
+  "outputPath": null,
+  "audioBytes": 31128780,
+  "audioHash": null,
+  "chapterCount": 9,
+  "totalEstimatedMinutes": 80.9,
+  "chapters": [
+    {
+      "index": 1,
+      "slug": "alphabetize-your-code",
+      "title": "Alphabetize your code.",
+      "publishedAt": "2023-01-31",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/alphabetize-your-code.mp3",
+      "audioBytes": 1463276,
+      "audioHash": "5848d69860232cd05a4b7a8db71d32618210b9a838c9db86a31a25c815c591f2",
+      "estimatedMinutes": 2.5
+    },
+    {
+      "index": 2,
+      "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+      "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
+      "publishedAt": "2023-02-01",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function.mp3",
+      "audioBytes": 1145516,
+      "audioHash": "465de413f8e05c75951a49aa22e6a44a3e75b7cfe892e4290a8e057dc2afb336",
+      "estimatedMinutes": 2.5
+    },
+    {
+      "index": 3,
+      "slug": "the-beauty-of-es6s-object-destructuring-assignment",
+      "title": "The Beauty of ES6's Object Destructuring Assignment",
+      "publishedAt": "2023-02-02",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/the-beauty-of-es6s-object-destructuring-assignment.mp3",
+      "audioBytes": 1034348,
+      "audioHash": "7e01f8da91accc6330ac4fb6516675a9876b1c5f176e24f7dddaa116f860f7a2",
+      "estimatedMinutes": 1.9
+    },
+    {
+      "index": 4,
+      "slug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+      "title": "Reuse your code: Authoring your own Universal Library with Webpack",
+      "publishedAt": "2023-02-03",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack.mp3",
+      "audioBytes": 1321004,
+      "audioHash": "f204a719b86a999d32a9ed35847b46fba55924cd16a2416011e8f92ffaee3140",
+      "estimatedMinutes": 2.5
+    },
+    {
+      "index": 5,
+      "slug": "developing-with-a-team-of-ai-s",
+      "title": "Developing with a Team of AI’s",
+      "publishedAt": "2024-03-28",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/developing-with-a-team-of-ai-s.mp3",
+      "audioBytes": 3664364,
+      "audioHash": "9333eaf250e2eb4dcf2a262f8c29e0a8c573ab1ad2c47ad150668d23762d94c9",
+      "estimatedMinutes": 8
+    },
+    {
+      "index": 6,
+      "slug": "what-i-learned-building-a-photoshop-in-the-browser",
+      "title": "What I Learned Building a Photoshop in the Browser",
+      "publishedAt": "2025-04-25",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/what-i-learned-building-a-photoshop-in-the-browser.mp3",
+      "audioBytes": 6473900,
+      "audioHash": "b0872407609d72f888b3ae410594c1669a32f10ae033ce8ea7395bf30bce8b67",
+      "estimatedMinutes": 19.3
+    },
+    {
+      "index": 7,
+      "slug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+      "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
+      "publishedAt": "2025-04-28",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/building-with-brain-garden-real-world-lessons-in-practical-ai.mp3",
+      "audioBytes": 3788204,
+      "audioHash": "cbcb2aa35d57cca7c3b910749a18002b3fbf23dff711efaf7206ddfb5ee5c1ea",
+      "estimatedMinutes": 6.4
+    },
+    {
+      "index": 8,
+      "slug": "judgment-over-keystrokes",
+      "title": "Judgment Over Keystrokes",
+      "publishedAt": "2025-05-07",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/judgment-over-keystrokes.mp3",
+      "audioBytes": 8482796,
+      "audioHash": "ffdf95182ce4724b107724fe2d1dab530a2fcde3d69a6919005cdd2cfa7d88df",
+      "estimatedMinutes": 30.4
+    },
+    {
+      "index": 9,
+      "slug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+      "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
+      "publishedAt": "2025-05-08",
+      "series": "Legacy Engineering Notes",
+      "publicSrc": "/audio/voice/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud.mp3",
+      "audioBytes": 3755372,
+      "audioHash": "b1d27efdf63ee94fca8b0662dcdcc3f305644d0686404dbff71537144e3906bd",
+      "estimatedMinutes": 7.4
+    }
+  ],
+  "decisionSeam": {
+    "name": "audiobook-assembly",
+    "safeDefault": "dry-run-only",
+    "approvalRequired": false,
+    "note": "This combines already-approved article MP3 files and does not call a paid TTS API."
+  },
+  "observation": {
+    "claim": "audiobook chapters are derived from current article audio manifests and MP3 checksums",
+    "status": "PASS",
+    "fallbackChain": [
+      "per-article audio-manifest.json",
+      "public/audio/voice/blog MP3 checksums",
+      "audiobook manifest",
+      "ROM heartbeat"
+    ]
+  }
+}

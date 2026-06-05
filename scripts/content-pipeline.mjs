@@ -43,7 +43,9 @@ import {
 import {
   approveArticleAudio,
   audioStatus,
+  buildAudioBook,
   generateArticleAudio,
+  normalizeAudioCollectionId,
   prepareArticleAudio,
   quoteArticleAudio,
   writeGeneratedBlogVoiceTracks,
@@ -70,6 +72,7 @@ const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.
 const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
 const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
+const audioBooksRoot = path.join(contentRoot, 'distribution/audio-books');
 const defaultQueueOutputPath = path.join(appRoot, 'docs/ops/content-distribution-next-actions.md');
 const defaultScheduleOutputPath = path.join(appRoot, 'docs/ops/content-distribution-schedule.md');
 const defaultContentLedgerOutputPath = path.join(appRoot, 'docs/ops/content-ledger.md');
@@ -1152,6 +1155,21 @@ function audioTracksCommand() {
   };
 }
 
+function audioBookCommand(collectionId = 'all') {
+  const options = parseCommandOptions(3);
+  const resolvedCollectionId = collectionId ?? 'all';
+  const safeCollectionId = normalizeAudioCollectionId(resolvedCollectionId);
+  return buildAudioBook({
+    articlesRoot,
+    publicRoot,
+    collectionId: resolvedCollectionId,
+    collectionTitle: options.title,
+    series: options.series,
+    write: Boolean(options.write),
+    manifestPath: path.join(audioBooksRoot, `${safeCollectionId}.json`),
+  });
+}
+
 async function audioGenerateCommand(slug) {
   if (!slug) throw new Error('audio:generate requires <slug>.');
   const options = parseCommandOptions(3);
@@ -1381,6 +1399,7 @@ function usage() {
   pnpm content:pipeline audio:quote <slug>
   pnpm content:pipeline audio:generate <slug> --spend-approved [--voice-id=<id>] [--force]
   pnpm content:pipeline audio:tracks
+  pnpm content:pipeline audio:book [all|series-slug] [--series=<name>] [--title=<name>] [--write]
 
 Safety:
   - DEV and Hashnode commands create unpublished/delisted drafts only.
@@ -1395,6 +1414,7 @@ Safety:
   - content:ledger writes inventory/report artifacts only.
   - audio:prepare, audio:approve, audio:status, audio:quote, and audio:tracks do not call Speechify.
   - audio:generate calls Speechify only with --spend-approved and requires an approved audio script.
+  - audio:book does not call Speechify; --write concatenates already-current article MP3 files.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
 `);
@@ -1509,6 +1529,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'audio:tracks') {
     return audioTracksCommand();
+  }
+  if (command === 'audio:book') {
+    return audioBookCommand(slug);
   }
   if (command === 'devto:create-draft' && slug) {
     return createDevtoDraft(slug);

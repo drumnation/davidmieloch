@@ -2,21 +2,21 @@
   "schemaVersion": "article-audio-v1",
   "slug": "every-company-is-sitting-on-sunken-treasure",
   "title": "Every Company Is Sitting on Sunken Treasure",
-  "status": "script-prepared",
+  "status": "current",
   "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/every-company-is-sitting-on-sunken-treasure/index.md",
   "sourceHash": "3fd2c3b2fc0c62ce287c54c1f04cac5f72c4404be65b4f116024eeaf9cc503e4",
   "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/every-company-is-sitting-on-sunken-treasure/audio.md",
   "scriptHash": "0e5599e1978ed5e67e138df62c3daa5f12c922195fbbebbc4175b579f4eb115b",
-  "preparedAt": "2026-06-05T04:38:36.599Z",
+  "preparedAt": "2026-06-05T04:48:49.209Z",
   "voiceProvider": "speechify",
-  "voiceId": null,
+  "voiceId": "df8916b9-6a24-4d02-982a-39768698aea7",
   "model": "simba-english",
   "language": "en",
   "audioFormat": "mp3",
-  "outputPath": null,
-  "publicSrc": null,
-  "audioBytes": null,
-  "audioHash": null,
+  "outputPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/public/audio/voice/blog/every-company-is-sitting-on-sunken-treasure.mp3",
+  "publicSrc": "/audio/voice/blog/every-company-is-sitting-on-sunken-treasure.mp3",
+  "audioBytes": 3943532,
+  "audioHash": "9167285da23774a75d86ccb2f777bcfbb30d1c0aae56e916b3a75c21391fe877",
   "quote": {
     "plainCharacters": 11027,
     "ssmlCharacters": 13441,
@@ -35,12 +35,18 @@
   },
   "observation": {
     "claim": "article audio has a versioned script and generation receipt",
-    "status": "DEGRADED",
+    "status": "PASS",
     "fallbackChain": [
       "audio-manifest.json",
       "audio.md sourceHash and scriptHash",
       "public MP3 checksum",
       "ROM heartbeat"
     ]
-  }
+  },
+  "generatedAt": "2026-06-05T04:48:49.209Z",
+  "approvedAt": "2026-06-05T04:44:22.718Z",
+  "chunkCount": 1,
+  "chunkCharacters": [
+    13441
+  ]
 }

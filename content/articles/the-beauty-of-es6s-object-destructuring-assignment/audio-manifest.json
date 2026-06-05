@@ -2,21 +2,21 @@
   "schemaVersion": "article-audio-v1",
   "slug": "the-beauty-of-es6s-object-destructuring-assignment",
   "title": "The Beauty of ES6's Object Destructuring Assignment",
-  "status": "script-prepared",
+  "status": "current",
   "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/the-beauty-of-es6s-object-destructuring-assignment/index.md",
   "sourceHash": "f6efe6430fa16d95a87ab9473f2bffd7a34fabca5c20e1a1c8f1c677b90ecd71",
   "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/the-beauty-of-es6s-object-destructuring-assignment/audio.md",
   "scriptHash": "f5ab2dc57e0b31df58dbff26657c4798b34cd2b897d96f181e28069ead78598a",
-  "preparedAt": "2026-06-05T04:38:36.924Z",
+  "preparedAt": "2026-06-05T04:45:20.877Z",
   "voiceProvider": "speechify",
-  "voiceId": null,
+  "voiceId": "df8916b9-6a24-4d02-982a-39768698aea7",
   "model": "simba-english",
   "language": "en",
   "audioFormat": "mp3",
-  "outputPath": null,
-  "publicSrc": null,
-  "audioBytes": null,
-  "audioHash": null,
+  "outputPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/public/audio/voice/blog/the-beauty-of-es6s-object-destructuring-assignment.mp3",
+  "publicSrc": "/audio/voice/blog/the-beauty-of-es6s-object-destructuring-assignment.mp3",
+  "audioBytes": 1034348,
+  "audioHash": "7e01f8da91accc6330ac4fb6516675a9876b1c5f176e24f7dddaa116f860f7a2",
   "quote": {
     "plainCharacters": 1907,
     "ssmlCharacters": 2245,
@@ -35,12 +35,18 @@
   },
   "observation": {
     "claim": "article audio has a versioned script and generation receipt",
-    "status": "DEGRADED",
+    "status": "PASS",
     "fallbackChain": [
       "audio-manifest.json",
       "audio.md sourceHash and scriptHash",
       "public MP3 checksum",
       "ROM heartbeat"
     ]
-  }
+  },
+  "generatedAt": "2026-06-05T04:45:20.877Z",
+  "approvedAt": "2026-06-05T04:44:22.967Z",
+  "chunkCount": 1,
+  "chunkCharacters": [
+    2245
+  ]
 }

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "article-audio-book-v1",
+  "collectionId": "the-observer-series",
+  "title": "The Observer Series Audiobook",
+  "series": "The Observer Series",
+  "status": "planned",
+  "publicSrc": null,
+  "outputPath": null,
+  "audioBytes": 7999960,
+  "audioHash": null,
+  "chapterCount": 2,
+  "totalEstimatedMinutes": 30.5,
+  "chapters": [
+    {
+      "index": 1,
+      "slug": "your-ai-isnt-hallucinating-its-lying",
+      "title": "Your AI Isn't Hallucinating. It's Lying.",
+      "publishedAt": "2026-03-20",
+      "series": "The Observer Series",
+      "publicSrc": "/audio/voice/blog/your-ai-isnt-hallucinating-its-lying.mp3",
+      "audioBytes": 4278380,
+      "audioHash": "e10f2f19391412e99ea0115b500ca32283180745ef94f09374bdc61cf6d6ceaf",
+      "estimatedMinutes": 17.2
+    },
+    {
+      "index": 2,
+      "slug": "reality-needs-observers",
+      "title": "Reality Needs Observers",
+      "publishedAt": "2026-04-30",
+      "series": "The Observer Series",
+      "publicSrc": "/audio/voice/blog/reality-needs-observers.mp3",
+      "audioBytes": 3721580,
+      "audioHash": "63f20ce6ddec706704921173840f9101f5dbe90d53ed82137ba971915628db39",
+      "estimatedMinutes": 13.3
+    }
+  ],
+  "decisionSeam": {
+    "name": "audiobook-assembly",
+    "safeDefault": "dry-run-only",
+    "approvalRequired": false,
+    "note": "This combines already-approved article MP3 files and does not call a paid TTS API."
+  },
+  "observation": {
+    "claim": "audiobook chapters are derived from current article audio manifests and MP3 checksums",
+    "status": "PASS",
+    "fallbackChain": [
+      "per-article audio-manifest.json",
+      "public/audio/voice/blog MP3 checksums",
+      "audiobook manifest",
+      "ROM heartbeat"
+    ]
+  }
+}

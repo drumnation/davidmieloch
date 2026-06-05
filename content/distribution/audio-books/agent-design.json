@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "article-audio-book-v1",
+  "collectionId": "agent-design",
+  "title": "Agent Design Audiobook",
+  "series": "Agent Design",
+  "status": "planned",
+  "publicSrc": null,
+  "outputPath": null,
+  "audioBytes": 4903916,
+  "audioHash": null,
+  "chapterCount": 1,
+  "totalEstimatedMinutes": 11.1,
+  "chapters": [
+    {
+      "index": 1,
+      "slug": "why-character-choice-matters-in-agent-design",
+      "title": "Why Character Choice Matters in Agent Design",
+      "publishedAt": "2026-03-18",
+      "series": "Agent Design",
+      "publicSrc": "/audio/voice/blog/why-character-choice-matters-in-agent-design.mp3",
+      "audioBytes": 4903916,
+      "audioHash": "782833fb0c7c19c7a80a128adcce8ef47cbc9700555ce2c5f2c3b10f727429f3",
+      "estimatedMinutes": 11.1
+    }
+  ],
+  "decisionSeam": {
+    "name": "audiobook-assembly",
+    "safeDefault": "dry-run-only",
+    "approvalRequired": false,
+    "note": "This combines already-approved article MP3 files and does not call a paid TTS API."
+  },
+  "observation": {
+    "claim": "audiobook chapters are derived from current article audio manifests and MP3 checksums",
+    "status": "PASS",
+    "fallbackChain": [
+      "per-article audio-manifest.json",
+      "public/audio/voice/blog MP3 checksums",
+      "audiobook manifest",
+      "ROM heartbeat"
+    ]
+  }
+}

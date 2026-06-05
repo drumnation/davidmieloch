@@ -2,21 +2,21 @@
   "schemaVersion": "article-audio-v1",
   "slug": "the-foreman",
   "title": "The Foreman",
-  "status": "script-prepared",
+  "status": "current",
   "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/the-foreman/index.md",
   "sourceHash": "188392f1f99c271920a90f6084cb5c62189a7dd546b2f53c13c95bdf51824a0b",
   "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/the-foreman/audio.md",
   "scriptHash": "c85f874890eb04ad0f34dd39ddceaa85a7dce9c60d1f0e64ceb70ec9cae832dd",
-  "preparedAt": "2026-06-05T04:38:37.020Z",
+  "preparedAt": "2026-06-05T04:56:14.573Z",
   "voiceProvider": "speechify",
-  "voiceId": null,
+  "voiceId": "df8916b9-6a24-4d02-982a-39768698aea7",
   "model": "simba-english",
   "language": "en",
   "audioFormat": "mp3",
-  "outputPath": null,
-  "publicSrc": null,
-  "audioBytes": null,
-  "audioHash": null,
+  "outputPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/public/audio/voice/blog/the-foreman.mp3",
+  "publicSrc": "/audio/voice/blog/the-foreman.mp3",
+  "audioBytes": 4876652,
+  "audioHash": "7305aae8ff63dc2be8aa0879417dad01afcfb5fc73490631a758fd235e3f8de0",
   "quote": {
     "plainCharacters": 10747,
     "ssmlCharacters": 12677,
@@ -35,12 +35,18 @@
   },
   "observation": {
     "claim": "article audio has a versioned script and generation receipt",
-    "status": "DEGRADED",
+    "status": "PASS",
     "fallbackChain": [
       "audio-manifest.json",
       "audio.md sourceHash and scriptHash",
       "public MP3 checksum",
       "ROM heartbeat"
     ]
-  }
+  },
+  "generatedAt": "2026-06-05T04:56:14.573Z",
+  "approvedAt": "2026-06-05T04:44:23.050Z",
+  "chunkCount": 1,
+  "chunkCharacters": [
+    12677
+  ]
 }

@@ -2,21 +2,21 @@
   "schemaVersion": "article-audio-v1",
   "slug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
   "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
-  "status": "script-prepared",
+  "status": "current",
   "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/building-with-brain-garden-real-world-lessons-in-practical-ai/index.md",
   "sourceHash": "4d2fc88c8ba997c168af82989fd58b141a76ead325e8a2c852b308dca6d49718",
   "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/building-with-brain-garden-real-world-lessons-in-practical-ai/audio.md",
   "scriptHash": "8e66185e014a152ed93a1a14deec4ed2779f8ece1ce3937c1c9153e3b46c7287",
-  "preparedAt": "2026-06-05T04:38:36.494Z",
+  "preparedAt": "2026-06-05T04:47:06.931Z",
   "voiceProvider": "speechify",
-  "voiceId": null,
+  "voiceId": "df8916b9-6a24-4d02-982a-39768698aea7",
   "model": "simba-english",
   "language": "en",
   "audioFormat": "mp3",
-  "outputPath": null,
-  "publicSrc": null,
-  "audioBytes": null,
-  "audioHash": null,
+  "outputPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/public/audio/voice/blog/building-with-brain-garden-real-world-lessons-in-practical-ai.mp3",
+  "publicSrc": "/audio/voice/blog/building-with-brain-garden-real-world-lessons-in-practical-ai.mp3",
+  "audioBytes": 3788204,
+  "audioHash": "cbcb2aa35d57cca7c3b910749a18002b3fbf23dff711efaf7206ddfb5ee5c1ea",
   "quote": {
     "plainCharacters": 6283,
     "ssmlCharacters": 7917,
@@ -35,12 +35,18 @@
   },
   "observation": {
     "claim": "article audio has a versioned script and generation receipt",
-    "status": "DEGRADED",
+    "status": "PASS",
     "fallbackChain": [
       "audio-manifest.json",
       "audio.md sourceHash and scriptHash",
       "public MP3 checksum",
       "ROM heartbeat"
     ]
-  }
+  },
+  "generatedAt": "2026-06-05T04:47:06.931Z",
+  "approvedAt": "2026-06-05T04:44:22.516Z",
+  "chunkCount": 1,
+  "chunkCharacters": [
+    7917
+  ]
 }

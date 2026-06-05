@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "article-audio-book-v1",
+  "collectionId": "ai-factory",
+  "title": "AI Factory Audiobook",
+  "series": "AI Factory",
+  "status": "planned",
+  "publicSrc": null,
+  "outputPath": null,
+  "audioBytes": 16215152,
+  "audioHash": null,
+  "chapterCount": 4,
+  "totalEstimatedMinutes": 40,
+  "chapters": [
+    {
+      "index": 1,
+      "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+      "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+      "publishedAt": "2026-03-20",
+      "series": "AI Factory",
+      "publicSrc": "/audio/voice/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it.mp3",
+      "audioBytes": 3546668,
+      "audioHash": "055fae7fe05bbd27341363af1c68efe77711b1a6d34b536c24e9dacb57655c5d",
+      "estimatedMinutes": 6.9
+    },
+    {
+      "index": 2,
+      "slug": "how-to-make-your-ai-code-look-human",
+      "title": "How to Make Your AI Code Look Human",
+      "publishedAt": "2026-04-01",
+      "series": "AI Factory",
+      "publicSrc": "/audio/voice/blog/how-to-make-your-ai-code-look-human.mp3",
+      "audioBytes": 4098092,
+      "audioHash": "d354b94b9f57315f6f079bd93c2316fda64492b44d3893ad48dee2ff6058f120",
+      "estimatedMinutes": 7.2
+    },
+    {
+      "index": 3,
+      "slug": "every-company-is-sitting-on-sunken-treasure",
+      "title": "Every Company Is Sitting on Sunken Treasure",
+      "publishedAt": "2026-04-02",
+      "series": "AI Factory",
+      "publicSrc": "/audio/voice/blog/every-company-is-sitting-on-sunken-treasure.mp3",
+      "audioBytes": 3943532,
+      "audioHash": "9167285da23774a75d86ccb2f777bcfbb30d1c0aae56e916b3a75c21391fe877",
+      "estimatedMinutes": 11.8
+    },
+    {
+      "index": 4,
+      "slug": "the-overnight-shift",
+      "title": "The Overnight Shift",
+      "publishedAt": "2026-04-03",
+      "series": "AI Factory",
+      "publicSrc": "/audio/voice/blog/the-overnight-shift.mp3",
+      "audioBytes": 4626860,
+      "audioHash": "d2765c6c8b18fdeaadcd7eeaa4abd3b96a8abbbbdeee035e99466eeec0d07ebb",
+      "estimatedMinutes": 14.1
+    }
+  ],
+  "decisionSeam": {
+    "name": "audiobook-assembly",
+    "safeDefault": "dry-run-only",
+    "approvalRequired": false,
+    "note": "This combines already-approved article MP3 files and does not call a paid TTS API."
+  },
+  "observation": {
+    "claim": "audiobook chapters are derived from current article audio manifests and MP3 checksums",
+    "status": "PASS",
+    "fallbackChain": [
+      "per-article audio-manifest.json",
+      "public/audio/voice/blog MP3 checksums",
+      "audiobook manifest",
+      "ROM heartbeat"
+    ]
+  }
+}

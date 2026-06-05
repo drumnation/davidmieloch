@@ -88,6 +88,10 @@ function audioOutputPath(publicRoot, slug) {
   return path.join(publicRoot, 'audio', 'voice', 'blog', `${slug}.mp3`);
 }
 
+function audioBookOutputPath(publicRoot, collectionId) {
+  return path.join(publicRoot, 'audio', 'voice', 'books', `${collectionId}.mp3`);
+}
+
 function readArticle(articlesRoot, slug) {
   const filePath = articlePath(articlesRoot, slug);
   if (!fs.existsSync(filePath)) {
@@ -507,6 +511,45 @@ function concatMp3Chunks({ chunks, outputPath, tempRoot, slug }) {
   }
 }
 
+function concatMp3Files({ inputPaths, outputPath, tempRoot, collectionId }) {
+  if (inputPaths.length === 0) {
+    throw new Error('Cannot create an audiobook without current article MP3 files.');
+  }
+
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  if (inputPaths.length === 1) {
+    fs.copyFileSync(inputPaths[0], outputPath);
+    return;
+  }
+
+  const tempDir = path.join(tempRoot, `.audio-book-${collectionId}-${Date.now()}`);
+  fs.mkdirSync(tempDir, { recursive: true });
+  const listPath = path.join(tempDir, 'chapters.txt');
+  fs.writeFileSync(
+    listPath,
+    inputPaths.map((inputPath) => `file '${inputPath.replace(/'/g, "'\\''")}'`).join('\n'),
+  );
+
+  const ffmpeg = spawnSync('ffmpeg', [
+    '-hide_banner',
+    '-loglevel',
+    'error',
+    '-f',
+    'concat',
+    '-safe',
+    '0',
+    '-i',
+    listPath,
+    '-c',
+    'copy',
+    outputPath,
+  ], { encoding: 'utf8' });
+  fs.rmSync(tempDir, { recursive: true, force: true });
+  if (ffmpeg.status !== 0) {
+    throw new Error(`ffmpeg failed to concatenate audiobook chapters: ${ffmpeg.stderr.trim()}`);
+  }
+}
+
 export async function generateArticleAudio({
   articlesRoot,
   publicRoot,
@@ -638,6 +681,8 @@ function statusForSlug({ articlesRoot, publicRoot, slug }) {
   return {
     slug,
     title: article.meta.title,
+    publishedAt: article.meta.publishedAt ?? article.meta.date ?? null,
+    series: article.meta.series ?? null,
     status,
     sourceHash,
     scriptPath: script?.path ?? audioScriptPath(articlesRoot, slug),
@@ -647,6 +692,7 @@ function statusForSlug({ articlesRoot, publicRoot, slug }) {
     outputPath,
     publicSrc: audioExists ? `/audio/voice/blog/${slug}.mp3` : null,
     audioExists,
+    audioBytes: audioExists ? fs.statSync(outputPath).size : null,
     audioHash,
     quote: script ? estimateAudio(script.body) : null,
   };
@@ -709,5 +755,112 @@ export const generatedBlogVoiceTracks: AudioTrack[] = ${JSON.stringify(tracks, n
   return {
     outputPath,
     tracks,
+  };
+}
+
+export function normalizeAudioCollectionId(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'all';
+}
+
+export function buildAudioBook({
+  articlesRoot,
+  publicRoot,
+  collectionId = 'all',
+  collectionTitle,
+  series,
+  manifestPath,
+  write = false,
+} = {}) {
+  const requestedCollectionId = normalizeAudioCollectionId(collectionId);
+  const requestedSeries = series ?? (requestedCollectionId === 'all' ? null : requestedCollectionId);
+  const chapters = articleSlugs(articlesRoot)
+    .map((slug) => statusForSlug({ articlesRoot, publicRoot, slug }))
+    .filter((item) => item.status === 'current')
+    .filter((item) => (
+      requestedSeries
+        ? normalizeAudioCollectionId(item.series ?? '') === normalizeAudioCollectionId(requestedSeries)
+        : true
+    ))
+    .sort((left, right) => (
+      String(left.publishedAt ?? '').localeCompare(String(right.publishedAt ?? '')) ||
+      left.title.localeCompare(right.title)
+    ));
+
+  const totalEstimatedMinutes = Math.round(
+    chapters.reduce((sum, chapter) => sum + (chapter.quote?.estimatedMinutes ?? 0), 0) * 10,
+  ) / 10;
+  const totalBytes = chapters.reduce((sum, chapter) => sum + (chapter.audioBytes ?? 0), 0);
+  const outputPath = audioBookOutputPath(publicRoot, requestedCollectionId);
+  const manifest = {
+    schemaVersion: 'article-audio-book-v1',
+    collectionId: requestedCollectionId,
+    title: collectionTitle ?? (requestedSeries ? `${requestedSeries} - Audiobook` : 'All Articles - Audiobook'),
+    series: requestedSeries,
+    status: write ? 'current' : 'planned',
+    publicSrc: write ? `/audio/voice/books/${requestedCollectionId}.mp3` : null,
+    outputPath: write ? outputPath : null,
+    audioBytes: write ? null : totalBytes,
+    audioHash: null,
+    chapterCount: chapters.length,
+    totalEstimatedMinutes,
+    chapters: chapters.map((chapter, index) => ({
+      index: index + 1,
+      slug: chapter.slug,
+      title: chapter.title,
+      publishedAt: chapter.publishedAt,
+      series: chapter.series,
+      publicSrc: chapter.publicSrc,
+      audioBytes: chapter.audioBytes,
+      audioHash: chapter.audioHash,
+      estimatedMinutes: chapter.quote?.estimatedMinutes ?? null,
+    })),
+    decisionSeam: {
+      name: 'audiobook-assembly',
+      safeDefault: 'dry-run-only',
+      approvalRequired: false,
+      note: 'This combines already-approved article MP3 files and does not call a paid TTS API.',
+    },
+    observation: {
+      claim: 'audiobook chapters are derived from current article audio manifests and MP3 checksums',
+      status: chapters.length > 0 ? 'PASS' : 'DEGRADED',
+      fallbackChain: [
+        'per-article audio-manifest.json',
+        'public/audio/voice/blog MP3 checksums',
+        'audiobook manifest',
+        'ROM heartbeat',
+      ],
+    },
+  };
+
+  if (write) {
+    concatMp3Files({
+      inputPaths: chapters.map((chapter) => chapter.outputPath),
+      outputPath,
+      tempRoot: path.dirname(outputPath),
+      collectionId: requestedCollectionId,
+    });
+    const audioBuffer = fs.readFileSync(outputPath);
+    manifest.outputPath = outputPath;
+    manifest.publicSrc = `/audio/voice/books/${requestedCollectionId}.mp3`;
+    manifest.audioBytes = audioBuffer.length;
+    manifest.audioHash = sha256(audioBuffer);
+    manifest.generatedAt = new Date().toISOString();
+  }
+
+  if (manifestPath) {
+    writeJson(manifestPath, manifest);
+  }
+
+  return {
+    publicPublishingPerformed: false,
+    paidGenerationPerformed: false,
+    collectionId: requestedCollectionId,
+    action: write ? 'generated-audiobook' : 'planned-audiobook',
+    manifestPath: manifestPath ?? null,
+    manifest,
   };
 }

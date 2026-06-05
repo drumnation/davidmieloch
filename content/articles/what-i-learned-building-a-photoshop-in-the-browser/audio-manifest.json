@@ -2,21 +2,21 @@
   "schemaVersion": "article-audio-v1",
   "slug": "what-i-learned-building-a-photoshop-in-the-browser",
   "title": "What I Learned Building a Photoshop in the Browser",
-  "status": "script-prepared",
+  "status": "current",
   "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/what-i-learned-building-a-photoshop-in-the-browser/index.md",
   "sourceHash": "8a737a8ed7a03a370c4a164c17331b17209cad12c45b652a59463661246bf560",
   "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/what-i-learned-building-a-photoshop-in-the-browser/audio.md",
   "scriptHash": "7be62ee1aa138e9db473adb35a4899a3dad3657fc382d732c9f0624402f08674",
-  "preparedAt": "2026-06-05T04:38:37.194Z",
+  "preparedAt": "2026-06-05T05:00:20.617Z",
   "voiceProvider": "speechify",
-  "voiceId": null,
+  "voiceId": "df8916b9-6a24-4d02-982a-39768698aea7",
   "model": "simba-english",
   "language": "en",
   "audioFormat": "mp3",
-  "outputPath": null,
-  "publicSrc": null,
-  "audioBytes": null,
-  "audioHash": null,
+  "outputPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/public/audio/voice/blog/what-i-learned-building-a-photoshop-in-the-browser.mp3",
+  "publicSrc": "/audio/voice/blog/what-i-learned-building-a-photoshop-in-the-browser.mp3",
+  "audioBytes": 6473900,
+  "audioHash": "b0872407609d72f888b3ae410594c1669a32f10ae033ce8ea7395bf30bce8b67",
   "quote": {
     "plainCharacters": 20235,
     "ssmlCharacters": 22193,
@@ -35,12 +35,19 @@
   },
   "observation": {
     "claim": "article audio has a versioned script and generation receipt",
-    "status": "DEGRADED",
+    "status": "PASS",
     "fallbackChain": [
       "audio-manifest.json",
       "audio.md sourceHash and scriptHash",
       "public MP3 checksum",
       "ROM heartbeat"
     ]
-  }
+  },
+  "generatedAt": "2026-06-05T05:00:20.617Z",
+  "approvedAt": "2026-06-05T04:44:23.218Z",
+  "chunkCount": 2,
+  "chunkCharacters": [
+    18570,
+    3671
+  ]
 }
