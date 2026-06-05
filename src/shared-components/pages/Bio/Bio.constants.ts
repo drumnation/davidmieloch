@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { MediaItem } from './Bio.types';
 
-export const BIO_TITLE = "David Mieloch: Orchestrating Code, Composing Solutions";
+export const BIO_TITLE = "David Mieloch: Music, Software, and the Systems Between Them";
 
 // Intro paragraph that appears at the top of the bio
 export const INTRO_PARAGRAPH = "With over a decade of experience in software development and technical leadership, I've had the privilege of working across a diverse range of projects and domains, from high-performance financial systems to cutting-edge machine learning applications.";
