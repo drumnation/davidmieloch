@@ -148,15 +148,16 @@ Current LinkedIn state as of 2026-06-05:
 - Client id: recorded in `content/distribution/social-account-inventory.json`.
 - Client secret: generated in LinkedIn, but not yet stored in 1Password because the current CLI session is a read-only service account. Do not put this secret in git, shell history, chat, or docs.
 - Added products: Share on LinkedIn; Sign In with LinkedIn using OpenID Connect.
-- Redirect setup is blocked: LinkedIn rejects `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin` even though Postiz confirms that route is correct and the URL returns 200 inside Brain Garden.
+- Saved redirect: `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin`
+- Pending redirect: `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin-page`
 
-Redirect blocker:
+Redirect notes:
 
 ```text
 social-davidmieloch.brain-garden.io -> 100.71.79.54
 ```
 
-That is the Tailscale/internal address for singularity-one. LinkedIn's Developer app validator treats it as an invalid redirect target. Keep the Postiz GUI internal. The next safe design is a narrow public callback-only `brain-garden.io` route or OAuth bridge that forwards only the two LinkedIn callback paths to Postiz. Do not expose the whole Postiz GUI unless Dave explicitly answers yes to: "Does anybody but Dave need to touch this GUI?"
+That is the Tailscale/internal address for singularity-one. The profile callback is accepted by LinkedIn and works from the Brain Garden environment. The Page callback path currently triggers LinkedIn's valid-URL warning and was not saved. Keep the Postiz GUI internal; do not expose the whole GUI unless Dave explicitly answers yes to: "Does anybody but Dave need to touch this GUI?"
 
 Observed failure before configuration:
 

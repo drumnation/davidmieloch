@@ -80,13 +80,15 @@
           "Share on LinkedIn",
           "Sign In with LinkedIn using OpenID Connect"
         ],
-        "redirectStatus": "blocked",
-        "redirectBlocker": "LinkedIn rejects the internal brain-garden.io callback because social-davidmieloch.brain-garden.io resolves to the Tailscale address 100.71.79.54. Postiz confirms these are the correct callback paths, but LinkedIn needs a public/non-private redirect target.",
+        "redirectStatus": "profile-callback-accepted-page-callback-rejected",
+        "redirectBlocker": "The Postiz profile callback is accepted and saved in LinkedIn. The Postiz Page callback path currently triggers LinkedIn's valid-URL warning and was not saved.",
         "requiredRedirects": [
-          "https://social-davidmieloch.brain-garden.io/integrations/social/linkedin",
+          "https://social-davidmieloch.brain-garden.io/integrations/social/linkedin"
+        ],
+        "pendingRedirects": [
           "https://social-davidmieloch.brain-garden.io/integrations/social/linkedin-page"
         ],
-        "safeNextStep": "Create an approved public callback-only brain-garden.io route, or configure a public OAuth bridge, then set the matching Postiz FRONTEND_URL before retrying LinkedIn callbacks."
+        "safeNextStep": "Store the LinkedIn OAuth secret in 1Password, set LINKEDIN_CLIENT_ID and LINKEDIN_CLIENT_SECRET in the Postiz server environment, restart Postiz, then connect the LinkedIn profile provider. Resolve the LinkedIn Page callback separately before relying on Page scheduling."
       },
       "credentialItemTitle": "Social / LinkedIn Page / Singularity Labs / brand-lab",
       "notes": "Created so the LinkedIn Developer app can be associated with the real company Page. Do not publish Page posts without explicit approval."

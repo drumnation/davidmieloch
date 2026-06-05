@@ -110,7 +110,7 @@ function accountReadinessBlocker(inventory, account) {
     }
     return 'Account has not been created or reserved yet.';
   }
-  if (account.developerApp?.redirectStatus === 'blocked') {
+  if (account.developerApp?.redirectStatus?.includes('rejected') || account.developerApp?.redirectStatus === 'blocked') {
     return account.developerApp.redirectBlocker;
   }
   if (account.postizChannelStatus !== 'connected') {
