@@ -21,6 +21,10 @@ import {
   publishScheduleMarkdown,
 } from './lib/content-scheduler.mjs';
 import {
+  buildContentLedger,
+  contentLedgerMarkdown,
+} from './lib/content-ledger.mjs';
+import {
   contentMetricsChecklist,
   contentMetricsReport,
   recordContentMetric,
@@ -56,9 +60,11 @@ const packagesRoot = path.join(contentRoot, 'distribution/packages');
 const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
 const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.json');
 const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
+const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
 const defaultQueueOutputPath = path.join(appRoot, 'docs/ops/content-distribution-next-actions.md');
 const defaultScheduleOutputPath = path.join(appRoot, 'docs/ops/content-distribution-schedule.md');
+const defaultContentLedgerOutputPath = path.join(appRoot, 'docs/ops/content-ledger.md');
 const PIPELINE_CLASSES = ['DATA_PIPELINE', 'AGENTIC_WORKFLOW', 'COMPILATION_PIPELINE'];
 
 function redact(value) {
@@ -1057,6 +1063,38 @@ function metricsRecord(slug, platform) {
   return { slug, platform, record };
 }
 
+function contentLedgerCommand() {
+  const options = parseCommandOptions(3);
+  const obsidianBlogsRoot = options['obsidian-root']
+    ? path.resolve(appRoot, options['obsidian-root'])
+    : resolveObsidianBlogsRoot();
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : contentLedgerPath;
+  const reportPath = options.report
+    ? path.resolve(appRoot, options.report)
+    : defaultContentLedgerOutputPath;
+  const ledger = buildContentLedger({
+    obsidianBlogsRoot,
+    websiteArticlesRoot: articlesRoot,
+    publicRoot,
+    packagesRoot,
+    platformLedgerPath: ledgerPath,
+    publishSchedulePath,
+  });
+
+  if (options.write) {
+    writeJson(outputPath, ledger);
+    fs.mkdirSync(path.dirname(reportPath), { recursive: true });
+    fs.writeFileSync(reportPath, contentLedgerMarkdown(ledger));
+  }
+
+  return {
+    ...ledger,
+    ...(options.write ? { outputPath, reportPath } : {}),
+  };
+}
+
 async function createDevtoDraft(slug) {
   const { body, meta } = readVariant(slug, 'devto');
   const article = readArticle(slug);
@@ -1256,6 +1294,7 @@ function usage() {
   pnpm content:pipeline metrics:report
   pnpm content:pipeline metrics:checklist
   pnpm content:pipeline metrics:record <slug> <platform> --url=<published-url> [--views=0] [--clicks=0] [--reactions=0] [--comments=0] [--shares=0] [--subscribers=0]
+  pnpm content:pipeline content:ledger [--write] [--output=<path>] [--report=<path>] [--obsidian-root=<path>]
 
 Safety:
   - DEV and Hashnode commands create unpublished/delisted drafts only.
@@ -1267,6 +1306,7 @@ Safety:
   - queue:write writes a checklist file only; it does not create drafts or publish.
   - schedule commands create/read local schedule artifacts only; they do not create drafts or publish.
   - metrics commands write local observation data only.
+  - content:ledger writes inventory/report artifacts only.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
 `);
@@ -1360,6 +1400,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'metrics:record' && slug && process.argv[4]) {
     return metricsRecord(slug, process.argv[4]);
+  }
+  if (command === 'content:ledger') {
+    return contentLedgerCommand();
   }
   if (command === 'devto:create-draft' && slug) {
     return createDevtoDraft(slug);

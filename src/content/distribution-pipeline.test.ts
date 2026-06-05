@@ -23,6 +23,20 @@ import {
   contentMetricsReport,
   recordContentMetric,
 } from '../../scripts/lib/content-metrics.mjs';
+import {
+  buildContentLedger,
+  contentLedgerMarkdown,
+} from '../../scripts/lib/content-ledger.mjs';
+
+type ContentLedgerOptions = {
+  obsidianBlogsRoot: string;
+  websiteArticlesRoot: string;
+  publicRoot: string;
+  packagesRoot: string;
+  platformLedgerPath: string;
+  publishSchedulePath: string;
+  generatedAt: string;
+};
 
 const roots: string[] = [];
 
@@ -208,6 +222,12 @@ function writeLaunchCalendarFixture(root: string) {
       ],
     }, null, 2),
   );
+}
+
+function longBody() {
+  return Array.from({ length: 75 }, () => (
+    'The factory primitive is a concrete repeatable unit that turns agent labor into durable substrate.'
+  )).join(' ');
 }
 
 function runPipelineCommand(root: string, args: string[]) {
@@ -457,6 +477,172 @@ describe('content metrics observability', () => {
       public_reactions_count: 7,
       comments_count: 3,
     });
+  });
+});
+
+describe('upstream content ledger', () => {
+  it('dedupes Obsidian drafts, keeps dated folders canonical, and tracks image and schedule gates', () => {
+    const root = tempRoot();
+    const blogsRoot = join(root, 'blogs');
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const packagesRoot = join(root, 'content/distribution/packages');
+    const platformLedgerPath = join(root, 'content/distribution/platform-ledger.json');
+    const publishSchedulePath = join(root, 'content/distribution/publish-schedule.json');
+
+    mkdirSync(join(blogsRoot, '6-3-2026', 'the-filter'), { recursive: true });
+    mkdirSync(join(blogsRoot, '_organized/vault-drafts'), { recursive: true });
+    mkdirSync(join(packagesRoot, 'the-filter'), { recursive: true });
+    mkdirSync(join(root, 'content/distribution'), { recursive: true });
+    writeFileSync(
+      join(blogsRoot, '6-3-2026/the-filter.md'),
+      `---
+title: "The Filter"
+status: "draft"
+---
+
+# The Filter
+
+${longBody()}
+`,
+    );
+    writeFileSync(join(blogsRoot, '6-3-2026/the-filter/filter-hero.png'), 'fake image bytes');
+    writeFileSync(
+      join(blogsRoot, '6-3-2026/HANDOFF.md'),
+      `# Golden Hammer Series Session Handoff
+
+This is workflow context, not an article.
+`,
+    );
+    writeFileSync(
+      join(blogsRoot, '_organized/vault-drafts/the-filter.md'),
+      `---
+title: "The Filter"
+status: "draft"
+---
+
+# The Filter
+
+Older organized duplicate.
+`,
+    );
+    writeFileSync(join(packagesRoot, 'the-filter', 'linkedin.md'), 'linkedin package');
+    writeFileSync(
+      platformLedgerPath,
+      JSON.stringify({ articles: {} }, null, 2),
+    );
+    writeFileSync(
+      publishSchedulePath,
+      JSON.stringify({
+        entries: [
+          {
+            articleSlug: 'the-filter',
+            scheduledAt: '2026-06-08T15:00:00.000Z',
+            platform: 'linkedin',
+            displayName: 'LinkedIn',
+            action: 'prepare-social-teaser',
+            status: 'draft',
+            safeDefault: 'do-not-publish',
+            approval: { status: 'missing' },
+            publicPublishingAllowed: false,
+          },
+        ],
+      }, null, 2),
+    );
+
+    const buildLedger = buildContentLedger as unknown as (
+      options: ContentLedgerOptions
+    ) => ReturnType<typeof buildContentLedger>;
+    const ledger = buildLedger({
+      obsidianBlogsRoot: blogsRoot,
+      websiteArticlesRoot: articlesRoot,
+      publicRoot,
+      packagesRoot,
+      platformLedgerPath,
+      publishSchedulePath,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(ledger.publicPublishingPerformed).toBe(false);
+    expect(ledger.summary).toMatchObject({
+      totalCandidates: 1,
+      likelyLegitUnpublished: 1,
+      needsImageWork: 1,
+      needsSocialTeaser: 0,
+      needsReleaseSchedule: 0,
+    });
+    expect(ledger.duplicateGroups).toHaveLength(1);
+    expect(ledger.items[0]).toMatchObject({
+      slug: 'the-filter',
+      sourceBucket: 'dated-folder',
+      collection: 'Factory Primitives',
+      gates: {
+        thesis: 'likely-finished-text-review-needed',
+        image: 'needs-image-selection-approval',
+        website: 'needs-website-staging',
+        socialTeaser: 'package-started',
+        release: 'scheduled-or-queued',
+        approval: 'needs-david-approval-before-public-release',
+      },
+      releaseSchedule: {
+        status: 'scheduled-or-queued',
+        count: 1,
+        nextScheduledAt: '2026-06-08T15:00:00.000Z',
+      },
+    });
+
+    const markdown = contentLedgerMarkdown(ledger);
+    expect(markdown).toContain('# Content Ledger');
+    expect(markdown).toContain('- Needs release schedule: 0');
+    expect(markdown).toContain('Release: scheduled-or-queued next 2026-06-08T15:00:00.000Z');
+  });
+
+  it('writes the content ledger and Markdown report through the CLI without publishing', () => {
+    const root = tempRoot();
+    const blogsRoot = join(root, 'blogs');
+    const outputPath = join(root, 'content/distribution/content-ledger.json');
+    const reportPath = join(root, 'docs/ops/content-ledger.md');
+
+    mkdirSync(join(blogsRoot, '6-3-2026'), { recursive: true });
+    mkdirSync(join(root, 'content/distribution'), { recursive: true });
+    writeFileSync(
+      join(blogsRoot, '6-3-2026/the-meter.md'),
+      `---
+title: "The Meter"
+---
+
+# The Meter
+
+${longBody()}
+`,
+    );
+    writeFileSync(
+      join(root, 'content/distribution/platform-ledger.json'),
+      JSON.stringify({ articles: {} }, null, 2),
+    );
+
+    const result = runPipelineCommand(root, [
+      'content:ledger',
+      '--write',
+      `--obsidian-root=${blogsRoot}`,
+      `--output=${outputPath}`,
+      `--report=${reportPath}`,
+    ]);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload).toMatchObject({
+      publicPublishingPerformed: false,
+      outputPath,
+      reportPath,
+      summary: {
+        totalCandidates: 1,
+      },
+    });
+    expect(JSON.parse(readFileSync(outputPath, 'utf8')).items[0]).toMatchObject({
+      slug: 'the-meter',
+    });
+    expect(readFileSync(reportPath, 'utf8')).toContain('# Content Ledger');
   });
 });
 
