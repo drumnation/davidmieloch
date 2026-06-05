@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "article-audio-v1",
+  "slug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+  "title": "Reuse your code: Authoring your own Universal Library with Webpack",
+  "status": "script-prepared",
+  "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/reuse-your-code-authoring-your-own-universal-library-with-webpack/index.md",
+  "sourceHash": "cf6bb433448b027f33a432f4a8b18df2464be2c48710c97cbad99a043f84cab2",
+  "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/reuse-your-code-authoring-your-own-universal-library-with-webpack/audio.md",
+  "scriptHash": "2ff3471ad6cfaf07468e9c34a58d73ab02e08412dc69bb0b48061197a4b4f573",
+  "preparedAt": "2026-06-05T04:38:36.872Z",
+  "voiceProvider": "speechify",
+  "voiceId": null,
+  "model": "simba-english",
+  "language": "en",
+  "audioFormat": "mp3",
+  "outputPath": null,
+  "publicSrc": null,
+  "audioBytes": null,
+  "audioHash": null,
+  "quote": {
+    "plainCharacters": 2255,
+    "ssmlCharacters": 2989,
+    "estimatedWords": 375,
+    "estimatedMinutes": 2.5,
+    "endpoint": "https://api.speechify.ai/v1/audio/stream",
+    "requiresChunking": false,
+    "chunkCount": 1,
+    "maxChunkCharacters": 2989,
+    "maxStreamCharacters": 20000
+  },
+  "decisionSeam": {
+    "name": "paid-audio-generation",
+    "safeDefault": "do-not-generate",
+    "approvalRequired": true
+  },
+  "observation": {
+    "claim": "article audio has a versioned script and generation receipt",
+    "status": "DEGRADED",
+    "fallbackChain": [
+      "audio-manifest.json",
+      "audio.md sourceHash and scriptHash",
+      "public MP3 checksum",
+      "ROM heartbeat"
+    ]
+  }
+}

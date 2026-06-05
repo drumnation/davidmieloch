@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "article-audio-v1",
+  "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+  "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+  "status": "script-prepared",
+  "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/index.md",
+  "sourceHash": "c6fee9ac846df0543e8de7f74a9955e7bc309c99ec262ff0f30121aed81e5c85",
+  "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/audio.md",
+  "scriptHash": "1f9d42f025e9ab0f336b10d74bf1b9d86fea2f41aacf153482d6b5b5b1b1fadf",
+  "preparedAt": "2026-06-05T04:38:36.390Z",
+  "voiceProvider": "speechify",
+  "voiceId": null,
+  "model": "simba-english",
+  "language": "en",
+  "audioFormat": "mp3",
+  "outputPath": null,
+  "publicSrc": null,
+  "audioBytes": null,
+  "audioHash": null,
+  "quote": {
+    "plainCharacters": 6325,
+    "ssmlCharacters": 7983,
+    "estimatedWords": 1038,
+    "estimatedMinutes": 6.9,
+    "endpoint": "https://api.speechify.ai/v1/audio/stream",
+    "requiresChunking": false,
+    "chunkCount": 1,
+    "maxChunkCharacters": 7983,
+    "maxStreamCharacters": 20000
+  },
+  "decisionSeam": {
+    "name": "paid-audio-generation",
+    "safeDefault": "do-not-generate",
+    "approvalRequired": true
+  },
+  "observation": {
+    "claim": "article audio has a versioned script and generation receipt",
+    "status": "DEGRADED",
+    "fallbackChain": [
+      "audio-manifest.json",
+      "audio.md sourceHash and scriptHash",
+      "public MP3 checksum",
+      "ROM heartbeat"
+    ]
+  }
+}

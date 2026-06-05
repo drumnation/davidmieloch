@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "article-audio-v1",
+  "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+  "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
+  "status": "script-prepared",
+  "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/index.md",
+  "sourceHash": "b77fd1d112922c20389276448e97bd1ac3f8e8d3531b99402f9f55b5f30ab304",
+  "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/audio.md",
+  "scriptHash": "366e7635431171811749eba1ca74dc2db3bc247001fc0473bc4639c864f88851",
+  "preparedAt": "2026-06-05T04:38:37.281Z",
+  "voiceProvider": "speechify",
+  "voiceId": null,
+  "model": "simba-english",
+  "language": "en",
+  "audioFormat": "mp3",
+  "outputPath": null,
+  "publicSrc": null,
+  "audioBytes": null,
+  "audioHash": null,
+  "quote": {
+    "plainCharacters": 2216,
+    "ssmlCharacters": 2626,
+    "estimatedWords": 370,
+    "estimatedMinutes": 2.5,
+    "endpoint": "https://api.speechify.ai/v1/audio/stream",
+    "requiresChunking": false,
+    "chunkCount": 1,
+    "maxChunkCharacters": 2626,
+    "maxStreamCharacters": 20000
+  },
+  "decisionSeam": {
+    "name": "paid-audio-generation",
+    "safeDefault": "do-not-generate",
+    "approvalRequired": true
+  },
+  "observation": {
+    "claim": "article audio has a versioned script and generation receipt",
+    "status": "DEGRADED",
+    "fallbackChain": [
+      "audio-manifest.json",
+      "audio.md sourceHash and scriptHash",
+      "public MP3 checksum",
+      "ROM heartbeat"
+    ]
+  }
+}

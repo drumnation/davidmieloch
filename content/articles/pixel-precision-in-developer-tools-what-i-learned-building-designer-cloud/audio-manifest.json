@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "article-audio-v1",
+  "slug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+  "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
+  "status": "script-prepared",
+  "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/index.md",
+  "sourceHash": "b0bcf9e7008440a0607b7ee47bfb239b63a3230af8d8385d5c48f6f00971f4e0",
+  "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/audio.md",
+  "scriptHash": "4e512504cfba0336cfcdf84a95f086e6193dc3cba5ac6cca6783acf5b7629f66",
+  "preparedAt": "2026-06-05T04:38:36.765Z",
+  "voiceProvider": "speechify",
+  "voiceId": null,
+  "model": "simba-english",
+  "language": "en",
+  "audioFormat": "mp3",
+  "outputPath": null,
+  "publicSrc": null,
+  "audioBytes": null,
+  "audioHash": null,
+  "quote": {
+    "plainCharacters": 6774,
+    "ssmlCharacters": 8192,
+    "estimatedWords": 1107,
+    "estimatedMinutes": 7.4,
+    "endpoint": "https://api.speechify.ai/v1/audio/stream",
+    "requiresChunking": false,
+    "chunkCount": 1,
+    "maxChunkCharacters": 8192,
+    "maxStreamCharacters": 20000
+  },
+  "decisionSeam": {
+    "name": "paid-audio-generation",
+    "safeDefault": "do-not-generate",
+    "approvalRequired": true
+  },
+  "observation": {
+    "claim": "article audio has a versioned script and generation receipt",
+    "status": "DEGRADED",
+    "fallbackChain": [
+      "audio-manifest.json",
+      "audio.md sourceHash and scriptHash",
+      "public MP3 checksum",
+      "ROM heartbeat"
+    ]
+  }
+}

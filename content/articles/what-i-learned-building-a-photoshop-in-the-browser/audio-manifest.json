@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "article-audio-v1",
+  "slug": "what-i-learned-building-a-photoshop-in-the-browser",
+  "title": "What I Learned Building a Photoshop in the Browser",
+  "status": "script-prepared",
+  "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/what-i-learned-building-a-photoshop-in-the-browser/index.md",
+  "sourceHash": "8a737a8ed7a03a370c4a164c17331b17209cad12c45b652a59463661246bf560",
+  "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/what-i-learned-building-a-photoshop-in-the-browser/audio.md",
+  "scriptHash": "7be62ee1aa138e9db473adb35a4899a3dad3657fc382d732c9f0624402f08674",
+  "preparedAt": "2026-06-05T04:38:37.194Z",
+  "voiceProvider": "speechify",
+  "voiceId": null,
+  "model": "simba-english",
+  "language": "en",
+  "audioFormat": "mp3",
+  "outputPath": null,
+  "publicSrc": null,
+  "audioBytes": null,
+  "audioHash": null,
+  "quote": {
+    "plainCharacters": 20235,
+    "ssmlCharacters": 22193,
+    "estimatedWords": 2889,
+    "estimatedMinutes": 19.3,
+    "endpoint": "https://api.speechify.ai/v1/audio/stream",
+    "requiresChunking": true,
+    "chunkCount": 2,
+    "maxChunkCharacters": 18570,
+    "maxStreamCharacters": 20000
+  },
+  "decisionSeam": {
+    "name": "paid-audio-generation",
+    "safeDefault": "do-not-generate",
+    "approvalRequired": true
+  },
+  "observation": {
+    "claim": "article audio has a versioned script and generation receipt",
+    "status": "DEGRADED",
+    "fallbackChain": [
+      "audio-manifest.json",
+      "audio.md sourceHash and scriptHash",
+      "public MP3 checksum",
+      "ROM heartbeat"
+    ]
+  }
+}

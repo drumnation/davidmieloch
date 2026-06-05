@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "article-audio-v1",
+  "slug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+  "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
+  "status": "script-prepared",
+  "sourceArticlePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/building-with-brain-garden-real-world-lessons-in-practical-ai/index.md",
+  "sourceHash": "4d2fc88c8ba997c168af82989fd58b141a76ead325e8a2c852b308dca6d49718",
+  "scriptPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles/building-with-brain-garden-real-world-lessons-in-practical-ai/audio.md",
+  "scriptHash": "8e66185e014a152ed93a1a14deec4ed2779f8ece1ce3937c1c9153e3b46c7287",
+  "preparedAt": "2026-06-05T04:38:36.494Z",
+  "voiceProvider": "speechify",
+  "voiceId": null,
+  "model": "simba-english",
+  "language": "en",
+  "audioFormat": "mp3",
+  "outputPath": null,
+  "publicSrc": null,
+  "audioBytes": null,
+  "audioHash": null,
+  "quote": {
+    "plainCharacters": 6283,
+    "ssmlCharacters": 7917,
+    "estimatedWords": 957,
+    "estimatedMinutes": 6.4,
+    "endpoint": "https://api.speechify.ai/v1/audio/stream",
+    "requiresChunking": false,
+    "chunkCount": 1,
+    "maxChunkCharacters": 7917,
+    "maxStreamCharacters": 20000
+  },
+  "decisionSeam": {
+    "name": "paid-audio-generation",
+    "safeDefault": "do-not-generate",
+    "approvalRequired": true
+  },
+  "observation": {
+    "claim": "article audio has a versioned script and generation receipt",
+    "status": "DEGRADED",
+    "fallbackChain": [
+      "audio-manifest.json",
+      "audio.md sourceHash and scriptHash",
+      "public MP3 checksum",
+      "ROM heartbeat"
+    ]
+  }
+}

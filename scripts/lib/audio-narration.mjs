@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 const AUDIO_SCHEMA_VERSION = 'article-audio-v1';
 const SPEECHIFY_STREAM_ENDPOINT = 'https://api.speechify.ai/v1/audio/stream';
@@ -217,16 +218,62 @@ function escapeXml(value) {
     .replace(/"/g, '&quot;');
 }
 
-function scriptToSsml(scriptBody, emotion = 'direct') {
-  const paragraphs = paragraphize(scriptBody);
+function paragraphsToSsml(paragraphs, emotion = 'direct') {
   const body = paragraphs
     .map((paragraph) => `    <p>${escapeXml(paragraph)}</p>`)
     .join('\n    <break time="650ms"/>\n');
   return `<speak>\n  <speechify:style emotion="${escapeXml(emotion)}">\n${body}\n  </speechify:style>\n</speak>`;
 }
 
+function scriptToSsml(scriptBody, emotion = 'direct') {
+  return paragraphsToSsml(paragraphize(scriptBody), emotion);
+}
+
+function ssmlChunks(scriptBody, emotion = 'direct') {
+  const paragraphs = paragraphize(scriptBody);
+  const chunks = [];
+  let current = [];
+
+  for (const paragraph of paragraphs) {
+    const candidate = [...current, paragraph];
+    const candidateSsml = paragraphsToSsml(candidate, emotion);
+    if (candidateSsml.length <= MAX_STREAM_CHARS) {
+      current = candidate;
+      continue;
+    }
+
+    if (current.length > 0) {
+      chunks.push(paragraphsToSsml(current, emotion));
+      current = [paragraph];
+      continue;
+    }
+
+    const sentences = paragraph.match(/[^.!?]+[.!?]+|[^.!?]+$/g) ?? [paragraph];
+    let sentenceChunk = [];
+    for (const sentence of sentences.map((item) => item.trim()).filter(Boolean)) {
+      const sentenceCandidate = [...sentenceChunk, sentence];
+      if (paragraphsToSsml([sentenceCandidate.join(' ')], emotion).length <= MAX_STREAM_CHARS) {
+        sentenceChunk = sentenceCandidate;
+        continue;
+      }
+      if (sentenceChunk.length === 0) {
+        throw new Error('A single sentence exceeds the Speechify stream character limit.');
+      }
+      chunks.push(paragraphsToSsml([sentenceChunk.join(' ')], emotion));
+      sentenceChunk = [sentence];
+    }
+    if (sentenceChunk.length > 0) {
+      current = [sentenceChunk.join(' ')];
+    }
+  }
+
+  if (current.length > 0) chunks.push(paragraphsToSsml(current, emotion));
+  return chunks.length > 0 ? chunks : [scriptToSsml(scriptBody, emotion)];
+}
+
 function estimateAudio(scriptBody) {
   const ssml = scriptToSsml(scriptBody);
+  const chunks = ssmlChunks(scriptBody);
   const plainCharacters = scriptBody.length;
   const ssmlCharacters = ssml.length;
   const estimatedWords = scriptBody.split(/\s+/).filter(Boolean).length;
@@ -238,6 +285,8 @@ function estimateAudio(scriptBody) {
     estimatedMinutes,
     endpoint: SPEECHIFY_STREAM_ENDPOINT,
     requiresChunking: ssmlCharacters > MAX_STREAM_CHARS,
+    chunkCount: chunks.length,
+    maxChunkCharacters: Math.max(...chunks.map((chunk) => chunk.length)),
     maxStreamCharacters: MAX_STREAM_CHARS,
   };
 }
@@ -418,6 +467,46 @@ async function speechifyStream({ input, voiceId, apiKey }) {
   return Buffer.from(await response.arrayBuffer());
 }
 
+function concatMp3Chunks({ chunks, outputPath, tempRoot, slug }) {
+  if (chunks.length === 1) {
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, chunks[0]);
+    return;
+  }
+
+  const tempDir = path.join(tempRoot, `.audio-${slug}-${Date.now()}`);
+  fs.mkdirSync(tempDir, { recursive: true });
+  const listPath = path.join(tempDir, 'chunks.txt');
+  const chunkPaths = chunks.map((chunk, index) => {
+    const chunkPath = path.join(tempDir, `chunk-${String(index + 1).padStart(3, '0')}.mp3`);
+    fs.writeFileSync(chunkPath, chunk);
+    return chunkPath;
+  });
+  fs.writeFileSync(
+    listPath,
+    chunkPaths.map((chunkPath) => `file '${chunkPath.replace(/'/g, "'\\''")}'`).join('\n'),
+  );
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  const ffmpeg = spawnSync('ffmpeg', [
+    '-hide_banner',
+    '-loglevel',
+    'error',
+    '-f',
+    'concat',
+    '-safe',
+    '0',
+    '-i',
+    listPath,
+    '-c',
+    'copy',
+    outputPath,
+  ], { encoding: 'utf8' });
+  fs.rmSync(tempDir, { recursive: true, force: true });
+  if (ffmpeg.status !== 0) {
+    throw new Error(`ffmpeg failed to concatenate Speechify chunks: ${ffmpeg.stderr.trim()}`);
+  }
+}
+
 export async function generateArticleAudio({
   articlesRoot,
   publicRoot,
@@ -465,18 +554,27 @@ export async function generateArticleAudio({
     };
   }
 
-  const ssml = scriptToSsml(script.body);
-  if (ssml.length > MAX_STREAM_CHARS) {
-    throw new Error(`Speechify stream input is ${ssml.length} characters; max is ${MAX_STREAM_CHARS}. Split or shorten audio.md before generating.`);
+  const chunks = ssmlChunks(script.body);
+  const tooLong = chunks.find((chunk) => chunk.length > MAX_STREAM_CHARS);
+  if (tooLong) {
+    throw new Error(`Speechify stream chunk is ${tooLong.length} characters; max is ${MAX_STREAM_CHARS}. Shorten audio.md before generating.`);
   }
 
-  const audioBuffer = await speechifyStream({
-    input: ssml,
-    voiceId: resolvedVoiceId,
-    apiKey,
+  const audioChunks = [];
+  for (const chunk of chunks) {
+    audioChunks.push(await speechifyStream({
+      input: chunk,
+      voiceId: resolvedVoiceId,
+      apiKey,
+    }));
+  }
+  concatMp3Chunks({
+    chunks: audioChunks,
+    outputPath,
+    tempRoot: path.dirname(outputPath),
+    slug,
   });
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, audioBuffer);
+  const audioBuffer = fs.readFileSync(outputPath);
 
   const nextManifest = baseManifest({
     article,
@@ -491,6 +589,8 @@ export async function generateArticleAudio({
   });
   nextManifest.generatedAt = generatedAt;
   nextManifest.approvedAt = manifest.approvedAt ?? null;
+  nextManifest.chunkCount = chunks.length;
+  nextManifest.chunkCharacters = chunks.map((chunk) => chunk.length);
   writeJson(audioManifestPath(articlesRoot, slug), nextManifest);
 
   return {

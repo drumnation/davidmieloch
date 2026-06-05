@@ -3,7 +3,7 @@ title: "The Factory - Audio Version"
 sourceArticle: "the-factory"
 sourceHash: "aede0a696a2b49047f17f1070a4ebc9fd7cc1a8eca190450be1a103ddc0ebf82"
 status: "needs-approval"
-preparedAt: "2026-06-05T04:33:17.120Z"
+preparedAt: "2026-06-05T04:38:36.976Z"
 format: "spoken-markdown-v1"
 ---
 
