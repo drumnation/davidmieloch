@@ -9,6 +9,9 @@ Do not lose legitimate job, consulting, press, or collaboration opportunities du
 ```text
 Inbound opportunity email
   -> domain mail routing / contact form
+  -> durable lead table or alert webhook
+  -> CRM sync
+  -> newsletter opt-in sync when explicitly checked
   -> David's Gmail
   -> opportunity triage destination
   -> agent notification
@@ -17,7 +20,7 @@ Inbound opportunity email
 
 ## Current App-Level Contact Path
 
-The contact API route uses these environment variables:
+The contact API route can still send direct email through SMTP:
 
 ```text
 SMTP_HOST
@@ -27,7 +30,36 @@ SMTP_PASS
 CONTACT_FORM_RECEIVER_EMAIL
 ```
 
-The route sends all contact form submissions to `CONTACT_FORM_RECEIVER_EMAIL` and sets `replyTo` to the sender's email.
+The route sends configured SMTP submissions to `CONTACT_FORM_RECEIVER_EMAIL` and sets `replyTo` to the sender's email.
+
+Lead capture no longer depends on SMTP alone. Configure at least one durable intake sink:
+
+```text
+SUPABASE_URL or NEXT_PUBLIC_SUPABASE_URL
+SUPABASE_SERVICE_ROLE_KEY or SUPABASE_SECRET_KEY
+LEAD_ALERT_WEBHOOK_URL
+```
+
+Optional downstream sync:
+
+```text
+LEAD_SOURCE=davidmieloch.com
+TWENTY_API_BASE_URL
+TWENTY_API_KEY
+MAILERLITE_API_KEY
+MAILERLITE_GROUP_ID
+```
+
+`TWENTY_BASE_URL` is also accepted as an alias for `TWENTY_API_BASE_URL`.
+Set `TWENTY_CREATE_OPPORTUNITIES=false` if the Twenty workspace does not yet
+have the opportunity fields/stages needed for automatic opportunity creation.
+
+The user-facing form should succeed when the lead is captured in the table or
+sent through the alert webhook. Twenty and MailerLite are replayable downstream
+systems, not the only copy of the lead. The Twenty sync creates the basic CRM
+person first, then best-effort company/opportunity context. If richer Twenty
+fields are missing, the contact form should still preserve the lead through the
+durable intake/email path.
 
 ## Recommended Destinations
 
@@ -100,3 +132,20 @@ Verify:
 - Reply-To is the external sender, not the SMTP sender.
 
 `pnpm contact:check` writes a ROM heartbeat observation before any send test. A failed check still records a `FAILURE` event so the opportunity-routing observer is not silently dead.
+
+Twenty has a separate probe:
+
+```text
+pnpm contact:twenty:check
+```
+
+That command is read-only. It verifies whether the Twenty base URL/API key are
+configured and whether the metadata API is reachable. To create a marked test
+person in Twenty, run:
+
+```text
+pnpm contact:twenty:check -- --send
+```
+
+Only run the send mode when a `BG Twenty routing test ...` person may be created
+in the CRM.

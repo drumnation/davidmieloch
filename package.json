@@ -24,6 +24,7 @@
     "draft:decision": "node scripts/set-draft-decision.mjs",
     "content:observe": "node scripts/content-pipeline.mjs observe:bootstrap",
     "contact:check": "node scripts/check-contact-routing.mjs",
+    "contact:twenty:check": "node scripts/check-twenty-routing.mjs",
     "postinstall": "node scripts/patch-react-floater-types.mjs",
     "process-linkedin": "node scripts/process-linkedin-data.js",
     "generate-pdf-thumbnails": "node scripts/generate-pdf-thumbnails.js",
