@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { NewsletterSignup } from "@shared-components/organisms/NewsletterSignup/NewsletterSignup";
 import type { HomeArticleTeaser, HomePageProps } from "./Home.types";
 import styles from "./Home.module.css";
 
@@ -230,6 +231,14 @@ export const Home: React.FC<HomePageProps> = ({
           David helps teams design the operating model, tools, and governance
           needed to run AI-assisted software work with confidence.
         </p>
+      </section>
+
+      <section className={styles.signupBand} aria-label="Email updates">
+        <NewsletterSignup
+          placement="homepage-positioning-band"
+          title="Follow the factory work as it ships."
+          description="Get the essays, launch notes, and practical artifacts from the software factory work without needing to follow every platform."
+        />
       </section>
 
       <section className={styles.section} aria-labelledby="proof-title">

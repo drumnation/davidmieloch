@@ -8,6 +8,7 @@ import {
   getPublishedArticles,
   getSiteUrl,
 } from "../../../src/content/articles";
+import { NewsletterSignup } from "../../../src/shared-components/organisms/NewsletterSignup/NewsletterSignup";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -112,6 +113,16 @@ export default async function ArticlePage({ params }: PageProps) {
         >
           {article.body}
         </ReactMarkdown>
+
+        <div style={styles.signupSlot}>
+          <NewsletterSignup
+            placement={`article-footer-${article.slug}`}
+            tone="light"
+            title="Want the next piece in this thread?"
+            description="Join the list for new essays, audio versions, and practical notes from the factory work."
+            ctaLabel="Follow the thread"
+          />
+        </div>
 
         {article.channels.includes("singularity-labs") ? (
           <aside
@@ -276,6 +287,9 @@ const styles: Record<string, CSSProperties> = {
     border: 0,
     borderTop: "1px solid #e2e2e2",
     margin: "34px 0",
+  },
+  signupSlot: {
+    marginTop: "46px",
   },
   singularityLabsCta: {
     marginTop: "46px",

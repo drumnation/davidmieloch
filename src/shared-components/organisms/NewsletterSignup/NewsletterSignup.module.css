@@ -1,0 +1,143 @@
+.signup {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 28px;
+  align-items: end;
+  width: 100%;
+  border-radius: 8px;
+  padding: 26px;
+}
+
+.dark {
+  border: 1px solid rgba(248, 239, 224, 0.18);
+  background: #101316;
+  color: #f8efe0;
+}
+
+.light {
+  border: 1px solid #d8cdbd;
+  background: #fffaf1;
+  color: #161412;
+}
+
+.copy {
+  max-width: 680px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #ffbd68;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.light .eyebrow {
+  color: #7a4b18;
+}
+
+.title {
+  margin: 0;
+  color: inherit;
+  font-size: clamp(1.65rem, 4vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.description {
+  margin: 14px 0 0;
+  color: #dfd3c2;
+  font-size: 1rem;
+  line-height: 1.56;
+}
+
+.light .description {
+  color: #52483e;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.label {
+  display: grid;
+  gap: 6px;
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.input {
+  min-height: 44px;
+  width: 100%;
+  border: 1px solid rgba(248, 239, 224, 0.22);
+  border-radius: 6px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  font: inherit;
+  text-transform: none;
+}
+
+.light .input {
+  border-color: #d8cdbd;
+  background: #fff;
+  color: #161412;
+}
+
+.input::placeholder {
+  color: rgba(248, 239, 224, 0.55);
+}
+
+.light .input::placeholder {
+  color: #8d8070;
+}
+
+.button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 6px;
+  background: #f8efe0;
+  color: #161412;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.light .button {
+  background: #161412;
+  color: #fff8ec;
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.status {
+  min-height: 20px;
+  margin: 0;
+  color: #cabba8;
+  font-size: 0.86rem;
+}
+
+.light .status {
+  color: #6c6257;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+
+@media (max-width: 760px) {
+  .signup {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+}

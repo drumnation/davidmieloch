@@ -254,6 +254,12 @@
   text-underline-offset: 3px;
 }
 
+.signupBand {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 44px 28px 16px;
+}
+
 .section,
 .darkInner {
   max-width: 1180px;
@@ -558,6 +564,7 @@ a.postItem:focus-visible {
   .section,
   .darkBand,
   .statementBand,
+  .signupBand,
   .visualShelf {
     padding-right: 18px;
     padding-left: 18px;

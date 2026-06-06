@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 
 import type { Article } from '../../src/content/articles';
 import { getPublishedArticles, getSiteUrl } from '../../src/content/articles';
+import { NewsletterSignup } from '../../src/shared-components/organisms/NewsletterSignup/NewsletterSignup';
 import styles from './Blog.module.css';
 
 export const metadata: Metadata = {
@@ -82,6 +83,15 @@ export default function BlogPage() {
         </div>
       </section>
 
+      <section className={styles.signupSlot} aria-label="Email updates">
+        <NewsletterSignup
+          placement="blog-index-top"
+          tone="dark"
+          title="Get the next essay when it goes live."
+          description="The archive is being rebuilt around the factory thesis. Join the list for new essays, audio versions, and launch notes."
+        />
+      </section>
+
       {leadArticle ? (
         <section className={styles.lead} aria-label="Lead essay">
           <Link href={`/blog/${leadArticle.slug}`} className={styles.leadImageLink}>
@@ -130,6 +140,16 @@ export default function BlogPage() {
             <strong className={styles.featuredTitle}>{article.title}</strong>
           </Link>
         ))}
+      </section>
+
+      <section className={styles.signupSlot} aria-label="Email updates">
+        <NewsletterSignup
+          placement="blog-index-after-featured"
+          tone="dark"
+          title="Stay close to the next series."
+          description="Factory primitives, observer roles, and the operating model are becoming a sequence. I’ll send the useful pieces as they land."
+          ctaLabel="Send me the series"
+        />
       </section>
 
       <section className={styles.archive} aria-label="Article archive">
