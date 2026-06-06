@@ -102,6 +102,8 @@ const operatingLanes = [
   },
 ];
 
+const isProduction = process.env.NODE_ENV === "production";
+
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("en", {
     month: "short",
@@ -222,8 +224,8 @@ export const Home: React.FC<HomePageProps> = ({
 
       <section className={styles.statementBand} aria-label="Positioning">
         <p className={styles.statement}>
-          The question is no longer whether AI can help write code. The
-          question is whether the surrounding system can turn that speed into
+          The question is no longer whether AI can help write code. The question
+          is whether the surrounding system can turn that speed into
           trustworthy, repeatable outcomes.
         </p>
         <p className={styles.statementNote}>
@@ -344,8 +346,12 @@ export const Home: React.FC<HomePageProps> = ({
                 </>
               );
 
-              return post.href ? (
-                <Link className={styles.postItem} href={post.href} key={post.title}>
+              return post.href && !isProduction ? (
+                <Link
+                  className={styles.postItem}
+                  href={post.href}
+                  key={post.title}
+                >
                   {postContent}
                 </Link>
               ) : (
