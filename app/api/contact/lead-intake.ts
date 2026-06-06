@@ -1,3 +1,7 @@
+import { mkdir, appendFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { dirname } from "node:path";
+
 type LeadIntakeData = {
   name: string;
   email: string;
@@ -22,7 +26,13 @@ const source = process.env.LEAD_SOURCE ?? "davidmieloch.com";
 export async function submitLeadIntake(data: LeadIntakeData) {
   const results: LeadSinkResult[] = [];
 
-  for (const sink of [storeLead, notifyLead, syncTwenty, syncMailerLite]) {
+  for (const sink of [
+    storeLeadInFile,
+    storeLead,
+    notifyLead,
+    syncTwenty,
+    syncMailerLite,
+  ]) {
     const result = await sink(data);
     results.push(result);
 
@@ -44,6 +54,43 @@ export async function submitLeadIntake(data: LeadIntakeData) {
   });
 
   return { success, results };
+}
+
+async function storeLeadInFile(data: LeadIntakeData): Promise<LeadSinkResult> {
+  const filePath = process.env.LEAD_INTAKE_FILE_PATH;
+
+  if (!filePath) {
+    return skipped("lead-file", false, "Missing LEAD_INTAKE_FILE_PATH");
+  }
+
+  const submittedAt = new Date().toISOString();
+  const record = {
+    submittedAt,
+    source,
+    name: data.name,
+    email: data.email,
+    company: data.company || null,
+    topic: data.topic,
+    message: data.message,
+    newsletterOptIn: Boolean(data.newsletterOptIn),
+    details: data.details ?? {},
+  };
+  const checksum = createHash("sha256")
+    .update(JSON.stringify(record))
+    .digest("hex");
+
+  await mkdir(dirname(filePath), { recursive: true });
+  await appendFile(filePath, `${JSON.stringify({ ...record, checksum })}\n`);
+
+  return {
+    sink: "lead-file",
+    ok: true,
+    required: true,
+    data: {
+      filePath,
+      checksum,
+    },
+  };
 }
 
 async function storeLead(data: LeadIntakeData): Promise<LeadSinkResult> {
@@ -383,14 +430,17 @@ async function createTwentyRecord<T>(
   responseKey: string,
   payload: Record<string, unknown>,
 ): Promise<TwentyCreateResult<T>> {
-  const response = await fetch(`${trimSlash(baseUrl)}/rest/${objectNamePlural}`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
+  const response = await fetch(
+    `${trimSlash(baseUrl)}/rest/${objectNamePlural}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
     },
-    body: JSON.stringify(payload),
-  });
+  );
 
   if (!response.ok) {
     return {

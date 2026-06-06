@@ -44,10 +44,15 @@ required durable intake sink or SMTP fallback captures the message.
 Required for durable lead capture:
 
 ```text
+LEAD_INTAKE_FILE_PATH
 SUPABASE_URL or NEXT_PUBLIC_SUPABASE_URL
 SUPABASE_SERVICE_ROLE_KEY or SUPABASE_SECRET_KEY
 LEAD_ALERT_WEBHOOK_URL
 ```
+
+`LEAD_INTAKE_FILE_PATH` is the launch-safe fallback sink. It writes one JSONL
+record per lead with a checksum so the website can capture contacts before
+Twenty, newsletter, or SMTP credentials are fully wired.
 
 Optional CRM/newsletter sinks:
 

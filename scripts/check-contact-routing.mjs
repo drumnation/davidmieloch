@@ -97,6 +97,7 @@ async function main() {
       required.map((name) => [name, Boolean(process.env[name])]),
     ),
     leadIntake: {
+      fileSinkConfigured: Boolean(process.env.LEAD_INTAKE_FILE_PATH),
       supabaseConfigured: Boolean(
         (process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL) &&
           (process.env.SUPABASE_SERVICE_ROLE_KEY ??
