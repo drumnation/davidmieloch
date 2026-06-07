@@ -165,14 +165,39 @@ rtk pnpm content:pipeline social:manifest <slug|all> <platform|all> --write
 rtk pnpm content:pipeline social:schedule --start=<iso> --interval-hours=8 --write
 rtk pnpm content:pipeline social:n8n:export --write
 rtk pnpm content:pipeline social:postiz:push --dry-run --platform=linkedin --limit=5
+POSTIZ_API_KEY=<key> rtk pnpm content:pipeline social:postiz:push --dry-run=false --platform=linkedin --limit=1
+```
+
+When running from `singularity-one`/dawn, set the API base to the internal
+localhost-only Postiz binding:
+
+```bash
+POSTIZ_API_URL=http://127.0.0.1:4007 POSTIZ_API_KEY=<key> rtk pnpm content:pipeline social:postiz:push --dry-run=false --platform=linkedin --limit=1
 ```
 
 `social:postiz:push --dry-run` now renders a Postiz draft/schedule plan from
 the social calendar for connected channels. It does not write to Postiz and it
-does not publish. Non-dry-run still refuses until the API adapter is verified
-against Postiz's application API. The future non-dry-run implementation should
-create Postiz drafts or schedules only from signed manifests and should refuse
-public dispatch unless an approval receipt exists.
+does not publish.
+
+`social:postiz:push --dry-run=false` now creates internal Postiz `DRAFT`
+records only through the verified public API endpoint:
+
+```text
+POST /api/public/v1/posts
+Authorization: <Organization.apiKey>
+```
+
+Verified behavior on 2026-06-06:
+
+- `type: "draft"` created a `Post` row with `state = DRAFT`.
+- The real LinkedIn channel used by the pipeline is
+  `cmq15vq6n0001my7ovp8dkkne`.
+- The disposable probe was deleted immediately after readback.
+- Active Postiz post count returned to zero after cleanup.
+
+The command still refuses to publish public posts. It does not use
+`type: "now"`, and it does not convert approval-missing packets into public
+dispatch.
 
 `social:n8n:export` emits workflow-ready schedule packets for Commander Data/n8n without posting.
 

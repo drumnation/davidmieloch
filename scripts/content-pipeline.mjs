@@ -62,6 +62,7 @@ import {
   buildSocialPostManifest,
   buildSocialReadiness,
   buildSocialSchedule,
+  createPostizDrafts,
   recordSocialRefusal,
 } from './lib/social-automation.mjs';
 import { importWebsiteArticle } from './lib/website-importer.mjs';
@@ -691,15 +692,25 @@ function socialRefusalCommand() {
   });
 }
 
-function socialPostizPushCommand() {
+async function socialPostizPushCommand() {
   const options = parseCommandOptions(2);
   const dryRun = options['dry-run'] !== false && options['dry-run'] !== 'false';
   const inputPath = options.input
     ? path.resolve(appRoot, options.input)
     : socialCalendarPath;
+  const socialCalendar = readSocialCalendar(inputPath);
+  const inventory = readSocialAccountInventory();
+  if (!dryRun) {
+    return createPostizDrafts({
+      socialCalendar,
+      inventory,
+      platform: options.platform ?? null,
+      limit: options.limit ?? null,
+    });
+  }
   return buildPostizPushPlan({
-    socialCalendar: readSocialCalendar(inputPath),
-    inventory: readSocialAccountInventory(),
+    socialCalendar,
+    inventory,
     platform: options.platform ?? null,
     limit: options.limit ?? null,
     dryRun,
@@ -1620,6 +1631,7 @@ function usage() {
   pnpm content:pipeline social:n8n:export [--input=<path>] [--write] [--output=<path>]
   pnpm content:pipeline social:refusal <platform> <action> --reason=<reason> [--notes=<text>] [--screenshot=<path>]
   pnpm content:pipeline social:postiz:push --dry-run [--platform=<id>] [--limit=5] [--input=<path>]
+  POSTIZ_API_KEY=<key> pnpm content:pipeline social:postiz:push --dry-run=false [--platform=<id>] [--limit=1]
   pnpm content:pipeline audio:prepare <slug> [--force]
   pnpm content:pipeline audio:approve <slug>
   pnpm content:pipeline audio:status [slug|all]
@@ -1640,7 +1652,7 @@ Safety:
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
   - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
-  - social:postiz:push renders a dry-run Postiz draft plan from connected channels; non-dry-run refuses until the API adapter is verified.
+  - social:postiz:push renders a dry-run Postiz draft plan from connected channels; --dry-run=false creates Postiz DRAFT records only and requires POSTIZ_API_KEY.
   - audio:prepare, audio:approve, audio:status, audio:quote, and audio:tracks do not call Speechify.
   - audio:generate calls Speechify only with --spend-approved and requires an approved audio script.
   - audio:book does not call Speechify; --write concatenates already-current article MP3 files.

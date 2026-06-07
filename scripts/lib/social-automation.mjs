@@ -509,6 +509,20 @@ export function buildN8nExport({
   };
 }
 
+function socialPackagePath(entry) {
+  const fallbackPath = entry.articleSlug && entry.platform
+    ? path.resolve(
+      process.cwd(),
+      'content/distribution/social-packages',
+      entry.articleSlug,
+      `${entry.platform}.md`,
+    )
+    : null;
+  const candidates = [entry.packagePath, fallbackPath].filter(Boolean);
+
+  return candidates.find((candidate) => fs.existsSync(candidate)) ?? entry.packagePath ?? null;
+}
+
 export function buildPostizPushPlan({
   socialCalendar,
   inventory,
@@ -536,8 +550,9 @@ export function buildPostizPushPlan({
   const plannedActions = readyEntries.map((entry) => {
     const account = accountByPlatform(inventory, entry.platform);
     const channel = channels.get(entry.platform);
-    const packageText = entry.packagePath && fs.existsSync(entry.packagePath)
-      ? fs.readFileSync(entry.packagePath, 'utf8')
+    const resolvedPackagePath = socialPackagePath(entry);
+    const packageText = resolvedPackagePath && fs.existsSync(resolvedPackagePath)
+      ? fs.readFileSync(resolvedPackagePath, 'utf8')
       : '';
 
     return {
@@ -547,7 +562,7 @@ export function buildPostizPushPlan({
       title: entry.title,
       platform: entry.platform,
       scheduledAt: entry.scheduledAt,
-      packagePath: entry.packagePath,
+      packagePath: resolvedPackagePath,
       checksum: entry.checksum,
       postiz: {
         url: inventory.postiz?.url,
@@ -599,7 +614,7 @@ export function buildPostizPushPlan({
       blocker: entry.blocker ?? 'Blocked by account or channel readiness.',
     })),
     nextAction: plannedActions.length > 0
-      ? 'Implement the Postiz API adapter to create drafts/schedules from these plannedActions without public dispatch.'
+      ? 'Run social:postiz:push --dry-run=false with POSTIZ_API_KEY from a host that can reach Postiz.'
       : 'Connect a Postiz channel or regenerate social schedules for a connected channel.',
     observation: {
       claim: 'Postiz push plan is derived from social calendar readiness without public posting',
@@ -607,6 +622,163 @@ export function buildPostizPushPlan({
       fallbackChain: [
         'social-calendar.json',
         'social-account-inventory.json',
+        'ROM heartbeat',
+      ],
+    },
+  };
+}
+
+function postizApiUrl(inventory, route) {
+  const configuredUrl = process.env.POSTIZ_API_URL ?? inventory.postiz?.url;
+  if (!configuredUrl) {
+    throw new Error('Postiz URL is missing from inventory and POSTIZ_API_URL is not set.');
+  }
+
+  const base = configuredUrl.replace(/\/$/, '');
+  return `${base}/api/public/v1${route}`;
+}
+
+function postizDraftPayload(action) {
+  return {
+    type: 'draft',
+    creationMethod: 'CLI',
+    shortLink: false,
+    date: action.scheduledAt,
+    tags: [],
+    posts: [
+      {
+        integration: {
+          id: action.postiz.channelId,
+        },
+        settings: {},
+        value: [
+          {
+            content: action.payload.text,
+            delay: 0,
+            image: [],
+          },
+        ],
+      },
+    ],
+  };
+}
+
+export async function createPostizDrafts({
+  socialCalendar,
+  inventory,
+  platform = null,
+  limit = null,
+  apiKey = process.env.POSTIZ_API_KEY,
+  generatedAt = new Date().toISOString(),
+}) {
+  if (!apiKey) {
+    return {
+      schemaVersion: 'social-postiz-draft-create-v1',
+      generatedAt,
+      publicPublishingPerformed: false,
+      status: 'blocked-missing-postiz-api-key',
+      reason: 'POSTIZ_API_KEY is required for non-dry-run Postiz draft creation.',
+      safeDefault: 'do-not-post',
+      created: [],
+    };
+  }
+
+  const plan = buildPostizPushPlan({
+    socialCalendar,
+    inventory,
+    platform,
+    limit,
+    dryRun: true,
+    generatedAt,
+  });
+
+  if (plan.summary.readyEntries === 0) {
+    return {
+      ...plan,
+      schemaVersion: 'social-postiz-draft-create-v1',
+      status: 'blocked-no-ready-postiz-actions',
+      created: [],
+    };
+  }
+
+  const created = [];
+  for (const action of plan.plannedActions) {
+    if (!action.postiz.channelId) {
+      created.push({
+        articleSlug: action.articleSlug,
+        platform: action.platform,
+        status: 'blocked',
+        reason: 'Postiz channel id is missing.',
+      });
+      continue;
+    }
+
+    const response = await fetch(postizApiUrl(inventory, '/posts'), {
+      method: 'POST',
+      headers: {
+        Authorization: apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postizDraftPayload(action)),
+    });
+    const responseText = await response.text();
+
+    if (!response.ok) {
+      created.push({
+        articleSlug: action.articleSlug,
+        platform: action.platform,
+        status: 'failed',
+        httpStatus: response.status,
+        reason: responseText.slice(0, 500),
+      });
+      continue;
+    }
+
+    let receipt = null;
+    try {
+      receipt = JSON.parse(responseText);
+    } catch {
+      receipt = responseText;
+    }
+
+    created.push({
+      articleSlug: action.articleSlug,
+      platform: action.platform,
+      status: 'created-draft',
+      postizChannelId: action.postiz.channelId,
+      scheduledAt: action.scheduledAt,
+      postizReceipt: receipt,
+      publicPublishingAllowed: false,
+    });
+  }
+
+  return {
+    schemaVersion: 'social-postiz-draft-create-v1',
+    generatedAt,
+    publicPublishingPerformed: false,
+    dryRun: false,
+    status: created.every((item) => item.status === 'created-draft')
+      ? 'created-drafts'
+      : created.some((item) => item.status === 'created-draft')
+        ? 'partially-created-drafts'
+        : 'blocked-or-failed',
+    safeDefault: 'do-not-post',
+    summary: {
+      selectedEntries: plan.summary.selectedEntries,
+      readyEntries: plan.summary.readyEntries,
+      blockedEntries: plan.summary.blockedEntries,
+      createdDrafts: created.filter((item) => item.status === 'created-draft').length,
+      failedDrafts: created.filter((item) => item.status === 'failed').length,
+      blockedDrafts: created.filter((item) => item.status === 'blocked').length,
+    },
+    created,
+    blockedEntries: plan.blockedEntries,
+    observation: {
+      claim: 'Postiz public API created internal draft posts without public publishing',
+      status: created.some((item) => item.status === 'created-draft') ? 'PASS' : 'DEGRADED',
+      fallbackChain: [
+        'Postiz API receipt',
+        'Postiz Post table DRAFT readback',
         'ROM heartbeat',
       ],
     },

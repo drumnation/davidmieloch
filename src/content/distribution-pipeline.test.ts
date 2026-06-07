@@ -2,7 +2,7 @@ import { spawnSync } from 'child_process';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { tmpdir } from 'os';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import {
   generatePlatformPackages,
@@ -42,6 +42,7 @@ import {
   buildSocialPostManifest,
   buildSocialReadiness,
   buildSocialSchedule,
+  createPostizDrafts,
   recordSocialRefusal,
 } from '../../scripts/lib/social-automation.mjs';
 
@@ -176,6 +177,13 @@ const generatePostizPushPlan = buildPostizPushPlan as unknown as (
     dryRun?: boolean;
   }
 ) => ReturnType<typeof buildPostizPushPlan>;
+const generatePostizDrafts = createPostizDrafts as unknown as (
+  options: SocialN8nExportOptions & {
+    platform?: string;
+    limit?: number;
+    apiKey?: string;
+  }
+) => ReturnType<typeof createPostizDrafts>;
 const generateSocialReadiness = buildSocialReadiness as unknown as (
   options: SocialReadinessOptions
 ) => ReturnType<typeof buildSocialReadiness>;
@@ -842,6 +850,57 @@ describe('social automation substrate', () => {
     expect(pushPlan.plannedActions[0].payload.text).toContain('The Factory');
   });
 
+  it('falls back to repo-relative social package paths when calendar paths came from another host', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    const previousCwd = process.cwd();
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+    inventory.accounts[1] = {
+      ...inventory.accounts[1],
+      postizChannelStatus: 'connected',
+      postizChannelId: 'linkedin-channel-1',
+      postizChannelName: 'David Mieloch',
+    };
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    schedule.entries[0].packagePath = '/Users/dmieloch/not-this-checkout/content/distribution/social-packages/the-factory/linkedin.md';
+
+    try {
+      process.chdir(root);
+      const pushPlan = generatePostizPushPlan({
+        socialCalendar: schedule,
+        inventory,
+        platform: 'linkedin',
+        dryRun: true,
+        generatedAt: '2026-06-05T00:00:00.000Z',
+      });
+
+      expect(pushPlan.plannedActions[0].packagePath).toContain('content/distribution/social-packages/the-factory/linkedin.md');
+      expect(pushPlan.plannedActions[0].payload.text).toContain('The Factory');
+    } finally {
+      process.chdir(previousCwd);
+    }
+  });
+
   it('blocks non-dry-run Postiz pushes until the API adapter is verified', () => {
     const root = tempRoot();
     const outputRoot = join(root, 'content/distribution/social-packages');
@@ -891,6 +950,151 @@ describe('social automation substrate', () => {
       },
     });
     expect(pushPlan.reason).toContain('Postiz API writes are intentionally disabled');
+  });
+
+  it('blocks Postiz draft creation when the API key is missing', async () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+    inventory.accounts[1] = {
+      ...inventory.accounts[1],
+      postizChannelStatus: 'connected',
+      postizChannelId: 'linkedin-channel-1',
+    };
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    const result = await generatePostizDrafts({
+      socialCalendar: schedule,
+      inventory,
+      platform: 'linkedin',
+      apiKey: '',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(result).toMatchObject({
+      status: 'blocked-missing-postiz-api-key',
+      publicPublishingPerformed: false,
+      created: [],
+    });
+  });
+
+  it('creates Postiz draft payloads through the public API without publishing', async () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+    inventory.postiz.url = 'https://social-davidmieloch.brain-garden.io';
+    inventory.accounts[1] = {
+      ...inventory.accounts[1],
+      postizChannelStatus: 'connected',
+      postizChannelId: 'linkedin-channel-1',
+      postizChannelName: 'David Mieloch',
+    };
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      status: 201,
+      text: async () => JSON.stringify([
+        {
+          postId: 'postiz-post-1',
+          integration: 'linkedin-channel-1',
+        },
+      ]),
+    } as Response);
+
+    const result = await generatePostizDrafts({
+      socialCalendar: schedule,
+      inventory,
+      platform: 'linkedin',
+      apiKey: 'test-postiz-key',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(result).toMatchObject({
+      status: 'created-drafts',
+      publicPublishingPerformed: false,
+      dryRun: false,
+      summary: {
+        createdDrafts: 1,
+        failedDrafts: 0,
+      },
+    });
+    expect(result.created[0]).toMatchObject({
+      status: 'created-draft',
+      articleSlug: 'the-factory',
+      platform: 'linkedin',
+      postizChannelId: 'linkedin-channel-1',
+      publicPublishingAllowed: false,
+    });
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://social-davidmieloch.brain-garden.io/api/public/v1/posts',
+      expect.objectContaining({
+        method: 'POST',
+        headers: expect.objectContaining({
+          Authorization: 'test-postiz-key',
+          'Content-Type': 'application/json',
+        }),
+      }),
+    );
+    const body = JSON.parse((fetchMock.mock.calls[0][1] as RequestInit).body as string);
+    expect(body).toMatchObject({
+      type: 'draft',
+      creationMethod: 'CLI',
+      shortLink: false,
+      tags: [],
+      posts: [
+        {
+          integration: { id: 'linkedin-channel-1' },
+          settings: {},
+          value: [
+            {
+              delay: 0,
+              image: [],
+            },
+          ],
+        },
+      ],
+    });
+    expect(body.posts[0].value[0].content).toContain('The Factory');
+    fetchMock.mockRestore();
   });
 
   it('records refusal receipts for manual or credential blockers', () => {
@@ -1360,7 +1564,7 @@ describe('article audio narration pipeline', () => {
     globalThis.fetch = (async () => new Response(audioBytes, {
       status: 200,
       headers: { 'content-type': 'audio/mpeg' },
-    })) as typeof fetch;
+    })) as unknown as typeof fetch;
 
     try {
       const generated = await generateAudio({

@@ -146,10 +146,14 @@ Current LinkedIn state as of 2026-06-05:
 - LinkedIn Developer app id: `237440067`
 - App name: `Singularity-Labs-Social-Scheduler`
 - Client id: recorded in `content/distribution/social-account-inventory.json`.
-- Client secret: generated in LinkedIn, but not yet stored in 1Password because the current CLI session is a read-only service account. Do not put this secret in git, shell history, chat, or docs.
 - Added products: Share on LinkedIn; Sign In with LinkedIn using OpenID Connect.
 - Saved redirect: `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin`
-- Pending redirect: `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin-page`
+- Saved redirect: `https://social-davidmieloch.brain-garden.io/integrations/social/linkedin-page`
+- Connected Postiz profile channel: `cmq15vq6n0001my7ovp8dkkne`.
+- LinkedIn Page remains blocked because the app is not authorized for the
+  organization scopes requested by Postiz:
+  `rw_organization_admin`, `w_organization_social`, and
+  `r_organization_social`.
 
 Redirect notes:
 
@@ -157,7 +161,12 @@ Redirect notes:
 social-davidmieloch.brain-garden.io -> 100.71.79.54
 ```
 
-That is the Tailscale/internal address for singularity-one. The profile callback is accepted by LinkedIn and works from the Brain Garden environment. The Page callback path currently triggers LinkedIn's valid-URL warning and was not saved. Keep the Postiz GUI internal; do not expose the whole GUI unless Dave explicitly answers yes to: "Does anybody but Dave need to touch this GUI?"
+That is the Tailscale/internal address for singularity-one. The profile callback
+is accepted by LinkedIn and works from the Brain Garden environment. The Page
+callback is also accepted, but Page OAuth is blocked on LinkedIn organization
+scope authorization. Keep the Postiz GUI internal; do not expose the whole GUI
+unless Dave explicitly answers yes to: "Does anybody but Dave need to touch this
+GUI?"
 
 Observed failure before configuration:
 
