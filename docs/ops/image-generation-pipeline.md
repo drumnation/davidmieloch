@@ -27,7 +27,7 @@ Reason: OpenRouter is useful when a specific model is better for text rendering,
 editing, or a flagship hero. It should not be the default backlog generator
 unless its per-image cost is explicitly approved for that batch.
 
-Candidate multimodal provider: MiniMax.
+Secondary bulk provider: MiniMax.
 
 Reason: the current MiniMax Plus account includes the M3 text model plus image,
 speech, and music generation in the same quota, with a large monthly token
@@ -37,9 +37,8 @@ and brand image batches do not keep defaulting to paid Z.ai usage when MiniMax
 quota is already available.
 
 Do not store the MiniMax API key in this repo. Keep it in environment/secret
-storage only. Treat MiniMax image generation as a separate provider path from
-the current Z.ai implementation until the API, output quality, cost accounting,
-and receipt format are tested.
+storage only. MiniMax is now wired through the same durable image-generation
+spine as Z.ai, with one receipt/checksum per generated placement variant.
 
 ## Deterministic Spine
 
@@ -98,6 +97,7 @@ Implemented:
 - `pnpm content:pipeline image:interior-plan --write --count=5 --variants=2`
 - `pnpm content:pipeline image:generate <slug> --dry-run --limit=10`
 - `ZAI_API_KEY=<secret> pnpm content:pipeline image:generate <slug> --limit=10 --spend-approved`
+- `MINIMAX_API_KEY=<secret> pnpm content:pipeline image:generate <slug> --provider=minimax --model=image-01 --size=16:9 --limit=10 --spend-approved`
 
 Still needed:
 
@@ -111,7 +111,7 @@ It also refuses non-dry-run generation when `ZAI_API_KEY` is missing.
 
 The first Factory Primitives article has:
 
-- 10 planned interior variants in `content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/generated/manifest.json`
+- 10 generated full-frame interior variants in `content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/generated/manifest.json`
 - one generated visual-direction contact sheet at `public/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/generated/contact-sheet/interior-contact-sheet.png`
 
 The contact sheet is only a review artifact. It does not satisfy launch lint

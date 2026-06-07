@@ -473,15 +473,29 @@ function groupGeneratedInteriorImages(
   }
 
   return Array.from(placements.values()).map((placement) => {
-    const selectedImages = placement.images.filter(
+    const fullFrameImages = placement.images.filter(
+      (image) => !isContactSheetSlice(image),
+    );
+    const reviewImages =
+      fullFrameImages.length > 0 ? fullFrameImages : placement.images;
+    const selectedImages = reviewImages.filter(
       (image) => image.status === "approved-selected",
     );
 
     return {
       ...placement,
-      images: selectedImages.length > 0 ? selectedImages : placement.images,
+      images: selectedImages.length > 0 ? selectedImages : reviewImages,
     };
   });
+}
+
+function isContactSheetSlice(image: GeneratedInteriorImage) {
+  return (
+    image.variantId.includes("contact-sheet") ||
+    image.sourcePath.includes("/contact-sheet/") ||
+    image.publicPath.includes("/contact-sheet/") ||
+    image.status === "generated-contact-sheet-needs-slicing"
+  );
 }
 
 function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {

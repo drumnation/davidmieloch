@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const ZAI_IMAGE_ENDPOINT = 'https://api.z.ai/api/paas/v4/images/generations';
+const MINIMAX_IMAGE_ENDPOINT = 'https://api.minimax.io/v1/image_generation';
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -85,6 +86,41 @@ async function callZai({ apiKey, model, prompt, quality, size, userId }) {
   return { json, imageUrl };
 }
 
+async function callMiniMax({ apiKey, model, prompt, aspectRatio, responseFormat, count }) {
+  const response = await fetch(MINIMAX_IMAGE_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model,
+      prompt,
+      aspect_ratio: aspectRatio,
+      response_format: responseFormat,
+      n: count,
+      prompt_optimizer: true,
+    }),
+  });
+
+  const body = await response.text();
+  if (!response.ok) {
+    throw new Error(`MiniMax image API ${response.status}: ${body}`);
+  }
+
+  const json = JSON.parse(body);
+  if (json.base_resp?.status_code && json.base_resp.status_code !== 0) {
+    throw new Error(`MiniMax image API ${json.base_resp.status_code}: ${json.base_resp.status_msg}`);
+  }
+
+  const imageUrl = json.data?.image_urls?.[0];
+  const imageBase64 = json.data?.images?.[0] ?? json.data?.image_base64?.[0];
+  if (!imageUrl && !imageBase64) {
+    throw new Error(`MiniMax image API returned no image: ${body}`);
+  }
+  return { json, imageUrl, imageBase64 };
+}
+
 async function downloadImage(url) {
   let lastError = null;
   for (let attempt = 1; attempt <= 3; attempt += 1) {
@@ -94,6 +130,62 @@ async function downloadImage(url) {
     await new Promise((resolve) => setTimeout(resolve, attempt * 2000));
   }
   throw new Error(lastError);
+}
+
+function imageBufferFromBase64(value) {
+  const normalized = value.includes(',') ? value.split(',').at(-1) : value;
+  return Buffer.from(normalized, 'base64');
+}
+
+function endpointForProvider(provider) {
+  if (provider === 'zai') return ZAI_IMAGE_ENDPOINT;
+  if (provider === 'minimax') return MINIMAX_IMAGE_ENDPOINT;
+  throw new Error(`Unsupported image provider "${provider}".`);
+}
+
+function apiKeyForProvider(provider) {
+  if (provider === 'zai') return process.env.ZAI_API_KEY;
+  if (provider === 'minimax') return process.env.MINIMAX_API_KEY;
+  throw new Error(`Unsupported image provider "${provider}".`);
+}
+
+async function generateImageWithProvider({
+  provider,
+  apiKey,
+  model,
+  prompt,
+  quality,
+  size,
+  userId,
+}) {
+  if (provider === 'zai') {
+    const { json, imageUrl } = await callZai({
+      apiKey,
+      model,
+      prompt,
+      quality,
+      size,
+      userId,
+    });
+    return { json, image: await downloadImage(imageUrl) };
+  }
+
+  if (provider === 'minimax') {
+    const { json, imageUrl, imageBase64 } = await callMiniMax({
+      apiKey,
+      model,
+      prompt,
+      aspectRatio: size,
+      responseFormat: 'url',
+      count: 1,
+    });
+    return {
+      json,
+      image: imageBase64 ? imageBufferFromBase64(imageBase64) : await downloadImage(imageUrl),
+    };
+  }
+
+  throw new Error(`Unsupported image provider "${provider}".`);
 }
 
 function readExistingManifest(manifestPath, generatedAt) {
@@ -135,11 +227,14 @@ export async function generateInteriorImages({
   onlyMissing = true,
   generatedAt = new Date().toISOString(),
 }) {
-  if (provider !== 'zai') throw new Error(`Unsupported image provider "${provider}".`);
+  endpointForProvider(provider);
   if (!dryRun && !spendApproved) {
     throw new Error('image:generate requires --spend-approved because image generation costs money.');
   }
-  if (!dryRun && !process.env.ZAI_API_KEY) throw new Error('Missing ZAI_API_KEY.');
+  const apiKey = apiKeyForProvider(provider);
+  if (!dryRun && !apiKey) {
+    throw new Error(`Missing ${provider === 'minimax' ? 'MINIMAX_API_KEY' : 'ZAI_API_KEY'}.`);
+  }
 
   const plan = readJson(inputPath);
   const article = selectArticle(plan, slug);
@@ -160,7 +255,7 @@ export async function generateInteriorImages({
   };
   manifest.provider = {
     id: provider,
-    endpoint: ZAI_IMAGE_ENDPOINT,
+    endpoint: endpointForProvider(provider),
     model,
     quality,
     size,
@@ -199,15 +294,15 @@ export async function generateInteriorImages({
     }
 
     try {
-      const { json, imageUrl } = await callZai({
-        apiKey: process.env.ZAI_API_KEY,
+      const { json, image } = await generateImageWithProvider({
+        provider,
+        apiKey,
         model,
         prompt: variant.prompt,
         quality,
         size,
         userId: `davidmieloch-${slug}-${variant.id}`,
       });
-      const image = await downloadImage(imageUrl);
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });
       fs.writeFileSync(outputPath, image);
       const asset = {
@@ -220,6 +315,8 @@ export async function generateInteriorImages({
         size,
         generatedAt,
         created: json.created ?? null,
+        traceId: json.id ?? null,
+        metadata: json.metadata ?? null,
         contentFilter: json.content_filter ?? null,
         sourceUrlExpires: 'Provider image URLs are temporary; local PNG is the durable artifact.',
       };

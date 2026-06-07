@@ -1520,6 +1520,69 @@ The economics change when the unit is a factory.
     });
   });
 
+  it('supports MiniMax dry-run interior image generation metadata', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    mkdirSync(join(articlesRoot, 'the-filter'), { recursive: true });
+    writeFileSync(
+      join(articlesRoot, 'the-filter/index.md'),
+      `---
+title: "The Filter"
+status: draft
+---
+
+# The Filter
+
+## The Factory Model
+
+The economics change when the unit is a factory.
+`,
+    );
+    const planPath = join(root, 'content/distribution/factory-primitives-interior-image-plan.json');
+    generateInteriorImagePlan({
+      launchPlan: {
+        articles: [{ slug: 'the-filter', title: 'The Filter' }],
+      },
+      articlesRoot,
+      outputPath: planPath,
+      countPerArticle: 1,
+      variantsPerPlacement: 1,
+      write: true,
+      generatedAt: '2026-06-07T06:00:00.000Z',
+    });
+
+    const result = await generateInteriorImageBatch({
+      inputPath: planPath,
+      articlesRoot,
+      publicRoot,
+      slug: 'the-filter',
+      limit: 1,
+      provider: 'minimax',
+      model: 'image-01',
+      size: '16:9',
+      dryRun: true,
+      spendApproved: false,
+      generatedAt: '2026-06-07T08:00:00.000Z',
+    });
+
+    expect(result).toMatchObject({
+      dryRun: true,
+      selected: 1,
+      planned: 1,
+      failures: 0,
+    });
+    const manifest = JSON.parse(
+      readFileSync(join(root, 'content/articles/the-filter/images/generated/manifest.json'), 'utf8'),
+    );
+    expect(manifest.provider).toMatchObject({
+      id: 'minimax',
+      endpoint: 'https://api.minimax.io/v1/image_generation',
+      model: 'image-01',
+      size: '16:9',
+    });
+  });
+
   it('reports website draft and vault-candidate article readiness gates', () => {
     const root = tempRoot();
     const articlesRoot = join(root, 'content/articles');
