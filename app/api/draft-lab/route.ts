@@ -3,6 +3,8 @@ import path from "node:path";
 
 import { NextResponse } from "next/server";
 
+import { safeRedirectUrl } from "./redirect";
+
 type DraftDecisionStatus = "keep" | "maybe" | "remove";
 type ImageDecision = "approve" | "reject" | "review";
 type LaunchGate =
@@ -244,7 +246,7 @@ function updateApprovalPacket(
 }
 
 function redirectBack(request: Request, returnTo: string) {
-  return NextResponse.redirect(new URL(returnTo, request.url), {
+  return NextResponse.redirect(safeRedirectUrl(request, returnTo), {
     status: 303,
   });
 }
