@@ -52,6 +52,13 @@ type GeneratedInteriorManifest = {
   assets: GeneratedInteriorImage[];
 };
 
+type GeneratedInteriorPlacement = {
+  id: string;
+  heading: string;
+  selected: boolean;
+  images: GeneratedInteriorImage[];
+};
+
 const candidates = review.candidates as DraftCandidate[];
 const removedCandidates = (review.removedCandidates ?? []) as DraftCandidate[];
 const allCandidates = [...candidates, ...removedCandidates];
@@ -145,6 +152,12 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
   const generatedInteriorPlacements = groupGeneratedInteriorImages(
     generatedInteriorImages,
   );
+  const generatedInteriorByHeading = new Map(
+    generatedInteriorPlacements.map((placement) => [
+      normalizeHeading(placement.heading),
+      placement,
+    ]),
+  );
   const returnTo = `/draft-lab/articles/${candidate.slug}`;
 
   return (
@@ -221,144 +234,28 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
           </figure>
         ) : null}
 
-        {generatedInteriorPlacements.length > 0 ? (
-          <section
-            style={styles.generatedSection}
-            aria-labelledby="generated-interior-images"
-          >
-            <div style={styles.generatedHeader}>
-              <p style={styles.eyebrow}>Interior image candidates</p>
-              <h2 id="generated-interior-images" style={styles.generatedTitle}>
-                Generated art waiting for selection
-              </h2>
-              <p style={styles.generatedDescription}>
-                These are not published into the article yet. Pick the ones that
-                actually clarify the idea, then the approved images can be
-                inserted with captions and counted by the article readiness
-                lint.
-              </p>
-            </div>
-            <div style={styles.placementReviewList}>
-              {generatedInteriorPlacements.map((placement) => (
-                <section key={placement.id} style={styles.placementReview}>
-                  <div style={styles.placementHeader}>
-                    <p style={styles.placementKicker}>{placement.id}</p>
-                    <h3 style={styles.placementTitle}>
-                      {placement.heading}
-                    </h3>
-                    {placement.selected ? (
-                      <span style={styles.selectedBadge}>Selected</span>
-                    ) : (
-                      <span style={styles.reviewBadge}>
-                        {placement.images.length} choices
-                      </span>
-                    )}
-                  </div>
-                  <div style={styles.generatedGrid}>
-                    {placement.images.map((image) => (
-                      <figure key={image.id} style={styles.generatedCard}>
-                        <a
-                          href={image.publicPath}
-                          style={styles.generatedImageLink}
-                        >
-                          <img
-                            src={image.publicPath}
-                            alt={
-                              image.altText ?? `${candidate.title} generated art`
-                            }
-                            style={styles.generatedImage}
-                            loading="lazy"
-                          />
-                        </a>
-                        <figcaption style={styles.generatedCaption}>
-                          <strong>
-                            {image.targetHeading ?? image.placementId}
-                          </strong>
-                          <span>
-                            {image.caption ?? "No caption drafted yet."}
-                          </span>
-                          <code>{image.status}</code>
-                        </figcaption>
-                        <form
-                          action="/api/draft-lab"
-                          method="post"
-                          style={styles.imageDecisionForm}
-                        >
-                          <input
-                            type="hidden"
-                            name="action"
-                            value="image-decision"
-                          />
-                          <input
-                            type="hidden"
-                            name="slug"
-                            value={candidate.slug}
-                          />
-                          <input
-                            type="hidden"
-                            name="assetId"
-                            value={image.id}
-                          />
-                          <input
-                            type="hidden"
-                            name="returnTo"
-                            value={returnTo}
-                          />
-                          <input
-                            name="reason"
-                            placeholder="Optional note"
-                            style={styles.imageReasonInput}
-                          />
-                          <button
-                            name="decision"
-                            value="approve"
-                            style={styles.keepButton}
-                          >
-                            Check
-                          </button>
-                          <button
-                            name="decision"
-                            value="reject"
-                            style={styles.removeButton}
-                          >
-                            X
-                          </button>
-                        </form>
-                      </figure>
-                    ))}
-                  </div>
-                  <form
-                    action="/api/draft-lab"
-                    method="post"
-                    style={styles.requestImageForm}
-                  >
-                    <input type="hidden" name="action" value="request-image" />
-                    <input type="hidden" name="slug" value={candidate.slug} />
-                    <input
-                      type="hidden"
-                      name="placementId"
-                      value={placement.id}
-                    />
-                    <input type="hidden" name="returnTo" value={returnTo} />
-                    <textarea
-                      name="prompt"
-                      placeholder="Describe the replacement image you want for this spot."
-                      style={styles.requestTextarea}
-                    />
-                    <button style={styles.maybeButton}>
-                      Queue new image request
-                    </button>
-                  </form>
-                </section>
-              ))}
-            </div>
-          </section>
-        ) : null}
-
         <ReactMarkdown
           components={{
             h1: ({ children }) => <h2 style={styles.markdownH1}>{children}</h2>,
-            h2: ({ children }) => <h2 style={styles.markdownH2}>{children}</h2>,
+            h2: ({ children }) => {
+              const headingText = textFromReactChildren(children);
+              const placement = generatedInteriorByHeading.get(
+                normalizeHeading(headingText),
+              );
+
+              return (
+                <>
+                  <h2 style={styles.markdownH2}>{children}</h2>
+                  {placement ? (
+                    <InlineImagePlacement
+                      candidate={candidate}
+                      placement={placement}
+                      returnTo={returnTo}
+                    />
+                  ) : null}
+                </>
+              );
+            },
             h3: ({ children }) => <h3 style={styles.markdownH3}>{children}</h3>,
             p: ({ children }) => <p style={styles.paragraph}>{children}</p>,
             a: ({ href, children }) => (
@@ -413,6 +310,96 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
   );
 }
 
+function InlineImagePlacement({
+  candidate,
+  placement,
+  returnTo,
+}: {
+  candidate: DraftCandidate;
+  placement: GeneratedInteriorPlacement;
+  returnTo: string;
+}) {
+  return (
+    <section style={styles.placementReview}>
+      <div style={styles.placementHeader}>
+        <p style={styles.placementKicker}>Image set · {placement.id}</p>
+        <h3 style={styles.placementTitle}>{placement.heading}</h3>
+        {placement.selected ? (
+          <span style={styles.selectedBadge}>Selected</span>
+        ) : (
+          <span style={styles.reviewBadge}>
+            {placement.images.length} choices
+          </span>
+        )}
+      </div>
+      <p style={styles.placementHelp}>
+        Choose the image that best supports this section. Once selected, only
+        that image remains visible here.
+      </p>
+      <div style={styles.generatedGrid}>
+        {placement.images.map((image) => (
+          <figure key={image.id} style={styles.generatedCard}>
+            <a href={image.publicPath} style={styles.generatedImageLink}>
+              <img
+                src={image.publicPath}
+                alt={image.altText ?? `${candidate.title} generated art`}
+                style={styles.generatedImage}
+                loading="lazy"
+              />
+            </a>
+            <figcaption style={styles.generatedCaption}>
+              <strong>{image.variantId}</strong>
+              <span>{image.caption ?? "No caption drafted yet."}</span>
+              <code>{image.status}</code>
+            </figcaption>
+            <form
+              action="/api/draft-lab"
+              method="post"
+              style={styles.imageDecisionForm}
+            >
+              <input type="hidden" name="action" value="image-decision" />
+              <input type="hidden" name="slug" value={candidate.slug} />
+              <input type="hidden" name="assetId" value={image.id} />
+              <input type="hidden" name="returnTo" value={returnTo} />
+              <input
+                name="reason"
+                placeholder="Optional note"
+                style={styles.imageReasonInput}
+              />
+              <button
+                name="decision"
+                value="approve"
+                style={styles.keepButton}
+              >
+                Check
+              </button>
+              <button
+                name="decision"
+                value="reject"
+                style={styles.removeButton}
+              >
+                X
+              </button>
+            </form>
+          </figure>
+        ))}
+      </div>
+      <form action="/api/draft-lab" method="post" style={styles.requestImageForm}>
+        <input type="hidden" name="action" value="request-image" />
+        <input type="hidden" name="slug" value={candidate.slug} />
+        <input type="hidden" name="placementId" value={placement.id} />
+        <input type="hidden" name="returnTo" value={returnTo} />
+        <textarea
+          name="prompt"
+          placeholder={`Describe a better image for "${placement.heading}".`}
+          style={styles.requestTextarea}
+        />
+        <button style={styles.maybeButton}>Queue new image request</button>
+      </form>
+    </section>
+  );
+}
+
 function stripFrontmatter(markdown: string) {
   return markdown.replace(/^---\n[\s\S]*?\n---\n\n?/, "").trim();
 }
@@ -446,16 +433,30 @@ function normalizeImageLookupKey(value: string) {
   return value.replace(/\\/g, "/").trim().toLowerCase();
 }
 
-function groupGeneratedInteriorImages(images: GeneratedInteriorImage[]) {
-  const placements = new Map<
-    string,
-    {
-      id: string;
-      heading: string;
-      selected: boolean;
-      images: GeneratedInteriorImage[];
-    }
-  >();
+function textFromReactChildren(children: React.ReactNode): string {
+  if (typeof children === "string" || typeof children === "number") {
+    return String(children);
+  }
+
+  if (Array.isArray(children)) {
+    return children.map(textFromReactChildren).join("");
+  }
+
+  return "";
+}
+
+function normalizeHeading(value: string) {
+  return value
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function groupGeneratedInteriorImages(
+  images: GeneratedInteriorImage[],
+): GeneratedInteriorPlacement[] {
+  const placements = new Map<string, GeneratedInteriorPlacement>();
 
   for (const image of images) {
     const placement = placements.get(image.placementId) ?? {
