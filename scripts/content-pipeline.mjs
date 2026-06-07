@@ -25,6 +25,9 @@ import {
   buildInteriorImagePlan,
 } from './lib/interior-image-plan.mjs';
 import {
+  generateInteriorImages,
+} from './lib/image-generation.mjs';
+import {
   buildArticleReadinessReport,
 } from './lib/article-readiness.mjs';
 import {
@@ -679,6 +682,39 @@ function interiorImagePlanCommand() {
     launchPlanPath,
     ...(options.write ? { outputPath } : {}),
   };
+}
+
+async function imageGenerateCommand(slug) {
+  if (!slug) {
+    throw new Error('image:generate requires <slug>.');
+  }
+  const options = parseCommandOptions(2);
+  const inputPath = options.input
+    ? path.resolve(appRoot, options.input)
+    : factoryPrimitivesInteriorImagePlanPath;
+  const result = await generateInteriorImages({
+    inputPath,
+    articlesRoot,
+    publicRoot,
+    slug,
+    placementId: options.placement ?? null,
+    limit: Number(options.limit ?? 1),
+    provider: options.provider ?? 'zai',
+    model: options.model ?? 'glm-image',
+    quality: options.quality ?? 'hd',
+    size: options.size ?? '1280x720',
+    spendApproved: Boolean(options['spend-approved']),
+    dryRun: Boolean(options['dry-run']),
+    onlyMissing: options['only-missing'] !== 'false',
+  });
+  observeCommand('image:generate', slug, result.failures ? 'DEGRADED' : 'PASS', {
+    dryRun: result.dryRun,
+    generated: result.generated,
+    planned: result.planned,
+    failures: result.failures,
+    manifestPath: result.manifestPath,
+  });
+  return result;
 }
 
 function articleReadinessCommand() {
@@ -1832,6 +1868,7 @@ function usage() {
   pnpm content:pipeline launch:approval-packet [--write] [--output=<path>] [--launch-plan=<path>] [--site-calendar=<path>] [--social-calendar=<path>] [--teasers=<path>] [--approval-ledger=<path>]
   pnpm content:pipeline launch:approve <slug|all> <gate|all> [--by=David] [--note=<text>]
   pnpm content:pipeline image:interior-plan [--write] [--output=<path>] [--launch-plan=<path>] [--count=5] [--variants=2]
+  pnpm content:pipeline image:generate <slug> [--input=<path>] [--placement=<id>] [--limit=5] [--size=1280x720] [--dry-run] --spend-approved
   pnpm content:pipeline article:readiness [--write] [--output=<path>] [--report=<path>] [--obsidian-root=<path>]
   pnpm content:pipeline linkedin:article-transfer <slug|all> [--write] [--output=<path>] [--launch-plan=<path>]
   pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]
@@ -1883,6 +1920,7 @@ Safety:
   - launch:approval-packet writes local approval packets only; it does not approve or publish.
   - launch:approve writes local approval ledger and packet artifacts only; it does not schedule or publish.
   - image:interior-plan writes local image briefs and review queues only; it does not call a paid image API.
+  - image:generate writes local generated image assets and receipts only. It refuses paid generation without --spend-approved. --dry-run writes planned receipts only.
   - article:readiness writes local readiness reports only; it does not import, generate images, schedule, or publish.
   - linkedin:article-transfer writes local browser-transfer packets only; it does not open LinkedIn or publish.
   - metrics commands write local observation data only.
@@ -1967,6 +2005,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'image:interior-plan') {
     return interiorImagePlanCommand();
+  }
+  if (command === 'image:generate') {
+    return imageGenerateCommand(slug);
   }
   if (command === 'article:readiness') {
     return articleReadinessCommand();

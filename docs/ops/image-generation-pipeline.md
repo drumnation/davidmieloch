@@ -47,8 +47,8 @@ Per article:
 
 - `content/articles/<slug>/image-brief.md`
 - `content/articles/<slug>/images/interior-plan.json`
-- `content/articles/<slug>/images/variants/<variant-id>.png`
-- `content/articles/<slug>/images/image-manifest.json`
+- `content/articles/<slug>/images/generated/manifest.json`
+- `public/blog/<slug>/images/generated/<placement-id>/<variant-id>.png`
 - approved public assets under `public/blog/<slug>/images/`
 
 Batch-level review:
@@ -91,13 +91,29 @@ Public release requires:
 - generation receipt
 - David approval receipt
 
-## Next Build Step
+## Implemented CLI
 
-Add CLI commands:
+Implemented:
 
 - `pnpm content:pipeline image:interior-plan --write --count=5 --variants=2`
-- `pnpm content:pipeline image:generate <slug> --provider=zai --count=4 --spend-approved`
+- `pnpm content:pipeline image:generate <slug> --dry-run --limit=10`
+- `ZAI_API_KEY=<secret> pnpm content:pipeline image:generate <slug> --limit=10 --spend-approved`
+
+Still needed:
+
 - `pnpm content:pipeline image:approve <slug> <variant-id> --role=hero`
 - `pnpm content:pipeline image:publish-assets <slug>`
 
-These commands must refuse to spend money unless `--spend-approved` is present.
+`image:generate` refuses to spend money unless `--spend-approved` is present.
+It also refuses non-dry-run generation when `ZAI_API_KEY` is missing.
+
+## Current First Article State
+
+The first Factory Primitives article has:
+
+- 10 planned interior variants in `content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/generated/manifest.json`
+- one generated visual-direction contact sheet at `public/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/generated/contact-sheet/interior-contact-sheet.png`
+
+The contact sheet is only a review artifact. It does not satisfy launch lint
+until individual images are generated or sliced, approved, and inserted after
+their target headings.

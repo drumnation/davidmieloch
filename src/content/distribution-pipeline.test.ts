@@ -41,6 +41,9 @@ import {
   buildInteriorImagePlan,
 } from '../../scripts/lib/interior-image-plan.mjs';
 import {
+  generateInteriorImages,
+} from '../../scripts/lib/image-generation.mjs';
+import {
   buildArticleReadinessReport,
 } from '../../scripts/lib/article-readiness.mjs';
 import {
@@ -176,6 +179,23 @@ type InteriorImagePlanOptions = {
   generatedAt?: string;
 };
 
+type InteriorImageGenerationOptions = {
+  inputPath: string;
+  articlesRoot: string;
+  publicRoot: string;
+  slug: string;
+  placementId?: string | null;
+  limit?: number;
+  provider?: string;
+  model?: string;
+  quality?: string;
+  size?: string;
+  spendApproved?: boolean;
+  dryRun?: boolean;
+  onlyMissing?: boolean;
+  generatedAt?: string;
+};
+
 type ArticleReadinessOptions = {
   articlesRoot: string;
   publicRoot: string;
@@ -258,6 +278,9 @@ const generateLinkedInArticleTransfer = buildLinkedInArticleTransferPackets as u
 const generateInteriorImagePlan = buildInteriorImagePlan as unknown as (
   options: InteriorImagePlanOptions
 ) => ReturnType<typeof buildInteriorImagePlan>;
+const generateInteriorImageBatch = generateInteriorImages as unknown as (
+  options: InteriorImageGenerationOptions
+) => ReturnType<typeof generateInteriorImages>;
 const generateArticleReadiness = buildArticleReadinessReport as unknown as (
   options: ArticleReadinessOptions
 ) => ReturnType<typeof buildArticleReadinessReport>;
@@ -1427,6 +1450,74 @@ Budgets become weather.
         'utf8',
       ),
     ).toContain('Target: approve 3 article-body images from 6 generated candidates.');
+  });
+
+  it('writes dry-run interior image generation receipts without calling a paid provider', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    mkdirSync(join(articlesRoot, 'the-filter'), { recursive: true });
+    writeFileSync(
+      join(articlesRoot, 'the-filter/index.md'),
+      `---
+title: "The AI Cost Rug Pull Isn't a Bubble. It's a Filter."
+description: "The filter separates prompt users from factory builders."
+canonicalUrl: "https://davidmieloch.com/blog/the-filter"
+status: draft
+---
+
+# The Filter
+
+## What the Price Increase Actually Reveals
+
+The subsidized rates hid the real shape of the work.
+
+## The Factory Model
+
+The economics change when the unit is a factory.
+`,
+    );
+    const planPath = join(root, 'content/distribution/factory-primitives-interior-image-plan.json');
+    generateInteriorImagePlan({
+      launchPlan: {
+        articles: [{ slug: 'the-filter', title: 'The Filter' }],
+      },
+      articlesRoot,
+      outputPath: planPath,
+      countPerArticle: 2,
+      variantsPerPlacement: 2,
+      write: true,
+      generatedAt: '2026-06-07T06:00:00.000Z',
+    });
+
+    const result = await generateInteriorImageBatch({
+      inputPath: planPath,
+      articlesRoot,
+      publicRoot,
+      slug: 'the-filter',
+      limit: 4,
+      dryRun: true,
+      spendApproved: false,
+      generatedAt: '2026-06-07T08:00:00.000Z',
+    });
+
+    expect(result).toMatchObject({
+      dryRun: true,
+      selected: 4,
+      generated: 0,
+      planned: 4,
+      failures: 0,
+    });
+    expect(result.manifestPath).toContain('content/articles/the-filter/images/generated/manifest.json');
+    const manifest = JSON.parse(
+      readFileSync(join(root, 'content/articles/the-filter/images/generated/manifest.json'), 'utf8'),
+    );
+    expect(manifest.assets).toHaveLength(4);
+    expect(manifest.assets[0]).toMatchObject({
+      role: 'article-interior',
+      status: 'planned',
+      publicPath: '/blog/the-filter/images/generated/inline-01/inline-01-v1.png',
+    });
   });
 
   it('reports website draft and vault-candidate article readiness gates', () => {
