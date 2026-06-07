@@ -162,6 +162,112 @@
   margin: 14px 0 0;
 }
 
+.approvalStats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.approvalStats span {
+  padding: 12px 14px;
+  border: 1px solid rgba(248, 239, 224, 0.16);
+  border-radius: 8px;
+  background: rgba(248, 239, 224, 0.05);
+  font-weight: 900;
+}
+
+.approvalGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.approvalCard {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid rgba(248, 239, 224, 0.16);
+  border-radius: 8px;
+  background: #181b20;
+}
+
+.approvalHero {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #0e1013;
+}
+
+.approvalHero img {
+  object-fit: cover;
+}
+
+.approvalCopy {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.approvalCopy h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  line-height: 1.05;
+}
+
+.approvalCopy p,
+.approvalCopy blockquote {
+  margin: 0;
+  color: #d9cdbc;
+  line-height: 1.48;
+}
+
+.approvalCopy blockquote {
+  padding: 12px;
+  border-left: 3px solid #ffbd68;
+  background: rgba(248, 239, 224, 0.05);
+}
+
+.gateList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gateList span {
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 189, 104, 0.22);
+  border-radius: 6px;
+  background: rgba(255, 189, 104, 0.1);
+  color: #ffbd68;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.approvalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgba(248, 239, 224, 0.24);
+  border-radius: 6px;
+  color: #f8efe0;
+  font-weight: 900;
+  text-decoration: none;
+}
+
 .imageDrafts {
   display: grid;
   gap: 18px;
@@ -318,7 +424,8 @@
 @media (max-width: 900px) {
   .header,
   .imageCard,
-  .removedCard {
+  .removedCard,
+  .approvalCard {
     grid-template-columns: 1fr;
   }
 
@@ -330,6 +437,10 @@
     grid-template-columns: 1fr;
   }
 
+  .approvalStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -337,6 +448,10 @@
 
 @media (max-width: 560px) {
   .launchList {
+    grid-template-columns: 1fr;
+  }
+
+  .approvalStats {
     grid-template-columns: 1fr;
   }
 }

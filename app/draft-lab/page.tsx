@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 import review from "../../content/distribution/draft-image-review.json";
+import approvalPacket from "../../content/distribution/factory-primitives-approval-packet.json";
 import factoryPrimitivesLaunch from "../../content/distribution/factory-primitives-launch-plan.json";
 import styles from "./DraftLab.module.css";
 
@@ -33,6 +34,29 @@ type DraftCandidate = {
   };
 };
 
+type ApprovalArticle = {
+  slug: string;
+  title: string;
+  releaseTarget: string;
+  website: {
+    draftPreviewUrl: string;
+    canonicalUrl: string;
+  };
+  heroImage: {
+    publicPath: string;
+    caption: string;
+  };
+  linkedinReveal: {
+    scheduledAt: string;
+    teaser: string;
+    postizChannelStatus: string;
+  };
+  gates: Array<{
+    label: string;
+    status: string;
+  }>;
+};
+
 export const metadata: Metadata = {
   title: "Draft Lab",
   description:
@@ -55,6 +79,7 @@ const factoryPrimitives = factoryPrimitivesLaunch.articles;
 const factoryPrimitiveBlockers = factoryPrimitives.filter(
   (article) => article.blocker,
 );
+const approvalArticles = approvalPacket.articles as ApprovalArticle[];
 
 export default function DraftLabPage() {
   if (process.env.NODE_ENV === "production") {
@@ -139,6 +164,73 @@ export default function DraftLabPage() {
             the batch is launch-ready.
           </p>
         ) : null}
+      </section>
+
+      <section className={styles.section} aria-labelledby="approval-packet">
+        <div className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>Approval packet</p>
+          <h2 id="approval-packet" className={styles.sectionTitle}>
+            Ready for launch review
+          </h2>
+          <p className={styles.sectionDescription}>
+            Article preview, hero image, LinkedIn reveal copy, Postiz channel,
+            and release time are reconciled here. Public posting still requires
+            explicit approval.
+          </p>
+        </div>
+        <div className={styles.approvalStats}>
+          <span>{approvalPacket.summary.articles} articles</span>
+          <span>
+            {approvalPacket.summary.readyForDavidReview} ready for review
+          </span>
+          <span>{approvalPacket.summary.blocked} blocked</span>
+          <span>
+            {approvalPacket.summary.approvalGatesPerArticle} gates each
+          </span>
+        </div>
+        <div className={styles.approvalGrid}>
+          {approvalArticles.map((article) => (
+            <article className={styles.approvalCard} key={article.slug}>
+              <figure className={styles.approvalHero}>
+                <Image
+                  src={article.heroImage.publicPath}
+                  alt=""
+                  fill
+                  sizes="(max-width: 900px) 100vw, 380px"
+                />
+              </figure>
+              <div className={styles.approvalCopy}>
+                <span className={styles.collection}>
+                  {formatReleaseDate(article.releaseTarget)}
+                </span>
+                <h3>{article.title}</h3>
+                <p>{article.heroImage.caption}</p>
+                <blockquote>{article.linkedinReveal.teaser}</blockquote>
+                <div className={styles.gateList} aria-label="Approval gates">
+                  {article.gates.map((gate) => (
+                    <span key={gate.label}>
+                      {gate.label.replace(/-/g, " ")}: {gate.status}
+                    </span>
+                  ))}
+                </div>
+                <div className={styles.approvalActions}>
+                  <Link
+                    className={styles.previewLink}
+                    href={article.website.draftPreviewUrl}
+                  >
+                    Review article
+                  </Link>
+                  <a
+                    className={styles.secondaryLink}
+                    href={article.website.canonicalUrl}
+                  >
+                    Canonical URL
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className={styles.section} aria-labelledby="generated-concepts">
@@ -279,4 +371,20 @@ export default function DraftLabPage() {
       ) : null}
     </main>
   );
+}
+
+function formatReleaseDate(value: string) {
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "America/New_York",
+  }).format(date);
 }
