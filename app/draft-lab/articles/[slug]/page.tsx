@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.DRAFT_LAB_ENABLED !== "1") {
     return [];
   }
 
@@ -83,7 +83,7 @@ export function generateStaticParams() {
 }
 
 export default async function DraftArticlePreviewPage({ params }: PageProps) {
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.DRAFT_LAB_ENABLED !== "1") {
     notFound();
   }
 
