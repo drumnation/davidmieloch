@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "factory-primitives-launch-plan-v1",
+  "generatedAt": "2026-06-07T04:32:07.778Z",
+  "publicPublishingPerformed": false,
+  "series": "Factory Primitives",
+  "visualSystem": {
+    "name": "1950s space-western industrial noir",
+    "description": "Dark chocolate software factory imagery with frontier astronomy, brass instruments, amber machine light, restrained blue signal accents, and no readable typography.",
+    "aspectRatio": "16:9",
+    "canonicalSize": "1920x1080",
+    "contactSheet": "/draft-lab/_generated/factory-primitives-next-week-contact-sheet.png"
+  },
+  "decisionSeam": {
+    "name": "factory-primitives-launch-approval",
+    "actor": "David",
+    "safeDefault": "do-not-publish"
+  },
+  "articles": [
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "releaseTarget": "2026-06-10",
+      "contentStatus": "ready-for-editorial-approval",
+      "imageStatus": "hero-staged-for-review",
+      "coverImage": "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
+      "imageManifest": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-manifest.json",
+      "checksumSha256": "da9d466e2fdaef271232a3bf840b235ed025eee258b5fc5f947a8d9bcef07e78",
+      "caption": "A black-hole refinery over a frontier software factory: the cost shock as a filter, not a collapse.",
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    },
+    {
+      "slug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "releaseTarget": "2026-06-13",
+      "contentStatus": "ready-for-editorial-approval",
+      "imageStatus": "hero-staged-for-review",
+      "coverImage": "/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
+      "imageManifest": "content/articles/the-ai-bill-you-cant-predict/image-manifest.json",
+      "checksumSha256": "12eb475f553162cd9219769808b03543f219cba8f19c9c90ca3c06a8b2530195",
+      "caption": "A giant analog meter dominating an AI factory town: the bill as a moving formula nobody can see clearly.",
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    },
+    {
+      "slug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "releaseTarget": "2026-06-17",
+      "contentStatus": "ready-for-editorial-approval",
+      "imageStatus": "hero-staged-for-review",
+      "coverImage": "/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
+      "imageManifest": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-manifest.json",
+      "checksumSha256": "710690852066dfc7df55b416d83675a3a6840c1949b88ce40d627215e33fe99f",
+      "caption": "Observers scanning a vast factory from a watchtower: the scarce skill is noticing what will compound.",
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    },
+    {
+      "slug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "releaseTarget": "2026-06-20",
+      "contentStatus": "ready-for-editorial-approval",
+      "imageStatus": "hero-staged-for-review",
+      "coverImage": "/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
+      "imageManifest": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-manifest.json",
+      "checksumSha256": "cc24ebd38c7bcf305f123c6e1a756f65916c294cbf8f9d7acd15ab6ad6410f47",
+      "caption": "A cracked synthetic executive on a broadcast monitor: persuasion without a person staking credibility.",
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    },
+    {
+      "slug": "the-crew-seed",
+      "title": "The Crew",
+      "releaseTarget": "2026-06-24",
+      "contentStatus": "ready-for-editorial-approval",
+      "imageStatus": "hero-staged-for-review",
+      "coverImage": "/blog/the-crew-seed/images/hero-linkedin.png",
+      "imageManifest": "content/articles/the-crew-seed/image-manifest.json",
+      "checksumSha256": "646ab8e093917a98f4dcc1b7d5386cd800671ec834b336eed3bf266f1a1bb48e",
+      "caption": "Three operators overlooking the factory floor: a small crew administering a machine bigger than a team.",
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    }
+  ],
+  "blockers": []
+}

@@ -93,9 +93,18 @@
   letter-spacing: 0;
 }
 
+.sectionDescription {
+  max-width: 820px;
+  margin: 0;
+  color: #d9cdbc;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
 .contactSheet {
   position: relative;
-  min-height: 680px;
+  aspect-ratio: 2064 / 944;
+  min-height: 0;
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(248, 239, 224, 0.16);
@@ -104,7 +113,53 @@
 }
 
 .contactSheet img {
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.launchList {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.launchItem {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid rgba(248, 239, 224, 0.15);
+  border-radius: 8px;
+  background: #181b20;
+}
+
+.launchItem h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.12;
+}
+
+.launchItem p {
+  margin: 0;
+  color: #d9cdbc;
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.launchItem .previewLink {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 0.82rem;
+}
+
+.blocker,
+.batchWarning {
+  color: #ffbd68 !important;
+  font-weight: 900;
+}
+
+.batchWarning {
+  margin: 14px 0 0;
 }
 
 .imageDrafts {
@@ -267,11 +322,21 @@
     grid-template-columns: 1fr;
   }
 
+  .launchList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .missingGrid {
     grid-template-columns: 1fr;
   }
 
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .launchList {
+    grid-template-columns: 1fr;
   }
 }

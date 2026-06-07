@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-07T04:32:07.778Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-crew-seed",
+  "articleTitle": "The Crew",
+  "series": "Factory Primitives",
+  "visualSystem": "1950s space-western industrial noir",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-crew-seed/images/hero-linkedin.png",
+      "sourcePath": "public/blog/the-crew-seed/images/hero-linkedin.png",
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": "16:9",
+      "checksumSha256": "646ab8e093917a98f4dcc1b7d5386cd800671ec834b336eed3bf266f1a1bb48e",
+      "caption": "Three operators overlooking the factory floor: a small crew administering a machine bigger than a team.",
+      "promptSummary": "1950s space-western industrial noir, three human operators in a control balcony overlooking a vast dark software factory, amber machinery, frontier hats and brass consoles, cinematic 16:9 editorial hero, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-06-24",
+    "blocker": null
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-07T02:11:31.890Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+  "articleTitle": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+  "series": "Factory Primitives",
+  "visualSystem": "1950s space-western industrial noir",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
+      "sourcePath": "public/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": "16:9",
+      "checksumSha256": "da9d466e2fdaef271232a3bf840b235ed025eee258b5fc5f947a8d9bcef07e78",
+      "caption": "A black-hole refinery over a frontier software factory: the cost shock as a filter, not a collapse.",
+      "promptSummary": "1950s space-western industrial noir, black-hole filter over a dark chocolate software factory, amber machinery, sparse blue instrumentation, cinematic 16:9 editorial hero, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-06-10",
+    "blocker": null
+  }
+}

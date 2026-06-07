@@ -497,7 +497,7 @@
     },
     {
       "slug": "the-crew-seed",
-      "title": "The Crew (seed)",
+      "title": "The Crew",
       "collection": "Factory Primitives",
       "sourceBucket": "dated-folder",
       "relativePath": "6-3-2026/the-crew.md",
@@ -529,7 +529,7 @@
       "previewMarkdownPath": "content/distribution/draft-previews/the-crew-seed.md",
       "imageStatus": "generated-1950s-landscape-hero-available",
       "nextImageAction": "Review the 1950s space western landscape hero in the draft article preview before public release.",
-      "promptSeed": "The Crew (seed): 1950s retro-futurist space western software factory, atomic-age machinery, frontier composition, dark chocolate and brass palette, no readable text.",
+      "promptSeed": "The Crew: 1950s retro-futurist space western software factory, atomic-age machinery, frontier composition, dark chocolate and brass palette, no readable text.",
       "decision": {
         "status": "maybe",
         "reason": "",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-crew-seed:9e41c788127c",
+  "manifestId": "social:linkedin:the-crew-seed:c22354e07fe4",
   "source": {
     "articleSlug": "the-crew-seed",
     "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
@@ -21,7 +21,7 @@
     "approvalArtifact": ""
   },
   "payload": {
-    "text": "The Crew\n\nThe Crew (seed) seed — not ready to publish. Capture the thesis before it drifts. The Thesis Three strong human engineers, focusing their attention on using an amplified system to improve the system itself, would — and will — produce software at a speed and quality that is simply not comparable to what those same engineers could do by hand, or even with a...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-crew-seed?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-crew-seed",
+    "text": "The Crew\n\nThe Crew The word \"pod\" is wrong. When I think of a pod, I think of a small capsule. A contained unit. Something designed to be moved around by a larger structure. That is not the frame for what is happening here. Three people operating a software factory are not a pod. They are not a tiny delivery team with better tools. They are the early administrative...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-crew-seed?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-crew-seed",
     "links": [
       "https://davidmieloch.com/blog/the-crew-seed"
     ],
@@ -36,6 +36,6 @@
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "bc99871e327d0539a331133aab61bdc7f09aecbb1c770ea2e7cfcf7a916bd597"
+    "digest": "110bf3a08cf1835330ce6f930d5582d531cb4dddac52e3a1142eb4c5731c1344"
   }
 }

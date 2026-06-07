@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-07T02:11:31.890Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-credibility-problem-with-ai-corporate-communications",
+  "articleTitle": "The Credibility Problem with AI Corporate Communications",
+  "series": "Factory Primitives",
+  "visualSystem": "1950s space-western industrial noir",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
+      "sourcePath": "public/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": "16:9",
+      "checksumSha256": "cc24ebd38c7bcf305f123c6e1a756f65916c294cbf8f9d7acd15ab6ad6410f47",
+      "caption": "A cracked synthetic executive on a broadcast monitor: persuasion without a person staking credibility.",
+      "promptSummary": "1950s space-western industrial noir, cracked synthetic corporate speaker on a monitor inside a brass control room, credibility signal chain, amber gauges, blue electrical trace, cinematic 16:9 editorial hero, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-06-20",
+    "blocker": null
+  }
+}

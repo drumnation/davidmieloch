@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-07T02:11:31.890Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-ai-bill-you-cant-predict",
+  "articleTitle": "The AI Bill You Can't Predict",
+  "series": "Factory Primitives",
+  "visualSystem": "1950s space-western industrial noir",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
+      "sourcePath": "public/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": "16:9",
+      "checksumSha256": "12eb475f553162cd9219769808b03543f219cba8f19c9c90ca3c06a8b2530195",
+      "caption": "A giant analog meter dominating an AI factory town: the bill as a moving formula nobody can see clearly.",
+      "promptSummary": "1950s space-western industrial noir, monumental analog cost meter embedded in a frontier AI factory, amber brass gauges, distant planet, cinematic 16:9 editorial hero, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-06-13",
+    "blocker": null
+  }
+}

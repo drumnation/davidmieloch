@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-07T02:11:31.890Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-most-valuable-ai-skill-isnt-prompting",
+  "articleTitle": "The Most Valuable AI Skill Isn't Prompting",
+  "series": "Factory Primitives",
+  "visualSystem": "1950s space-western industrial noir",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
+      "sourcePath": "public/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": "16:9",
+      "checksumSha256": "710690852066dfc7df55b416d83675a3a6840c1949b88ce40d627215e33fe99f",
+      "caption": "Observers scanning a vast factory from a watchtower: the scarce skill is noticing what will compound.",
+      "promptSummary": "1950s space-western industrial noir, surveyors with telescopes and instruments watching a sprawling automated factory, amber city lights, restrained blue signals, cinematic 16:9 editorial hero, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-06-17",
+    "blocker": null
+  }
+}

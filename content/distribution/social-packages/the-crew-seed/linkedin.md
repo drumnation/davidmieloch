@@ -9,7 +9,7 @@ account_kind: "existing-personal"
 known_state: "exists"
 postiz_channel_status: "connected"
 test_post_policy: "no-public-test-posts"
-generated_at: "2026-06-07T00:21:43.287Z"
+generated_at: "2026-06-07T04:32:08.246Z"
 public_publish_allowed: false
 credential_custody_verified: false
 ---
@@ -28,6 +28,6 @@ credential_custody_verified: false
 
 The Crew
 
-The Crew (seed) seed — not ready to publish. Capture the thesis before it drifts. The Thesis Three strong human engineers, focusing their attention on using an amplified system to improve the system itself, would — and will — produce software at a speed and quality that is simply not comparable to what those same engineers could do by hand, or even with a...
+The Crew The word "pod" is wrong. When I think of a pod, I think of a small capsule. A contained unit. Something designed to be moved around by a larger structure. That is not the frame for what is happening here. Three people operating a software factory are not a pod. They are not a tiny delivery team with better tools. They are the early administrative...
 
 Read the canonical essay: https://davidmieloch.com/blog/the-crew-seed?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-crew-seed

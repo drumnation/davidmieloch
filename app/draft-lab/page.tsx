@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 import review from "../../content/distribution/draft-image-review.json";
+import factoryPrimitivesLaunch from "../../content/distribution/factory-primitives-launch-plan.json";
 import styles from "./DraftLab.module.css";
 
 type DraftImage = {
@@ -50,6 +51,10 @@ const withImages = candidates.filter(
 const missingImages = candidates.filter(
   (candidate) => candidate.images.length === 0,
 );
+const factoryPrimitives = factoryPrimitivesLaunch.articles;
+const factoryPrimitiveBlockers = factoryPrimitives.filter(
+  (article) => article.blocker,
+);
 
 export default function DraftLabPage() {
   if (process.env.NODE_ENV === "production") {
@@ -85,6 +90,55 @@ export default function DraftLabPage() {
           <span>{review.summary.withImages} with images</span>
           <span>{review.summary.missingImages} need images</span>
         </div>
+      </section>
+
+      <section className={styles.section} aria-labelledby="factory-primitives">
+        <div className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>Next launch batch</p>
+          <h2 id="factory-primitives" className={styles.sectionTitle}>
+            Factory Primitives
+          </h2>
+          <p className={styles.sectionDescription}>
+            Five linked pieces staged for the next release wave. The visual
+            system is 1950s space-western industrial noir: amber machine light,
+            frontier astronomy, brass instruments, and restrained blue signals.
+          </p>
+        </div>
+        <figure className={styles.contactSheet}>
+          <Image
+            src="/draft-lab/_generated/factory-primitives-next-week-contact-sheet.png"
+            alt="Factory Primitives article hero contact sheet"
+            fill
+            priority
+            sizes="(max-width: 1220px) 100vw, 1220px"
+          />
+        </figure>
+        <div className={styles.launchList}>
+          {factoryPrimitives.map((article) => (
+            <article className={styles.launchItem} key={article.slug}>
+              <span className={styles.collection}>
+                {article.releaseTarget}
+              </span>
+              <h3>{article.title}</h3>
+              <p>{article.caption}</p>
+              {article.blocker ? (
+                <p className={styles.blocker}>Blocker: {article.blocker}</p>
+              ) : null}
+              <Link
+                className={styles.previewLink}
+                href={`/draft-lab/articles/${article.slug}`}
+              >
+                Preview draft article
+              </Link>
+            </article>
+          ))}
+        </div>
+        {factoryPrimitiveBlockers.length > 0 ? (
+          <p className={styles.batchWarning}>
+            {factoryPrimitiveBlockers.length} article needs copy cleanup before
+            the batch is launch-ready.
+          </p>
+        ) : null}
       </section>
 
       <section className={styles.section} aria-labelledby="generated-concepts">
