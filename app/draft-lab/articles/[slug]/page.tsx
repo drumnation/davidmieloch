@@ -30,6 +30,28 @@ type DraftCandidate = {
   }>;
 };
 
+type GeneratedInteriorImage = {
+  id: string;
+  placementId: string;
+  variantId: string;
+  role: string;
+  targetHeading?: string;
+  altText?: string;
+  caption?: string;
+  publicPath: string;
+  sourcePath: string;
+  status: string;
+  checksum?: string;
+};
+
+type GeneratedInteriorManifest = {
+  schemaVersion: string;
+  generatedAt?: string;
+  updatedAt?: string;
+  approvalStatus?: string;
+  assets: GeneratedInteriorImage[];
+};
+
 const candidates = review.candidates as DraftCandidate[];
 const removedCandidates = (review.removedCandidates ?? []) as DraftCandidate[];
 const allCandidates = [...candidates, ...removedCandidates];
@@ -117,6 +139,7 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
           caption: `${candidate.title} candidate hero`,
         }
       : undefined);
+  const generatedInteriorImages = readGeneratedInteriorImages(candidate.slug);
 
   return (
     <main style={styles.page}>
@@ -150,6 +173,48 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
               {heroImage.caption}
             </figcaption>
           </figure>
+        ) : null}
+
+        {generatedInteriorImages.length > 0 ? (
+          <section
+            style={styles.generatedSection}
+            aria-labelledby="generated-interior-images"
+          >
+            <div style={styles.generatedHeader}>
+              <p style={styles.eyebrow}>Interior image candidates</p>
+              <h2 id="generated-interior-images" style={styles.generatedTitle}>
+                Generated art waiting for selection
+              </h2>
+              <p style={styles.generatedDescription}>
+                These are not published into the article yet. Pick the ones that
+                actually clarify the idea, then the approved images can be
+                inserted with captions and counted by the article readiness
+                lint.
+              </p>
+            </div>
+            <div style={styles.generatedGrid}>
+              {generatedInteriorImages.map((image, index) => (
+                <figure key={image.id} style={styles.generatedCard}>
+                  <a href={image.publicPath} style={styles.generatedImageLink}>
+                    <img
+                      src={image.publicPath}
+                      alt={image.altText ?? `${candidate.title} generated art`}
+                      style={styles.generatedImage}
+                      loading="lazy"
+                    />
+                  </a>
+                  <figcaption style={styles.generatedCaption}>
+                    <strong>
+                      {index + 1}.{" "}
+                      {image.targetHeading ?? image.placementId}
+                    </strong>
+                    <span>{image.caption ?? "No caption drafted yet."}</span>
+                    <code>{image.status}</code>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
         ) : null}
 
         <ReactMarkdown
@@ -217,6 +282,46 @@ function renderDraftMarkdown(markdown: string, candidate: DraftCandidate) {
 
 function normalizeImageLookupKey(value: string) {
   return value.replace(/\\/g, "/").trim().toLowerCase();
+}
+
+function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
+  const manifestPath = path.join(
+    process.cwd(),
+    "content",
+    "articles",
+    slug,
+    "images",
+    "generated",
+    "manifest.json",
+  );
+
+  if (!fs.existsSync(manifestPath)) {
+    return [];
+  }
+
+  try {
+    const manifest = JSON.parse(
+      fs.readFileSync(manifestPath, "utf8"),
+    ) as GeneratedInteriorManifest;
+
+    return manifest.assets
+      .filter((asset) => asset.status.startsWith("generated"))
+      .filter((asset) => asset.role === "article-interior")
+      .filter((asset) =>
+        fs.existsSync(path.join(process.cwd(), asset.sourcePath)),
+      )
+      .sort((left, right) => {
+        const placementDelta = left.placementId.localeCompare(
+          right.placementId,
+        );
+
+        return placementDelta === 0
+          ? left.variantId.localeCompare(right.variantId)
+          : placementDelta;
+      });
+  } catch {
+    return [];
+  }
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -292,6 +397,64 @@ const styles: Record<string, CSSProperties> = {
     color: "#f4e8d8",
     fontSize: "0.88rem",
     lineHeight: 1.4,
+  },
+  generatedSection: {
+    margin: "0 0 42px",
+    padding: "22px",
+    border: "1px solid #ded6ca",
+    borderRadius: "12px",
+    background: "#fbf7ef",
+  },
+  generatedHeader: {
+    display: "grid",
+    gap: "8px",
+    marginBottom: "18px",
+  },
+  generatedTitle: {
+    margin: 0,
+    fontSize: "clamp(1.8rem, 5vw, 3rem)",
+    lineHeight: 1,
+    letterSpacing: 0,
+  },
+  generatedDescription: {
+    maxWidth: "720px",
+    margin: 0,
+    color: "#4c4740",
+    fontSize: "1rem",
+    lineHeight: 1.55,
+  },
+  generatedGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: "14px",
+  },
+  generatedCard: {
+    display: "grid",
+    gap: "10px",
+    margin: 0,
+    padding: "10px",
+    border: "1px solid #e2d8c9",
+    borderRadius: "10px",
+    background: "#fffdf8",
+  },
+  generatedImageLink: {
+    display: "block",
+    overflow: "hidden",
+    borderRadius: "8px",
+    background: "#111",
+  },
+  generatedImage: {
+    display: "block",
+    width: "100%",
+    aspectRatio: "16 / 9",
+    objectFit: "cover",
+  },
+  generatedCaption: {
+    display: "grid",
+    gap: "6px",
+    color: "#302b25",
+    fontSize: "0.88rem",
+    lineHeight: 1.38,
   },
   markdownH1: {
     margin: "36px 0 12px",
