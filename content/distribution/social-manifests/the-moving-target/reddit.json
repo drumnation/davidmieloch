@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:the-moving-target:1c5ae0b4c6bf",
+  "manifestId": "social:reddit:the-moving-target:77f1d0226681",
   "source": {
     "articleSlug": "the-moving-target",
     "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/reddit.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-moving-target/reddit.md"
   },
   "destination": {
     "platform": "reddit",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "2ae9dc9ea50f2385f4326c63a73d3f8d39bb8d0cfa0034a758fd819c5a4e0ab7"
+    "digest": "d52bfa71c79fd9944662a7b5817f6286525da52c7f79646dfaa31f39bc03c61c"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "the-ai-bill-you-cant-predict",
+  "title": "The AI Bill You Can't Predict",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
+  "generatedAt": "2026-06-07T00:21:43.287Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-bill-you-cant-predict/linkedin.md",
+      "checksum": "5cf0b40a07b40a7826241e7611e17a253c5fad85a59b4a70ade6ce1d780b46f7"
+    }
+  ]
+}

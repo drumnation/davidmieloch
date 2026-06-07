@@ -103,6 +103,9 @@ function accountReadinessBlocker(inventory, account) {
   if (!account) {
     return 'No account inventory entry exists for this platform.';
   }
+  if (account.blocker) {
+    return account.blocker;
+  }
   const custody = credentialCustodyStatus(inventory);
   if (account.knownState === 'not-created') {
     if (!custody.verified) {
@@ -422,7 +425,9 @@ export function buildSocialPostManifest({
       accountId: account?.proposedHandle ?? account?.platform ?? platform,
       identityLayer: account?.identityLayer ?? 'brand-lab',
       mode,
-      postizChannelId: null,
+      postizChannelId: account?.postizChannelStatus === 'connected'
+        ? account.postizChannelId ?? null
+        : null,
     },
     approval: {
       status: approvalStatus,
@@ -460,6 +465,7 @@ export function buildN8nExport({
 }) {
   const custody = credentialCustodyStatus(inventory);
   const blockedPackets = (socialCalendar.entries ?? []).filter((entry) => entry.blocked);
+  const readyPackets = (socialCalendar.entries ?? []).filter((entry) => !entry.blocked);
   const packets = (socialCalendar.entries ?? []).map((entry) => ({
     packetId: `n8n:${entry.id}`,
     generatedAt,
@@ -489,16 +495,16 @@ export function buildN8nExport({
     generatedAt,
     publicPublishingPerformed: false,
     ownerAgent: inventory.n8n?.ownerAgent ?? 'Commander Data',
-    status: custody.verified
+    status: readyPackets.length > 0
       ? blockedPackets.length > 0
-        ? 'blocked-on-channel-setup'
+        ? 'partially-ready-for-internal-workflow-build'
         : 'ready-for-internal-workflow-build'
-      : 'blocked-on-credential-custody',
-    blocker: custody.verified
-      ? blockedPackets.length > 0
-        ? `${blockedPackets.length} packets blocked by account or channel readiness.`
-        : null
-      : inventory.credentialStore?.blocker ?? '1Password credential custody is not verified.',
+      : custody.verified
+        ? 'blocked-on-channel-setup'
+        : 'blocked-on-credential-custody',
+    blocker: blockedPackets.length > 0
+      ? `${blockedPackets.length} packets blocked by account or channel readiness.`
+      : null,
     packets,
   };
 }

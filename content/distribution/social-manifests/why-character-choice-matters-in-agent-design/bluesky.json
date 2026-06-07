@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:why-character-choice-matters-in-agent-design:4905f6291cd6",
+  "manifestId": "social:bluesky:why-character-choice-matters-in-agent-design:46d83d446fc5",
   "source": {
     "articleSlug": "why-character-choice-matters-in-agent-design",
     "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/why-character-choice-matters-in-agent-design/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "2a87efd75460de2a632c4427e2341ae69787da56ed10aae45b1e5238f4b57bf9"
+    "digest": "353efef818a3fca103dea04fb32d0d7ac75cb39118e9ff2096e4b87dbe72bdfa"
   }
 }

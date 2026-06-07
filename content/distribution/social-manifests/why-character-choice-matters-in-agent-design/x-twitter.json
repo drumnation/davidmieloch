@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:why-character-choice-matters-in-agent-design:ac89ae08aee4",
+  "manifestId": "social:x-twitter:why-character-choice-matters-in-agent-design:8fd0c98a06f6",
   "source": {
     "articleSlug": "why-character-choice-matters-in-agent-design",
     "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/why-character-choice-matters-in-agent-design/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "a34d6fa7918240adb059d7907b59141b0c483bd7ab0d2920ad3c7bc77c23d965"
+    "digest": "8f5c9024bfedee117d80a45c9d7b9619d26389c0d419751b591bf8ff67659c0c"
   }
 }

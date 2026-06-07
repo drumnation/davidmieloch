@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:developing-with-a-team-of-ai-s:b849a9c1be82",
+  "manifestId": "social:bluesky:developing-with-a-team-of-ai-s:40c22b4c4331",
   "source": {
     "articleSlug": "developing-with-a-team-of-ai-s",
     "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/developing-with-a-team-of-ai-s/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "760f9883668c79c2aad4aaced67157e2cda63f2d1d804c646cb3b5ad3dcf645b"
+    "digest": "89c430c80215ab295ab5932d8ce292b34a5a8922d917acf6d4f48834da3eb2a2"
   }
 }

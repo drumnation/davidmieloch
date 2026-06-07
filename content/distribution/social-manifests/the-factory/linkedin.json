@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-factory:f9ac2f39eba5",
+  "manifestId": "social:linkedin:the-factory:8d94bb7380fa",
   "source": {
     "articleSlug": "the-factory",
     "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-factory/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "5960ee06e9bf39d41b84892c9a2334bcb6411bf19c9557588adef55ef8d31937"
+    "digest": "dacd35e98e3b0df6ec8cd1b368491ddce619f1d0634617d94b675c8903c6eb85"
   }
 }

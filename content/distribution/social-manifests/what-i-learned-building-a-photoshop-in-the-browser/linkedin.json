@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:what-i-learned-building-a-photoshop-in-the-browser:d6c2bb8c17c8",
+  "manifestId": "social:linkedin:what-i-learned-building-a-photoshop-in-the-browser:b7eec349dda8",
   "source": {
     "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
     "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "cc98128a9072529982a4effacd7fd706ccd1399572017d91b2ae5062e3154149"
+    "digest": "96ec9c758cc23aabf052d9a12c6d220c568e3c2539b1f77d1dc90e9e4a6fd199"
   }
 }

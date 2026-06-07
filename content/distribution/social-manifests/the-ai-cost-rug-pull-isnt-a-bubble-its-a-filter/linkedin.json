@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter:4198f192a6be",
+  "source": {
+    "articleSlug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\n\nThe AI Cost Rug Pull Isn't a Bubble. It's a Filter. Something visible is happening right now across the AI landscape subscription plans are ending, token costs are spiking, and the rates that felt almost free for the past two years are giving way to something that looks, to a lot of people, like a 23x price increase. The reaction I'm seeing (and...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+    "links": [
+      "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "7596c752919db0c68ff2e85ad27b37ebb8ba753d8efbb2de63e2885afec4be6c"
+  }
+}

@@ -42,6 +42,16 @@ const draftHeroImages: Record<
     alt: "A 1950s space western black hole filtering compute chips above a factory rail checkpoint",
     caption: "The Filter: cost and scarcity return as useful pressure.",
   },
+  "the-ai-bill-you-cant-predict": {
+    src: "/home/next-series/article-heroes/the-meter-linkedin.png",
+    alt: "A monumental 1950s analog meter tower over a retro space factory floor",
+    caption: "The Meter: AI billing needs instruments, not vibes.",
+  },
+  "the-most-valuable-ai-skill-isnt-prompting": {
+    src: "/home/next-series/article-heroes/the-noticers-linkedin.png",
+    alt: "Observers in a retro space western lookout booth watching factory robots below",
+    caption: "The Noticers: judgment moves from prompting to observation.",
+  },
   "the-credibility-problem-with-ai-corporate-communications": {
     src: "/home/next-series/article-heroes/the-credibility-problem-linkedin.png",
     alt: "A cracked 1950s broadcast screen being examined by a glowing proof-chain machine",

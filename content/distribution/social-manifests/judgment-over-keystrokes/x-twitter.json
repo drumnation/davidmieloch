@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:judgment-over-keystrokes:b97f0b530ca5",
+  "manifestId": "social:x-twitter:judgment-over-keystrokes:b8a97f1d3813",
   "source": {
     "articleSlug": "judgment-over-keystrokes",
     "canonicalUrl": "https://davidmieloch.com/blog/judgment-over-keystrokes",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/judgment-over-keystrokes/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/judgment-over-keystrokes/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "3babce91a0c1bd9677045ab6e7d1dca6bfd5e15ab7ac18cba86845f4160e56fa"
+    "digest": "e3e941d40fbc3afdeef54c60b04745ec16ed41d1758f1bda9881ff88c20481c5"
   }
 }

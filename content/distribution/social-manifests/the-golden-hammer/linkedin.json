@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-golden-hammer:458c9bf32d86",
+  "manifestId": "social:linkedin:the-golden-hammer:39dd2f7d5bec",
   "source": {
     "articleSlug": "the-golden-hammer",
     "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-golden-hammer/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "2f3bb47a640feeb1505d4ac2a12dddcaeffb06d82dd6b4f7a00d130a0caeb223"
+    "digest": "1b16739a595e4e41c7f3c258333f9e8085e77f06a3ebd6bd1afb771d87ca4ec0"
   }
 }

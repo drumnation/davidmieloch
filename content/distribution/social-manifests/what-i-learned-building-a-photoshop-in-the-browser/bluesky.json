@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:what-i-learned-building-a-photoshop-in-the-browser:ab289a0d5800",
+  "manifestId": "social:bluesky:what-i-learned-building-a-photoshop-in-the-browser:f65983ae0631",
   "source": {
     "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
     "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "cc0ed6543cdf84865facc9920098d19c7bb2dc8f15bb0a51893c77995e8df5e9"
+    "digest": "1ca663f01aac72a275bab9e10c19a9e4470f3a6a8b7d678bbbf8a4604cf824f7"
   }
 }

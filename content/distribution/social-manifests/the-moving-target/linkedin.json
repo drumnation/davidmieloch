@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-moving-target:46c377d01411",
+  "manifestId": "social:linkedin:the-moving-target:8d8e073e5b07",
   "source": {
     "articleSlug": "the-moving-target",
     "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-moving-target/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "e42c8c61fa4a9b8bc1d118c9a41df911a289b8ce94fc338eb0767c63af11e586"
+    "digest": "248c260afbf23744308e11b6bc1e288fa2a6193f3252020c9164f7b5cf800cf1"
   }
 }

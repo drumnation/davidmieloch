@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:facebook-page:every-company-is-sitting-on-sunken-treasure:9b9f490dd6b6",
+  "manifestId": "social:facebook-page:every-company-is-sitting-on-sunken-treasure:1dae0e57afc7",
   "source": {
     "articleSlug": "every-company-is-sitting-on-sunken-treasure",
     "canonicalUrl": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/facebook-page.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/facebook-page.md"
   },
   "destination": {
     "platform": "facebook-page",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "1e9b617b84ef0573a250fa9cb1254ac61e537603087b4ea39fc26fd914f168f6"
+    "digest": "b92dd4fe0eaf1eee70fb254e9f641a563f517153f8bcc181acdba230853c017d"
   }
 }

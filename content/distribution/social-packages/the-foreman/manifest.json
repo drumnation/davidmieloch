@@ -3,43 +3,13 @@
   "slug": "the-foreman",
   "title": "The Foreman",
   "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
-  "generatedAt": "2026-06-05T11:52:15.017Z",
+  "generatedAt": "2026-06-07T00:21:43.287Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/linkedin.md",
-      "checksum": "7a1d74aaf6ec767b57c0f6f718e493059e25977fa780e4d9b0fe32f97d058a3e"
-    },
-    {
-      "platform": "x-twitter",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/x-twitter.md",
-      "checksum": "04329b569457a6644ef6e91ad0e03471c140b596a0448f66bbf1dfe1df9cee46"
-    },
-    {
-      "platform": "reddit",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/reddit.md",
-      "checksum": "0713afd4be53e92a72ba07769ba47c03289afc60f71ef1ee73264736301c4c9c"
-    },
-    {
-      "platform": "bluesky",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/bluesky.md",
-      "checksum": "8b0429191593dab4a2cafba6f0ade0c433f1cb9b05164ad40acc60b77cd0aeeb"
-    },
-    {
-      "platform": "mastodon",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/mastodon.md",
-      "checksum": "3ab9e63b8735f4ec043d21dfb66447c443fbe25d4b7c4fad8e0268ecab243455"
-    },
-    {
-      "platform": "threads",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/threads.md",
-      "checksum": "718143378931e5515799f73a60a6e662c633e7c637f0fe4b92f1c8fdbefeefd1"
-    },
-    {
-      "platform": "facebook-page",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/facebook-page.md",
-      "checksum": "309c1fbeb6866454d9708ce6b4d98b78ddc8eb25bca18c6f6c2c58f1a53b9e1b"
+      "filePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-foreman/linkedin.md",
+      "checksum": "7d73bd705adc92086a11ff04d633ed552fcafc2557d7f56c3b9ae9581165f050"
     }
   ]
 }

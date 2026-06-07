@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-foreman:3edf620febfb",
+  "manifestId": "social:linkedin:the-foreman:a83d8f7dd743",
   "source": {
     "articleSlug": "the-foreman",
     "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-foreman/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "8764c42c9b1c46f0bca183fa98aa5cacf59278d7d2070d07f67dcdc80cfd35d2"
+    "digest": "f1a1094d44868916b18d665fbfc7489e1cdf1f81638cc380799284e6725e0804"
   }
 }

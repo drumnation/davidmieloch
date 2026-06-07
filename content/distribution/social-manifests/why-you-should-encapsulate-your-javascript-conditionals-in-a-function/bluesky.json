@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:f9d21f3dd38d",
+  "manifestId": "social:bluesky:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:51022a8270b4",
   "source": {
     "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "8630c79c63f7b5c17b1126d056bc50b0cc38d804f03708e4f3d3f989a8d4ae9b"
+    "digest": "1c4e0d029e69edbb356cd482627cd09822ca06a7c9806a9315eb2849f0001059"
   }
 }

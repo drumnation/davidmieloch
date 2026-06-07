@@ -3,43 +3,13 @@
   "slug": "developing-with-a-team-of-ai-s",
   "title": "Developing with a Team of AI’s",
   "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
-  "generatedAt": "2026-06-05T11:52:15.017Z",
+  "generatedAt": "2026-06-07T00:21:43.287Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/linkedin.md",
-      "checksum": "102a4b3601b132d98c9504c756e736eacaea4e44d839e5b80ebff8b8f25f6d7f"
-    },
-    {
-      "platform": "x-twitter",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/x-twitter.md",
-      "checksum": "d673762416a38237c365363b9e65585e7dc7b5997eff62f2e1e42b9b68922ddf"
-    },
-    {
-      "platform": "reddit",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/reddit.md",
-      "checksum": "0c7219b81bb8d9eb579c0778f2a873718b10dc17774799565f59e70f465462f0"
-    },
-    {
-      "platform": "bluesky",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/bluesky.md",
-      "checksum": "ba9eacd9ae4c77706ce9e30b08667b2b04f9d403ad7c6b35aec55951f12df6b5"
-    },
-    {
-      "platform": "mastodon",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/mastodon.md",
-      "checksum": "1e9aea850bba102a7fac71b3e9b18bf229cf1fa13c06005a2e6186bf3621e9fb"
-    },
-    {
-      "platform": "threads",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/threads.md",
-      "checksum": "2b201b850609862deaa9263b5a3ef894947ee5262c0aab76e0353c7a9943e0cc"
-    },
-    {
-      "platform": "facebook-page",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/facebook-page.md",
-      "checksum": "8ca61a8962def9dda7314c19b583b7572c683dd64af1451ad3047ce35a464366"
+      "filePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/developing-with-a-team-of-ai-s/linkedin.md",
+      "checksum": "f8797edd5191a6ebf8c7ee1e9e50c8ddf0d3bb72e7070987dc33aa0bea60b296"
     }
   ]
 }

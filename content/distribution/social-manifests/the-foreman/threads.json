@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:threads:the-foreman:75e38e293f6b",
+  "manifestId": "social:threads:the-foreman:0d8889a28408",
   "source": {
     "articleSlug": "the-foreman",
     "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/threads.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-foreman/threads.md"
   },
   "destination": {
     "platform": "threads",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "a9d59d0fc1df296ebcbe7eeea32fc28aafb7e70a1094bd8f8dbd9ff905f2e7fe"
+    "digest": "e5eb2c5fc98f84c7af52aba76741913722158fdc5ac3a17f7e6b05e517c54e1f"
   }
 }

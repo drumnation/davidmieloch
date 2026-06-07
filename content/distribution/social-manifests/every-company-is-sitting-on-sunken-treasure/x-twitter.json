@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:every-company-is-sitting-on-sunken-treasure:1796ce838d28",
+  "manifestId": "social:x-twitter:every-company-is-sitting-on-sunken-treasure:192977349cc1",
   "source": {
     "articleSlug": "every-company-is-sitting-on-sunken-treasure",
     "canonicalUrl": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "dc8b672e69671c4cf147a6968aaa8d1995c29ba4bbc7a04dd8d1e93f8e2daefa"
+    "digest": "d2182ee59a37da8772a126a1bad21b84853ff185fb29e85a178a0bf431699558"
   }
 }

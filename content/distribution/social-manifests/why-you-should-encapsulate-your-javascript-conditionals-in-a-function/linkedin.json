@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:edf5b72fe126",
+  "manifestId": "social:linkedin:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:0298f2f71f98",
   "source": {
     "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "54543edfb09939ce8c2494ee57c1a857a5b65b63c15f361b722bdf6b2a8e8f85"
+    "digest": "ae7268a2c02a6379f6c7b93063bd485dad0d444df38a621b4b7d6b04b51f792c"
   }
 }

@@ -3,43 +3,13 @@
   "slug": "every-company-is-sitting-on-sunken-treasure",
   "title": "Every Company Is Sitting on Sunken Treasure",
   "canonicalUrl": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
-  "generatedAt": "2026-06-05T11:52:15.017Z",
+  "generatedAt": "2026-06-07T00:21:43.287Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/linkedin.md",
-      "checksum": "beaaed1ec15cefc28158561cef5b54606f53b6c7f6c8a21663ba6ae43e88b7e3"
-    },
-    {
-      "platform": "x-twitter",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/x-twitter.md",
-      "checksum": "a9e0548009a203806cce78dfcd9898856f297fb354c64cd7ed8f23e097312010"
-    },
-    {
-      "platform": "reddit",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/reddit.md",
-      "checksum": "6d9779db7dd21024e16b1a63a053d8a35a380cbcb78709598d19a949d8538c19"
-    },
-    {
-      "platform": "bluesky",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/bluesky.md",
-      "checksum": "80ebda0ac8a08a689fc3d843de9ee652ede3e50f91ff44bb08cbb541a2d2074d"
-    },
-    {
-      "platform": "mastodon",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/mastodon.md",
-      "checksum": "d806a56154acb19918485f7a1c6bd9e0e3532f6b65e7888ddd66536eb3614e13"
-    },
-    {
-      "platform": "threads",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/threads.md",
-      "checksum": "7b389ab127612e42ce4224b97d9a2bbe12a78b507a990e4120ba1581ac28116d"
-    },
-    {
-      "platform": "facebook-page",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/facebook-page.md",
-      "checksum": "3a047422d50545f36b3a52167d5f15eeb1fc4afba882bf6e8eeb536066048a3f"
+      "filePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/every-company-is-sitting-on-sunken-treasure/linkedin.md",
+      "checksum": "3ed98d8aa3ec482f7664a5a6b20a3c59328d18c6ee3535d3a0ad30fa2169ca14"
     }
   ]
 }

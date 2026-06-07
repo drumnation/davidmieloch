@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:reuse-your-code-authoring-your-own-universal-library-with-webpack:8db70a7d5707",
+  "manifestId": "social:linkedin:reuse-your-code-authoring-your-own-universal-library-with-webpack:93a4cb83836b",
   "source": {
     "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
     "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "b4c9836417449b873e44c3de46a2a04a7c55112a081fa4b32d112e11d6027bca"
+    "digest": "26edbd9d9c6269fae4f7cef9489de65d0f27a54f91b5c291aad7ca2522b52fac"
   }
 }

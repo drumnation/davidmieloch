@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:how-to-make-your-ai-code-look-human:9da51c9b0487",
+  "manifestId": "social:linkedin:how-to-make-your-ai-code-look-human:8120069c49e6",
   "source": {
     "articleSlug": "how-to-make-your-ai-code-look-human",
     "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/how-to-make-your-ai-code-look-human/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "daf8579d798d123b2360ef1d267517d55e9d4c88445eecc8c7212100692151bb"
+    "digest": "6919623a2aa12fed0b5865d100f8aee7c387be4c73cf2b6fd7461e24972bd13e"
   }
 }

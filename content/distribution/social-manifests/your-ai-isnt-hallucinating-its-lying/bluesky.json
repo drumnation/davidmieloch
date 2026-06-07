@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:your-ai-isnt-hallucinating-its-lying:c4f8b84f2e44",
+  "manifestId": "social:bluesky:your-ai-isnt-hallucinating-its-lying:c73b4851faca",
   "source": {
     "articleSlug": "your-ai-isnt-hallucinating-its-lying",
     "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "d7badcbe392480dea7955a4374ffe5d046d963836923e55dba2aadbcfccd0e0e"
+    "digest": "cb524c85f67ef37cf408ab3c2db3c04b02a3eb3a9b6fb2d90331f9f18a60b44a"
   }
 }

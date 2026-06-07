@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:threads:your-ai-isnt-hallucinating-its-lying:6a4500b261f0",
+  "manifestId": "social:threads:your-ai-isnt-hallucinating-its-lying:37b79e45fb44",
   "source": {
     "articleSlug": "your-ai-isnt-hallucinating-its-lying",
     "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/threads.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/your-ai-isnt-hallucinating-its-lying/threads.md"
   },
   "destination": {
     "platform": "threads",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "bbf3daf007ea4877b48f7f4a26cb1e722f95c7cc736c8dffd31fc4c1d09cc397"
+    "digest": "b4a4547e03394930c50a267eb546edc68f85bb93395f36a5d5050013d671533a"
   }
 }

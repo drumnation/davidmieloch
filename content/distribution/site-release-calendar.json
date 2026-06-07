@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "site-release-calendar-v1",
+  "generatedAt": "2026-06-07T00:20:54.128Z",
+  "safeDefault": "do-not-publish",
+  "canonicalSurface": "davidmieloch.com",
+  "decisionSeam": {
+    "name": "public-article-release-approval",
+    "actor": "David",
+    "safeDefault": "keep-draft"
+  },
+  "postizRole": "Postiz may schedule social promotion, but website release state is owned by this repo and deployment pipeline.",
+  "entries": [
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "series": "Factory Primitives",
+      "plannedReleaseAt": "2026-06-10T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "markdownPath": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+        "heroImage": "public/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png"
+      },
+      "linkedin": {
+        "status": "needs-browser-staging",
+        "approvalRequired": true,
+        "target": "LinkedIn profile",
+        "plannedPostAt": "2026-06-10T11:00:00-04:00"
+      },
+      "gates": [
+        "article-copy-approved",
+        "hero-image-approved",
+        "site-draft-preview-reviewed",
+        "linkedin-post-copy-approved",
+        "release-time-approved"
+      ],
+      "sequence": 1
+    },
+    {
+      "slug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "series": "Factory Primitives",
+      "plannedReleaseAt": "2026-06-13T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "markdownPath": "content/articles/the-ai-bill-you-cant-predict/index.md",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
+        "heroImage": "public/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png"
+      },
+      "linkedin": {
+        "status": "needs-browser-staging",
+        "approvalRequired": true,
+        "target": "LinkedIn profile",
+        "plannedPostAt": "2026-06-13T11:00:00-04:00"
+      },
+      "gates": [
+        "article-copy-approved",
+        "hero-image-approved",
+        "site-draft-preview-reviewed",
+        "linkedin-post-copy-approved",
+        "release-time-approved"
+      ],
+      "sequence": 2
+    },
+    {
+      "slug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "series": "Factory Primitives",
+      "plannedReleaseAt": "2026-06-17T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "markdownPath": "content/articles/the-most-valuable-ai-skill-isnt-prompting/index.md",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting",
+        "heroImage": "public/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png"
+      },
+      "linkedin": {
+        "status": "needs-browser-staging",
+        "approvalRequired": true,
+        "target": "LinkedIn profile",
+        "plannedPostAt": "2026-06-17T11:00:00-04:00"
+      },
+      "gates": [
+        "article-copy-approved",
+        "hero-image-approved",
+        "site-draft-preview-reviewed",
+        "linkedin-post-copy-approved",
+        "release-time-approved"
+      ],
+      "sequence": 3
+    },
+    {
+      "slug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "series": "Factory Primitives",
+      "plannedReleaseAt": "2026-06-20T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "markdownPath": "content/articles/the-credibility-problem-with-ai-corporate-communications/index.md",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
+        "heroImage": "public/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png"
+      },
+      "linkedin": {
+        "status": "needs-browser-staging",
+        "approvalRequired": true,
+        "target": "LinkedIn profile",
+        "plannedPostAt": "2026-06-20T11:00:00-04:00"
+      },
+      "gates": [
+        "article-copy-approved",
+        "hero-image-approved",
+        "site-draft-preview-reviewed",
+        "linkedin-post-copy-approved",
+        "release-time-approved"
+      ],
+      "sequence": 4
+    },
+    {
+      "slug": "the-crew-seed",
+      "title": "The Crew",
+      "series": "Factory Primitives",
+      "plannedReleaseAt": "2026-06-24T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "markdownPath": "content/articles/the-crew-seed/index.md",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
+        "heroImage": "public/blog/the-crew-seed/images/hero-linkedin.png"
+      },
+      "linkedin": {
+        "status": "needs-browser-staging",
+        "approvalRequired": true,
+        "target": "LinkedIn profile",
+        "plannedPostAt": "2026-06-24T11:00:00-04:00"
+      },
+      "gates": [
+        "article-copy-approved",
+        "hero-image-approved",
+        "site-draft-preview-reviewed",
+        "linkedin-post-copy-approved",
+        "release-time-approved"
+      ],
+      "sequence": 5
+    }
+  ],
+  "observation": {
+    "claim": "website release schedule is explicit and can be reconciled with LinkedIn scheduling",
+    "status": "PASS",
+    "fallbackChain": [
+      "site-release-calendar.json",
+      "article frontmatter",
+      "ROM heartbeat"
+    ]
+  }
+}

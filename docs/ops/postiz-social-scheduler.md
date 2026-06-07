@@ -78,6 +78,21 @@ Do not create additional users unless Dave explicitly approves the operator acce
 
 Postiz ships with no social providers configured by default. Each provider needs its own OAuth app credentials or account connection flow.
 
+Current value assessment as of 2026-06-06:
+
+- LinkedIn profile is connected and is the highest-value social channel.
+- DEV and Nostr are connected, but they are not the core growth channel.
+- LinkedIn Page is blocked on organization scopes.
+- Bluesky is blocked on invalid credentials/app password.
+- X, Instagram, Reddit, Facebook Page, Threads, and Mastodon remain useful later
+  for promotion, but they are not launch blockers for the next article wave.
+
+The immediate launch path is not "more Postiz." It is finishing the five staged
+Factory Primitives drafts, approving their hero images, publishing them on
+davidmieloch.com on a schedule, and staging matching LinkedIn posts/articles.
+Postiz should consume that schedule for simple social promotion where it has a
+connected channel.
+
 Good first wave:
 
 - Bluesky
@@ -123,6 +138,15 @@ Actor: David
 Safe default: `do-not-post`
 
 Postiz may hold drafts, proposed schedules, and connected channels. Public posting still requires explicit approval for the article, platform, copy, URL, and time.
+
+Website publishing has a separate seam:
+
+- Name: `public-article-release-approval`
+- Source artifact: `content/distribution/site-release-calendar.json`
+- Owner: davidmieloch.com repo and deploy pipeline
+
+Do not make davidmieloch.com a fake Postiz provider. Postiz schedules social
+promotion. The website release calendar owns canonical article release state.
 
 ## Deterministic Spine
 

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:reuse-your-code-authoring-your-own-universal-library-with-webpack:e64e0938fcd8",
+  "manifestId": "social:mastodon:reuse-your-code-authoring-your-own-universal-library-with-webpack:598907f464c0",
   "source": {
     "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
     "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/mastodon.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/mastodon.md"
   },
   "destination": {
     "platform": "mastodon",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "e8899b1d831a8e2c7868d17f3fe4f69de9d964086eca2ad9f0468605dda0797d"
+    "digest": "c56c8e514c5ed7e382939749183019e3d924559ce40f5c2985a482f4fc792f58"
   }
 }

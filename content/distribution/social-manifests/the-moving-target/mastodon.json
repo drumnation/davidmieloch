@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:the-moving-target:56ec5bb50a05",
+  "manifestId": "social:mastodon:the-moving-target:6dd528fe45dd",
   "source": {
     "articleSlug": "the-moving-target",
     "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/mastodon.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-moving-target/mastodon.md"
   },
   "destination": {
     "platform": "mastodon",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "7574f33ec56676592b9101292057aa749cda65e753f362a072cf8a51dace5a03"
+    "digest": "d1ac3c874331a719c28d565e561d1012a045e114a5e7015e3da48572907959ee"
   }
 }

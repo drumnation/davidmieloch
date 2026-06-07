@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:threads:what-i-learned-building-a-photoshop-in-the-browser:a51b6d3d5842",
+  "manifestId": "social:threads:what-i-learned-building-a-photoshop-in-the-browser:a407682f5761",
   "source": {
     "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
     "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/threads.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/threads.md"
   },
   "destination": {
     "platform": "threads",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "f7e0798e07bd1de51ebed5fcc9f26a925a522642b374d5dcd8a3f77cad29bef2"
+    "digest": "cd31edb6c0263c26313970350228c0d6d9d9d20e1620c28a81a9384a37903945"
   }
 }

@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:how-to-make-your-ai-code-look-human:be97aa5443bc",
+  "manifestId": "social:bluesky:how-to-make-your-ai-code-look-human:3e1856b6a738",
   "source": {
     "articleSlug": "how-to-make-your-ai-code-look-human",
     "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/how-to-make-your-ai-code-look-human/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "46f8cacaa4b37949238fb55aa5b99c60dffb7ec17999d1d637b9ece49443b864"
+    "digest": "0486b0faaa1e144009e30067125dcbd3d645069a4fcd2ab2b1d10b59bb682090"
   }
 }

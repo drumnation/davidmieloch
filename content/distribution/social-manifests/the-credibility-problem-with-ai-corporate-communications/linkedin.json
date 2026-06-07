@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:the-credibility-problem-with-ai-corporate-communications:a01aa50770c6",
+  "source": {
+    "articleSlug": "the-credibility-problem-with-ai-corporate-communications",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-credibility-problem-with-ai-corporate-communications/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Credibility Problem with AI Corporate Communications\n\nThe Credibility Problem with AI Corporate Communications I recently went through a corporate onboarding experience that left me thinking about something I couldn't quite name at first. The videos were professional. The AI avatars were incredibly lifelike hair moving, faces animating with precision I hadn't seen before. And yet something was deeply wrong....\n\nRead the canonical essay: https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-credibility-problem-with-ai-corporate-communications",
+    "links": [
+      "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "a20a9f8e973c2e7060a43fe629fb9dbe9ac2804a137947447cbfc8347d00bb7d"
+  }
+}

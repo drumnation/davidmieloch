@@ -3,43 +3,13 @@
   "slug": "how-to-make-your-ai-code-look-human",
   "title": "How to Make Your AI Code Look Human",
   "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
-  "generatedAt": "2026-06-05T11:52:15.017Z",
+  "generatedAt": "2026-06-07T00:21:43.287Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/linkedin.md",
-      "checksum": "79ad7b89c89163f05f95c8a49d104fe95be307f855d2d2ee670223a84d097c0e"
-    },
-    {
-      "platform": "x-twitter",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/x-twitter.md",
-      "checksum": "08e74402c01b76a6fdf204fdc857c37033fec7d1f6233908ff493c5ebefd46b6"
-    },
-    {
-      "platform": "reddit",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/reddit.md",
-      "checksum": "6d1fea46e22b3f92539b1ba3f9f9520714319c49069aabd953ce6bfa31e4fb0f"
-    },
-    {
-      "platform": "bluesky",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/bluesky.md",
-      "checksum": "48406fad12ab0bc194b32cc2c8d394db9776956f543f423ec27c1a2dad9be1c5"
-    },
-    {
-      "platform": "mastodon",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/mastodon.md",
-      "checksum": "58d2796da8e131c3d75148a08d66156357fa9647929467a9fcc4a8d6675c6a69"
-    },
-    {
-      "platform": "threads",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/threads.md",
-      "checksum": "2f21a561a60f2fc3ac36c9212c9c0eb87649d1f69e233de4d0b3ca6ac262daea"
-    },
-    {
-      "platform": "facebook-page",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/facebook-page.md",
-      "checksum": "11a864d38cf803ffbef1b5e097519613e1a9d984ccd0578d5a0c1a46eb0135f9"
+      "filePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/how-to-make-your-ai-code-look-human/linkedin.md",
+      "checksum": "51e799b5c2be802799528182f92b4fc30dd9f3894bd5dca47ee5ec1ea7572a92"
     }
   ]
 }

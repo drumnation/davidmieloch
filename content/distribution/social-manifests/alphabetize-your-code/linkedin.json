@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:alphabetize-your-code:92e0c61e9b0b",
+  "manifestId": "social:linkedin:alphabetize-your-code:bcde5a7878c3",
   "source": {
     "articleSlug": "alphabetize-your-code",
     "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/alphabetize-your-code/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "ed6373b8d9e2ccba2507706ac1cdc965b8e27072e9b3f26555617531792ba62f"
+    "digest": "7cd8bf8cc4f6b285f6460463a9753e966d77b5d5a6fd5f3d5ce76980ca2af380"
   }
 }

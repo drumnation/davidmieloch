@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:alphabetize-your-code:13f897f3e441",
+  "manifestId": "social:x-twitter:alphabetize-your-code:a9875f748881",
   "source": {
     "articleSlug": "alphabetize-your-code",
     "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/alphabetize-your-code/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "b2858542d4247394634c0053177d2db46cf4c52249e27af44b7fa21cda17eacf"
+    "digest": "4ee5e5ba5a77f2bdc6c8cc3fb15d3e1d9eb6aa902b71e447eb9ba3552a9f754f"
   }
 }

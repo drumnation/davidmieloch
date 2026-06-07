@@ -9,9 +9,9 @@ account_kind: "new-canary"
 known_state: "not-created"
 postiz_channel_status: "not-connected"
 test_post_policy: "public-bland-test-allowed-after-1password-custody"
-generated_at: "2026-06-05T11:52:15.017Z"
+generated_at: "2026-06-07T00:15:05.779Z"
 public_publish_allowed: false
-credential_custody_verified: true
+credential_custody_verified: false
 ---
 
 # The Factory / mastodon
@@ -21,7 +21,8 @@ credential_custody_verified: true
 - Safe default: do-not-post.
 - Public posting requires explicit David approval.
 - Personal accounts are not connector-test targets.
-- Credential custody verified: yes.
+- Credential custody verified: no.
+- Credential blocker: Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz.
 
 ## Copy
 

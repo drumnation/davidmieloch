@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:alphabetize-your-code:c9bee0f7fab3",
+  "manifestId": "social:mastodon:alphabetize-your-code:c23af7c37377",
   "source": {
     "articleSlug": "alphabetize-your-code",
     "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/mastodon.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/alphabetize-your-code/mastodon.md"
   },
   "destination": {
     "platform": "mastodon",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "bb0f2a33aceca7109871c82075dcdbe9d313880a23cd4fe6ea37c626b23955cb"
+    "digest": "6f4f95471fd1772a801932355b5142ec3e06d9e0b39c1ba5dcd00f240a8c714a"
   }
 }

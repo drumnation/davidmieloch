@@ -9,9 +9,9 @@ account_kind: "existing-personal"
 known_state: "exists"
 postiz_channel_status: "not-connected"
 test_post_policy: "no-public-test-posts-on-personal-account"
-generated_at: "2026-06-05T11:52:15.017Z"
+generated_at: "2026-06-07T00:15:05.779Z"
 public_publish_allowed: false
-credential_custody_verified: true
+credential_custody_verified: false
 ---
 
 # Academic Research Is a Software Patch (And I Finally Have a Way to Install It) / x-twitter
@@ -21,7 +21,8 @@ credential_custody_verified: true
 - Safe default: do-not-post.
 - Public posting requires explicit David approval.
 - Personal accounts are not connector-test targets.
-- Credential custody verified: yes.
+- Credential custody verified: no.
+- Credential blocker: Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz.
 
 ## Copy
 

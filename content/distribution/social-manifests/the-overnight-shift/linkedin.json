@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-overnight-shift:cbbc0cf5d25e",
+  "manifestId": "social:linkedin:the-overnight-shift:b3ce3941d3f2",
   "source": {
     "articleSlug": "the-overnight-shift",
     "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-overnight-shift/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "891f1febc8ff860a43aab0c22ee80563738d1c81aa43769b064e0a34049c0e2a"
+    "digest": "dc79a24e07553dc791bead56cb15d696e96ff0a46db388de2fa0779fac7ef014"
   }
 }

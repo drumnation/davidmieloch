@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:a23ced05936a",
+  "manifestId": "social:bluesky:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:77af51239ae6",
   "source": {
     "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "6093c057d280db5af33680823d12047b21b9af7588271df79eca6ecded4eedc6"
+    "digest": "9f4632e5f10a99d2bd2d73f32c8f1f28f9fe9830b57765e9f133e66cb4268315"
   }
 }

@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:why-character-choice-matters-in-agent-design:46d7b19866b2",
+  "manifestId": "social:linkedin:why-character-choice-matters-in-agent-design:a95b3de70e1a",
   "source": {
     "articleSlug": "why-character-choice-matters-in-agent-design",
     "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-character-choice-matters-in-agent-design/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/why-character-choice-matters-in-agent-design/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "4e99773efd748b0eb6f41a10b9b408a611054234cad0d3466e29ebff0c89dd3c"
+    "digest": "549e234daf3ec4b4277f0f77a9e043817653e1b4d8da13eddda36a1c536b6cc0"
   }
 }

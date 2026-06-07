@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:the-beauty-of-es6s-object-destructuring-assignment:09c9b520f14a",
+  "manifestId": "social:x-twitter:the-beauty-of-es6s-object-destructuring-assignment:f1518fc7b478",
   "source": {
     "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
     "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "aa85c77a1e8dd4ba36060155ae62d6d4d0f75a587a432d7dbbf24d6c9cf5d74d"
+    "digest": "7dc467bea83f1fb419685941b8ee04e0ad29aaeb2449af817b5091f28ccf6cdf"
   }
 }

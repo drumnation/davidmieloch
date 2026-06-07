@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:the-overnight-shift:ad677060a440",
+  "manifestId": "social:bluesky:the-overnight-shift:8d04cba86287",
   "source": {
     "articleSlug": "the-overnight-shift",
     "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-overnight-shift/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "33be20b994aee4ebb7e599c14e1ec9728f03cda3412324002d3ae8e9086c23e2"
+    "digest": "064b88ec7be702c3109f40ddeffd76da8e09a1be4fde891a094a15b3115a8077"
   }
 }

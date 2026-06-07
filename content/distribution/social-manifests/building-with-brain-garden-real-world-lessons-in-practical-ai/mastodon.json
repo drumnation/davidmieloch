@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:building-with-brain-garden-real-world-lessons-in-practical-ai:93351fffd9c1",
+  "manifestId": "social:mastodon:building-with-brain-garden-real-world-lessons-in-practical-ai:53cc4a445318",
   "source": {
     "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
     "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/mastodon.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/mastodon.md"
   },
   "destination": {
     "platform": "mastodon",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "49521a12a2b6e799360a08fe3054180e2b3eedee5e85d3a9a12cfb49d41cf552"
+    "digest": "b7276ac467684d9dbf9099859f7e0ff5cd2fa2da8887df96c86eaa001014ed12"
   }
 }

@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:reality-needs-observers:ea1a2a1a4e58",
+  "manifestId": "social:bluesky:reality-needs-observers:6249dc07abc7",
   "source": {
     "articleSlug": "reality-needs-observers",
     "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/reality-needs-observers/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "3ff60d6b9b1dc879f6d675e1832facb3026501961ba975ec4dfe779398a72a52"
+    "digest": "9871696c172a04e73bbb8f7bde0af804c4e5f8564b50a0df34cbd2306200e2ae"
   }
 }

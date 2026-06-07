@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:facebook-page:the-golden-hammer:bda5421a4ff5",
+  "manifestId": "social:facebook-page:the-golden-hammer:c87df7e8a7d7",
   "source": {
     "articleSlug": "the-golden-hammer",
     "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/facebook-page.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-golden-hammer/facebook-page.md"
   },
   "destination": {
     "platform": "facebook-page",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "55f6ae3132632ff9fedfa91a846415ff78ca9353dc95abc92d7150e697c9111d"
+    "digest": "d5587696d64d5f798167e0efb9e3a3ae902ffa71e4f287938e6414532b483ba8"
   }
 }

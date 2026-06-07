@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:building-with-brain-garden-real-world-lessons-in-practical-ai:61985152289b",
+  "manifestId": "social:reddit:building-with-brain-garden-real-world-lessons-in-practical-ai:6c71616a1ea6",
   "source": {
     "articleSlug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
     "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/reddit.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/building-with-brain-garden-real-world-lessons-in-practical-ai/reddit.md"
   },
   "destination": {
     "platform": "reddit",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "54018244b551ff624a41c2ad768385d32c8a25edea94fb791120a4923fdc13c2"
+    "digest": "35bbc1e091dec2437e1638095354ba2e94f27e35391ba590c1dc8a800f75bbe9"
   }
 }

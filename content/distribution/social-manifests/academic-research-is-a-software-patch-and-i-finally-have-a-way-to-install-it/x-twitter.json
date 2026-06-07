@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:a6b539a1cdcd",
+  "manifestId": "social:x-twitter:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:7d67821e7df7",
   "source": {
     "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "e39767793aa000f471f23cade00e4787a765d01003d43598438c665302c2cbd3"
+    "digest": "dcdf692954616647f33cae3ad0be58495361bd95c6fa7511dae79f8b80f1e98f"
   }
 }

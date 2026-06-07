@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:developing-with-a-team-of-ai-s:ba68b663e70f",
+  "manifestId": "social:x-twitter:developing-with-a-team-of-ai-s:143f892ca807",
   "source": {
     "articleSlug": "developing-with-a-team-of-ai-s",
     "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/developing-with-a-team-of-ai-s/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "eb2c7ec5320d47622467831b2b293684134ef670aa932a2c1150feb3e34ae911"
+    "digest": "d410aa771d014849bc66c0398d6d8fa00d6aff667687da2e7dff7663b7b71078"
   }
 }

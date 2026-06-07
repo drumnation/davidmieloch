@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:alphabetize-your-code:88a385ad2920",
+  "manifestId": "social:bluesky:alphabetize-your-code:b04b5d60f77e",
   "source": {
     "articleSlug": "alphabetize-your-code",
     "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/alphabetize-your-code/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/alphabetize-your-code/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "57ca69d8d44cbd031b5b271512138a0021fd8596a931fddb41e41de2f2fa9d81"
+    "digest": "68831d5ab0fe5e9d036d77e14f17345a645a521d25dcd80a59867b33a3c65132"
   }
 }

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:687dd578220c",
+  "manifestId": "social:reddit:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:1949c2f8e69e",
   "source": {
     "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/reddit.md"
   },
   "destination": {
     "platform": "reddit",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "68cabbc250b43642b27d9d4e95db90b75abc4ed313e44ff71280cbb287ad1b13"
+    "digest": "32ba6e1e0e853dee36c3a3a317ff31480d1ffcdfc5985f62807f2df1d4bb1b1e"
   }
 }

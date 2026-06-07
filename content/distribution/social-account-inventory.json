@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-05T09:24:00-04:00",
+  "generatedAt": "2026-06-07T00:15:00.820Z",
   "owner": "David Mieloch",
   "exposureGate": "Does anybody but Dave need to touch this GUI?",
   "safeDefault": "do-not-post",
@@ -8,9 +8,9 @@
     "provider": "1Password",
     "vault": "Brain Garden",
     "writeStatus": "interactive-required",
-    "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret.",
+    "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz.",
     "requiredBeforeAccountCreation": true,
-    "verifiedAt": "2026-06-05T07:48:14-04:00",
+    "verifiedAt": "2026-06-06T20:32:00-04:00",
     "readPath": "1Password service account can read created Brain Garden vault items.",
     "writePath": "Interactive user-authenticated 1Password CLI path can create/update items when Dave authorizes it."
   },
@@ -23,7 +23,31 @@
     "credentialItemId": "mpxdavee2l4mquo5maiocwcv3a",
     "loginVerifiedAt": "2026-06-05T07:48:14-04:00",
     "dashboardPath": "/launches",
-    "publicExposure": "forbidden-unless-explicitly-approved"
+    "publicExposure": "forbidden-unless-explicitly-approved",
+    "lastIntegrationAuditAt": "2026-06-06T20:32:00-04:00",
+    "connectedIntegrations": [
+      {
+        "platform": "devto",
+        "postizChannelId": "cmq0w8mk40001nz8648id4dck",
+        "postizChannelName": "David Mieloch",
+        "connectedAt": "2026-06-05T12:21:41.044Z",
+        "tokenExpiration": "2126-06-05T12:21:41.043Z"
+      },
+      {
+        "platform": "linkedin",
+        "postizChannelId": "cmq15vq6n0001my7ovp8dkkne",
+        "postizChannelName": "David Mieloch",
+        "connectedAt": "2026-06-05T16:51:35.375Z",
+        "tokenExpiration": "2026-08-04T16:51:34.374Z"
+      },
+      {
+        "platform": "nostr",
+        "postizChannelId": "cmq19n3im0003my7ostuzdfty",
+        "postizChannelName": "No Name",
+        "connectedAt": "2026-06-05T18:36:51.215Z",
+        "tokenExpiration": "2226-06-05T18:36:51.213Z"
+      }
+    ]
   },
   "n8n": {
     "role": "workflow-orchestrator",
@@ -54,18 +78,28 @@
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
       "knownState": "exists",
-      "postizChannelStatus": "not-connected",
-      "postizPriority": "later",
+      "postizChannelStatus": "connected",
+      "postizPriority": "primary-channel",
       "testPostPolicy": "no-public-test-posts",
-      "notes": "Source-of-truth publishing channel. Do not post new LinkedIn content without explicit approval."
+      "notes": "Highest-value channel is connected in Postiz as David Mieloch. Use for draft/schedule planning only; do not publish LinkedIn posts without explicit David approval.",
+      "postizChannelId": "cmq15vq6n0001my7ovp8dkkne",
+      "postizChannelName": "David Mieloch",
+      "connectedAt": "2026-06-05T16:51:35.375Z",
+      "tokenExpiration": "2026-08-04T16:51:34.374Z",
+      "scopesObserved": [
+        "email",
+        "openid",
+        "profile",
+        "w_member_social"
+      ]
     },
     {
       "platform": "linkedin-page",
       "identityLayer": "brand-lab",
       "accountKind": "existing-company-page",
       "knownState": "exists",
-      "postizChannelStatus": "not-connected",
-      "postizPriority": "main-channel-unblocker",
+      "postizChannelStatus": "blocked-unauthorized-scopes",
+      "postizPriority": "org-channel-blocked",
       "testPostPolicy": "no-public-test-posts",
       "platformUrl": "https://www.linkedin.com/company/128373941/",
       "adminUrl": "https://www.linkedin.com/company/128373941/admin/dashboard/",
@@ -80,18 +114,19 @@
           "Share on LinkedIn",
           "Sign In with LinkedIn using OpenID Connect"
         ],
-        "redirectStatus": "profile-callback-accepted-page-callback-rejected",
-        "redirectBlocker": "The Postiz profile callback is accepted and saved in LinkedIn. The Postiz Page callback path currently triggers LinkedIn's valid-URL warning and was not saved.",
+        "redirectStatus": "callbacks-accepted-scope-unauthorized",
+        "redirectBlocker": "The profile and page callback URLs were accepted, but LinkedIn rejected organization scopes during OAuth.",
         "requiredRedirects": [
-          "https://social-davidmieloch.brain-garden.io/integrations/social/linkedin"
-        ],
-        "pendingRedirects": [
+          "https://social-davidmieloch.brain-garden.io/integrations/social/linkedin",
           "https://social-davidmieloch.brain-garden.io/integrations/social/linkedin-page"
         ],
-        "safeNextStep": "Store the LinkedIn OAuth secret in 1Password, set LINKEDIN_CLIENT_ID and LINKEDIN_CLIENT_SECRET in the Postiz server environment, restart Postiz, then connect the LinkedIn profile provider. Resolve the LinkedIn Page callback separately before relying on Page scheduling."
+        "pendingRedirects": [],
+        "safeNextStep": "Use the connected LinkedIn profile for planning. For Page posting, request/enable the LinkedIn organization posting products/scopes, then reconnect the LinkedIn Page provider.",
+        "scopeBlocker": "Postiz requests rw_organization_admin, w_organization_social, and r_organization_social for LinkedIn Page. The current LinkedIn app products do not authorize those scopes."
       },
       "credentialItemTitle": "Social / LinkedIn Page / Singularity Labs / brand-lab",
-      "notes": "Created so the LinkedIn Developer app can be associated with the real company Page. Do not publish Page posts without explicit approval."
+      "notes": "Created so the LinkedIn Developer app can be associated with the real company Page. Do not publish Page posts without explicit approval.",
+      "blocker": "LinkedIn Page OAuth reaches Postiz, but the app is not authorized for organization scopes requested by Postiz: rw_organization_admin, w_organization_social, and r_organization_social. The profile channel is connected; Page posting remains blocked until LinkedIn app products/scopes are approved."
     },
     {
       "platform": "medium",
@@ -102,6 +137,20 @@
       "postizPriority": "medium",
       "testPostPolicy": "draft-or-private-only",
       "notes": "Essay mirror and archive surface."
+    },
+    {
+      "platform": "nostr",
+      "identityLayer": "brand-lab",
+      "accountKind": "existing-postiz-channel",
+      "knownState": "exists",
+      "postizChannelStatus": "connected",
+      "postizChannelId": "cmq19n3im0003my7ostuzdfty",
+      "postizChannelName": "No Name",
+      "connectedAt": "2026-06-05T18:36:51.215Z",
+      "tokenExpiration": "2226-06-05T18:36:51.213Z",
+      "postizPriority": "experimental-low",
+      "testPostPolicy": "no-public-test-posts",
+      "notes": "Connected in Postiz, but low-value for the current LinkedIn-centered content strategy. Keep as connector proof, not a primary launch channel."
     },
     {
       "platform": "devto",
@@ -160,13 +209,14 @@
     {
       "platform": "bluesky",
       "identityLayer": "brand-lab",
-      "accountKind": "new-canary",
-      "knownState": "not-created",
-      "postizChannelStatus": "not-connected",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizChannelStatus": "blocked-invalid-credentials",
       "postizPriority": "first-wave",
       "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
-      "proposedHandle": "brain-garden",
-      "notes": "Low-friction place to test short factory positioning and links."
+      "proposedHandle": "davidmieloch.bsky.social",
+      "notes": "Existing Bluesky account exists, but Postiz connection is blocked on a valid app password. Treat as lower priority than LinkedIn profile scheduling.",
+      "blocker": "Postiz rejected the supplied Bluesky handle/app-password attempt with invalid identifier or password. Do not retry until a fresh Bluesky app password is generated and stored in 1Password."
     },
     {
       "platform": "mastodon",

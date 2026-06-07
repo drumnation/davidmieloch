@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:what-i-learned-building-a-photoshop-in-the-browser:dfaa76323b8c",
+  "manifestId": "social:reddit:what-i-learned-building-a-photoshop-in-the-browser:39f01bdeb989",
   "source": {
     "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
     "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/reddit.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/reddit.md"
   },
   "destination": {
     "platform": "reddit",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "ea1160ac9eccd3edd3c11af8fffbc18de98ed5ce2f65f0d615f89e423c4a13a8"
+    "digest": "d977b5433e5760cc91f346c3ed3fa524b220f9d2fcee19a038024941d0b8c084"
   }
 }

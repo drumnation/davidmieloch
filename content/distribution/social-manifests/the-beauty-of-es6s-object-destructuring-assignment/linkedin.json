@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-beauty-of-es6s-object-destructuring-assignment:8e30018738c1",
+  "manifestId": "social:linkedin:the-beauty-of-es6s-object-destructuring-assignment:c71052f77efa",
   "source": {
     "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
     "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-beauty-of-es6s-object-destructuring-assignment/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "0ed533587af09aef99bdf287ef29e329d072e533fb42bf7124509645bb54684e"
+    "digest": "5fec629691b906db8349082cc6be0861f0fa97c0ac3c94e63330fb5a2e1c1770"
   }
 }

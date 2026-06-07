@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:threads:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:e2db3cfe8a62",
+  "manifestId": "social:threads:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:763029623696",
   "source": {
     "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/threads.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/threads.md"
   },
   "destination": {
     "platform": "threads",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "d9d0f308c7d9a118af755c8d3213f222e6ba89c027acbed80adae7f64bcf5ed9"
+    "digest": "4b5471f2ab42f434d295bb27a86d875a03e2268ebd845a8a8b35cd7dba98032c"
   }
 }

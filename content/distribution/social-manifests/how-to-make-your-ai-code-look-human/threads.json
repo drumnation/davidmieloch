@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:threads:how-to-make-your-ai-code-look-human:275b12ac5ab4",
+  "manifestId": "social:threads:how-to-make-your-ai-code-look-human:fa433b836c7b",
   "source": {
     "articleSlug": "how-to-make-your-ai-code-look-human",
     "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/how-to-make-your-ai-code-look-human/threads.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/how-to-make-your-ai-code-look-human/threads.md"
   },
   "destination": {
     "platform": "threads",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "1619e1c58ba43c12448269567ea1ed6c0e1f7dc16d2a863f218dd48368858170"
+    "digest": "cc6ac6914f9e0a58b2343a21463e0a82e4b0043023419e0e1e5624b5dbb56f99"
   }
 }

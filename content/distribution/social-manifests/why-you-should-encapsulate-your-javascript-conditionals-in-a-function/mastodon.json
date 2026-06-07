@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:ed34a9aa9db3",
+  "manifestId": "social:mastodon:why-you-should-encapsulate-your-javascript-conditionals-in-a-function:77e053f5f115",
   "source": {
     "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/mastodon.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/mastodon.md"
   },
   "destination": {
     "platform": "mastodon",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "4246b9342cd7c076101ff7c90cb91b6119f0f17432e4ed757a7aa0630bea9cdc"
+    "digest": "09c35bb8c17c1dcd6c03b434a25bf01ee33b2ab9f5ca66a7cbba44af238fdbd2"
   }
 }

@@ -7,11 +7,11 @@ tracked_url: "https://davidmieloch.com/blog/the-moving-target?utm_source=linkedi
 identity_layer: "personal-authority"
 account_kind: "existing-personal"
 known_state: "exists"
-postiz_channel_status: "not-connected"
+postiz_channel_status: "connected"
 test_post_policy: "no-public-test-posts"
-generated_at: "2026-06-05T11:52:15.017Z"
+generated_at: "2026-06-07T00:21:43.287Z"
 public_publish_allowed: false
-credential_custody_verified: true
+credential_custody_verified: false
 ---
 
 # The Moving Target / linkedin
@@ -21,7 +21,8 @@ credential_custody_verified: true
 - Safe default: do-not-post.
 - Public posting requires explicit David approval.
 - Personal accounts are not connector-test targets.
-- Credential custody verified: yes.
+- Credential custody verified: no.
+- Credential blocker: Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz.
 
 ## Copy
 

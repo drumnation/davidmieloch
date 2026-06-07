@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:the-golden-hammer:5e2184cbed57",
+  "manifestId": "social:reddit:the-golden-hammer:3cdeca307272",
   "source": {
     "articleSlug": "the-golden-hammer",
     "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-golden-hammer/reddit.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-golden-hammer/reddit.md"
   },
   "destination": {
     "platform": "reddit",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "5e0e5a08ab674c6c86fe0c9201c0b26928df7d750ee12d18da26423cc31aa550"
+    "digest": "1be5c639c115baeb3c0d0b3adab64117cadca517e78a1dab9c076c073969054d"
   }
 }

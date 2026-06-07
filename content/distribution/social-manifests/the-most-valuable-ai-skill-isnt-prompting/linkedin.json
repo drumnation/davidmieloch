@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:the-most-valuable-ai-skill-isnt-prompting:64cb16c3788c",
+  "source": {
+    "articleSlug": "the-most-valuable-ai-skill-isnt-prompting",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-most-valuable-ai-skill-isnt-prompting/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Most Valuable AI Skill Isn't Prompting\n\nThe Most Valuable AI Skill Isn't Prompting Everyone in organizations right now is trying to prove their value through AI. The visible signal is prompting skill who can get the model to do something impressive, who can write the most effective system prompt, who has the sharpest workflow for iterating on outputs. I understand why this is the battlefield....\n\nRead the canonical essay: https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-most-valuable-ai-skill-isnt-prompting",
+    "links": [
+      "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "9db4c47e3312b2942d641944a21a639cda5c00d9c066b043abfdbb22d7df0bb8"
+  }
+}

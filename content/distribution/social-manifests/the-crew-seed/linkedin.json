@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "manifestId": "social:linkedin:the-crew-seed:9e41c788127c",
+  "source": {
+    "articleSlug": "the-crew-seed",
+    "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
+    "ledgerPath": "content/distribution/platform-ledger.json",
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-crew-seed/linkedin.md"
+  },
+  "destination": {
+    "platform": "linkedin",
+    "accountId": "linkedin",
+    "identityLayer": "personal-authority",
+    "mode": "draft",
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
+  },
+  "approval": {
+    "status": "missing",
+    "approvedBy": "",
+    "approvedAt": "",
+    "approvalArtifact": ""
+  },
+  "payload": {
+    "text": "The Crew\n\nThe Crew (seed) seed — not ready to publish. Capture the thesis before it drifts. The Thesis Three strong human engineers, focusing their attention on using an amplified system to improve the system itself, would — and will — produce software at a speed and quality that is simply not comparable to what those same engineers could do by hand, or even with a...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-crew-seed?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-crew-seed",
+    "links": [
+      "https://davidmieloch.com/blog/the-crew-seed"
+    ],
+    "media": []
+  },
+  "safety": {
+    "safeDefault": "do-not-post",
+    "credentialCustodyVerified": false,
+    "deletePathKnown": false,
+    "publicExposureGateAnswered": true,
+    "refusalInboxPath": "content/distribution/refusal-inbox.json"
+  },
+  "signature": {
+    "algorithm": "sha256",
+    "digest": "bc99871e327d0539a331133aab61bdc7f09aecbb1c770ea2e7cfcf7a916bd597"
+  }
+}

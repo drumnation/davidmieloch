@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:0fa713402aab",
+  "manifestId": "social:mastodon:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:a431e6882482",
   "source": {
     "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/mastodon.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/mastodon.md"
   },
   "destination": {
     "platform": "mastodon",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "3973bfd25130d9265d5401515dbc0276f4036211333974d078a11997d7be2d45"
+    "digest": "25cf64388ef07e177cba353a52bfa22539c8e7adceb5ca74d8aef031a4bbe932"
   }
 }

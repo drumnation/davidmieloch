@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:reuse-your-code-authoring-your-own-universal-library-with-webpack:26c4fe2d8179",
+  "manifestId": "social:reddit:reuse-your-code-authoring-your-own-universal-library-with-webpack:799adf7bc99e",
   "source": {
     "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
     "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/reddit.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/reuse-your-code-authoring-your-own-universal-library-with-webpack/reddit.md"
   },
   "destination": {
     "platform": "reddit",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "2e08a28857b9e574ae19c39fabc60b10c188aebb13ec6bcc50140ad9ddf4ebc8"
+    "digest": "e4f834565000c696c923d6049c9ce58f314e5102ef1ef63eda3343ddb203c169"
   }
 }

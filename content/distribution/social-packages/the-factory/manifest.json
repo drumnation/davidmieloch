@@ -3,43 +3,13 @@
   "slug": "the-factory",
   "title": "The Factory",
   "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
-  "generatedAt": "2026-06-05T11:52:15.017Z",
+  "generatedAt": "2026-06-07T00:21:43.287Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/linkedin.md",
-      "checksum": "a345778c54d25ec9a5b7ebecd69e71bdde027ab727cd63fd5c6176438b323cdc"
-    },
-    {
-      "platform": "x-twitter",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/x-twitter.md",
-      "checksum": "3c0d83fbe58d6b242ac91e398f1647b67c4ac7012228ac1801dd8a6d3380acce"
-    },
-    {
-      "platform": "reddit",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/reddit.md",
-      "checksum": "db8b303bad38cb06c4fb0666643c6fbaca06dcca36845b9e2d6821343518d0bc"
-    },
-    {
-      "platform": "bluesky",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/bluesky.md",
-      "checksum": "c08b33fd896b0e1634d5a00b6d789ce06fdcc7c77fbc3de1b43339b4d6b76074"
-    },
-    {
-      "platform": "mastodon",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/mastodon.md",
-      "checksum": "7386cd27e885ab936a0e712c440090ec01a30cc197d912bf2c2f96325f1df541"
-    },
-    {
-      "platform": "threads",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/threads.md",
-      "checksum": "7976bbf75155c0e9ba1762e06eef35979ae333ef089772159116ac802a735f1b"
-    },
-    {
-      "platform": "facebook-page",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/facebook-page.md",
-      "checksum": "a598ff133fd723ede1f10e72589d5737c42088c854f4b9be310b8a47d2734519"
+      "filePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-factory/linkedin.md",
+      "checksum": "85b354457c9073b43f5b7aeafe925329aa321f477b82db8da1b807b23248549e"
     }
   ]
 }

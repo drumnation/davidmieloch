@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:developing-with-a-team-of-ai-s:f8c6a4f14a4e",
+  "manifestId": "social:linkedin:developing-with-a-team-of-ai-s:b59f2686fa86",
   "source": {
     "articleSlug": "developing-with-a-team-of-ai-s",
     "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/developing-with-a-team-of-ai-s/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/developing-with-a-team-of-ai-s/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "c4aca2c9b0a37033f75d42383c1cb404f3b5904f212fcaa265739c9ed8dfc7d7"
+    "digest": "ab67955dc6099a5a7d20f986ccf6ec8f72be0a529f7e81b514a6d85c6fb319ce"
   }
 }

@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:reality-needs-observers:baff46f5e4c7",
+  "manifestId": "social:linkedin:reality-needs-observers:09ca8c1e82ed",
   "source": {
     "articleSlug": "reality-needs-observers",
     "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/reality-needs-observers/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/reality-needs-observers/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "9dd71e33e6b108f2cfdb4ce13318181998d2cf58a8379647bcdf6529a1c34bca"
+    "digest": "23e1d999b99af1cc04c2d6d5ee5afeef9388fcd33493822bda653d66e1650f12"
   }
 }

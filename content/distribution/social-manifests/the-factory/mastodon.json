@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:mastodon:the-factory:c949aa9993bc",
+  "manifestId": "social:mastodon:the-factory:fd3d24e239c5",
   "source": {
     "articleSlug": "the-factory",
     "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/mastodon.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-factory/mastodon.md"
   },
   "destination": {
     "platform": "mastodon",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "a4d9d1cc4842cd7998dc0052bd41990c9af718e20ff79d3b923bfe18d73e8e59"
+    "digest": "f2a08f5f85e68d71dce3fe12f7090b5a95be719856f94dff67f3e61ff66e8831"
   }
 }

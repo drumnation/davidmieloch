@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-06-05T13:29:48.133Z",
+  "generatedAt": "2026-06-07T00:18:31.544Z",
   "publicPublishingPerformed": false,
   "exposureGate": "Does anybody but Dave need to touch this GUI?",
   "credentialStore": {
     "provider": "1Password",
     "vault": "Brain Garden",
     "writeStatus": "interactive-required",
-    "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret.",
+    "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz.",
     "requiredBeforeAccountCreation": true,
-    "verifiedAt": "2026-06-05T07:48:14-04:00",
+    "verifiedAt": "2026-06-06T20:32:00-04:00",
     "readPath": "1Password service account can read created Brain Garden vault items.",
     "writePath": "Interactive user-authenticated 1Password CLI path can create/update items when Dave authorizes it."
   },
@@ -21,7 +21,31 @@
     "credentialItemId": "mpxdavee2l4mquo5maiocwcv3a",
     "loginVerifiedAt": "2026-06-05T07:48:14-04:00",
     "dashboardPath": "/launches",
-    "publicExposure": "forbidden-unless-explicitly-approved"
+    "publicExposure": "forbidden-unless-explicitly-approved",
+    "lastIntegrationAuditAt": "2026-06-06T20:32:00-04:00",
+    "connectedIntegrations": [
+      {
+        "platform": "devto",
+        "postizChannelId": "cmq0w8mk40001nz8648id4dck",
+        "postizChannelName": "David Mieloch",
+        "connectedAt": "2026-06-05T12:21:41.044Z",
+        "tokenExpiration": "2126-06-05T12:21:41.043Z"
+      },
+      {
+        "platform": "linkedin",
+        "postizChannelId": "cmq15vq6n0001my7ovp8dkkne",
+        "postizChannelName": "David Mieloch",
+        "connectedAt": "2026-06-05T16:51:35.375Z",
+        "tokenExpiration": "2026-08-04T16:51:34.374Z"
+      },
+      {
+        "platform": "nostr",
+        "postizChannelId": "cmq19n3im0003my7ostuzdfty",
+        "postizChannelName": "No Name",
+        "connectedAt": "2026-06-05T18:36:51.215Z",
+        "tokenExpiration": "2226-06-05T18:36:51.213Z"
+      }
+    ]
   },
   "n8n": {
     "role": "workflow-orchestrator",
@@ -30,9 +54,9 @@
     "notes": "n8n workflow packages and credentials were found on singularity-one, but no live n8n container or :5678 listener was observed during the 2026-06-05 Postiz setup pass."
   },
   "summary": {
-    "accounts": 14,
-    "blocked": 13,
-    "canaryEligible": 7,
+    "accounts": 15,
+    "blocked": 12,
+    "canaryEligible": 8,
     "connectorTestReady": 0
   },
   "accounts": [
@@ -41,24 +65,24 @@
       "identityLayer": "personal-authority",
       "accountKind": "existing-personal",
       "knownState": "exists",
-      "postizChannelStatus": "not-connected",
-      "postizPriority": "later",
+      "postizChannelStatus": "connected",
+      "postizPriority": "primary-channel",
       "testPostPolicy": "no-public-test-posts",
       "canaryEligible": false,
       "personalAccount": true,
       "readyForCredentialedSetup": false,
-      "readyForPostizDrafts": false,
+      "readyForPostizDrafts": true,
       "readyForConnectorTest": false,
-      "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocked": false,
+      "blocker": null
     },
     {
       "platform": "linkedin-page",
       "identityLayer": "brand-lab",
       "accountKind": "existing-company-page",
       "knownState": "exists",
-      "postizChannelStatus": "not-connected",
-      "postizPriority": "main-channel-unblocker",
+      "postizChannelStatus": "blocked-unauthorized-scopes",
+      "postizPriority": "org-channel-blocked",
       "testPostPolicy": "no-public-test-posts",
       "canaryEligible": true,
       "personalAccount": false,
@@ -66,7 +90,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "The Postiz profile callback is accepted and saved in LinkedIn. The Postiz Page callback path currently triggers LinkedIn's valid-URL warning and was not saved."
+      "blocker": "LinkedIn Page OAuth reaches Postiz, but the app is not authorized for organization scopes requested by Postiz: rw_organization_admin, w_organization_social, and r_organization_social. The profile channel is connected; Page posting remains blocked until LinkedIn app products/scopes are approved."
     },
     {
       "platform": "medium",
@@ -82,7 +106,23 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
+    },
+    {
+      "platform": "nostr",
+      "identityLayer": "brand-lab",
+      "accountKind": "existing-postiz-channel",
+      "knownState": "exists",
+      "postizChannelStatus": "connected",
+      "postizPriority": "experimental-low",
+      "testPostPolicy": "no-public-test-posts",
+      "canaryEligible": true,
+      "personalAccount": false,
+      "readyForCredentialedSetup": false,
+      "readyForPostizDrafts": true,
+      "readyForConnectorTest": false,
+      "blocked": false,
+      "blocker": null
     },
     {
       "platform": "devto",
@@ -114,7 +154,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     },
     {
       "platform": "reddit",
@@ -130,7 +170,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     },
     {
       "platform": "facebook",
@@ -146,7 +186,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     },
     {
       "platform": "instagram",
@@ -162,14 +202,14 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     },
     {
       "platform": "bluesky",
       "identityLayer": "brand-lab",
-      "accountKind": "new-canary",
-      "knownState": "not-created",
-      "postizChannelStatus": "not-connected",
+      "accountKind": "existing-personal",
+      "knownState": "exists",
+      "postizChannelStatus": "blocked-invalid-credentials",
       "postizPriority": "first-wave",
       "testPostPolicy": "public-bland-test-allowed-after-1password-custody",
       "canaryEligible": true,
@@ -178,7 +218,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Postiz rejected the supplied Bluesky handle/app-password attempt with invalid identifier or password. Do not retry until a fresh Bluesky app password is generated and stored in 1Password."
     },
     {
       "platform": "mastodon",
@@ -194,7 +234,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     },
     {
       "platform": "threads",
@@ -210,7 +250,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     },
     {
       "platform": "youtube",
@@ -226,7 +266,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     },
     {
       "platform": "tiktok",
@@ -242,7 +282,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     },
     {
       "platform": "facebook-page",
@@ -258,7 +298,7 @@
       "readyForPostizDrafts": false,
       "readyForConnectorTest": false,
       "blocked": true,
-      "blocker": "Current shell is using a 1Password service account that can read Brain Garden items but cannot create the LinkedIn OAuth credential item. Dave must authorize an interactive 1Password CLI session or create the item manually before Postiz receives the secret."
+      "blocker": "Interactive 1Password create/update is still required for new accounts and credential rollups, but existing Postiz channels may be used once connected and verified in Postiz."
     }
   ],
   "observation": {

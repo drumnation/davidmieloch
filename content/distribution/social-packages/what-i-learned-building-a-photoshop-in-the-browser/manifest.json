@@ -3,43 +3,13 @@
   "slug": "what-i-learned-building-a-photoshop-in-the-browser",
   "title": "What I Learned Building a Photoshop in the Browser",
   "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
-  "generatedAt": "2026-06-05T11:52:15.017Z",
+  "generatedAt": "2026-06-07T00:21:43.287Z",
   "publicPublishingPerformed": false,
   "files": [
     {
       "platform": "linkedin",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/linkedin.md",
-      "checksum": "7c940f152e203360dac6c73af34c12f874a463a3a6a6dd78b9e6b9834d310de6"
-    },
-    {
-      "platform": "x-twitter",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/x-twitter.md",
-      "checksum": "03232910693a59b97c3314044cad574010336b5b1c3ab1d6b56dee7a4e894cfe"
-    },
-    {
-      "platform": "reddit",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/reddit.md",
-      "checksum": "c59cdde4664ce89af6b972d8608e0cff58f3000f027164ddea72fde734e4418b"
-    },
-    {
-      "platform": "bluesky",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/bluesky.md",
-      "checksum": "e303f314551c8a0b2003e4a4b742db988801a52829176e647bd730741b07554f"
-    },
-    {
-      "platform": "mastodon",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/mastodon.md",
-      "checksum": "b58891a772aa7795a475fd2cef92961247f19bebffef2b00077b07f820c2a6c1"
-    },
-    {
-      "platform": "threads",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/threads.md",
-      "checksum": "e9205ef259be49d887a26e14f5d8c44d3e50c85a6ca9a7249473c63067aa40c1"
-    },
-    {
-      "platform": "facebook-page",
-      "filePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/facebook-page.md",
-      "checksum": "30443e27b11a6a9e5b6a2012a9114f4559217e52ea5b7adc9c4bf7a24cb6ffab"
+      "filePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/what-i-learned-building-a-photoshop-in-the-browser/linkedin.md",
+      "checksum": "774c6ec4a2d04ffa47faaf529bea133dd3c7a43c901668850011f0d925ef4fbb"
     }
   ]
 }

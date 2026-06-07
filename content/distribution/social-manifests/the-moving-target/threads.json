@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:threads:the-moving-target:df0cf5866bec",
+  "manifestId": "social:threads:the-moving-target:d02281aa5d24",
   "source": {
     "articleSlug": "the-moving-target",
     "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/threads.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-moving-target/threads.md"
   },
   "destination": {
     "platform": "threads",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "0038d643c48d3455a88009e99b1815a2b6452ec94c1c751bc45cbc28a284f5a0"
+    "digest": "ec3631324d9476e316e10733377eca385a1ebecf252c9e5d29cdefe438b23482"
   }
 }

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:the-factory:eb7674e4b91c",
+  "manifestId": "social:reddit:the-factory:ee1d3292bd02",
   "source": {
     "articleSlug": "the-factory",
     "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/reddit.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-factory/reddit.md"
   },
   "destination": {
     "platform": "reddit",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "54c8da125ad13e9b82f5b6ff6f7e40b841d9f556bcfccb8430d26d34495aefef"
+    "digest": "0682a1acc8ce4263db5ffa530042e02c0aeaec7e96ff10942cdaa3076e721c94"
   }
 }

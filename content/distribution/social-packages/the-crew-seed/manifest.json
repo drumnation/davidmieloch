@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "social-package-manifest-v1",
+  "slug": "the-crew-seed",
+  "title": "The Crew",
+  "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
+  "generatedAt": "2026-06-07T00:21:43.287Z",
+  "publicPublishingPerformed": false,
+  "files": [
+    {
+      "platform": "linkedin",
+      "filePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-crew-seed/linkedin.md",
+      "checksum": "b0592c70805a419f3e905dc124778ea4cb4ecc50cd2cd3f361c3e07f795db883"
+    }
+  ]
+}

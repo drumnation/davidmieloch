@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:870c1a418563",
+  "manifestId": "social:x-twitter:pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud:fda4a01e4f22",
   "source": {
     "articleSlug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
     "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "e955a5da9fc75115825eff81e81375d3645405784f3670cfb64cb11a04f41830"
+    "digest": "82010db5f8c0c699438ee896cab5479ca159afbda9439afaf6971317c038ac1a"
   }
 }

@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:ada7f38c7c31",
+  "manifestId": "social:linkedin:academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it:f77d9e528ff5",
   "source": {
     "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/linkedin.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/linkedin.md"
   },
   "destination": {
     "platform": "linkedin",
     "accountId": "linkedin",
     "identityLayer": "personal-authority",
     "mode": "draft",
-    "postizChannelId": null
+    "postizChannelId": "cmq15vq6n0001my7ovp8dkkne"
   },
   "approval": {
     "status": "missing",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "ca8ca2544ffd0ab167dd801a28d3de4d81e01a9b4f166c86df89f1334f8e667c"
+    "digest": "d3c7e69559d5e5476e26ae91e222f911352eee0ac073225bbf89408260fe5c28"
   }
 }

@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:the-moving-target:f19aad049ac9",
+  "manifestId": "social:bluesky:the-moving-target:d7bdb4e43bbf",
   "source": {
     "articleSlug": "the-moving-target",
     "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-moving-target/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-moving-target/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "d038e9b83a6bec4a4e4dec97f1bd2f9227f77e964da2a46db5c0a484591a7357"
+    "digest": "8cc72233f5281bcb3c92e82c5f4627b1a9d85bae93efa19d8e4dba40a7a835f7"
   }
 }

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:reddit:the-overnight-shift:d78122fa83d6",
+  "manifestId": "social:reddit:the-overnight-shift:d4bf6eca422e",
   "source": {
     "articleSlug": "the-overnight-shift",
     "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-overnight-shift/reddit.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-overnight-shift/reddit.md"
   },
   "destination": {
     "platform": "reddit",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "7d2fcb0288feb924e0c4a9e3302c7bac1abe6227d0184c5dc67c532a82665d5d"
+    "digest": "b7f75cd44f115d7861643b351fef482d320be43296991be6729466717f5b482d"
   }
 }

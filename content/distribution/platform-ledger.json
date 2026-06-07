@@ -1,9 +1,10 @@
 {
-  "updatedAt": "2026-05-20",
+  "updatedAt": "2026-06-07",
   "sourceOfTruth": {
     "publishedArticles": "linkedin",
     "canonicalArchive": "davidmieloch.com",
-    "workingDrafts": "obsidian"
+    "workingDrafts": "obsidian",
+    "upcomingArticles": "content/distribution/site-release-calendar.json"
   },
   "articles": {
     "your-ai-isnt-hallucinating-its-lying": {
@@ -1029,6 +1030,261 @@
           "observedAt": "2026-05-20T17:02:27.531Z",
           "id": "3710789",
           "notes": "Created as unpublished DEV draft through draft:create. Not publicly published."
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter": {
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "series": "Factory Primitives",
+      "status": "planned-site-draft",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "source": {
+        "platform": "obsidian",
+        "url": "",
+        "plannedPublishedAt": "2026-06-10T11:00:00-04:00"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "needs-browser-staging",
+          "url": "",
+          "plannedPostAt": "2026-06-10T11:00:00-04:00"
+        },
+        "davidmieloch": {
+          "status": "staged-draft",
+          "url": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+          "plannedReleaseAt": "2026-06-10T11:00:00-04:00"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-ai-bill-you-cant-predict": {
+      "title": "The AI Bill You Can't Predict",
+      "series": "Factory Primitives",
+      "status": "planned-site-draft",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
+      "source": {
+        "platform": "obsidian",
+        "url": "",
+        "plannedPublishedAt": "2026-06-13T11:00:00-04:00"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "needs-browser-staging",
+          "url": "",
+          "plannedPostAt": "2026-06-13T11:00:00-04:00"
+        },
+        "davidmieloch": {
+          "status": "staged-draft",
+          "url": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
+          "plannedReleaseAt": "2026-06-13T11:00:00-04:00"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-most-valuable-ai-skill-isnt-prompting": {
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "series": "Factory Primitives",
+      "status": "planned-site-draft",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting",
+      "source": {
+        "platform": "obsidian",
+        "url": "",
+        "plannedPublishedAt": "2026-06-17T11:00:00-04:00"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "needs-browser-staging",
+          "url": "",
+          "plannedPostAt": "2026-06-17T11:00:00-04:00"
+        },
+        "davidmieloch": {
+          "status": "staged-draft",
+          "url": "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting",
+          "plannedReleaseAt": "2026-06-17T11:00:00-04:00"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-credibility-problem-with-ai-corporate-communications": {
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "series": "Factory Primitives",
+      "status": "planned-site-draft",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
+      "source": {
+        "platform": "obsidian",
+        "url": "",
+        "plannedPublishedAt": "2026-06-20T11:00:00-04:00"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "needs-browser-staging",
+          "url": "",
+          "plannedPostAt": "2026-06-20T11:00:00-04:00"
+        },
+        "davidmieloch": {
+          "status": "staged-draft",
+          "url": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
+          "plannedReleaseAt": "2026-06-20T11:00:00-04:00"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hashnode": {
+          "status": "not-started",
+          "url": ""
+        },
+        "hackernoon": {
+          "status": "not-started",
+          "url": ""
+        },
+        "dzone": {
+          "status": "not-started",
+          "url": ""
+        },
+        "substack": {
+          "status": "not-started",
+          "url": ""
+        }
+      }
+    },
+    "the-crew-seed": {
+      "title": "The Crew",
+      "series": "Factory Primitives",
+      "status": "planned-site-draft",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
+      "source": {
+        "platform": "obsidian",
+        "url": "",
+        "plannedPublishedAt": "2026-06-24T11:00:00-04:00"
+      },
+      "platforms": {
+        "linkedin": {
+          "status": "needs-browser-staging",
+          "url": "",
+          "plannedPostAt": "2026-06-24T11:00:00-04:00"
+        },
+        "davidmieloch": {
+          "status": "staged-draft",
+          "url": "https://davidmieloch.com/blog/the-crew-seed",
+          "plannedReleaseAt": "2026-06-24T11:00:00-04:00"
+        },
+        "medium": {
+          "status": "not-started",
+          "url": ""
+        },
+        "reddit": {
+          "status": "not-started",
+          "url": ""
+        },
+        "devto": {
+          "status": "not-started",
+          "url": ""
         },
         "hashnode": {
           "status": "not-started",

@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "manifestId": "social:bluesky:the-foreman:4b843f9a359a",
+  "manifestId": "social:bluesky:the-foreman:900405e51f02",
   "source": {
     "articleSlug": "the-foreman",
     "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-foreman/bluesky.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-foreman/bluesky.md"
   },
   "destination": {
     "platform": "bluesky",
-    "accountId": "brain-garden",
+    "accountId": "davidmieloch.bsky.social",
     "identityLayer": "brand-lab",
     "mode": "draft",
     "postizChannelId": null
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "851f84d4f70c8ae0811fe1538f47b2a9beb5481ad9d53a63f4fad9067c50786e"
+    "digest": "0fe0f63afba401ca7c4912d9da55c0e2e2dcf6f4825e41a77ae8de3d3da7ba19"
   }
 }

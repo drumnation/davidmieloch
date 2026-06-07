@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "manifestId": "social:x-twitter:the-factory:c88a35ec05b9",
+  "manifestId": "social:x-twitter:the-factory:7ceb91d6b391",
   "source": {
     "articleSlug": "the-factory",
     "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
     "ledgerPath": "content/distribution/platform-ledger.json",
-    "packagePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/social-packages/the-factory/x-twitter.md"
+    "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-factory/x-twitter.md"
   },
   "destination": {
     "platform": "x-twitter",
@@ -29,13 +29,13 @@
   },
   "safety": {
     "safeDefault": "do-not-post",
-    "credentialCustodyVerified": true,
+    "credentialCustodyVerified": false,
     "deletePathKnown": false,
     "publicExposureGateAnswered": true,
     "refusalInboxPath": "content/distribution/refusal-inbox.json"
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "76df733c748aff2b7f2dd26cd4ce6a57baa59120ccbf6b7e29e834c8d149da7c"
+    "digest": "35b50d7128592d52a8b6e103e9cd4f31725e1491e5ff3afec2ccc4fec9b802ba"
   }
 }
