@@ -164,6 +164,55 @@ ${packet.bodyMarkdown}
 `;
 }
 
+function checklistMarkdown(packets) {
+  const lines = [
+    '# LinkedIn Article Staging Checklist',
+    '',
+    'Safe default: stop at LinkedIn draft/preview. Do not publish, submit, or schedule without explicit David approval.',
+    '',
+    '## Batch State',
+    '',
+    `- Articles: ${packets.length}`,
+    `- Hero images present: ${packets.filter((packet) => packet.heroImage.exists).length}/${packets.length}`,
+    `- Public publishing allowed: no`,
+    `- Browser destination: ${packets[0]?.browserStaging.destination ?? 'https://www.linkedin.com/pulse/new/'}`,
+    '',
+    '## Operator Steps',
+    '',
+    'For each article:',
+    '',
+    '1. Open the JSON or Markdown packet listed below.',
+    '2. Open LinkedIn Article editor in the authenticated browser.',
+    '3. Upload the hero image from `heroImage.sourcePath`.',
+    '4. Paste `title`, `subtitle`, and `bodyMarkdown`.',
+    '5. Add the canonical URL where LinkedIn supports it, or append it as a source link if needed.',
+    '6. Stop at draft/preview. Do not publish, submit, schedule, or share.',
+    '7. Record the draft URL or blocker in the platform ledger.',
+    '',
+    '## Articles',
+    '',
+  ];
+
+  for (const packet of packets) {
+    lines.push(
+      `### ${packet.title}`,
+      '',
+      `- Slug: \`${packet.slug}\``,
+      `- Words: ${packet.wordCount}`,
+      `- Hero image: \`${packet.heroImage.sourcePath ?? 'missing'}\``,
+      `- Hero checksum: \`${packet.heroImage.checksumSha256 ?? 'missing'}\``,
+      `- Body checksum: \`${packet.bodyChecksumSha256}\``,
+      `- Canonical URL: ${packet.canonicalUrl}`,
+      `- JSON packet: \`${packet.jsonPath}\``,
+      `- Markdown packet: \`${packet.markdownPath}\``,
+      `- Stop before: \`${packet.browserStaging.stopBefore}\``,
+      '',
+    );
+  }
+
+  return `${lines.join('\n')}\n`;
+}
+
 export function buildLinkedInArticleTransferPackets({
   launchPlan,
   articlesRoot,
@@ -202,6 +251,11 @@ export function buildLinkedInArticleTransferPackets({
       markdownPath,
     };
   });
+  const checklistPath = path.join(outputRoot, 'linkedin-article-staging-checklist.md');
+  if (write) {
+    fs.mkdirSync(outputRoot, { recursive: true });
+    fs.writeFileSync(checklistPath, checklistMarkdown(packets));
+  }
 
   return {
     schemaVersion: 'linkedin-article-transfer-batch-v1',
@@ -213,6 +267,7 @@ export function buildLinkedInArticleTransferPackets({
       heroImagesPresent: packets.filter((packet) => packet.heroImage.exists).length,
       totalWords: packets.reduce((sum, packet) => sum + packet.wordCount, 0),
     },
+    checklistPath,
     packets,
     observation: {
       claim: 'LinkedIn Article transfer packets are derived from canonical website markdown',

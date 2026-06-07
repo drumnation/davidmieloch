@@ -1376,8 +1376,13 @@ The factory turns repeated agent labor into substrate.
       root,
       'content/distribution/linkedin-article-transfer/the-factory/linkedin-article-transfer.md',
     );
+    const checklistPath = join(
+      root,
+      'content/distribution/linkedin-article-transfer/linkedin-article-staging-checklist.md',
+    );
     const packet = JSON.parse(readFileSync(jsonPath, 'utf8'));
     const markdown = readFileSync(markdownPath, 'utf8');
+    const checklist = readFileSync(checklistPath, 'utf8');
     expect(packet).toMatchObject({
       slug: 'the-factory',
       title: 'The Factory',
@@ -1388,6 +1393,9 @@ The factory turns repeated agent labor into substrate.
     });
     expect(markdown).toContain('Stop before: publish-submit-schedule');
     expect(markdown).toContain('The factory turns repeated agent labor into substrate.');
+    expect(checklist).toContain('Safe default: stop at LinkedIn draft/preview.');
+    expect(checklist).toContain('Do not publish, submit, schedule, or share.');
+    expect(checklist).toContain('JSON packet:');
   });
 
   it('blocks non-dry-run Postiz pushes until the API adapter is verified', () => {
