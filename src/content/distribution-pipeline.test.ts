@@ -28,6 +28,9 @@ import {
   contentLedgerMarkdown,
 } from '../../scripts/lib/content-ledger.mjs';
 import {
+  buildLaunchApprovalPacket,
+} from '../../scripts/lib/launch-approval.mjs';
+import {
   approveArticleAudio,
   audioStatus,
   generateArticleAudio,
@@ -130,6 +133,15 @@ type LaunchSocialCalendarOptions = {
   generatedAt?: string;
 };
 
+type LaunchApprovalPacketOptions = {
+  launchPlan: Record<string, any>;
+  siteReleaseCalendar: Record<string, any>;
+  socialCalendar: Record<string, any>;
+  socialTeasers: Record<string, any>;
+  imageManifests?: Record<string, any>;
+  generatedAt?: string;
+};
+
 type SocialN8nExportOptions = {
   socialCalendar: ReturnType<typeof buildSocialSchedule>;
   inventory: Record<string, unknown>;
@@ -181,6 +193,9 @@ const generateSocialSchedule = buildSocialSchedule as unknown as (
 const generateLaunchSocialCalendar = buildLaunchSocialCalendar as unknown as (
   options: LaunchSocialCalendarOptions
 ) => ReturnType<typeof buildLaunchSocialCalendar>;
+const generateLaunchApprovalPacket = buildLaunchApprovalPacket as unknown as (
+  options: LaunchApprovalPacketOptions
+) => ReturnType<typeof buildLaunchApprovalPacket>;
 const generateN8nExport = buildN8nExport as unknown as (
   options: SocialN8nExportOptions
 ) => ReturnType<typeof buildN8nExport>;
@@ -1012,6 +1027,112 @@ describe('social automation substrate', () => {
       },
     });
     expect(calendar.entries[0].checksum).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it('builds a David approval packet from launch artifacts', () => {
+    const packet = generateLaunchApprovalPacket({
+      launchPlan: {
+        series: 'Factory Primitives',
+        decisionSeam: {
+          name: 'factory-primitives-launch-approval',
+          actor: 'David',
+          safeDefault: 'do-not-publish',
+        },
+        articles: [
+          {
+            slug: 'the-factory',
+            title: 'The Factory',
+            contentStatus: 'ready-for-editorial-approval',
+            imageStatus: 'hero-staged-for-review',
+            coverImage: '/blog/the-factory/images/hero-linkedin.png',
+            imageManifest: 'content/articles/the-factory/image-manifest.json',
+            checksumSha256: 'a'.repeat(64),
+            caption: 'Factory hero.',
+            blocker: null,
+            nextAction: 'David image and copy approval.',
+          },
+        ],
+      },
+      siteReleaseCalendar: {
+        entries: [
+          {
+            slug: 'the-factory',
+            title: 'The Factory',
+            plannedReleaseAt: '2026-06-10T11:00:00-04:00',
+            website: {
+              status: 'staged-draft',
+              markdownPath: 'content/articles/the-factory/index.md',
+              canonicalUrl: 'https://davidmieloch.com/blog/the-factory',
+            },
+          },
+        ],
+      },
+      socialCalendar: {
+        entries: [
+          {
+            articleSlug: 'the-factory',
+            status: 'planned',
+            scheduledAt: '2026-06-10T15:00:00.000Z',
+            packagePath: '/tmp/social-packages/the-factory/linkedin.md',
+            checksum: 'b'.repeat(64),
+            postizChannelStatus: 'connected',
+            blocked: false,
+            blocker: null,
+          },
+        ],
+      },
+      socialTeasers: {
+        teasers: {
+          'the-factory': {
+            linkedin: 'Curated reveal copy.',
+          },
+        },
+      },
+      imageManifests: {
+        'the-factory': {
+          assets: [
+            {
+              id: 'hero-linkedin',
+              publicPath: '/blog/the-factory/images/hero-linkedin.png',
+              sourcePath: 'public/blog/the-factory/images/hero-linkedin.png',
+              checksumSha256: 'a'.repeat(64),
+              caption: 'Factory hero.',
+            },
+          ],
+        },
+      },
+      generatedAt: '2026-06-07T00:00:00.000Z',
+    });
+
+    expect(packet.publicPublishingPerformed).toBe(false);
+    expect(packet.safeDefault).toBe('do-not-publish');
+    expect(packet.summary).toMatchObject({
+      articles: 1,
+      blocked: 0,
+      readyForDavidReview: 1,
+      approvalGatesPerArticle: 5,
+    });
+    expect(packet.articles[0]).toMatchObject({
+      slug: 'the-factory',
+      website: {
+        draftPreviewUrl: '/draft-lab/articles/the-factory',
+      },
+      heroImage: {
+        publicPath: '/blog/the-factory/images/hero-linkedin.png',
+      },
+      linkedinReveal: {
+        scheduledAt: '2026-06-10T15:00:00.000Z',
+        teaser: 'Curated reveal copy.',
+      },
+      blocked: false,
+    });
+    expect(packet.articles[0].gates.map((gate: { status: string }) => gate.status)).toEqual([
+      'missing',
+      'missing',
+      'missing',
+      'missing',
+      'missing',
+    ]);
   });
 
   it('blocks non-dry-run Postiz pushes until the API adapter is verified', () => {

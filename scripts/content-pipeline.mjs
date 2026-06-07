@@ -11,6 +11,10 @@ import {
   parseMediumFeed,
 } from './lib/medium-reader.mjs';
 import {
+  buildLaunchApprovalPacket,
+  readImageManifests,
+} from './lib/launch-approval.mjs';
+import {
   buildDistributionQueue,
   distributionQueueMarkdown,
   filterDistributionQueue,
@@ -81,6 +85,8 @@ const packagesRoot = path.join(contentRoot, 'distribution/packages');
 const socialPackagesRoot = path.join(contentRoot, 'distribution/social-packages');
 const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
 const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.json');
+const factoryPrimitivesLaunchPlanPath = path.join(contentRoot, 'distribution/factory-primitives-launch-plan.json');
+const factoryPrimitivesApprovalPacketPath = path.join(contentRoot, 'distribution/factory-primitives-approval-packet.json');
 const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
 const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
@@ -88,6 +94,7 @@ const socialAccountInventoryPath = path.join(contentRoot, 'distribution/social-a
 const socialCalendarPath = path.join(contentRoot, 'distribution/social-calendar.json');
 const siteReleaseCalendarPath = path.join(contentRoot, 'distribution/site-release-calendar.json');
 const factoryPrimitivesSocialCalendarPath = path.join(contentRoot, 'distribution/factory-primitives-social-calendar.json');
+const socialTeasersPath = path.join(contentRoot, 'distribution/social-teasers.json');
 const socialN8nExportPath = path.join(contentRoot, 'distribution/n8n/social-dispatch-packets.json');
 const socialManifestRoot = path.join(contentRoot, 'distribution/social-manifests');
 const socialRefusalInboxPath = path.join(contentRoot, 'distribution/refusal-inbox.json');
@@ -574,6 +581,46 @@ function socialLaunchCalendarCommand() {
   return {
     ...calendar,
     inputPath,
+    ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function launchApprovalPacketCommand() {
+  const options = parseCommandOptions(2);
+  const launchPlanPath = options['launch-plan']
+    ? path.resolve(appRoot, options['launch-plan'])
+    : factoryPrimitivesLaunchPlanPath;
+  const siteCalendarPath = options['site-calendar']
+    ? path.resolve(appRoot, options['site-calendar'])
+    : siteReleaseCalendarPath;
+  const socialCalendarInputPath = options['social-calendar']
+    ? path.resolve(appRoot, options['social-calendar'])
+    : factoryPrimitivesSocialCalendarPath;
+  const teasersPath = options.teasers
+    ? path.resolve(appRoot, options.teasers)
+    : socialTeasersPath;
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : factoryPrimitivesApprovalPacketPath;
+  const launchPlan = JSON.parse(fs.readFileSync(launchPlanPath, 'utf8'));
+  const packet = buildLaunchApprovalPacket({
+    launchPlan,
+    siteReleaseCalendar: JSON.parse(fs.readFileSync(siteCalendarPath, 'utf8')),
+    socialCalendar: JSON.parse(fs.readFileSync(socialCalendarInputPath, 'utf8')),
+    socialTeasers: JSON.parse(fs.readFileSync(teasersPath, 'utf8')),
+    imageManifests: readImageManifests(launchPlan.articles ?? []),
+  });
+  if (options.write) {
+    writeJson(outputPath, packet);
+  }
+  return {
+    ...packet,
+    inputPaths: {
+      launchPlan: launchPlanPath,
+      siteCalendar: siteCalendarPath,
+      socialCalendar: socialCalendarInputPath,
+      teasers: teasersPath,
+    },
     ...(options.write ? { outputPath } : {}),
   };
 }
@@ -1633,6 +1680,7 @@ function usage() {
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline launch:due [--now=<iso-date>]
+  pnpm content:pipeline launch:approval-packet [--write] [--output=<path>] [--launch-plan=<path>] [--site-calendar=<path>] [--social-calendar=<path>] [--teasers=<path>]
   pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]
   pnpm content:pipeline schedule:due [--now=<iso-date>] [--input=<path>]
   pnpm content:pipeline schedule:markdown [--input=<path>] [--write] [--output=<path>]
@@ -1679,6 +1727,7 @@ Safety:
   - queue:markdown renders a checklist only; it does not create drafts or publish.
   - queue:write writes a checklist file only; it does not create drafts or publish.
   - schedule commands create/read local schedule artifacts only; they do not create drafts or publish.
+  - launch:approval-packet writes local approval packets only; it does not approve or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
   - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
@@ -1752,6 +1801,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'launch:due') {
     return launchDue();
+  }
+  if (command === 'launch:approval-packet') {
+    return launchApprovalPacketCommand();
   }
   if (command === 'schedule:generate') {
     return publishScheduleGenerateCommand();

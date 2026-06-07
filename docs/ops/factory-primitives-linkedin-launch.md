@@ -16,6 +16,7 @@ do not publish without David approval.
 Source of truth: `content/distribution/site-release-calendar.json`.
 Reveal-post calendar: `content/distribution/factory-primitives-social-calendar.json`.
 Curated reveal copy: `content/distribution/social-teasers.json`.
+Approval packet: `content/distribution/factory-primitives-approval-packet.json`.
 
 ## Decision Seam
 
@@ -37,6 +38,23 @@ Actions:
 - hold article
 
 Safe default: hold article.
+
+Regenerate the approval packet:
+
+```sh
+pnpm content:pipeline launch:approval-packet --write --output=content/distribution/factory-primitives-approval-packet.json
+```
+
+Expected result before David approves:
+
+- `articles: 5`
+- `blocked: 0`
+- `readyForDavidReview: 5`
+- `approvalGatesPerArticle: 5`
+
+The packet does not approve or publish anything. It only assembles the article
+copy, hero image, website preview, LinkedIn reveal copy, and release time gates
+into one review artifact.
 
 ## Programmatic Surface
 

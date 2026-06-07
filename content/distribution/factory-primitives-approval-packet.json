@@ -1,0 +1,318 @@
+{
+  "schemaVersion": "launch-approval-packet-v1",
+  "generatedAt": "2026-06-07T05:06:28.158Z",
+  "publicPublishingPerformed": false,
+  "safeDefault": "do-not-publish",
+  "decisionSeam": {
+    "name": "factory-primitives-launch-approval",
+    "actor": "David",
+    "safeDefault": "do-not-publish"
+  },
+  "summary": {
+    "articles": 5,
+    "blocked": 0,
+    "readyForDavidReview": 5,
+    "approvalGatesPerArticle": 5
+  },
+  "articles": [
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "series": "Factory Primitives",
+      "releaseTarget": "2026-06-10T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+        "draftPreviewUrl": "/draft-lab/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+        "markdownPath": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md"
+      },
+      "heroImage": {
+        "status": "hero-staged-for-review",
+        "publicPath": "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
+        "sourcePath": "public/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
+        "checksumSha256": "da9d466e2fdaef271232a3bf840b235ed025eee258b5fc5f947a8d9bcef07e78",
+        "caption": "A black-hole refinery over a frontier software factory: the cost shock as a filter, not a collapse.",
+        "manifestPath": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-manifest.json"
+      },
+      "linkedinReveal": {
+        "status": "planned",
+        "scheduledAt": "2026-06-10T15:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin.md",
+        "checksum": "290ffbd6f41a73e88c1613902dc089a7cb6992699cfd95a4978d9ec029113b66",
+        "postizChannelStatus": "connected",
+        "teaser": "A lot of people are reading the AI cost jump as a bubble popping.\n\nI think that misses the point.\n\nThe cheap phase was the training period. The next phase is the filter: who can still build when the bill starts behaving like physics instead of marketing?"
+      },
+      "gates": [
+        {
+          "label": "article-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "hero-image-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "site-draft-preview-reviewed",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "linkedin-reveal-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "release-time-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        }
+      ],
+      "blocked": false,
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    },
+    {
+      "slug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "series": "Factory Primitives",
+      "releaseTarget": "2026-06-13T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
+        "draftPreviewUrl": "/draft-lab/articles/the-ai-bill-you-cant-predict",
+        "markdownPath": "content/articles/the-ai-bill-you-cant-predict/index.md"
+      },
+      "heroImage": {
+        "status": "hero-staged-for-review",
+        "publicPath": "/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
+        "sourcePath": "public/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
+        "checksumSha256": "12eb475f553162cd9219769808b03543f219cba8f19c9c90ca3c06a8b2530195",
+        "caption": "A giant analog meter dominating an AI factory town: the bill as a moving formula nobody can see clearly.",
+        "manifestPath": "content/articles/the-ai-bill-you-cant-predict/image-manifest.json"
+      },
+      "linkedinReveal": {
+        "status": "planned",
+        "scheduledAt": "2026-06-13T15:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-bill-you-cant-predict/linkedin.md",
+        "checksum": "6dcb41e2f6fa4486a0c9f578b5b19739957cd4ecb99f7767a63b3a0cf595db00",
+        "postizChannelStatus": "connected",
+        "teaser": "The dangerous AI bill is not the big one.\n\nIt is the one nobody can explain before it arrives.\n\nIf a workflow can spend money faster than your organization can understand the work, the pricing model is not just an accounting issue. It is an architecture issue."
+      },
+      "gates": [
+        {
+          "label": "article-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "hero-image-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "site-draft-preview-reviewed",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "linkedin-reveal-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "release-time-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        }
+      ],
+      "blocked": false,
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    },
+    {
+      "slug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "series": "Factory Primitives",
+      "releaseTarget": "2026-06-17T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting",
+        "draftPreviewUrl": "/draft-lab/articles/the-most-valuable-ai-skill-isnt-prompting",
+        "markdownPath": "content/articles/the-most-valuable-ai-skill-isnt-prompting/index.md"
+      },
+      "heroImage": {
+        "status": "hero-staged-for-review",
+        "publicPath": "/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
+        "sourcePath": "public/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
+        "checksumSha256": "710690852066dfc7df55b416d83675a3a6840c1949b88ce40d627215e33fe99f",
+        "caption": "Observers scanning a vast factory from a watchtower: the scarce skill is noticing what will compound.",
+        "manifestPath": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-manifest.json"
+      },
+      "linkedinReveal": {
+        "status": "planned",
+        "scheduledAt": "2026-06-17T15:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-most-valuable-ai-skill-isnt-prompting/linkedin.md",
+        "checksum": "bc4a71de4829e94eb989806b4ced6e4f7a9c495158b7604849a33b719cead3fa",
+        "postizChannelStatus": "connected",
+        "teaser": "Prompting is useful, but I do not think it is the scarce skill.\n\nThe scarce skill is noticing what should become substrate.\n\nThe people who win with AI will not be the ones who manually perform cleverness forever. They will be the ones who turn repeated cleverness into systems."
+      },
+      "gates": [
+        {
+          "label": "article-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "hero-image-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "site-draft-preview-reviewed",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "linkedin-reveal-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "release-time-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        }
+      ],
+      "blocked": false,
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    },
+    {
+      "slug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "series": "Factory Primitives",
+      "releaseTarget": "2026-06-20T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
+        "draftPreviewUrl": "/draft-lab/articles/the-credibility-problem-with-ai-corporate-communications",
+        "markdownPath": "content/articles/the-credibility-problem-with-ai-corporate-communications/index.md"
+      },
+      "heroImage": {
+        "status": "hero-staged-for-review",
+        "publicPath": "/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
+        "sourcePath": "public/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
+        "checksumSha256": "cc24ebd38c7bcf305f123c6e1a756f65916c294cbf8f9d7acd15ab6ad6410f47",
+        "caption": "A cracked synthetic executive on a broadcast monitor: persuasion without a person staking credibility.",
+        "manifestPath": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-manifest.json"
+      },
+      "linkedinReveal": {
+        "status": "planned",
+        "scheduledAt": "2026-06-20T15:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-credibility-problem-with-ai-corporate-communications/linkedin.md",
+        "checksum": "081431cecad9d2dbd1b67b07bb80a0e1fe8553f01b0e4512ce5911c36495bbbe",
+        "postizChannelStatus": "connected",
+        "teaser": "AI corporate communication has a credibility problem.\n\nThe issue is not whether the avatar looks realistic.\n\nThe issue is whether anyone real is visibly staking judgment, taste, and accountability behind the message."
+      },
+      "gates": [
+        {
+          "label": "article-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "hero-image-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "site-draft-preview-reviewed",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "linkedin-reveal-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "release-time-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        }
+      ],
+      "blocked": false,
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    },
+    {
+      "slug": "the-crew-seed",
+      "title": "The Crew",
+      "series": "Factory Primitives",
+      "releaseTarget": "2026-06-24T11:00:00-04:00",
+      "website": {
+        "status": "staged-draft",
+        "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
+        "draftPreviewUrl": "/draft-lab/articles/the-crew-seed",
+        "markdownPath": "content/articles/the-crew-seed/index.md"
+      },
+      "heroImage": {
+        "status": "hero-staged-for-review",
+        "publicPath": "/blog/the-crew-seed/images/hero-linkedin.png",
+        "sourcePath": "public/blog/the-crew-seed/images/hero-linkedin.png",
+        "checksumSha256": "646ab8e093917a98f4dcc1b7d5386cd800671ec834b336eed3bf266f1a1bb48e",
+        "caption": "Three operators overlooking the factory floor: a small crew administering a machine bigger than a team.",
+        "manifestPath": "content/articles/the-crew-seed/image-manifest.json"
+      },
+      "linkedinReveal": {
+        "status": "planned",
+        "scheduledAt": "2026-06-24T15:00:00.000Z",
+        "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-crew-seed/linkedin.md",
+        "checksum": "49f45ef218358a761923776cb8aa78ad03846707228a031eecd592813ef6ab44",
+        "postizChannelStatus": "connected",
+        "teaser": "Three people operating a software factory are not a pod.\n\nA pod sounds like a small delivery unit.\n\nA crew operates the machine, improves the machine, and moves up the stack when the machine absorbs the old layer of work."
+      },
+      "gates": [
+        {
+          "label": "article-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "hero-image-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "site-draft-preview-reviewed",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "linkedin-reveal-copy-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        },
+        {
+          "label": "release-time-approved",
+          "status": "missing",
+          "requiredFrom": "David"
+        }
+      ],
+      "blocked": false,
+      "blocker": null,
+      "nextAction": "David image and copy approval."
+    }
+  ],
+  "observation": {
+    "claim": "Launch approval packet reconciles article, image, website, social, and approval state",
+    "status": "PASS",
+    "fallbackChain": [
+      "launch approval packet",
+      "launch plan and calendars",
+      "ROM heartbeat"
+    ]
+  }
+}
