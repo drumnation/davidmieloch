@@ -1463,7 +1463,18 @@ Body.
     );
     writeFileSync(
       join(articlesRoot, 'the-filter/image-manifest.json'),
-      JSON.stringify({ assets: [{ role: 'hero-and-linkedin-preview' }] }),
+      JSON.stringify({
+        assets: [
+          {
+            id: 'hero-linkedin',
+            role: 'hero-and-linkedin-preview',
+            publicPath: '/blog/the-filter/images/hero.png',
+            width: 1920,
+            height: 1080,
+            caption: 'A black hole filter over a frontier software factory.',
+          },
+        ],
+      }),
     );
     mkdirSync(join(articlesRoot, 'the-filter/images'), { recursive: true });
     writeFileSync(
@@ -1473,6 +1484,7 @@ Body.
     writeFileSync(join(articlesRoot, 'the-filter/image-brief.md'), '# brief');
     const siteCalendarPath = join(root, 'content/distribution/site-release-calendar.json');
     mkdirSync(join(root, 'content/distribution'), { recursive: true });
+    mkdirSync(join(root, 'content/distribution/linkedin-article-transfer/the-filter'), { recursive: true });
     writeFileSync(
       siteCalendarPath,
       JSON.stringify({
@@ -1483,6 +1495,28 @@ Body.
             linkedin: { status: 'needs-browser-staging' },
           },
         ],
+      }),
+    );
+    writeFileSync(
+      join(root, 'content/distribution/factory-primitives-social-calendar.json'),
+      JSON.stringify({
+        entries: [
+          {
+            articleSlug: 'the-filter',
+            platform: 'linkedin',
+            scheduledAt: '2026-06-10T11:00:00.000Z',
+            packagePath: join(root, 'content/distribution/social-packages/the-filter/linkedin.md'),
+          },
+        ],
+      }),
+    );
+    writeFileSync(
+      join(root, 'content/distribution/linkedin-article-transfer/the-filter/linkedin-article-transfer.json'),
+      JSON.stringify({
+        bodyMarkdown: 'Native LinkedIn article body.',
+        heroImage: {
+          exists: true,
+        },
       }),
     );
     writeFileSync(
@@ -1521,6 +1555,13 @@ Avatar: The Last Airbender is the metaphor here. Aang and Team Avatar make the g
       vaultCandidatesWithCopyrightReferenceRisk: 1,
     });
     expect(report.websiteDrafts[0].warnings).toContain('draft interior images planned but not generated/approved');
+    expect(report.websiteDrafts[0].gates).toMatchObject({
+      heroLinkedInReady: true,
+      imageCaptions: true,
+      linkedinArticleTransfer: true,
+      linkedinTeaserScheduled: true,
+      siteLinkedInReleaseAligned: true,
+    });
     expect(report.vaultCandidates[0]).toMatchObject({
       slug: 'asi-should-be-the-avatar-not-god',
       gates: {

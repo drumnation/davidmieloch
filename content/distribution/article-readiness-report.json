@@ -1,6 +1,6 @@
 {
   "schemaVersion": "article-readiness-report-v1",
-  "generatedAt": "2026-06-07T07:30:48.998Z",
+  "generatedAt": "2026-06-07T07:39:08.232Z",
   "publicPublishingPerformed": false,
   "summary": {
     "websiteArticles": 25,
@@ -23,12 +23,14 @@
         "coverImage": "/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-wall.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 8,
         "bodyImages": 3,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -39,9 +41,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -62,12 +69,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 2,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -78,9 +87,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -104,12 +118,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 0,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -120,9 +136,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -146,12 +167,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 3,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -162,9 +185,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -188,12 +216,14 @@
         "coverImage": "/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-hero.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 9,
         "bodyImages": 4,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -204,9 +234,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -227,12 +262,14 @@
         "coverImage": "/blog/how-to-make-your-ai-code-look-human/images/incompetent-hero.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 10,
         "bodyImages": 7,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -243,9 +280,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -266,12 +308,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 2,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -282,9 +326,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -308,12 +357,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 8,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -324,9 +375,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -350,12 +406,14 @@
         "coverImage": "/blog/reality-needs-observers/images/hero.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 8,
         "bodyImages": 6,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -366,9 +424,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -389,12 +452,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 2,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -405,9 +470,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -431,28 +501,37 @@
         "coverImage": "/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-ai-bill-you-cant-predict/image-manifest.json",
         "interiorPlan": "content/articles/the-ai-bill-you-cant-predict/images/interior-plan.json",
-        "imageBrief": "content/articles/the-ai-bill-you-cant-predict/image-brief.md"
+        "imageBrief": "content/articles/the-ai-bill-you-cant-predict/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-ai-bill-you-cant-predict/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 5,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-13T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-13T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-bill-you-cant-predict/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -474,28 +553,37 @@
         "coverImage": "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-manifest.json",
         "interiorPlan": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/interior-plan.json",
-        "imageBrief": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md"
+        "imageBrief": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 9,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-10T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-10T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -517,12 +605,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 3,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -533,9 +623,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -559,28 +654,37 @@
         "coverImage": "/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-manifest.json",
         "interiorPlan": "content/articles/the-credibility-problem-with-ai-corporate-communications/images/interior-plan.json",
-        "imageBrief": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-brief.md"
+        "imageBrief": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-credibility-problem-with-ai-corporate-communications/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 7,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-20T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-20T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-credibility-problem-with-ai-corporate-communications/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -602,28 +706,37 @@
         "coverImage": "/blog/the-crew-seed/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-crew-seed/image-manifest.json",
         "interiorPlan": "content/articles/the-crew-seed/images/interior-plan.json",
-        "imageBrief": "content/articles/the-crew-seed/image-brief.md"
+        "imageBrief": "content/articles/the-crew-seed/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-crew-seed/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 5,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-24T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-24T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-crew-seed/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -645,12 +758,14 @@
         "coverImage": "/blog/the-factory/images/a2-hero-conceptual.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 8,
         "bodyImages": 7,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -661,9 +776,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -684,12 +804,14 @@
         "coverImage": "/blog/the-foreman/images/a3-hero-foreman.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 6,
         "bodyImages": 6,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -700,9 +822,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -723,12 +850,14 @@
         "coverImage": "/blog/the-golden-hammer/images/a1-hero-photorealistic.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 6,
         "bodyImages": 5,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -739,9 +868,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -762,28 +896,37 @@
         "coverImage": "/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-manifest.json",
         "interiorPlan": "content/articles/the-most-valuable-ai-skill-isnt-prompting/images/interior-plan.json",
-        "imageBrief": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-brief.md"
+        "imageBrief": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-most-valuable-ai-skill-isnt-prompting/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 5,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-17T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-17T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-most-valuable-ai-skill-isnt-prompting/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -805,12 +948,14 @@
         "coverImage": "/blog/the-moving-target/images/a4-cyber-waves.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 6,
         "bodyImages": 5,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -821,9 +966,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -844,12 +994,14 @@
         "coverImage": "/blog/the-overnight-shift/images/overnight-hero.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 9,
         "bodyImages": 5,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -860,9 +1012,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -883,12 +1040,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 0,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -899,9 +1058,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -925,12 +1089,14 @@
         "coverImage": "/blog/why-character-choice-matters-in-agent-design/images/hero-control-room.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 9,
         "bodyImages": 5,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -941,9 +1107,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -964,12 +1135,14 @@
         "coverImage": null,
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 0,
         "bodyImages": 2,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -980,9 +1153,14 @@
         "canonical": true,
         "coverImage": false,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": false,
         "articleBodyImages": true
       },
@@ -1006,12 +1184,14 @@
         "coverImage": "/blog/your-ai-isnt-hallucinating-its-lying/images/ai-lies-hero.png",
         "imageManifest": null,
         "interiorPlan": null,
-        "imageBrief": null
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
       },
       "counts": {
         "h2Sections": 7,
         "bodyImages": 6,
         "manifestAssets": 0,
+        "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
         "approvedInteriorImages": 0
@@ -1022,9 +1202,14 @@
         "canonical": true,
         "coverImage": true,
         "imageManifest": false,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": true,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": true
       },
@@ -1047,28 +1232,37 @@
         "coverImage": "/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-ai-bill-you-cant-predict/image-manifest.json",
         "interiorPlan": "content/articles/the-ai-bill-you-cant-predict/images/interior-plan.json",
-        "imageBrief": "content/articles/the-ai-bill-you-cant-predict/image-brief.md"
+        "imageBrief": "content/articles/the-ai-bill-you-cant-predict/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-ai-bill-you-cant-predict/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 5,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-13T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-13T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-bill-you-cant-predict/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -1090,28 +1284,37 @@
         "coverImage": "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-manifest.json",
         "interiorPlan": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/interior-plan.json",
-        "imageBrief": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md"
+        "imageBrief": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 9,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-10T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-10T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -1133,28 +1336,37 @@
         "coverImage": "/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-manifest.json",
         "interiorPlan": "content/articles/the-credibility-problem-with-ai-corporate-communications/images/interior-plan.json",
-        "imageBrief": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-brief.md"
+        "imageBrief": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-credibility-problem-with-ai-corporate-communications/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 7,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-20T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-20T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-credibility-problem-with-ai-corporate-communications/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -1176,28 +1388,37 @@
         "coverImage": "/blog/the-crew-seed/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-crew-seed/image-manifest.json",
         "interiorPlan": "content/articles/the-crew-seed/images/interior-plan.json",
-        "imageBrief": "content/articles/the-crew-seed/image-brief.md"
+        "imageBrief": "content/articles/the-crew-seed/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-crew-seed/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 5,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-24T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-24T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-crew-seed/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },
@@ -1219,28 +1440,37 @@
         "coverImage": "/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
         "imageManifest": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-manifest.json",
         "interiorPlan": "content/articles/the-most-valuable-ai-skill-isnt-prompting/images/interior-plan.json",
-        "imageBrief": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-brief.md"
+        "imageBrief": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-brief.md",
+        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-most-valuable-ai-skill-isnt-prompting/linkedin-article-transfer.json"
       },
       "counts": {
         "h2Sections": 5,
         "bodyImages": 0,
         "manifestAssets": 1,
+        "captionedImageAssets": 1,
         "plannedInteriorImages": 5,
         "plannedInteriorVariants": 10,
         "approvedInteriorImages": 0
       },
       "calendar": {
         "plannedReleaseAt": "2026-06-17T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging"
+        "linkedinStatus": "needs-browser-staging",
+        "linkedinTeaserAt": "2026-06-17T15:00:00.000Z",
+        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-most-valuable-ai-skill-isnt-prompting/linkedin.md"
       },
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
         "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
         "interiorPlan": true,
         "interiorImagesApproved": false,
         "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
         "articleBodyImages": false
       },

@@ -79,7 +79,37 @@ function headingCount(body) {
   return Array.from(body.matchAll(/^##\s+.+$/gm)).length;
 }
 
-function scoreWebsiteArticle({ slug, articlesRoot, publicRoot, siteReleaseCalendar }) {
+function isLinkedInSizedHero(asset, publicRoot) {
+  if (!asset) return false;
+  const width = Number(asset.width ?? 0);
+  const height = Number(asset.height ?? 0);
+  const isWideEnough = width >= 1200 && height >= 627;
+  const ratio = width && height ? width / height : 0;
+  const isLinkedInRatio = ratio >= 1.77 && ratio <= 1.92;
+  const assetPath = publicAssetPath(publicRoot, asset.publicPath);
+  return Boolean(isWideEnough && isLinkedInRatio && assetPath && fs.existsSync(assetPath));
+}
+
+function hasCaption(asset) {
+  return typeof asset?.caption === 'string' && asset.caption.trim().length >= 12;
+}
+
+function sameInstant(left, right) {
+  if (!left || !right) return false;
+  const leftTime = new Date(left).getTime();
+  const rightTime = new Date(right).getTime();
+  if (!Number.isFinite(leftTime) || !Number.isFinite(rightTime)) return false;
+  return leftTime === rightTime;
+}
+
+function scoreWebsiteArticle({
+  slug,
+  articlesRoot,
+  publicRoot,
+  siteReleaseCalendar,
+  socialCalendar,
+  distributionRoot,
+}) {
   const articlePath = path.join(articlesRoot, slug, 'index.md');
   const article = readMarkdown(articlePath);
   const issues = [];
@@ -93,36 +123,51 @@ function scoreWebsiteArticle({ slug, articlesRoot, publicRoot, siteReleaseCalend
   const imageManifest = readJsonIfExists(imageManifestPath);
   const interiorPlan = readJsonIfExists(interiorPlanPath);
   const calendarEntry = (siteReleaseCalendar?.entries ?? []).find((entry) => entry.slug === slug);
+  const socialEntry = (socialCalendar?.entries ?? []).find((entry) => entry.articleSlug === slug && entry.platform === 'linkedin');
+  const transferPacketPath = path.join(distributionRoot, 'linkedin-article-transfer', slug, 'linkedin-article-transfer.json');
+  const transferPacket = readJsonIfExists(transferPacketPath);
+  const assets = imageManifest?.assets ?? [];
+  const linkedinHero = assets.find((asset) => asset.role === 'hero-and-linkedin-preview' || asset.id === 'hero-linkedin');
+  const interiorAssets = assets.filter((asset) => asset.role === 'article-interior');
+  const captionedAssets = assets.filter(hasCaption);
+  const plannedInteriorImages = interiorPlan?.targetApprovedImages ?? 0;
 
   gates.frontmatter = Boolean(article.meta.title && article.meta.description && article.meta.publishedAt && article.meta.status);
   gates.canonical = status !== 'published' || String(article.meta.canonicalUrl ?? '').startsWith('https://davidmieloch.com/blog/');
   gates.coverImage = Boolean(coverPath && fs.existsSync(coverPath));
   gates.imageManifest = Boolean(imageManifest);
+  gates.heroLinkedInReady = status === 'draft' ? isLinkedInSizedHero(linkedinHero, publicRoot) : true;
+  gates.imageCaptions = status === 'draft' ? Boolean(assets.length && captionedAssets.length === assets.length) : true;
   gates.interiorPlan = status === 'draft' ? Boolean(interiorPlan && fs.existsSync(imageBriefPath)) : true;
   gates.interiorImagesApproved = status === 'draft'
-    ? (imageManifest?.assets ?? []).filter((asset) => asset.role === 'article-interior').length >= (interiorPlan?.targetApprovedImages ?? 0)
+    ? interiorAssets.length >= plannedInteriorImages
     : true;
   gates.releaseCalendar = status === 'draft' ? Boolean(calendarEntry) : true;
+  gates.linkedinArticleTransfer = status === 'draft' ? Boolean(transferPacket?.bodyMarkdown && transferPacket?.heroImage?.exists) : true;
+  gates.linkedinTeaserScheduled = status === 'draft' ? Boolean(socialEntry?.scheduledAt && socialEntry?.packagePath) : true;
+  gates.siteLinkedInReleaseAligned = status === 'draft'
+    ? sameInstant(calendarEntry?.plannedReleaseAt, socialEntry?.scheduledAt)
+    : true;
   gates.bodyStructure = headingCount(article.body) >= 3;
-  gates.articleBodyImages = status === 'draft' ? bodyImageCount(article.body) >= (interiorPlan?.targetApprovedImages ?? 0) : true;
+  gates.articleBodyImages = status === 'draft' ? bodyImageCount(article.body) >= plannedInteriorImages : true;
 
   if (!gates.frontmatter) issues.push('missing required frontmatter');
   if (!gates.canonical) issues.push('published canonicalUrl must point to davidmieloch.com/blog');
   if (!gates.coverImage) issues.push('coverImage missing or file not found');
   if (!gates.imageManifest) warnings.push('missing image-manifest.json');
+  if (!gates.heroLinkedInReady) warnings.push('draft hero image is not LinkedIn-ready 16:9 at 1200x627 or larger');
+  if (!gates.imageCaptions) warnings.push('draft image manifest assets need captions for LinkedIn and article comprehension');
   if (!gates.interiorPlan) warnings.push('draft missing image-brief.md or images/interior-plan.json');
   if (!gates.interiorImagesApproved) warnings.push('draft interior images planned but not generated/approved');
   if (!gates.articleBodyImages) warnings.push('draft body does not yet contain planned interior images');
   if (!gates.releaseCalendar) warnings.push('draft missing site release calendar entry');
+  if (!gates.linkedinArticleTransfer) warnings.push('draft missing native LinkedIn article transfer packet');
+  if (!gates.linkedinTeaserScheduled) warnings.push('draft missing scheduled LinkedIn teaser package');
+  if (!gates.siteLinkedInReleaseAligned) warnings.push('draft website release and LinkedIn teaser are not scheduled for the same instant');
   if (!gates.bodyStructure) warnings.push('article has fewer than 3 H2 sections');
 
   const blocking = issues.length > 0;
-  const readyForPublicRelease = !blocking
-    && Object.entries(gates)
-      .filter(([gate]) => !['interiorImagesApproved', 'articleBodyImages'].includes(gate))
-      .every(([, value]) => value)
-    && gates.interiorImagesApproved
-    && gates.articleBodyImages;
+  const readyForPublicRelease = !blocking && Object.values(gates).every(Boolean);
 
   return {
     slug,
@@ -136,18 +181,22 @@ function scoreWebsiteArticle({ slug, articlesRoot, publicRoot, siteReleaseCalend
       imageManifest: fs.existsSync(imageManifestPath) ? path.relative(process.cwd(), imageManifestPath) : null,
       interiorPlan: fs.existsSync(interiorPlanPath) ? path.relative(process.cwd(), interiorPlanPath) : null,
       imageBrief: fs.existsSync(imageBriefPath) ? path.relative(process.cwd(), imageBriefPath) : null,
+      linkedinArticleTransfer: fs.existsSync(transferPacketPath) ? path.relative(process.cwd(), transferPacketPath) : null,
     },
     counts: {
       h2Sections: headingCount(article.body),
       bodyImages: bodyImageCount(article.body),
-      manifestAssets: imageManifest?.assets?.length ?? 0,
-      plannedInteriorImages: interiorPlan?.targetApprovedImages ?? 0,
+      manifestAssets: assets.length,
+      captionedImageAssets: captionedAssets.length,
+      plannedInteriorImages,
       plannedInteriorVariants: interiorPlan?.candidateVariants ?? 0,
-      approvedInteriorImages: (imageManifest?.assets ?? []).filter((asset) => asset.role === 'article-interior').length,
+      approvedInteriorImages: interiorAssets.length,
     },
     calendar: calendarEntry ? {
       plannedReleaseAt: calendarEntry.plannedReleaseAt,
       linkedinStatus: calendarEntry.linkedin?.status ?? null,
+      linkedinTeaserAt: socialEntry?.scheduledAt ?? null,
+      linkedinTeaserPackagePath: socialEntry?.packagePath ?? null,
     } : null,
     gates,
     issues,
@@ -258,12 +307,16 @@ export function buildArticleReadinessReport({
   write = false,
   generatedAt = new Date().toISOString(),
 }) {
+  const distributionRoot = path.dirname(siteReleaseCalendarPath);
   const siteReleaseCalendar = readJsonIfExists(siteReleaseCalendarPath);
+  const socialCalendar = readJsonIfExists(path.join(distributionRoot, 'factory-primitives-social-calendar.json'));
   const websiteArticles = walkArticleSlugs(articlesRoot).map((slug) => scoreWebsiteArticle({
     slug,
     articlesRoot,
     publicRoot,
     siteReleaseCalendar,
+    socialCalendar,
+    distributionRoot,
   }));
   const websiteSlugs = new Set(websiteArticles.map((article) => article.slug));
   const vaultCandidates = scanObsidianArticles(obsidianBlogsRoot)
