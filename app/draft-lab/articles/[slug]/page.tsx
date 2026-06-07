@@ -52,11 +52,22 @@ type GeneratedInteriorManifest = {
   assets: GeneratedInteriorImage[];
 };
 
+type GeneratedImageRequest = {
+  id: string;
+  slug: string;
+  placementId: string;
+  prompt: string;
+  status: string;
+  requestedAt: string;
+  requestedBy: string;
+};
+
 type GeneratedInteriorPlacement = {
   id: string;
   heading: string;
   selected: boolean;
   images: GeneratedInteriorImage[];
+  requests: GeneratedImageRequest[];
 };
 
 const candidates = review.candidates as DraftCandidate[];
@@ -149,8 +160,10 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
         }
       : undefined);
   const generatedInteriorImages = readGeneratedInteriorImages(candidate.slug);
+  const generatedImageRequests = readGeneratedImageRequests(candidate.slug);
   const generatedInteriorPlacements = groupGeneratedInteriorImages(
     generatedInteriorImages,
+    generatedImageRequests,
   );
   const generatedInteriorByHeading = new Map(
     generatedInteriorPlacements.map((placement) => [
@@ -319,8 +332,10 @@ function InlineImagePlacement({
   placement: GeneratedInteriorPlacement;
   returnTo: string;
 }) {
+  const placementReturnTo = `${returnTo}#image-set-${placement.id}`;
+
   return (
-    <section style={styles.placementReview}>
+    <section id={`image-set-${placement.id}`} style={styles.placementReview}>
       <div style={styles.placementHeader}>
         <p style={styles.placementKicker}>Image set · {placement.id}</p>
         <h3 style={styles.placementTitle}>{placement.heading}</h3>
@@ -360,7 +375,7 @@ function InlineImagePlacement({
               <input type="hidden" name="action" value="image-decision" />
               <input type="hidden" name="slug" value={candidate.slug} />
               <input type="hidden" name="assetId" value={image.id} />
-              <input type="hidden" name="returnTo" value={returnTo} />
+              <input type="hidden" name="returnTo" value={placementReturnTo} />
               <input
                 name="reason"
                 placeholder="Optional note"
@@ -384,14 +399,37 @@ function InlineImagePlacement({
           </figure>
         ))}
       </div>
+      {placement.requests.length > 0 ? (
+        <div style={styles.requestStatusPanel}>
+          <p style={styles.requestStatusTitle}>
+            {placement.requests.length} queued image request
+            {placement.requests.length === 1 ? "" : "s"}
+          </p>
+          <ol style={styles.requestStatusList}>
+            {placement.requests.map((request) => (
+              <li key={request.id} style={styles.requestStatusItem}>
+                <span>{request.prompt}</span>
+                <code>{request.status}</code>
+                <time dateTime={request.requestedAt}>
+                  {new Date(request.requestedAt).toLocaleString("en-US", {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                  })}
+                </time>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : null}
       <form action="/api/draft-lab" method="post" style={styles.requestImageForm}>
         <input type="hidden" name="action" value="request-image" />
         <input type="hidden" name="slug" value={candidate.slug} />
         <input type="hidden" name="placementId" value={placement.id} />
-        <input type="hidden" name="returnTo" value={returnTo} />
+        <input type="hidden" name="returnTo" value={placementReturnTo} />
         <textarea
           name="prompt"
           placeholder={`Describe a better image for "${placement.heading}".`}
+          required
           style={styles.requestTextarea}
         />
         <button style={styles.maybeButton}>Queue new image request</button>
@@ -455,8 +493,16 @@ function normalizeHeading(value: string) {
 
 function groupGeneratedInteriorImages(
   images: GeneratedInteriorImage[],
+  requests: GeneratedImageRequest[],
 ): GeneratedInteriorPlacement[] {
   const placements = new Map<string, GeneratedInteriorPlacement>();
+  const requestsByPlacement = new Map<string, GeneratedImageRequest[]>();
+
+  for (const request of requests) {
+    const placementRequests = requestsByPlacement.get(request.placementId) ?? [];
+    placementRequests.push(request);
+    requestsByPlacement.set(request.placementId, placementRequests);
+  }
 
   for (const image of images) {
     const placement = placements.get(image.placementId) ?? {
@@ -464,6 +510,7 @@ function groupGeneratedInteriorImages(
       heading: image.targetHeading ?? image.placementId,
       selected: false,
       images: [],
+      requests: requestsByPlacement.get(image.placementId) ?? [],
     };
 
     placement.images.push(image);
@@ -485,6 +532,9 @@ function groupGeneratedInteriorImages(
     return {
       ...placement,
       images: selectedImages.length > 0 ? selectedImages : reviewImages,
+      requests: [...placement.requests].sort((left, right) =>
+        right.requestedAt.localeCompare(left.requestedAt),
+      ),
     };
   });
 }
@@ -539,6 +589,34 @@ function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
           ? left.variantId.localeCompare(right.variantId)
           : placementDelta;
       });
+  } catch {
+    return [];
+  }
+}
+
+function readGeneratedImageRequests(slug: string): GeneratedImageRequest[] {
+  const requestsPath = path.join(
+    process.cwd(),
+    "content",
+    "articles",
+    slug,
+    "images",
+    "generated",
+    "requests.json",
+  );
+
+  if (!fs.existsSync(requestsPath)) {
+    return [];
+  }
+
+  try {
+    const payload = JSON.parse(fs.readFileSync(requestsPath, "utf8")) as {
+      requests?: GeneratedImageRequest[];
+    };
+
+    return (payload.requests ?? []).filter(
+      (request) => request.slug === slug && request.placementId,
+    );
   } catch {
     return [];
   }
@@ -800,6 +878,35 @@ const styles: Record<string, CSSProperties> = {
   requestImageForm: {
     display: "grid",
     gap: "8px",
+  },
+  requestStatusPanel: {
+    display: "grid",
+    gap: "8px",
+    padding: "12px",
+    border: "1px solid #cfd7ec",
+    borderRadius: "10px",
+    background: "#eef3ff",
+  },
+  requestStatusTitle: {
+    margin: 0,
+    color: "#25346f",
+    fontSize: "0.88rem",
+    fontWeight: 900,
+  },
+  requestStatusList: {
+    display: "grid",
+    gap: "8px",
+    margin: 0,
+    paddingLeft: "20px",
+  },
+  requestStatusItem: {
+    display: "grid",
+    gridTemplateColumns: "minmax(0, 1fr) auto auto",
+    gap: "8px",
+    alignItems: "baseline",
+    color: "#252b3a",
+    fontSize: "0.86rem",
+    lineHeight: 1.35,
   },
   requestTextarea: {
     width: "100%",
