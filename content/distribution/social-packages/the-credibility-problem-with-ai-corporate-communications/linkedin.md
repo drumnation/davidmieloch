@@ -9,7 +9,7 @@ account_kind: "existing-personal"
 known_state: "exists"
 postiz_channel_status: "connected"
 test_post_policy: "no-public-test-posts"
-generated_at: "2026-06-07T00:21:43.287Z"
+generated_at: "2026-06-07T04:44:10.566Z"
 public_publish_allowed: false
 credential_custody_verified: false
 ---
@@ -26,8 +26,10 @@ credential_custody_verified: false
 
 ## Copy
 
-The Credibility Problem with AI Corporate Communications
+AI corporate communication has a credibility problem.
 
-The Credibility Problem with AI Corporate Communications I recently went through a corporate onboarding experience that left me thinking about something I couldn't quite name at first. The videos were professional. The AI avatars were incredibly lifelike hair moving, faces animating with precision I hadn't seen before. And yet something was deeply wrong....
+The issue is not whether the avatar looks realistic.
+
+The issue is whether anyone real is visibly staking judgment, taste, and accountability behind the message.
 
 Read the canonical essay: https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-credibility-problem-with-ai-corporate-communications

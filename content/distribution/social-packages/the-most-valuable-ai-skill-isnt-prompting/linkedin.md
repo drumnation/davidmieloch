@@ -9,7 +9,7 @@ account_kind: "existing-personal"
 known_state: "exists"
 postiz_channel_status: "connected"
 test_post_policy: "no-public-test-posts"
-generated_at: "2026-06-07T00:21:43.287Z"
+generated_at: "2026-06-07T04:44:09.450Z"
 public_publish_allowed: false
 credential_custody_verified: false
 ---
@@ -26,8 +26,10 @@ credential_custody_verified: false
 
 ## Copy
 
-The Most Valuable AI Skill Isn't Prompting
+Prompting is useful, but I do not think it is the scarce skill.
 
-The Most Valuable AI Skill Isn't Prompting Everyone in organizations right now is trying to prove their value through AI. The visible signal is prompting skill who can get the model to do something impressive, who can write the most effective system prompt, who has the sharpest workflow for iterating on outputs. I understand why this is the battlefield....
+The scarce skill is noticing what should become substrate.
+
+The people who win with AI will not be the ones who manually perform cleverness forever. They will be the ones who turn repeated cleverness into systems.
 
 Read the canonical essay: https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-most-valuable-ai-skill-isnt-prompting

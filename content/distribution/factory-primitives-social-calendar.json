@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "factory-primitives-social-calendar-v1",
+  "generatedAt": "2026-06-07T04:45:55.187Z",
+  "publicPublishingPerformed": false,
+  "safeDefault": "do-not-post",
+  "sourceCalendar": "content/distribution/site-release-calendar.json",
+  "platform": "linkedin",
+  "purpose": "Factory Primitives reveal posts for canonical website articles",
+  "entries": [
+    {
+      "id": "social:linkedin:the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter:2026-06-10",
+      "scheduledAt": "2026-06-10T15:00:00.000Z",
+      "articleSlug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "platform": "linkedin",
+      "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin.md",
+      "checksum": "290ffbd6f41a73e88c1613902dc089a7cb6992699cfd95a4978d9ec029113b66",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "postizChannelStatus": "connected",
+      "postizChannelId": "cmq15vq6n0001my7ovp8dkkne",
+      "status": "planned",
+      "publicPublishingAllowed": false,
+      "safeDefault": "do-not-post",
+      "approval": {
+        "required": true,
+        "status": "missing",
+        "requiredFrom": "David"
+      },
+      "blocked": false,
+      "blocker": null
+    },
+    {
+      "id": "social:linkedin:the-ai-bill-you-cant-predict:2026-06-13",
+      "scheduledAt": "2026-06-13T15:00:00.000Z",
+      "articleSlug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "platform": "linkedin",
+      "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-bill-you-cant-predict/linkedin.md",
+      "checksum": "6dcb41e2f6fa4486a0c9f578b5b19739957cd4ecb99f7767a63b3a0cf595db00",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "postizChannelStatus": "connected",
+      "postizChannelId": "cmq15vq6n0001my7ovp8dkkne",
+      "status": "planned",
+      "publicPublishingAllowed": false,
+      "safeDefault": "do-not-post",
+      "approval": {
+        "required": true,
+        "status": "missing",
+        "requiredFrom": "David"
+      },
+      "blocked": false,
+      "blocker": null
+    },
+    {
+      "id": "social:linkedin:the-most-valuable-ai-skill-isnt-prompting:2026-06-17",
+      "scheduledAt": "2026-06-17T15:00:00.000Z",
+      "articleSlug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "platform": "linkedin",
+      "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-most-valuable-ai-skill-isnt-prompting/linkedin.md",
+      "checksum": "bc4a71de4829e94eb989806b4ced6e4f7a9c495158b7604849a33b719cead3fa",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "postizChannelStatus": "connected",
+      "postizChannelId": "cmq15vq6n0001my7ovp8dkkne",
+      "status": "planned",
+      "publicPublishingAllowed": false,
+      "safeDefault": "do-not-post",
+      "approval": {
+        "required": true,
+        "status": "missing",
+        "requiredFrom": "David"
+      },
+      "blocked": false,
+      "blocker": null
+    },
+    {
+      "id": "social:linkedin:the-credibility-problem-with-ai-corporate-communications:2026-06-20",
+      "scheduledAt": "2026-06-20T15:00:00.000Z",
+      "articleSlug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "platform": "linkedin",
+      "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-credibility-problem-with-ai-corporate-communications/linkedin.md",
+      "checksum": "081431cecad9d2dbd1b67b07bb80a0e1fe8553f01b0e4512ce5911c36495bbbe",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "postizChannelStatus": "connected",
+      "postizChannelId": "cmq15vq6n0001my7ovp8dkkne",
+      "status": "planned",
+      "publicPublishingAllowed": false,
+      "safeDefault": "do-not-post",
+      "approval": {
+        "required": true,
+        "status": "missing",
+        "requiredFrom": "David"
+      },
+      "blocked": false,
+      "blocker": null
+    },
+    {
+      "id": "social:linkedin:the-crew-seed:2026-06-24",
+      "scheduledAt": "2026-06-24T15:00:00.000Z",
+      "articleSlug": "the-crew-seed",
+      "title": "The Crew",
+      "platform": "linkedin",
+      "packagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-crew-seed/linkedin.md",
+      "checksum": "49f45ef218358a761923776cb8aa78ad03846707228a031eecd592813ef6ab44",
+      "identityLayer": "personal-authority",
+      "accountKind": "existing-personal",
+      "postizChannelStatus": "connected",
+      "postizChannelId": "cmq15vq6n0001my7ovp8dkkne",
+      "status": "planned",
+      "publicPublishingAllowed": false,
+      "safeDefault": "do-not-post",
+      "approval": {
+        "required": true,
+        "status": "missing",
+        "requiredFrom": "David"
+      },
+      "blocked": false,
+      "blocker": null
+    }
+  ],
+  "observation": {
+    "claim": "Factory Primitives LinkedIn reveal schedule is isolated from backlog social calendar",
+    "status": "PASS",
+    "fallbackChain": [
+      "factory-primitives-social-calendar.json",
+      "site-release-calendar.json",
+      "ROM heartbeat"
+    ]
+  }
+}

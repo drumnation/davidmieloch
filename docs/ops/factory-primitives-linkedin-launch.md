@@ -14,6 +14,8 @@ do not publish without David approval.
 | 2026-06-24 11:00 ET | The Crew | staged draft | needs staging | needs approval |
 
 Source of truth: `content/distribution/site-release-calendar.json`.
+Reveal-post calendar: `content/distribution/factory-primitives-social-calendar.json`.
+Curated reveal copy: `content/distribution/social-teasers.json`.
 
 ## Decision Seam
 
@@ -70,6 +72,33 @@ For each article:
    to paste the long-form article into LinkedIn and stop at draft/preview.
 6. Schedule the LinkedIn feed reveal post through Postiz only after approval.
 7. Record receipts in `content/distribution/platform-ledger.json`.
+
+## Postiz Reveal Path
+
+The broad `content/distribution/social-calendar.json` still includes backlog
+items. Do not use it for this launch batch. Use the dedicated Factory
+Primitives calendar:
+
+```sh
+pnpm content:pipeline social:postiz:push --dry-run --platform=linkedin --limit=5 --input=content/distribution/factory-primitives-social-calendar.json
+```
+
+Expected dry-run result:
+
+- `selectedEntries: 5`
+- `readyEntries: 5`
+- `blockedEntries: 0`
+- `plannedActions: 5`
+
+After David approves the article copy, image, and reveal copy, create internal
+Postiz draft records only:
+
+```sh
+POSTIZ_API_KEY=<from-1password> pnpm content:pipeline social:postiz:push --dry-run=false --platform=linkedin --limit=5 --input=content/distribution/factory-primitives-social-calendar.json
+```
+
+This command must create Postiz `DRAFT` records only. It must not publish public
+posts, submit LinkedIn articles, or post to Reddit.
 
 ## Observability
 

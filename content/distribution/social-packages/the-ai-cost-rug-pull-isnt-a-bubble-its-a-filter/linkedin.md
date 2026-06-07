@@ -9,7 +9,7 @@ account_kind: "existing-personal"
 known_state: "exists"
 postiz_channel_status: "connected"
 test_post_policy: "no-public-test-posts"
-generated_at: "2026-06-07T00:21:43.287Z"
+generated_at: "2026-06-07T04:44:07.235Z"
 public_publish_allowed: false
 credential_custody_verified: false
 ---
@@ -26,8 +26,10 @@ credential_custody_verified: false
 
 ## Copy
 
-The AI Cost Rug Pull Isn't a Bubble. It's a Filter.
+A lot of people are reading the AI cost jump as a bubble popping.
 
-The AI Cost Rug Pull Isn't a Bubble. It's a Filter. Something visible is happening right now across the AI landscape subscription plans are ending, token costs are spiking, and the rates that felt almost free for the past two years are giving way to something that looks, to a lot of people, like a 23x price increase. The reaction I'm seeing (and...
+I think that misses the point.
+
+The cheap phase was the training period. The next phase is the filter: who can still build when the bill starts behaving like physics instead of marketing?
 
 Read the canonical essay: https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter

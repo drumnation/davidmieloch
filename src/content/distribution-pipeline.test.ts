@@ -565,6 +565,41 @@ describe('social automation substrate', () => {
     });
   });
 
+  it('prefers curated social teaser copy when available', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    mkdirSync(join(root, 'content/distribution'), { recursive: true });
+    writeFileSync(
+      join(root, 'content/distribution/social-teasers.json'),
+      JSON.stringify({
+        schemaVersion: 'social-teasers-v1',
+        teasers: {
+          'the-factory': {
+            linkedin: 'Curated launch copy that should replace the article excerpt.',
+          },
+        },
+      }),
+    );
+
+    generateSocialPackages({
+      ledger: JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8')),
+      inventory: socialAccountInventory(),
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const markdown = readFileSync(join(outputRoot, 'the-factory', 'linkedin.md'), 'utf8');
+
+    expect(markdown).toContain('Curated launch copy that should replace the article excerpt.');
+    expect(markdown).toContain('Read the canonical essay:');
+    expect(markdown).not.toContain('A software factory is not a metaphor');
+  });
+
   it('builds signed post manifests without granting publish permission', () => {
     const root = tempRoot();
     const outputRoot = join(root, 'content/distribution/social-packages');

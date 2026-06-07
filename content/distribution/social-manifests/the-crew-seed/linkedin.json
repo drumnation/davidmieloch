@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-crew-seed:c22354e07fe4",
+  "manifestId": "social:linkedin:the-crew-seed:35f63eaa3121",
   "source": {
     "articleSlug": "the-crew-seed",
     "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
@@ -21,7 +21,7 @@
     "approvalArtifact": ""
   },
   "payload": {
-    "text": "The Crew\n\nThe Crew The word \"pod\" is wrong. When I think of a pod, I think of a small capsule. A contained unit. Something designed to be moved around by a larger structure. That is not the frame for what is happening here. Three people operating a software factory are not a pod. They are not a tiny delivery team with better tools. They are the early administrative...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-crew-seed?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-crew-seed",
+    "text": "Three people operating a software factory are not a pod.\n\nA pod sounds like a small delivery unit.\n\nA crew operates the machine, improves the machine, and moves up the stack when the machine absorbs the old layer of work.\n\nRead the canonical essay: https://davidmieloch.com/blog/the-crew-seed?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-crew-seed",
     "links": [
       "https://davidmieloch.com/blog/the-crew-seed"
     ],
@@ -36,6 +36,6 @@
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "110bf3a08cf1835330ce6f930d5582d531cb4dddac52e3a1142eb4c5731c1344"
+    "digest": "d135a8a65e3f9a11026894d629ba0fba177b3789837f7c62e4b920aba203779f"
   }
 }

@@ -9,7 +9,7 @@ account_kind: "existing-personal"
 known_state: "exists"
 postiz_channel_status: "connected"
 test_post_policy: "no-public-test-posts"
-generated_at: "2026-06-07T04:32:08.246Z"
+generated_at: "2026-06-07T04:44:12.775Z"
 public_publish_allowed: false
 credential_custody_verified: false
 ---
@@ -26,8 +26,10 @@ credential_custody_verified: false
 
 ## Copy
 
-The Crew
+Three people operating a software factory are not a pod.
 
-The Crew The word "pod" is wrong. When I think of a pod, I think of a small capsule. A contained unit. Something designed to be moved around by a larger structure. That is not the frame for what is happening here. Three people operating a software factory are not a pod. They are not a tiny delivery team with better tools. They are the early administrative...
+A pod sounds like a small delivery unit.
+
+A crew operates the machine, improves the machine, and moves up the stack when the machine absorbs the old layer of work.
 
 Read the canonical essay: https://davidmieloch.com/blog/the-crew-seed?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-crew-seed

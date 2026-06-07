@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-credibility-problem-with-ai-corporate-communications:a01aa50770c6",
+  "manifestId": "social:linkedin:the-credibility-problem-with-ai-corporate-communications:e4936c721cdb",
   "source": {
     "articleSlug": "the-credibility-problem-with-ai-corporate-communications",
     "canonicalUrl": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
@@ -21,7 +21,7 @@
     "approvalArtifact": ""
   },
   "payload": {
-    "text": "The Credibility Problem with AI Corporate Communications\n\nThe Credibility Problem with AI Corporate Communications I recently went through a corporate onboarding experience that left me thinking about something I couldn't quite name at first. The videos were professional. The AI avatars were incredibly lifelike hair moving, faces animating with precision I hadn't seen before. And yet something was deeply wrong....\n\nRead the canonical essay: https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-credibility-problem-with-ai-corporate-communications",
+    "text": "AI corporate communication has a credibility problem.\n\nThe issue is not whether the avatar looks realistic.\n\nThe issue is whether anyone real is visibly staking judgment, taste, and accountability behind the message.\n\nRead the canonical essay: https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-credibility-problem-with-ai-corporate-communications",
     "links": [
       "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications"
     ],
@@ -36,6 +36,6 @@
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "a20a9f8e973c2e7060a43fe629fb9dbe9ac2804a137947447cbfc8347d00bb7d"
+    "digest": "6ddafd8c4375c45e5eae0424fcc3999e4dbc2a23a873b90dd64a78040529b502"
   }
 }

@@ -151,8 +151,22 @@ function trackedUrl(canonicalUrl, platform, slug) {
   return url.toString();
 }
 
-function shortTeaser(article, platform) {
+function readCuratedTeasers(outputRoot) {
+  const teaserPath = path.join(path.dirname(outputRoot), 'social-teasers.json');
+  return readJson(teaserPath, { teasers: {} })?.teasers ?? {};
+}
+
+function curatedTeaserFor(teasers, article, platform) {
+  const entry = teasers?.[article.slug];
+  if (!entry) return null;
+  return entry[platform] ?? entry.default ?? null;
+}
+
+function shortTeaser(article, platform, curatedTeaser = null) {
   const url = trackedUrl(article.canonicalUrl, platform, article.slug);
+  if (curatedTeaser) {
+    return `${curatedTeaser.trim()}\n\nRead the canonical essay: ${url}`;
+  }
   const thesis = article.excerpt || `${article.title} is part of the factory-era writing arc.`;
   if (platform === 'x-twitter') {
     return `${article.title}: ${thesis.slice(0, 150).replace(/\s+\S*$/, '')}\n\n${url}`;
@@ -184,7 +198,7 @@ function frontmatter(meta) {
     .join('\n');
 }
 
-function socialPackageMarkdown({ article, platform, inventory, generatedAt }) {
+function socialPackageMarkdown({ article, platform, inventory, generatedAt, curatedTeaser = null }) {
   const account = accountByPlatform(inventory, platform);
   const custody = credentialCustodyStatus(inventory);
   const metadata = {
@@ -203,7 +217,7 @@ function socialPackageMarkdown({ article, platform, inventory, generatedAt }) {
     credential_custody_verified: custody.verified,
   };
 
-  return `---\n${frontmatter(metadata)}\n---\n\n# ${article.title} / ${platform}\n\n## Safety\n\n- Safe default: do-not-post.\n- Public posting requires explicit David approval.\n- Personal accounts are not connector-test targets.\n- Credential custody verified: ${custody.verified ? 'yes' : 'no'}.\n${custody.blocker ? `- Credential blocker: ${custody.blocker}\n` : ''}\n## Copy\n\n${shortTeaser(article, platform)}\n`;
+  return `---\n${frontmatter(metadata)}\n---\n\n# ${article.title} / ${platform}\n\n## Safety\n\n- Safe default: do-not-post.\n- Public posting requires explicit David approval.\n- Personal accounts are not connector-test targets.\n- Credential custody verified: ${custody.verified ? 'yes' : 'no'}.\n${custody.blocker ? `- Credential blocker: ${custody.blocker}\n` : ''}\n## Copy\n\n${shortTeaser(article, platform, curatedTeaser)}\n`;
 }
 
 function selectedSlugs(ledger, slug) {
@@ -228,6 +242,7 @@ export function buildSocialPackages({
   const slugs = selectedSlugs(ledger, slug);
   const platforms = selectedPlatforms(platform);
   const generated = [];
+  const curatedTeasers = readCuratedTeasers(outputRoot);
 
   for (const articleSlug of slugs) {
     const article = articleFromLedger(ledger, articlesRoot, articleSlug);
@@ -235,7 +250,13 @@ export function buildSocialPackages({
     fs.mkdirSync(packageRoot, { recursive: true });
     const files = [];
     for (const target of platforms) {
-      const markdown = socialPackageMarkdown({ article, platform: target, inventory, generatedAt }).trim();
+      const markdown = socialPackageMarkdown({
+        article,
+        platform: target,
+        inventory,
+        generatedAt,
+        curatedTeaser: curatedTeaserFor(curatedTeasers, article, target),
+      }).trim();
       const filePath = path.join(packageRoot, `${target}.md`);
       fs.writeFileSync(filePath, `${markdown}\n`);
       files.push({

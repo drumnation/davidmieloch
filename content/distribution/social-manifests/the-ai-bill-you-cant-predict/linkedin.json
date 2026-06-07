@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "manifestId": "social:linkedin:the-ai-bill-you-cant-predict:afdac7730dd2",
+  "manifestId": "social:linkedin:the-ai-bill-you-cant-predict:391a0ad30722",
   "source": {
     "articleSlug": "the-ai-bill-you-cant-predict",
     "canonicalUrl": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
@@ -21,7 +21,7 @@
     "approvalArtifact": ""
   },
   "payload": {
-    "text": "The AI Bill You Can't Predict\n\nThe AI Bill You Can't Predict There's a conversation happening in every enterprise right now about AI costs. It usually goes are these costs worth it? What's the ROI? How do we justify the spend? Those are the right questions. But there's a prior question most organizations aren't asking do you actually understand what you're paying for? Not the headline...\n\nRead the canonical essay: https://davidmieloch.com/blog/the-ai-bill-you-cant-predict?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-ai-bill-you-cant-predict",
+    "text": "The dangerous AI bill is not the big one.\n\nIt is the one nobody can explain before it arrives.\n\nIf a workflow can spend money faster than your organization can understand the work, the pricing model is not just an accounting issue. It is an architecture issue.\n\nRead the canonical essay: https://davidmieloch.com/blog/the-ai-bill-you-cant-predict?utm_source=linkedin&utm_medium=social&utm_campaign=factory_content_pipeline&utm_content=the-ai-bill-you-cant-predict",
     "links": [
       "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict"
     ],
@@ -36,6 +36,6 @@
   },
   "signature": {
     "algorithm": "sha256",
-    "digest": "06aae48c9a308a04e0c3da90a529b5399c32e6bb409d1a6ddbd0e4e506af4f1f"
+    "digest": "70694d393eada39163408cc757f41bfe5528e077ef6cece0191faf9fa13413e6"
   }
 }

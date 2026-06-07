@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "social-teasers-v1",
+  "publicPublishingPerformed": false,
+  "safeDefault": "do-not-post",
+  "teasers": {
+    "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter": {
+      "linkedin": "A lot of people are reading the AI cost jump as a bubble popping.\n\nI think that misses the point.\n\nThe cheap phase was the training period. The next phase is the filter: who can still build when the bill starts behaving like physics instead of marketing?"
+    },
+    "the-ai-bill-you-cant-predict": {
+      "linkedin": "The dangerous AI bill is not the big one.\n\nIt is the one nobody can explain before it arrives.\n\nIf a workflow can spend money faster than your organization can understand the work, the pricing model is not just an accounting issue. It is an architecture issue."
+    },
+    "the-most-valuable-ai-skill-isnt-prompting": {
+      "linkedin": "Prompting is useful, but I do not think it is the scarce skill.\n\nThe scarce skill is noticing what should become substrate.\n\nThe people who win with AI will not be the ones who manually perform cleverness forever. They will be the ones who turn repeated cleverness into systems."
+    },
+    "the-credibility-problem-with-ai-corporate-communications": {
+      "linkedin": "AI corporate communication has a credibility problem.\n\nThe issue is not whether the avatar looks realistic.\n\nThe issue is whether anyone real is visibly staking judgment, taste, and accountability behind the message."
+    },
+    "the-crew-seed": {
+      "linkedin": "Three people operating a software factory are not a pod.\n\nA pod sounds like a small delivery unit.\n\nA crew operates the machine, improves the machine, and moves up the stack when the machine absorbs the old layer of work."
+    }
+  }
+}
