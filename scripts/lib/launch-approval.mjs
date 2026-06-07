@@ -1,14 +1,23 @@
 import fs from 'node:fs';
 
+import {
+  approvalGateLabels,
+  approvalStatusFor,
+} from './launch-approval-ledger.mjs';
+
 function bySlug(items = []) {
   return new Map(items.map((item) => [item.slug ?? item.articleSlug, item]));
 }
 
-function approvalGate(label, status = 'missing') {
+function approvalGate(approvalLedger, slug, label) {
+  const approval = approvalStatusFor(approvalLedger, slug, label);
   return {
     label,
-    status,
+    status: approval?.status ?? 'missing',
     requiredFrom: 'David',
+    approvedBy: approval?.approvedBy ?? null,
+    approvedAt: approval?.approvedAt ?? null,
+    note: approval?.note ?? '',
   };
 }
 
@@ -17,6 +26,7 @@ export function buildLaunchApprovalPacket({
   siteReleaseCalendar,
   socialCalendar,
   socialTeasers,
+  approvalLedger = {},
   imageManifests = {},
   generatedAt = new Date().toISOString(),
 }) {
@@ -32,13 +42,9 @@ export function buildLaunchApprovalPacket({
       ?? (imageManifest.assets ?? [])[0]
       ?? null;
     const teaser = teaserEntries[article.slug]?.linkedin ?? null;
-    const gates = [
-      approvalGate('article-copy-approved'),
-      approvalGate('hero-image-approved'),
-      approvalGate('site-draft-preview-reviewed'),
-      approvalGate('linkedin-reveal-copy-approved'),
-      approvalGate('release-time-approved'),
-    ];
+    const gates = approvalGateLabels().map((gate) => (
+      approvalGate(approvalLedger, article.slug, gate)
+    ));
 
     return {
       slug: article.slug,
@@ -89,6 +95,9 @@ export function buildLaunchApprovalPacket({
       blocked: articles.filter((article) => article.blocked).length,
       readyForDavidReview: articles.filter((article) => !article.blocked).length,
       approvalGatesPerArticle: articles[0]?.gates.length ?? 0,
+      fullyApproved: articles.filter((article) => (
+        article.gates.every((gate) => gate.status === 'approved')
+      )).length,
     },
     articles,
     observation: {

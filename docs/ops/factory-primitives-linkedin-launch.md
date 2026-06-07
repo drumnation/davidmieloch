@@ -17,6 +17,7 @@ Source of truth: `content/distribution/site-release-calendar.json`.
 Reveal-post calendar: `content/distribution/factory-primitives-social-calendar.json`.
 Curated reveal copy: `content/distribution/social-teasers.json`.
 Approval packet: `content/distribution/factory-primitives-approval-packet.json`.
+Approval ledger: `content/distribution/factory-primitives-approval-ledger.json`.
 
 ## Decision Seam
 
@@ -55,6 +56,23 @@ Expected result before David approves:
 The packet does not approve or publish anything. It only assembles the article
 copy, hero image, website preview, LinkedIn reveal copy, and release time gates
 into one review artifact.
+
+Record approval only after David explicitly approves a gate:
+
+```sh
+pnpm content:pipeline launch:approve <slug|all> <gate|all> --by=David --note="approval note"
+```
+
+Supported gates:
+
+- `article-copy-approved`
+- `hero-image-approved`
+- `site-draft-preview-reviewed`
+- `linkedin-reveal-copy-approved`
+- `release-time-approved`
+
+This writes the local approval ledger and regenerates the approval packet. It
+does not schedule, publish, submit, or call LinkedIn/Postiz.
 
 ## Programmatic Surface
 
@@ -124,7 +142,9 @@ POSTIZ_API_KEY=<from-1password> pnpm content:pipeline social:postiz:push --dry-r
 ```
 
 This command must create Postiz `DRAFT` records only. It must not publish public
-posts, submit LinkedIn articles, or post to Reddit.
+posts, submit LinkedIn articles, or post to Reddit. The CLI blocks non-dry-run
+Postiz draft creation while approval status is missing, even if the channel is
+connected and the package is otherwise ready.
 
 ## Observability
 

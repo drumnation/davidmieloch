@@ -1,6 +1,6 @@
 {
   "schemaVersion": "launch-approval-packet-v1",
-  "generatedAt": "2026-06-07T05:06:28.158Z",
+  "generatedAt": "2026-06-07T05:42:56.300Z",
   "publicPublishingPerformed": false,
   "safeDefault": "do-not-publish",
   "decisionSeam": {
@@ -12,7 +12,8 @@
     "articles": 5,
     "blocked": 0,
     "readyForDavidReview": 5,
-    "approvalGatesPerArticle": 5
+    "approvalGatesPerArticle": 5,
+    "fullyApproved": 0
   },
   "articles": [
     {
@@ -46,27 +47,42 @@
         {
           "label": "article-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "hero-image-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "site-draft-preview-reviewed",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "linkedin-reveal-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "release-time-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         }
       ],
       "blocked": false,
@@ -104,27 +120,42 @@
         {
           "label": "article-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "hero-image-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "site-draft-preview-reviewed",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "linkedin-reveal-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "release-time-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         }
       ],
       "blocked": false,
@@ -162,27 +193,42 @@
         {
           "label": "article-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "hero-image-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "site-draft-preview-reviewed",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "linkedin-reveal-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "release-time-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         }
       ],
       "blocked": false,
@@ -220,27 +266,42 @@
         {
           "label": "article-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "hero-image-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "site-draft-preview-reviewed",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "linkedin-reveal-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "release-time-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         }
       ],
       "blocked": false,
@@ -278,27 +339,42 @@
         {
           "label": "article-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "hero-image-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "site-draft-preview-reviewed",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "linkedin-reveal-copy-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         },
         {
           "label": "release-time-approved",
           "status": "missing",
-          "requiredFrom": "David"
+          "requiredFrom": "David",
+          "approvedBy": null,
+          "approvedAt": null,
+          "note": ""
         }
       ],
       "blocked": false,

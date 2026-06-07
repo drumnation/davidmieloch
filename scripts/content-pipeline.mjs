@@ -15,6 +15,10 @@ import {
   readImageManifests,
 } from './lib/launch-approval.mjs';
 import {
+  emptyLaunchApprovalLedger,
+  recordLaunchApproval,
+} from './lib/launch-approval-ledger.mjs';
+import {
   buildDistributionQueue,
   distributionQueueMarkdown,
   filterDistributionQueue,
@@ -87,6 +91,7 @@ const metricsPath = path.join(contentRoot, 'distribution/content-metrics.json');
 const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.json');
 const factoryPrimitivesLaunchPlanPath = path.join(contentRoot, 'distribution/factory-primitives-launch-plan.json');
 const factoryPrimitivesApprovalPacketPath = path.join(contentRoot, 'distribution/factory-primitives-approval-packet.json');
+const factoryPrimitivesApprovalLedgerPath = path.join(contentRoot, 'distribution/factory-primitives-approval-ledger.json');
 const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
 const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
@@ -599,6 +604,9 @@ function launchApprovalPacketCommand() {
   const teasersPath = options.teasers
     ? path.resolve(appRoot, options.teasers)
     : socialTeasersPath;
+  const approvalLedgerPath = options['approval-ledger']
+    ? path.resolve(appRoot, options['approval-ledger'])
+    : factoryPrimitivesApprovalLedgerPath;
   const outputPath = options.output
     ? path.resolve(appRoot, options.output)
     : factoryPrimitivesApprovalPacketPath;
@@ -608,6 +616,9 @@ function launchApprovalPacketCommand() {
     siteReleaseCalendar: JSON.parse(fs.readFileSync(siteCalendarPath, 'utf8')),
     socialCalendar: JSON.parse(fs.readFileSync(socialCalendarInputPath, 'utf8')),
     socialTeasers: JSON.parse(fs.readFileSync(teasersPath, 'utf8')),
+    approvalLedger: fs.existsSync(approvalLedgerPath)
+      ? JSON.parse(fs.readFileSync(approvalLedgerPath, 'utf8'))
+      : emptyLaunchApprovalLedger(),
     imageManifests: readImageManifests(launchPlan.articles ?? []),
   });
   if (options.write) {
@@ -620,8 +631,54 @@ function launchApprovalPacketCommand() {
       siteCalendar: siteCalendarPath,
       socialCalendar: socialCalendarInputPath,
       teasers: teasersPath,
+      approvalLedger: approvalLedgerPath,
     },
     ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function launchApproveCommand(slug) {
+  const gate = process.argv[4];
+  const options = parseCommandOptions(5);
+  const launchPlanPath = options['launch-plan']
+    ? path.resolve(appRoot, options['launch-plan'])
+    : factoryPrimitivesLaunchPlanPath;
+  const approvalLedgerPath = options['approval-ledger']
+    ? path.resolve(appRoot, options['approval-ledger'])
+    : factoryPrimitivesApprovalLedgerPath;
+  const packetOutputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : factoryPrimitivesApprovalPacketPath;
+  const launchPlan = JSON.parse(fs.readFileSync(launchPlanPath, 'utf8'));
+  const existingLedger = fs.existsSync(approvalLedgerPath)
+    ? JSON.parse(fs.readFileSync(approvalLedgerPath, 'utf8'))
+    : emptyLaunchApprovalLedger();
+  const approval = recordLaunchApproval({
+    approvalLedger: existingLedger,
+    launchPlan,
+    slug,
+    gate,
+    approvedBy: options.by ?? 'David',
+    note: options.note ?? '',
+  });
+  writeJson(approvalLedgerPath, approval.ledger);
+  const packet = buildLaunchApprovalPacket({
+    launchPlan,
+    siteReleaseCalendar: JSON.parse(fs.readFileSync(siteReleaseCalendarPath, 'utf8')),
+    socialCalendar: JSON.parse(fs.readFileSync(factoryPrimitivesSocialCalendarPath, 'utf8')),
+    socialTeasers: JSON.parse(fs.readFileSync(socialTeasersPath, 'utf8')),
+    approvalLedger: approval.ledger,
+    imageManifests: readImageManifests(launchPlan.articles ?? []),
+  });
+  writeJson(packetOutputPath, packet);
+  return {
+    publicPublishingPerformed: false,
+    safeDefault: 'do-not-publish',
+    action: 'recorded-local-approval',
+    recorded: approval.recorded,
+    approvalLedgerPath,
+    approvalPacketPath: packetOutputPath,
+    summary: packet.summary,
   };
 }
 
@@ -1680,7 +1737,8 @@ function usage() {
   pnpm content:pipeline validate
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline launch:due [--now=<iso-date>]
-  pnpm content:pipeline launch:approval-packet [--write] [--output=<path>] [--launch-plan=<path>] [--site-calendar=<path>] [--social-calendar=<path>] [--teasers=<path>]
+  pnpm content:pipeline launch:approval-packet [--write] [--output=<path>] [--launch-plan=<path>] [--site-calendar=<path>] [--social-calendar=<path>] [--teasers=<path>] [--approval-ledger=<path>]
+  pnpm content:pipeline launch:approve <slug|all> <gate|all> [--by=David] [--note=<text>]
   pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]
   pnpm content:pipeline schedule:due [--now=<iso-date>] [--input=<path>]
   pnpm content:pipeline schedule:markdown [--input=<path>] [--write] [--output=<path>]
@@ -1728,6 +1786,7 @@ Safety:
   - queue:write writes a checklist file only; it does not create drafts or publish.
   - schedule commands create/read local schedule artifacts only; they do not create drafts or publish.
   - launch:approval-packet writes local approval packets only; it does not approve or publish.
+  - launch:approve writes local approval ledger and packet artifacts only; it does not schedule or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
   - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
@@ -1804,6 +1863,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'launch:approval-packet') {
     return launchApprovalPacketCommand();
+  }
+  if (command === 'launch:approve' && slug) {
+    return launchApproveCommand(slug);
   }
   if (command === 'schedule:generate') {
     return publishScheduleGenerateCommand();

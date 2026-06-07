@@ -31,6 +31,10 @@ import {
   buildLaunchApprovalPacket,
 } from '../../scripts/lib/launch-approval.mjs';
 import {
+  emptyLaunchApprovalLedger,
+  recordLaunchApproval,
+} from '../../scripts/lib/launch-approval-ledger.mjs';
+import {
   approveArticleAudio,
   audioStatus,
   generateArticleAudio,
@@ -138,6 +142,7 @@ type LaunchApprovalPacketOptions = {
   siteReleaseCalendar: Record<string, any>;
   socialCalendar: Record<string, any>;
   socialTeasers: Record<string, any>;
+  approvalLedger?: Record<string, any>;
   imageManifests?: Record<string, any>;
   generatedAt?: string;
 };
@@ -196,6 +201,17 @@ const generateLaunchSocialCalendar = buildLaunchSocialCalendar as unknown as (
 const generateLaunchApprovalPacket = buildLaunchApprovalPacket as unknown as (
   options: LaunchApprovalPacketOptions
 ) => ReturnType<typeof buildLaunchApprovalPacket>;
+const approveLaunchGate = recordLaunchApproval as unknown as (
+  options: {
+    approvalLedger: Record<string, any>;
+    launchPlan: Record<string, any>;
+    slug: string;
+    gate: string;
+    approvedBy?: string;
+    note?: string;
+    generatedAt?: string;
+  }
+) => ReturnType<typeof recordLaunchApproval>;
 const generateN8nExport = buildN8nExport as unknown as (
   options: SocialN8nExportOptions
 ) => ReturnType<typeof buildN8nExport>;
@@ -1135,6 +1151,94 @@ describe('social automation substrate', () => {
     ]);
   });
 
+  it('folds local approval ledger state into the launch approval packet', () => {
+    const launchPlan = {
+      series: 'Factory Primitives',
+      articles: [
+        {
+          slug: 'the-factory',
+          title: 'The Factory',
+          contentStatus: 'ready-for-editorial-approval',
+          imageStatus: 'hero-staged-for-review',
+          coverImage: '/blog/the-factory/images/hero-linkedin.png',
+          imageManifest: 'content/articles/the-factory/image-manifest.json',
+          checksumSha256: 'a'.repeat(64),
+          caption: 'Factory hero.',
+          blocker: null,
+        },
+      ],
+    };
+    const approval = approveLaunchGate({
+      approvalLedger: emptyLaunchApprovalLedger('2026-06-07T00:00:00.000Z'),
+      launchPlan,
+      slug: 'the-factory',
+      gate: 'hero-image-approved',
+      approvedBy: 'David',
+      note: 'Hero looks good.',
+      generatedAt: '2026-06-07T01:00:00.000Z',
+    });
+
+    const packet = generateLaunchApprovalPacket({
+      launchPlan,
+      siteReleaseCalendar: {
+        entries: [
+          {
+            slug: 'the-factory',
+            plannedReleaseAt: '2026-06-10T11:00:00-04:00',
+            website: {
+              status: 'staged-draft',
+              markdownPath: 'content/articles/the-factory/index.md',
+              canonicalUrl: 'https://davidmieloch.com/blog/the-factory',
+            },
+          },
+        ],
+      },
+      socialCalendar: {
+        entries: [
+          {
+            articleSlug: 'the-factory',
+            status: 'planned',
+            scheduledAt: '2026-06-10T15:00:00.000Z',
+            packagePath: '/tmp/social-packages/the-factory/linkedin.md',
+            checksum: 'b'.repeat(64),
+            postizChannelStatus: 'connected',
+            blocked: false,
+            blocker: null,
+          },
+        ],
+      },
+      socialTeasers: {
+        teasers: {
+          'the-factory': {
+            linkedin: 'Curated reveal copy.',
+          },
+        },
+      },
+      approvalLedger: approval.ledger,
+      generatedAt: '2026-06-07T02:00:00.000Z',
+    });
+
+    expect(approval.recorded).toEqual([
+      {
+        slug: 'the-factory',
+        gate: 'hero-image-approved',
+        status: 'approved',
+      },
+    ]);
+    expect(packet.summary).toMatchObject({
+      approvalGatesPerArticle: 5,
+      fullyApproved: 0,
+    });
+    expect(packet.articles[0].gates).toContainEqual({
+      label: 'hero-image-approved',
+      status: 'approved',
+      requiredFrom: 'David',
+      approvedBy: 'David',
+      approvedAt: '2026-06-07T01:00:00.000Z',
+      note: 'Hero looks good.',
+    });
+  });
+
   it('blocks non-dry-run Postiz pushes until the API adapter is verified', () => {
     const root = tempRoot();
     const outputRoot = join(root, 'content/distribution/social-packages');
@@ -1231,6 +1335,60 @@ describe('social automation substrate', () => {
     });
   });
 
+  it('blocks Postiz draft creation when David approval is missing', async () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+    inventory.accounts[1] = {
+      ...inventory.accounts[1],
+      postizChannelStatus: 'connected',
+      postizChannelId: 'linkedin-channel-1',
+    };
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    const fetchMock = vi.spyOn(globalThis, 'fetch');
+    const result = await generatePostizDrafts({
+      socialCalendar: schedule,
+      inventory,
+      platform: 'linkedin',
+      apiKey: 'test-postiz-key',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(result).toMatchObject({
+      status: 'blocked-missing-david-approval',
+      publicPublishingPerformed: false,
+      dryRun: false,
+      created: [],
+    });
+    expect(result.blockedEntries[0]).toMatchObject({
+      articleSlug: 'the-factory',
+      platform: 'linkedin',
+      blocker: 'David approval is missing.',
+    });
+    expect(fetchMock).not.toHaveBeenCalled();
+    fetchMock.mockRestore();
+  });
+
   it('creates Postiz draft payloads through the public API without publishing', async () => {
     const root = tempRoot();
     const outputRoot = join(root, 'content/distribution/social-packages');
@@ -1263,6 +1421,7 @@ describe('social automation substrate', () => {
       intervalHours: 6,
       generatedAt: '2026-06-05T00:00:00.000Z',
     });
+    schedule.entries[0].approval.status = 'approved';
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
       ok: true,
       status: 201,

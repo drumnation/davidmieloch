@@ -184,9 +184,7 @@ export default function DraftLabPage() {
             {approvalPacket.summary.readyForDavidReview} ready for review
           </span>
           <span>{approvalPacket.summary.blocked} blocked</span>
-          <span>
-            {approvalPacket.summary.approvalGatesPerArticle} gates each
-          </span>
+          <span>{approvalPacket.summary.fullyApproved} fully approved</span>
         </div>
         <div className={styles.approvalGrid}>
           {approvalArticles.map((article) => (

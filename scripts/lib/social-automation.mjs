@@ -676,6 +676,9 @@ export function buildPostizPushPlan({
       },
     };
   });
+  const approvalMissingActions = plannedActions.filter((action) => (
+    action.approval.required && action.approval.status !== 'approved'
+  ));
 
   return {
     schemaVersion: 'social-postiz-push-plan-v1',
@@ -697,6 +700,7 @@ export function buildPostizPushPlan({
       selectedEntries: targetEntries.length,
       readyEntries: readyEntries.length,
       blockedEntries: blockedEntries.length,
+      approvalMissingEntries: approvalMissingActions.length,
       plannedActions: plannedActions.length,
     },
     plannedActions: dryRun ? plannedActions : [],
@@ -706,9 +710,11 @@ export function buildPostizPushPlan({
       platform: entry.platform,
       blocker: entry.blocker ?? 'Blocked by account or channel readiness.',
     })),
-    nextAction: plannedActions.length > 0
-      ? 'Run social:postiz:push --dry-run=false with POSTIZ_API_KEY from a host that can reach Postiz.'
-      : 'Connect a Postiz channel or regenerate social schedules for a connected channel.',
+    nextAction: approvalMissingActions.length > 0
+      ? 'Record David approval before creating Postiz drafts.'
+      : plannedActions.length > 0
+        ? 'Run social:postiz:push --dry-run=false with POSTIZ_API_KEY from a host that can reach Postiz.'
+        : 'Connect a Postiz channel or regenerate social schedules for a connected channel.',
     observation: {
       claim: 'Postiz push plan is derived from social calendar readiness without public posting',
       status: plannedActions.length > 0 ? 'PASS' : 'DEGRADED',
@@ -791,6 +797,29 @@ export async function createPostizDrafts({
       schemaVersion: 'social-postiz-draft-create-v1',
       status: 'blocked-no-ready-postiz-actions',
       created: [],
+    };
+  }
+
+  const unapprovedActions = plan.plannedActions.filter((action) => (
+    action.approval.required && action.approval.status !== 'approved'
+  ));
+  if (unapprovedActions.length > 0) {
+    return {
+      ...plan,
+      schemaVersion: 'social-postiz-draft-create-v1',
+      dryRun: false,
+      status: 'blocked-missing-david-approval',
+      reason: 'David approval is required before creating Postiz drafts.',
+      created: [],
+      blockedEntries: [
+        ...plan.blockedEntries,
+        ...unapprovedActions.map((action) => ({
+          id: `approval:${action.platform}:${action.articleSlug}`,
+          articleSlug: action.articleSlug,
+          platform: action.platform,
+          blocker: 'David approval is missing.',
+        })),
+      ],
     };
   }
 
