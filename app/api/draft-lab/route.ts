@@ -46,6 +46,17 @@ type GeneratedInteriorManifest = {
   assets: GeneratedInteriorImage[];
 };
 
+type ImageRequest = {
+  id: string;
+  slug: string;
+  placementId: string;
+  prompt: string;
+  status: "queued" | "processing" | "completed" | "failed" | "cancelled";
+  requestedAt: string;
+  requestedBy: string;
+  updatedAt: string;
+};
+
 const allowedDraftStatuses = new Set<DraftDecisionStatus>([
   "keep",
   "maybe",
@@ -106,11 +117,14 @@ export async function POST(request: Request) {
   }
 
   if (action === "request-image") {
-    queueImageRequest(
+    const imageRequest = queueImageRequest(
       slug,
       stringValue(formData, "placementId"),
       stringValue(formData, "prompt"),
     );
+    if (wantsJson(request)) {
+      return NextResponse.json({ ok: true, request: imageRequest });
+    }
     return redirectBack(request, returnTo);
   }
 
@@ -249,6 +263,13 @@ function redirectBack(request: Request, returnTo: string) {
   return NextResponse.redirect(safeRedirectUrl(request, returnTo), {
     status: 303,
   });
+}
+
+function wantsJson(request: Request) {
+  return (
+    request.headers.get("accept")?.includes("application/json") ||
+    request.headers.get("x-draft-lab-client") === "1"
+  );
 }
 
 function setDraftDecision(slug: string, rawStatus: string, reason: string) {
@@ -433,23 +454,27 @@ function queueImageRequest(slug: string, placementId: string, prompt: string) {
   );
   const requests = readJson<{
     schemaVersion: string;
-    requests: Array<Record<string, string>>;
+    requests: ImageRequest[];
   }>(requestsPath, {
     schemaVersion: "draft-lab-image-requests-v1",
     requests: [],
   });
-
-  requests.requests.push({
+  const now = new Date().toISOString();
+  const imageRequest: ImageRequest = {
     id: `${placementId}-${Date.now()}`,
     slug,
     placementId,
     prompt: prompt.trim(),
     status: "queued",
-    requestedAt: new Date().toISOString(),
+    requestedAt: now,
     requestedBy: "draft-lab-ui",
-  });
+    updatedAt: now,
+  };
+
+  requests.requests.push(imageRequest);
 
   writeJson(requestsPath, requests);
+  return imageRequest;
 }
 
 function generatedManifestPath(slug: string) {

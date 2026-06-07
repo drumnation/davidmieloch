@@ -7,6 +7,8 @@ import ReactMarkdown from "react-markdown";
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 
+import { ImageRequestForm } from "./ImageRequestForm";
+
 import review from "../../../../content/distribution/draft-image-review.json";
 
 type PageProps = {
@@ -399,41 +401,13 @@ function InlineImagePlacement({
           </figure>
         ))}
       </div>
-      {placement.requests.length > 0 ? (
-        <div style={styles.requestStatusPanel}>
-          <p style={styles.requestStatusTitle}>
-            {placement.requests.length} queued image request
-            {placement.requests.length === 1 ? "" : "s"}
-          </p>
-          <ol style={styles.requestStatusList}>
-            {placement.requests.map((request) => (
-              <li key={request.id} style={styles.requestStatusItem}>
-                <span>{request.prompt}</span>
-                <code>{request.status}</code>
-                <time dateTime={request.requestedAt}>
-                  {new Date(request.requestedAt).toLocaleString("en-US", {
-                    dateStyle: "medium",
-                    timeStyle: "short",
-                  })}
-                </time>
-              </li>
-            ))}
-          </ol>
-        </div>
-      ) : null}
-      <form action="/api/draft-lab" method="post" style={styles.requestImageForm}>
-        <input type="hidden" name="action" value="request-image" />
-        <input type="hidden" name="slug" value={candidate.slug} />
-        <input type="hidden" name="placementId" value={placement.id} />
-        <input type="hidden" name="returnTo" value={placementReturnTo} />
-        <textarea
-          name="prompt"
-          placeholder={`Describe a better image for "${placement.heading}".`}
-          required
-          style={styles.requestTextarea}
-        />
-        <button style={styles.maybeButton}>Queue new image request</button>
-      </form>
+      <ImageRequestForm
+        slug={candidate.slug}
+        placementId={placement.id}
+        heading={placement.heading}
+        returnTo={placementReturnTo}
+        initialRequests={placement.requests}
+      />
     </section>
   );
 }
@@ -874,50 +848,6 @@ const styles: Record<string, CSSProperties> = {
     border: "1px solid #d6d0c7",
     borderRadius: "8px",
     color: "#171717",
-  },
-  requestImageForm: {
-    display: "grid",
-    gap: "8px",
-  },
-  requestStatusPanel: {
-    display: "grid",
-    gap: "8px",
-    padding: "12px",
-    border: "1px solid #cfd7ec",
-    borderRadius: "10px",
-    background: "#eef3ff",
-  },
-  requestStatusTitle: {
-    margin: 0,
-    color: "#25346f",
-    fontSize: "0.88rem",
-    fontWeight: 900,
-  },
-  requestStatusList: {
-    display: "grid",
-    gap: "8px",
-    margin: 0,
-    paddingLeft: "20px",
-  },
-  requestStatusItem: {
-    display: "grid",
-    gridTemplateColumns: "minmax(0, 1fr) auto auto",
-    gap: "8px",
-    alignItems: "baseline",
-    color: "#252b3a",
-    fontSize: "0.86rem",
-    lineHeight: 1.35,
-  },
-  requestTextarea: {
-    width: "100%",
-    minHeight: "74px",
-    padding: "10px",
-    border: "1px solid #d6d0c7",
-    borderRadius: "8px",
-    color: "#171717",
-    font: "inherit",
-    lineHeight: 1.45,
-    resize: "vertical",
   },
   editorSection: {
     margin: "46px 0 0",
