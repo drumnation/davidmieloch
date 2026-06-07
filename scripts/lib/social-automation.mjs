@@ -509,6 +509,110 @@ export function buildN8nExport({
   };
 }
 
+export function buildPostizPushPlan({
+  socialCalendar,
+  inventory,
+  platform = null,
+  limit = null,
+  dryRun = true,
+  generatedAt = new Date().toISOString(),
+}) {
+  const numericLimit = limit === null || limit === undefined
+    ? null
+    : Number(limit);
+  if (numericLimit !== null && (!Number.isFinite(numericLimit) || numericLimit < 1)) {
+    throw new Error(`Invalid --limit value: ${limit}`);
+  }
+
+  const targetEntries = (socialCalendar.entries ?? [])
+    .filter((entry) => !platform || entry.platform === platform)
+    .slice(0, numericLimit ?? undefined);
+  const readyEntries = targetEntries.filter((entry) => !entry.blocked);
+  const blockedEntries = targetEntries.filter((entry) => entry.blocked);
+  const channels = new Map(
+    (inventory.postiz?.connectedIntegrations ?? [])
+      .map((channel) => [channel.platform, channel]),
+  );
+  const plannedActions = readyEntries.map((entry) => {
+    const account = accountByPlatform(inventory, entry.platform);
+    const channel = channels.get(entry.platform);
+    const packageText = entry.packagePath && fs.existsSync(entry.packagePath)
+      ? fs.readFileSync(entry.packagePath, 'utf8')
+      : '';
+
+    return {
+      action: 'create-postiz-draft-or-schedule',
+      mode: 'draft-first',
+      articleSlug: entry.articleSlug,
+      title: entry.title,
+      platform: entry.platform,
+      scheduledAt: entry.scheduledAt,
+      packagePath: entry.packagePath,
+      checksum: entry.checksum,
+      postiz: {
+        url: inventory.postiz?.url,
+        channelId: account?.postizChannelId ?? channel?.postizChannelId ?? null,
+        channelName: account?.postizChannelName ?? channel?.postizChannelName ?? null,
+      },
+      payload: {
+        text: packageText ? packageText.split('\n## Copy\n\n')[1]?.trim() ?? packageText.trim() : '',
+      },
+      approval: {
+        required: true,
+        status: entry.approval?.status ?? 'missing',
+        requiredFrom: entry.approval?.requiredFrom ?? 'David',
+      },
+      safety: {
+        publicPublishingAllowed: false,
+        safeDefault: 'do-not-post',
+      },
+    };
+  });
+
+  return {
+    schemaVersion: 'social-postiz-push-plan-v1',
+    generatedAt,
+    publicPublishingPerformed: false,
+    dryRun,
+    status: dryRun
+      ? plannedActions.length > 0
+        ? blockedEntries.length > 0
+          ? 'dry-run-partially-ready'
+          : 'dry-run-ready'
+        : 'dry-run-blocked'
+      : 'blocked-non-dry-run-not-implemented',
+    reason: dryRun
+      ? null
+      : 'Postiz API writes are intentionally disabled until the adapter is verified against the Postiz app API and approval receipts.',
+    safeDefault: 'do-not-post',
+    summary: {
+      selectedEntries: targetEntries.length,
+      readyEntries: readyEntries.length,
+      blockedEntries: blockedEntries.length,
+      plannedActions: plannedActions.length,
+    },
+    plannedActions: dryRun ? plannedActions : [],
+    blockedEntries: blockedEntries.map((entry) => ({
+      id: entry.id,
+      articleSlug: entry.articleSlug,
+      platform: entry.platform,
+      blocker: entry.blocker ?? 'Blocked by account or channel readiness.',
+    })),
+    nextAction: plannedActions.length > 0
+      ? 'Implement the Postiz API adapter to create drafts/schedules from these plannedActions without public dispatch.'
+      : 'Connect a Postiz channel or regenerate social schedules for a connected channel.',
+    observation: {
+      claim: 'Postiz push plan is derived from social calendar readiness without public posting',
+      status: plannedActions.length > 0 ? 'PASS' : 'DEGRADED',
+      fallbackChain: [
+        'social-calendar.json',
+        'social-account-inventory.json',
+        'ROM heartbeat',
+      ],
+    },
+  };
+}
+
 export function recordSocialRefusal({
   refusalPath,
   platform,

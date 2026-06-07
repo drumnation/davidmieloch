@@ -164,10 +164,15 @@ rtk pnpm content:pipeline social:package <slug|all>
 rtk pnpm content:pipeline social:manifest <slug|all> <platform|all> --write
 rtk pnpm content:pipeline social:schedule --start=<iso> --interval-hours=8 --write
 rtk pnpm content:pipeline social:n8n:export --write
-rtk pnpm content:pipeline social:postiz:push --dry-run
+rtk pnpm content:pipeline social:postiz:push --dry-run --platform=linkedin --limit=5
 ```
 
-`social:postiz:push` currently refuses until a Postiz API adapter and connected target channel exist. The future non-dry-run implementation should create Postiz drafts or schedules only from signed manifests and should refuse public dispatch unless an approval receipt exists.
+`social:postiz:push --dry-run` now renders a Postiz draft/schedule plan from
+the social calendar for connected channels. It does not write to Postiz and it
+does not publish. Non-dry-run still refuses until the API adapter is verified
+against Postiz's application API. The future non-dry-run implementation should
+create Postiz drafts or schedules only from signed manifests and should refuse
+public dispatch unless an approval receipt exists.
 
 `social:n8n:export` emits workflow-ready schedule packets for Commander Data/n8n without posting.
 

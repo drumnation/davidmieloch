@@ -57,6 +57,7 @@ import {
 } from './lib/platform-packages.mjs';
 import {
   buildN8nExport,
+  buildPostizPushPlan,
   buildSocialPackages,
   buildSocialPostManifest,
   buildSocialReadiness,
@@ -692,22 +693,17 @@ function socialRefusalCommand() {
 
 function socialPostizPushCommand() {
   const options = parseCommandOptions(2);
-  const dryRun = options['dry-run'] !== false;
-  const readiness = buildSocialReadiness({ inventory: readSocialAccountInventory() });
-  return {
-    generatedAt: new Date().toISOString(),
-    publicPublishingPerformed: false,
+  const dryRun = options['dry-run'] !== false && options['dry-run'] !== 'false';
+  const inputPath = options.input
+    ? path.resolve(appRoot, options.input)
+    : socialCalendarPath;
+  return buildPostizPushPlan({
+    socialCalendar: readSocialCalendar(inputPath),
+    inventory: readSocialAccountInventory(),
+    platform: options.platform ?? null,
+    limit: options.limit ?? null,
     dryRun,
-    status: 'blocked',
-    reason: readiness.credentialStore?.writeStatus === 'ready'
-      ? 'Postiz API push is not implemented yet; use social:n8n:export packets and internal Postiz UI.'
-      : readiness.credentialStore?.blocker ?? 'Credential custody is not verified.',
-    safeDefault: 'do-not-post',
-    nextAction: readiness.credentialStore?.writeStatus === 'ready'
-      ? 'Build a Postiz API adapter that creates drafts/schedules only from signed manifests.'
-      : 'Fix 1Password Brain Garden vault create/update permission before creating accounts or connector tests.',
-    readiness,
-  };
+  });
 }
 
 function parseMetricRecordArgs(args) {
@@ -1623,7 +1619,7 @@ function usage() {
   pnpm content:pipeline social:manifest <slug|all> <platform|all> [--mode=draft] [--approval=missing] [--write] [--output=<path>]
   pnpm content:pipeline social:n8n:export [--input=<path>] [--write] [--output=<path>]
   pnpm content:pipeline social:refusal <platform> <action> --reason=<reason> [--notes=<text>] [--screenshot=<path>]
-  pnpm content:pipeline social:postiz:push --dry-run
+  pnpm content:pipeline social:postiz:push --dry-run [--platform=<id>] [--limit=5] [--input=<path>]
   pnpm content:pipeline audio:prepare <slug> [--force]
   pnpm content:pipeline audio:approve <slug>
   pnpm content:pipeline audio:status [slug|all]
@@ -1644,7 +1640,7 @@ Safety:
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
   - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
-  - social:postiz:push is a dry-run/refusal command until a Postiz API adapter exists.
+  - social:postiz:push renders a dry-run Postiz draft plan from connected channels; non-dry-run refuses until the API adapter is verified.
   - audio:prepare, audio:approve, audio:status, audio:quote, and audio:tracks do not call Speechify.
   - audio:generate calls Speechify only with --spend-approved and requires an approved audio script.
   - audio:book does not call Speechify; --write concatenates already-current article MP3 files.

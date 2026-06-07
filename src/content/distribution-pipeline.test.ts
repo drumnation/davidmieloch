@@ -37,6 +37,7 @@ import {
 } from '../../scripts/lib/audio-narration.mjs';
 import {
   buildN8nExport,
+  buildPostizPushPlan,
   buildSocialPackages,
   buildSocialPostManifest,
   buildSocialReadiness,
@@ -168,6 +169,13 @@ const generateSocialSchedule = buildSocialSchedule as unknown as (
 const generateN8nExport = buildN8nExport as unknown as (
   options: SocialN8nExportOptions
 ) => ReturnType<typeof buildN8nExport>;
+const generatePostizPushPlan = buildPostizPushPlan as unknown as (
+  options: SocialN8nExportOptions & {
+    platform?: string;
+    limit?: number;
+    dryRun?: boolean;
+  }
+) => ReturnType<typeof buildPostizPushPlan>;
 const generateSocialReadiness = buildSocialReadiness as unknown as (
   options: SocialReadinessOptions
 ) => ReturnType<typeof buildSocialReadiness>;
@@ -754,6 +762,135 @@ describe('social automation substrate', () => {
       allowedAction: 'create-postiz-draft-or-schedule',
       blocker: null,
     });
+  });
+
+  it('plans Postiz draft actions for connected LinkedIn packets without publishing', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+    inventory.postiz.connectedIntegrations = [
+      {
+        platform: 'linkedin',
+        postizChannelId: 'linkedin-channel-1',
+        postizChannelName: 'David Mieloch',
+      },
+    ];
+    inventory.accounts[1] = {
+      ...inventory.accounts[1],
+      postizChannelStatus: 'connected',
+      postizChannelId: 'linkedin-channel-1',
+      postizChannelName: 'David Mieloch',
+    };
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    const pushPlan = generatePostizPushPlan({
+      socialCalendar: schedule,
+      inventory,
+      platform: 'linkedin',
+      dryRun: true,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(pushPlan).toMatchObject({
+      status: 'dry-run-ready',
+      publicPublishingPerformed: false,
+      dryRun: true,
+      summary: {
+        selectedEntries: 1,
+        readyEntries: 1,
+        blockedEntries: 0,
+        plannedActions: 1,
+      },
+    });
+    expect(pushPlan.plannedActions[0]).toMatchObject({
+      action: 'create-postiz-draft-or-schedule',
+      mode: 'draft-first',
+      articleSlug: 'the-factory',
+      platform: 'linkedin',
+      postiz: {
+        channelId: 'linkedin-channel-1',
+        channelName: 'David Mieloch',
+      },
+      approval: {
+        required: true,
+        status: 'missing',
+      },
+      safety: {
+        publicPublishingAllowed: false,
+        safeDefault: 'do-not-post',
+      },
+    });
+    expect(pushPlan.plannedActions[0].payload.text).toContain('The Factory');
+  });
+
+  it('blocks non-dry-run Postiz pushes until the API adapter is verified', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+    inventory.accounts[1] = {
+      ...inventory.accounts[1],
+      postizChannelStatus: 'connected',
+      postizChannelId: 'linkedin-channel-1',
+    };
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const schedule = generateSocialSchedule({
+      packageRoot: outputRoot,
+      inventory,
+      startAt: '2026-06-06T13:00:00.000Z',
+      intervalHours: 6,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+    const pushPlan = generatePostizPushPlan({
+      socialCalendar: schedule,
+      inventory,
+      platform: 'linkedin',
+      dryRun: false,
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(pushPlan).toMatchObject({
+      status: 'blocked-non-dry-run-not-implemented',
+      publicPublishingPerformed: false,
+      dryRun: false,
+      plannedActions: [],
+      summary: {
+        readyEntries: 1,
+        plannedActions: 1,
+      },
+    });
+    expect(pushPlan.reason).toContain('Postiz API writes are intentionally disabled');
   });
 
   it('records refusal receipts for manual or credential blockers', () => {
