@@ -530,6 +530,78 @@ export function buildN8nExport({
   };
 }
 
+export function buildLaunchSocialCalendar({
+  siteReleaseCalendar,
+  inventory,
+  packageRoot,
+  platform = 'linkedin',
+  sourceCalendar = 'content/distribution/site-release-calendar.json',
+  purpose = 'Reveal posts for canonical website articles',
+  generatedAt = new Date().toISOString(),
+}) {
+  const account = accountByPlatform(inventory, platform);
+  const accountBlocker = accountReadinessBlocker(inventory, account);
+  const entries = (siteReleaseCalendar.entries ?? []).map((release) => {
+    const manifestPath = path.join(packageRoot, release.slug, 'manifest.json');
+    const manifest = readJson(manifestPath, {});
+    const packageFile = (manifest.files ?? []).find((file) => file.platform === platform);
+    const platformRelease = release[platform] ?? {};
+    const plannedAt = platformRelease.plannedPostAt ?? release.plannedReleaseAt;
+    const scheduledAt = new Date(plannedAt);
+    const scheduleBlocker = Number.isNaN(scheduledAt.getTime())
+      ? `Invalid planned release time for ${release.slug}.`
+      : null;
+    const packageBlocker = packageFile
+      ? null
+      : `Missing ${platform} social package for ${release.slug}.`;
+    const blocker = accountBlocker ?? scheduleBlocker ?? packageBlocker;
+
+    return {
+      id: `social:${platform}:${release.slug}:${Number.isNaN(scheduledAt.getTime()) ? 'unscheduled' : scheduledAt.toISOString().slice(0, 10)}`,
+      scheduledAt: Number.isNaN(scheduledAt.getTime()) ? null : scheduledAt.toISOString(),
+      articleSlug: release.slug,
+      title: release.title,
+      platform,
+      packagePath: packageFile?.filePath ?? path.join(packageRoot, release.slug, `${platform}.md`),
+      checksum: packageFile?.checksum ?? null,
+      identityLayer: account?.identityLayer ?? 'unknown',
+      accountKind: account?.accountKind ?? 'unknown',
+      postizChannelStatus: account?.postizChannelStatus ?? 'not-connected',
+      postizChannelId: account?.postizChannelId ?? null,
+      status: 'planned',
+      publicPublishingAllowed: false,
+      safeDefault: 'do-not-post',
+      approval: {
+        required: true,
+        status: 'missing',
+        requiredFrom: 'David',
+      },
+      blocked: Boolean(blocker),
+      blocker,
+    };
+  });
+
+  return {
+    schemaVersion: 'launch-social-calendar-v1',
+    generatedAt,
+    publicPublishingPerformed: false,
+    safeDefault: 'do-not-post',
+    sourceCalendar,
+    platform,
+    purpose,
+    entries,
+    observation: {
+      claim: 'Launch reveal schedule is derived from website release calendar and social packages',
+      status: entries.every((entry) => !entry.blocked) ? 'PASS' : 'DEGRADED',
+      fallbackChain: [
+        'launch social calendar',
+        'site release calendar',
+        'ROM heartbeat',
+      ],
+    },
+  };
+}
+
 function socialPackagePath(entry) {
   const fallbackPath = entry.articleSlug && entry.platform
     ? path.resolve(

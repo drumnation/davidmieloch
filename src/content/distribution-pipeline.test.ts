@@ -37,6 +37,7 @@ import {
 } from '../../scripts/lib/audio-narration.mjs';
 import {
   buildN8nExport,
+  buildLaunchSocialCalendar,
   buildPostizPushPlan,
   buildSocialPackages,
   buildSocialPostManifest,
@@ -119,6 +120,16 @@ type SocialScheduleOptions = {
   generatedAt?: string;
 };
 
+type LaunchSocialCalendarOptions = {
+  siteReleaseCalendar: Record<string, any>;
+  inventory: Record<string, unknown>;
+  packageRoot: string;
+  platform?: string;
+  sourceCalendar?: string;
+  purpose?: string;
+  generatedAt?: string;
+};
+
 type SocialN8nExportOptions = {
   socialCalendar: ReturnType<typeof buildSocialSchedule>;
   inventory: Record<string, unknown>;
@@ -167,6 +178,9 @@ const generateSocialManifest = buildSocialPostManifest as unknown as (
 const generateSocialSchedule = buildSocialSchedule as unknown as (
   options: SocialScheduleOptions
 ) => ReturnType<typeof buildSocialSchedule>;
+const generateLaunchSocialCalendar = buildLaunchSocialCalendar as unknown as (
+  options: LaunchSocialCalendarOptions
+) => ReturnType<typeof buildLaunchSocialCalendar>;
 const generateN8nExport = buildN8nExport as unknown as (
   options: SocialN8nExportOptions
 ) => ReturnType<typeof buildN8nExport>;
@@ -934,6 +948,70 @@ describe('social automation substrate', () => {
     } finally {
       process.chdir(previousCwd);
     }
+  });
+
+  it('derives a launch social calendar from website release dates and social packages', () => {
+    const root = tempRoot();
+    const outputRoot = join(root, 'content/distribution/social-packages');
+    writeLedgerFixture(root);
+    writeAudioArticleFixture(root);
+    const ledger = JSON.parse(readFileSync(join(root, 'content/distribution/platform-ledger.json'), 'utf8'));
+    const inventory = socialAccountInventory('ready');
+    inventory.accounts[1] = {
+      ...inventory.accounts[1],
+      postizChannelStatus: 'connected',
+      postizChannelId: 'linkedin-channel-1',
+      postizChannelName: 'David Mieloch',
+    };
+
+    generateSocialPackages({
+      ledger,
+      inventory,
+      articlesRoot: join(root, 'content/articles'),
+      outputRoot,
+      slug: 'the-factory',
+      platform: 'linkedin',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    const calendar = generateLaunchSocialCalendar({
+      siteReleaseCalendar: {
+        entries: [
+          {
+            slug: 'the-factory',
+            title: 'The Factory',
+            plannedReleaseAt: '2026-06-10T11:00:00-04:00',
+            linkedin: {
+              plannedPostAt: '2026-06-10T11:00:00-04:00',
+            },
+          },
+        ],
+      },
+      inventory,
+      packageRoot: outputRoot,
+      platform: 'linkedin',
+      sourceCalendar: 'content/distribution/site-release-calendar.json',
+      generatedAt: '2026-06-07T00:00:00.000Z',
+    });
+
+    expect(calendar.publicPublishingPerformed).toBe(false);
+    expect(calendar.observation.status).toBe('PASS');
+    expect(calendar.entries).toHaveLength(1);
+    expect(calendar.entries[0]).toMatchObject({
+      articleSlug: 'the-factory',
+      platform: 'linkedin',
+      scheduledAt: '2026-06-10T15:00:00.000Z',
+      postizChannelStatus: 'connected',
+      postizChannelId: 'linkedin-channel-1',
+      blocked: false,
+      blocker: null,
+      approval: {
+        required: true,
+        status: 'missing',
+        requiredFrom: 'David',
+      },
+    });
+    expect(calendar.entries[0].checksum).toMatch(/^[a-f0-9]{64}$/);
   });
 
   it('blocks non-dry-run Postiz pushes until the API adapter is verified', () => {

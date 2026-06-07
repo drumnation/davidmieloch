@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "factory-primitives-social-calendar-v1",
-  "generatedAt": "2026-06-07T04:45:55.187Z",
+  "schemaVersion": "launch-social-calendar-v1",
+  "generatedAt": "2026-06-07T04:55:41.284Z",
   "publicPublishingPerformed": false,
   "safeDefault": "do-not-post",
   "sourceCalendar": "content/distribution/site-release-calendar.json",
@@ -124,11 +124,11 @@
     }
   ],
   "observation": {
-    "claim": "Factory Primitives LinkedIn reveal schedule is isolated from backlog social calendar",
+    "claim": "Launch reveal schedule is derived from website release calendar and social packages",
     "status": "PASS",
     "fallbackChain": [
-      "factory-primitives-social-calendar.json",
-      "site-release-calendar.json",
+      "launch social calendar",
+      "site release calendar",
       "ROM heartbeat"
     ]
   }

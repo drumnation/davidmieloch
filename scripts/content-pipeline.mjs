@@ -57,6 +57,7 @@ import {
 } from './lib/platform-packages.mjs';
 import {
   buildN8nExport,
+  buildLaunchSocialCalendar,
   buildPostizPushPlan,
   buildSocialPackages,
   buildSocialPostManifest,
@@ -85,6 +86,8 @@ const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.js
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
 const socialAccountInventoryPath = path.join(contentRoot, 'distribution/social-account-inventory.json');
 const socialCalendarPath = path.join(contentRoot, 'distribution/social-calendar.json');
+const siteReleaseCalendarPath = path.join(contentRoot, 'distribution/site-release-calendar.json');
+const factoryPrimitivesSocialCalendarPath = path.join(contentRoot, 'distribution/factory-primitives-social-calendar.json');
 const socialN8nExportPath = path.join(contentRoot, 'distribution/n8n/social-dispatch-packets.json');
 const socialManifestRoot = path.join(contentRoot, 'distribution/social-manifests');
 const socialRefusalInboxPath = path.join(contentRoot, 'distribution/refusal-inbox.json');
@@ -545,6 +548,32 @@ function socialScheduleCommand() {
   }
   return {
     ...schedule,
+    ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function socialLaunchCalendarCommand() {
+  const options = parseCommandOptions(2);
+  const inputPath = options.input
+    ? path.resolve(appRoot, options.input)
+    : siteReleaseCalendarPath;
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : factoryPrimitivesSocialCalendarPath;
+  const calendar = buildLaunchSocialCalendar({
+    siteReleaseCalendar: JSON.parse(fs.readFileSync(inputPath, 'utf8')),
+    inventory: readSocialAccountInventory(),
+    packageRoot: socialPackagesRoot,
+    platform: options.platform ?? 'linkedin',
+    sourceCalendar: path.relative(appRoot, inputPath),
+    purpose: options.purpose ?? 'Factory Primitives reveal posts for canonical website articles',
+  });
+  if (options.write) {
+    writeJson(outputPath, calendar);
+  }
+  return {
+    ...calendar,
+    inputPath,
     ...(options.write ? { outputPath } : {}),
   };
 }
@@ -1626,6 +1655,7 @@ function usage() {
   pnpm content:pipeline social:readiness
   pnpm content:pipeline social:package <slug|all> [platform]
   pnpm content:pipeline social:schedule [--start=<iso-date>] [--interval-hours=8] [--write] [--output=<path>]
+  pnpm content:pipeline social:launch-calendar [--input=<path>] [--platform=linkedin] [--write] [--output=<path>]
   pnpm content:pipeline social:due [--now=<iso-date>] [--input=<path>]
   pnpm content:pipeline social:manifest <slug|all> <platform|all> [--mode=draft] [--approval=missing] [--write] [--output=<path>]
   pnpm content:pipeline social:n8n:export [--input=<path>] [--write] [--output=<path>]
@@ -1761,6 +1791,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'social:schedule') {
     return socialScheduleCommand();
+  }
+  if (command === 'social:launch-calendar') {
+    return socialLaunchCalendarCommand();
   }
   if (command === 'social:due') {
     return socialDueCommand();

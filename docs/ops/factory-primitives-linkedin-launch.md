@@ -77,7 +77,15 @@ For each article:
 
 The broad `content/distribution/social-calendar.json` still includes backlog
 items. Do not use it for this launch batch. Use the dedicated Factory
-Primitives calendar:
+Primitives calendar.
+
+Regenerate the calendar from the website release calendar and social packages:
+
+```sh
+pnpm content:pipeline social:launch-calendar --platform=linkedin --write --output=content/distribution/factory-primitives-social-calendar.json
+```
+
+Then verify the Postiz plan:
 
 ```sh
 pnpm content:pipeline social:postiz:push --dry-run --platform=linkedin --limit=5 --input=content/distribution/factory-primitives-social-calendar.json
