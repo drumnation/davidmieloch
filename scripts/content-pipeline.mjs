@@ -25,6 +25,9 @@ import {
   buildInteriorImagePlan,
 } from './lib/interior-image-plan.mjs';
 import {
+  buildArticleReadinessReport,
+} from './lib/article-readiness.mjs';
+import {
   buildDistributionQueue,
   distributionQueueMarkdown,
   filterDistributionQueue,
@@ -100,6 +103,8 @@ const factoryPrimitivesApprovalPacketPath = path.join(contentRoot, 'distribution
 const factoryPrimitivesApprovalLedgerPath = path.join(contentRoot, 'distribution/factory-primitives-approval-ledger.json');
 const linkedinArticleTransferRoot = path.join(contentRoot, 'distribution/linkedin-article-transfer');
 const factoryPrimitivesInteriorImagePlanPath = path.join(contentRoot, 'distribution/factory-primitives-interior-image-plan.json');
+const articleReadinessReportPath = path.join(contentRoot, 'distribution/article-readiness-report.json');
+const articleReadinessMarkdownPath = path.join(appRoot, 'docs/ops/article-readiness-report.md');
 const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
 const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
@@ -673,6 +678,36 @@ function interiorImagePlanCommand() {
     ...plan,
     launchPlanPath,
     ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function articleReadinessCommand() {
+  const options = parseCommandOptions(2);
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : articleReadinessReportPath;
+  const markdownOutputPath = options.report
+    ? path.resolve(appRoot, options.report)
+    : articleReadinessMarkdownPath;
+  const report = buildArticleReadinessReport({
+    articlesRoot,
+    publicRoot,
+    siteReleaseCalendarPath,
+    obsidianBlogsRoot: resolveObsidianBlogsRoot(options['obsidian-root']),
+    outputPath,
+    markdownOutputPath,
+    write: Boolean(options.write),
+  });
+  observeCommand('article:readiness', null, 'PASS', {
+    outputPath: options.write ? path.relative(appRoot, outputPath) : null,
+    markdownOutputPath: options.write ? path.relative(appRoot, markdownOutputPath) : null,
+    websiteDrafts: report.summary.websiteDrafts,
+    vaultCandidatesNotOnWebsite: report.summary.vaultCandidatesNotOnWebsite,
+    copyrightReferenceRisks: report.summary.vaultCandidatesWithCopyrightReferenceRisk,
+  });
+  return {
+    ...report,
+    ...(options.write ? { outputPath, markdownOutputPath } : {}),
   };
 }
 
@@ -1797,6 +1832,7 @@ function usage() {
   pnpm content:pipeline launch:approval-packet [--write] [--output=<path>] [--launch-plan=<path>] [--site-calendar=<path>] [--social-calendar=<path>] [--teasers=<path>] [--approval-ledger=<path>]
   pnpm content:pipeline launch:approve <slug|all> <gate|all> [--by=David] [--note=<text>]
   pnpm content:pipeline image:interior-plan [--write] [--output=<path>] [--launch-plan=<path>] [--count=5] [--variants=2]
+  pnpm content:pipeline article:readiness [--write] [--output=<path>] [--report=<path>] [--obsidian-root=<path>]
   pnpm content:pipeline linkedin:article-transfer <slug|all> [--write] [--output=<path>] [--launch-plan=<path>]
   pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]
   pnpm content:pipeline schedule:due [--now=<iso-date>] [--input=<path>]
@@ -1847,6 +1883,7 @@ Safety:
   - launch:approval-packet writes local approval packets only; it does not approve or publish.
   - launch:approve writes local approval ledger and packet artifacts only; it does not schedule or publish.
   - image:interior-plan writes local image briefs and review queues only; it does not call a paid image API.
+  - article:readiness writes local readiness reports only; it does not import, generate images, schedule, or publish.
   - linkedin:article-transfer writes local browser-transfer packets only; it does not open LinkedIn or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
@@ -1930,6 +1967,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'image:interior-plan') {
     return interiorImagePlanCommand();
+  }
+  if (command === 'article:readiness') {
+    return articleReadinessCommand();
   }
   if (command === 'schedule:generate') {
     return publishScheduleGenerateCommand();

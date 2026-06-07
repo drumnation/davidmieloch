@@ -41,6 +41,9 @@ import {
   buildInteriorImagePlan,
 } from '../../scripts/lib/interior-image-plan.mjs';
 import {
+  buildArticleReadinessReport,
+} from '../../scripts/lib/article-readiness.mjs';
+import {
   approveArticleAudio,
   audioStatus,
   generateArticleAudio,
@@ -173,6 +176,17 @@ type InteriorImagePlanOptions = {
   generatedAt?: string;
 };
 
+type ArticleReadinessOptions = {
+  articlesRoot: string;
+  publicRoot: string;
+  siteReleaseCalendarPath: string;
+  obsidianBlogsRoot: string;
+  outputPath?: string;
+  markdownOutputPath?: string;
+  write?: boolean;
+  generatedAt?: string;
+};
+
 type SocialN8nExportOptions = {
   socialCalendar: ReturnType<typeof buildSocialSchedule>;
   inventory: Record<string, unknown>;
@@ -244,6 +258,9 @@ const generateLinkedInArticleTransfer = buildLinkedInArticleTransferPackets as u
 const generateInteriorImagePlan = buildInteriorImagePlan as unknown as (
   options: InteriorImagePlanOptions
 ) => ReturnType<typeof buildInteriorImagePlan>;
+const generateArticleReadiness = buildArticleReadinessReport as unknown as (
+  options: ArticleReadinessOptions
+) => ReturnType<typeof buildArticleReadinessReport>;
 const generateN8nExport = buildN8nExport as unknown as (
   options: SocialN8nExportOptions
 ) => ReturnType<typeof buildN8nExport>;
@@ -1410,6 +1427,109 @@ Budgets become weather.
         'utf8',
       ),
     ).toContain('Target: approve 3 article-body images from 6 generated candidates.');
+  });
+
+  it('reports website draft and vault-candidate article readiness gates', () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const obsidianRoot = join(root, 'obsidian/blogs');
+    mkdirSync(join(articlesRoot, 'the-filter'), { recursive: true });
+    mkdirSync(join(publicRoot, 'blog/the-filter/images'), { recursive: true });
+    mkdirSync(join(obsidianRoot, 'third-wave'), { recursive: true });
+    writeFileSync(join(publicRoot, 'blog/the-filter/images/hero.png'), 'fake image');
+    writeFileSync(
+      join(articlesRoot, 'the-filter/index.md'),
+      `---
+title: "The Filter"
+description: "A draft with planned images."
+publishedAt: "2026-06-10"
+status: "draft"
+canonicalUrl: "https://davidmieloch.com/blog/the-filter"
+coverImage: "/blog/the-filter/images/hero.png"
+---
+
+# The Filter
+
+## One
+Body.
+
+## Two
+Body.
+
+## Three
+Body.
+`,
+    );
+    writeFileSync(
+      join(articlesRoot, 'the-filter/image-manifest.json'),
+      JSON.stringify({ assets: [{ role: 'hero-and-linkedin-preview' }] }),
+    );
+    mkdirSync(join(articlesRoot, 'the-filter/images'), { recursive: true });
+    writeFileSync(
+      join(articlesRoot, 'the-filter/images/interior-plan.json'),
+      JSON.stringify({ targetApprovedImages: 2, candidateVariants: 4 }),
+    );
+    writeFileSync(join(articlesRoot, 'the-filter/image-brief.md'), '# brief');
+    const siteCalendarPath = join(root, 'content/distribution/site-release-calendar.json');
+    mkdirSync(join(root, 'content/distribution'), { recursive: true });
+    writeFileSync(
+      siteCalendarPath,
+      JSON.stringify({
+        entries: [
+          {
+            slug: 'the-filter',
+            plannedReleaseAt: '2026-06-10T07:00:00-04:00',
+            linkedin: { status: 'needs-browser-staging' },
+          },
+        ],
+      }),
+    );
+    writeFileSync(
+      join(obsidianRoot, 'third-wave/2026-04-30-asi-should-be-the-avatar-not-god.md'),
+      `---
+date: 2026-04-30
+status: draft
+---
+
+# ASI Should Be the Avatar, Not God
+
+Avatar: The Last Airbender is the metaphor here. Aang and Team Avatar make the governance point.
+`,
+    );
+
+    const outputPath = join(root, 'content/distribution/article-readiness-report.json');
+    const markdownOutputPath = join(root, 'docs/ops/article-readiness-report.md');
+    const report = generateArticleReadiness({
+      articlesRoot,
+      publicRoot,
+      siteReleaseCalendarPath: siteCalendarPath,
+      obsidianBlogsRoot: obsidianRoot,
+      outputPath,
+      markdownOutputPath,
+      write: true,
+      generatedAt: '2026-06-07T08:00:00.000Z',
+    });
+
+    expect(report.summary).toMatchObject({
+      websiteArticles: 1,
+      websiteDrafts: 1,
+      websiteDraftsReadyForRelease: 0,
+      websiteDraftsNeedingInteriorImages: 1,
+      vaultCandidates: 1,
+      vaultCandidatesNotOnWebsite: 1,
+      vaultCandidatesWithCopyrightReferenceRisk: 1,
+    });
+    expect(report.websiteDrafts[0].warnings).toContain('draft interior images planned but not generated/approved');
+    expect(report.vaultCandidates[0]).toMatchObject({
+      slug: 'asi-should-be-the-avatar-not-god',
+      gates: {
+        ipPolicy: 'copyright-reference-review-required',
+      },
+    });
+    expect(report.vaultCandidates[0].recommendedImageStrategy).toContain('Do not generate protected-character/style imitation');
+    expect(readFileSync(outputPath, 'utf8')).toContain('"article-readiness-report-v1"');
+    expect(readFileSync(markdownOutputPath, 'utf8')).toContain('ASI Should Be the Avatar, Not God');
   });
 
   it('writes LinkedIn Article transfer JSON and Markdown packets through the CLI', () => {

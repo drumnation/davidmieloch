@@ -1,0 +1,3109 @@
+{
+  "schemaVersion": "article-readiness-report-v1",
+  "generatedAt": "2026-06-07T07:30:48.998Z",
+  "publicPublishingPerformed": false,
+  "summary": {
+    "websiteArticles": 25,
+    "websiteDrafts": 5,
+    "websiteDraftsReadyForRelease": 0,
+    "websiteDraftsNeedingInteriorImages": 5,
+    "vaultCandidates": 97,
+    "vaultCandidatesNotOnWebsite": 68,
+    "vaultCandidatesWithCopyrightReferenceRisk": 2
+  },
+  "websiteArticles": [
+    {
+      "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+      "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+      "status": "published",
+      "publishedAt": "2026-03-20",
+      "canonicalUrl": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+      "paths": {
+        "article": "content/articles/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/index.md",
+        "coverImage": "/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-wall.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 8,
+        "bodyImages": 3,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "alphabetize-your-code",
+      "title": "Alphabetize your code.",
+      "status": "published",
+      "publishedAt": "2023-01-31",
+      "canonicalUrl": "https://davidmieloch.com/blog/alphabetize-your-code",
+      "paths": {
+        "article": "content/articles/alphabetize-your-code/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 2,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "building-with-brain-garden-real-world-lessons-in-practical-ai",
+      "title": "Building with Brain Garden: Real-World Lessons in Practical AI",
+      "status": "published",
+      "publishedAt": "2025-04-28",
+      "canonicalUrl": "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai",
+      "paths": {
+        "article": "content/articles/building-with-brain-garden-real-world-lessons-in-practical-ai/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 0,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "developing-with-a-team-of-ai-s",
+      "title": "Developing with a Team of AI’s",
+      "status": "published",
+      "publishedAt": "2024-03-28",
+      "canonicalUrl": "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s",
+      "paths": {
+        "article": "content/articles/developing-with-a-team-of-ai-s/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 3,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "every-company-is-sitting-on-sunken-treasure",
+      "title": "Every Company Is Sitting on Sunken Treasure",
+      "status": "published",
+      "publishedAt": "2026-04-02",
+      "canonicalUrl": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
+      "paths": {
+        "article": "content/articles/every-company-is-sitting-on-sunken-treasure/index.md",
+        "coverImage": "/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-hero.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 9,
+        "bodyImages": 4,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "how-to-make-your-ai-code-look-human",
+      "title": "How to Make Your AI Code Look Human",
+      "status": "published",
+      "publishedAt": "2026-04-01",
+      "canonicalUrl": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
+      "paths": {
+        "article": "content/articles/how-to-make-your-ai-code-look-human/index.md",
+        "coverImage": "/blog/how-to-make-your-ai-code-look-human/images/incompetent-hero.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 10,
+        "bodyImages": 7,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "judgment-over-keystrokes",
+      "title": "Judgment Over Keystrokes",
+      "status": "published",
+      "publishedAt": "2025-05-07",
+      "canonicalUrl": "https://davidmieloch.com/blog/judgment-over-keystrokes",
+      "paths": {
+        "article": "content/articles/judgment-over-keystrokes/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 2,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+      "title": "Pixel Precision in Developer Tools: What I Learned Building Designer Cloud",
+      "status": "published",
+      "publishedAt": "2025-05-08",
+      "canonicalUrl": "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud",
+      "paths": {
+        "article": "content/articles/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 8,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "reality-needs-observers",
+      "title": "Reality Needs Observers",
+      "status": "published",
+      "publishedAt": "2026-04-30",
+      "canonicalUrl": "https://davidmieloch.com/blog/reality-needs-observers",
+      "paths": {
+        "article": "content/articles/reality-needs-observers/index.md",
+        "coverImage": "/blog/reality-needs-observers/images/hero.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 8,
+        "bodyImages": 6,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+      "title": "Reuse your code: Authoring your own Universal Library with Webpack",
+      "status": "published",
+      "publishedAt": "2023-02-03",
+      "canonicalUrl": "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack",
+      "paths": {
+        "article": "content/articles/reuse-your-code-authoring-your-own-universal-library-with-webpack/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 2,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "status": "draft",
+      "publishedAt": "2026-06-13",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
+      "paths": {
+        "article": "content/articles/the-ai-bill-you-cant-predict/index.md",
+        "coverImage": "/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-ai-bill-you-cant-predict/image-manifest.json",
+        "interiorPlan": "content/articles/the-ai-bill-you-cant-predict/images/interior-plan.json",
+        "imageBrief": "content/articles/the-ai-bill-you-cant-predict/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 5,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-13T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "status": "draft",
+      "publishedAt": "2026-06-10",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "paths": {
+        "article": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md",
+        "coverImage": "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-manifest.json",
+        "interiorPlan": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/interior-plan.json",
+        "imageBrief": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 9,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-10T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-beauty-of-es6s-object-destructuring-assignment",
+      "title": "The Beauty of ES6's Object Destructuring Assignment",
+      "status": "published",
+      "publishedAt": "2023-02-02",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment",
+      "paths": {
+        "article": "content/articles/the-beauty-of-es6s-object-destructuring-assignment/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 3,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "status": "draft",
+      "publishedAt": "2026-06-20",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
+      "paths": {
+        "article": "content/articles/the-credibility-problem-with-ai-corporate-communications/index.md",
+        "coverImage": "/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-manifest.json",
+        "interiorPlan": "content/articles/the-credibility-problem-with-ai-corporate-communications/images/interior-plan.json",
+        "imageBrief": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 7,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-20T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-crew-seed",
+      "title": "The Crew",
+      "status": "draft",
+      "publishedAt": "2026-06-24",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
+      "paths": {
+        "article": "content/articles/the-crew-seed/index.md",
+        "coverImage": "/blog/the-crew-seed/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-crew-seed/image-manifest.json",
+        "interiorPlan": "content/articles/the-crew-seed/images/interior-plan.json",
+        "imageBrief": "content/articles/the-crew-seed/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 5,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-24T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-factory",
+      "title": "The Factory",
+      "status": "published",
+      "publishedAt": "2026-04-14",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-factory",
+      "paths": {
+        "article": "content/articles/the-factory/index.md",
+        "coverImage": "/blog/the-factory/images/a2-hero-conceptual.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 8,
+        "bodyImages": 7,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-foreman",
+      "title": "The Foreman",
+      "status": "published",
+      "publishedAt": "2026-04-17",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-foreman",
+      "paths": {
+        "article": "content/articles/the-foreman/index.md",
+        "coverImage": "/blog/the-foreman/images/a3-hero-foreman.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 6,
+        "bodyImages": 6,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-golden-hammer",
+      "title": "The Golden Hammer",
+      "status": "published",
+      "publishedAt": "2026-04-15",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-golden-hammer",
+      "paths": {
+        "article": "content/articles/the-golden-hammer/index.md",
+        "coverImage": "/blog/the-golden-hammer/images/a1-hero-photorealistic.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 6,
+        "bodyImages": 5,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "status": "draft",
+      "publishedAt": "2026-06-17",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting",
+      "paths": {
+        "article": "content/articles/the-most-valuable-ai-skill-isnt-prompting/index.md",
+        "coverImage": "/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-manifest.json",
+        "interiorPlan": "content/articles/the-most-valuable-ai-skill-isnt-prompting/images/interior-plan.json",
+        "imageBrief": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 5,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-17T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-moving-target",
+      "title": "The Moving Target",
+      "status": "published",
+      "publishedAt": "2026-04-21",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-moving-target",
+      "paths": {
+        "article": "content/articles/the-moving-target/index.md",
+        "coverImage": "/blog/the-moving-target/images/a4-cyber-waves.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 6,
+        "bodyImages": 5,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-overnight-shift",
+      "title": "The Overnight Shift",
+      "status": "published",
+      "publishedAt": "2026-04-03",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-overnight-shift",
+      "paths": {
+        "article": "content/articles/the-overnight-shift/index.md",
+        "coverImage": "/blog/the-overnight-shift/images/overnight-hero.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 9,
+        "bodyImages": 5,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "what-i-learned-building-a-photoshop-in-the-browser",
+      "title": "What I Learned Building a Photoshop in the Browser",
+      "status": "published",
+      "publishedAt": "2025-04-25",
+      "canonicalUrl": "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser",
+      "paths": {
+        "article": "content/articles/what-i-learned-building-a-photoshop-in-the-browser/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 0,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "why-character-choice-matters-in-agent-design",
+      "title": "Why Character Choice Matters in Agent Design",
+      "status": "published",
+      "publishedAt": "2026-03-18",
+      "canonicalUrl": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
+      "paths": {
+        "article": "content/articles/why-character-choice-matters-in-agent-design/index.md",
+        "coverImage": "/blog/why-character-choice-matters-in-agent-design/images/hero-control-room.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 9,
+        "bodyImages": 5,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+      "title": "Why you should Encapsulate your Javascript Conditionals in a Function",
+      "status": "published",
+      "publishedAt": "2023-02-01",
+      "canonicalUrl": "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+      "paths": {
+        "article": "content/articles/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/index.md",
+        "coverImage": null,
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 0,
+        "bodyImages": 2,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": false,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": false,
+        "articleBodyImages": true
+      },
+      "issues": [
+        "coverImage missing or file not found"
+      ],
+      "warnings": [
+        "missing image-manifest.json",
+        "article has fewer than 3 H2 sections"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "your-ai-isnt-hallucinating-its-lying",
+      "title": "Your AI Isn't Hallucinating. It's Lying.",
+      "status": "published",
+      "publishedAt": "2026-03-20",
+      "canonicalUrl": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
+      "paths": {
+        "article": "content/articles/your-ai-isnt-hallucinating-its-lying/index.md",
+        "coverImage": "/blog/your-ai-isnt-hallucinating-its-lying/images/ai-lies-hero.png",
+        "imageManifest": null,
+        "interiorPlan": null,
+        "imageBrief": null
+      },
+      "counts": {
+        "h2Sections": 7,
+        "bodyImages": 6,
+        "manifestAssets": 0,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 0
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": false,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [
+        "missing image-manifest.json"
+      ],
+      "readyForPublicRelease": false
+    }
+  ],
+  "websiteDrafts": [
+    {
+      "slug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "status": "draft",
+      "publishedAt": "2026-06-13",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
+      "paths": {
+        "article": "content/articles/the-ai-bill-you-cant-predict/index.md",
+        "coverImage": "/blog/the-ai-bill-you-cant-predict/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-ai-bill-you-cant-predict/image-manifest.json",
+        "interiorPlan": "content/articles/the-ai-bill-you-cant-predict/images/interior-plan.json",
+        "imageBrief": "content/articles/the-ai-bill-you-cant-predict/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 5,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-13T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "status": "draft",
+      "publishedAt": "2026-06-10",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "paths": {
+        "article": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md",
+        "coverImage": "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-manifest.json",
+        "interiorPlan": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/interior-plan.json",
+        "imageBrief": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 9,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-10T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "status": "draft",
+      "publishedAt": "2026-06-20",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
+      "paths": {
+        "article": "content/articles/the-credibility-problem-with-ai-corporate-communications/index.md",
+        "coverImage": "/blog/the-credibility-problem-with-ai-corporate-communications/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-manifest.json",
+        "interiorPlan": "content/articles/the-credibility-problem-with-ai-corporate-communications/images/interior-plan.json",
+        "imageBrief": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 7,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-20T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-crew-seed",
+      "title": "The Crew",
+      "status": "draft",
+      "publishedAt": "2026-06-24",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-crew-seed",
+      "paths": {
+        "article": "content/articles/the-crew-seed/index.md",
+        "coverImage": "/blog/the-crew-seed/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-crew-seed/image-manifest.json",
+        "interiorPlan": "content/articles/the-crew-seed/images/interior-plan.json",
+        "imageBrief": "content/articles/the-crew-seed/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 5,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-24T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    },
+    {
+      "slug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "status": "draft",
+      "publishedAt": "2026-06-17",
+      "canonicalUrl": "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting",
+      "paths": {
+        "article": "content/articles/the-most-valuable-ai-skill-isnt-prompting/index.md",
+        "coverImage": "/blog/the-most-valuable-ai-skill-isnt-prompting/images/hero-linkedin.png",
+        "imageManifest": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-manifest.json",
+        "interiorPlan": "content/articles/the-most-valuable-ai-skill-isnt-prompting/images/interior-plan.json",
+        "imageBrief": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-brief.md"
+      },
+      "counts": {
+        "h2Sections": 5,
+        "bodyImages": 0,
+        "manifestAssets": 1,
+        "plannedInteriorImages": 5,
+        "plannedInteriorVariants": 10,
+        "approvedInteriorImages": 0
+      },
+      "calendar": {
+        "plannedReleaseAt": "2026-06-17T11:00:00-04:00",
+        "linkedinStatus": "needs-browser-staging"
+      },
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": false,
+        "releaseCalendar": true,
+        "bodyStructure": true,
+        "articleBodyImages": false
+      },
+      "issues": [],
+      "warnings": [
+        "draft interior images planned but not generated/approved",
+        "draft body does not yet contain planned interior images"
+      ],
+      "readyForPublicRelease": false
+    }
+  ],
+  "vaultCandidates": [
+    {
+      "slug": "agent-memory-and-multiplicity-v2",
+      "title": "Agent Memory and Multiplicity (v2)",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/agent-memory-and-multiplicity/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/agent-memory-and-multiplicity/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "building-minds-not-tools",
+      "title": "Building Minds, Not Tools",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/building-minds-not-tools/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/building-minds-not-tools/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "chatbot-is-the-wrong-word",
+      "title": "Chatbot Is the Wrong Word",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/chatbot-is-the-wrong-word/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/chatbot-is-the-wrong-word/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "defamiliarization-is-a-technology-v2",
+      "title": "Defamiliarization Is a Technology (v2)",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/defamiliarization-is-a-technology/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/defamiliarization-is-a-technology/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "eight-minds-one-answer",
+      "title": "Eight Minds, One Answer",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/octave-futurist-cluster/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/octave-futurist-cluster/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "five-ways-an-agent-can-remember",
+      "title": "Five Ways an Agent Can Remember",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/memory-layers-plain-english/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/memory-layers-plain-english/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "memory-is-identity",
+      "title": "Memory Is Identity",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/memory-identity-thesis/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/memory-identity-thesis/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "reorganization-from-the-outside",
+      "title": "Reorganization From The Outside",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/reorganization-from-the-outside/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/reorganization-from-the-outside/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-ai-that-argues-with-itself",
+      "title": "The AI That Argues With Itself",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/ai-that-argues-with-itself/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/ai-that-argues-with-itself/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-cast-not-the-character-v2",
+      "title": "The Cast, Not the Character (v2)",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-cast-not-the-character/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-cast-not-the-character/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-fact-that-breaks-the-frame",
+      "title": "The Fact That Breaks the Frame",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-fact-that-breaks-the-frame/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-fact-that-breaks-the-frame/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-life-coach-that-argues-with-itself",
+      "title": "The Life Coach That Argues With Itself",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-life-coach-experiment/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-life-coach-experiment/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-sentence-that-changed-everything",
+      "title": "The Sentence That Changed Everything",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-sentence-that-changed-everything/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-sentence-that-changed-everything/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-supplement-stack-for-agents",
+      "title": "The Supplement Stack for Agents",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/supplement-stack-for-agents/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/supplement-stack-for-agents/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "three-brothers-three-minds-the-technical-architecture-of-agent-multiplicity",
+      "title": "Three Brothers, Three Minds: The Technical Architecture of Agent Multiplicity",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/three-brothers-architecture/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/three-brothers-architecture/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "we-dont-know-if-its-better",
+      "title": "We Don't Know If It's Better",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/experiment-not-product/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/experiment-not-product/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "what-is-a-soul-file",
+      "title": "What Is a Soul File",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/soul-file-explained/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/soul-file-explained/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "when-agents-disagree",
+      "title": "When Agents Disagree",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/when-agents-disagree/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/when-agents-disagree/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "when-bmo-fixed-the-plex-server",
+      "title": "When BMO Fixed the Plex Server",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/the-bmo-phenomenon/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-bmo-phenomenon/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "when-the-map-stops-matching",
+      "title": "When the Map Stops Matching",
+      "status": "ready",
+      "sourceBucket": "organized-ready",
+      "relativePath": "_organized/ready/when-the-map-stops-matching/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/when-the-map-stops-matching/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "or-what-happens-when-the-cost-of-the-dive-finally-drops",
+      "title": "*Or: What happens when the cost of the dive finally drops*",
+      "status": "unknown",
+      "sourceBucket": "loose-root",
+      "relativePath": "Sunken Treasure.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/Sunken Treasure.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "or-what-happens-when-the-cost-of-the-dive-finally-drops",
+      "title": "*Or: What happens when the cost of the dive finally drops*",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/sunken-treasure/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/sunken-treasure/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight",
+      "title": "*Or: What happens when you let an autonomous execution engine run for 72 hours straight*",
+      "status": "unknown",
+      "sourceBucket": "loose-root",
+      "relativePath": "The aftermath.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/The aftermath.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight",
+      "title": "*Or: What happens when you let an autonomous execution engine run for 72 hours straight*",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/the-aftermath/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-aftermath/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+      "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/academic-research-is-a-software-patch-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/academic-research-is-a-software-patch-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+      "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+      "status": "draft",
+      "sourceBucket": "loose-root",
+      "relativePath": "academic-research-is-a-software-patch-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/academic-research-is-a-software-patch-v2.md",
+      "date": "2026-03-20",
+      "imageCount": 3,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "asi-should-be-the-avatar-not-god",
+      "title": "ASI Should Be the Avatar, Not God",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/2026-04-30-asi-should-be-the-avatar-not-god/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-04-30-asi-should-be-the-avatar-not-god/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "copyright-reference-review-required",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Do not generate protected-character/style imitation. Use original symbolic art, licensed/publicity-safe stills only with source receipts, or web-sourced images with rights/citation review."
+    },
+    {
+      "slug": "asi-should-be-the-avatar-not-god",
+      "title": "ASI Should Be the Avatar, Not God",
+      "status": "unknown",
+      "sourceBucket": "third-wave",
+      "relativePath": "third-wave/2026-04-30-asi-should-be-the-avatar-not-god.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/2026-04-30-asi-should-be-the-avatar-not-god.md",
+      "date": "2026-04-30",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "copyright-reference-review-required",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Do not generate protected-character/style imitation. Use original symbolic art, licensed/publicity-safe stills only with source receipts, or web-sourced images with rights/citation review."
+    },
+    {
+      "slug": "battle-bots",
+      "title": "Battle Bots",
+      "status": "seed",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-20-2026/Battle Bots.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-20-2026/Battle Bots.md",
+      "date": "2026-05-20",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "battle-bots",
+      "title": "Battle Bots",
+      "status": "draft-v1",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-20-2026/battle-bots-v1.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-20-2026/battle-bots-v1.md",
+      "date": "2026-05-20",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "battle-bots",
+      "title": "Battle Bots",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/battle-bots/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/battle-bots/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "battle-bots",
+      "title": "Battle Bots",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/battle-bots-v1/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/battle-bots-v1/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "blog-image-choices",
+      "title": "Blog Image Choices",
+      "status": "research",
+      "sourceBucket": "loose-root",
+      "relativePath": "_organized/research/image-choices/IMAGE-CHOICES.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/research/image-choices/IMAGE-CHOICES.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "blog-image-choices",
+      "title": "Blog Image Choices",
+      "status": "unknown",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/IMAGE-CHOICES.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/IMAGE-CHOICES.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "blog-vault-reconciliation-report",
+      "title": "Blog Vault Reconciliation Report",
+      "status": "generated",
+      "sourceBucket": "loose-root",
+      "relativePath": "_sync/reconciliation-report.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_sync/reconciliation-report.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "blogs-index",
+      "title": "Blogs Index",
+      "status": "active",
+      "sourceBucket": "loose-root",
+      "relativePath": "_index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "content-grove-the-observer-series",
+      "title": "Content GROVE — The Observer Series",
+      "status": "Active",
+      "sourceBucket": "loose-root",
+      "relativePath": "CONTENT-GROVE.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/CONTENT-GROVE.md",
+      "date": "2026-05-04",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "content-grove-the-observer-series",
+      "title": "Content GROVE — The Observer Series",
+      "status": "research",
+      "sourceBucket": "loose-root",
+      "relativePath": "_organized/research/content-grove/CONTENT-GROVE.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/research/content-grove/CONTENT-GROVE.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "context-is-not-a-token-budget",
+      "title": "Context Is Not a Token Budget",
+      "status": "unknown",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-19-2026/Context Is Not a Token Budget.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-19-2026/Context Is Not a Token Budget.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "context-is-not-a-token-budget",
+      "title": "Context Is Not a Token Budget",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/context-is-not-a-token-budget/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/context-is-not-a-token-budget/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "corporate-ai-communications",
+      "title": "Corporate Ai Communications",
+      "status": "unknown",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/raw thoughts/corporate-ai-communications.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/6-3-2026/raw thoughts/corporate-ai-communications.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "every-company-is-sitting-on-sunken-treasure",
+      "title": "Every Company Is Sitting on Sunken Treasure",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/sunken-treasure-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/sunken-treasure-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "every-company-is-sitting-on-sunken-treasure",
+      "title": "Every Company Is Sitting on Sunken Treasure",
+      "status": "draft",
+      "sourceBucket": "loose-root",
+      "relativePath": "sunken-treasure-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/sunken-treasure-v2.md",
+      "date": "2026-04-02",
+      "imageCount": 4,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "factory-amplification-and-modular-primitives",
+      "title": "Factory Amplification and Modular Primitives",
+      "status": "draft-v1",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-10-2026/Factory Amplification and modular primitives.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives.md",
+      "date": "2026-05-10",
+      "imageCount": 8,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "factory-amplification-and-modular-primitives",
+      "title": "Factory Amplification and Modular Primitives",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/article-5-factory-amplification-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-5-factory-amplification-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "factory-amplification-and-modular-primitives",
+      "title": "Factory Amplification and Modular Primitives",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/factory-amplification-and-modular-primitives/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/factory-amplification-and-modular-primitives/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "factory-amplification-and-modular-primitives",
+      "title": "Factory Amplification and Modular Primitives",
+      "status": "draft-v2",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/article-5-factory-amplification-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-5-factory-amplification-v2.md",
+      "date": "2026-05-10",
+      "imageCount": 8,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "golden-hammer-working-notes",
+      "title": "Golden Hammer - Working Notes",
+      "status": "research",
+      "sourceBucket": "loose-root",
+      "relativePath": "_organized/research/notes/NOTES.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/research/notes/NOTES.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "golden-hammer-working-notes",
+      "title": "Golden Hammer - Working Notes",
+      "status": "unknown",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/NOTES.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/NOTES.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "golden-hammer-series-session-handoff-updated",
+      "title": "Golden Hammer Series — Session Handoff (Updated)",
+      "status": "research",
+      "sourceBucket": "loose-root",
+      "relativePath": "_organized/research/handoff/HANDOFF.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/research/handoff/HANDOFF.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "golden-hammer-series-session-handoff-updated",
+      "title": "Golden Hammer Series — Session Handoff (Updated)",
+      "status": "unknown",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/HANDOFF.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/HANDOFF.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "how-to-make-your-ai-code-look-human",
+      "title": "How to Make Your AI Code Look Human",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/the-art-of-looking-incompetent-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-art-of-looking-incompetent-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "how-to-make-your-ai-code-look-human",
+      "title": "How to Make Your AI Code Look Human",
+      "status": "draft",
+      "sourceBucket": "loose-root",
+      "relativePath": "the-art-of-looking-incompetent-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-art-of-looking-incompetent-v2.md",
+      "date": "2026-04-01",
+      "imageCount": 7,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "lifetimes-of-meaning",
+      "title": "Lifetimes of Meaning",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/article-3-lifetimes-of-meaning/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-3-lifetimes-of-meaning/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "lifetimes-of-meaning",
+      "title": "Lifetimes of Meaning",
+      "status": "draft",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/lifetimes-of meaning/article-3-lifetimes-of-meaning.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/lifetimes-of meaning/article-3-lifetimes-of-meaning.md",
+      "date": "2026-04-14",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "mental-agility-and-the-map-that-knows-too-much",
+      "title": "Mental Agility and the Map That Knows Too Much",
+      "status": "unknown",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-10-2026/Mental Agility and the Map That Knows Too Much.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Mental Agility and the Map That Knows Too Much.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "mental-agility-and-the-map-that-knows-too-much",
+      "title": "Mental Agility and the Map That Knows Too Much",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/mental-agility-and-the-map-that-knows-too-much/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/mental-agility-and-the-map-that-knows-too-much/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "positive-corruption",
+      "title": "Positive Corruption",
+      "status": "seed",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-20-2026/Positive Corruption.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-20-2026/Positive Corruption.md",
+      "date": "2026-05-20",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "positive-corruption",
+      "title": "Positive Corruption",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/positive-corruption/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/positive-corruption/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "reality-needs-observers",
+      "title": "Reality Needs Observers",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/2026-04-30-reality-needs-observers/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-04-30-reality-needs-observers/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "reality-needs-observers",
+      "title": "Reality Needs Observers",
+      "status": "unknown",
+      "sourceBucket": "third-wave",
+      "relativePath": "third-wave/2026-04-30-reality-needs-observers.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/2026-04-30-reality-needs-observers.md",
+      "date": "2026-04-30",
+      "imageCount": 6,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "status": "unknown",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-meter.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/6-3-2026/the-meter.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "status": "unknown",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-filter.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/6-3-2026/the-filter.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human",
+      "title": "The Art of Looking Incompetent: How to Make Your AI Code Look Human",
+      "status": "unknown",
+      "sourceBucket": "loose-root",
+      "relativePath": "The art of human programming.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/The art of human programming.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human",
+      "title": "The Art of Looking Incompetent: How to Make Your AI Code Look Human",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/the-art-of-human-programming/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-art-of-human-programming/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-code-my-fingers-can-afford",
+      "title": "The Code My Fingers Can Afford",
+      "status": "unknown",
+      "sourceBucket": "loose-root",
+      "relativePath": "2026-03-30-the-code-my-fingers-can-afford.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/2026-03-30-the-code-my-fingers-can-afford.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-code-my-fingers-can-afford",
+      "title": "The Code My Fingers Can Afford",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/2026-03-30-the-code-my-fingers-can-afford/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-03-30-the-code-my-fingers-can-afford/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-compression",
+      "title": "The Compression",
+      "status": "draft-v1",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-10-2026/The Compression.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/The Compression.md",
+      "date": "2026-05-10",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-compression",
+      "title": "The Compression",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/the-compression/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-compression/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "status": "unknown",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-credibility-problem.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/6-3-2026/the-credibility-problem.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-crew-seed",
+      "title": "The Crew (seed)",
+      "status": "unknown",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-crew.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/6-3-2026/the-crew.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-factory",
+      "title": "The Factory",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/article-2-the-factory-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-2-the-factory-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-factory",
+      "title": "The Factory",
+      "status": "draft-v2",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/article-2-the-factory-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-2-the-factory-v2.md",
+      "date": "2026-04-14",
+      "imageCount": 7,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "the-factory-ate-its-own-branch",
+      "title": "The Factory Ate Its Own Branch",
+      "status": "draft",
+      "sourceBucket": "dated-folder",
+      "relativePath": "5-24-2026/valueable?.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-24-2026/valueable?.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-foreman",
+      "title": "The Foreman",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/article-3-the-foreman-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-3-the-foreman-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-foreman",
+      "title": "The Foreman",
+      "status": "draft-v2",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/article-3-the-foreman-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-3-the-foreman-v2.md",
+      "date": "2026-04-17",
+      "imageCount": 6,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "the-golden-hammer",
+      "title": "The Golden Hammer",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/article-1-the-golden-hammer/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-1-the-golden-hammer/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-golden-hammer",
+      "title": "The Golden Hammer",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/the-golden-hammer/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-golden-hammer/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-golden-hammer",
+      "title": "The Golden Hammer",
+      "status": "draft",
+      "sourceBucket": "loose-root",
+      "relativePath": "the-golden-hammer.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-golden-hammer.md",
+      "date": "2026-04-08",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-golden-hammer",
+      "title": "The Golden Hammer",
+      "status": "final-draft",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/article-1-the-golden-hammer.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-1-the-golden-hammer.md",
+      "date": "2026-04-08",
+      "imageCount": 5,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "status": "unknown",
+      "sourceBucket": "dated-folder",
+      "relativePath": "6-3-2026/the-noticers.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/6-3-2026/the-noticers.md",
+      "date": null,
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-moving-target",
+      "title": "The Moving Target",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/article-4-the-moving-target-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-4-the-moving-target-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-moving-target",
+      "title": "The Moving Target",
+      "status": "draft-v2",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/article-4-the-moving-target-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-4-the-moving-target-v2.md",
+      "date": "2026-04-21",
+      "imageCount": 5,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "the-overnight-shift",
+      "title": "The Overnight Shift",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/the-overnight-shift-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-overnight-shift-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-overnight-shift",
+      "title": "The Overnight Shift",
+      "status": "draft",
+      "sourceBucket": "loose-root",
+      "relativePath": "the-overnight-shift-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-overnight-shift-v2.md",
+      "date": "2026-04-03",
+      "imageCount": 5,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "the-shore",
+      "title": "The Shore",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/article-5-the-shore-v2/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-5-the-shore-v2/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "the-shore",
+      "title": "The Shore",
+      "status": "draft-v2",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/article-5-the-shore-v2.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-5-the-shore-v2.md",
+      "date": "2026-04-21",
+      "imageCount": 3,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "the-wrong-kind-of-memory",
+      "title": "The Wrong Kind of Memory",
+      "status": "published",
+      "sourceBucket": "loose-root",
+      "relativePath": "_organized/published/the-wrong-kind-of-memory/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/published/the-wrong-kind-of-memory/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "wave-2-revision-notes",
+      "title": "Wave 2 Revision Notes",
+      "status": "research",
+      "sourceBucket": "loose-root",
+      "relativePath": "_organized/research/revision-notes/REVISION-NOTES.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/research/revision-notes/REVISION-NOTES.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "wave-2-revision-notes",
+      "title": "Wave 2 Revision Notes",
+      "status": "in-progress",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/golden-hammer-drafts/REVISION-NOTES.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/REVISION-NOTES.md",
+      "date": "2026-04-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "we-stopped-talking-about-ubi-right-when-we-need-to",
+      "title": "We Stopped Talking About UBI Right When We Need To",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/new-blog-post/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/new-blog-post/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "we-stopped-talking-about-ubi-right-when-we-need-to",
+      "title": "We Stopped Talking About UBI Right When We Need To",
+      "status": "draft",
+      "sourceBucket": "wave-2",
+      "relativePath": "wave 2/New Blog Post.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/New Blog Post.md",
+      "date": "2026-04-24",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "why-character-choice-matters-in-agent-design",
+      "title": "Why Character Choice Matters in Agent Design",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/why-character-choice-matters-in-agent-design/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/why-character-choice-matters-in-agent-design/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "why-character-choice-matters-in-agent-design",
+      "title": "Why Character Choice Matters in Agent Design",
+      "status": "unknown",
+      "sourceBucket": "loose-root",
+      "relativePath": "mieloch/Why Character Choice Matters in Agent Design.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/mieloch/Why Character Choice Matters in Agent Design.md",
+      "date": null,
+      "imageCount": 5,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    },
+    {
+      "slug": "why-we-split-the-mind",
+      "title": "Why We Split the Mind",
+      "status": "published",
+      "sourceBucket": "loose-root",
+      "relativePath": "_organized/published/why-we-split-the-mind/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/published/why-we-split-the-mind/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": false,
+      "gates": {
+        "websiteImport": "needs-website-staging",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "needs-short-teaser",
+        "releaseSchedule": "needs-schedule"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "your-ai-isnt-hallucinating-its-lying",
+      "title": "Your AI Isn't Hallucinating. It's Lying.",
+      "status": "draft",
+      "sourceBucket": "organized-vault-drafts",
+      "relativePath": "_organized/vault-drafts/agents-dont-hallucinate-they-lie/index.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/agents-dont-hallucinate-they-lie/index.md",
+      "date": "2026-05-21",
+      "imageCount": 0,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "needs-image-plan",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
+    },
+    {
+      "slug": "your-ai-isnt-hallucinating-its-lying",
+      "title": "Your AI Isn't Hallucinating. It's Lying.",
+      "status": "draft",
+      "sourceBucket": "loose-root",
+      "relativePath": "agents-dont-hallucinate-they-lie.md",
+      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/agents-dont-hallucinate-they-lie.md",
+      "date": "2026-03-20",
+      "imageCount": 6,
+      "alreadyOnWebsite": true,
+      "gates": {
+        "websiteImport": "already-on-website",
+        "images": "has-vault-images",
+        "ipPolicy": "original-generation-ok",
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
+      },
+      "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
+    }
+  ],
+  "observation": {
+    "claim": "Website and vault article readiness can be audited before image generation, import, syndication, and release scheduling.",
+    "status": "PASS",
+    "fallbackChain": [
+      "content/distribution/article-readiness-report.json",
+      "docs/ops/article-readiness-report.md",
+      "ROM heartbeat"
+    ]
+  }
+}
