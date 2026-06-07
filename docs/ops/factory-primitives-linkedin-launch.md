@@ -100,14 +100,22 @@ For each article:
 
 1. Review the website draft in Draft Lab.
 2. Approve or revise hero image.
-3. Regenerate social package:
+3. Generate or refresh the LinkedIn Article transfer packet:
+   `pnpm content:pipeline linkedin:article-transfer <slug|all> --write`
+4. Regenerate social package:
    `pnpm content:pipeline social:package <slug> linkedin`
-4. Regenerate manifest:
+5. Regenerate manifest:
    `pnpm content:pipeline social:manifest <slug> linkedin --write`
-5. If publishing a native LinkedIn Article, use browser automation/manual review
-   to paste the long-form article into LinkedIn and stop at draft/preview.
-6. Schedule the LinkedIn feed reveal post through Postiz only after approval.
-7. Record receipts in `content/distribution/platform-ledger.json`.
+6. If publishing a native LinkedIn Article, use browser automation/manual review
+   from `content/distribution/linkedin-article-transfer/<slug>/` and stop at
+   draft/preview.
+7. Schedule the LinkedIn feed reveal post through Postiz only after approval.
+8. Record receipts in `content/distribution/platform-ledger.json`.
+
+The LinkedIn Article transfer packet contains title, subtitle, body markdown,
+canonical URL, hero image path, checksums, and the browser staging stop point.
+It is local-only substrate for browser-assisted staging; it does not open
+LinkedIn or publish.
 
 ## Postiz Reveal Path
 

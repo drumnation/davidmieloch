@@ -19,6 +19,9 @@ import {
   recordLaunchApproval,
 } from './lib/launch-approval-ledger.mjs';
 import {
+  buildLinkedInArticleTransferPackets,
+} from './lib/linkedin-article-transfer.mjs';
+import {
   buildDistributionQueue,
   distributionQueueMarkdown,
   filterDistributionQueue,
@@ -92,6 +95,7 @@ const launchCalendarPath = path.join(contentRoot, 'distribution/launch-calendar.
 const factoryPrimitivesLaunchPlanPath = path.join(contentRoot, 'distribution/factory-primitives-launch-plan.json');
 const factoryPrimitivesApprovalPacketPath = path.join(contentRoot, 'distribution/factory-primitives-approval-packet.json');
 const factoryPrimitivesApprovalLedgerPath = path.join(contentRoot, 'distribution/factory-primitives-approval-ledger.json');
+const linkedinArticleTransferRoot = path.join(contentRoot, 'distribution/linkedin-article-transfer');
 const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
 const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
@@ -680,6 +684,24 @@ function launchApproveCommand(slug) {
     approvalPacketPath: packetOutputPath,
     summary: packet.summary,
   };
+}
+
+function linkedinArticleTransferCommand(slug = 'all') {
+  const options = parseCommandOptions(3);
+  const launchPlanPath = options['launch-plan']
+    ? path.resolve(appRoot, options['launch-plan'])
+    : factoryPrimitivesLaunchPlanPath;
+  const outputRoot = options.output
+    ? path.resolve(appRoot, options.output)
+    : linkedinArticleTransferRoot;
+  return buildLinkedInArticleTransferPackets({
+    launchPlan: JSON.parse(fs.readFileSync(launchPlanPath, 'utf8')),
+    articlesRoot,
+    publicRoot,
+    outputRoot,
+    slug,
+    write: Boolean(options.write),
+  });
 }
 
 function readSocialCalendar(inputPath = socialCalendarPath) {
@@ -1739,6 +1761,7 @@ function usage() {
   pnpm content:pipeline launch:due [--now=<iso-date>]
   pnpm content:pipeline launch:approval-packet [--write] [--output=<path>] [--launch-plan=<path>] [--site-calendar=<path>] [--social-calendar=<path>] [--teasers=<path>] [--approval-ledger=<path>]
   pnpm content:pipeline launch:approve <slug|all> <gate|all> [--by=David] [--note=<text>]
+  pnpm content:pipeline linkedin:article-transfer <slug|all> [--write] [--output=<path>] [--launch-plan=<path>]
   pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]
   pnpm content:pipeline schedule:due [--now=<iso-date>] [--input=<path>]
   pnpm content:pipeline schedule:markdown [--input=<path>] [--write] [--output=<path>]
@@ -1787,6 +1810,7 @@ Safety:
   - schedule commands create/read local schedule artifacts only; they do not create drafts or publish.
   - launch:approval-packet writes local approval packets only; it does not approve or publish.
   - launch:approve writes local approval ledger and packet artifacts only; it does not schedule or publish.
+  - linkedin:article-transfer writes local browser-transfer packets only; it does not open LinkedIn or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
   - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
@@ -1959,6 +1983,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'linkedin:capture-list') {
     return linkedinCaptureList();
+  }
+  if (command === 'linkedin:article-transfer') {
+    return linkedinArticleTransferCommand(slug ?? 'all');
   }
   if (command === 'obsidian:scan') {
     return obsidianScan();

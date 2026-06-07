@@ -35,6 +35,9 @@ import {
   recordLaunchApproval,
 } from '../../scripts/lib/launch-approval-ledger.mjs';
 import {
+  buildLinkedInArticleTransferPackets,
+} from '../../scripts/lib/linkedin-article-transfer.mjs';
+import {
   approveArticleAudio,
   audioStatus,
   generateArticleAudio,
@@ -147,6 +150,16 @@ type LaunchApprovalPacketOptions = {
   generatedAt?: string;
 };
 
+type LinkedInArticleTransferOptions = {
+  launchPlan: Record<string, any>;
+  articlesRoot: string;
+  publicRoot: string;
+  outputRoot: string;
+  slug?: string;
+  write?: boolean;
+  generatedAt?: string;
+};
+
 type SocialN8nExportOptions = {
   socialCalendar: ReturnType<typeof buildSocialSchedule>;
   inventory: Record<string, unknown>;
@@ -212,6 +225,9 @@ const approveLaunchGate = recordLaunchApproval as unknown as (
     generatedAt?: string;
   }
 ) => ReturnType<typeof recordLaunchApproval>;
+const generateLinkedInArticleTransfer = buildLinkedInArticleTransferPackets as unknown as (
+  options: LinkedInArticleTransferOptions
+) => ReturnType<typeof buildLinkedInArticleTransferPackets>;
 const generateN8nExport = buildN8nExport as unknown as (
   options: SocialN8nExportOptions
 ) => ReturnType<typeof buildN8nExport>;
@@ -1237,6 +1253,141 @@ describe('social automation substrate', () => {
       approvedAt: '2026-06-07T01:00:00.000Z',
       note: 'Hero looks good.',
     });
+  });
+
+  it('builds safe LinkedIn Article transfer packets from canonical article markdown', () => {
+    const root = tempRoot();
+    mkdirSync(join(root, 'content/articles/the-factory'), { recursive: true });
+    mkdirSync(join(root, 'public/blog/the-factory/images'), { recursive: true });
+    writeFileSync(join(root, 'public/blog/the-factory/images/hero-linkedin.png'), 'fake image bytes');
+    writeFileSync(
+      join(root, 'content/articles/the-factory/index.md'),
+      `---
+title: "The Factory"
+description: "Factory description"
+canonicalUrl: "https://davidmieloch.com/blog/the-factory"
+series: "Factory Primitives"
+coverImage: "/blog/the-factory/images/hero-linkedin.png"
+---
+
+# The Factory
+
+![Factory](/blog/the-factory/images/hero-linkedin.png)
+
+## The Primitive
+
+The factory turns repeated agent labor into substrate.
+
+\`\`\`ts
+const keepTheIdea = true;
+\`\`\`
+`,
+    );
+
+    const transfer = generateLinkedInArticleTransfer({
+      launchPlan: {
+        articles: [
+          {
+            slug: 'the-factory',
+            title: 'The Factory',
+          },
+        ],
+      },
+      articlesRoot: join(root, 'content/articles'),
+      publicRoot: join(root, 'public'),
+      outputRoot: join(root, 'content/distribution/linkedin-article-transfer'),
+      generatedAt: '2026-06-07T03:00:00.000Z',
+    });
+
+    expect(transfer.publicPublishingPerformed).toBe(false);
+    expect(transfer.safeDefault).toBe('stop-at-linkedin-draft-preview');
+    expect(transfer.summary).toMatchObject({
+      selectedArticles: 1,
+      heroImagesPresent: 1,
+    });
+    expect(transfer.packets[0]).toMatchObject({
+      slug: 'the-factory',
+      title: 'The Factory',
+      subtitle: 'Factory description',
+      canonicalUrl: 'https://davidmieloch.com/blog/the-factory',
+      safety: {
+        publicPublishingAllowed: false,
+        requiresDavidApproval: true,
+      },
+      browserStaging: {
+        destination: 'https://www.linkedin.com/pulse/new/',
+        stopBefore: 'publish-submit-schedule',
+      },
+      heroImage: {
+        exists: true,
+      },
+    });
+    expect(transfer.packets[0].bodyMarkdown).toContain('## The Primitive');
+    expect(transfer.packets[0].bodyMarkdown).toContain('const keepTheIdea = true;');
+    expect(transfer.packets[0].bodyMarkdown).not.toContain('![Factory]');
+  });
+
+  it('writes LinkedIn Article transfer JSON and Markdown packets through the CLI', () => {
+    const root = tempRoot();
+    mkdirSync(join(root, 'content/articles/the-factory'), { recursive: true });
+    mkdirSync(join(root, 'content/distribution'), { recursive: true });
+    mkdirSync(join(root, 'public/blog/the-factory/images'), { recursive: true });
+    writeFileSync(join(root, 'public/blog/the-factory/images/hero-linkedin.png'), 'fake image bytes');
+    writeFileSync(
+      join(root, 'content/distribution/factory-primitives-launch-plan.json'),
+      JSON.stringify({
+        series: 'Factory Primitives',
+        articles: [
+          {
+            slug: 'the-factory',
+            title: 'The Factory',
+          },
+        ],
+      }, null, 2),
+    );
+    writeFileSync(
+      join(root, 'content/articles/the-factory/index.md'),
+      `---
+title: "The Factory"
+description: "Factory description"
+canonicalUrl: "https://davidmieloch.com/blog/the-factory"
+coverImage: "/blog/the-factory/images/hero-linkedin.png"
+---
+
+# The Factory
+
+The factory turns repeated agent labor into substrate.
+`,
+    );
+
+    const result = runPipelineCommand(root, [
+      'linkedin:article-transfer',
+      'all',
+      '--write',
+      '--output=content/distribution/linkedin-article-transfer',
+    ]);
+
+    expect(result.status).toBe(0);
+    const jsonPath = join(
+      root,
+      'content/distribution/linkedin-article-transfer/the-factory/linkedin-article-transfer.json',
+    );
+    const markdownPath = join(
+      root,
+      'content/distribution/linkedin-article-transfer/the-factory/linkedin-article-transfer.md',
+    );
+    const packet = JSON.parse(readFileSync(jsonPath, 'utf8'));
+    const markdown = readFileSync(markdownPath, 'utf8');
+    expect(packet).toMatchObject({
+      slug: 'the-factory',
+      title: 'The Factory',
+      safety: {
+        safeDefault: 'stop-at-linkedin-draft-preview',
+        publicPublishingAllowed: false,
+      },
+    });
+    expect(markdown).toContain('Stop before: publish-submit-schedule');
+    expect(markdown).toContain('The factory turns repeated agent labor into substrate.');
   });
 
   it('blocks non-dry-run Postiz pushes until the API adapter is verified', () => {
