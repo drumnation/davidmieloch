@@ -103,7 +103,7 @@ const approvalArticles = approvalPacket.articles as ApprovalArticle[];
 const interiorArticles = interiorImagePlan.articles as InteriorImageArticle[];
 
 export default function DraftLabPage() {
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.DRAFT_LAB_ENABLED !== "1") {
     notFound();
   }
 
