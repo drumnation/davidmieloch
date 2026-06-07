@@ -22,6 +22,9 @@ import {
   buildLinkedInArticleTransferPackets,
 } from './lib/linkedin-article-transfer.mjs';
 import {
+  buildInteriorImagePlan,
+} from './lib/interior-image-plan.mjs';
+import {
   buildDistributionQueue,
   distributionQueueMarkdown,
   filterDistributionQueue,
@@ -96,6 +99,7 @@ const factoryPrimitivesLaunchPlanPath = path.join(contentRoot, 'distribution/fac
 const factoryPrimitivesApprovalPacketPath = path.join(contentRoot, 'distribution/factory-primitives-approval-packet.json');
 const factoryPrimitivesApprovalLedgerPath = path.join(contentRoot, 'distribution/factory-primitives-approval-ledger.json');
 const linkedinArticleTransferRoot = path.join(contentRoot, 'distribution/linkedin-article-transfer');
+const factoryPrimitivesInteriorImagePlanPath = path.join(contentRoot, 'distribution/factory-primitives-interior-image-plan.json');
 const publishSchedulePath = path.join(contentRoot, 'distribution/publish-schedule.json');
 const contentLedgerPath = path.join(contentRoot, 'distribution/content-ledger.json');
 const syndicationPolicyPath = path.join(contentRoot, 'distribution/syndication-policy.json');
@@ -637,6 +641,37 @@ function launchApprovalPacketCommand() {
       teasers: teasersPath,
       approvalLedger: approvalLedgerPath,
     },
+    ...(options.write ? { outputPath } : {}),
+  };
+}
+
+function interiorImagePlanCommand() {
+  const options = parseCommandOptions(2);
+  const launchPlanPath = options['launch-plan']
+    ? path.resolve(appRoot, options['launch-plan'])
+    : factoryPrimitivesLaunchPlanPath;
+  const outputPath = options.output
+    ? path.resolve(appRoot, options.output)
+    : factoryPrimitivesInteriorImagePlanPath;
+  const countPerArticle = Number(options.count ?? 5);
+  const variantsPerPlacement = Number(options.variants ?? 2);
+  const plan = buildInteriorImagePlan({
+    launchPlan: JSON.parse(fs.readFileSync(launchPlanPath, 'utf8')),
+    articlesRoot,
+    outputPath,
+    countPerArticle,
+    variantsPerPlacement,
+    write: Boolean(options.write),
+  });
+  observeCommand('image:interior-plan', null, 'PASS', {
+    outputPath: options.write ? path.relative(appRoot, outputPath) : null,
+    articles: plan.articles.length,
+    approvedImageTarget: plan.strategy.approvedImageTarget,
+    candidateVariantTarget: plan.strategy.candidateVariantTarget,
+  });
+  return {
+    ...plan,
+    launchPlanPath,
     ...(options.write ? { outputPath } : {}),
   };
 }
@@ -1761,6 +1796,7 @@ function usage() {
   pnpm content:pipeline launch:due [--now=<iso-date>]
   pnpm content:pipeline launch:approval-packet [--write] [--output=<path>] [--launch-plan=<path>] [--site-calendar=<path>] [--social-calendar=<path>] [--teasers=<path>] [--approval-ledger=<path>]
   pnpm content:pipeline launch:approve <slug|all> <gate|all> [--by=David] [--note=<text>]
+  pnpm content:pipeline image:interior-plan [--write] [--output=<path>] [--launch-plan=<path>] [--count=5] [--variants=2]
   pnpm content:pipeline linkedin:article-transfer <slug|all> [--write] [--output=<path>] [--launch-plan=<path>]
   pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]
   pnpm content:pipeline schedule:due [--now=<iso-date>] [--input=<path>]
@@ -1810,6 +1846,7 @@ Safety:
   - schedule commands create/read local schedule artifacts only; they do not create drafts or publish.
   - launch:approval-packet writes local approval packets only; it does not approve or publish.
   - launch:approve writes local approval ledger and packet artifacts only; it does not schedule or publish.
+  - image:interior-plan writes local image briefs and review queues only; it does not call a paid image API.
   - linkedin:article-transfer writes local browser-transfer packets only; it does not open LinkedIn or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
@@ -1890,6 +1927,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'launch:approve' && slug) {
     return launchApproveCommand(slug);
+  }
+  if (command === 'image:interior-plan') {
+    return interiorImagePlanCommand();
   }
   if (command === 'schedule:generate') {
     return publishScheduleGenerateCommand();

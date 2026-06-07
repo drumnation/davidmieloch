@@ -1,0 +1,743 @@
+{
+  "schemaVersion": "interior-image-plan-v1",
+  "generatedAt": "2026-06-07T06:56:56.629Z",
+  "strategy": {
+    "goal": "Generate article-body art, not hero art, for the next Factory Primitives release batch.",
+    "reviewSurface": "/draft-lab",
+    "approvedImageTarget": 25,
+    "candidateVariantTarget": 50,
+    "approvalRule": "David approves one variant per placement before assets are copied into the public article.",
+    "spendRule": "Generation commands must require explicit --spend-approved."
+  },
+  "articles": [
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+      "description": "AI cost pressure is not the bubble popping. It is the filter separating prompt users from people who built real factories.",
+      "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+      "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+      "targetApprovedImages": 5,
+      "candidateVariants": 10,
+      "placements": [
+        {
+          "id": "inline-01",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "What the Price Increase Actually Reveals",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: What the Price Increase Actually Reveals",
+          "captionSeed": "a black-hole sieve mounted inside a brass factory gate, only the strongest machine parts passing through",
+          "sectionExcerpt": "The subsidized rates didn't just lower costs. They obscured something important: most AI use wasn't generating proportional value. Using AI as a smart autocomplete, a faster Google, a writing assistant, a pair-programming buddy: these uses are real and have ge",
+          "variants": [
+            {
+              "id": "inline-01-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"What the Price Increase Actually Reveals\". Illustrate: a black-hole sieve mounted inside a brass factory gate, only the strongest machine parts passing through. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "069d15510aad0e4016236bf32e4839ad15a9a24e2f8bf573c408b046475db8fb"
+            },
+            {
+              "id": "inline-01-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"What the Price Increase Actually Reveals\". Illustrate: a black-hole sieve mounted inside a brass factory gate, only the strongest machine parts passing through. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "3ad3bfee8d609f8a5598eacc64403921b343d5ef1897429fb1b55f8db7c94a54"
+            }
+          ]
+        },
+        {
+          "id": "inline-02",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Factory Model",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: The Factory Model",
+          "captionSeed": "a frontier refinery line where unstable prototype robots are filtered out by gravity wells",
+          "sectionExcerpt": "What I've been building (and what I believe the serious players at Big Tech are building right now, even if they're not talking about it publicly) is a different thing. It's a pipeline. A system where agents handle code review, CI, pull request management, tes",
+          "variants": [
+            {
+              "id": "inline-02-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"The Factory Model\". Illustrate: a frontier refinery line where unstable prototype robots are filtered out by gravity wells. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "5db1015dab2d48b6e277230f18438b48c340884701035d1f627e2d5aa80f0245"
+            },
+            {
+              "id": "inline-02-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"The Factory Model\". Illustrate: a frontier refinery line where unstable prototype robots are filtered out by gravity wells. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "896719f733003491b52a7d29db83d734bc767d8043401bbdb35741e607495efe"
+            }
+          ]
+        },
+        {
+          "id": "inline-03",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "Why the Problems Made This Necessary",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: Why the Problems Made This Necessary",
+          "captionSeed": "a glowing cost pressure gauge welded to a chocolate-metal conveyor, needle near the red zone",
+          "sectionExcerpt": "I'm not building a factory because it's an interesting technical challenge. I'm building it because the problems I'm trying to solve can't be solved any other way. There's a category of problem that's common in mature software companies: mountains of legacy sy",
+          "variants": [
+            {
+              "id": "inline-03-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"Why the Problems Made This Necessary\". Illustrate: a glowing cost pressure gauge welded to a chocolate-metal conveyor, needle near the red zone. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "77cc05ae2d0cc136e8c834c9ba1dda9f573dd0286a76ce328cba811de9086f55"
+            },
+            {
+              "id": "inline-03-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"Why the Problems Made This Necessary\". Illustrate: a glowing cost pressure gauge welded to a chocolate-metal conveyor, needle near the red zone. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "460466e14d0bbb2fae01ada951c5c09a361cd889121556509199a3284c6f640d"
+            }
+          ]
+        },
+        {
+          "id": "inline-04",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "Time Compression as Risk Reduction",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: Time Compression as Risk Reduction",
+          "captionSeed": "a small factory model outperforming a huge ornate machine under a desert observatory roof",
+          "sectionExcerpt": "One thing I don't hear discussed enough: the value of AI factories isn't just throughput. It's what compressed timelines do to risk. If a project needs to reach a certain state in twelve months and you can get to 90% of that state in one month, you've bought y",
+          "variants": [
+            {
+              "id": "inline-04-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"Time Compression as Risk Reduction\". Illustrate: a small factory model outperforming a huge ornate machine under a desert observatory roof. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "b92728c0d26c56c18d01ffebc217319b69c3186cb2a114234c13ceaa36384add"
+            },
+            {
+              "id": "inline-04-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"Time Compression as Risk Reduction\". Illustrate: a small factory model outperforming a huge ornate machine under a desert observatory roof. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "9d2347a5c11e43a9809917061e9c1b67734329231f3043ab6d80b03aadd2bbc1"
+            }
+          ]
+        },
+        {
+          "id": "inline-05",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Filter Is Working",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: The Filter Is Working",
+          "captionSeed": "a final inspection gate labeled only by symbols, separating toys from production machinery",
+          "sectionExcerpt": "So here's where I land: the 23x feels like a rug pull if you were using AI at human scale. And for a lot of use cases, it probably was: not because the tools are bad, but because the use cases weren't generating 23x the value. That's not a disaster. That's inf",
+          "variants": [
+            {
+              "id": "inline-05-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"The Filter Is Working\". Illustrate: a final inspection gate labeled only by symbols, separating toys from production machinery. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "f6bb7884f386b052d2d85ade4cf73cce86d8396e1e1cc5d6fffafb0fb4cbcaa7"
+            },
+            {
+              "id": "inline-05-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"The Filter Is Working\". Illustrate: a final inspection gate labeled only by symbols, separating toys from production machinery. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "9170e664f31b75e282c41b4b145d477b0b6db49fad7fd29c9826c577853540cb"
+            }
+          ]
+        }
+      ],
+      "releaseTarget": "2026-06-10",
+      "imageBriefPath": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md",
+      "articleImagePlanPath": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/interior-plan.json"
+    },
+    {
+      "slug": "the-ai-bill-you-cant-predict",
+      "title": "The AI Bill You Can't Predict",
+      "description": "AI billing is not just expensive. It is a moving formula most teams cannot observe, audit, or govern yet.",
+      "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+      "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+      "targetApprovedImages": 5,
+      "candidateVariants": 10,
+      "placements": [
+        {
+          "id": "inline-01",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Formula You Don't Control",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Bill You Can't Predict: The Formula You Don't Control",
+          "captionSeed": "an analog compute-meter spinning under a glass dome in a moonlit factory office",
+          "sectionExcerpt": "When you use any major AI API today, you're billed based on a set of rules the provider controls and can change. Context window size, caching behavior, agent spawning costs, output token rates, batching discounts: each is a variable in a formula that the vendo",
+          "variants": [
+            {
+              "id": "inline-01-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Formula You Don't Control\". Illustrate: an analog compute-meter spinning under a glass dome in a moonlit factory office. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "1cd54643d1f3675080f262d3df822cfb52b88df74f1ea44b8b7d445e645afd27"
+            },
+            {
+              "id": "inline-01-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Formula You Don't Control\". Illustrate: an analog compute-meter spinning under a glass dome in a moonlit factory office. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "b9da729fdb2a190f58b842890e7aa859fcd5204aee16bfa4145ed566f631e4f4"
+            }
+          ]
+        },
+        {
+          "id": "inline-02",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "Why This Is Hard to See",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Bill You Can't Predict: Why This Is Hard to See",
+          "captionSeed": "a brass invoice machine printing endless blank paper into a canyon wind",
+          "sectionExcerpt": "Part of what makes this hard to monitor is that AI billing is genuinely complex. A single agent interaction might involve: an initial system prompt that may or may not be cached, a history of previous turns with caching rules that depend on length and content,",
+          "variants": [
+            {
+              "id": "inline-02-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"Why This Is Hard to See\". Illustrate: a brass invoice machine printing endless blank paper into a canyon wind. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "bbd4d6ae1d74eaf3a8105d764e770ddd7dfee8961efefcba02de9f3c9437e4af"
+            },
+            {
+              "id": "inline-02-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"Why This Is Hard to See\". Illustrate: a brass invoice machine printing endless blank paper into a canyon wind. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "3e2d9fc833eacf103e683cc9d69262cca568023413c3e50e0dd7ac3459f25eb6"
+            }
+          ]
+        },
+        {
+          "id": "inline-03",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Enterprise Risk",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Bill You Can't Predict: The Enterprise Risk",
+          "captionSeed": "a star-map budget board made of gears, dials, and orbit lines without readable text",
+          "sectionExcerpt": "This creates a specific kind of risk for organizations building on AI infrastructure. You model your costs based on current behavior. You build a factory, observe costs for a few weeks, develop a cost-per-task intuition, and build your business case on that in",
+          "variants": [
+            {
+              "id": "inline-03-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Enterprise Risk\". Illustrate: a star-map budget board made of gears, dials, and orbit lines without readable text. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "fae16689229d9ccbe44cf43a8ec364134aed7597a748285e7680bf050d7ecd31"
+            },
+            {
+              "id": "inline-03-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Enterprise Risk\". Illustrate: a star-map budget board made of gears, dials, and orbit lines without readable text. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "11d2776b66fa097ef5bf407f8723b61c9e4e4803ed67738e6bd300a87eef9b91"
+            }
+          ]
+        },
+        {
+          "id": "inline-04",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "What Good Looks Like",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Bill You Can't Predict: What Good Looks Like",
+          "captionSeed": "a foreman desk with five levers connected to hidden pipes, each lever changing the meter",
+          "sectionExcerpt": "The organizations managing this well have a few things in common. They instrument everything. Every agent call, every token count, every sub-task: logged and monitored with real-time alerting on cost anomalies. The meter may not always make sense, but at least",
+          "variants": [
+            {
+              "id": "inline-04-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"What Good Looks Like\". Illustrate: a foreman desk with five levers connected to hidden pipes, each lever changing the meter. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "6da2f554a29a5e5adfcb0ae6ca385b2e32d238789dc09e742cb92b898b05d271"
+            },
+            {
+              "id": "inline-04-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"What Good Looks Like\". Illustrate: a foreman desk with five levers connected to hidden pipes, each lever changing the meter. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "eab2b18fa50b69831da113052c75748fefb93497d9a5936ed36d40a2628a8209"
+            }
+          ]
+        },
+        {
+          "id": "inline-05",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Broader Point",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The AI Bill You Can't Predict: The Broader Point",
+          "captionSeed": "a frontier weather station forecasting compute storms over a dark factory town",
+          "sectionExcerpt": "The AI cost normalization happening right now is the right direction: subsidized rates that obscured real costs are giving way to something more honest. But more honest doesn't mean transparent. The headline number is becoming real. The formula underneath it i",
+          "variants": [
+            {
+              "id": "inline-05-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Broader Point\". Illustrate: a frontier weather station forecasting compute storms over a dark factory town. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "34d7ce83680c36a2fe769201b0823bbade6de529bebc0526ba8fce3d7e205082"
+            },
+            {
+              "id": "inline-05-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Broader Point\". Illustrate: a frontier weather station forecasting compute storms over a dark factory town. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "f6b8faa687b157d222936874630a1fa92ab19804904007c59e75677015235faa"
+            }
+          ]
+        }
+      ],
+      "releaseTarget": "2026-06-13",
+      "imageBriefPath": "content/articles/the-ai-bill-you-cant-predict/image-brief.md",
+      "articleImagePlanPath": "content/articles/the-ai-bill-you-cant-predict/images/interior-plan.json"
+    },
+    {
+      "slug": "the-most-valuable-ai-skill-isnt-prompting",
+      "title": "The Most Valuable AI Skill Isn't Prompting",
+      "description": "In a factory, the scarce skill is not prompting. It is noticing what is wrong before the system compounds it.",
+      "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+      "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+      "targetApprovedImages": 5,
+      "candidateVariants": 10,
+      "placements": [
+        {
+          "id": "inline-01",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "What a Factory Changes",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Most Valuable AI Skill Isn't Prompting: What a Factory Changes",
+          "captionSeed": "a watchtower observer spotting repeated patterns across factory rails before the crew notices",
+          "sectionExcerpt": "When you move from prompting to factory, the bottleneck shifts. In the pair-programming model, the human is everything: the prompter, the reviewer, the judge. Prompting skill matters because the human is in every loop. In a factory, the human is the director. ",
+          "variants": [
+            {
+              "id": "inline-01-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What a Factory Changes\". Illustrate: a watchtower observer spotting repeated patterns across factory rails before the crew notices. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "7e9efef8130e478e285cecdb7ff4daa1aebbd680155fd61782c40e3928cb52f0"
+            },
+            {
+              "id": "inline-01-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What a Factory Changes\". Illustrate: a watchtower observer spotting repeated patterns across factory rails before the crew notices. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "8c7b7f1d2ddd48163ce9563a7ca028da30141bb031ff1d2bd957ed6c6b62444b"
+            }
+          ]
+        },
+        {
+          "id": "inline-02",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "What Noticing Actually Is",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Most Valuable AI Skill Isn't Prompting: What Noticing Actually Is",
+          "captionSeed": "a prompt scroll being replaced by steel rails and reusable machine jigs",
+          "sectionExcerpt": "Noticing isn't just code review. It's a higher-order pattern-matching skill: You see an architectural decision in PR 47 that's technically correct but will create a coupling problem in six months. You see a test suite that passes but is testing the wrong thing",
+          "variants": [
+            {
+              "id": "inline-02-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What Noticing Actually Is\". Illustrate: a prompt scroll being replaced by steel rails and reusable machine jigs. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "69867645e9ef436234f1b82545e2ae194ab83ec426b7558a25cb3448df1c1e75"
+            },
+            {
+              "id": "inline-02-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What Noticing Actually Is\". Illustrate: a prompt scroll being replaced by steel rails and reusable machine jigs. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "5261715a9385f37f3fe4f28b65022d9d387cd391dd524360c7b6c731bf2c4f00"
+            }
+          ]
+        },
+        {
+          "id": "inline-03",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "Why Prompting Skill Has a Ceiling",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Most Valuable AI Skill Isn't Prompting: Why Prompting Skill Has a Ceiling",
+          "captionSeed": "a signal scout marking useful anomalies on a brass map table inside a control room",
+          "sectionExcerpt": "Prompting skill is valuable. I'm not dismissing it. But it has a structural ceiling. A good prompter can get better outputs from a model. But the output is still evaluated by the prompter. The loop requires a human to initiate, judge, and continue. At scale, t",
+          "variants": [
+            {
+              "id": "inline-03-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"Why Prompting Skill Has a Ceiling\". Illustrate: a signal scout marking useful anomalies on a brass map table inside a control room. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "2363439f584eb39b199ba6f6dde474a26cdcb991c48fb9a64f7a1298d301af15"
+            },
+            {
+              "id": "inline-03-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"Why Prompting Skill Has a Ceiling\". Illustrate: a signal scout marking useful anomalies on a brass map table inside a control room. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "1ce334ee345ecd243719a691b31b4af7cb725da451d7c3b5e150a073b687ee41"
+            }
+          ]
+        },
+        {
+          "id": "inline-04",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "What This Means for Teams",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Most Valuable AI Skill Isn't Prompting: What This Means for Teams",
+          "captionSeed": "a workshop wall where clever one-off tricks become labeled tools, rendered without readable text",
+          "sectionExcerpt": "Right now, most organizations are evaluating AI capability on prompting skill. Who here is good at getting AI to produce things? That's the metric they can measure. The better question is: who here is good at seeing what's wrong with what AI produced? These ar",
+          "variants": [
+            {
+              "id": "inline-04-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What This Means for Teams\". Illustrate: a workshop wall where clever one-off tricks become labeled tools, rendered without readable text. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "f53c1742470c3d893aff89087ab3f183f8004f0a48fe188b0a819a7c6b7fd40e"
+            },
+            {
+              "id": "inline-04-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What This Means for Teams\". Illustrate: a workshop wall where clever one-off tricks become labeled tools, rendered without readable text. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "d599817a7091408b0c5709e57ddaafef8bb90a214103dc08cfabc138b0e97fca"
+            }
+          ]
+        },
+        {
+          "id": "inline-05",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Practical Implication",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Most Valuable AI Skill Isn't Prompting: The Practical Implication",
+          "captionSeed": "a quiet operator noticing the machine rhythm while robots keep working in the background",
+          "sectionExcerpt": "If you're building a team for an AI-first environment, hire for noticing before hiring for prompting skill. A clever prompter without good judgment will ship impressive-looking things that fail in subtle ways. A good noticer with even moderate prompting skill ",
+          "variants": [
+            {
+              "id": "inline-05-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"The Practical Implication\". Illustrate: a quiet operator noticing the machine rhythm while robots keep working in the background. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "1c9b9fb829aa2fc300acb1c976903467c7fafc1582c4ff5f429c89f1dbf0d87d"
+            },
+            {
+              "id": "inline-05-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"The Practical Implication\". Illustrate: a quiet operator noticing the machine rhythm while robots keep working in the background. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "673bab0adcb7ad4f11c6f69c121447e90cdd1960246eb4cb7ed63ad0f74521c0"
+            }
+          ]
+        }
+      ],
+      "releaseTarget": "2026-06-17",
+      "imageBriefPath": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-brief.md",
+      "articleImagePlanPath": "content/articles/the-most-valuable-ai-skill-isnt-prompting/images/interior-plan.json"
+    },
+    {
+      "slug": "the-credibility-problem-with-ai-corporate-communications",
+      "title": "The Credibility Problem with AI Corporate Communications",
+      "description": "Synthetic corporate persuasion removes the person staking their credibility on the claim, and people can feel the gap.",
+      "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+      "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+      "targetApprovedImages": 5,
+      "candidateVariants": 10,
+      "placements": [
+        {
+          "id": "inline-01",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "Persuasion Has Always Required a Person",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Credibility Problem with AI Corporate Communications: Persuasion Has Always Required a Person",
+          "captionSeed": "an empty podium wired to a beautiful automatic speech machine, audience silhouettes skeptical",
+          "sectionExcerpt": "When your CEO gives a speech about the company's values, about why you should believe in the mission, about what the future holds, you're not just receiving information. You're receiving a claim made by a specific person who has skin in the game. Their reputat",
+          "variants": [
+            {
+              "id": "inline-01-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"Persuasion Has Always Required a Person\". Illustrate: an empty podium wired to a beautiful automatic speech machine, audience silhouettes skeptical. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "91e82dfa6b4b4efdcea94dd22a3fd2d3a02a28376ec39d3745a131f28ea3b496"
+            },
+            {
+              "id": "inline-01-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"Persuasion Has Always Required a Person\". Illustrate: an empty podium wired to a beautiful automatic speech machine, audience silhouettes skeptical. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "a5e9eea4a284ccac3251de7b14c79a17b46a0f72f6ce55c3b4caab93f613b44a"
+            }
+          ]
+        },
+        {
+          "id": "inline-02",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Medium Contradicts the Message",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Credibility Problem with AI Corporate Communications: The Medium Contradicts the Message",
+          "captionSeed": "a polished broadcast mask hanging beside a human signature stamp in a factory office",
+          "sectionExcerpt": "Here's the deeper irony: using AI to communicate company values demonstrates, in the act of delivering them, that authenticity isn't actually valued. If the message is \"we care about our people, we have real standards, we're building something worth believing ",
+          "variants": [
+            {
+              "id": "inline-02-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Medium Contradicts the Message\". Illustrate: a polished broadcast mask hanging beside a human signature stamp in a factory office. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "ba23a297be2cf3b2adfe256a18edc46c4d36562e245a6493ab6efca96ebbc555"
+            },
+            {
+              "id": "inline-02-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Medium Contradicts the Message\". Illustrate: a polished broadcast mask hanging beside a human signature stamp in a factory office. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "70b00ef80782fd3be734e84862dea177413eae67c2b7511dbecfc3714690b867"
+            }
+          ]
+        },
+        {
+          "id": "inline-03",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "Who Is Telling Me This?",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Credibility Problem with AI Corporate Communications: Who Is Telling Me This?",
+          "captionSeed": "a trust ledger as a brass scale, one side holding automation, the other holding accountability",
+          "sectionExcerpt": "The thing is, when a real employee (even a mid-level manager, even someone you've never met) delivers a message about company culture, there's something implicit in that moment: this person chose to say this. They could have said something else. They work here",
+          "variants": [
+            {
+              "id": "inline-03-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"Who Is Telling Me This?\". Illustrate: a trust ledger as a brass scale, one side holding automation, the other holding accountability. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "c4b8d211d0a0ef390d192846d0081451a1f67119bf93d604c8f3ff65ede09aa2"
+            },
+            {
+              "id": "inline-03-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"Who Is Telling Me This?\". Illustrate: a trust ledger as a brass scale, one side holding automation, the other holding accountability. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "5598c45618adbb41f2aa86b0d985714989fbd86025bd1b0e38a8c7563f90a509"
+            }
+          ]
+        },
+        {
+          "id": "inline-04",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Lens I Can't Stop Using",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Credibility Problem with AI Corporate Communications: The Lens I Can't Stop Using",
+          "captionSeed": "a message capsule leaving a machine room but losing its shadow before reaching people",
+          "sectionExcerpt": "Here's where I have to be honest about my own vantage point. I spend a lot of time thinking about what I'd call a factory model for AI: the idea that if you want to build something that scales, you have to assume agents can handle everything, or you get bottle",
+          "variants": [
+            {
+              "id": "inline-04-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Lens I Can't Stop Using\". Illustrate: a message capsule leaving a machine room but losing its shadow before reaching people. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "ff89f529ea21a06e098f18ce21caf03ed53e16fc2678991431ae0c10bf2fdcd1"
+            },
+            {
+              "id": "inline-04-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Lens I Can't Stop Using\". Illustrate: a message capsule leaving a machine room but losing its shadow before reaching people. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "25b65371696b517153a00e6300060e5c5b936c078443fd35f4958686030fbc23"
+            }
+          ]
+        },
+        {
+          "id": "inline-05",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Puzzle Solves Itself",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Credibility Problem with AI Corporate Communications: The Puzzle Solves Itself",
+          "captionSeed": "a frontier town bulletin board with unsigned machine-made announcements, no readable words",
+          "sectionExcerpt": "Once you hold that frame, the uncanny valley resolves into something else. The video doesn't feel wrong because AI is bad at persuasion. It feels wrong because it's trying to solve a human problem (belief formation, motivation, loyalty) using the same tools th",
+          "variants": [
+            {
+              "id": "inline-05-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Puzzle Solves Itself\". Illustrate: a frontier town bulletin board with unsigned machine-made announcements, no readable words. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "18f8c6849aa0c6fe481428ac3668d8c26c1bd21898248b2aef437b5b55020861"
+            },
+            {
+              "id": "inline-05-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Puzzle Solves Itself\". Illustrate: a frontier town bulletin board with unsigned machine-made announcements, no readable words. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "05aebcd0232940856328879e1074fcb32c672d80108bdc1afac6a56f1f4cf03f"
+            }
+          ]
+        }
+      ],
+      "releaseTarget": "2026-06-20",
+      "imageBriefPath": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-brief.md",
+      "articleImagePlanPath": "content/articles/the-credibility-problem-with-ai-corporate-communications/images/interior-plan.json"
+    },
+    {
+      "slug": "the-crew-seed",
+      "title": "The Crew",
+      "description": "Three humans operating one factory is not a pod. It is an early shape of the next software organization.",
+      "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+      "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+      "targetApprovedImages": 5,
+      "candidateVariants": 10,
+      "placements": [
+        {
+          "id": "inline-01",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Thesis",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Crew: The Thesis",
+          "captionSeed": "three specialized workstations in a compact factory control room, each with a distinct glowing role signal",
+          "sectionExcerpt": "Three strong human engineers, focusing their attention on using an amplified system to improve the system itself, can produce software at a speed and quality that is simply not comparable to what those same engineers could do by hand. The leverage is not in th",
+          "variants": [
+            {
+              "id": "inline-01-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Thesis\". Illustrate: three specialized workstations in a compact factory control room, each with a distinct glowing role signal. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "ba4d5134fcb992c5f1ac36414f64f6eced4e2abc65fcbd7b6be3bb716dc7e7b0"
+            },
+            {
+              "id": "inline-01-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Thesis\". Illustrate: three specialized workstations in a compact factory control room, each with a distinct glowing role signal. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "3ccbe6fd5517e8cad4731cb09f233387f5783c8190a4feef908c226b44fcc3d0"
+            }
+          ]
+        },
+        {
+          "id": "inline-02",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Roles Are Temporary",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Crew: The Roles Are Temporary",
+          "captionSeed": "a seed crystal becoming a crew map inside a glass dome on a brass lab bench",
+          "sectionExcerpt": "Here is the part that is easy to miss: the foreman roles are not permanent. Right now, the work sits at a specific layer of the stack. One person may lead economics: cost optimization, model routing, token efficiency, and the boring math that keeps the system ",
+          "variants": [
+            {
+              "id": "inline-02-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Roles Are Temporary\". Illustrate: a seed crystal becoming a crew map inside a glass dome on a brass lab bench. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "ec020c1d051283d1c68515c370f621c0f6b0ef77e9e4937b8e4a885f72278ece"
+            },
+            {
+              "id": "inline-02-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Roles Are Temporary\". Illustrate: a seed crystal becoming a crew map inside a glass dome on a brass lab bench. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "263c1626b398e43695f6077ed90484f32021e1f4f532c2e118976c4a6788050b"
+            }
+          ]
+        },
+        {
+          "id": "inline-03",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "What the Crew Actually Does",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Crew: What the Crew Actually Does",
+          "captionSeed": "temporary role badges hanging on hooks beside reusable factory tools",
+          "sectionExcerpt": "The crew's work is not glamorous in the way AI demos are glamorous. The crew notices that an agent had to repeat a browser action three times and asks whether that should become a tool. The crew notices that an article launch depends on a human remembering sev",
+          "variants": [
+            {
+              "id": "inline-03-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"What the Crew Actually Does\". Illustrate: temporary role badges hanging on hooks beside reusable factory tools. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "5dd3969528e5495363d843732a0437d660db620c79abae0b2e39b46dd1454e17"
+            },
+            {
+              "id": "inline-03-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"What the Crew Actually Does\". Illustrate: temporary role badges hanging on hooks beside reusable factory tools. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "30152ae311eaa317e6aa551db724071c59eefe76cdbb4634b13e383c7785c6cf"
+            }
+          ]
+        },
+        {
+          "id": "inline-04",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "Why \"Pod\" Is Too Small",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Crew: Why \"Pod\" Is Too Small",
+          "captionSeed": "a radio tower coordinating multiple small work bays across a chocolate-colored industrial frontier",
+          "sectionExcerpt": "\"Pod\" makes the team sound small. Like a self-contained, isolated unit. A bubble. Something that floats and is carried by a larger structure rather than operating at scale. The factory crew operates the structure. Three people with a working factory behind the",
+          "variants": [
+            {
+              "id": "inline-04-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"Why \"Pod\" Is Too Small\". Illustrate: a radio tower coordinating multiple small work bays across a chocolate-colored industrial frontier. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "0aa211e1b11f99bb13ddf81b1ecf96be33f0aa89af99479b1c2ecc04449f85e0"
+            },
+            {
+              "id": "inline-04-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"Why \"Pod\" Is Too Small\". Illustrate: a radio tower coordinating multiple small work bays across a chocolate-colored industrial frontier. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "7e0c76986327c00ef5b191b40ac650add4c8988dc5a945296f4cde95466f939f"
+            }
+          ]
+        },
+        {
+          "id": "inline-05",
+          "status": "needs-generation",
+          "target": {
+            "afterHeading": "The Conclusion",
+            "aspectRatio": "16:9",
+            "role": "article-interior"
+          },
+          "altText": "The Crew: The Conclusion",
+          "captionSeed": "a wide factory floor run by a small visible command crew and many unseen automated lines",
+          "sectionExcerpt": "The crew is not the final organizational form. It is a transitional shape between the human software team and the self-improving software factory. That is why it feels strange. We are still using old words for a new layer of work. Engineer. Manager. Architect.",
+          "variants": [
+            {
+              "id": "inline-05-v1",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Conclusion\". Illustrate: a wide factory floor run by a small visible command crew and many unseen automated lines. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "2393e3a75e00ecd875db2349f26e7068d9006861229284274e05fc1b3d507850"
+            },
+            {
+              "id": "inline-05-v2",
+              "status": "needs-generation",
+              "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Conclusion\". Illustrate: a wide factory floor run by a small visible command crew and many unseen automated lines. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+              "promptChecksum": "5f8971add9c15dd50c48b88c3a32b9b9370827b57d78db94f5362f50c3cee9e1"
+            }
+          ]
+        }
+      ],
+      "releaseTarget": "2026-06-24",
+      "imageBriefPath": "content/articles/the-crew-seed/image-brief.md",
+      "articleImagePlanPath": "content/articles/the-crew-seed/images/interior-plan.json"
+    }
+  ],
+  "observation": {
+    "claim": "Factory Primitives interior art has a deterministic review queue before paid generation.",
+    "status": "PASS",
+    "fallbackChain": [
+      "content/distribution/factory-primitives-interior-image-plan.json",
+      "content/articles/<slug>/image-brief.md",
+      "ROM heartbeat"
+    ]
+  }
+}

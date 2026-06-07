@@ -1,0 +1,144 @@
+{
+  "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+  "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+  "description": "AI cost pressure is not the bubble popping. It is the filter separating prompt users from people who built real factories.",
+  "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+  "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+  "targetApprovedImages": 5,
+  "candidateVariants": 10,
+  "placements": [
+    {
+      "id": "inline-01",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "What the Price Increase Actually Reveals",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: What the Price Increase Actually Reveals",
+      "captionSeed": "a black-hole sieve mounted inside a brass factory gate, only the strongest machine parts passing through",
+      "sectionExcerpt": "The subsidized rates didn't just lower costs. They obscured something important: most AI use wasn't generating proportional value. Using AI as a smart autocomplete, a faster Google, a writing assistant, a pair-programming buddy: these uses are real and have ge",
+      "variants": [
+        {
+          "id": "inline-01-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"What the Price Increase Actually Reveals\". Illustrate: a black-hole sieve mounted inside a brass factory gate, only the strongest machine parts passing through. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "069d15510aad0e4016236bf32e4839ad15a9a24e2f8bf573c408b046475db8fb"
+        },
+        {
+          "id": "inline-01-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"What the Price Increase Actually Reveals\". Illustrate: a black-hole sieve mounted inside a brass factory gate, only the strongest machine parts passing through. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "3ad3bfee8d609f8a5598eacc64403921b343d5ef1897429fb1b55f8db7c94a54"
+        }
+      ]
+    },
+    {
+      "id": "inline-02",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Factory Model",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: The Factory Model",
+      "captionSeed": "a frontier refinery line where unstable prototype robots are filtered out by gravity wells",
+      "sectionExcerpt": "What I've been building (and what I believe the serious players at Big Tech are building right now, even if they're not talking about it publicly) is a different thing. It's a pipeline. A system where agents handle code review, CI, pull request management, tes",
+      "variants": [
+        {
+          "id": "inline-02-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"The Factory Model\". Illustrate: a frontier refinery line where unstable prototype robots are filtered out by gravity wells. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "5db1015dab2d48b6e277230f18438b48c340884701035d1f627e2d5aa80f0245"
+        },
+        {
+          "id": "inline-02-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"The Factory Model\". Illustrate: a frontier refinery line where unstable prototype robots are filtered out by gravity wells. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "896719f733003491b52a7d29db83d734bc767d8043401bbdb35741e607495efe"
+        }
+      ]
+    },
+    {
+      "id": "inline-03",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "Why the Problems Made This Necessary",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: Why the Problems Made This Necessary",
+      "captionSeed": "a glowing cost pressure gauge welded to a chocolate-metal conveyor, needle near the red zone",
+      "sectionExcerpt": "I'm not building a factory because it's an interesting technical challenge. I'm building it because the problems I'm trying to solve can't be solved any other way. There's a category of problem that's common in mature software companies: mountains of legacy sy",
+      "variants": [
+        {
+          "id": "inline-03-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"Why the Problems Made This Necessary\". Illustrate: a glowing cost pressure gauge welded to a chocolate-metal conveyor, needle near the red zone. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "77cc05ae2d0cc136e8c834c9ba1dda9f573dd0286a76ce328cba811de9086f55"
+        },
+        {
+          "id": "inline-03-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"Why the Problems Made This Necessary\". Illustrate: a glowing cost pressure gauge welded to a chocolate-metal conveyor, needle near the red zone. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "460466e14d0bbb2fae01ada951c5c09a361cd889121556509199a3284c6f640d"
+        }
+      ]
+    },
+    {
+      "id": "inline-04",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "Time Compression as Risk Reduction",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: Time Compression as Risk Reduction",
+      "captionSeed": "a small factory model outperforming a huge ornate machine under a desert observatory roof",
+      "sectionExcerpt": "One thing I don't hear discussed enough: the value of AI factories isn't just throughput. It's what compressed timelines do to risk. If a project needs to reach a certain state in twelve months and you can get to 90% of that state in one month, you've bought y",
+      "variants": [
+        {
+          "id": "inline-04-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"Time Compression as Risk Reduction\". Illustrate: a small factory model outperforming a huge ornate machine under a desert observatory roof. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "b92728c0d26c56c18d01ffebc217319b69c3186cb2a114234c13ceaa36384add"
+        },
+        {
+          "id": "inline-04-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"Time Compression as Risk Reduction\". Illustrate: a small factory model outperforming a huge ornate machine under a desert observatory roof. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "9d2347a5c11e43a9809917061e9c1b67734329231f3043ab6d80b03aadd2bbc1"
+        }
+      ]
+    },
+    {
+      "id": "inline-05",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Filter Is Working",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.: The Filter Is Working",
+      "captionSeed": "a final inspection gate labeled only by symbols, separating toys from production machinery",
+      "sectionExcerpt": "So here's where I land: the 23x feels like a rug pull if you were using AI at human scale. And for a lot of use cases, it probably was: not because the tools are bad, but because the use cases weren't generating 23x the value. That's not a disaster. That's inf",
+      "variants": [
+        {
+          "id": "inline-05-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"The Filter Is Working\". Illustrate: a final inspection gate labeled only by symbols, separating toys from production machinery. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "f6bb7884f386b052d2d85ade4cf73cce86d8396e1e1cc5d6fffafb0fb4cbcaa7"
+        },
+        {
+          "id": "inline-05-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\". Section: \"The Filter Is Working\". Illustrate: a final inspection gate labeled only by symbols, separating toys from production machinery. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "9170e664f31b75e282c41b4b145d477b0b6db49fad7fd29c9826c577853540cb"
+        }
+      ]
+    }
+  ],
+  "releaseTarget": "2026-06-10",
+  "imageBriefPath": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md",
+  "articleImagePlanPath": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/interior-plan.json"
+}

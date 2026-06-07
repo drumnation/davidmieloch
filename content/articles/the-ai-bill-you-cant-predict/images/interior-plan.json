@@ -1,0 +1,144 @@
+{
+  "slug": "the-ai-bill-you-cant-predict",
+  "title": "The AI Bill You Can't Predict",
+  "description": "AI billing is not just expensive. It is a moving formula most teams cannot observe, audit, or govern yet.",
+  "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+  "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+  "targetApprovedImages": 5,
+  "candidateVariants": 10,
+  "placements": [
+    {
+      "id": "inline-01",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Formula You Don't Control",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Bill You Can't Predict: The Formula You Don't Control",
+      "captionSeed": "an analog compute-meter spinning under a glass dome in a moonlit factory office",
+      "sectionExcerpt": "When you use any major AI API today, you're billed based on a set of rules the provider controls and can change. Context window size, caching behavior, agent spawning costs, output token rates, batching discounts: each is a variable in a formula that the vendo",
+      "variants": [
+        {
+          "id": "inline-01-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Formula You Don't Control\". Illustrate: an analog compute-meter spinning under a glass dome in a moonlit factory office. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "1cd54643d1f3675080f262d3df822cfb52b88df74f1ea44b8b7d445e645afd27"
+        },
+        {
+          "id": "inline-01-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Formula You Don't Control\". Illustrate: an analog compute-meter spinning under a glass dome in a moonlit factory office. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "b9da729fdb2a190f58b842890e7aa859fcd5204aee16bfa4145ed566f631e4f4"
+        }
+      ]
+    },
+    {
+      "id": "inline-02",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "Why This Is Hard to See",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Bill You Can't Predict: Why This Is Hard to See",
+      "captionSeed": "a brass invoice machine printing endless blank paper into a canyon wind",
+      "sectionExcerpt": "Part of what makes this hard to monitor is that AI billing is genuinely complex. A single agent interaction might involve: an initial system prompt that may or may not be cached, a history of previous turns with caching rules that depend on length and content,",
+      "variants": [
+        {
+          "id": "inline-02-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"Why This Is Hard to See\". Illustrate: a brass invoice machine printing endless blank paper into a canyon wind. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "bbd4d6ae1d74eaf3a8105d764e770ddd7dfee8961efefcba02de9f3c9437e4af"
+        },
+        {
+          "id": "inline-02-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"Why This Is Hard to See\". Illustrate: a brass invoice machine printing endless blank paper into a canyon wind. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "3e2d9fc833eacf103e683cc9d69262cca568023413c3e50e0dd7ac3459f25eb6"
+        }
+      ]
+    },
+    {
+      "id": "inline-03",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Enterprise Risk",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Bill You Can't Predict: The Enterprise Risk",
+      "captionSeed": "a star-map budget board made of gears, dials, and orbit lines without readable text",
+      "sectionExcerpt": "This creates a specific kind of risk for organizations building on AI infrastructure. You model your costs based on current behavior. You build a factory, observe costs for a few weeks, develop a cost-per-task intuition, and build your business case on that in",
+      "variants": [
+        {
+          "id": "inline-03-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Enterprise Risk\". Illustrate: a star-map budget board made of gears, dials, and orbit lines without readable text. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "fae16689229d9ccbe44cf43a8ec364134aed7597a748285e7680bf050d7ecd31"
+        },
+        {
+          "id": "inline-03-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Enterprise Risk\". Illustrate: a star-map budget board made of gears, dials, and orbit lines without readable text. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "11d2776b66fa097ef5bf407f8723b61c9e4e4803ed67738e6bd300a87eef9b91"
+        }
+      ]
+    },
+    {
+      "id": "inline-04",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "What Good Looks Like",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Bill You Can't Predict: What Good Looks Like",
+      "captionSeed": "a foreman desk with five levers connected to hidden pipes, each lever changing the meter",
+      "sectionExcerpt": "The organizations managing this well have a few things in common. They instrument everything. Every agent call, every token count, every sub-task: logged and monitored with real-time alerting on cost anomalies. The meter may not always make sense, but at least",
+      "variants": [
+        {
+          "id": "inline-04-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"What Good Looks Like\". Illustrate: a foreman desk with five levers connected to hidden pipes, each lever changing the meter. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "6da2f554a29a5e5adfcb0ae6ca385b2e32d238789dc09e742cb92b898b05d271"
+        },
+        {
+          "id": "inline-04-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"What Good Looks Like\". Illustrate: a foreman desk with five levers connected to hidden pipes, each lever changing the meter. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "eab2b18fa50b69831da113052c75748fefb93497d9a5936ed36d40a2628a8209"
+        }
+      ]
+    },
+    {
+      "id": "inline-05",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Broader Point",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The AI Bill You Can't Predict: The Broader Point",
+      "captionSeed": "a frontier weather station forecasting compute storms over a dark factory town",
+      "sectionExcerpt": "The AI cost normalization happening right now is the right direction: subsidized rates that obscured real costs are giving way to something more honest. But more honest doesn't mean transparent. The headline number is becoming real. The formula underneath it i",
+      "variants": [
+        {
+          "id": "inline-05-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Broader Point\". Illustrate: a frontier weather station forecasting compute storms over a dark factory town. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "34d7ce83680c36a2fe769201b0823bbade6de529bebc0526ba8fce3d7e205082"
+        },
+        {
+          "id": "inline-05-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The AI Bill You Can't Predict\". Section: \"The Broader Point\". Illustrate: a frontier weather station forecasting compute storms over a dark factory town. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "f6b8faa687b157d222936874630a1fa92ab19804904007c59e75677015235faa"
+        }
+      ]
+    }
+  ],
+  "releaseTarget": "2026-06-13",
+  "imageBriefPath": "content/articles/the-ai-bill-you-cant-predict/image-brief.md",
+  "articleImagePlanPath": "content/articles/the-ai-bill-you-cant-predict/images/interior-plan.json"
+}

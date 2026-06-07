@@ -1,0 +1,144 @@
+{
+  "slug": "the-crew-seed",
+  "title": "The Crew",
+  "description": "Three humans operating one factory is not a pod. It is an early shape of the next software organization.",
+  "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+  "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+  "targetApprovedImages": 5,
+  "candidateVariants": 10,
+  "placements": [
+    {
+      "id": "inline-01",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Thesis",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Crew: The Thesis",
+      "captionSeed": "three specialized workstations in a compact factory control room, each with a distinct glowing role signal",
+      "sectionExcerpt": "Three strong human engineers, focusing their attention on using an amplified system to improve the system itself, can produce software at a speed and quality that is simply not comparable to what those same engineers could do by hand. The leverage is not in th",
+      "variants": [
+        {
+          "id": "inline-01-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Thesis\". Illustrate: three specialized workstations in a compact factory control room, each with a distinct glowing role signal. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "ba4d5134fcb992c5f1ac36414f64f6eced4e2abc65fcbd7b6be3bb716dc7e7b0"
+        },
+        {
+          "id": "inline-01-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Thesis\". Illustrate: three specialized workstations in a compact factory control room, each with a distinct glowing role signal. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "3ccbe6fd5517e8cad4731cb09f233387f5783c8190a4feef908c226b44fcc3d0"
+        }
+      ]
+    },
+    {
+      "id": "inline-02",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Roles Are Temporary",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Crew: The Roles Are Temporary",
+      "captionSeed": "a seed crystal becoming a crew map inside a glass dome on a brass lab bench",
+      "sectionExcerpt": "Here is the part that is easy to miss: the foreman roles are not permanent. Right now, the work sits at a specific layer of the stack. One person may lead economics: cost optimization, model routing, token efficiency, and the boring math that keeps the system ",
+      "variants": [
+        {
+          "id": "inline-02-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Roles Are Temporary\". Illustrate: a seed crystal becoming a crew map inside a glass dome on a brass lab bench. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "ec020c1d051283d1c68515c370f621c0f6b0ef77e9e4937b8e4a885f72278ece"
+        },
+        {
+          "id": "inline-02-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Roles Are Temporary\". Illustrate: a seed crystal becoming a crew map inside a glass dome on a brass lab bench. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "263c1626b398e43695f6077ed90484f32021e1f4f532c2e118976c4a6788050b"
+        }
+      ]
+    },
+    {
+      "id": "inline-03",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "What the Crew Actually Does",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Crew: What the Crew Actually Does",
+      "captionSeed": "temporary role badges hanging on hooks beside reusable factory tools",
+      "sectionExcerpt": "The crew's work is not glamorous in the way AI demos are glamorous. The crew notices that an agent had to repeat a browser action three times and asks whether that should become a tool. The crew notices that an article launch depends on a human remembering sev",
+      "variants": [
+        {
+          "id": "inline-03-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"What the Crew Actually Does\". Illustrate: temporary role badges hanging on hooks beside reusable factory tools. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "5dd3969528e5495363d843732a0437d660db620c79abae0b2e39b46dd1454e17"
+        },
+        {
+          "id": "inline-03-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"What the Crew Actually Does\". Illustrate: temporary role badges hanging on hooks beside reusable factory tools. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "30152ae311eaa317e6aa551db724071c59eefe76cdbb4634b13e383c7785c6cf"
+        }
+      ]
+    },
+    {
+      "id": "inline-04",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "Why \"Pod\" Is Too Small",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Crew: Why \"Pod\" Is Too Small",
+      "captionSeed": "a radio tower coordinating multiple small work bays across a chocolate-colored industrial frontier",
+      "sectionExcerpt": "\"Pod\" makes the team sound small. Like a self-contained, isolated unit. A bubble. Something that floats and is carried by a larger structure rather than operating at scale. The factory crew operates the structure. Three people with a working factory behind the",
+      "variants": [
+        {
+          "id": "inline-04-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"Why \"Pod\" Is Too Small\". Illustrate: a radio tower coordinating multiple small work bays across a chocolate-colored industrial frontier. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "0aa211e1b11f99bb13ddf81b1ecf96be33f0aa89af99479b1c2ecc04449f85e0"
+        },
+        {
+          "id": "inline-04-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"Why \"Pod\" Is Too Small\". Illustrate: a radio tower coordinating multiple small work bays across a chocolate-colored industrial frontier. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "7e0c76986327c00ef5b191b40ac650add4c8988dc5a945296f4cde95466f939f"
+        }
+      ]
+    },
+    {
+      "id": "inline-05",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Conclusion",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Crew: The Conclusion",
+      "captionSeed": "a wide factory floor run by a small visible command crew and many unseen automated lines",
+      "sectionExcerpt": "The crew is not the final organizational form. It is a transitional shape between the human software team and the self-improving software factory. That is why it feels strange. We are still using old words for a new layer of work. Engineer. Manager. Architect.",
+      "variants": [
+        {
+          "id": "inline-05-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Conclusion\". Illustrate: a wide factory floor run by a small visible command crew and many unseen automated lines. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "2393e3a75e00ecd875db2349f26e7068d9006861229284274e05fc1b3d507850"
+        },
+        {
+          "id": "inline-05-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Crew\". Section: \"The Conclusion\". Illustrate: a wide factory floor run by a small visible command crew and many unseen automated lines. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "5f8971add9c15dd50c48b88c3a32b9b9370827b57d78db94f5362f50c3cee9e1"
+        }
+      ]
+    }
+  ],
+  "releaseTarget": "2026-06-24",
+  "imageBriefPath": "content/articles/the-crew-seed/image-brief.md",
+  "articleImagePlanPath": "content/articles/the-crew-seed/images/interior-plan.json"
+}

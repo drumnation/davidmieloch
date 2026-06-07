@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 
 import review from "../../content/distribution/draft-image-review.json";
 import approvalPacket from "../../content/distribution/factory-primitives-approval-packet.json";
+import interiorImagePlan from "../../content/distribution/factory-primitives-interior-image-plan.json";
 import factoryPrimitivesLaunch from "../../content/distribution/factory-primitives-launch-plan.json";
 import styles from "./DraftLab.module.css";
 
@@ -57,6 +58,25 @@ type ApprovalArticle = {
   }>;
 };
 
+type InteriorImageArticle = {
+  slug: string;
+  title: string;
+  targetApprovedImages: number;
+  candidateVariants: number;
+  imageBriefPath: string;
+  placements: Array<{
+    id: string;
+    captionSeed: string;
+    target: {
+      afterHeading: string;
+    };
+    variants: Array<{
+      id: string;
+      prompt: string;
+    }>;
+  }>;
+};
+
 export const metadata: Metadata = {
   title: "Draft Lab",
   description:
@@ -80,6 +100,7 @@ const factoryPrimitiveBlockers = factoryPrimitives.filter(
   (article) => article.blocker,
 );
 const approvalArticles = approvalPacket.articles as ApprovalArticle[];
+const interiorArticles = interiorImagePlan.articles as InteriorImageArticle[];
 
 export default function DraftLabPage() {
   if (process.env.NODE_ENV === "production") {
@@ -226,6 +247,54 @@ export default function DraftLabPage() {
                   </a>
                 </div>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section} aria-labelledby="interior-art-queue">
+        <div className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>Interior art queue</p>
+          <h2 id="interior-art-queue" className={styles.sectionTitle}>
+            Article-body images to generate and approve
+          </h2>
+          <p className={styles.sectionDescription}>
+            This is the missing layer: five non-hero images per upcoming
+            article, with two prompt variants per placement. The goal is 25
+            kept images from {interiorImagePlan.strategy.candidateVariantTarget}{" "}
+            candidates.
+          </p>
+        </div>
+        <div className={styles.interiorStats}>
+          <span>{interiorImagePlan.strategy.approvedImageTarget} target images</span>
+          <span>
+            {interiorImagePlan.strategy.candidateVariantTarget} prompt variants
+          </span>
+          <span>{interiorArticles.length} articles</span>
+          <span>paid generation gated</span>
+        </div>
+        <div className={styles.interiorGrid}>
+          {interiorArticles.map((article) => (
+            <article className={styles.interiorCard} key={article.slug}>
+              <div>
+                <span className={styles.collection}>
+                  {article.targetApprovedImages} images /{" "}
+                  {article.candidateVariants} variants
+                </span>
+                <h3>{article.title}</h3>
+                <code>{article.imageBriefPath}</code>
+              </div>
+              <ol className={styles.placementList}>
+                {article.placements.map((placement) => (
+                  <li key={placement.id}>
+                    <strong>{placement.target.afterHeading}</strong>
+                    <span>{placement.captionSeed}</span>
+                    <small>
+                      {placement.variants.map((variant) => variant.id).join(", ")}
+                    </small>
+                  </li>
+                ))}
+              </ol>
             </article>
           ))}
         </div>

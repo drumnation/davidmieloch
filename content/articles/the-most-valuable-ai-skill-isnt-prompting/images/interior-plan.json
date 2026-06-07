@@ -1,0 +1,144 @@
+{
+  "slug": "the-most-valuable-ai-skill-isnt-prompting",
+  "title": "The Most Valuable AI Skill Isn't Prompting",
+  "description": "In a factory, the scarce skill is not prompting. It is noticing what is wrong before the system compounds it.",
+  "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+  "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+  "targetApprovedImages": 5,
+  "candidateVariants": 10,
+  "placements": [
+    {
+      "id": "inline-01",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "What a Factory Changes",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Most Valuable AI Skill Isn't Prompting: What a Factory Changes",
+      "captionSeed": "a watchtower observer spotting repeated patterns across factory rails before the crew notices",
+      "sectionExcerpt": "When you move from prompting to factory, the bottleneck shifts. In the pair-programming model, the human is everything: the prompter, the reviewer, the judge. Prompting skill matters because the human is in every loop. In a factory, the human is the director. ",
+      "variants": [
+        {
+          "id": "inline-01-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What a Factory Changes\". Illustrate: a watchtower observer spotting repeated patterns across factory rails before the crew notices. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "7e9efef8130e478e285cecdb7ff4daa1aebbd680155fd61782c40e3928cb52f0"
+        },
+        {
+          "id": "inline-01-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What a Factory Changes\". Illustrate: a watchtower observer spotting repeated patterns across factory rails before the crew notices. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "8c7b7f1d2ddd48163ce9563a7ca028da30141bb031ff1d2bd957ed6c6b62444b"
+        }
+      ]
+    },
+    {
+      "id": "inline-02",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "What Noticing Actually Is",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Most Valuable AI Skill Isn't Prompting: What Noticing Actually Is",
+      "captionSeed": "a prompt scroll being replaced by steel rails and reusable machine jigs",
+      "sectionExcerpt": "Noticing isn't just code review. It's a higher-order pattern-matching skill: You see an architectural decision in PR 47 that's technically correct but will create a coupling problem in six months. You see a test suite that passes but is testing the wrong thing",
+      "variants": [
+        {
+          "id": "inline-02-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What Noticing Actually Is\". Illustrate: a prompt scroll being replaced by steel rails and reusable machine jigs. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "69867645e9ef436234f1b82545e2ae194ab83ec426b7558a25cb3448df1c1e75"
+        },
+        {
+          "id": "inline-02-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What Noticing Actually Is\". Illustrate: a prompt scroll being replaced by steel rails and reusable machine jigs. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "5261715a9385f37f3fe4f28b65022d9d387cd391dd524360c7b6c731bf2c4f00"
+        }
+      ]
+    },
+    {
+      "id": "inline-03",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "Why Prompting Skill Has a Ceiling",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Most Valuable AI Skill Isn't Prompting: Why Prompting Skill Has a Ceiling",
+      "captionSeed": "a signal scout marking useful anomalies on a brass map table inside a control room",
+      "sectionExcerpt": "Prompting skill is valuable. I'm not dismissing it. But it has a structural ceiling. A good prompter can get better outputs from a model. But the output is still evaluated by the prompter. The loop requires a human to initiate, judge, and continue. At scale, t",
+      "variants": [
+        {
+          "id": "inline-03-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"Why Prompting Skill Has a Ceiling\". Illustrate: a signal scout marking useful anomalies on a brass map table inside a control room. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "2363439f584eb39b199ba6f6dde474a26cdcb991c48fb9a64f7a1298d301af15"
+        },
+        {
+          "id": "inline-03-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"Why Prompting Skill Has a Ceiling\". Illustrate: a signal scout marking useful anomalies on a brass map table inside a control room. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "1ce334ee345ecd243719a691b31b4af7cb725da451d7c3b5e150a073b687ee41"
+        }
+      ]
+    },
+    {
+      "id": "inline-04",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "What This Means for Teams",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Most Valuable AI Skill Isn't Prompting: What This Means for Teams",
+      "captionSeed": "a workshop wall where clever one-off tricks become labeled tools, rendered without readable text",
+      "sectionExcerpt": "Right now, most organizations are evaluating AI capability on prompting skill. Who here is good at getting AI to produce things? That's the metric they can measure. The better question is: who here is good at seeing what's wrong with what AI produced? These ar",
+      "variants": [
+        {
+          "id": "inline-04-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What This Means for Teams\". Illustrate: a workshop wall where clever one-off tricks become labeled tools, rendered without readable text. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "f53c1742470c3d893aff89087ab3f183f8004f0a48fe188b0a819a7c6b7fd40e"
+        },
+        {
+          "id": "inline-04-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"What This Means for Teams\". Illustrate: a workshop wall where clever one-off tricks become labeled tools, rendered without readable text. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "d599817a7091408b0c5709e57ddaafef8bb90a214103dc08cfabc138b0e97fca"
+        }
+      ]
+    },
+    {
+      "id": "inline-05",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Practical Implication",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Most Valuable AI Skill Isn't Prompting: The Practical Implication",
+      "captionSeed": "a quiet operator noticing the machine rhythm while robots keep working in the background",
+      "sectionExcerpt": "If you're building a team for an AI-first environment, hire for noticing before hiring for prompting skill. A clever prompter without good judgment will ship impressive-looking things that fail in subtle ways. A good noticer with even moderate prompting skill ",
+      "variants": [
+        {
+          "id": "inline-05-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"The Practical Implication\". Illustrate: a quiet operator noticing the machine rhythm while robots keep working in the background. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "1c9b9fb829aa2fc300acb1c976903467c7fafc1582c4ff5f429c89f1dbf0d87d"
+        },
+        {
+          "id": "inline-05-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Most Valuable AI Skill Isn't Prompting\". Section: \"The Practical Implication\". Illustrate: a quiet operator noticing the machine rhythm while robots keep working in the background. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "673bab0adcb7ad4f11c6f69c121447e90cdd1960246eb4cb7ed63ad0f74521c0"
+        }
+      ]
+    }
+  ],
+  "releaseTarget": "2026-06-17",
+  "imageBriefPath": "content/articles/the-most-valuable-ai-skill-isnt-prompting/image-brief.md",
+  "articleImagePlanPath": "content/articles/the-most-valuable-ai-skill-isnt-prompting/images/interior-plan.json"
+}

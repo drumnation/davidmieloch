@@ -1,0 +1,144 @@
+{
+  "slug": "the-credibility-problem-with-ai-corporate-communications",
+  "title": "The Credibility Problem with AI Corporate Communications",
+  "description": "Synthetic corporate persuasion removes the person staking their credibility on the claim, and people can feel the gap.",
+  "style": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration",
+  "negativePrompt": "no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands",
+  "targetApprovedImages": 5,
+  "candidateVariants": 10,
+  "placements": [
+    {
+      "id": "inline-01",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "Persuasion Has Always Required a Person",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Credibility Problem with AI Corporate Communications: Persuasion Has Always Required a Person",
+      "captionSeed": "an empty podium wired to a beautiful automatic speech machine, audience silhouettes skeptical",
+      "sectionExcerpt": "When your CEO gives a speech about the company's values, about why you should believe in the mission, about what the future holds, you're not just receiving information. You're receiving a claim made by a specific person who has skin in the game. Their reputat",
+      "variants": [
+        {
+          "id": "inline-01-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"Persuasion Has Always Required a Person\". Illustrate: an empty podium wired to a beautiful automatic speech machine, audience silhouettes skeptical. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "91e82dfa6b4b4efdcea94dd22a3fd2d3a02a28376ec39d3745a131f28ea3b496"
+        },
+        {
+          "id": "inline-01-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"Persuasion Has Always Required a Person\". Illustrate: an empty podium wired to a beautiful automatic speech machine, audience silhouettes skeptical. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "a5e9eea4a284ccac3251de7b14c79a17b46a0f72f6ce55c3b4caab93f613b44a"
+        }
+      ]
+    },
+    {
+      "id": "inline-02",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Medium Contradicts the Message",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Credibility Problem with AI Corporate Communications: The Medium Contradicts the Message",
+      "captionSeed": "a polished broadcast mask hanging beside a human signature stamp in a factory office",
+      "sectionExcerpt": "Here's the deeper irony: using AI to communicate company values demonstrates, in the act of delivering them, that authenticity isn't actually valued. If the message is \"we care about our people, we have real standards, we're building something worth believing ",
+      "variants": [
+        {
+          "id": "inline-02-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Medium Contradicts the Message\". Illustrate: a polished broadcast mask hanging beside a human signature stamp in a factory office. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "ba23a297be2cf3b2adfe256a18edc46c4d36562e245a6493ab6efca96ebbc555"
+        },
+        {
+          "id": "inline-02-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Medium Contradicts the Message\". Illustrate: a polished broadcast mask hanging beside a human signature stamp in a factory office. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "70b00ef80782fd3be734e84862dea177413eae67c2b7511dbecfc3714690b867"
+        }
+      ]
+    },
+    {
+      "id": "inline-03",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "Who Is Telling Me This?",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Credibility Problem with AI Corporate Communications: Who Is Telling Me This?",
+      "captionSeed": "a trust ledger as a brass scale, one side holding automation, the other holding accountability",
+      "sectionExcerpt": "The thing is, when a real employee (even a mid-level manager, even someone you've never met) delivers a message about company culture, there's something implicit in that moment: this person chose to say this. They could have said something else. They work here",
+      "variants": [
+        {
+          "id": "inline-03-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"Who Is Telling Me This?\". Illustrate: a trust ledger as a brass scale, one side holding automation, the other holding accountability. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "c4b8d211d0a0ef390d192846d0081451a1f67119bf93d604c8f3ff65ede09aa2"
+        },
+        {
+          "id": "inline-03-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"Who Is Telling Me This?\". Illustrate: a trust ledger as a brass scale, one side holding automation, the other holding accountability. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "5598c45618adbb41f2aa86b0d985714989fbd86025bd1b0e38a8c7563f90a509"
+        }
+      ]
+    },
+    {
+      "id": "inline-04",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Lens I Can't Stop Using",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Credibility Problem with AI Corporate Communications: The Lens I Can't Stop Using",
+      "captionSeed": "a message capsule leaving a machine room but losing its shadow before reaching people",
+      "sectionExcerpt": "Here's where I have to be honest about my own vantage point. I spend a lot of time thinking about what I'd call a factory model for AI: the idea that if you want to build something that scales, you have to assume agents can handle everything, or you get bottle",
+      "variants": [
+        {
+          "id": "inline-04-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Lens I Can't Stop Using\". Illustrate: a message capsule leaving a machine room but losing its shadow before reaching people. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "ff89f529ea21a06e098f18ce21caf03ed53e16fc2678991431ae0c10bf2fdcd1"
+        },
+        {
+          "id": "inline-04-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Lens I Can't Stop Using\". Illustrate: a message capsule leaving a machine room but losing its shadow before reaching people. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "25b65371696b517153a00e6300060e5c5b936c078443fd35f4958686030fbc23"
+        }
+      ]
+    },
+    {
+      "id": "inline-05",
+      "status": "needs-generation",
+      "target": {
+        "afterHeading": "The Puzzle Solves Itself",
+        "aspectRatio": "16:9",
+        "role": "article-interior"
+      },
+      "altText": "The Credibility Problem with AI Corporate Communications: The Puzzle Solves Itself",
+      "captionSeed": "a frontier town bulletin board with unsigned machine-made announcements, no readable words",
+      "sectionExcerpt": "Once you hold that frame, the uncanny valley resolves into something else. The video doesn't feel wrong because AI is bad at persuasion. It feels wrong because it's trying to solve a human problem (belief formation, motivation, loyalty) using the same tools th",
+      "variants": [
+        {
+          "id": "inline-05-v1",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Puzzle Solves Itself\". Illustrate: a frontier town bulletin board with unsigned machine-made announcements, no readable words. Composition: medium-wide editorial frame with one clear focal metaphor and breathing room. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "18f8c6849aa0c6fe481428ac3668d8c26c1bd21898248b2aef437b5b55020861"
+        },
+        {
+          "id": "inline-05-v2",
+          "status": "needs-generation",
+          "prompt": "1950s space western industrial noir, dark chocolate software factory, frontier astronomy, brass machinery, amber practical light, restrained cyan signal lights, cinematic but readable editorial illustration. Article: \"The Credibility Problem with AI Corporate Communications\". Section: \"The Puzzle Solves Itself\". Illustrate: a frontier town bulletin board with unsigned machine-made announcements, no readable words. Composition: alternate angle, stronger foreground silhouette, same visual language and subject. Use cinematic lighting, crisp focal subject, magazine-quality article interior art. Avoid: no words, no logos, no interface text, no human faces in close-up, no crowded collage, no generic stock photo, no blurry key subject, no malformed hands.",
+          "promptChecksum": "05aebcd0232940856328879e1074fcb32c672d80108bdc1afac6a56f1f4cf03f"
+        }
+      ]
+    }
+  ],
+  "releaseTarget": "2026-06-20",
+  "imageBriefPath": "content/articles/the-credibility-problem-with-ai-corporate-communications/image-brief.md",
+  "articleImagePlanPath": "content/articles/the-credibility-problem-with-ai-corporate-communications/images/interior-plan.json"
+}

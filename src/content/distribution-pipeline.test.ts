@@ -38,6 +38,9 @@ import {
   buildLinkedInArticleTransferPackets,
 } from '../../scripts/lib/linkedin-article-transfer.mjs';
 import {
+  buildInteriorImagePlan,
+} from '../../scripts/lib/interior-image-plan.mjs';
+import {
   approveArticleAudio,
   audioStatus,
   generateArticleAudio,
@@ -160,6 +163,16 @@ type LinkedInArticleTransferOptions = {
   generatedAt?: string;
 };
 
+type InteriorImagePlanOptions = {
+  launchPlan: Record<string, any>;
+  articlesRoot: string;
+  outputPath?: string;
+  countPerArticle?: number;
+  variantsPerPlacement?: number;
+  write?: boolean;
+  generatedAt?: string;
+};
+
 type SocialN8nExportOptions = {
   socialCalendar: ReturnType<typeof buildSocialSchedule>;
   inventory: Record<string, unknown>;
@@ -228,6 +241,9 @@ const approveLaunchGate = recordLaunchApproval as unknown as (
 const generateLinkedInArticleTransfer = buildLinkedInArticleTransferPackets as unknown as (
   options: LinkedInArticleTransferOptions
 ) => ReturnType<typeof buildLinkedInArticleTransferPackets>;
+const generateInteriorImagePlan = buildInteriorImagePlan as unknown as (
+  options: InteriorImagePlanOptions
+) => ReturnType<typeof buildInteriorImagePlan>;
 const generateN8nExport = buildN8nExport as unknown as (
   options: SocialN8nExportOptions
 ) => ReturnType<typeof buildN8nExport>;
@@ -1325,6 +1341,75 @@ const keepTheIdea = true;
     expect(transfer.packets[0].bodyMarkdown).toContain('## The Primitive');
     expect(transfer.packets[0].bodyMarkdown).toContain('const keepTheIdea = true;');
     expect(transfer.packets[0].bodyMarkdown).not.toContain('![Factory]');
+  });
+
+  it('builds section-aware interior image briefs without calling a paid generator', () => {
+    const root = tempRoot();
+    mkdirSync(join(root, 'content/articles/the-ai-bill-you-cant-predict'), { recursive: true });
+    writeFileSync(
+      join(root, 'content/articles/the-ai-bill-you-cant-predict/index.md'),
+      `---
+title: "The AI Bill You Can't Predict"
+description: "The cost problem is hidden in the formula."
+canonicalUrl: "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict"
+status: draft
+---
+
+# The AI Bill You Can't Predict
+
+## The Formula You Don't Control
+
+Usage and pricing move under your feet.
+
+## Why This Is Hard to See
+
+The system hides the variables.
+
+## The Enterprise Risk
+
+Budgets become weather.
+`,
+    );
+    const outputPath = join(root, 'content/distribution/factory-primitives-interior-image-plan.json');
+
+    const plan = generateInteriorImagePlan({
+      launchPlan: {
+        articles: [
+          {
+            slug: 'the-ai-bill-you-cant-predict',
+            title: "The AI Bill You Can't Predict",
+          },
+        ],
+      },
+      articlesRoot: join(root, 'content/articles'),
+      outputPath,
+      countPerArticle: 3,
+      variantsPerPlacement: 2,
+      write: true,
+      generatedAt: '2026-06-07T06:00:00.000Z',
+    });
+
+    expect(plan.strategy).toMatchObject({
+      approvedImageTarget: 3,
+      candidateVariantTarget: 6,
+      spendRule: 'Generation commands must require explicit --spend-approved.',
+    });
+    expect(plan.articles[0].placements).toHaveLength(3);
+    expect(plan.articles[0].placements[0]).toMatchObject({
+      target: {
+        afterHeading: "The Formula You Don't Control",
+        role: 'article-interior',
+      },
+    });
+    expect(plan.articles[0].placements[0].variants[0].prompt).toContain('1950s space western industrial noir');
+    expect(plan.articles[0].placements[0].variants[0].prompt).toContain('no words');
+    expect(readFileSync(outputPath, 'utf8')).toContain('"interior-image-plan-v1"');
+    expect(
+      readFileSync(
+        join(root, 'content/articles/the-ai-bill-you-cant-predict/image-brief.md'),
+        'utf8',
+      ),
+    ).toContain('Target: approve 3 article-body images from 6 generated candidates.');
   });
 
   it('writes LinkedIn Article transfer JSON and Markdown packets through the CLI', () => {
