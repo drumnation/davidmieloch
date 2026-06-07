@@ -44,7 +44,6 @@ const upcomingPosts = [
     text: "Cost and scarcity return as useful pressure. The factory math starts to matter.",
     image: "/home/next-series/the-filter-1950s.png",
     alt: "A 1950s space western black hole filtering compute chips above a factory rail checkpoint",
-    href: "/draft-lab/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
   },
   {
     title: "The Meter",
@@ -66,7 +65,6 @@ const upcomingPosts = [
     text: "AI corporate language has to earn trust again. Synthetic persuasion has a source problem.",
     image: "/home/next-series/the-credibility-problem-1950s.png",
     alt: "A cracked 1950s broadcast screen being examined by a glowing proof-chain machine",
-    href: "/draft-lab/articles/the-credibility-problem-with-ai-corporate-communications",
   },
   {
     title: "The Crew",
@@ -74,7 +72,6 @@ const upcomingPosts = [
     text: "The human role moves from typing to orchestration. Three people, one operating floor.",
     image: "/home/next-series/the-crew-1950s.png",
     alt: "A western-hat foreman coordinating retro robot workers across a vast space factory",
-    href: "/draft-lab/articles/the-crew-seed",
   },
 ];
 
@@ -101,8 +98,6 @@ const operatingLanes = [
     image: "/blog/reality-needs-observers/images/hero.png",
   },
 ];
-
-const isProduction = process.env.NODE_ENV === "production";
 
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("en", {
@@ -346,15 +341,7 @@ export const Home: React.FC<HomePageProps> = ({
                 </>
               );
 
-              return post.href && !isProduction ? (
-                <Link
-                  className={styles.postItem}
-                  href={post.href}
-                  key={post.title}
-                >
-                  {postContent}
-                </Link>
-              ) : (
+              return (
                 <article className={styles.postItem} key={post.title}>
                   {postContent}
                 </article>
