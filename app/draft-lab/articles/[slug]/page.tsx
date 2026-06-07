@@ -96,6 +96,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   if (process.env.DRAFT_LAB_ENABLED !== "1") {
     return [];
@@ -140,6 +142,10 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
         }
       : undefined);
   const generatedInteriorImages = readGeneratedInteriorImages(candidate.slug);
+  const generatedInteriorPlacements = groupGeneratedInteriorImages(
+    generatedInteriorImages,
+  );
+  const returnTo = `/draft-lab/articles/${candidate.slug}`;
 
   return (
     <main style={styles.page}>
@@ -161,6 +167,46 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
           </div>
           <p style={styles.source}>{candidate.relativePath}</p>
           <blockquote style={styles.prompt}>{candidate.promptSeed}</blockquote>
+          <form action="/api/draft-lab" method="post" style={styles.actionRow}>
+            <input type="hidden" name="action" value="draft-decision" />
+            <input type="hidden" name="slug" value={candidate.slug} />
+            <input type="hidden" name="returnTo" value={returnTo} />
+            <input
+              name="reason"
+              placeholder="Why keep/remove/maybe?"
+              style={styles.reasonInput}
+            />
+            <button name="status" value="keep" style={styles.keepButton}>
+              Keep
+            </button>
+            <button name="status" value="maybe" style={styles.maybeButton}>
+              Maybe
+            </button>
+            <button name="status" value="remove" style={styles.removeButton}>
+              Remove
+            </button>
+          </form>
+          <form
+            action="/api/draft-lab"
+            method="post"
+            style={styles.launchApprovalForm}
+          >
+            <input type="hidden" name="action" value="approve-launch" />
+            <input type="hidden" name="slug" value={candidate.slug} />
+            <input type="hidden" name="gate" value="all" />
+            <input type="hidden" name="returnTo" value={returnTo} />
+            <input
+              name="note"
+              placeholder="Approval note"
+              style={styles.reasonInput}
+            />
+            <button style={styles.keepButton}>
+              Approve article gates
+            </button>
+            <span style={styles.approvalHint}>
+              Writes local approval state only. It does not publish.
+            </span>
+          </form>
         </header>
         {heroImage ? (
           <figure style={styles.heroFigure}>
@@ -175,7 +221,7 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
           </figure>
         ) : null}
 
-        {generatedInteriorImages.length > 0 ? (
+        {generatedInteriorPlacements.length > 0 ? (
           <section
             style={styles.generatedSection}
             aria-labelledby="generated-interior-images"
@@ -192,26 +238,118 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
                 lint.
               </p>
             </div>
-            <div style={styles.generatedGrid}>
-              {generatedInteriorImages.map((image, index) => (
-                <figure key={image.id} style={styles.generatedCard}>
-                  <a href={image.publicPath} style={styles.generatedImageLink}>
-                    <img
-                      src={image.publicPath}
-                      alt={image.altText ?? `${candidate.title} generated art`}
-                      style={styles.generatedImage}
-                      loading="lazy"
+            <div style={styles.placementReviewList}>
+              {generatedInteriorPlacements.map((placement) => (
+                <section key={placement.id} style={styles.placementReview}>
+                  <div style={styles.placementHeader}>
+                    <p style={styles.placementKicker}>{placement.id}</p>
+                    <h3 style={styles.placementTitle}>
+                      {placement.heading}
+                    </h3>
+                    {placement.selected ? (
+                      <span style={styles.selectedBadge}>Selected</span>
+                    ) : (
+                      <span style={styles.reviewBadge}>
+                        {placement.images.length} choices
+                      </span>
+                    )}
+                  </div>
+                  <div style={styles.generatedGrid}>
+                    {placement.images.map((image) => (
+                      <figure key={image.id} style={styles.generatedCard}>
+                        <a
+                          href={image.publicPath}
+                          style={styles.generatedImageLink}
+                        >
+                          <img
+                            src={image.publicPath}
+                            alt={
+                              image.altText ?? `${candidate.title} generated art`
+                            }
+                            style={styles.generatedImage}
+                            loading="lazy"
+                          />
+                        </a>
+                        <figcaption style={styles.generatedCaption}>
+                          <strong>
+                            {image.targetHeading ?? image.placementId}
+                          </strong>
+                          <span>
+                            {image.caption ?? "No caption drafted yet."}
+                          </span>
+                          <code>{image.status}</code>
+                        </figcaption>
+                        <form
+                          action="/api/draft-lab"
+                          method="post"
+                          style={styles.imageDecisionForm}
+                        >
+                          <input
+                            type="hidden"
+                            name="action"
+                            value="image-decision"
+                          />
+                          <input
+                            type="hidden"
+                            name="slug"
+                            value={candidate.slug}
+                          />
+                          <input
+                            type="hidden"
+                            name="assetId"
+                            value={image.id}
+                          />
+                          <input
+                            type="hidden"
+                            name="returnTo"
+                            value={returnTo}
+                          />
+                          <input
+                            name="reason"
+                            placeholder="Optional note"
+                            style={styles.imageReasonInput}
+                          />
+                          <button
+                            name="decision"
+                            value="approve"
+                            style={styles.keepButton}
+                          >
+                            Check
+                          </button>
+                          <button
+                            name="decision"
+                            value="reject"
+                            style={styles.removeButton}
+                          >
+                            X
+                          </button>
+                        </form>
+                      </figure>
+                    ))}
+                  </div>
+                  <form
+                    action="/api/draft-lab"
+                    method="post"
+                    style={styles.requestImageForm}
+                  >
+                    <input type="hidden" name="action" value="request-image" />
+                    <input type="hidden" name="slug" value={candidate.slug} />
+                    <input
+                      type="hidden"
+                      name="placementId"
+                      value={placement.id}
                     />
-                  </a>
-                  <figcaption style={styles.generatedCaption}>
-                    <strong>
-                      {index + 1}.{" "}
-                      {image.targetHeading ?? image.placementId}
-                    </strong>
-                    <span>{image.caption ?? "No caption drafted yet."}</span>
-                    <code>{image.status}</code>
-                  </figcaption>
-                </figure>
+                    <input type="hidden" name="returnTo" value={returnTo} />
+                    <textarea
+                      name="prompt"
+                      placeholder="Describe the replacement image you want for this spot."
+                      style={styles.requestTextarea}
+                    />
+                    <button style={styles.maybeButton}>
+                      Queue new image request
+                    </button>
+                  </form>
+                </section>
               ))}
             </div>
           </section>
@@ -246,6 +384,30 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
         >
           {markdown}
         </ReactMarkdown>
+        <section style={styles.editorSection} aria-labelledby="draft-editor">
+          <div style={styles.generatedHeader}>
+            <p style={styles.eyebrow}>Draft editor</p>
+            <h2 id="draft-editor" style={styles.generatedTitle}>
+              Edit the staging markdown
+            </h2>
+            <p style={styles.generatedDescription}>
+              This saves the staged Draft Lab markdown, not a public post. Use
+              it for cleanup while the article is still unpublished.
+            </p>
+          </div>
+          <form action="/api/draft-lab" method="post" style={styles.editorForm}>
+            <input type="hidden" name="action" value="save-markdown" />
+            <input type="hidden" name="slug" value={candidate.slug} />
+            <input type="hidden" name="returnTo" value={returnTo} />
+            <textarea
+              name="markdown"
+              defaultValue={markdown}
+              spellCheck
+              style={styles.editorTextarea}
+            />
+            <button style={styles.keepButton}>Save draft text</button>
+          </form>
+        </section>
       </article>
     </main>
   );
@@ -284,6 +446,43 @@ function normalizeImageLookupKey(value: string) {
   return value.replace(/\\/g, "/").trim().toLowerCase();
 }
 
+function groupGeneratedInteriorImages(images: GeneratedInteriorImage[]) {
+  const placements = new Map<
+    string,
+    {
+      id: string;
+      heading: string;
+      selected: boolean;
+      images: GeneratedInteriorImage[];
+    }
+  >();
+
+  for (const image of images) {
+    const placement = placements.get(image.placementId) ?? {
+      id: image.placementId,
+      heading: image.targetHeading ?? image.placementId,
+      selected: false,
+      images: [],
+    };
+
+    placement.images.push(image);
+    placement.selected =
+      placement.selected || image.status === "approved-selected";
+    placements.set(image.placementId, placement);
+  }
+
+  return Array.from(placements.values()).map((placement) => {
+    const selectedImages = placement.images.filter(
+      (image) => image.status === "approved-selected",
+    );
+
+    return {
+      ...placement,
+      images: selectedImages.length > 0 ? selectedImages : placement.images,
+    };
+  });
+}
+
 function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
   const manifestPath = path.join(
     process.cwd(),
@@ -305,7 +504,13 @@ function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
     ) as GeneratedInteriorManifest;
 
     return manifest.assets
-      .filter((asset) => asset.status.startsWith("generated"))
+      .filter((asset) =>
+        [
+          "approved-selected",
+          "generated-needs-review",
+          "generated-contact-sheet-needs-slicing",
+        ].includes(asset.status),
+      )
       .filter((asset) => asset.role === "article-interior")
       .filter((asset) =>
         fs.existsSync(path.join(process.cwd(), asset.sourcePath)),
@@ -378,6 +583,64 @@ const styles: Record<string, CSSProperties> = {
     color: "#333",
     lineHeight: 1.5,
   },
+  actionRow: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    marginTop: "18px",
+  },
+  launchApprovalForm: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    alignItems: "center",
+    marginTop: "10px",
+    paddingTop: "14px",
+    borderTop: "1px solid #dedede",
+  },
+  approvalHint: {
+    color: "#666",
+    fontSize: "0.84rem",
+    lineHeight: 1.35,
+  },
+  reasonInput: {
+    flex: "1 1 260px",
+    minHeight: "40px",
+    padding: "0 12px",
+    border: "1px solid #d6d0c7",
+    borderRadius: "8px",
+    color: "#171717",
+  },
+  keepButton: {
+    minHeight: "40px",
+    padding: "0 14px",
+    border: "0",
+    borderRadius: "8px",
+    background: "#245f3d",
+    color: "#fffaf1",
+    fontWeight: 900,
+    cursor: "pointer",
+  },
+  maybeButton: {
+    minHeight: "40px",
+    padding: "0 14px",
+    border: "0",
+    borderRadius: "8px",
+    background: "#4451a4",
+    color: "#fffaf1",
+    fontWeight: 900,
+    cursor: "pointer",
+  },
+  removeButton: {
+    minHeight: "40px",
+    padding: "0 14px",
+    border: "0",
+    borderRadius: "8px",
+    background: "#8a2e28",
+    color: "#fffaf1",
+    fontWeight: 900,
+    cursor: "pointer",
+  },
   heroFigure: {
     margin: "0 0 36px",
     overflow: "hidden",
@@ -428,6 +691,56 @@ const styles: Record<string, CSSProperties> = {
     gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
     gap: "14px",
   },
+  placementReviewList: {
+    display: "grid",
+    gap: "18px",
+  },
+  placementReview: {
+    display: "grid",
+    gap: "12px",
+    padding: "14px",
+    border: "1px solid #e2d8c9",
+    borderRadius: "12px",
+    background: "#f4eadb",
+  },
+  placementHeader: {
+    display: "grid",
+    gridTemplateColumns: "minmax(0, 1fr) auto",
+    gap: "8px 14px",
+    alignItems: "center",
+  },
+  placementKicker: {
+    gridColumn: "1 / -1",
+    margin: 0,
+    color: "#7d5b2f",
+    fontSize: "0.74rem",
+    fontWeight: 900,
+    letterSpacing: 0,
+    textTransform: "uppercase",
+  },
+  placementTitle: {
+    margin: 0,
+    fontSize: "1.24rem",
+    lineHeight: 1.12,
+  },
+  selectedBadge: {
+    padding: "6px 8px",
+    borderRadius: "999px",
+    background: "#245f3d",
+    color: "#fffaf1",
+    fontSize: "0.72rem",
+    fontWeight: 900,
+    textTransform: "uppercase",
+  },
+  reviewBadge: {
+    padding: "6px 8px",
+    borderRadius: "999px",
+    background: "#4451a4",
+    color: "#fffaf1",
+    fontSize: "0.72rem",
+    fontWeight: 900,
+    textTransform: "uppercase",
+  },
   generatedCard: {
     display: "grid",
     gap: "10px",
@@ -455,6 +768,55 @@ const styles: Record<string, CSSProperties> = {
     color: "#302b25",
     fontSize: "0.88rem",
     lineHeight: 1.38,
+  },
+  imageDecisionForm: {
+    display: "grid",
+    gridTemplateColumns: "minmax(0, 1fr) auto auto",
+    gap: "8px",
+    alignItems: "center",
+  },
+  imageReasonInput: {
+    minHeight: "36px",
+    padding: "0 10px",
+    border: "1px solid #d6d0c7",
+    borderRadius: "8px",
+    color: "#171717",
+  },
+  requestImageForm: {
+    display: "grid",
+    gap: "8px",
+  },
+  requestTextarea: {
+    width: "100%",
+    minHeight: "74px",
+    padding: "10px",
+    border: "1px solid #d6d0c7",
+    borderRadius: "8px",
+    color: "#171717",
+    font: "inherit",
+    lineHeight: 1.45,
+    resize: "vertical",
+  },
+  editorSection: {
+    margin: "46px 0 0",
+    padding: "22px",
+    border: "1px solid #ded6ca",
+    borderRadius: "12px",
+    background: "#fbf7ef",
+  },
+  editorForm: {
+    display: "grid",
+    gap: "12px",
+  },
+  editorTextarea: {
+    width: "100%",
+    minHeight: "70vh",
+    padding: "16px",
+    border: "1px solid #d6d0c7",
+    borderRadius: "8px",
+    color: "#171717",
+    font: "0.98rem / 1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+    resize: "vertical",
   },
   markdownH1: {
     margin: "36px 0 12px",

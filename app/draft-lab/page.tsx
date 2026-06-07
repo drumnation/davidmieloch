@@ -87,6 +87,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+
 const candidates = review.candidates as DraftCandidate[];
 const removedCandidates = (review.removedCandidates ?? []) as DraftCandidate[];
 const withImages = candidates.filter(
@@ -343,6 +345,7 @@ export default function DraftLabPage() {
                 >
                   Preview draft article
                 </Link>
+                <DraftDecisionForm slug={candidate.slug} />
                 <code>{candidate.relativePath}</code>
               </div>
               <div className={styles.gallery}>
@@ -392,6 +395,7 @@ export default function DraftLabPage() {
               >
                 Preview draft article
               </Link>
+              <DraftDecisionForm slug={candidate.slug} />
               <blockquote>{candidate.promptSeed}</blockquote>
             </article>
           ))}
@@ -431,12 +435,53 @@ export default function DraftLabPage() {
                 >
                   Preview removed draft
                 </Link>
+                <DraftDecisionForm slug={candidate.slug} removed />
               </article>
             ))}
           </div>
         </section>
       ) : null}
     </main>
+  );
+}
+
+function DraftDecisionForm({
+  slug,
+  removed = false,
+}: {
+  slug: string;
+  removed?: boolean;
+}) {
+  return (
+    <form action="/api/draft-lab" method="post" className={styles.inlineForm}>
+      <input type="hidden" name="action" value="draft-decision" />
+      <input type="hidden" name="slug" value={slug} />
+      <input type="hidden" name="returnTo" value="/draft-lab" />
+      <input
+        className={styles.inlineInput}
+        name="reason"
+        placeholder={removed ? "Why restore it?" : "Removal note"}
+      />
+      {removed ? (
+        <>
+          <button className={styles.smallButton} name="status" value="maybe">
+            Restore maybe
+          </button>
+          <button className={styles.smallButton} name="status" value="keep">
+            Keep
+          </button>
+        </>
+      ) : (
+        <>
+          <button className={styles.smallButton} name="status" value="keep">
+            Keep
+          </button>
+          <button className={styles.smallButton} name="status" value="remove">
+            Remove
+          </button>
+        </>
+      )}
+    </form>
   );
 }
 
