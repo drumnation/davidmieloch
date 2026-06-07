@@ -203,7 +203,7 @@
 }
 
 .approvalHero img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .approvalCopy {
@@ -458,7 +458,7 @@
 }
 
 .figure img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .figure figcaption {

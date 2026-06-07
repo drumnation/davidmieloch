@@ -652,7 +652,7 @@ const styles: Record<string, CSSProperties> = {
     display: "block",
     width: "100%",
     maxHeight: "720px",
-    objectFit: "cover",
+    objectFit: "contain",
   },
   heroCaption: {
     padding: "12px 16px",
@@ -754,13 +754,13 @@ const styles: Record<string, CSSProperties> = {
     display: "block",
     overflow: "hidden",
     borderRadius: "8px",
-    background: "#111",
+    background: "#120f0b",
   },
   generatedImage: {
     display: "block",
     width: "100%",
     aspectRatio: "16 / 9",
-    objectFit: "cover",
+    objectFit: "contain",
   },
   generatedCaption: {
     display: "grid",
