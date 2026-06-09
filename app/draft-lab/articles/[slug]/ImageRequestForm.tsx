@@ -8,7 +8,20 @@ type ImageRequest = {
   prompt: string;
   status: string;
   requestedAt: string;
+  workerStartedAt?: string;
+  processedAt?: string;
+  failedAt?: string;
   error?: string;
+};
+
+type WorkerObservation = {
+  status: "idle" | "needs-worker" | "processing";
+  queued: number;
+  processing: number;
+  completed: number;
+  failed: number;
+  oldestQueuedAt: string | null;
+  claim: string;
 };
 
 type Props = {
@@ -28,6 +41,8 @@ export function ImageRequestForm({
 }: Props) {
   const [prompt, setPrompt] = useState("");
   const [requests, setRequests] = useState(initialRequests);
+  const [workerObservation, setWorkerObservation] =
+    useState<WorkerObservation | null>(() => observeRequests(initialRequests));
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
@@ -55,10 +70,12 @@ export function ImageRequestForm({
         const payload = (await response.json()) as {
           ok?: boolean;
           requests?: ImageRequest[];
+          observation?: WorkerObservation;
         };
         if (!response.ok || !payload.ok || !payload.requests) return;
 
         setRequests(payload.requests);
+        setWorkerObservation(payload.observation ?? observeRequests(payload.requests));
         const newlyFinished = payload.requests.some((request) => {
           if (!isFinishedRequest(request)) return false;
           if (completedRequestIds.current.has(request.id)) return false;
@@ -118,8 +135,9 @@ export function ImageRequestForm({
       }
 
       setRequests((current) => [payload.request as ImageRequest, ...current]);
+      setWorkerObservation(observeRequests([payload.request as ImageRequest, ...requests]));
       setPrompt("");
-      setMessage("Queued. Waiting for the image worker to process it.");
+      setMessage("Queued only. No image is generating until the worker runs.");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Queue failed.");
     } finally {
@@ -131,6 +149,26 @@ export function ImageRequestForm({
     <div style={styles.wrapper}>
       {requests.length > 0 ? (
         <div style={styles.requestStatusPanel} aria-live="polite">
+          {workerObservation?.status === "needs-worker" ? (
+            <div style={styles.workerWarning} role="status">
+              <strong>No active image worker observed.</strong>
+              <span>
+                These requests are queued on disk, but nothing is generating right
+                now. Run the image worker or add the background runner before
+                expecting new images to appear.
+              </span>
+            </div>
+          ) : null}
+          {workerObservation?.status === "processing" ? (
+            <div style={styles.workerProcessing} role="status">
+              <strong>Image worker is processing.</strong>
+              <span>
+                {workerObservation.processing} request
+                {workerObservation.processing === 1 ? "" : "s"} currently marked
+                processing.
+              </span>
+            </div>
+          ) : null}
           <p style={styles.requestStatusTitle}>
             {requests.length} image request{requests.length === 1 ? "" : "s"}
             {hasActiveRequests ? " · watching worker status" : ""}
@@ -150,6 +188,16 @@ export function ImageRequestForm({
                 <time dateTime={request.requestedAt}>
                   {formatRequestDate(request.requestedAt)}
                 </time>
+                {request.status === "queued" ? (
+                  <small style={styles.warningDetail}>
+                    Stored only. This will not generate until the worker runs.
+                  </small>
+                ) : null}
+                {request.status === "processing" && request.workerStartedAt ? (
+                  <small style={styles.processingDetail}>
+                    Worker started {formatRequestDate(request.workerStartedAt)}.
+                  </small>
+                ) : null}
                 {request.error ? (
                   <small style={styles.errorDetail}>{request.error}</small>
                 ) : null}
@@ -200,6 +248,37 @@ function isFinishedRequest(request: ImageRequest) {
   return ["completed", "failed", "cancelled"].includes(request.status);
 }
 
+function observeRequests(requests: ImageRequest[]): WorkerObservation {
+  const queued = requests.filter((request) => request.status === "queued");
+  const processing = requests.filter((request) => request.status === "processing");
+  const completed = requests.filter((request) => request.status === "completed");
+  const failed = requests.filter((request) => request.status === "failed");
+  const oldestQueuedAt =
+    queued.length > 0
+      ? queued
+          .map((request) => request.requestedAt)
+          .sort((left, right) => left.localeCompare(right))[0]
+      : null;
+
+  return {
+    status:
+      queued.length > 0 && processing.length === 0
+        ? "needs-worker"
+        : processing.length > 0
+          ? "processing"
+          : "idle",
+    queued: queued.length,
+    processing: processing.length,
+    completed: completed.length,
+    failed: failed.length,
+    oldestQueuedAt,
+    claim:
+      queued.length > 0 && processing.length === 0
+        ? "Image requests are stored, but no active worker is observed."
+        : "Image request worker state is observable from request records.",
+  };
+}
+
 function statusStyle(status: string): CSSProperties {
   if (status === "processing") return styles.statusProcessing;
   if (status === "completed") return styles.statusCompleted;
@@ -225,6 +304,28 @@ const styles: Record<string, CSSProperties> = {
     color: "#25346f",
     fontSize: "0.88rem",
     fontWeight: 900,
+  },
+  workerWarning: {
+    display: "grid",
+    gap: "4px",
+    padding: "12px",
+    border: "2px solid #a33122",
+    borderRadius: "8px",
+    background: "#fff0ec",
+    color: "#7c241a",
+    fontSize: "0.9rem",
+    lineHeight: 1.35,
+  },
+  workerProcessing: {
+    display: "grid",
+    gap: "4px",
+    padding: "12px",
+    border: "2px solid #b27500",
+    borderRadius: "8px",
+    background: "#fff5d8",
+    color: "#704600",
+    fontSize: "0.9rem",
+    lineHeight: 1.35,
   },
   requestStatusList: {
     display: "grid",
@@ -258,6 +359,19 @@ const styles: Record<string, CSSProperties> = {
   statusFailed: {
     background: "#ffe1de",
     color: "#8e2727",
+  },
+  warningDetail: {
+    gridColumn: "1 / -1",
+    color: "#7c241a",
+    fontSize: "0.8rem",
+    fontWeight: 800,
+    lineHeight: 1.35,
+  },
+  processingDetail: {
+    gridColumn: "1 / -1",
+    color: "#7a4c00",
+    fontSize: "0.8rem",
+    lineHeight: 1.35,
   },
   errorDetail: {
     gridColumn: "1 / -1",

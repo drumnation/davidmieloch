@@ -12,6 +12,7 @@ type ImageRequest = {
   requestedAt: string;
   requestedBy?: string;
   updatedAt?: string;
+  workerStartedAt?: string;
   processedAt?: string;
   failedAt?: string;
   resultAssetId?: string;
@@ -40,7 +41,44 @@ export async function GET(request: Request) {
     )
     .sort((left, right) => right.requestedAt.localeCompare(left.requestedAt));
 
-  return NextResponse.json({ ok: true, requests });
+  return NextResponse.json({
+    ok: true,
+    requests,
+    observation: observeImageWorker(requests),
+  });
+}
+
+function observeImageWorker(requests: ImageRequest[]) {
+  const queued = requests.filter((request) => request.status === "queued");
+  const processing = requests.filter((request) => request.status === "processing");
+  const failed = requests.filter((request) => request.status === "failed");
+  const completed = requests.filter((request) => request.status === "completed");
+  const oldestQueuedAt =
+    queued.length > 0
+      ? queued
+          .map((request) => request.requestedAt)
+          .sort((left, right) => left.localeCompare(right))[0]
+      : null;
+
+  return {
+    schemaVersion: "draft-lab-image-worker-observation-v1",
+    checkedAt: new Date().toISOString(),
+    status:
+      queued.length > 0 && processing.length === 0
+        ? "needs-worker"
+        : processing.length > 0
+          ? "processing"
+          : "idle",
+    queued: queued.length,
+    processing: processing.length,
+    completed: completed.length,
+    failed: failed.length,
+    oldestQueuedAt,
+    claim:
+      queued.length > 0 && processing.length === 0
+        ? "Image requests are stored, but no active worker is observed."
+        : "Image request worker state is observable from request records.",
+  };
 }
 
 function readImageRequests(slug: string): ImageRequest[] {
