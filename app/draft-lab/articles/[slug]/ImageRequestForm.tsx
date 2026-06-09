@@ -419,6 +419,7 @@ const styles: Record<string, CSSProperties> = {
   wrapper: {
     display: "grid",
     gap: "12px",
+    overflowAnchor: "none",
   },
   requestStatusPanel: {
     display: "grid",
@@ -427,6 +428,9 @@ const styles: Record<string, CSSProperties> = {
     border: "1px solid #cfd7ec",
     borderRadius: "10px",
     background: "#eef3ff",
+    maxHeight: "320px",
+    overflowY: "auto",
+    overflowAnchor: "none",
   },
   requestStatusTitle: {
     margin: 0,
@@ -437,6 +441,7 @@ const styles: Record<string, CSSProperties> = {
   workerWarning: {
     display: "grid",
     gap: "4px",
+    minHeight: "76px",
     padding: "12px",
     border: "2px solid #a33122",
     borderRadius: "8px",
@@ -444,10 +449,12 @@ const styles: Record<string, CSSProperties> = {
     color: "#7c241a",
     fontSize: "0.9rem",
     lineHeight: 1.35,
+    overflowAnchor: "none",
   },
   workerProcessing: {
     display: "grid",
     gap: "4px",
+    minHeight: "112px",
     padding: "12px",
     border: "2px solid #b27500",
     borderRadius: "8px",
@@ -455,10 +462,12 @@ const styles: Record<string, CSSProperties> = {
     color: "#704600",
     fontSize: "0.9rem",
     lineHeight: 1.35,
+    overflowAnchor: "none",
   },
   compactWorkerProcessing: {
     display: "grid",
     gap: "4px",
+    minHeight: "58px",
     padding: "8px",
     border: "1px solid #b27500",
     borderRadius: "8px",
@@ -466,6 +475,7 @@ const styles: Record<string, CSSProperties> = {
     color: "#704600",
     fontSize: "0.82rem",
     lineHeight: 1.35,
+    overflowAnchor: "none",
   },
   spinnerRow: {
     display: "flex",
@@ -486,12 +496,16 @@ const styles: Record<string, CSSProperties> = {
     gap: "4px",
     margin: "4px 0 0",
     paddingLeft: "20px",
+    minHeight: "56px",
+    maxHeight: "76px",
+    overflow: "hidden",
   },
   requestStatusList: {
     display: "grid",
     gap: "8px",
     margin: 0,
     paddingLeft: "20px",
+    overflowAnchor: "none",
   },
   requestStatusItem: {
     display: "grid",
@@ -543,6 +557,7 @@ const styles: Record<string, CSSProperties> = {
     display: "grid",
     gap: "10px",
     marginTop: "2px",
+    overflowAnchor: "none",
   },
   requestTextarea: {
     width: "100%",
@@ -571,6 +586,7 @@ const styles: Record<string, CSSProperties> = {
   },
   feedback: {
     margin: 0,
+    minHeight: "1.25em",
     color: "#245f3d",
     fontSize: "0.88rem",
     fontWeight: 800,
