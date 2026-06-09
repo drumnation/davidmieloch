@@ -123,14 +123,6 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-export function generateStaticParams() {
-  if (process.env.DRAFT_LAB_ENABLED !== "1") {
-    return [];
-  }
-
-  return allCandidates.map((candidate) => ({ slug: candidate.slug }));
-}
-
 export default async function DraftArticlePreviewPage({ params }: PageProps) {
   if (process.env.DRAFT_LAB_ENABLED !== "1") {
     notFound();
