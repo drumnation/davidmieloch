@@ -364,9 +364,9 @@ function InlineImagePlacement({
       <div style={styles.generatedGrid}>
         {placement.images.map((image) => (
           <figure key={image.id} style={styles.generatedCard}>
-            <a href={image.publicPath} style={styles.generatedImageLink}>
+            <a href={draftLabGeneratedImageUrl(image)} style={styles.generatedImageLink}>
               <img
-                src={image.publicPath}
+                src={draftLabGeneratedImageUrl(image)}
                 alt={image.altText ?? `${candidate.title} generated art`}
                 style={styles.generatedImage}
                 loading="lazy"
@@ -605,6 +605,12 @@ function isContactSheetSlice(image: GeneratedInteriorImage) {
     image.publicPath.includes("/contact-sheet/") ||
     image.status === "generated-contact-sheet-needs-slicing"
   );
+}
+
+function draftLabGeneratedImageUrl(image: GeneratedInteriorImage) {
+  return `/api/draft-lab/generated-image?path=${encodeURIComponent(
+    image.publicPath,
+  )}`;
 }
 
 function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
