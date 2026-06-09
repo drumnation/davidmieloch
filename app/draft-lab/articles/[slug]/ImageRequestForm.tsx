@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 type ImageRequest = {
   id: string;
   prompt: string;
   status: string;
   requestedAt: string;
+  error?: string;
 };
 
 type Props = {
@@ -28,6 +30,58 @@ export function ImageRequestForm({
   const [requests, setRequests] = useState(initialRequests);
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
+  const completedRequestIds = useRef(
+    new Set(initialRequests.filter(isFinishedRequest).map((request) => request.id)),
+  );
+  const hasActiveRequests = requests.some((request) =>
+    ["queued", "processing"].includes(request.status),
+  );
+
+  useEffect(() => {
+    if (!hasActiveRequests) return undefined;
+
+    const poll = async () => {
+      try {
+        const response = await fetch(
+          `/api/draft-lab/image-requests?slug=${encodeURIComponent(
+            slug,
+          )}&placementId=${encodeURIComponent(placementId)}`,
+          {
+            headers: { Accept: "application/json" },
+            cache: "no-store",
+          },
+        );
+        const payload = (await response.json()) as {
+          ok?: boolean;
+          requests?: ImageRequest[];
+        };
+        if (!response.ok || !payload.ok || !payload.requests) return;
+
+        setRequests(payload.requests);
+        const newlyFinished = payload.requests.some((request) => {
+          if (!isFinishedRequest(request)) return false;
+          if (completedRequestIds.current.has(request.id)) return false;
+          completedRequestIds.current.add(request.id);
+          return request.status === "completed";
+        });
+
+        if (newlyFinished) {
+          setMessage("Image generated. Refreshing the article preview...");
+          router.refresh();
+        }
+      } catch {
+        setMessage("Could not refresh worker status yet.");
+      }
+    };
+
+    void poll();
+    const intervalId = window.setInterval(() => {
+      void poll();
+    }, 4000);
+
+    return () => window.clearInterval(intervalId);
+  }, [hasActiveRequests, placementId, router, slug]);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -65,7 +119,7 @@ export function ImageRequestForm({
 
       setRequests((current) => [payload.request as ImageRequest, ...current]);
       setPrompt("");
-      setMessage("Queued. The image worker can process this request now.");
+      setMessage("Queued. Waiting for the image worker to process it.");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Queue failed.");
     } finally {
@@ -79,15 +133,26 @@ export function ImageRequestForm({
         <div style={styles.requestStatusPanel} aria-live="polite">
           <p style={styles.requestStatusTitle}>
             {requests.length} image request{requests.length === 1 ? "" : "s"}
+            {hasActiveRequests ? " · watching worker status" : ""}
           </p>
           <ol style={styles.requestStatusList}>
             {requests.map((request) => (
               <li key={request.id} style={styles.requestStatusItem}>
                 <span>{request.prompt}</span>
-                <code style={styles.statusChip}>{request.status}</code>
+                <code
+                  style={{
+                    ...styles.statusChip,
+                    ...statusStyle(request.status),
+                  }}
+                >
+                  {request.status}
+                </code>
                 <time dateTime={request.requestedAt}>
                   {formatRequestDate(request.requestedAt)}
                 </time>
+                {request.error ? (
+                  <small style={styles.errorDetail}>{request.error}</small>
+                ) : null}
               </li>
             ))}
           </ol>
@@ -131,6 +196,17 @@ function formatRequestDate(value: string) {
   });
 }
 
+function isFinishedRequest(request: ImageRequest) {
+  return ["completed", "failed", "cancelled"].includes(request.status);
+}
+
+function statusStyle(status: string): CSSProperties {
+  if (status === "processing") return styles.statusProcessing;
+  if (status === "completed") return styles.statusCompleted;
+  if (status === "failed") return styles.statusFailed;
+  return {};
+}
+
 const styles: Record<string, CSSProperties> = {
   wrapper: {
     display: "grid",
@@ -170,6 +246,24 @@ const styles: Record<string, CSSProperties> = {
     borderRadius: "999px",
     background: "#fffdf8",
     color: "#25346f",
+  },
+  statusProcessing: {
+    background: "#fff1c7",
+    color: "#7a4c00",
+  },
+  statusCompleted: {
+    background: "#dff3e6",
+    color: "#245f3d",
+  },
+  statusFailed: {
+    background: "#ffe1de",
+    color: "#8e2727",
+  },
+  errorDetail: {
+    gridColumn: "1 / -1",
+    color: "#8e2727",
+    fontSize: "0.8rem",
+    lineHeight: 1.35,
   },
   requestImageForm: {
     display: "grid",
