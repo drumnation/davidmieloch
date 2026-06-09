@@ -44,6 +44,8 @@ export function ImageRequestForm({
   const [workerObservation, setWorkerObservation] =
     useState<WorkerObservation | null>(() => observeRequests(initialRequests));
   const [message, setMessage] = useState("");
+  const [workerMessages, setWorkerMessages] = useState<string[]>([]);
+  const [activeRequestId, setActiveRequestId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
   const completedRequestIds = useRef(
@@ -137,7 +139,8 @@ export function ImageRequestForm({
       setRequests((current) => [payload.request as ImageRequest, ...current]);
       setWorkerObservation(observeRequests([payload.request as ImageRequest, ...requests]));
       setPrompt("");
-      setMessage("Queued only. No image is generating until the worker runs.");
+      setMessage("Queued. Starting image worker...");
+      startWorkerStream((payload.request as ImageRequest).id);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Queue failed.");
     } finally {
@@ -145,8 +148,60 @@ export function ImageRequestForm({
     }
   }
 
+  function startWorkerStream(requestId: string) {
+    setActiveRequestId(requestId);
+    setWorkerMessages(["Opening image worker stream..."]);
+
+    const events = new EventSource(
+      `/api/draft-lab/image-requests/events?slug=${encodeURIComponent(
+        slug,
+      )}&requestId=${encodeURIComponent(requestId)}`,
+    );
+    const appendMessage = (nextMessage: string) => {
+      setWorkerMessages((current) => [...current.slice(-5), nextMessage]);
+    };
+
+    events.addEventListener("stage", (event) => {
+      const payload = parseEventPayload(event);
+      appendMessage(payload.message ?? "Worker stage updated.");
+      setMessage(payload.message ?? "Worker stage updated.");
+    });
+
+    events.addEventListener("completed", (event) => {
+      const payload = parseEventPayload(event);
+      appendMessage(payload.message ?? "Image generated.");
+      setMessage("Image generated. Refreshing the article preview...");
+      setActiveRequestId(null);
+      events.close();
+      router.refresh();
+    });
+
+    events.addEventListener("worker-error", (event) => {
+      const payload = parseEventPayload(event);
+      appendMessage(payload.message ?? "Image worker failed.");
+      setMessage(payload.message ?? "Image worker failed.");
+      setActiveRequestId(null);
+      events.close();
+    });
+
+    events.onerror = () => {
+      appendMessage("Image worker stream disconnected.");
+      setMessage("Image worker stream disconnected.");
+      setActiveRequestId(null);
+      events.close();
+    };
+  }
+
   return (
     <div style={styles.wrapper}>
+      <style>
+        {`
+          @keyframes draft-lab-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}
+      </style>
       {requests.length > 0 ? (
         <div style={styles.requestStatusPanel} aria-live="polite">
           {workerObservation?.status === "needs-worker" ? (
@@ -157,6 +212,22 @@ export function ImageRequestForm({
                 now. Run the image worker or add the background runner before
                 expecting new images to appear.
               </span>
+            </div>
+          ) : null}
+          {activeRequestId ? (
+            <div style={styles.workerProcessing} role="status">
+              <strong>Generating image variation.</strong>
+              <span style={styles.spinnerRow}>
+                <span style={styles.spinner} aria-hidden="true" />
+                Worker request: <code>{activeRequestId}</code>
+              </span>
+              {workerMessages.length > 0 ? (
+                <ol style={styles.workerMessageList}>
+                  {workerMessages.map((workerMessage, index) => (
+                    <li key={`${workerMessage}-${index}`}>{workerMessage}</li>
+                  ))}
+                </ol>
+              ) : null}
             </div>
           ) : null}
           {workerObservation?.status === "processing" ? (
@@ -209,14 +280,14 @@ export function ImageRequestForm({
       <form onSubmit={onSubmit} style={styles.requestImageForm}>
         <textarea
           name="prompt"
-          placeholder={`Describe a better image for "${heading}".`}
+          placeholder={`Describe the variation you want for "${heading}".`}
           required
           value={prompt}
           onChange={(event) => setPrompt(event.target.value)}
           style={styles.requestTextarea}
         />
         <button disabled={isSubmitting} style={styles.maybeButton}>
-          {isSubmitting ? "Queueing..." : "Queue new image request"}
+          {isSubmitting ? "Queueing..." : "Generate variation now"}
         </button>
         {message ? (
           <p
@@ -233,6 +304,15 @@ export function ImageRequestForm({
       </form>
     </div>
   );
+}
+
+function parseEventPayload(event: Event): { message?: string } {
+  const messageEvent = event as MessageEvent<string>;
+  try {
+    return JSON.parse(messageEvent.data) as { message?: string };
+  } catch {
+    return {};
+  }
 }
 
 function formatRequestDate(value: string) {
@@ -326,6 +406,26 @@ const styles: Record<string, CSSProperties> = {
     color: "#704600",
     fontSize: "0.9rem",
     lineHeight: 1.35,
+  },
+  spinnerRow: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    alignItems: "center",
+  },
+  spinner: {
+    width: "16px",
+    height: "16px",
+    border: "3px solid rgba(112, 70, 0, 0.25)",
+    borderTopColor: "#704600",
+    borderRadius: "999px",
+    animation: "draft-lab-spin 1s linear infinite",
+  },
+  workerMessageList: {
+    display: "grid",
+    gap: "4px",
+    margin: "4px 0 0",
+    paddingLeft: "20px",
   },
   requestStatusList: {
     display: "grid",

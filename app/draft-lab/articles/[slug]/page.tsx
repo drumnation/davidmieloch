@@ -388,7 +388,7 @@ function InlineImagePlacement({
               <input type="hidden" name="returnTo" value={placementReturnTo} />
               <input
                 name="reason"
-                placeholder="Optional note"
+                placeholder="Selection note"
                 style={styles.imageReasonInput}
               />
               <button
@@ -396,14 +396,14 @@ function InlineImagePlacement({
                 value="approve"
                 style={styles.keepButton}
               >
-                Check
+                Select
               </button>
               <button
                 name="decision"
                 value="reject"
                 style={styles.removeButton}
               >
-                X
+                Reject
               </button>
             </form>
           </figure>
