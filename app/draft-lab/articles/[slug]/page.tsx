@@ -8,6 +8,7 @@ import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 
 import { ImageRequestForm } from "./ImageRequestForm";
+import { LinkedInCopyButton } from "./LinkedInCopyButton";
 
 import review from "../../../../content/distribution/draft-image-review.json";
 
@@ -174,6 +175,12 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
     ]),
   );
   const returnTo = `/draft-lab/articles/${candidate.slug}`;
+  const linkedInArticleText = buildLinkedInArticleText({
+    candidate,
+    markdown,
+    heroImage,
+    placements: generatedInteriorPlacements,
+  });
 
   return (
     <main style={styles.page}>
@@ -182,6 +189,7 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
           Back to draft lab
         </Link>
       </nav>
+      <LinkedInCopyButton articleText={linkedInArticleText} />
       <article>
         <header style={styles.header}>
           <p style={styles.eyebrow}>
@@ -439,6 +447,83 @@ function renderDraftMarkdown(markdown: string, candidate: DraftCandidate) {
 
     return `![${candidate.title} ${image.role}](${image.src})`;
   });
+}
+
+function buildLinkedInArticleText({
+  candidate,
+  markdown,
+  heroImage,
+  placements,
+}: {
+  candidate: DraftCandidate;
+  markdown: string;
+  heroImage?: { src: string; alt: string; caption: string };
+  placements: GeneratedInteriorPlacement[];
+}) {
+  const lines: string[] = [];
+  const placementByHeading = new Map(
+    placements.map((placement) => [normalizeHeading(placement.heading), placement]),
+  );
+
+  lines.push(candidate.title);
+  lines.push("");
+
+  if (heroImage) {
+    lines.push("[IMAGE: HERO]");
+    lines.push(`Alt: ${heroImage.alt}`);
+    lines.push(`Caption: ${heroImage.caption}`);
+    lines.push(`Site asset: ${heroImage.src}`);
+    lines.push("");
+  }
+
+  for (const line of markdown.split(/\r?\n/)) {
+    const headingMatch = /^(#{1,6})\s+(.+)$/.exec(line);
+    if (headingMatch) {
+      const heading = headingMatch[2].trim();
+      lines.push(heading);
+      const placement = placementByHeading.get(normalizeHeading(heading));
+      const selectedImage =
+        placement?.images.find((image) => image.status === "approved-selected") ??
+        placement?.images[0];
+
+      if (selectedImage) {
+        lines.push("");
+        lines.push(`[IMAGE: ${placement?.id ?? selectedImage.placementId}]`);
+        lines.push(`Alt: ${selectedImage.altText ?? candidate.title}`);
+        lines.push(`Caption: ${selectedImage.caption ?? "Caption needed."}`);
+        lines.push(`Site asset: ${selectedImage.publicPath}`);
+      } else if (placement) {
+        lines.push("");
+        lines.push(`[IMAGE NEEDED: ${placement.id}]`);
+        lines.push(`Caption: ${placement.heading}`);
+      }
+
+      lines.push("");
+      continue;
+    }
+
+    if (line.trim().startsWith("![")) {
+      lines.push(`[IMAGE PLACEHOLDER FROM MARKDOWN: ${line.trim()}]`);
+      lines.push("");
+      continue;
+    }
+
+    if (line.trim() === "---") {
+      lines.push("");
+      continue;
+    }
+
+    lines.push(line);
+  }
+
+  lines.push("");
+  lines.push("Canonical version:");
+  lines.push(`https://davidmieloch.com/blog/${candidate.slug}`);
+
+  return lines
+    .join("\n")
+    .replace(/\n{4,}/g, "\n\n\n")
+    .trim();
 }
 
 function normalizeImageLookupKey(value: string) {

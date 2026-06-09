@@ -185,6 +185,7 @@ type InteriorImageGenerationOptions = {
   articlesRoot: string;
   publicRoot: string;
   slug: string;
+  requestId?: string | null;
   placementId?: string | null;
   limit?: number;
   provider?: string;
@@ -1667,6 +1668,97 @@ The economics change when the unit is a factory.
       requestId: 'inline-01-1780847000000',
       placementId: 'inline-01',
       status: 'planned',
+      prompt: 'A 1950s space-western filter gate sorting expensive signals from cheap noise.',
+    });
+  });
+
+  it('can target a specific queued Draft Lab image request', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const generatedRoot = join(articlesRoot, 'the-filter/images/generated');
+    mkdirSync(generatedRoot, { recursive: true });
+    writeFileSync(
+      join(articlesRoot, 'the-filter/index.md'),
+      `---
+title: "The Filter"
+status: draft
+---
+
+# The Filter
+
+## The Factory Model
+
+The economics change when the unit is a factory.
+`,
+    );
+    const planPath = join(root, 'content/distribution/factory-primitives-interior-image-plan.json');
+    generateInteriorImagePlan({
+      launchPlan: {
+        articles: [{ slug: 'the-filter', title: 'The Filter' }],
+      },
+      articlesRoot,
+      outputPath: planPath,
+      countPerArticle: 1,
+      variantsPerPlacement: 1,
+      write: true,
+      generatedAt: '2026-06-07T06:00:00.000Z',
+    });
+    writeFileSync(
+      join(generatedRoot, 'requests.json'),
+      `${JSON.stringify(
+        {
+          schemaVersion: 'draft-lab-image-requests-v1',
+          requests: [
+            {
+              id: 'old-junk-request',
+              slug: 'the-filter',
+              placementId: 'inline-01',
+              prompt: 'ignore this stale prompt',
+              status: 'queued',
+              requestedAt: '2026-06-07T08:00:00.000Z',
+              requestedBy: 'draft-lab-ui',
+              updatedAt: '2026-06-07T08:00:00.000Z',
+            },
+            {
+              id: 'target-good-request',
+              slug: 'the-filter',
+              placementId: 'inline-01',
+              prompt: 'A 1950s space-western filter gate sorting expensive signals from cheap noise.',
+              status: 'queued',
+              requestedAt: '2026-06-07T08:10:00.000Z',
+              requestedBy: 'draft-lab-ui',
+              updatedAt: '2026-06-07T08:10:00.000Z',
+            },
+          ],
+        },
+        null,
+        2,
+      )}\n`,
+    );
+
+    const result = await processQueuedInteriorImageRequests({
+      inputPath: planPath,
+      articlesRoot,
+      publicRoot,
+      slug: 'the-filter',
+      requestId: 'target-good-request',
+      limit: 1,
+      provider: 'minimax',
+      model: 'image-01',
+      size: '16:9',
+      dryRun: true,
+      spendApproved: false,
+      generatedAt: '2026-06-07T09:00:00.000Z',
+    });
+
+    expect(result).toMatchObject({
+      queued: 1,
+      planned: 1,
+      failures: 0,
+    });
+    expect(result.results[0]).toMatchObject({
+      requestId: 'target-good-request',
       prompt: 'A 1950s space-western filter gate sorting expensive signals from cheap noise.',
     });
   });

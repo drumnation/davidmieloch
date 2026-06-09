@@ -731,6 +731,7 @@ async function imageProcessRequestsCommand(slug) {
     articlesRoot,
     publicRoot,
     slug,
+    requestId: options['request-id'] ?? null,
     limit: Number(options.limit ?? 1),
     provider: options.provider ?? 'zai',
     model: options.model ?? 'glm-image',
@@ -1903,7 +1904,7 @@ function usage() {
   pnpm content:pipeline launch:approve <slug|all> <gate|all> [--by=David] [--note=<text>]
   pnpm content:pipeline image:interior-plan [--write] [--output=<path>] [--launch-plan=<path>] [--count=5] [--variants=2]
   pnpm content:pipeline image:generate <slug> [--input=<path>] [--placement=<id>] [--limit=5] [--size=1280x720] [--dry-run] --spend-approved
-  pnpm content:pipeline image:process-requests <slug> [--input=<path>] [--limit=1] [--provider=minimax] [--model=image-01] [--size=16:9] [--dry-run] --spend-approved
+  pnpm content:pipeline image:process-requests <slug> [--input=<path>] [--request-id=<id>] [--limit=1] [--provider=minimax] [--model=image-01] [--size=16:9] [--dry-run] --spend-approved
   pnpm content:pipeline article:readiness [--write] [--output=<path>] [--report=<path>] [--obsidian-root=<path>]
   pnpm content:pipeline linkedin:article-transfer <slug|all> [--write] [--output=<path>] [--launch-plan=<path>]
   pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]

@@ -414,6 +414,7 @@ export async function processQueuedImageRequests({
   articlesRoot,
   publicRoot,
   slug,
+  requestId = null,
   limit = 1,
   provider = 'zai',
   model = 'glm-image',
@@ -438,7 +439,11 @@ export async function processQueuedImageRequests({
   const requestsPayload = readImageRequests(requestsPath);
   const queuedRequests = (requestsPayload.requests ?? [])
     .filter((request) => request.slug === slug && request.status === 'queued')
+    .filter((request) => (requestId ? request.id === requestId : true))
     .slice(0, limit);
+  if (requestId && queuedRequests.length === 0) {
+    throw new Error(`No queued image request found for --request-id=${requestId}.`);
+  }
   const manifestPath = path.join(articlesRoot, slug, 'images', 'generated', 'manifest.json');
   const manifest = readExistingManifest(manifestPath, generatedAt);
   manifest.updatedAt = generatedAt;
