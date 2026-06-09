@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { Check, X } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
@@ -9,6 +8,7 @@ import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 
 import { ImageRequestForm } from "./ImageRequestForm";
+import { ImageDecisionControls } from "./ImageDecisionControls";
 import { LinkedInCopyButton } from "./LinkedInCopyButton";
 
 import review from "../../../../content/distribution/draft-image-review.json";
@@ -365,35 +365,12 @@ function InlineImagePlacement({
       <div style={styles.generatedGrid}>
         {placement.images.map((image) => (
           <figure key={image.id} style={styles.generatedCard}>
-            <form
-              action="/api/draft-lab"
-              method="post"
-              style={styles.imageDecisionForm}
-              aria-label={`Choose or reject ${image.variantId}`}
-            >
-              <input type="hidden" name="action" value="image-decision" />
-              <input type="hidden" name="slug" value={candidate.slug} />
-              <input type="hidden" name="assetId" value={image.id} />
-              <input type="hidden" name="returnTo" value={placementReturnTo} />
-              <button
-                name="decision"
-                value="approve"
-                style={styles.imageSelectButton}
-                title="Select this image"
-                aria-label={`Select ${image.variantId}`}
-              >
-                <Check size={18} strokeWidth={3} aria-hidden="true" />
-              </button>
-              <button
-                name="decision"
-                value="reject"
-                style={styles.imageRejectButton}
-                title="Reject this image"
-                aria-label={`Reject ${image.variantId}`}
-              >
-                <X size={18} strokeWidth={3} aria-hidden="true" />
-              </button>
-            </form>
+            <ImageDecisionControls
+              slug={candidate.slug}
+              assetId={image.id}
+              variantId={image.variantId}
+              returnTo={placementReturnTo}
+            />
             <a href={draftLabGeneratedImageUrl(image)} style={styles.generatedImageLink}>
               <img
                 src={draftLabGeneratedImageUrl(image)}
@@ -927,37 +904,6 @@ const styles: Record<string, CSSProperties> = {
     color: "#302b25",
     fontSize: "0.88rem",
     lineHeight: 1.38,
-  },
-  imageDecisionForm: {
-    display: "flex",
-    gap: "8px",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "34px",
-  },
-  imageSelectButton: {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "34px",
-    height: "34px",
-    border: "0",
-    borderRadius: "999px",
-    background: "#245f3d",
-    color: "#fffaf1",
-    cursor: "pointer",
-  },
-  imageRejectButton: {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "34px",
-    height: "34px",
-    border: "0",
-    borderRadius: "999px",
-    background: "#8a2e28",
-    color: "#fffaf1",
-    cursor: "pointer",
   },
   editorSection: {
     margin: "46px 0 0",

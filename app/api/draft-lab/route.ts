@@ -108,6 +108,9 @@ export async function POST(request: Request) {
       stringValue(formData, "decision"),
       stringValue(formData, "reason"),
     );
+    if (wantsJson(request)) {
+      return NextResponse.json({ ok: true });
+    }
     return redirectBack(request, returnTo);
   }
 

@@ -202,6 +202,33 @@ export function ImageRequestForm({
           }
         `}
       </style>
+      <form onSubmit={onSubmit} style={styles.requestImageForm}>
+        <textarea
+          name="prompt"
+          placeholder={`Describe the variation you want for "${heading}".`}
+          required
+          value={prompt}
+          onChange={(event) => setPrompt(event.target.value)}
+          style={styles.requestTextarea}
+        />
+        <button disabled={isSubmitting} style={styles.maybeButton}>
+          {isSubmitting ? "Queueing..." : "Generate variation now"}
+        </button>
+        {message ? (
+          <p
+            style={{
+              ...styles.feedback,
+              ...(message.includes("failed") ||
+              message.includes("Request failed") ||
+              message.includes("disconnected")
+                ? styles.feedbackError
+                : {}),
+            }}
+          >
+            {message}
+          </p>
+        ) : null}
+      </form>
       {requests.length > 0 ? (
         <div style={styles.requestStatusPanel} aria-live="polite">
           {workerObservation?.status === "needs-worker" ? (
@@ -277,31 +304,6 @@ export function ImageRequestForm({
           </ol>
         </div>
       ) : null}
-      <form onSubmit={onSubmit} style={styles.requestImageForm}>
-        <textarea
-          name="prompt"
-          placeholder={`Describe the variation you want for "${heading}".`}
-          required
-          value={prompt}
-          onChange={(event) => setPrompt(event.target.value)}
-          style={styles.requestTextarea}
-        />
-        <button disabled={isSubmitting} style={styles.maybeButton}>
-          {isSubmitting ? "Queueing..." : "Generate variation now"}
-        </button>
-        {message ? (
-          <p
-            style={{
-              ...styles.feedback,
-              ...(message.includes("failed") || message.includes("Request failed")
-                ? styles.feedbackError
-                : {}),
-            }}
-          >
-            {message}
-          </p>
-        ) : null}
-      </form>
     </div>
   );
 }
