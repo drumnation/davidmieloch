@@ -1763,6 +1763,100 @@ The economics change when the unit is a factory.
     });
   });
 
+  it('plans queued source-image variation requests with source metadata', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const generatedRoot = join(articlesRoot, 'the-filter/images/generated');
+    mkdirSync(generatedRoot, { recursive: true });
+    writeFileSync(
+      join(articlesRoot, 'the-filter/index.md'),
+      `---
+title: "The Filter"
+status: draft
+---
+
+# The Filter
+
+## The Factory Model
+
+The economics change when the unit is a factory.
+`,
+    );
+    const planPath = join(root, 'content/distribution/factory-primitives-interior-image-plan.json');
+    generateInteriorImagePlan({
+      launchPlan: {
+        articles: [{ slug: 'the-filter', title: 'The Filter' }],
+      },
+      articlesRoot,
+      outputPath: planPath,
+      countPerArticle: 1,
+      variantsPerPlacement: 1,
+      write: true,
+      generatedAt: '2026-06-07T06:00:00.000Z',
+    });
+    writeFileSync(
+      join(generatedRoot, 'requests.json'),
+      `${JSON.stringify(
+        {
+          schemaVersion: 'draft-lab-image-requests-v1',
+          requests: [
+            {
+              id: 'source-variation-request',
+              slug: 'the-filter',
+              placementId: 'inline-01',
+              prompt: 'Keep the portal, but add a crowd being filtered by cost.',
+              status: 'queued',
+              requestedAt: '2026-06-07T08:10:00.000Z',
+              requestedBy: 'draft-lab-ui',
+              updatedAt: '2026-06-07T08:10:00.000Z',
+              sourceAssetId: 'inline-01:inline-01-v1',
+              sourceVariantId: 'inline-01-v1',
+              sourceImageUrl:
+                'https://davidmieloch.brain-garden.io/api/draft-lab/generated-image?path=%2Fblog%2Fthe-filter%2Fimages%2Fgenerated%2Finline-01%2Finline-01-v1.png',
+            },
+          ],
+        },
+        null,
+        2,
+      )}\n`,
+    );
+
+    const result = await processQueuedInteriorImageRequests({
+      inputPath: planPath,
+      articlesRoot,
+      publicRoot,
+      slug: 'the-filter',
+      requestId: 'source-variation-request',
+      limit: 1,
+      provider: 'minimax',
+      model: 'image-01',
+      size: '16:9',
+      dryRun: true,
+      spendApproved: false,
+      generatedAt: '2026-06-07T09:00:00.000Z',
+    });
+
+    expect(result).toMatchObject({
+      queued: 1,
+      planned: 1,
+      failures: 0,
+    });
+    expect(result.results[0]).toMatchObject({
+      requestId: 'source-variation-request',
+      generationMode: 'source-image-variation',
+      sourceAssetId: 'inline-01:inline-01-v1',
+      sourceVariantId: 'inline-01-v1',
+      requestPrompt: 'Keep the portal, but add a crowd being filtered by cost.',
+    });
+    expect(result.results[0].prompt).toContain(
+      'Use the supplied source image as the visual reference',
+    );
+    expect(result.results[0].prompt).toContain(
+      'Keep the portal, but add a crowd being filtered by cost.',
+    );
+  });
+
   it('reports website draft and vault-candidate article readiness gates', () => {
     const root = tempRoot();
     const articlesRoot = join(root, 'content/articles');

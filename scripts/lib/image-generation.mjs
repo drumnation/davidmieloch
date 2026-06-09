@@ -96,7 +96,15 @@ async function callZai({ apiKey, model, prompt, quality, size, userId }) {
   return { json, imageUrl };
 }
 
-async function callMiniMax({ apiKey, model, prompt, aspectRatio, responseFormat, count }) {
+async function callMiniMax({
+  apiKey,
+  model,
+  prompt,
+  aspectRatio,
+  responseFormat,
+  count,
+  sourceImageUrl,
+}) {
   const response = await fetch(MINIMAX_IMAGE_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -110,6 +118,16 @@ async function callMiniMax({ apiKey, model, prompt, aspectRatio, responseFormat,
       response_format: responseFormat,
       n: count,
       prompt_optimizer: true,
+      ...(sourceImageUrl
+        ? {
+            subject_reference: [
+              {
+                type: 'character',
+                image_file: sourceImageUrl,
+              },
+            ],
+          }
+        : {}),
     }),
   });
 
@@ -167,6 +185,7 @@ async function generateImageWithProvider({
   quality,
   size,
   userId,
+  sourceImageUrl,
 }) {
   if (provider === 'zai') {
     const { json, imageUrl } = await callZai({
@@ -188,6 +207,7 @@ async function generateImageWithProvider({
       aspectRatio: size,
       responseFormat: 'url',
       count: 1,
+      sourceImageUrl,
     });
     return {
       json,
@@ -251,6 +271,17 @@ function variantIdForRequest(request, index) {
     .replace(/^-+|-+$/g, '')
     .slice(0, 48);
   return `${request.placementId}-request-${safeId || index + 1}`;
+}
+
+function promptForQueuedRequest(request) {
+  if (!request.sourceAssetId) return request.prompt;
+
+  return [
+    'Use the supplied source image as the visual reference for composition, palette, and style continuity.',
+    `Source image variant: ${request.sourceVariantId ?? request.sourceAssetId}.`,
+    `Requested change: ${request.prompt}`,
+    'Keep it suitable as editorial article art. Do not add readable text unless explicitly requested.',
+  ].join('\n');
 }
 
 export async function generateInteriorImages({
@@ -488,6 +519,7 @@ export async function processQueuedImageRequests({
       variantId,
     });
     const id = `${placement.id}:${variantId}`;
+    const generationPrompt = promptForQueuedRequest(request);
     const baseAsset = {
       id,
       placementId: placement.id,
@@ -496,12 +528,17 @@ export async function processQueuedImageRequests({
       targetHeading: placement.target?.afterHeading ?? null,
       altText: placement.altText,
       caption: placement.captionSeed,
-      prompt: request.prompt,
-      promptChecksum: sha256(Buffer.from(request.prompt)),
+      prompt: generationPrompt,
+      promptChecksum: sha256(Buffer.from(generationPrompt)),
+      requestPrompt: request.prompt,
       publicPath,
       sourcePath: path.relative(process.cwd(), outputPath),
       status: dryRun ? 'planned' : 'generated-needs-review',
       requestId: request.id,
+      sourceAssetId: request.sourceAssetId ?? null,
+      sourceVariantId: request.sourceVariantId ?? null,
+      sourceImageUrl: request.sourceImageUrl ?? null,
+      generationMode: request.sourceAssetId ? 'source-image-variation' : 'fresh-slot-concept',
     };
 
     if (dryRun) {
@@ -514,10 +551,11 @@ export async function processQueuedImageRequests({
         provider,
         apiKey,
         model,
-        prompt: request.prompt,
+        prompt: generationPrompt,
         quality,
         size,
         userId: `davidmieloch-${slug}-${variantId}`,
+        sourceImageUrl: provider === 'minimax' ? request.sourceImageUrl : null,
       });
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });
       fs.writeFileSync(outputPath, image);

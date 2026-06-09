@@ -8,6 +8,9 @@ type ImageRequest = {
   prompt: string;
   status: string;
   requestedAt: string;
+  sourceAssetId?: string;
+  sourceVariantId?: string;
+  sourceImageUrl?: string;
   workerStartedAt?: string;
   processedAt?: string;
   failedAt?: string;
@@ -30,6 +33,10 @@ type Props = {
   heading: string;
   returnTo: string;
   initialRequests: ImageRequest[];
+  sourceAssetId?: string;
+  sourceVariantId?: string;
+  sourceImageUrl?: string;
+  compact?: boolean;
 };
 
 export function ImageRequestForm({
@@ -38,6 +45,10 @@ export function ImageRequestForm({
   heading,
   returnTo,
   initialRequests,
+  sourceAssetId,
+  sourceVariantId,
+  sourceImageUrl,
+  compact = false,
 }: Props) {
   const [prompt, setPrompt] = useState("");
   const [requests, setRequests] = useState(initialRequests);
@@ -117,6 +128,11 @@ export function ImageRequestForm({
       formData.set("placementId", placementId);
       formData.set("prompt", trimmedPrompt);
       formData.set("returnTo", returnTo);
+      if (sourceAssetId) formData.set("sourceAssetId", sourceAssetId);
+      if (sourceVariantId) formData.set("sourceVariantId", sourceVariantId);
+      if (sourceImageUrl) {
+        formData.set("sourceImageUrl", absoluteImageUrl(sourceImageUrl));
+      }
 
       const response = await fetch("/api/draft-lab", {
         method: "POST",
@@ -139,7 +155,11 @@ export function ImageRequestForm({
       setRequests((current) => [payload.request as ImageRequest, ...current]);
       setWorkerObservation(observeRequests([payload.request as ImageRequest, ...requests]));
       setPrompt("");
-      setMessage("Queued. Starting image worker...");
+      setMessage(
+        sourceAssetId
+          ? "Queued source-image variation. Starting image worker..."
+          : "Queued. Starting image worker...",
+      );
       startWorkerStream((payload.request as ImageRequest).id);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Queue failed.");
@@ -205,14 +225,25 @@ export function ImageRequestForm({
       <form onSubmit={onSubmit} style={styles.requestImageForm}>
         <textarea
           name="prompt"
-          placeholder={`Describe the variation you want for "${heading}".`}
+          placeholder={
+            sourceVariantId
+              ? `Describe what to change in ${sourceVariantId}.`
+              : `Describe the variation you want for "${heading}".`
+          }
           required
           value={prompt}
           onChange={(event) => setPrompt(event.target.value)}
-          style={styles.requestTextarea}
+          style={{
+            ...styles.requestTextarea,
+            ...(compact ? styles.compactTextarea : {}),
+          }}
         />
         <button disabled={isSubmitting} style={styles.maybeButton}>
-          {isSubmitting ? "Queueing..." : "Generate variation now"}
+          {isSubmitting
+            ? "Queueing..."
+            : sourceVariantId
+              ? "Vary this image"
+              : "Generate new direction"}
         </button>
         {message ? (
           <p
@@ -229,7 +260,18 @@ export function ImageRequestForm({
           </p>
         ) : null}
       </form>
-      {requests.length > 0 ? (
+      {compact && activeRequestId ? (
+        <div style={styles.compactWorkerProcessing} role="status" aria-live="polite">
+          <span style={styles.spinnerRow}>
+            <span style={styles.spinner} aria-hidden="true" />
+            Generating from this image.
+          </span>
+          {workerMessages.at(-1) ? (
+            <small>{workerMessages.at(-1)}</small>
+          ) : null}
+        </div>
+      ) : null}
+      {!compact && requests.length > 0 ? (
         <div style={styles.requestStatusPanel} aria-live="polite">
           {workerObservation?.status === "needs-worker" ? (
             <div style={styles.workerWarning} role="status">
@@ -315,6 +357,11 @@ function parseEventPayload(event: Event): { message?: string } {
   } catch {
     return {};
   }
+}
+
+function absoluteImageUrl(imageUrl: string) {
+  if (/^https?:\/\//i.test(imageUrl)) return imageUrl;
+  return new URL(imageUrl, window.location.origin).toString();
 }
 
 function formatRequestDate(value: string) {
@@ -409,6 +456,17 @@ const styles: Record<string, CSSProperties> = {
     fontSize: "0.9rem",
     lineHeight: 1.35,
   },
+  compactWorkerProcessing: {
+    display: "grid",
+    gap: "4px",
+    padding: "8px",
+    border: "1px solid #b27500",
+    borderRadius: "8px",
+    background: "#fff5d8",
+    color: "#704600",
+    fontSize: "0.82rem",
+    lineHeight: 1.35,
+  },
   spinnerRow: {
     display: "flex",
     flexWrap: "wrap",
@@ -496,6 +554,10 @@ const styles: Record<string, CSSProperties> = {
     font: "inherit",
     lineHeight: 1.45,
     resize: "vertical",
+  },
+  compactTextarea: {
+    minHeight: "56px",
+    fontSize: "0.86rem",
   },
   maybeButton: {
     minHeight: "36px",

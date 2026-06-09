@@ -17,6 +17,9 @@ type ImageRequest = {
   failedAt?: string;
   resultAssetId?: string;
   error?: string;
+  sourceAssetId?: string;
+  sourceVariantId?: string;
+  sourceImageUrl?: string;
 };
 
 export async function GET(request: Request) {

@@ -64,6 +64,9 @@ type GeneratedImageRequest = {
   status: string;
   requestedAt: string;
   requestedBy: string;
+  sourceAssetId?: string;
+  sourceVariantId?: string;
+  sourceImageUrl?: string;
 };
 
 type GeneratedInteriorPlacement = {
@@ -384,6 +387,19 @@ function InlineImagePlacement({
               <span>{image.caption ?? "No caption drafted yet."}</span>
               <code>{image.status}</code>
             </figcaption>
+            <ImageRequestForm
+              slug={candidate.slug}
+              placementId={placement.id}
+              heading={placement.heading}
+              returnTo={placementReturnTo}
+              initialRequests={placement.requests.filter(
+                (request) => request.sourceAssetId === image.id,
+              )}
+              sourceAssetId={image.id}
+              sourceVariantId={image.variantId}
+              sourceImageUrl={draftLabGeneratedImageUrl(image)}
+              compact
+            />
           </figure>
         ))}
       </div>

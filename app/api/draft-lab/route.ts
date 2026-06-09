@@ -55,6 +55,9 @@ type ImageRequest = {
   requestedAt: string;
   requestedBy: string;
   updatedAt: string;
+  sourceAssetId?: string;
+  sourceVariantId?: string;
+  sourceImageUrl?: string;
 };
 
 const allowedDraftStatuses = new Set<DraftDecisionStatus>([
@@ -120,11 +123,14 @@ export async function POST(request: Request) {
   }
 
   if (action === "request-image") {
-    const imageRequest = queueImageRequest(
+    const imageRequest = queueImageRequest({
       slug,
-      stringValue(formData, "placementId"),
-      stringValue(formData, "prompt"),
-    );
+      placementId: stringValue(formData, "placementId"),
+      prompt: stringValue(formData, "prompt"),
+      sourceAssetId: stringValue(formData, "sourceAssetId"),
+      sourceVariantId: stringValue(formData, "sourceVariantId"),
+      sourceImageUrl: stringValue(formData, "sourceImageUrl"),
+    });
     if (wantsJson(request)) {
       return NextResponse.json({ ok: true, request: imageRequest });
     }
@@ -441,7 +447,21 @@ function savePreviewMarkdown(slug: string, markdown: string) {
   fs.writeFileSync(previewPath, `${markdown.trim()}\n`);
 }
 
-function queueImageRequest(slug: string, placementId: string, prompt: string) {
+function queueImageRequest({
+  slug,
+  placementId,
+  prompt,
+  sourceAssetId,
+  sourceVariantId,
+  sourceImageUrl,
+}: {
+  slug: string;
+  placementId: string;
+  prompt: string;
+  sourceAssetId?: string;
+  sourceVariantId?: string;
+  sourceImageUrl?: string;
+}) {
   if (!placementId || !prompt.trim()) {
     throw new Error("Image request needs a placement and prompt.");
   }
@@ -464,7 +484,7 @@ function queueImageRequest(slug: string, placementId: string, prompt: string) {
   });
   const now = new Date().toISOString();
   const imageRequest: ImageRequest = {
-    id: `${placementId}-${Date.now()}`,
+    id: `${placementId}-${sourceVariantId ? `${sourceVariantId}-` : ""}${Date.now()}`,
     slug,
     placementId,
     prompt: prompt.trim(),
@@ -472,6 +492,9 @@ function queueImageRequest(slug: string, placementId: string, prompt: string) {
     requestedAt: now,
     requestedBy: "draft-lab-ui",
     updatedAt: now,
+    ...(sourceAssetId ? { sourceAssetId } : {}),
+    ...(sourceVariantId ? { sourceVariantId } : {}),
+    ...(sourceImageUrl ? { sourceImageUrl } : {}),
   };
 
   requests.requests.push(imageRequest);
