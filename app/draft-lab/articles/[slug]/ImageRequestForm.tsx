@@ -481,12 +481,13 @@ const styles: Record<string, CSSProperties> = {
   },
   requestImageForm: {
     display: "grid",
-    gap: "8px",
+    gap: "10px",
+    marginTop: "2px",
   },
   requestTextarea: {
     width: "100%",
-    minHeight: "74px",
-    padding: "10px",
+    minHeight: "64px",
+    padding: "12px",
     border: "1px solid #d6d0c7",
     borderRadius: "8px",
     color: "#171717",
