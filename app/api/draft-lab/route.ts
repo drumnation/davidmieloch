@@ -466,15 +466,7 @@ function queueImageRequest({
     throw new Error("Image request needs a placement and prompt.");
   }
 
-  const requestsPath = path.join(
-    process.cwd(),
-    "content",
-    "articles",
-    slug,
-    "images",
-    "generated",
-    "requests.json",
-  );
+  const requestsPath = draftLabMutableArticleFile(slug, "requests.json");
   const requests = readJson<{
     schemaVersion: string;
     requests: ImageRequest[];
@@ -504,15 +496,7 @@ function queueImageRequest({
 }
 
 function generatedManifestPath(slug: string) {
-  return path.join(
-    process.cwd(),
-    "content",
-    "articles",
-    slug,
-    "images",
-    "generated",
-    "manifest.json",
-  );
+  return draftLabMutableArticleFile(slug, "manifest.json");
 }
 
 function summarizeImageApproval(assets: GeneratedInteriorImage[]) {
@@ -550,4 +534,36 @@ function readJson<T>(filePath: string, fallback: T): T {
 function writeJson(filePath: string, value: unknown) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+function draftLabMutableArticleFile(slug: string, fileName: string) {
+  const repoPath = path.join(
+    process.cwd(),
+    "content",
+    "articles",
+    slug,
+    "images",
+    "generated",
+    fileName,
+  );
+  const dataRoot = process.env.DRAFT_LAB_DATA_ROOT;
+
+  if (!dataRoot) return repoPath;
+
+  const dataPath = path.join(
+    dataRoot,
+    "content",
+    "articles",
+    slug,
+    "images",
+    "generated",
+    fileName,
+  );
+
+  if (!fs.existsSync(dataPath) && fs.existsSync(repoPath)) {
+    fs.mkdirSync(path.dirname(dataPath), { recursive: true });
+    fs.copyFileSync(repoPath, dataPath);
+  }
+
+  return dataPath;
 }

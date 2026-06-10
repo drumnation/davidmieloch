@@ -600,15 +600,7 @@ function draftLabGeneratedImageUrl(image: GeneratedInteriorImage) {
 }
 
 function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
-  const manifestPath = path.join(
-    process.cwd(),
-    "content",
-    "articles",
-    slug,
-    "images",
-    "generated",
-    "manifest.json",
-  );
+  const manifestPath = draftLabReadableArticleFile(slug, "manifest.json");
 
   if (!fs.existsSync(manifestPath)) {
     return [];
@@ -646,15 +638,7 @@ function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
 }
 
 function readGeneratedImageRequests(slug: string): GeneratedImageRequest[] {
-  const requestsPath = path.join(
-    process.cwd(),
-    "content",
-    "articles",
-    slug,
-    "images",
-    "generated",
-    "requests.json",
-  );
+  const requestsPath = draftLabReadableArticleFile(slug, "requests.json");
 
   if (!fs.existsSync(requestsPath)) {
     return [];
@@ -671,6 +655,33 @@ function readGeneratedImageRequests(slug: string): GeneratedImageRequest[] {
   } catch {
     return [];
   }
+}
+
+function draftLabReadableArticleFile(slug: string, fileName: string) {
+  const repoPath = path.join(
+    process.cwd(),
+    "content",
+    "articles",
+    slug,
+    "images",
+    "generated",
+    fileName,
+  );
+  const dataRoot = process.env.DRAFT_LAB_DATA_ROOT;
+
+  if (!dataRoot) return repoPath;
+
+  const dataPath = path.join(
+    dataRoot,
+    "content",
+    "articles",
+    slug,
+    "images",
+    "generated",
+    fileName,
+  );
+
+  return fs.existsSync(dataPath) ? dataPath : repoPath;
 }
 
 const styles: Record<string, CSSProperties> = {

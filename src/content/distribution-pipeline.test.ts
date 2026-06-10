@@ -1857,6 +1857,115 @@ The economics change when the unit is a factory.
     );
   });
 
+  it('reads Draft Lab image requests from the durable data root when configured', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const dataRoot = join(root, 'draft-lab-data');
+    const generatedRoot = join(articlesRoot, 'the-filter/images/generated');
+    const durableGeneratedRoot = join(
+      dataRoot,
+      'content/articles/the-filter/images/generated',
+    );
+    mkdirSync(generatedRoot, { recursive: true });
+    mkdirSync(durableGeneratedRoot, { recursive: true });
+    writeFileSync(
+      join(articlesRoot, 'the-filter/index.md'),
+      `---
+title: "The Filter"
+status: draft
+---
+
+# The Filter
+
+## The Factory Model
+
+The economics change when the unit is a factory.
+`,
+    );
+    const planPath = join(root, 'content/distribution/factory-primitives-interior-image-plan.json');
+    generateInteriorImagePlan({
+      launchPlan: {
+        articles: [{ slug: 'the-filter', title: 'The Filter' }],
+      },
+      articlesRoot,
+      outputPath: planPath,
+      countPerArticle: 1,
+      variantsPerPlacement: 1,
+      write: true,
+      generatedAt: '2026-06-07T06:00:00.000Z',
+    });
+    writeFileSync(
+      join(generatedRoot, 'requests.json'),
+      `${JSON.stringify(
+        {
+          schemaVersion: 'draft-lab-image-requests-v1',
+          requests: [],
+        },
+        null,
+        2,
+      )}\n`,
+    );
+    writeFileSync(
+      join(durableGeneratedRoot, 'requests.json'),
+      `${JSON.stringify(
+        {
+          schemaVersion: 'draft-lab-image-requests-v1',
+          requests: [
+            {
+              id: 'durable-root-request',
+              slug: 'the-filter',
+              placementId: 'inline-01',
+              prompt: 'This request only exists outside the git checkout.',
+              status: 'queued',
+              requestedAt: '2026-06-07T08:10:00.000Z',
+              requestedBy: 'draft-lab-ui',
+              updatedAt: '2026-06-07T08:10:00.000Z',
+            },
+          ],
+        },
+        null,
+        2,
+      )}\n`,
+    );
+
+    const previousDataRoot = process.env.DRAFT_LAB_DATA_ROOT;
+    process.env.DRAFT_LAB_DATA_ROOT = dataRoot;
+    try {
+      const result = await processQueuedInteriorImageRequests({
+        inputPath: planPath,
+        articlesRoot,
+        publicRoot,
+        slug: 'the-filter',
+        requestId: 'durable-root-request',
+        limit: 1,
+        provider: 'minimax',
+        model: 'image-01',
+        size: '16:9',
+        dryRun: true,
+        spendApproved: false,
+        generatedAt: '2026-06-07T09:00:00.000Z',
+      });
+
+      expect(result).toMatchObject({
+        queued: 1,
+        planned: 1,
+        failures: 0,
+      });
+      expect(result.results[0]).toMatchObject({
+        requestId: 'durable-root-request',
+        prompt: 'This request only exists outside the git checkout.',
+      });
+      expect(result.requestsPath).toContain('draft-lab-data');
+    } finally {
+      if (previousDataRoot === undefined) {
+        delete process.env.DRAFT_LAB_DATA_ROOT;
+      } else {
+        process.env.DRAFT_LAB_DATA_ROOT = previousDataRoot;
+      }
+    }
+  });
+
   it('reports website draft and vault-candidate article readiness gates', () => {
     const root = tempRoot();
     const articlesRoot = join(root, 'content/articles');

@@ -35,7 +35,11 @@ function localPathForGeneratedImage({ publicRoot, slug, placementId, variantId }
 }
 
 function requestsPathForSlug({ articlesRoot, slug }) {
-  return path.join(articlesRoot, slug, 'images', 'generated', 'requests.json');
+  return draftLabMutableGeneratedFile({
+    articlesRoot,
+    slug,
+    fileName: 'requests.json',
+  });
 }
 
 function selectArticle(plan, slug) {
@@ -251,6 +255,30 @@ function readImageRequests(requestsPath) {
   return readJson(requestsPath);
 }
 
+function draftLabMutableGeneratedFile({ articlesRoot, slug, fileName }) {
+  const repoPath = path.join(articlesRoot, slug, 'images', 'generated', fileName);
+  const dataRoot = process.env.DRAFT_LAB_DATA_ROOT;
+
+  if (!dataRoot) return repoPath;
+
+  const dataPath = path.join(
+    dataRoot,
+    'content',
+    'articles',
+    slug,
+    'images',
+    'generated',
+    fileName,
+  );
+
+  if (!fs.existsSync(dataPath) && fs.existsSync(repoPath)) {
+    fs.mkdirSync(path.dirname(dataPath), { recursive: true });
+    fs.copyFileSync(repoPath, dataPath);
+  }
+
+  return dataPath;
+}
+
 function updateImageRequest(requestsPayload, requestId, patch) {
   const now = patch.updatedAt ?? new Date().toISOString();
   requestsPayload.requests = (requestsPayload.requests ?? []).map((request) =>
@@ -318,7 +346,11 @@ export async function generateInteriorImages({
     publicRoot,
   });
 
-  const manifestPath = path.join(articlesRoot, slug, 'images', 'generated', 'manifest.json');
+  const manifestPath = draftLabMutableGeneratedFile({
+    articlesRoot,
+    slug,
+    fileName: 'manifest.json',
+  });
   const manifest = readExistingManifest(manifestPath, generatedAt);
   manifest.updatedAt = generatedAt;
   manifest.article = {
@@ -475,7 +507,11 @@ export async function processQueuedImageRequests({
   if (requestId && queuedRequests.length === 0) {
     throw new Error(`No queued image request found for --request-id=${requestId}.`);
   }
-  const manifestPath = path.join(articlesRoot, slug, 'images', 'generated', 'manifest.json');
+  const manifestPath = draftLabMutableGeneratedFile({
+    articlesRoot,
+    slug,
+    fileName: 'manifest.json',
+  });
   const manifest = readExistingManifest(manifestPath, generatedAt);
   manifest.updatedAt = generatedAt;
   manifest.article = {

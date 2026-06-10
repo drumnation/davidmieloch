@@ -85,15 +85,7 @@ function observeImageWorker(requests: ImageRequest[]) {
 }
 
 function readImageRequests(slug: string): ImageRequest[] {
-  const requestsPath = path.join(
-    process.cwd(),
-    "content",
-    "articles",
-    slug,
-    "images",
-    "generated",
-    "requests.json",
-  );
+  const requestsPath = draftLabReadableArticleFile(slug, "requests.json");
 
   if (!fs.existsSync(requestsPath)) {
     return [];
@@ -110,4 +102,31 @@ function readImageRequests(slug: string): ImageRequest[] {
   } catch {
     return [];
   }
+}
+
+function draftLabReadableArticleFile(slug: string, fileName: string) {
+  const repoPath = path.join(
+    process.cwd(),
+    "content",
+    "articles",
+    slug,
+    "images",
+    "generated",
+    fileName,
+  );
+  const dataRoot = process.env.DRAFT_LAB_DATA_ROOT;
+
+  if (!dataRoot) return repoPath;
+
+  const dataPath = path.join(
+    dataRoot,
+    "content",
+    "articles",
+    slug,
+    "images",
+    "generated",
+    fileName,
+  );
+
+  return fs.existsSync(dataPath) ? dataPath : repoPath;
 }
