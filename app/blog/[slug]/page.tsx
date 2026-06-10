@@ -85,6 +85,17 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </header>
 
+        {article.coverImage ? (
+          <figure style={styles.coverFigure}>
+            <img
+              src={article.coverImage}
+              alt=""
+              style={styles.coverImage}
+              loading="eager"
+            />
+          </figure>
+        ) : null}
+
         <ReactMarkdown
           components={{
             h1: ({ children }) => <h2 style={styles.markdownH1}>{children}</h2>,
@@ -178,6 +189,17 @@ const styles: Record<string, CSSProperties> = {
     borderBottom: "1px solid #dedede",
     paddingBottom: "30px",
     marginBottom: "34px",
+  },
+  coverFigure: {
+    margin: "0 0 36px",
+  },
+  coverImage: {
+    display: "block",
+    width: "100%",
+    height: "auto",
+    borderRadius: "8px",
+    border: "1px solid #dedede",
+    background: "#f7f3ed",
   },
   eyebrow: {
     margin: "0 0 12px",

@@ -1,13 +1,13 @@
 # Article Readiness Report
 
-Generated: 2026-06-07T07:39:08.232Z
+Generated: 2026-06-10T03:31:30.454Z
 
 ## Summary
 
 - Website articles: 25
-- Website drafts: 5
+- Website drafts: 4
 - Website drafts ready for public release: 0
-- Website drafts needing interior image completion: 5
+- Website drafts needing interior image completion: 4
 - Vault candidates: 97
 - Vault candidates not yet on website: 68
 - Vault candidates with copyright-reference image risk: 2
@@ -18,15 +18,6 @@ Generated: 2026-06-07T07:39:08.232Z
 
 - Slug: `the-ai-bill-you-cant-predict`
 - Release: 2026-06-13T11:00:00-04:00
-- Body images: 0/5
-- Approved interior images: 0/5
-- Ready: no
-- Warnings: draft interior images planned but not generated/approved; draft body does not yet contain planned interior images
-
-### The AI Cost Rug Pull Isn't a Bubble. It's a Filter.
-
-- Slug: `the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter`
-- Release: 2026-06-10T11:00:00-04:00
 - Body images: 0/5
 - Approved interior images: 0/5
 - Ready: no

@@ -1,12 +1,12 @@
 {
   "schemaVersion": "article-readiness-report-v1",
-  "generatedAt": "2026-06-07T07:39:08.232Z",
+  "generatedAt": "2026-06-10T03:31:30.454Z",
   "publicPublishingPerformed": false,
   "summary": {
     "websiteArticles": 25,
-    "websiteDrafts": 5,
+    "websiteDrafts": 4,
     "websiteDraftsReadyForRelease": 0,
-    "websiteDraftsNeedingInteriorImages": 5,
+    "websiteDraftsNeedingInteriorImages": 4,
     "vaultCandidates": 97,
     "vaultCandidatesNotOnWebsite": 68,
     "vaultCandidatesWithCopyrightReferenceRisk": 2
@@ -545,7 +545,7 @@
     {
       "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
       "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
-      "status": "draft",
+      "status": "published",
       "publishedAt": "2026-06-10",
       "canonicalUrl": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
       "paths": {
@@ -579,20 +579,17 @@
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
-        "interiorImagesApproved": false,
+        "interiorImagesApproved": true,
         "releaseCalendar": true,
         "linkedinArticleTransfer": true,
         "linkedinTeaserScheduled": true,
         "siteLinkedInReleaseAligned": true,
         "bodyStructure": true,
-        "articleBodyImages": false
+        "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "draft interior images planned but not generated/approved",
-        "draft body does not yet contain planned interior images"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "the-beauty-of-es6s-object-destructuring-assignment",
@@ -1249,58 +1246,6 @@
         "linkedinStatus": "needs-browser-staging",
         "linkedinTeaserAt": "2026-06-13T15:00:00.000Z",
         "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-bill-you-cant-predict/linkedin.md"
-      },
-      "gates": {
-        "frontmatter": true,
-        "canonical": true,
-        "coverImage": true,
-        "imageManifest": true,
-        "heroLinkedInReady": true,
-        "imageCaptions": true,
-        "interiorPlan": true,
-        "interiorImagesApproved": false,
-        "releaseCalendar": true,
-        "linkedinArticleTransfer": true,
-        "linkedinTeaserScheduled": true,
-        "siteLinkedInReleaseAligned": true,
-        "bodyStructure": true,
-        "articleBodyImages": false
-      },
-      "issues": [],
-      "warnings": [
-        "draft interior images planned but not generated/approved",
-        "draft body does not yet contain planned interior images"
-      ],
-      "readyForPublicRelease": false
-    },
-    {
-      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
-      "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
-      "status": "draft",
-      "publishedAt": "2026-06-10",
-      "canonicalUrl": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
-      "paths": {
-        "article": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md",
-        "coverImage": "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png",
-        "imageManifest": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-manifest.json",
-        "interiorPlan": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/interior-plan.json",
-        "imageBrief": "content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/image-brief.md",
-        "linkedinArticleTransfer": "content/distribution/linkedin-article-transfer/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin-article-transfer.json"
-      },
-      "counts": {
-        "h2Sections": 9,
-        "bodyImages": 0,
-        "manifestAssets": 1,
-        "captionedImageAssets": 1,
-        "plannedInteriorImages": 5,
-        "plannedInteriorVariants": 10,
-        "approvedInteriorImages": 0
-      },
-      "calendar": {
-        "plannedReleaseAt": "2026-06-10T11:00:00-04:00",
-        "linkedinStatus": "needs-browser-staging",
-        "linkedinTeaserAt": "2026-06-10T15:00:00.000Z",
-        "linkedinTeaserPackagePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/social-packages/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/linkedin.md"
       },
       "gates": {
         "frontmatter": true,

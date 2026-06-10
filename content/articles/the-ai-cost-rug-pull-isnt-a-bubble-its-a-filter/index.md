@@ -2,7 +2,7 @@
 title: "The AI Cost Rug Pull Isn't a Bubble. It's a Filter."
 description: "AI cost pressure is not the bubble popping. It is the filter separating prompt users from people who built real factories."
 publishedAt: "2026-06-10"
-status: "draft"
+status: "published"
 canonicalUrl: "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
 sourcePlatform: "obsidian"
 sourceUrl: ""
