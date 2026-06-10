@@ -354,12 +354,13 @@ function InlineImagePlacement({
         )}
       </div>
       <p style={styles.placementHelp}>
-        Choose the image that best supports this section. Once selected, only
-        that image remains visible here.
+        Choose the image that best supports this section. Selected images are
+        highlighted, but the other options stay visible so you can compare or
+        change your mind.
       </p>
       <div style={styles.generatedGrid}>
         {placement.images.map((image) => (
-          <figure key={image.id} style={styles.generatedCard}>
+          <figure key={image.id} style={imageCardStyle(image.status)}>
             <ImageDecisionControls
               slug={candidate.slug}
               assetId={image.id}
@@ -570,18 +571,35 @@ function groupGeneratedInteriorImages(
     );
     const reviewImages =
       fullFrameImages.length > 0 ? fullFrameImages : placement.images;
-    const selectedImages = reviewImages.filter(
-      (image) => image.status === "approved-selected",
-    );
 
     return {
       ...placement,
-      images: selectedImages.length > 0 ? selectedImages : reviewImages,
+      images: reviewImages.sort(compareImageChoices),
       requests: [...placement.requests].sort((left, right) =>
         right.requestedAt.localeCompare(left.requestedAt),
       ),
     };
   });
+}
+
+function compareImageChoices(
+  left: GeneratedInteriorImage,
+  right: GeneratedInteriorImage,
+) {
+  const statusDelta =
+    imageStatusRank(left.status) - imageStatusRank(right.status);
+
+  if (statusDelta !== 0) return statusDelta;
+
+  return left.variantId.localeCompare(right.variantId);
+}
+
+function imageStatusRank(status: string) {
+  if (status === "approved-selected") return 0;
+  if (status === "generated-needs-review") return 1;
+  if (status === "rejected-not-selected") return 2;
+  if (status === "rejected-by-david") return 3;
+  return 4;
 }
 
 function isContactSheetSlice(image: GeneratedInteriorImage) {
@@ -616,6 +634,8 @@ function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
         [
           "approved-selected",
           "generated-needs-review",
+          "rejected-not-selected",
+          "rejected-by-david",
           "generated-contact-sheet-needs-slicing",
         ].includes(asset.status),
       )
@@ -682,6 +702,24 @@ function draftLabReadableArticleFile(slug: string, fileName: string) {
   );
 
   return fs.existsSync(dataPath) ? dataPath : repoPath;
+}
+
+function imageCardStyle(status: string): CSSProperties {
+  if (status === "approved-selected") {
+    return {
+      ...styles.generatedCard,
+      ...styles.selectedGeneratedCard,
+    };
+  }
+
+  if (status === "rejected-not-selected" || status === "rejected-by-david") {
+    return {
+      ...styles.generatedCard,
+      ...styles.rejectedGeneratedCard,
+    };
+  }
+
+  return styles.generatedCard;
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -904,6 +942,14 @@ const styles: Record<string, CSSProperties> = {
     border: "1px solid #e2d8c9",
     borderRadius: "10px",
     background: "#fffdf8",
+  },
+  selectedGeneratedCard: {
+    border: "2px solid #245f3d",
+    boxShadow: "0 0 0 3px rgba(36, 95, 61, 0.12)",
+  },
+  rejectedGeneratedCard: {
+    opacity: 0.72,
+    background: "#f7f0e7",
   },
   generatedImageLink: {
     display: "block",
