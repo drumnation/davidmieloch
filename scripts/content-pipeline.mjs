@@ -27,7 +27,7 @@ import {
 import {
   generateInteriorImages,
   processQueuedImageRequests,
-} from './lib/image-generation.mjs';
+} from './lib/image-generation.ts';
 import {
   buildArticleReadinessReport,
 } from './lib/article-readiness.mjs';

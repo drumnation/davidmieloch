@@ -5,24 +5,197 @@ import path from 'node:path';
 const ZAI_IMAGE_ENDPOINT = 'https://api.z.ai/api/paas/v4/images/generations';
 const MINIMAX_IMAGE_ENDPOINT = 'https://api.minimax.io/v1/image_generation';
 
-function readJson(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+type ImageProvider = 'zai' | 'minimax';
+type JsonRecord = Record<string, any>;
+
+type InteriorImagePlan = {
+  articles?: InteriorImageArticle[];
+};
+
+type InteriorImageArticle = {
+  slug: string;
+  title: string;
+  placements?: InteriorImagePlacement[];
+};
+
+type InteriorImagePlacement = {
+  id: string;
+  altText?: string;
+  captionSeed?: string;
+  target?: {
+    role?: string;
+    afterHeading?: string;
+  };
+  variants?: InteriorImageVariant[];
+};
+
+type InteriorImageVariant = {
+  id: string;
+  prompt: string;
+  promptChecksum?: string;
+};
+
+type SelectedVariant = {
+  placement: InteriorImagePlacement;
+  variant: InteriorImageVariant;
+  outputPath: string;
+};
+
+type GeneratedImageAsset = {
+  id: string;
+  placementId: string;
+  variantId: string;
+  role: string;
+  targetHeading: string | null;
+  altText?: string;
+  caption?: string;
+  prompt: string;
+  promptChecksum?: string;
+  requestPrompt?: string;
+  publicPath: string;
+  sourcePath: string;
+  status: string;
+  requestId?: string;
+  sourceAssetId?: string | null;
+  sourceVariantId?: string | null;
+  sourceImageUrl?: string | null;
+  generationMode?: 'source-image-variation' | 'fresh-slot-concept';
+  checksumSha256?: string;
+  provider?: ImageProvider;
+  model?: string;
+  quality?: string;
+  size?: string;
+  generatedAt?: string;
+  created?: unknown;
+  traceId?: unknown;
+  metadata?: unknown;
+  contentFilter?: unknown;
+  sourceUrlExpires?: string;
+  error?: string;
+};
+
+type GeneratedImageManifest = {
+  schemaVersion: string;
+  generatedAt?: string;
+  updatedAt?: string;
+  publicPublishingPerformed?: boolean;
+  approvalStatus?: string;
+  article?: {
+    slug: string;
+    title: string;
+    planPath: string;
+  };
+  provider?: {
+    id: ImageProvider;
+    endpoint: string;
+    model: string;
+    quality: string;
+    size: string;
+  };
+  assets: GeneratedImageAsset[];
+  failures: GeneratedImageAsset[];
+};
+
+type ImageRequestStatus =
+  | 'queued'
+  | 'processing'
+  | 'completed'
+  | 'failed'
+  | 'cancelled';
+
+type ImageRequest = {
+  id: string;
+  slug: string;
+  placementId: string;
+  prompt: string;
+  status: ImageRequestStatus;
+  requestedAt: string;
+  requestedBy?: string;
+  updatedAt?: string;
+  workerStartedAt?: string | null;
+  processedAt?: string;
+  failedAt?: string;
+  resultAssetId?: string;
+  error?: string;
+  sourceAssetId?: string;
+  sourceVariantId?: string;
+  sourceImageUrl?: string;
+};
+
+type ImageRequestsPayload = {
+  schemaVersion: string;
+  requests: ImageRequest[];
+};
+
+type GenerateInteriorImagesOptions = {
+  inputPath: string;
+  articlesRoot: string;
+  publicRoot: string;
+  slug: string;
+  placementId?: string | null;
+  limit?: number;
+  provider?: ImageProvider;
+  model?: string;
+  quality?: string;
+  size?: string;
+  spendApproved?: boolean;
+  dryRun?: boolean;
+  onlyMissing?: boolean;
+  generatedAt?: string;
+};
+
+type ProcessQueuedImageRequestsOptions = {
+  inputPath: string;
+  articlesRoot: string;
+  publicRoot: string;
+  slug: string;
+  requestId?: string | null;
+  limit?: number;
+  provider?: ImageProvider;
+  model?: string;
+  quality?: string;
+  size?: string;
+  spendApproved?: boolean;
+  dryRun?: boolean;
+  generatedAt?: string;
+};
+
+function readJson<T = unknown>(filePath: string): T {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
 }
 
-function writeJson(filePath, payload) {
+function writeJson(filePath: string, payload: unknown) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, `${JSON.stringify(payload, null, 2)}\n`);
 }
 
-function sha256(buffer) {
+function sha256(buffer: crypto.BinaryLike) {
   return crypto.createHash('sha256').update(buffer).digest('hex');
 }
 
-function publicPathForGeneratedImage({ slug, placementId, variantId }) {
+function publicPathForGeneratedImage({
+  slug,
+  placementId,
+  variantId,
+}: {
+  slug: string;
+  placementId: string;
+  variantId: string;
+}) {
   return `/blog/${slug}/images/generated/${placementId}/${variantId}.png`;
 }
 
-function localPathForGeneratedImage({ publicRoot, slug, placementId, variantId }) {
+function localPathForGeneratedImage({
+  publicRoot,
+  slug,
+  placementId,
+  variantId,
+}: {
+  publicRoot: string;
+  slug: string;
+  placementId: string;
+  variantId: string;
+}) {
   return path.join(
     publicRoot,
     'blog',
@@ -34,7 +207,13 @@ function localPathForGeneratedImage({ publicRoot, slug, placementId, variantId }
   );
 }
 
-function requestsPathForSlug({ articlesRoot, slug }) {
+function requestsPathForSlug({
+  articlesRoot,
+  slug,
+}: {
+  articlesRoot: string;
+  slug: string;
+}) {
   return draftLabMutableGeneratedFile({
     articlesRoot,
     slug,
@@ -42,20 +221,36 @@ function requestsPathForSlug({ articlesRoot, slug }) {
   });
 }
 
-function selectArticle(plan, slug) {
+function selectArticle(plan: InteriorImagePlan, slug: string): InteriorImageArticle {
   const article = (plan.articles ?? []).find((item) => item.slug === slug);
   if (!article) throw new Error(`No article "${slug}" in interior image plan.`);
   return article;
 }
 
-function selectPlacement(article, placementId) {
+function selectPlacement(
+  article: InteriorImageArticle,
+  placementId: string,
+): InteriorImagePlacement {
   const placement = (article.placements ?? []).find((item) => item.id === placementId);
   if (!placement) throw new Error(`No placement "${placementId}" in article "${article.slug}".`);
   return placement;
 }
 
-function selectVariants(article, { limit, placementId, onlyMissing, publicRoot }) {
-  const selected = [];
+function selectVariants(
+  article: InteriorImageArticle,
+  {
+    limit,
+    placementId,
+    onlyMissing,
+    publicRoot,
+  }: {
+    limit: number;
+    placementId: string | null;
+    onlyMissing: boolean;
+    publicRoot: string;
+  },
+): SelectedVariant[] {
+  const selected: SelectedVariant[] = [];
   for (const placement of article.placements ?? []) {
     if (placementId && placement.id !== placementId) continue;
     for (const variant of placement.variants ?? []) {
@@ -73,7 +268,21 @@ function selectVariants(article, { limit, placementId, onlyMissing, publicRoot }
   return selected;
 }
 
-async function callZai({ apiKey, model, prompt, quality, size, userId }) {
+async function callZai({
+  apiKey,
+  model,
+  prompt,
+  quality,
+  size,
+  userId,
+}: {
+  apiKey: string;
+  model: string;
+  prompt: string;
+  quality: string;
+  size: string;
+  userId: string;
+}) {
   const response = await fetch(ZAI_IMAGE_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -94,10 +303,10 @@ async function callZai({ apiKey, model, prompt, quality, size, userId }) {
     throw new Error(`Z.ai image API ${response.status}: ${body}`);
   }
 
-  const json = JSON.parse(body);
+  const json = JSON.parse(body) as JsonRecord;
   const imageUrl = json.data?.[0]?.url;
   if (!imageUrl) throw new Error(`Z.ai image API returned no image URL: ${body}`);
-  return { json, imageUrl };
+  return { json, imageUrl: String(imageUrl) };
 }
 
 async function callMiniMax({
@@ -108,6 +317,14 @@ async function callMiniMax({
   responseFormat,
   count,
   sourceImageUrl,
+}: {
+  apiKey: string;
+  model: string;
+  prompt: string;
+  aspectRatio: string;
+  responseFormat: 'url' | 'base64';
+  count: number;
+  sourceImageUrl?: string | null;
 }) {
   const response = await fetch(MINIMAX_IMAGE_ENDPOINT, {
     method: 'POST',
@@ -140,7 +357,7 @@ async function callMiniMax({
     throw new Error(`MiniMax image API ${response.status}: ${body}`);
   }
 
-  const json = JSON.parse(body);
+  const json = JSON.parse(body) as JsonRecord;
   if (json.base_resp?.status_code && json.base_resp.status_code !== 0) {
     throw new Error(`MiniMax image API ${json.base_resp.status_code}: ${json.base_resp.status_msg}`);
   }
@@ -150,32 +367,36 @@ async function callMiniMax({
   if (!imageUrl && !imageBase64) {
     throw new Error(`MiniMax image API returned no image: ${body}`);
   }
-  return { json, imageUrl, imageBase64 };
+  return {
+    json,
+    imageUrl: imageUrl ? String(imageUrl) : undefined,
+    imageBase64: imageBase64 ? String(imageBase64) : undefined,
+  };
 }
 
-async function downloadImage(url) {
-  let lastError = null;
+async function downloadImage(url: string): Promise<Buffer> {
+  let lastError: string | null = null;
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     const response = await fetch(url);
     if (response.ok) return Buffer.from(await response.arrayBuffer());
     lastError = `Image download ${response.status}: ${await response.text()}`;
     await new Promise((resolve) => setTimeout(resolve, attempt * 2000));
   }
-  throw new Error(lastError);
+  throw new Error(lastError ?? 'Image download failed.');
 }
 
-function imageBufferFromBase64(value) {
+function imageBufferFromBase64(value: string) {
   const normalized = value.includes(',') ? value.split(',').at(-1) : value;
-  return Buffer.from(normalized, 'base64');
+  return Buffer.from(normalized ?? '', 'base64');
 }
 
-function endpointForProvider(provider) {
+function endpointForProvider(provider: string): string {
   if (provider === 'zai') return ZAI_IMAGE_ENDPOINT;
   if (provider === 'minimax') return MINIMAX_IMAGE_ENDPOINT;
   throw new Error(`Unsupported image provider "${provider}".`);
 }
 
-function apiKeyForProvider(provider) {
+function apiKeyForProvider(provider: string): string | undefined {
   if (provider === 'zai') return process.env.ZAI_API_KEY;
   if (provider === 'minimax') return process.env.MINIMAX_API_KEY;
   throw new Error(`Unsupported image provider "${provider}".`);
@@ -190,7 +411,16 @@ async function generateImageWithProvider({
   size,
   userId,
   sourceImageUrl,
-}) {
+}: {
+  provider: ImageProvider;
+  apiKey: string;
+  model: string;
+  prompt: string;
+  quality: string;
+  size: string;
+  userId: string;
+  sourceImageUrl?: string | null;
+}): Promise<{ json: JsonRecord; image: Buffer }> {
   if (provider === 'zai') {
     const { json, imageUrl } = await callZai({
       apiKey,
@@ -215,15 +445,20 @@ async function generateImageWithProvider({
     });
     return {
       json,
-      image: imageBase64 ? imageBufferFromBase64(imageBase64) : await downloadImage(imageUrl),
+      image: imageBase64
+        ? imageBufferFromBase64(imageBase64)
+        : await downloadImage(imageUrl ?? ''),
     };
   }
 
   throw new Error(`Unsupported image provider "${provider}".`);
 }
 
-function readExistingManifest(manifestPath, generatedAt) {
-  if (fs.existsSync(manifestPath)) return readJson(manifestPath);
+function readExistingManifest(
+  manifestPath: string,
+  generatedAt: string,
+): GeneratedImageManifest {
+  if (fs.existsSync(manifestPath)) return readJson<GeneratedImageManifest>(manifestPath);
   return {
     schemaVersion: 'generated-interior-image-manifest-v1',
     generatedAt,
@@ -235,27 +470,35 @@ function readExistingManifest(manifestPath, generatedAt) {
   };
 }
 
-function upsertAsset(manifest, asset) {
+function upsertAsset(manifest: GeneratedImageManifest, asset: GeneratedImageAsset) {
   manifest.assets = (manifest.assets ?? []).filter((item) => item.id !== asset.id);
   manifest.assets.push(asset);
 }
 
-function recordFailure(manifest, failure) {
+function recordFailure(manifest: GeneratedImageManifest, failure: GeneratedImageAsset) {
   manifest.failures = (manifest.failures ?? []).filter((item) => item.id !== failure.id);
   manifest.failures.push(failure);
 }
 
-function readImageRequests(requestsPath) {
+function readImageRequests(requestsPath: string): ImageRequestsPayload {
   if (!fs.existsSync(requestsPath)) {
     return {
       schemaVersion: 'draft-lab-image-requests-v1',
       requests: [],
     };
   }
-  return readJson(requestsPath);
+  return readJson<ImageRequestsPayload>(requestsPath);
 }
 
-function draftLabMutableGeneratedFile({ articlesRoot, slug, fileName }) {
+function draftLabMutableGeneratedFile({
+  articlesRoot,
+  slug,
+  fileName,
+}: {
+  articlesRoot: string;
+  slug: string;
+  fileName: string;
+}) {
   const repoPath = path.join(articlesRoot, slug, 'images', 'generated', fileName);
   const dataRoot = process.env.DRAFT_LAB_DATA_ROOT;
 
@@ -279,7 +522,11 @@ function draftLabMutableGeneratedFile({ articlesRoot, slug, fileName }) {
   return dataPath;
 }
 
-function updateImageRequest(requestsPayload, requestId, patch) {
+function updateImageRequest(
+  requestsPayload: ImageRequestsPayload,
+  requestId: string,
+  patch: Partial<ImageRequest>,
+) {
   const now = patch.updatedAt ?? new Date().toISOString();
   requestsPayload.requests = (requestsPayload.requests ?? []).map((request) =>
     request.id === requestId
@@ -292,7 +539,7 @@ function updateImageRequest(requestsPayload, requestId, patch) {
   );
 }
 
-function variantIdForRequest(request, index) {
+function variantIdForRequest(request: ImageRequest, index: number) {
   const safeId = request.id
     .toLowerCase()
     .replace(/[^a-z0-9-]+/g, '-')
@@ -301,7 +548,7 @@ function variantIdForRequest(request, index) {
   return `${request.placementId}-request-${safeId || index + 1}`;
 }
 
-function promptForQueuedRequest(request) {
+function promptForQueuedRequest(request: ImageRequest) {
   if (!request.sourceAssetId) return request.prompt;
 
   return [
@@ -327,7 +574,7 @@ export async function generateInteriorImages({
   dryRun = false,
   onlyMissing = true,
   generatedAt = new Date().toISOString(),
-}) {
+}: GenerateInteriorImagesOptions) {
   endpointForProvider(provider);
   if (!dryRun && !spendApproved) {
     throw new Error('image:generate requires --spend-approved because image generation costs money.');
@@ -337,7 +584,7 @@ export async function generateInteriorImages({
     throw new Error(`Missing ${provider === 'minimax' ? 'MINIMAX_API_KEY' : 'ZAI_API_KEY'}.`);
   }
 
-  const plan = readJson(inputPath);
+  const plan = readJson<InteriorImagePlan>(inputPath);
   const article = selectArticle(plan, slug);
   const selected = selectVariants(article, {
     limit,
@@ -366,8 +613,8 @@ export async function generateInteriorImages({
     size,
   };
 
-  const results = [];
-  const failures = [];
+  const results: GeneratedImageAsset[] = [];
+  const failures: GeneratedImageAsset[] = [];
 
   for (const selection of selected) {
     const { placement, variant, outputPath } = selection;
@@ -377,7 +624,7 @@ export async function generateInteriorImages({
       variantId: variant.id,
     });
     const id = `${placement.id}:${variant.id}`;
-    const baseAsset = {
+    const baseAsset: GeneratedImageAsset = {
       id,
       placementId: placement.id,
       variantId: variant.id,
@@ -401,12 +648,13 @@ export async function generateInteriorImages({
     try {
       const { json, image } = await generateImageWithProvider({
         provider,
-        apiKey,
+        apiKey: apiKey ?? '',
         model,
         prompt: variant.prompt,
         quality,
         size,
         userId: `davidmieloch-${slug}-${variant.id}`,
+        sourceImageUrl: null,
       });
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });
       fs.writeFileSync(outputPath, image);
@@ -427,11 +675,11 @@ export async function generateInteriorImages({
       };
       results.push(asset);
       upsertAsset(manifest, asset);
-    } catch (error) {
+    } catch (error: unknown) {
       const failure = {
         ...baseAsset,
         status: 'generation-failed',
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
         generatedAt,
       };
       failures.push(failure);
@@ -486,7 +734,7 @@ export async function processQueuedImageRequests({
   spendApproved = false,
   dryRun = false,
   generatedAt = new Date().toISOString(),
-}) {
+}: ProcessQueuedImageRequestsOptions) {
   endpointForProvider(provider);
   if (!dryRun && !spendApproved) {
     throw new Error('image:process-requests requires --spend-approved because image generation costs money.');
@@ -496,7 +744,7 @@ export async function processQueuedImageRequests({
     throw new Error(`Missing ${provider === 'minimax' ? 'MINIMAX_API_KEY' : 'ZAI_API_KEY'}.`);
   }
 
-  const plan = readJson(inputPath);
+  const plan = readJson<InteriorImagePlan>(inputPath);
   const article = selectArticle(plan, slug);
   const requestsPath = requestsPathForSlug({ articlesRoot, slug });
   const requestsPayload = readImageRequests(requestsPath);
@@ -527,10 +775,10 @@ export async function processQueuedImageRequests({
     size,
   };
 
-  const results = [];
-  const failures = [];
+  const results: GeneratedImageAsset[] = [];
+  const failures: GeneratedImageAsset[] = [];
 
-  queuedRequests.forEach((request, index) => {
+  queuedRequests.forEach((request) => {
     updateImageRequest(requestsPayload, request.id, {
       status: dryRun ? 'queued' : 'processing',
       workerStartedAt: dryRun ? null : generatedAt,
@@ -556,7 +804,7 @@ export async function processQueuedImageRequests({
     });
     const id = `${placement.id}:${variantId}`;
     const generationPrompt = promptForQueuedRequest(request);
-    const baseAsset = {
+    const baseAsset: GeneratedImageAsset = {
       id,
       placementId: placement.id,
       variantId,
@@ -585,7 +833,7 @@ export async function processQueuedImageRequests({
     try {
       const { json, image } = await generateImageWithProvider({
         provider,
-        apiKey,
+        apiKey: apiKey ?? '',
         model,
         prompt: generationPrompt,
         quality,
@@ -617,11 +865,11 @@ export async function processQueuedImageRequests({
         processedAt: generatedAt,
         resultAssetId: asset.id,
       });
-    } catch (error) {
+    } catch (error: unknown) {
       const failure = {
         ...baseAsset,
         status: 'generation-failed',
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
         generatedAt,
       };
       failures.push(failure);
@@ -629,7 +877,7 @@ export async function processQueuedImageRequests({
       updateImageRequest(requestsPayload, request.id, {
         status: 'failed',
         failedAt: generatedAt,
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
     }
 

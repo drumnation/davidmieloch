@@ -43,7 +43,7 @@ import {
 import {
   generateInteriorImages,
   processQueuedImageRequests,
-} from '../../scripts/lib/image-generation.mjs';
+} from '../../scripts/lib/image-generation.ts';
 import {
   buildArticleReadinessReport,
 } from '../../scripts/lib/article-readiness.mjs';
