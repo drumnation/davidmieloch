@@ -173,6 +173,28 @@ function sha256(buffer: Buffer) {
   return crypto.createHash('sha256').update(buffer).digest('hex');
 }
 
+function normalizeAssetSnapshot(asset: Partial<ArticleImageManifestAsset> | ExistingAsset) {
+  return {
+    id: asset.id ?? null,
+    role: asset.role ?? null,
+    publicPath: asset.publicPath ?? null,
+    sourcePath: asset.sourcePath ?? null,
+    width: Number(asset.width ?? 0),
+    height: Number(asset.height ?? 0),
+    aspectRatio: asset.aspectRatio ?? null,
+    checksumSha256: asset.checksumSha256 ?? null,
+    caption: asset.caption ?? null,
+    promptSummary: asset.promptSummary ?? null,
+    provider: asset.provider ?? null,
+    altText: asset.altText ?? null,
+    targetHeading: asset.targetHeading ?? null,
+  };
+}
+
+function snapshotManifestAssets(assets: Array<Partial<ArticleImageManifestAsset> | ExistingAsset>) {
+  return JSON.stringify(assets.map(normalizeAssetSnapshot));
+}
+
 function inferImageReferences(body: string, slug: string): ArticleImageReference[] {
   const references: ArticleImageReference[] = [];
   const seen = new Set<string>();
@@ -259,6 +281,7 @@ export async function buildArticleImageManifest({
   const existingManifest = readJsonIfExists<Partial<ArticleImageManifest> & { assets?: ExistingAsset[] }>(manifestPath);
   const existingAssets = existingManifest?.assets ?? [];
   const existingLookup = existingAssetLookup(existingAssets);
+  const existingApproval = existingManifest?.approval ?? null;
   const article = readMarkdown(articlePath);
   const references = inferImageReferences(article.body, slug);
   const folderImages = imageFiles(publicRoot, slug);
@@ -317,6 +340,25 @@ export async function buildArticleImageManifest({
     });
   }
 
+  const existingAssetSnapshot = snapshotManifestAssets(existingAssets);
+  const nextAssetSnapshot = snapshotManifestAssets(assets);
+  const manifestChanged = existingAssetSnapshot !== nextAssetSnapshot;
+  const approvalWasPublished = existingApproval?.status === 'approved';
+  const approvalStatusToWrite = approvalWasPublished && manifestChanged
+    ? approvalStatus
+    : String(existingApproval?.status ?? approvalStatus);
+  const approvalTimestampToWrite = manifestChanged
+    ? null
+    : existingApproval?.approvedAt ?? null;
+  const launchReadinessStatus = approvalWasPublished && manifestChanged
+    ? 'needs-editorial-approval'
+    : assets.length > 0
+      ? 'ready-for-editorial-approval'
+      : 'needs-image-work';
+  const launchReadinessBlocker = approvalWasPublished && manifestChanged
+    ? 'Image assets changed after approval; re-approval required.'
+    : existingManifest?.launchReadiness?.blocker ?? null;
+
   const manifest: ArticleImageManifest = {
     schemaVersion: 'article-image-manifest-v1',
     generatedAt,
@@ -326,15 +368,15 @@ export async function buildArticleImageManifest({
     series: String(existingManifest?.series ?? article.meta.series ?? 'Editorial'),
     visualSystem: String(existingManifest?.visualSystem ?? article.meta.visualSystem ?? 'editorial article art'),
     approval: {
-      status: String(existingManifest?.approval?.status ?? approvalStatus),
+      status: approvalStatusToWrite,
       requiredFrom: String(existingManifest?.approval?.requiredFrom ?? 'David'),
-      approvedAt: existingManifest?.approval?.approvedAt ?? null,
+      approvedAt: approvalTimestampToWrite,
     },
     assets,
     launchReadiness: {
-      status: assets.length > 0 ? 'ready-for-editorial-approval' : 'needs-image-work',
+      status: launchReadinessStatus,
       releaseTarget: existingManifest?.launchReadiness?.releaseTarget ?? article.meta.publishedAt ?? null,
-      blocker: existingManifest?.launchReadiness?.blocker ?? null,
+      blocker: launchReadinessBlocker,
     },
   };
 

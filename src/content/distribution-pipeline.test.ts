@@ -2944,6 +2944,97 @@ canonicalUrl: "https://davidmieloch.com/blog/${slug}"
       },
     });
   });
+
+  it('downgrades an approved manifest when the image assets change', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const slug = 'the-filter';
+    mkdirSync(join(articlesRoot, slug), { recursive: true });
+    mkdirSync(join(publicRoot, 'blog', slug, 'images'), { recursive: true });
+    await writeImageFixture(join(publicRoot, 'blog', slug, 'images', 'hero.png'));
+
+    writeFileSync(
+      join(articlesRoot, slug, 'index.md'),
+      `---
+title: "The Filter"
+description: "A draft with planned images."
+publishedAt: "2026-06-10"
+status: "draft"
+canonicalUrl: "https://davidmieloch.com/blog/${slug}"
+---
+
+# The Filter
+
+![A black hole filter over a frontier software factory.](/blog/${slug}/images/hero.png)
+`,
+    );
+
+    await buildArticleImageManifest({
+      articlesRoot,
+      publicRoot,
+      slug,
+      generatedAt: '2026-06-11T00:00:00.000Z',
+    });
+
+    writeFileSync(
+      join(articlesRoot, slug, 'image-manifest.json'),
+      JSON.stringify({
+        schemaVersion: 'article-image-manifest-v1',
+        generatedAt: '2026-06-11T00:00:00.000Z',
+        publicPublishingPerformed: false,
+        articleSlug: slug,
+        articleTitle: 'The Filter',
+        series: 'Factory Primitives',
+        visualSystem: 'editorial article art',
+        approval: {
+          status: 'approved',
+          requiredFrom: 'David',
+          approvedAt: '2026-06-11T00:00:00.000Z',
+        },
+        assets: [
+          {
+            id: 'hero-linkedin',
+            role: 'hero-and-linkedin-preview',
+            publicPath: `/blog/${slug}/images/hero.png`,
+            sourcePath: `public/blog/${slug}/images/hero.png`,
+            width: 1408,
+            height: 768,
+            aspectRatio: '16:9',
+            checksumSha256: 'old-checksum',
+            caption: 'A black hole filter over a frontier software factory.',
+            promptSummary: 'A black hole filter over a frontier software factory.',
+            provider: 'minimax',
+            generationReceipt: null,
+          },
+        ],
+        launchReadiness: {
+          status: 'ready-for-editorial-approval',
+          releaseTarget: '2026-06-10',
+          blocker: null,
+        },
+      }, null, 2),
+    );
+
+    await writeImageFixture(join(publicRoot, 'blog', slug, 'images', 'hero.png'), 1600, 900);
+
+    const manifest = await buildArticleImageManifest({
+      articlesRoot,
+      publicRoot,
+      slug,
+      generatedAt: '2026-06-12T00:00:00.000Z',
+    });
+
+    expect(manifest.manifest.approval).toMatchObject({
+      status: 'staged-for-david-review',
+      requiredFrom: 'David',
+      approvedAt: null,
+    });
+    expect(manifest.manifest.launchReadiness.status).toBe('needs-editorial-approval');
+    expect(manifest.manifest.launchReadiness.blocker).toBe(
+      'Image assets changed after approval; re-approval required.',
+    );
+  });
 });
 
 describe('article audio narration pipeline', () => {
