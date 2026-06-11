@@ -7,6 +7,7 @@ import review from "../../content/distribution/draft-image-review.json";
 import approvalPacket from "../../content/distribution/factory-primitives-approval-packet.json";
 import interiorImagePlan from "../../content/distribution/factory-primitives-interior-image-plan.json";
 import factoryPrimitivesLaunch from "../../content/distribution/factory-primitives-launch-plan.json";
+import siteReleaseCalendar from "../../content/distribution/site-release-calendar.json";
 import styles from "./DraftLab.module.css";
 
 type DraftImage = {
@@ -77,6 +78,23 @@ type InteriorImageArticle = {
   }>;
 };
 
+type ReleaseCalendarEntry = {
+  slug: string;
+  title: string;
+  series: string;
+  plannedReleaseAt: string;
+  website: {
+    status: string;
+    canonicalUrl: string;
+  };
+  linkedin: {
+    status: string;
+    plannedPostAt: string;
+  };
+  gates: string[];
+  sequence: number;
+};
+
 export const metadata: Metadata = {
   title: "Draft Lab",
   description:
@@ -103,6 +121,7 @@ const factoryPrimitiveBlockers = factoryPrimitives.filter(
 );
 const approvalArticles = approvalPacket.articles as ApprovalArticle[];
 const interiorArticles = interiorImagePlan.articles as InteriorImageArticle[];
+const releaseCalendarEntries = siteReleaseCalendar.entries as ReleaseCalendarEntry[];
 
 export default function DraftLabPage() {
   if (process.env.DRAFT_LAB_ENABLED !== "1") {
@@ -248,6 +267,65 @@ export default function DraftLabPage() {
                     Canonical URL
                   </a>
                 </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section} aria-labelledby="release-calendar">
+        <div className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>Release calendar</p>
+          <h2 id="release-calendar" className={styles.sectionTitle}>
+            Canonical website schedule and social timing
+          </h2>
+          <p className={styles.sectionDescription}>
+            The website release calendar is the source of truth for when staged
+            drafts become public. LinkedIn timing stays approval-gated and
+            separate.
+          </p>
+        </div>
+        <div className={styles.scheduleStats}>
+          <span>{releaseCalendarEntries.length} planned releases</span>
+          <span>
+            {
+              releaseCalendarEntries.filter(
+                (entry) => entry.website.status === "staged-draft",
+              ).length
+            }{" "}
+            staged drafts
+          </span>
+          <span>
+            {
+              releaseCalendarEntries.filter(
+                (entry) => entry.linkedin.status === "needs-browser-staging",
+              ).length
+            }{" "}
+            LinkedIn handoffs
+          </span>
+          <span>site-release-calendar.json</span>
+        </div>
+        <div className={styles.scheduleGrid}>
+          {releaseCalendarEntries.map((entry) => (
+            <article className={styles.scheduleCard} key={entry.slug}>
+              <div className={styles.scheduleHeader}>
+                <span className={styles.collection}>
+                  #{entry.sequence} · {entry.series}
+                </span>
+                <span className={styles.scheduleDate}>
+                  {formatReleaseDate(entry.plannedReleaseAt)}
+                </span>
+              </div>
+              <h3>{entry.title}</h3>
+              <p>{entry.website.canonicalUrl}</p>
+              <div className={styles.scheduleGridMeta}>
+                <span>Website: {entry.website.status}</span>
+                <span>LinkedIn: {entry.linkedin.status}</span>
+              </div>
+              <div className={styles.gateList} aria-label="Schedule gates">
+                {entry.gates.map((gate) => (
+                  <span key={gate}>{gate.replace(/-/g, " ")}</span>
+                ))}
               </div>
             </article>
           ))}
