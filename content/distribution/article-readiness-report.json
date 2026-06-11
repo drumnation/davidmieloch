@@ -1,14 +1,14 @@
 {
   "schemaVersion": "article-readiness-report-v1",
-  "generatedAt": "2026-06-10T03:31:30.454Z",
+  "generatedAt": "2026-06-11T07:38:45.585Z",
   "publicPublishingPerformed": false,
   "summary": {
-    "websiteArticles": 25,
+    "websiteArticles": 26,
     "websiteDrafts": 4,
     "websiteDraftsReadyForRelease": 0,
     "websiteDraftsNeedingInteriorImages": 4,
     "vaultCandidates": 97,
-    "vaultCandidatesNotOnWebsite": 68,
+    "vaultCandidatesNotOnWebsite": 64,
     "vaultCandidatesWithCopyrightReferenceRisk": 2
   },
   "websiteArticles": [
@@ -250,6 +250,50 @@
         "missing image-manifest.json"
       ],
       "readyForPublicRelease": false
+    },
+    {
+      "slug": "factory-amplification-and-modular-primitives",
+      "title": "Factory Amplification and Modular Primitives",
+      "status": "published",
+      "publishedAt": "2026-05-19",
+      "canonicalUrl": "https://davidmieloch.com/blog/factory-amplification-and-modular-primitives",
+      "paths": {
+        "article": "content/articles/factory-amplification-and-modular-primitives/index.md",
+        "coverImage": "/blog/factory-amplification-and-modular-primitives/images/a1-orbital-factory.png",
+        "imageManifest": "content/articles/factory-amplification-and-modular-primitives/image-manifest.json",
+        "interiorPlan": null,
+        "imageBrief": null,
+        "linkedinArticleTransfer": null
+      },
+      "counts": {
+        "h2Sections": 6,
+        "bodyImages": 8,
+        "manifestAssets": 8,
+        "captionedImageAssets": 8,
+        "plannedInteriorImages": 0,
+        "plannedInteriorVariants": 0,
+        "approvedInteriorImages": 7
+      },
+      "calendar": null,
+      "gates": {
+        "frontmatter": true,
+        "canonical": true,
+        "coverImage": true,
+        "imageManifest": true,
+        "heroLinkedInReady": true,
+        "imageCaptions": true,
+        "interiorPlan": true,
+        "interiorImagesApproved": true,
+        "releaseCalendar": true,
+        "linkedinArticleTransfer": true,
+        "linkedinTeaserScheduled": true,
+        "siteLinkedInReleaseAligned": true,
+        "bodyStructure": true,
+        "articleBodyImages": true
+      },
+      "issues": [],
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "how-to-make-your-ai-code-look-human",
@@ -2254,13 +2298,13 @@
       "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives.md",
       "date": "2026-05-10",
       "imageCount": 8,
-      "alreadyOnWebsite": false,
+      "alreadyOnWebsite": true,
       "gates": {
-        "websiteImport": "needs-website-staging",
+        "websiteImport": "already-on-website",
         "images": "has-vault-images",
         "ipPolicy": "original-generation-ok",
-        "socialTeaser": "needs-short-teaser",
-        "releaseSchedule": "needs-schedule"
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
       },
       "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
     },
@@ -2273,13 +2317,13 @@
       "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-5-factory-amplification-v2/index.md",
       "date": "2026-05-21",
       "imageCount": 0,
-      "alreadyOnWebsite": false,
+      "alreadyOnWebsite": true,
       "gates": {
-        "websiteImport": "needs-website-staging",
+        "websiteImport": "already-on-website",
         "images": "needs-image-plan",
         "ipPolicy": "original-generation-ok",
-        "socialTeaser": "needs-short-teaser",
-        "releaseSchedule": "needs-schedule"
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
       },
       "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
     },
@@ -2292,13 +2336,13 @@
       "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/factory-amplification-and-modular-primitives/index.md",
       "date": "2026-05-21",
       "imageCount": 0,
-      "alreadyOnWebsite": false,
+      "alreadyOnWebsite": true,
       "gates": {
-        "websiteImport": "needs-website-staging",
+        "websiteImport": "already-on-website",
         "images": "needs-image-plan",
         "ipPolicy": "original-generation-ok",
-        "socialTeaser": "needs-short-teaser",
-        "releaseSchedule": "needs-schedule"
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
       },
       "recommendedImageStrategy": "Generate original article art through the spend-gated image pipeline."
     },
@@ -2311,13 +2355,13 @@
       "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-5-factory-amplification-v2.md",
       "date": "2026-05-10",
       "imageCount": 8,
-      "alreadyOnWebsite": false,
+      "alreadyOnWebsite": true,
       "gates": {
-        "websiteImport": "needs-website-staging",
+        "websiteImport": "already-on-website",
         "images": "has-vault-images",
         "ipPolicy": "original-generation-ok",
-        "socialTeaser": "needs-short-teaser",
-        "releaseSchedule": "needs-schedule"
+        "socialTeaser": "package-or-calendar-check",
+        "releaseSchedule": "calendar-check"
       },
       "recommendedImageStrategy": "Review existing vault images and copy approved assets into website article folder."
     },

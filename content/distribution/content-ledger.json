@@ -1,6 +1,6 @@
 {
   "schemaVersion": "content-ledger-v1",
-  "generatedAt": "2026-06-05T04:12:23.597Z",
+  "generatedAt": "2026-06-11T07:39:53.136Z",
   "publicPublishingPerformed": false,
   "sourceOrder": [
     "dated-folder",
@@ -14,65 +14,62 @@
   ],
   "sourceRoots": {
     "obsidianBlogsRoot": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs",
-    "websiteArticlesRoot": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/articles",
-    "publicRoot": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/public",
-    "packagesRoot": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/packages",
-    "platformLedgerPath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/platform-ledger.json",
-    "publishSchedulePath": "/Users/dmieloch/Dev/projects/personal/davidmieloch-website/david-monorepo/content/distribution/publish-schedule.json"
+    "websiteArticlesRoot": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/articles",
+    "publicRoot": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/public",
+    "packagesRoot": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/packages",
+    "platformLedgerPath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/platform-ledger.json",
+    "publishSchedulePath": "/Users/dmieloch/Documents/codex-worktrees/davidmieloch-site-postiz-callback/content/distribution/publish-schedule.json"
   },
   "summary": {
-    "totalCandidates": 55,
+    "totalCandidates": 32,
     "byCollection": {
       "Factory Primitives": 9,
-      "Unassigned": 19,
+      "Unassigned": 14,
       "Human Outcomes": 5,
-      "Memory, Context, and Reality": 6,
-      "Observer Systems": 4,
-      "Building Minds": 12
+      "Memory, Context, and Reality": 1,
+      "Observer Systems": 3
     },
     "bySourceBucket": {
       "dated-folder": 13,
       "dated-root-file": 1,
       "wave-2": 7,
       "third-wave": 2,
-      "loose-root": 10,
-      "organized-ready": 20,
-      "organized-published": 2
+      "loose-root": 9
     },
     "byGate": {
       "thesis": {
-        "likely-finished-text-review-needed": 52,
-        "needs-thesis-lock": 3
+        "likely-finished-text-review-needed": 30,
+        "needs-thesis-lock": 2
       },
       "image": {
-        "needs-image-selection-approval": 8,
-        "needs-image-generation": 36,
-        "approved-or-staged-on-website": 11
+        "approved-or-staged-on-website": 17,
+        "needs-image-generation": 9,
+        "needs-image-selection-approval": 6
       },
       "website": {
-        "needs-website-staging": 44,
-        "staged-or-published": 11
+        "staged-or-published": 17,
+        "needs-website-staging": 15
       },
       "socialTeaser": {
-        "needs-short-teaser": 44,
+        "needs-short-teaser": 21,
         "package-started": 11
       },
       "syndication": {
-        "needs-platform-packages": 44,
+        "needs-platform-packages": 21,
         "package-started": 11
       },
       "release": {
-        "needs-schedule": 44,
+        "needs-schedule": 21,
         "scheduled-or-queued": 11
       },
       "approval": {
-        "needs-david-approval-before-public-release": 55
+        "needs-david-approval-before-public-release": 32
       }
     },
-    "likelyLegitUnpublished": 42,
-    "needsImageWork": 44,
-    "needsSocialTeaser": 44,
-    "needsReleaseSchedule": 44
+    "likelyLegitUnpublished": 15,
+    "needsImageWork": 15,
+    "needsSocialTeaser": 21,
+    "needsReleaseSchedule": 21
   },
   "duplicateGroups": [
     {
@@ -85,31 +82,6 @@
           "title": "Factory Amplification and Modular Primitives",
           "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-5-factory-amplification-v2.md",
           "sourceBucket": "wave-2"
-        },
-        {
-          "slug": "factory-amplification-and-modular-primitives",
-          "title": "Factory Amplification and Modular Primitives",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-5-factory-amplification-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        },
-        {
-          "slug": "factory-amplification-and-modular-primitives",
-          "title": "Factory Amplification and Modular Primitives",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/factory-amplification-and-modular-primitives/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "context is not a token budget",
-      "canonicalSlug": "context-is-not-a-token-budget",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-19-2026/Context Is Not a Token Budget.md",
-      "duplicates": [
-        {
-          "slug": "context-is-not-a-token-budget",
-          "title": "Context Is Not a Token Budget",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/context-is-not-a-token-budget/index.md",
-          "sourceBucket": "organized-vault-drafts"
         }
       ]
     },
@@ -123,96 +95,6 @@
           "title": "Battle Bots",
           "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-20-2026/Battle Bots.md",
           "sourceBucket": "dated-folder"
-        },
-        {
-          "slug": "battle-bots",
-          "title": "Battle Bots",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/battle-bots-v1/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        },
-        {
-          "slug": "battle-bots",
-          "title": "Battle Bots",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/battle-bots/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "mental agility and the map that knows too much",
-      "canonicalSlug": "mental-agility-and-the-map-that-knows-too-much",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Mental Agility and the Map That Knows Too Much.md",
-      "duplicates": [
-        {
-          "slug": "mental-agility-and-the-map-that-knows-too-much",
-          "title": "Mental Agility and the Map That Knows Too Much",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/mental-agility-and-the-map-that-knows-too-much/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "positive corruption",
-      "canonicalSlug": "positive-corruption",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-20-2026/Positive Corruption.md",
-      "duplicates": [
-        {
-          "slug": "positive-corruption",
-          "title": "Positive Corruption",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/positive-corruption/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "the compression",
-      "canonicalSlug": "the-compression",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/The Compression.md",
-      "duplicates": [
-        {
-          "slug": "the-compression",
-          "title": "The Compression",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-compression/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "the code my fingers can afford",
-      "canonicalSlug": "the-code-my-fingers-can-afford",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/2026-03-30-the-code-my-fingers-can-afford.md",
-      "duplicates": [
-        {
-          "slug": "the-code-my-fingers-can-afford",
-          "title": "The Code My Fingers Can Afford",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-03-30-the-code-my-fingers-can-afford/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "lifetimes of meaning",
-      "canonicalSlug": "lifetimes-of-meaning",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/lifetimes-of meaning/article-3-lifetimes-of-meaning.md",
-      "duplicates": [
-        {
-          "slug": "lifetimes-of-meaning",
-          "title": "Lifetimes of Meaning",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-3-lifetimes-of-meaning/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "the foreman",
-      "canonicalSlug": "the-foreman",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-3-the-foreman-v2.md",
-      "duplicates": [
-        {
-          "slug": "the-foreman",
-          "title": "The Foreman",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-3-the-foreman-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
         }
       ]
     },
@@ -226,219 +108,6 @@
           "title": "The Golden Hammer",
           "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-golden-hammer.md",
           "sourceBucket": "loose-root"
-        },
-        {
-          "slug": "the-golden-hammer",
-          "title": "The Golden Hammer",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-golden-hammer/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        },
-        {
-          "slug": "the-golden-hammer",
-          "title": "The Golden Hammer",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-1-the-golden-hammer/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "the moving target",
-      "canonicalSlug": "the-moving-target",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-4-the-moving-target-v2.md",
-      "duplicates": [
-        {
-          "slug": "the-moving-target",
-          "title": "The Moving Target",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-4-the-moving-target-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "the factory",
-      "canonicalSlug": "the-factory",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-2-the-factory-v2.md",
-      "duplicates": [
-        {
-          "slug": "the-factory",
-          "title": "The Factory",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-2-the-factory-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "the shore",
-      "canonicalSlug": "the-shore",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-5-the-shore-v2.md",
-      "duplicates": [
-        {
-          "slug": "the-shore",
-          "title": "The Shore",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-5-the-shore-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "we stopped talking about ubi right when we need to",
-      "canonicalSlug": "we-stopped-talking-about-ubi-right-when-we-need-to",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/New Blog Post.md",
-      "duplicates": [
-        {
-          "slug": "we-stopped-talking-about-ubi-right-when-we-need-to",
-          "title": "We Stopped Talking About UBI Right When We Need To",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/new-blog-post/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "reality needs observers",
-      "canonicalSlug": "reality-needs-observers",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/2026-04-30-reality-needs-observers.md",
-      "duplicates": [
-        {
-          "slug": "reality-needs-observers",
-          "title": "Reality Needs Observers",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-04-30-reality-needs-observers/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "asi should be the avatar not god",
-      "canonicalSlug": "asi-should-be-the-avatar-not-god",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/2026-04-30-asi-should-be-the-avatar-not-god.md",
-      "duplicates": [
-        {
-          "slug": "asi-should-be-the-avatar-not-god",
-          "title": "ASI Should Be the Avatar, Not God",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-04-30-asi-should-be-the-avatar-not-god/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "your ai isnt hallucinating its lying",
-      "canonicalSlug": "your-ai-isnt-hallucinating-its-lying",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/agents-dont-hallucinate-they-lie.md",
-      "duplicates": [
-        {
-          "slug": "your-ai-isnt-hallucinating-its-lying",
-          "title": "Your AI Isn't Hallucinating. It's Lying.",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/agents-dont-hallucinate-they-lie/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "the overnight shift",
-      "canonicalSlug": "the-overnight-shift",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-overnight-shift-v2.md",
-      "duplicates": [
-        {
-          "slug": "the-overnight-shift",
-          "title": "The Overnight Shift",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-overnight-shift-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "or what happens when you let an autonomous execution engine run for 72 hours straight",
-      "canonicalSlug": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/The aftermath.md",
-      "duplicates": [
-        {
-          "slug": "or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight",
-          "title": "*Or: What happens when you let an autonomous execution engine run for 72 hours straight*",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-aftermath/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "every company is sitting on sunken treasure",
-      "canonicalSlug": "every-company-is-sitting-on-sunken-treasure",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/sunken-treasure-v2.md",
-      "duplicates": [
-        {
-          "slug": "every-company-is-sitting-on-sunken-treasure",
-          "title": "Every Company Is Sitting on Sunken Treasure",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/sunken-treasure-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "why character choice matters in agent design",
-      "canonicalSlug": "why-character-choice-matters-in-agent-design",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/mieloch/Why Character Choice Matters in Agent Design.md",
-      "duplicates": [
-        {
-          "slug": "why-character-choice-matters-in-agent-design",
-          "title": "Why Character Choice Matters in Agent Design",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/why-character-choice-matters-in-agent-design/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "how to make your ai code look human",
-      "canonicalSlug": "how-to-make-your-ai-code-look-human",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-art-of-looking-incompetent-v2.md",
-      "duplicates": [
-        {
-          "slug": "how-to-make-your-ai-code-look-human",
-          "title": "How to Make Your AI Code Look Human",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-art-of-looking-incompetent-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "academic research is a software patch and i finally have a way to install it",
-      "canonicalSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/academic-research-is-a-software-patch-v2.md",
-      "duplicates": [
-        {
-          "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
-          "title": "Academic Research is a Software Patch (And I Finally Have a Way to Install It)",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        },
-        {
-          "slug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
-          "title": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/academic-research-is-a-software-patch-v2/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "or what happens when the cost of the dive finally drops",
-      "canonicalSlug": "or-what-happens-when-the-cost-of-the-dive-finally-drops",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/Sunken Treasure.md",
-      "duplicates": [
-        {
-          "slug": "or-what-happens-when-the-cost-of-the-dive-finally-drops",
-          "title": "*Or: What happens when the cost of the dive finally drops*",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/sunken-treasure/index.md",
-          "sourceBucket": "organized-vault-drafts"
-        }
-      ]
-    },
-    {
-      "normalizedTitle": "the art of looking incompetent how to make your ai code look human",
-      "canonicalSlug": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human",
-      "canonicalSourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/The art of human programming.md",
-      "duplicates": [
-        {
-          "slug": "the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human",
-          "title": "The Art of Looking Incompetent: How to Make Your AI Code Look Human",
-          "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-art-of-human-programming/index.md",
-          "sourceBucket": "organized-vault-drafts"
         }
       ]
     }
@@ -478,12 +147,12 @@
           "5-10-2026/Factory Amplification and modular primitives/a7-gardener-at-top.png",
           "5-10-2026/Factory Amplification and modular primitives/a8-same-efficiency.png"
         ],
-        "websiteImageCount": 0
+        "websiteImageCount": 8
       },
       "gates": {
         "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-selection-approval",
-        "website": "needs-website-staging",
+        "image": "approved-or-staged-on-website",
+        "website": "staged-or-published",
         "socialTeaser": "needs-short-teaser",
         "syndication": "needs-platform-packages",
         "release": "needs-schedule",
@@ -497,8 +166,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/factory-amplification-and-modular-primitives",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -569,12 +238,12 @@
         "embeds": [],
         "adjacentImageCount": 0,
         "adjacentImages": [],
-        "websiteImageCount": 0
+        "websiteImageCount": 1
       },
       "gates": {
         "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
+        "image": "approved-or-staged-on-website",
+        "website": "staged-or-published",
         "socialTeaser": "needs-short-teaser",
         "syndication": "needs-platform-packages",
         "release": "needs-schedule",
@@ -588,47 +257,47 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
-          "status": "needs-package",
+          "status": "needs-browser-staging",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "medium": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "devto": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hashnode": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hackernoon": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "dzone": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "substack": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "reddit": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
@@ -660,12 +329,12 @@
         "embeds": [],
         "adjacentImageCount": 0,
         "adjacentImages": [],
-        "websiteImageCount": 0
+        "websiteImageCount": 1
       },
       "gates": {
         "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
+        "image": "approved-or-staged-on-website",
+        "website": "staged-or-published",
         "socialTeaser": "needs-short-teaser",
         "syndication": "needs-platform-packages",
         "release": "needs-schedule",
@@ -679,47 +348,47 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-credibility-problem-with-ai-corporate-communications",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
-          "status": "needs-package",
+          "status": "needs-browser-staging",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "medium": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "devto": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hashnode": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hackernoon": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "dzone": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "substack": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "reddit": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
@@ -1206,12 +875,12 @@
         "embeds": [],
         "adjacentImageCount": 0,
         "adjacentImages": [],
-        "websiteImageCount": 0
+        "websiteImageCount": 1
       },
       "gates": {
         "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
+        "image": "approved-or-staged-on-website",
+        "website": "staged-or-published",
         "socialTeaser": "needs-short-teaser",
         "syndication": "needs-platform-packages",
         "release": "needs-schedule",
@@ -1225,47 +894,47 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-ai-bill-you-cant-predict",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
-          "status": "needs-package",
+          "status": "needs-browser-staging",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "medium": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "devto": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hashnode": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hackernoon": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "dzone": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "substack": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "reddit": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
@@ -1479,12 +1148,12 @@
         "embeds": [],
         "adjacentImageCount": 0,
         "adjacentImages": [],
-        "websiteImageCount": 0
+        "websiteImageCount": 1
       },
       "gates": {
         "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
+        "image": "approved-or-staged-on-website",
+        "website": "staged-or-published",
         "socialTeaser": "needs-short-teaser",
         "syndication": "needs-platform-packages",
         "release": "needs-schedule",
@@ -1498,47 +1167,47 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-most-valuable-ai-skill-isnt-prompting",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
-          "status": "needs-package",
+          "status": "needs-browser-staging",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "medium": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "devto": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hashnode": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hackernoon": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "dzone": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "substack": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "reddit": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
@@ -1557,7 +1226,7 @@
     {
       "id": "content:the-crew-seed:dated-folder",
       "slug": "the-crew-seed",
-      "title": "The Crew",
+      "title": "The Crew (seed)",
       "normalizedTitle": "the crew seed",
       "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/6-3-2026/the-crew.md",
       "relativePath": "6-3-2026/the-crew.md",
@@ -1570,12 +1239,12 @@
         "embeds": [],
         "adjacentImageCount": 0,
         "adjacentImages": [],
-        "websiteImageCount": 0
+        "websiteImageCount": 1
       },
       "gates": {
         "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
+        "image": "approved-or-staged-on-website",
+        "website": "staged-or-published",
         "socialTeaser": "needs-short-teaser",
         "syndication": "needs-platform-packages",
         "release": "needs-schedule",
@@ -1589,47 +1258,47 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-crew-seed",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
-          "status": "needs-package",
+          "status": "needs-browser-staging",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "medium": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "devto": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hashnode": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "hackernoon": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "dzone": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "substack": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
         "reddit": {
-          "status": "needs-package",
+          "status": "not-started",
           "url": "",
           "safeDefault": "do-not-publish-without-approval"
         },
@@ -2007,8 +1676,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-foreman",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -2216,8 +1885,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-golden-hammer",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -2425,8 +2094,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-moving-target",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -2636,8 +2305,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-factory",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -3043,8 +2712,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/reality-needs-observers",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -3303,8 +2972,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/your-ai-isnt-hallucinating-its-lying",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -3460,8 +3129,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/the-overnight-shift",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -3733,8 +3402,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/every-company-is-sitting-on-sunken-treasure",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -3864,8 +3533,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/why-character-choice-matters-in-agent-design",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -4023,8 +3692,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/how-to-make-your-ai-code-look-human",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -4178,8 +3847,8 @@
       },
       "platforms": {
         "website": {
-          "status": "not-started",
-          "url": "",
+          "status": "staged-or-published",
+          "url": "https://davidmieloch.com/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
           "safeDefault": "stage-on-site-first"
         },
         "linkedin": {
@@ -4398,2125 +4067,6 @@
       "gates": {
         "thesis": "likely-finished-text-review-needed",
         "image": "needs-image-selection-approval",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:blogs-index:loose-root",
-      "slug": "blogs-index",
-      "title": "Blogs Index",
-      "normalizedTitle": "blogs index",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_index.md",
-      "relativePath": "_index.md",
-      "sourceBucket": "loose-root",
-      "freshnessRank": 4,
-      "sourceStatus": "active",
-      "collection": "Unassigned",
-      "wordCount": 44,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 25,
-        "adjacentImages": [
-          "images/ai-lies-hero.png",
-          "images/context-engineering-concept.png",
-          "images/identity-signal-loss.png",
-          "images/incompetent-gym.png",
-          "images/incompetent-hero.png",
-          "images/incompetent-hustle.png",
-          "images/incompetent-review.png",
-          "images/incompetent-spy.png",
-          "images/incompetent-standup.png",
-          "images/incompetent-tedtalk.png",
-          "images/overnight-armsrace.png",
-          "images/overnight-factory.png",
-          "images/overnight-hero.png",
-          "images/overnight-huddle.png",
-          "images/overnight-playbook.png",
-          "images/proof-chain.png",
-          "images/research-overnight.png",
-          "images/research-patch.png",
-          "images/research-wall.png",
-          "images/surprise-fix.png",
-          "images/testing-theater.png",
-          "images/treasure-archaeology.png",
-          "images/treasure-dive.png",
-          "images/treasure-hero.png",
-          "images/treasure-map.png"
-        ],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "needs-thesis-lock",
-        "image": "needs-image-selection-approval",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:three-brothers-three-minds-the-technical-architecture-of-agent-multiplicity:organized-ready",
-      "slug": "three-brothers-three-minds-the-technical-architecture-of-agent-multiplicity",
-      "title": "Three Brothers, Three Minds: The Technical Architecture of Agent Multiplicity",
-      "normalizedTitle": "three brothers three minds the technical architecture of agent multiplicity",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/three-brothers-architecture/index.md",
-      "relativePath": "_organized/ready/three-brothers-architecture/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 1348,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:agent-memory-and-multiplicity-v2:organized-ready",
-      "slug": "agent-memory-and-multiplicity-v2",
-      "title": "Agent Memory and Multiplicity (v2)",
-      "normalizedTitle": "agent memory and multiplicity",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/agent-memory-and-multiplicity/index.md",
-      "relativePath": "_organized/ready/agent-memory-and-multiplicity/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 1225,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:what-is-a-soul-file:organized-ready",
-      "slug": "what-is-a-soul-file",
-      "title": "What Is a Soul File",
-      "normalizedTitle": "what is a soul file",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/soul-file-explained/index.md",
-      "relativePath": "_organized/ready/soul-file-explained/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 1211,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:five-ways-an-agent-can-remember:organized-ready",
-      "slug": "five-ways-an-agent-can-remember",
-      "title": "Five Ways an Agent Can Remember",
-      "normalizedTitle": "five ways an agent can remember",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/memory-layers-plain-english/index.md",
-      "relativePath": "_organized/ready/memory-layers-plain-english/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Memory, Context, and Reality",
-      "wordCount": 1188,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:we-dont-know-if-its-better:organized-ready",
-      "slug": "we-dont-know-if-its-better",
-      "title": "We Don't Know If It's Better",
-      "normalizedTitle": "we dont know if its better",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/experiment-not-product/index.md",
-      "relativePath": "_organized/ready/experiment-not-product/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Unassigned",
-      "wordCount": 1160,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:the-fact-that-breaks-the-frame:organized-ready",
-      "slug": "the-fact-that-breaks-the-frame",
-      "title": "The Fact That Breaks the Frame",
-      "normalizedTitle": "the fact that breaks the frame",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-fact-that-breaks-the-frame/index.md",
-      "relativePath": "_organized/ready/the-fact-that-breaks-the-frame/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Memory, Context, and Reality",
-      "wordCount": 1158,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:the-ai-that-argues-with-itself:organized-ready",
-      "slug": "the-ai-that-argues-with-itself",
-      "title": "The AI That Argues With Itself",
-      "normalizedTitle": "the ai that argues with itself",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/ai-that-argues-with-itself/index.md",
-      "relativePath": "_organized/ready/ai-that-argues-with-itself/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Unassigned",
-      "wordCount": 1128,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:memory-is-identity:organized-ready",
-      "slug": "memory-is-identity",
-      "title": "Memory Is Identity",
-      "normalizedTitle": "memory is identity",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/memory-identity-thesis/index.md",
-      "relativePath": "_organized/ready/memory-identity-thesis/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Memory, Context, and Reality",
-      "wordCount": 1121,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:eight-minds-one-answer:organized-ready",
-      "slug": "eight-minds-one-answer",
-      "title": "Eight Minds, One Answer",
-      "normalizedTitle": "eight minds one answer",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/octave-futurist-cluster/index.md",
-      "relativePath": "_organized/ready/octave-futurist-cluster/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 1068,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:reorganization-from-the-outside:organized-ready",
-      "slug": "reorganization-from-the-outside",
-      "title": "Reorganization From The Outside",
-      "normalizedTitle": "reorganization from the outside",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/reorganization-from-the-outside/index.md",
-      "relativePath": "_organized/ready/reorganization-from-the-outside/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Memory, Context, and Reality",
-      "wordCount": 1061,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:when-the-map-stops-matching:organized-ready",
-      "slug": "when-the-map-stops-matching",
-      "title": "When the Map Stops Matching",
-      "normalizedTitle": "when the map stops matching",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/when-the-map-stops-matching/index.md",
-      "relativePath": "_organized/ready/when-the-map-stops-matching/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Memory, Context, and Reality",
-      "wordCount": 1055,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:the-supplement-stack-for-agents:organized-ready",
-      "slug": "the-supplement-stack-for-agents",
-      "title": "The Supplement Stack for Agents",
-      "normalizedTitle": "the supplement stack for agents",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/supplement-stack-for-agents/index.md",
-      "relativePath": "_organized/ready/supplement-stack-for-agents/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 1054,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:building-minds-not-tools:organized-ready",
-      "slug": "building-minds-not-tools",
-      "title": "Building Minds, Not Tools",
-      "normalizedTitle": "building minds not tools",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/building-minds-not-tools/index.md",
-      "relativePath": "_organized/ready/building-minds-not-tools/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 988,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:when-agents-disagree:organized-ready",
-      "slug": "when-agents-disagree",
-      "title": "When Agents Disagree",
-      "normalizedTitle": "when agents disagree",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/when-agents-disagree/index.md",
-      "relativePath": "_organized/ready/when-agents-disagree/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 972,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:chatbot-is-the-wrong-word:organized-ready",
-      "slug": "chatbot-is-the-wrong-word",
-      "title": "Chatbot Is the Wrong Word",
-      "normalizedTitle": "chatbot is the wrong word",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/chatbot-is-the-wrong-word/index.md",
-      "relativePath": "_organized/ready/chatbot-is-the-wrong-word/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 950,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:the-life-coach-that-argues-with-itself:organized-ready",
-      "slug": "the-life-coach-that-argues-with-itself",
-      "title": "The Life Coach That Argues With Itself",
-      "normalizedTitle": "the life coach that argues with itself",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-life-coach-experiment/index.md",
-      "relativePath": "_organized/ready/the-life-coach-experiment/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 948,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:the-sentence-that-changed-everything:organized-ready",
-      "slug": "the-sentence-that-changed-everything",
-      "title": "The Sentence That Changed Everything",
-      "normalizedTitle": "the sentence that changed everything",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-sentence-that-changed-everything/index.md",
-      "relativePath": "_organized/ready/the-sentence-that-changed-everything/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Observer Systems",
-      "wordCount": 910,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:defamiliarization-is-a-technology-v2:organized-ready",
-      "slug": "defamiliarization-is-a-technology-v2",
-      "title": "Defamiliarization Is a Technology (v2)",
-      "normalizedTitle": "defamiliarization is a technology",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/defamiliarization-is-a-technology/index.md",
-      "relativePath": "_organized/ready/defamiliarization-is-a-technology/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 857,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:the-cast-not-the-character-v2:organized-ready",
-      "slug": "the-cast-not-the-character-v2",
-      "title": "The Cast, Not the Character (v2)",
-      "normalizedTitle": "the cast not the character",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-cast-not-the-character/index.md",
-      "relativePath": "_organized/ready/the-cast-not-the-character/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 775,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:when-bmo-fixed-the-plex-server:organized-ready",
-      "slug": "when-bmo-fixed-the-plex-server",
-      "title": "When BMO Fixed the Plex Server",
-      "normalizedTitle": "when bmo fixed the plex server",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/ready/the-bmo-phenomenon/index.md",
-      "relativePath": "_organized/ready/the-bmo-phenomenon/index.md",
-      "sourceBucket": "organized-ready",
-      "freshnessRank": 5,
-      "sourceStatus": "ready",
-      "collection": "Building Minds",
-      "wordCount": 752,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:why-we-split-the-mind:organized-published",
-      "slug": "why-we-split-the-mind",
-      "title": "Why We Split the Mind",
-      "normalizedTitle": "why we split the mind",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/published/why-we-split-the-mind/index.md",
-      "relativePath": "_organized/published/why-we-split-the-mind/index.md",
-      "sourceBucket": "organized-published",
-      "freshnessRank": 8,
-      "sourceStatus": "published",
-      "collection": "Unassigned",
-      "wordCount": 1166,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
-        "website": "needs-website-staging",
-        "socialTeaser": "needs-short-teaser",
-        "syndication": "needs-platform-packages",
-        "release": "needs-schedule",
-        "approval": "needs-david-approval-before-public-release"
-      },
-      "releaseSchedule": {
-        "status": "needs-schedule",
-        "count": 0,
-        "nextScheduledAt": null,
-        "entries": []
-      },
-      "platforms": {
-        "website": {
-          "status": "not-started",
-          "url": "",
-          "safeDefault": "stage-on-site-first"
-        },
-        "linkedin": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "medium": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "devto": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hashnode": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "hackernoon": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "dzone": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "substack": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "reddit": {
-          "status": "needs-package",
-          "url": "",
-          "safeDefault": "do-not-publish-without-approval"
-        },
-        "x": {
-          "status": "needs-social-teaser",
-          "safeDefault": "draft-only"
-        }
-      },
-      "social": {
-        "linkedinTeaser": "needs-short-teaser",
-        "xTeaser": "needs-short-teaser",
-        "redditSeed": "needs-community-specific-seed",
-        "note": "Social posts should route back to canonical website URLs and stop before public publish until approved."
-      }
-    },
-    {
-      "id": "content:the-wrong-kind-of-memory:organized-published",
-      "slug": "the-wrong-kind-of-memory",
-      "title": "The Wrong Kind of Memory",
-      "normalizedTitle": "the wrong kind of memory",
-      "sourcePath": "/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/published/the-wrong-kind-of-memory/index.md",
-      "relativePath": "_organized/published/the-wrong-kind-of-memory/index.md",
-      "sourceBucket": "organized-published",
-      "freshnessRank": 8,
-      "sourceStatus": "published",
-      "collection": "Unassigned",
-      "wordCount": 925,
-      "imageEvidence": {
-        "embeds": [],
-        "adjacentImageCount": 0,
-        "adjacentImages": [],
-        "websiteImageCount": 0
-      },
-      "gates": {
-        "thesis": "likely-finished-text-review-needed",
-        "image": "needs-image-generation",
         "website": "needs-website-staging",
         "socialTeaser": "needs-short-teaser",
         "syndication": "needs-platform-packages",

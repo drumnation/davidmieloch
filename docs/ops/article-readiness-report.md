@@ -1,15 +1,15 @@
 # Article Readiness Report
 
-Generated: 2026-06-10T03:31:30.454Z
+Generated: 2026-06-11T07:38:45.585Z
 
 ## Summary
 
-- Website articles: 25
+- Website articles: 26
 - Website drafts: 4
 - Website drafts ready for public release: 0
 - Website drafts needing interior image completion: 4
 - Vault candidates: 97
-- Vault candidates not yet on website: 68
+- Vault candidates not yet on website: 64
 - Vault candidates with copyright-reference image risk: 2
 
 ## Website Draft Gates

@@ -248,10 +248,19 @@ function releaseSchedule(entries = []) {
   };
 }
 
-function platformState(platformLedger, slug, packageState) {
+function platformState(platformLedger, slug, packageState, isOnWebsite, canonicalUrl) {
   const article = platformLedger.articles?.[slug];
   const platforms = {};
   for (const platform of DEFAULT_PLATFORMS) {
+    if (platform === 'website') {
+      const existing = article?.platforms?.[platform];
+      platforms[platform] = {
+        status: isOnWebsite ? 'staged-or-published' : existing?.status ?? 'not-started',
+        url: existing?.url || canonicalUrl || '',
+        safeDefault: 'stage-on-site-first',
+      };
+      continue;
+    }
     if (platform === 'x') {
       platforms[platform] = {
         status: 'needs-social-teaser',
@@ -309,6 +318,7 @@ function inventoryItem({
   const slug = slugify(title);
   const websiteSlugs = websiteArticleSlugs(articlesRoot);
   const isOnWebsite = websiteSlugs.has(slug);
+  const canonicalUrl = isOnWebsite ? `https://davidmieloch.com/blog/${slug}` : '';
   const embeds = collectImageEmbeds(body);
   const localImages = adjacentVisualAssets(filePath);
   const websiteImages = websiteImageCount(publicRoot, slug);
@@ -344,7 +354,7 @@ function inventoryItem({
       scheduled,
     }),
     releaseSchedule: scheduled,
-    platforms: platformState(platformLedger, slug, packageState),
+    platforms: platformState(platformLedger, slug, packageState, isOnWebsite, canonicalUrl),
     social: {
       linkedinTeaser: packageState.linkedin === 'package-ready' ? 'package-ready' : 'needs-short-teaser',
       xTeaser: 'needs-short-teaser',

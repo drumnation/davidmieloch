@@ -1,44 +1,43 @@
 # Content Ledger
 
-Generated: 2026-06-05T04:12:23.597Z
+Generated: 2026-06-11T07:39:53.136Z
 Public publishing performed: no
 
 ## Summary
 
-- Canonical candidates: 55
-- Likely legit unpublished: 42
-- Needs image work: 44
-- Needs social teaser: 44
-- Needs release schedule: 44
-- Duplicate groups: 25
+- Canonical candidates: 32
+- Likely legit unpublished: 15
+- Needs image work: 15
+- Needs social teaser: 21
+- Needs release schedule: 21
+- Duplicate groups: 3
 
 ## Collections
 
 - Factory Primitives: 9
-- Unassigned: 19
+- Unassigned: 14
 - Human Outcomes: 5
-- Memory, Context, and Reality: 6
-- Observer Systems: 4
-- Building Minds: 12
+- Memory, Context, and Reality: 1
+- Observer Systems: 3
 
 ## Canonical Candidates
 
 - [ ] Factory Amplification and Modular Primitives (`factory-amplification-and-modular-primitives`)
   - Collection: Factory Primitives
   - Source: `5-10-2026/Factory Amplification and modular primitives.md`
-  - Gates: likely-finished-text-review-needed | needs-image-selection-approval | needs-website-staging | needs-short-teaser | needs-schedule
+  - Gates: likely-finished-text-review-needed | approved-or-staged-on-website | staged-or-published | needs-short-teaser | needs-schedule
   - Release: needs-schedule
   - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
 - [ ] The AI Cost Rug Pull Isn't a Bubble. It's a Filter. (`the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter`)
   - Collection: Factory Primitives
   - Source: `6-3-2026/the-filter.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
+  - Gates: likely-finished-text-review-needed | approved-or-staged-on-website | staged-or-published | needs-short-teaser | needs-schedule
   - Release: needs-schedule
   - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
 - [ ] The Credibility Problem with AI Corporate Communications (`the-credibility-problem-with-ai-corporate-communications`)
   - Collection: Factory Primitives
   - Source: `6-3-2026/the-credibility-problem.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
+  - Gates: likely-finished-text-review-needed | approved-or-staged-on-website | staged-or-published | needs-short-teaser | needs-schedule
   - Release: needs-schedule
   - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
 - [ ] Context Is Not a Token Budget (`context-is-not-a-token-budget`)
@@ -74,7 +73,7 @@ Public publishing performed: no
 - [ ] The AI Bill You Can't Predict (`the-ai-bill-you-cant-predict`)
   - Collection: Factory Primitives
   - Source: `6-3-2026/the-meter.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
+  - Gates: likely-finished-text-review-needed | approved-or-staged-on-website | staged-or-published | needs-short-teaser | needs-schedule
   - Release: needs-schedule
   - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
 - [ ] Positive Corruption (`positive-corruption`)
@@ -92,13 +91,13 @@ Public publishing performed: no
 - [ ] The Most Valuable AI Skill Isn't Prompting (`the-most-valuable-ai-skill-isnt-prompting`)
   - Collection: Factory Primitives
   - Source: `6-3-2026/the-noticers.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
+  - Gates: likely-finished-text-review-needed | approved-or-staged-on-website | staged-or-published | needs-short-teaser | needs-schedule
   - Release: needs-schedule
   - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
 - [ ] The Crew (seed) (`the-crew-seed`)
   - Collection: Factory Primitives
   - Source: `6-3-2026/the-crew.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
+  - Gates: likely-finished-text-review-needed | approved-or-staged-on-website | staged-or-published | needs-short-teaser | needs-schedule
   - Release: needs-schedule
   - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
 - [ ] The Code My Fingers Can Afford (`the-code-my-fingers-can-afford`)
@@ -215,204 +214,15 @@ Public publishing performed: no
   - Gates: likely-finished-text-review-needed | needs-image-selection-approval | needs-website-staging | needs-short-teaser | needs-schedule
   - Release: needs-schedule
   - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Blogs Index (`blogs-index`)
-  - Collection: Unassigned
-  - Source: `_index.md`
-  - Gates: needs-thesis-lock | needs-image-selection-approval | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Three Brothers, Three Minds: The Technical Architecture of Agent Multiplicity (`three-brothers-three-minds-the-technical-architecture-of-agent-multiplicity`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/three-brothers-architecture/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Agent Memory and Multiplicity (v2) (`agent-memory-and-multiplicity-v2`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/agent-memory-and-multiplicity/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] What Is a Soul File (`what-is-a-soul-file`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/soul-file-explained/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Five Ways an Agent Can Remember (`five-ways-an-agent-can-remember`)
-  - Collection: Memory, Context, and Reality
-  - Source: `_organized/ready/memory-layers-plain-english/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] We Don't Know If It's Better (`we-dont-know-if-its-better`)
-  - Collection: Unassigned
-  - Source: `_organized/ready/experiment-not-product/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] The Fact That Breaks the Frame (`the-fact-that-breaks-the-frame`)
-  - Collection: Memory, Context, and Reality
-  - Source: `_organized/ready/the-fact-that-breaks-the-frame/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] The AI That Argues With Itself (`the-ai-that-argues-with-itself`)
-  - Collection: Unassigned
-  - Source: `_organized/ready/ai-that-argues-with-itself/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Memory Is Identity (`memory-is-identity`)
-  - Collection: Memory, Context, and Reality
-  - Source: `_organized/ready/memory-identity-thesis/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Eight Minds, One Answer (`eight-minds-one-answer`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/octave-futurist-cluster/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Reorganization From The Outside (`reorganization-from-the-outside`)
-  - Collection: Memory, Context, and Reality
-  - Source: `_organized/ready/reorganization-from-the-outside/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] When the Map Stops Matching (`when-the-map-stops-matching`)
-  - Collection: Memory, Context, and Reality
-  - Source: `_organized/ready/when-the-map-stops-matching/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] The Supplement Stack for Agents (`the-supplement-stack-for-agents`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/supplement-stack-for-agents/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Building Minds, Not Tools (`building-minds-not-tools`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/building-minds-not-tools/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] When Agents Disagree (`when-agents-disagree`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/when-agents-disagree/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Chatbot Is the Wrong Word (`chatbot-is-the-wrong-word`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/chatbot-is-the-wrong-word/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] The Life Coach That Argues With Itself (`the-life-coach-that-argues-with-itself`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/the-life-coach-experiment/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] The Sentence That Changed Everything (`the-sentence-that-changed-everything`)
-  - Collection: Observer Systems
-  - Source: `_organized/ready/the-sentence-that-changed-everything/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Defamiliarization Is a Technology (v2) (`defamiliarization-is-a-technology-v2`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/defamiliarization-is-a-technology/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] The Cast, Not the Character (v2) (`the-cast-not-the-character-v2`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/the-cast-not-the-character/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] When BMO Fixed the Plex Server (`when-bmo-fixed-the-plex-server`)
-  - Collection: Building Minds
-  - Source: `_organized/ready/the-bmo-phenomenon/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] Why We Split the Mind (`why-we-split-the-mind`)
-  - Collection: Unassigned
-  - Source: `_organized/published/why-we-split-the-mind/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
-- [ ] The Wrong Kind of Memory (`the-wrong-kind-of-memory`)
-  - Collection: Unassigned
-  - Source: `_organized/published/the-wrong-kind-of-memory/index.md`
-  - Gates: likely-finished-text-review-needed | needs-image-generation | needs-website-staging | needs-short-teaser | needs-schedule
-  - Release: needs-schedule
-  - Social: LinkedIn needs-short-teaser; X needs-short-teaser; Reddit needs-community-specific-seed
 
 ## Duplicate Groups
 
 - Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Factory Amplification and modular primitives.md`
   - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-5-factory-amplification-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-5-factory-amplification-v2/index.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/factory-amplification-and-modular-primitives/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-19-2026/Context Is Not a Token Budget.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/context-is-not-a-token-budget/index.md`
 - Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-20-2026/battle-bots-v1.md`
   - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-20-2026/Battle Bots.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/battle-bots-v1/index.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/battle-bots/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/Mental Agility and the Map That Knows Too Much.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/mental-agility-and-the-map-that-knows-too-much/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-20-2026/Positive Corruption.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/positive-corruption/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/5-10-2026/The Compression.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-compression/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/2026-03-30-the-code-my-fingers-can-afford.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-03-30-the-code-my-fingers-can-afford/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/lifetimes-of meaning/article-3-lifetimes-of-meaning.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-3-lifetimes-of-meaning/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-3-the-foreman-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-3-the-foreman-v2/index.md`
 - Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-1-the-golden-hammer.md`
   - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-golden-hammer.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-golden-hammer/index.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-1-the-golden-hammer/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-4-the-moving-target-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-4-the-moving-target-v2/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-2-the-factory-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-2-the-factory-v2/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/golden-hammer-drafts/article-5-the-shore-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/article-5-the-shore-v2/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/wave 2/New Blog Post.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/new-blog-post/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/2026-04-30-reality-needs-observers.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-04-30-reality-needs-observers/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/third-wave/2026-04-30-asi-should-be-the-avatar-not-god.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/2026-04-30-asi-should-be-the-avatar-not-god/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/agents-dont-hallucinate-they-lie.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/agents-dont-hallucinate-they-lie/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-overnight-shift-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-overnight-shift-v2/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/The aftermath.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-aftermath/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/sunken-treasure-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/sunken-treasure-v2/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/mieloch/Why Character Choice Matters in Agent Design.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/why-character-choice-matters-in-agent-design/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/the-art-of-looking-incompetent-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-art-of-looking-incompetent-v2/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/academic-research-is-a-software-patch-v2.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/index.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/academic-research-is-a-software-patch-v2/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/Sunken Treasure.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/sunken-treasure/index.md`
-- Canonical: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/The art of human programming.md`
-  - Duplicate: `/Users/dmieloch/Library/Mobile Documents/iCloud~md~obsidian/Documents/brain-vault/blogs/_organized/vault-drafts/the-art-of-human-programming/index.md`
 
 ## Safe Operating Rules
 

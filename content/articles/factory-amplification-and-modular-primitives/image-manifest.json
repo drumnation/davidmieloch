@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T07:36:52.505Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "factory-amplification-and-modular-primitives",
+  "articleTitle": "Factory Amplification and Modular Primitives",
+  "series": "Factory Primitives",
+  "visualSystem": "1950s space-western industrial noir",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/factory-amplification-and-modular-primitives/images/a1-orbital-factory.png",
+      "sourcePath": "public/blog/factory-amplification-and-modular-primitives/images/a1-orbital-factory.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "11d2d24ba8293da8b97dfd051d8da61751afad5c698f26e4c9eb2d34714fcef4",
+      "caption": "The factory as a ringed orbital machine, the whole stack turning around a deterministic core.",
+      "promptSummary": "1950s space-western industrial noir, orbital factory machinery, dark chocolate software factory, amber instrumentation, cinematic 16:9 editorial hero, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/factory-amplification-and-modular-primitives/images/a2-the-sorcerer.png",
+      "sourcePath": "public/blog/factory-amplification-and-modular-primitives/images/a2-the-sorcerer.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "79298f81ec44f47d2366005993724965e7cb62a3152c51c211331e70f954124d",
+      "caption": "The first sessions look like sorcery because the work still depends on narration and attention.",
+      "promptSummary": "1950s space-western industrial noir, a sorcerer-like operator guiding a factory system, dark chocolate software factory, amber machinery, cinematic 16:9 editorial art, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/factory-amplification-and-modular-primitives/images/a3-compliance-fork.png",
+      "sourcePath": "public/blog/factory-amplification-and-modular-primitives/images/a3-compliance-fork.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "b6286f588d110598f17b541ede71f558aa05c1c30b2812902f32acb2daec022d",
+      "caption": "The moment instructions become compliance and the pipeline has to decide whether to enforce the steps.",
+      "promptSummary": "1950s space-western industrial noir, compliance fork in a factory pipeline, deterministic workflow spine, amber instrumentation, cinematic 16:9 editorial art, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    },
+    {
+      "id": "inline-03",
+      "role": "article-interior",
+      "publicPath": "/blog/factory-amplification-and-modular-primitives/images/a4-coordination-clockwork.png",
+      "sourcePath": "public/blog/factory-amplification-and-modular-primitives/images/a4-coordination-clockwork.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "a0e26255360a2508a819b569db086404f07f5b0649a588d9d120fe7c357a313b",
+      "caption": "Multiple slots working together as a synchronized machine instead of a pile of unrelated prompts.",
+      "promptSummary": "1950s space-western industrial noir, coordination clockwork, synchronized factory slots, amber machinery, cyan signal lights, cinematic 16:9 editorial art, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    },
+    {
+      "id": "inline-04",
+      "role": "article-interior",
+      "publicPath": "/blog/factory-amplification-and-modular-primitives/images/a5-living-codebase.png",
+      "sourcePath": "public/blog/factory-amplification-and-modular-primitives/images/a5-living-codebase.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "ace10a86821567b34ec1f4f4423a6a5064a3097a33ca3730ba32281ab46a4a87",
+      "caption": "The codebase growing like a living system under self-improvement loops.",
+      "promptSummary": "1950s space-western industrial noir, living codebase growing under observation loops, dark chocolate factory, amber instrumentation, cinematic 16:9 editorial art, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    },
+    {
+      "id": "inline-05",
+      "role": "article-interior",
+      "publicPath": "/blog/factory-amplification-and-modular-primitives/images/a6-blast-radius.png",
+      "sourcePath": "public/blog/factory-amplification-and-modular-primitives/images/a6-blast-radius.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "a311ba38ea46578e9c1c51a46120495c494e31b618cfd80c5b88fe32a0bdcbb9",
+      "caption": "A config change spreading through the factory and forcing a shutdown.",
+      "promptSummary": "1950s space-western industrial noir, blast radius of a config change inside a factory, amber machinery, frontier observatory, cinematic 16:9 editorial art, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    },
+    {
+      "id": "inline-06",
+      "role": "article-interior",
+      "publicPath": "/blog/factory-amplification-and-modular-primitives/images/a7-gardener-at-top.png",
+      "sourcePath": "public/blog/factory-amplification-and-modular-primitives/images/a7-gardener-at-top.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "6b08ce9e9e2ce19d731e61e4828682fed73e362902e4cda39157d6e55087abf7",
+      "caption": "The human as gardener, tending the growth of the stack.",
+      "promptSummary": "1950s space-western industrial noir, gardener over the top of the stack, dark chocolate codebase landscape, amber machinery, cinematic 16:9 editorial art, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    },
+    {
+      "id": "inline-07",
+      "role": "article-interior",
+      "publicPath": "/blog/factory-amplification-and-modular-primitives/images/a8-same-efficiency.png",
+      "sourcePath": "public/blog/factory-amplification-and-modular-primitives/images/a8-same-efficiency.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "d4e82d84d8c0727a2de7f4cd0d5f754bb8d55e5fe6f665d4577733d3147de13e",
+      "caption": "A misconfiguration amplified with the same efficiency as a good change.",
+      "promptSummary": "1950s space-western industrial noir, same efficiency of good and bad changes, dark chocolate factory, amber instrumentation, cinematic 16:9 editorial art, no readable text.",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-05-19",
+    "blocker": null
+  }
+}
