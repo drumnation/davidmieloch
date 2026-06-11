@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
-import { useRouter } from "next/navigation";
 import { Check, X } from "lucide-react";
 
 type Props = {
@@ -9,6 +8,7 @@ type Props = {
   assetId: string;
   variantId: string;
   returnTo: string;
+  onDecision?: (assetId: string, decision: "approve" | "reject", status: string) => void;
 };
 
 export function ImageDecisionControls({
@@ -16,12 +16,14 @@ export function ImageDecisionControls({
   assetId,
   variantId,
   returnTo,
+  onDecision,
 }: Props) {
-  const router = useRouter();
   const [isPending, setIsPending] = useState(false);
+  const [currentDecision, setCurrentDecision] = useState<"approve" | "reject" | "pending" | "idle">("idle");
 
   async function decide(decision: "approve" | "reject") {
     setIsPending(true);
+    setCurrentDecision(decision);
 
     try {
       const formData = new FormData();
@@ -44,9 +46,10 @@ export function ImageDecisionControls({
         throw new Error(`Image decision failed: ${response.status}`);
       }
 
-      router.refresh();
+      onDecision?.(assetId, decision, "ok");
     } finally {
       setIsPending(false);
+      setCurrentDecision("idle");
     }
   }
 
@@ -72,6 +75,16 @@ export function ImageDecisionControls({
       >
         <X size={18} strokeWidth={3} aria-hidden="true" />
       </button>
+      {currentDecision === "approve" ? (
+        <span style={styles.feedback} aria-live="polite">
+          Selected
+        </span>
+      ) : null}
+      {currentDecision === "reject" ? (
+        <span style={styles.feedbackError} aria-live="polite">
+          Rejected
+        </span>
+        ) : null}
     </div>
   );
 }
@@ -107,5 +120,15 @@ const styles: Record<string, CSSProperties> = {
     background: "#8a2e28",
     color: "#fffaf1",
     cursor: "pointer",
+  },
+  feedback: {
+    color: "#245f3d",
+    fontWeight: 800,
+    fontSize: "0.78rem",
+  },
+  feedbackError: {
+    color: "#8e2727",
+    fontWeight: 800,
+    fontSize: "0.78rem",
   },
 };

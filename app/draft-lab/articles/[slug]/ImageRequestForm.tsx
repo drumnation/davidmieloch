@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
 
-type ImageRequest = {
+export type ImageRequest = {
   id: string;
   prompt: string;
   status: string;
@@ -27,6 +26,12 @@ type WorkerObservation = {
   claim: string;
 };
 
+type WorkerEventPayload = {
+  status?: string;
+  message?: string;
+  requestId?: string;
+};
+
 type Props = {
   slug: string;
   placementId: string;
@@ -37,6 +42,9 @@ type Props = {
   sourceVariantId?: string;
   sourceImageUrl?: string;
   compact?: boolean;
+  onRequestsUpdated?: (requests: ImageRequest[]) => void;
+  onCompleted?: (requestId: string) => void;
+  onMessage?: (message: string) => void;
 };
 
 export function ImageRequestForm({
@@ -49,6 +57,9 @@ export function ImageRequestForm({
   sourceVariantId,
   sourceImageUrl,
   compact = false,
+  onRequestsUpdated,
+  onCompleted,
+  onMessage,
 }: Props) {
   const [prompt, setPrompt] = useState("");
   const [requests, setRequests] = useState(initialRequests);
@@ -58,21 +69,22 @@ export function ImageRequestForm({
   const [workerMessages, setWorkerMessages] = useState<string[]>([]);
   const [activeRequestId, setActiveRequestId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const router = useRouter();
+  const eventStreamRef = useRef<EventSource | null>(null);
   const completedRequestIds = useRef(
     new Set(initialRequests.filter(isFinishedRequest).map((request) => request.id)),
   );
+
   const hasActiveRequests = requests.some((request) =>
     ["queued", "processing"].includes(request.status),
   );
 
   useEffect(() => {
-    if (!hasActiveRequests) return undefined;
+    if (!hasActiveRequests && !activeRequestId) return undefined;
 
-    const poll = async () => {
+    const syncRequests = async () => {
       try {
         const response = await fetch(
-          `/api/draft-lab/image-requests?slug=${encodeURIComponent(
+          `/api/draft-lab/placement-state?slug=${encodeURIComponent(
             slug,
           )}&placementId=${encodeURIComponent(placementId)}`,
           {
@@ -89,29 +101,32 @@ export function ImageRequestForm({
 
         setRequests(payload.requests);
         setWorkerObservation(payload.observation ?? observeRequests(payload.requests));
-        const newlyFinished = payload.requests.some((request) => {
-          if (!isFinishedRequest(request)) return false;
-          if (completedRequestIds.current.has(request.id)) return false;
+        onRequestsUpdated?.(payload.requests);
+        let completedRequestId: string | null = null;
+        for (const request of payload.requests) {
+          if (!isFinishedRequest(request)) continue;
+          if (completedRequestIds.current.has(request.id)) continue;
           completedRequestIds.current.add(request.id);
-          return request.status === "completed";
-        });
+          if (request.status === "completed") completedRequestId = request.id;
+        }
 
-        if (newlyFinished) {
-          setMessage("Image generated. Refreshing the article preview...");
-          router.refresh();
+        if (completedRequestId) {
+          setMessage("Image generated. Refreshing image set...");
+          onCompleted?.(completedRequestId);
         }
       } catch {
         setMessage("Could not refresh worker status yet.");
+        onMessage?.("Could not refresh worker status yet.");
       }
     };
 
-    void poll();
+    void syncRequests();
     const intervalId = window.setInterval(() => {
-      void poll();
+      void syncRequests();
     }, 4000);
 
     return () => window.clearInterval(intervalId);
-  }, [hasActiveRequests, placementId, router, slug]);
+  }, [activeRequestId, hasActiveRequests, placementId, slug, onCompleted, onMessage, onRequestsUpdated]);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -154,15 +169,23 @@ export function ImageRequestForm({
 
       setRequests((current) => [payload.request as ImageRequest, ...current]);
       setWorkerObservation(observeRequests([payload.request as ImageRequest, ...requests]));
+      setWorkerMessages(["Queue accepted by draft-lab API."]);
       setPrompt("");
       setMessage(
         sourceAssetId
           ? "Queued source-image variation. Starting image worker..."
           : "Queued. Starting image worker...",
       );
+      onMessage?.(
+        sourceAssetId
+          ? "Queued source-image variation. Starting image worker..."
+          : "Queued. Starting image worker...",
+      );
       startWorkerStream((payload.request as ImageRequest).id);
+      onRequestsUpdated?.([payload.request as ImageRequest, ...requests]);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Queue failed.");
+      onMessage?.(error instanceof Error ? error.message : "Queue failed.");
     } finally {
       setIsSubmitting(false);
     }
@@ -171,14 +194,30 @@ export function ImageRequestForm({
   function startWorkerStream(requestId: string) {
     setActiveRequestId(requestId);
     setWorkerMessages(["Opening image worker stream..."]);
+    setMessage(`Starting worker stream for ${requestId}.`);
+    onMessage?.(`Starting worker stream for ${requestId}.`);
+
+    if (eventStreamRef.current) {
+      eventStreamRef.current.close();
+    }
 
     const events = new EventSource(
       `/api/draft-lab/image-requests/events?slug=${encodeURIComponent(
         slug,
       )}&requestId=${encodeURIComponent(requestId)}`,
     );
+    eventStreamRef.current = events;
+
     const appendMessage = (nextMessage: string) => {
       setWorkerMessages((current) => [...current.slice(-5), nextMessage]);
+      onMessage?.(nextMessage);
+    };
+
+    const handleTerminalEvent = (eventPayload: WorkerEventPayload) => {
+      setActiveRequestId(null);
+      void syncRequestsFromServer();
+      events.close();
+      onCompleted?.((eventPayload.requestId ?? requestId) as string);
     };
 
     events.addEventListener("stage", (event) => {
@@ -190,27 +229,65 @@ export function ImageRequestForm({
     events.addEventListener("completed", (event) => {
       const payload = parseEventPayload(event);
       appendMessage(payload.message ?? "Image generated.");
-      setMessage("Image generated. Refreshing the article preview...");
-      setActiveRequestId(null);
-      events.close();
-      router.refresh();
+      setMessage(payload.message ?? "Image generated.");
+      handleTerminalEvent(payload);
     });
 
     events.addEventListener("worker-error", (event) => {
       const payload = parseEventPayload(event);
       appendMessage(payload.message ?? "Image worker failed.");
       setMessage(payload.message ?? "Image worker failed.");
-      setActiveRequestId(null);
-      events.close();
+      handleTerminalEvent(payload);
     });
 
     events.onerror = () => {
       appendMessage("Image worker stream disconnected.");
       setMessage("Image worker stream disconnected.");
-      setActiveRequestId(null);
-      events.close();
+      handleTerminalEvent({});
     };
   }
+
+  async function syncRequestsFromServer() {
+    try {
+      const response = await fetch(
+        `/api/draft-lab/placement-state?slug=${encodeURIComponent(
+          slug,
+        )}&placementId=${encodeURIComponent(placementId)}`,
+        {
+          headers: { Accept: "application/json" },
+          cache: "no-store",
+        },
+      );
+      const payload = (await response.json()) as {
+        ok?: boolean;
+        requests?: ImageRequest[];
+        observation?: WorkerObservation;
+      };
+      if (!response.ok || !payload.ok || !payload.requests) return;
+      setRequests(payload.requests);
+      setWorkerObservation(payload.observation ?? observeRequests(payload.requests));
+      onRequestsUpdated?.(payload.requests);
+    } catch {
+      const errorMessage = "Could not refresh worker status yet.";
+      setMessage(errorMessage);
+      onMessage?.(errorMessage);
+    }
+  }
+
+  useEffect(() => {
+    setRequests(initialRequests);
+    completedRequestIds.current = new Set(initialRequests.filter(isFinishedRequest).map((request) => request.id));
+    setWorkerObservation(observeRequests(initialRequests));
+    onRequestsUpdated?.(initialRequests);
+  }, [initialRequests, onRequestsUpdated]);
+
+  useEffect(() => {
+    return () => {
+      if (eventStreamRef.current) {
+        eventStreamRef.current.close();
+      }
+    };
+  }, []);
 
   return (
     <div style={styles.wrapper}>
@@ -350,10 +427,10 @@ export function ImageRequestForm({
   );
 }
 
-function parseEventPayload(event: Event): { message?: string } {
+function parseEventPayload(event: Event): WorkerEventPayload {
   const messageEvent = event as MessageEvent<string>;
   try {
-    return JSON.parse(messageEvent.data) as { message?: string };
+    return JSON.parse(messageEvent.data) as WorkerEventPayload;
   } catch {
     return {};
   }

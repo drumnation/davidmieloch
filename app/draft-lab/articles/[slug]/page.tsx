@@ -7,9 +7,8 @@ import ReactMarkdown from "react-markdown";
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 
-import { ImageRequestForm } from "./ImageRequestForm";
-import { ImageDecisionControls } from "./ImageDecisionControls";
 import { LinkedInCopyButton } from "./LinkedInCopyButton";
+import { ImagePlacementReview } from "./ImagePlacementReview";
 
 import review from "../../../../content/distribution/draft-image-review.json";
 
@@ -266,8 +265,9 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
                 <>
                   <h2 style={styles.markdownH2}>{children}</h2>
                   {placement ? (
-                    <InlineImagePlacement
-                      candidate={candidate}
+                    <ImagePlacementReview
+                      slug={candidate.slug}
+                      candidateTitle={candidate.title}
                       placement={placement}
                       returnTo={returnTo}
                     />
@@ -326,84 +326,6 @@ export default async function DraftArticlePreviewPage({ params }: PageProps) {
         </section>
       </article>
     </main>
-  );
-}
-
-function InlineImagePlacement({
-  candidate,
-  placement,
-  returnTo,
-}: {
-  candidate: DraftCandidate;
-  placement: GeneratedInteriorPlacement;
-  returnTo: string;
-}) {
-  const placementReturnTo = `${returnTo}#image-set-${placement.id}`;
-
-  return (
-    <section id={`image-set-${placement.id}`} style={styles.placementReview}>
-      <div style={styles.placementHeader}>
-        <p style={styles.placementKicker}>Image set · {placement.id}</p>
-        <h3 style={styles.placementTitle}>{placement.heading}</h3>
-        {placement.selected ? (
-          <span style={styles.selectedBadge}>Selected</span>
-        ) : (
-          <span style={styles.reviewBadge}>
-            {placement.images.length} choices
-          </span>
-        )}
-      </div>
-      <p style={styles.placementHelp}>
-        Choose the image that best supports this section. Selected images are
-        highlighted, but the other options stay visible so you can compare or
-        change your mind.
-      </p>
-      <div style={styles.generatedGrid}>
-        {placement.images.map((image) => (
-          <figure key={image.id} style={imageCardStyle(image.status)}>
-            <ImageDecisionControls
-              slug={candidate.slug}
-              assetId={image.id}
-              variantId={image.variantId}
-              returnTo={placementReturnTo}
-            />
-            <a href={draftLabGeneratedImageUrl(image)} style={styles.generatedImageLink}>
-              <img
-                src={draftLabGeneratedImageUrl(image)}
-                alt={image.altText ?? `${candidate.title} generated art`}
-                style={styles.generatedImage}
-                loading="lazy"
-              />
-            </a>
-            <figcaption style={styles.generatedCaption}>
-              <strong>{image.variantId}</strong>
-              <span>{image.caption ?? "No caption drafted yet."}</span>
-              <code>{image.status}</code>
-            </figcaption>
-            <ImageRequestForm
-              slug={candidate.slug}
-              placementId={placement.id}
-              heading={placement.heading}
-              returnTo={placementReturnTo}
-              initialRequests={placement.requests.filter(
-                (request) => request.sourceAssetId === image.id,
-              )}
-              sourceAssetId={image.id}
-              sourceVariantId={image.variantId}
-              sourceImageUrl={draftLabGeneratedImageUrl(image)}
-              compact
-            />
-          </figure>
-        ))}
-      </div>
-      <ImageRequestForm
-        slug={candidate.slug}
-        placementId={placement.id}
-        heading={placement.heading}
-        returnTo={placementReturnTo}
-        initialRequests={placement.requests}
-      />
-    </section>
   );
 }
 
@@ -611,12 +533,6 @@ function isContactSheetSlice(image: GeneratedInteriorImage) {
   );
 }
 
-function draftLabGeneratedImageUrl(image: GeneratedInteriorImage) {
-  return `/api/draft-lab/generated-image?path=${encodeURIComponent(
-    image.publicPath,
-  )}`;
-}
-
 function readGeneratedInteriorImages(slug: string): GeneratedInteriorImage[] {
   const manifestPath = draftLabReadableArticleFile(slug, "manifest.json");
 
@@ -702,24 +618,6 @@ function draftLabReadableArticleFile(slug: string, fileName: string) {
   );
 
   return fs.existsSync(dataPath) ? dataPath : repoPath;
-}
-
-function imageCardStyle(status: string): CSSProperties {
-  if (status === "approved-selected") {
-    return {
-      ...styles.generatedCard,
-      ...styles.selectedGeneratedCard,
-    };
-  }
-
-  if (status === "rejected-not-selected" || status === "rejected-by-david") {
-    return {
-      ...styles.generatedCard,
-      ...styles.rejectedGeneratedCard,
-    };
-  }
-
-  return styles.generatedCard;
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -878,97 +776,6 @@ const styles: Record<string, CSSProperties> = {
     color: "#4c4740",
     fontSize: "1rem",
     lineHeight: 1.55,
-  },
-  generatedGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-    gap: "14px",
-  },
-  placementReviewList: {
-    display: "grid",
-    gap: "18px",
-  },
-  placementReview: {
-    display: "grid",
-    gap: "12px",
-    padding: "14px",
-    border: "1px solid #e2d8c9",
-    borderRadius: "12px",
-    background: "#f4eadb",
-  },
-  placementHeader: {
-    display: "grid",
-    gridTemplateColumns: "minmax(0, 1fr) auto",
-    gap: "8px 14px",
-    alignItems: "center",
-  },
-  placementKicker: {
-    gridColumn: "1 / -1",
-    margin: 0,
-    color: "#7d5b2f",
-    fontSize: "0.74rem",
-    fontWeight: 900,
-    letterSpacing: 0,
-    textTransform: "uppercase",
-  },
-  placementTitle: {
-    margin: 0,
-    fontSize: "1.24rem",
-    lineHeight: 1.12,
-  },
-  selectedBadge: {
-    padding: "6px 8px",
-    borderRadius: "999px",
-    background: "#245f3d",
-    color: "#fffaf1",
-    fontSize: "0.72rem",
-    fontWeight: 900,
-    textTransform: "uppercase",
-  },
-  reviewBadge: {
-    padding: "6px 8px",
-    borderRadius: "999px",
-    background: "#4451a4",
-    color: "#fffaf1",
-    fontSize: "0.72rem",
-    fontWeight: 900,
-    textTransform: "uppercase",
-  },
-  generatedCard: {
-    display: "grid",
-    gap: "10px",
-    margin: 0,
-    padding: "10px",
-    border: "1px solid #e2d8c9",
-    borderRadius: "10px",
-    background: "#fffdf8",
-  },
-  selectedGeneratedCard: {
-    border: "2px solid #245f3d",
-    boxShadow: "0 0 0 3px rgba(36, 95, 61, 0.12)",
-  },
-  rejectedGeneratedCard: {
-    opacity: 0.72,
-    background: "#f7f0e7",
-  },
-  generatedImageLink: {
-    display: "block",
-    overflow: "hidden",
-    borderRadius: "8px",
-    background: "#120f0b",
-  },
-  generatedImage: {
-    display: "block",
-    width: "100%",
-    aspectRatio: "16 / 9",
-    objectFit: "contain",
-  },
-  generatedCaption: {
-    display: "grid",
-    gap: "6px",
-    color: "#302b25",
-    fontSize: "0.88rem",
-    lineHeight: 1.38,
   },
   editorSection: {
     margin: "46px 0 0",
