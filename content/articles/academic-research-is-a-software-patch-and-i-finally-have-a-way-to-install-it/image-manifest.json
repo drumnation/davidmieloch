@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it",
+  "articleTitle": "Academic Research Is a Software Patch (And I Finally Have a Way to Install It)",
+  "series": "AI Factory",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-wall.png",
+      "sourcePath": "public/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-wall.png",
+      "width": 1376,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "3ed64e9b427ca2320fa68a3a52e7dd1363a33ff903ab987bb159ea7faf5fa2f7",
+      "caption": "research wall",
+      "promptSummary": "research wall",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "research wall"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-patch.png",
+      "sourcePath": "public/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-patch.png",
+      "width": 2752,
+      "height": 1536,
+      "aspectRatio": "16:9",
+      "checksumSha256": "8fbf8a2a68c524d731992dd5e248a2e7285d153527c8d016be3548ecb7c9796d",
+      "caption": "research patch",
+      "promptSummary": "research patch",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "research patch"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-overnight.png",
+      "sourcePath": "public/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-overnight.png",
+      "width": 1376,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "b1ae9d945a499700bf77747716dc0dee2d361158ea26d77e98076f015a666b31",
+      "caption": "research overnight",
+      "promptSummary": "research overnight",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "research overnight"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-03-20",
+    "blocker": null
+  }
+}

@@ -32,6 +32,9 @@ import {
   buildArticleReadinessReport,
 } from './lib/article-readiness.mjs';
 import {
+  buildArticleImageManifest,
+} from './lib/article-image-manifest.ts';
+import {
   buildDistributionQueue,
   distributionQueueMarkdown,
   filterDistributionQueue,
@@ -780,6 +783,73 @@ function articleReadinessCommand() {
     ...report,
     ...(options.write ? { outputPath, markdownOutputPath } : {}),
   };
+}
+
+async function articleImageManifestCommand(slug) {
+  if (!slug) throw new Error('article:image-manifest requires <slug|all>.');
+  const options = parseCommandOptions(3);
+  const generatedAt = options.generatedAt ?? new Date().toISOString();
+  const articleSlugs = slug === 'all'
+    ? fs
+      .readdirSync(articlesRoot, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .filter((entry) => fs.existsSync(path.join(articlesRoot, entry.name, 'index.md')))
+      .filter((entry) => (
+        fs.existsSync(path.join(publicRoot, 'blog', entry.name, 'images')) ||
+        fs.existsSync(path.join(articlesRoot, entry.name, 'image-manifest.json'))
+      ))
+      .map((entry) => entry.name)
+      .sort()
+    : [slug];
+
+  const results = [];
+  const failures = [];
+
+  for (const articleSlug of articleSlugs) {
+    try {
+      const result = await buildArticleImageManifest({
+        articlesRoot,
+        publicRoot,
+        slug: articleSlug,
+        generatedAt,
+        approvalStatus: options['approval-status'] ?? 'staged-for-david-review',
+      });
+      results.push({
+        slug: articleSlug,
+        manifestPath: path.relative(appRoot, result.manifestPath),
+        assetCount: result.manifest.assets.length,
+      });
+    } catch (error) {
+      failures.push({
+        slug: articleSlug,
+        error: error instanceof Error ? error.message : String(error),
+      });
+      if (slug !== 'all') throw error;
+    }
+  }
+
+  const payload = {
+    generatedAt,
+    publicPublishingPerformed: false,
+    results,
+    failures,
+    observation: {
+      claim: 'article image manifests are normalized from the article body and image files on disk',
+      status: failures.length ? 'DEGRADED' : 'PASS',
+      fallbackChain: [
+        'content/articles/<slug>/image-manifest.json',
+        'public/blog/<slug>/images/*',
+        'ROM heartbeat',
+      ],
+    },
+  };
+
+  observeCommand('article:image-manifest', slug, failures.length ? 'DEGRADED' : 'PASS', {
+    results,
+    failures,
+  });
+
+  return payload;
 }
 
 function launchApproveCommand(slug) {
@@ -1906,6 +1976,7 @@ function usage() {
   pnpm content:pipeline image:generate <slug> [--input=<path>] [--placement=<id>] [--limit=5] [--size=1280x720] [--dry-run] --spend-approved
   pnpm content:pipeline image:process-requests <slug> [--input=<path>] [--request-id=<id>] [--limit=1] [--provider=minimax] [--model=image-01] [--size=16:9] [--dry-run] --spend-approved
   pnpm content:pipeline article:readiness [--write] [--output=<path>] [--report=<path>] [--obsidian-root=<path>]
+  pnpm content:pipeline article:image-manifest <slug|all> [--approval-status=<status>]
   pnpm content:pipeline linkedin:article-transfer <slug|all> [--write] [--output=<path>] [--launch-plan=<path>]
   pnpm content:pipeline schedule:generate [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--blocked=true|false] [--limit=10] [--start=<iso-date>] [--interval-days=1] [--interval-hours=0] [--write] [--output=<path>]
   pnpm content:pipeline schedule:due [--now=<iso-date>] [--input=<path>]
@@ -2051,6 +2122,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'article:readiness') {
     return articleReadinessCommand();
+  }
+  if (command === 'article:image-manifest') {
+    return articleImageManifestCommand(slug);
   }
   if (command === 'schedule:generate') {
     return publishScheduleGenerateCommand();

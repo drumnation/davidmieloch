@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-beauty-of-es6s-object-destructuring-assignment",
+  "articleTitle": "The Beauty of ES6's Object Destructuring Assignment",
+  "series": "Legacy Engineering Notes",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-beauty-of-es6s-object-destructuring-assignment/images/medium-01.png",
+      "sourcePath": "public/blog/the-beauty-of-es6s-object-destructuring-assignment/images/medium-01.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "6eaee737ecaded10717ccb429fc5e6cd63f4c5f58f6f65846b8b00bdf4e2f00c",
+      "caption": "medium 01",
+      "promptSummary": "medium 01",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 01"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/the-beauty-of-es6s-object-destructuring-assignment/images/medium-02.png",
+      "sourcePath": "public/blog/the-beauty-of-es6s-object-destructuring-assignment/images/medium-02.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "2ee0a0ed07d7eac69ff1f5b713b054fd9d3a4c87268b3ab001610abd0b7c6008",
+      "caption": "medium 02",
+      "promptSummary": "medium 02",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 02"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/the-beauty-of-es6s-object-destructuring-assignment/images/medium-03.png",
+      "sourcePath": "public/blog/the-beauty-of-es6s-object-destructuring-assignment/images/medium-03.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "8f5c15da18b05c14fb41a14b0088df4fa810f46ec170adcf3363c778d13c7e33",
+      "caption": "medium 03",
+      "promptSummary": "medium 03",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 03"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2023-02-02",
+    "blocker": null
+  }
+}

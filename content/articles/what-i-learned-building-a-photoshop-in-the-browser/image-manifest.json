@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "what-i-learned-building-a-photoshop-in-the-browser",
+  "articleTitle": "What I Learned Building a Photoshop in the Browser",
+  "series": "Legacy Engineering Notes",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-01.jpg",
+      "sourcePath": "public/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-01.jpg",
+      "width": 800,
+      "height": 388,
+      "aspectRatio": "200:97",
+      "checksumSha256": "5e1faba3ed4e317b81c5142064895a765ace1a6bec70d9b7f10669ae9dfdd40f",
+      "caption": "Medium 01",
+      "promptSummary": "Medium 01",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 01"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-02.png",
+      "sourcePath": "public/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-02.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "c4834b143e22656e2bfecc85ac2cae065171c3a4e3b91f813d785be43d412ae5",
+      "caption": "Medium 02",
+      "promptSummary": "Medium 02",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 02"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-03.png",
+      "sourcePath": "public/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-03.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "44522a0c2ac27228122a23d3a4b1f1b699d174ce1434d854863fb4885a82f822",
+      "caption": "Medium 03",
+      "promptSummary": "Medium 03",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 03"
+    },
+    {
+      "id": "inline-03",
+      "role": "article-interior",
+      "publicPath": "/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-04.png",
+      "sourcePath": "public/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-04.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "0d02822839d9ab3da393e1821910de5b939af2830bb0f2ec01979290469ae641",
+      "caption": "Medium 04",
+      "promptSummary": "Medium 04",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 04"
+    },
+    {
+      "id": "inline-04",
+      "role": "article-interior",
+      "publicPath": "/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-05.png",
+      "sourcePath": "public/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-05.png",
+      "width": 1024,
+      "height": 1536,
+      "aspectRatio": "2:3",
+      "checksumSha256": "ba6d206f0f54a06e401cd1b1255225d1316bdfc401bc94fc7231c8c02548f9f9",
+      "caption": "Medium 05",
+      "promptSummary": "Medium 05",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 05"
+    },
+    {
+      "id": "inline-05",
+      "role": "article-interior",
+      "publicPath": "/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-06.png",
+      "sourcePath": "public/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-06.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "1667ffc8c912bdb95b459d7cccb111714ce34adc595210fe26d3ae13549bdd3e",
+      "caption": "Medium 06",
+      "promptSummary": "Medium 06",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 06"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2025-04-25",
+    "blocker": null
+  }
+}

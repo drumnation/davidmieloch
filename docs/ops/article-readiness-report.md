@@ -1,6 +1,6 @@
 # Article Readiness Report
 
-Generated: 2026-06-11T07:38:45.585Z
+Generated: 2026-06-11T14:03:53.489Z
 
 ## Summary
 

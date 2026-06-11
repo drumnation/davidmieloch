@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-overnight-shift",
+  "articleTitle": "The Overnight Shift",
+  "series": "AI Factory",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-overnight-shift/images/overnight-hero.png",
+      "sourcePath": "public/blog/the-overnight-shift/images/overnight-hero.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "0c1525180a1166be75d9d7733642957d5c4b0dcb411592fa832be5c0ff229db4",
+      "caption": "overnight hero",
+      "promptSummary": "overnight hero",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "overnight hero"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/the-overnight-shift/images/overnight-huddle.png",
+      "sourcePath": "public/blog/the-overnight-shift/images/overnight-huddle.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "773f6549745eeb0a3360550f975105bb55e2f99a802ca3d13fd9eb8c245febe3",
+      "caption": "overnight huddle",
+      "promptSummary": "overnight huddle",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "overnight huddle"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/the-overnight-shift/images/overnight-playbook.png",
+      "sourcePath": "public/blog/the-overnight-shift/images/overnight-playbook.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "c0dac0c7c2c4e9f18b98b70faa7ee90d67270e375eecec1780cfa754495ce2ea",
+      "caption": "overnight playbook",
+      "promptSummary": "overnight playbook",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "overnight playbook"
+    },
+    {
+      "id": "inline-03",
+      "role": "article-interior",
+      "publicPath": "/blog/the-overnight-shift/images/overnight-factory.png",
+      "sourcePath": "public/blog/the-overnight-shift/images/overnight-factory.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "b471481d22b71cdaacec53006c5eb0f15cd5668f5ed2f20d0dc4e8ccdd95a6ed",
+      "caption": "overnight factory",
+      "promptSummary": "overnight factory",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "overnight factory"
+    },
+    {
+      "id": "inline-04",
+      "role": "article-interior",
+      "publicPath": "/blog/the-overnight-shift/images/overnight-armsrace.png",
+      "sourcePath": "public/blog/the-overnight-shift/images/overnight-armsrace.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "164ecd12550671ae02071573c90b5ebe1d220bea8f20db6356eb14343ebf6a5a",
+      "caption": "overnight armsrace",
+      "promptSummary": "overnight armsrace",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "overnight armsrace"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-04-03",
+    "blocker": null
+  }
+}

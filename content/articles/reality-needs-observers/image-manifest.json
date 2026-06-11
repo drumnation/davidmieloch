@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "reality-needs-observers",
+  "articleTitle": "Reality Needs Observers",
+  "series": "The Observer Series",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/reality-needs-observers/images/hero.png",
+      "sourcePath": "public/blog/reality-needs-observers/images/hero.png",
+      "width": 1376,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "a4ad2230117647e41fa8cbdd29f48e2bf23eca232cae0208d4539019775c7f61",
+      "caption": "hero",
+      "promptSummary": "hero",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "hero"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/reality-needs-observers/images/a1-uncertainty.png",
+      "sourcePath": "public/blog/reality-needs-observers/images/a1-uncertainty.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "49c8dc9160eae6d52a2311743eba69f1901b815ef2321069863a2543d60a373e",
+      "caption": "a1 uncertainty",
+      "promptSummary": "a1 uncertainty",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a1 uncertainty"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/reality-needs-observers/images/a2-claim-vs-instrument.png",
+      "sourcePath": "public/blog/reality-needs-observers/images/a2-claim-vs-instrument.png",
+      "width": 848,
+      "height": 1264,
+      "aspectRatio": "53:79",
+      "checksumSha256": "021ab010039dcae69df78bdade5596030b13bc9e83ea3abf033b67af66dff9c2",
+      "caption": "a2 claim vs instrument",
+      "promptSummary": "a2 claim vs instrument",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a2 claim vs instrument"
+    },
+    {
+      "id": "inline-03",
+      "role": "article-interior",
+      "publicPath": "/blog/reality-needs-observers/images/a3-convergence.png",
+      "sourcePath": "public/blog/reality-needs-observers/images/a3-convergence.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "e7b9dfe912ddd7cd13e9ece70b108aefb6e59ead9b7647504e1c79bc77351f35",
+      "caption": "a3 convergence",
+      "promptSummary": "a3 convergence",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a3 convergence"
+    },
+    {
+      "id": "inline-04",
+      "role": "article-interior",
+      "publicPath": "/blog/reality-needs-observers/images/a4-the-instrument.png",
+      "sourcePath": "public/blog/reality-needs-observers/images/a4-the-instrument.png",
+      "width": 1408,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "45a7badafde9698d001ac213ece75779bd47f26dcf8ea45d8c73655c813fdbd8",
+      "caption": "a4 the instrument",
+      "promptSummary": "a4 the instrument",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a4 the instrument"
+    },
+    {
+      "id": "inline-05",
+      "role": "article-interior",
+      "publicPath": "/blog/reality-needs-observers/images/a5-the-filter.png",
+      "sourcePath": "public/blog/reality-needs-observers/images/a5-the-filter.png",
+      "width": 848,
+      "height": 1264,
+      "aspectRatio": "53:79",
+      "checksumSha256": "0a8326afea4d144a8755487287ecd9c4f7ba98ae8a25aa294c77bb37fe799626",
+      "caption": "a5 the filter",
+      "promptSummary": "a5 the filter",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a5 the filter"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-04-30",
+    "blocker": null
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
+  "articleTitle": "Why you should Encapsulate your Javascript Conditionals in a Function",
+  "series": "Legacy Engineering Notes",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/images/medium-01.png",
+      "sourcePath": "public/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/images/medium-01.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "754dfbb26805eebc137fba62ebee8eee0ea37c694bbb1e02a5013a09ce9575b2",
+      "caption": "medium 01",
+      "promptSummary": "medium 01",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 01"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/images/medium-02.png",
+      "sourcePath": "public/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/images/medium-02.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "6eca64b2762510ac2f6c85803f609bb0a0fd80a560211decc3a4673505915bfd",
+      "caption": "medium 02",
+      "promptSummary": "medium 02",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 02"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2023-02-01",
+    "blocker": null
+  }
+}

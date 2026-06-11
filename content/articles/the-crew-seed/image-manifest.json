@@ -1,6 +1,6 @@
 {
   "schemaVersion": "article-image-manifest-v1",
-  "generatedAt": "2026-06-07T04:32:07.778Z",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
   "publicPublishingPerformed": false,
   "articleSlug": "the-crew-seed",
   "articleTitle": "The Crew",
@@ -24,7 +24,8 @@
       "caption": "Three operators overlooking the factory floor: a small crew administering a machine bigger than a team.",
       "promptSummary": "1950s space-western industrial noir, three human operators in a control balcony overlooking a vast dark software factory, amber machinery, frontier hats and brass consoles, cinematic 16:9 editorial hero, no readable text.",
       "provider": "unknown-or-prior-generation",
-      "generationReceipt": null
+      "generationReceipt": null,
+      "altText": "Hero Linkedin"
     }
   ],
   "launchReadiness": {

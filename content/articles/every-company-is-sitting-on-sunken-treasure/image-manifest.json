@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "every-company-is-sitting-on-sunken-treasure",
+  "articleTitle": "Every Company Is Sitting on Sunken Treasure",
+  "series": "AI Factory",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-hero.png",
+      "sourcePath": "public/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-hero.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "23b0d5fd246504bb7a91becbe2670ca98565bbf15e970170e46102c574dc7dc0",
+      "caption": "treasure hero",
+      "promptSummary": "treasure hero",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "treasure hero"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-archaeology.png",
+      "sourcePath": "public/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-archaeology.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "57b8c9149dc822619b7ec58dc2a936d27a22a4013d32c2f60a589018fe3a7d35",
+      "caption": "treasure archaeology",
+      "promptSummary": "treasure archaeology",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "treasure archaeology"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-dive.png",
+      "sourcePath": "public/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-dive.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "e496db3b8ab841af197709e35e4d8f46805dc6e2a6703fe723ce93eac1106107",
+      "caption": "treasure dive",
+      "promptSummary": "treasure dive",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "treasure dive"
+    },
+    {
+      "id": "inline-03",
+      "role": "article-interior",
+      "publicPath": "/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-map.png",
+      "sourcePath": "public/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-map.png",
+      "width": 1344,
+      "height": 768,
+      "aspectRatio": "16:9",
+      "checksumSha256": "ece81b8d3f4dbcfdaa39426ac491cffcf1ca9db8bccba3e85c51e639e38cda2a",
+      "caption": "treasure map",
+      "promptSummary": "treasure map",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "treasure map"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-04-02",
+    "blocker": null
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "article-image-manifest-v1",
-  "generatedAt": "2026-06-07T02:11:31.890Z",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
   "publicPublishingPerformed": false,
   "articleSlug": "the-credibility-problem-with-ai-corporate-communications",
   "articleTitle": "The Credibility Problem with AI Corporate Communications",
@@ -24,7 +24,8 @@
       "caption": "A cracked synthetic executive on a broadcast monitor: persuasion without a person staking credibility.",
       "promptSummary": "1950s space-western industrial noir, cracked synthetic corporate speaker on a monitor inside a brass control room, credibility signal chain, amber gauges, blue electrical trace, cinematic 16:9 editorial hero, no readable text.",
       "provider": "unknown-or-prior-generation",
-      "generationReceipt": null
+      "generationReceipt": null,
+      "altText": "Hero Linkedin"
     }
   ],
   "launchReadiness": {

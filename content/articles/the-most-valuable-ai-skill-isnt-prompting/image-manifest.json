@@ -1,6 +1,6 @@
 {
   "schemaVersion": "article-image-manifest-v1",
-  "generatedAt": "2026-06-07T02:11:31.890Z",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
   "publicPublishingPerformed": false,
   "articleSlug": "the-most-valuable-ai-skill-isnt-prompting",
   "articleTitle": "The Most Valuable AI Skill Isn't Prompting",
@@ -24,7 +24,8 @@
       "caption": "Observers scanning a vast factory from a watchtower: the scarce skill is noticing what will compound.",
       "promptSummary": "1950s space-western industrial noir, surveyors with telescopes and instruments watching a sprawling automated factory, amber city lights, restrained blue signals, cinematic 16:9 editorial hero, no readable text.",
       "provider": "unknown-or-prior-generation",
-      "generationReceipt": null
+      "generationReceipt": null,
+      "altText": "Hero Linkedin"
     }
   ],
   "launchReadiness": {

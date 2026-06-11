@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "alphabetize-your-code",
+  "articleTitle": "Alphabetize your code.",
+  "series": "Legacy Engineering Notes",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/alphabetize-your-code/images/medium-01.png",
+      "sourcePath": "public/blog/alphabetize-your-code/images/medium-01.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "dbe3179f07d267d7e2e6a13b920e5bca740ddfdc23f03b928581e8b91c1449ef",
+      "caption": "medium 01",
+      "promptSummary": "medium 01",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 01"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/alphabetize-your-code/images/medium-02.png",
+      "sourcePath": "public/blog/alphabetize-your-code/images/medium-02.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "1b38cab27766ff59a946895c410cde377ce2cf1c172e0cc32cbd374e899e67eb",
+      "caption": "medium 02",
+      "promptSummary": "medium 02",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 02"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2023-01-31",
+    "blocker": null
+  }
+}

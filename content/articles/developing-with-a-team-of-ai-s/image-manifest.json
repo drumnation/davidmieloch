@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "developing-with-a-team-of-ai-s",
+  "articleTitle": "Developing with a Team of AI’s",
+  "series": "Legacy Engineering Notes",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/developing-with-a-team-of-ai-s/images/medium-04.png",
+      "sourcePath": "public/blog/developing-with-a-team-of-ai-s/images/medium-04.png",
+      "width": 722,
+      "height": 716,
+      "aspectRatio": "1:1",
+      "checksumSha256": "e9be0c144fbfce31842984f90826e9c078f0ebc7ddd2353c3ae5f9ffc4b38239",
+      "caption": "medium 04",
+      "promptSummary": "medium 04",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 04"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/developing-with-a-team-of-ai-s/images/medium-05.png",
+      "sourcePath": "public/blog/developing-with-a-team-of-ai-s/images/medium-05.png",
+      "width": 729,
+      "height": 718,
+      "aspectRatio": "1:1",
+      "checksumSha256": "63f6412e6f4b2f1fe2628d112b0e8c94b553e822f8a294ec64e72cc6ef744863",
+      "caption": "medium 05",
+      "promptSummary": "medium 05",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 05"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/developing-with-a-team-of-ai-s/images/medium-06.png",
+      "sourcePath": "public/blog/developing-with-a-team-of-ai-s/images/medium-06.png",
+      "width": 725,
+      "height": 726,
+      "aspectRatio": "1:1",
+      "checksumSha256": "539487a9eec40f9fa847a083ed47ea2f9136b7c51929fe5c3480a1ae87988596",
+      "caption": "medium 06",
+      "promptSummary": "medium 06",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 06"
+    },
+    {
+      "id": "inline-03",
+      "role": "article-interior",
+      "publicPath": "/blog/developing-with-a-team-of-ai-s/images/medium-01.png",
+      "sourcePath": "public/blog/developing-with-a-team-of-ai-s/images/medium-01.png",
+      "width": 727,
+      "height": 723,
+      "aspectRatio": "1:1",
+      "checksumSha256": "38f5dbcc9a0612209e397eb2ff5d5eac56454e4445c1c39895d7f489b4473943",
+      "caption": "Medium 01",
+      "promptSummary": "Medium 01",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 01"
+    },
+    {
+      "id": "inline-04",
+      "role": "article-interior",
+      "publicPath": "/blog/developing-with-a-team-of-ai-s/images/medium-02.png",
+      "sourcePath": "public/blog/developing-with-a-team-of-ai-s/images/medium-02.png",
+      "width": 1024,
+      "height": 604,
+      "aspectRatio": "256:151",
+      "checksumSha256": "29e9c07705d75613dbc4da39cae8d4182fb6fe24767b8bfe89a5a51a319fffd7",
+      "caption": "Medium 02",
+      "promptSummary": "Medium 02",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 02"
+    },
+    {
+      "id": "inline-05",
+      "role": "article-interior",
+      "publicPath": "/blog/developing-with-a-team-of-ai-s/images/medium-03.png",
+      "sourcePath": "public/blog/developing-with-a-team-of-ai-s/images/medium-03.png",
+      "width": 726,
+      "height": 724,
+      "aspectRatio": "1:1",
+      "checksumSha256": "0ddfd9422eaceb836b835c900e3760b24d3b4270fe63a89a855ec6fd93a88e41",
+      "caption": "Medium 03",
+      "promptSummary": "Medium 03",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "Medium 03"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2024-03-28",
+    "blocker": null
+  }
+}

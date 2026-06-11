@@ -1,6 +1,6 @@
 {
   "schemaVersion": "article-readiness-report-v1",
-  "generatedAt": "2026-06-11T07:38:45.585Z",
+  "generatedAt": "2026-06-11T14:03:53.489Z",
   "publicPublishingPerformed": false,
   "summary": {
     "websiteArticles": 26,
@@ -21,7 +21,7 @@
       "paths": {
         "article": "content/articles/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/index.md",
         "coverImage": "/blog/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/images/research-wall.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -29,18 +29,18 @@
       "counts": {
         "h2Sections": 8,
         "bodyImages": 3,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 3,
+        "captionedImageAssets": 3,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 2
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -53,10 +53,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "alphabetize-your-code",
@@ -67,7 +65,7 @@
       "paths": {
         "article": "content/articles/alphabetize-your-code/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/alphabetize-your-code/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -75,18 +73,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 2,
-        "manifestAssets": 0,
+        "manifestAssets": 2,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 1
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -102,7 +100,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -116,7 +113,7 @@
       "paths": {
         "article": "content/articles/building-with-brain-garden-real-world-lessons-in-practical-ai/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/building-with-brain-garden-real-world-lessons-in-practical-ai/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -124,18 +121,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 0,
-        "manifestAssets": 0,
+        "manifestAssets": 6,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 5
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -151,7 +148,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -165,7 +161,7 @@
       "paths": {
         "article": "content/articles/developing-with-a-team-of-ai-s/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/developing-with-a-team-of-ai-s/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -173,18 +169,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 3,
-        "manifestAssets": 0,
+        "manifestAssets": 6,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 5
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -200,7 +196,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -214,7 +209,7 @@
       "paths": {
         "article": "content/articles/every-company-is-sitting-on-sunken-treasure/index.md",
         "coverImage": "/blog/every-company-is-sitting-on-sunken-treasure/images/treasure-hero.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/every-company-is-sitting-on-sunken-treasure/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -222,18 +217,18 @@
       "counts": {
         "h2Sections": 9,
         "bodyImages": 4,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 4,
+        "captionedImageAssets": 4,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 3
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -246,10 +241,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "factory-amplification-and-modular-primitives",
@@ -304,7 +297,7 @@
       "paths": {
         "article": "content/articles/how-to-make-your-ai-code-look-human/index.md",
         "coverImage": "/blog/how-to-make-your-ai-code-look-human/images/incompetent-hero.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/how-to-make-your-ai-code-look-human/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -312,18 +305,18 @@
       "counts": {
         "h2Sections": 10,
         "bodyImages": 7,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 7,
+        "captionedImageAssets": 7,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 6
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -336,10 +329,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "judgment-over-keystrokes",
@@ -350,7 +341,7 @@
       "paths": {
         "article": "content/articles/judgment-over-keystrokes/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/judgment-over-keystrokes/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -358,18 +349,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 2,
-        "manifestAssets": 0,
+        "manifestAssets": 15,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 14
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -385,7 +376,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -399,7 +389,7 @@
       "paths": {
         "article": "content/articles/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -407,18 +397,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 8,
-        "manifestAssets": 0,
+        "manifestAssets": 8,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 7
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -434,7 +424,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -448,7 +437,7 @@
       "paths": {
         "article": "content/articles/reality-needs-observers/index.md",
         "coverImage": "/blog/reality-needs-observers/images/hero.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/reality-needs-observers/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -456,18 +445,18 @@
       "counts": {
         "h2Sections": 8,
         "bodyImages": 6,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 6,
+        "captionedImageAssets": 5,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 5
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -480,10 +469,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
@@ -494,7 +481,7 @@
       "paths": {
         "article": "content/articles/reuse-your-code-authoring-your-own-universal-library-with-webpack/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/reuse-your-code-authoring-your-own-universal-library-with-webpack/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -502,18 +489,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 2,
-        "manifestAssets": 0,
+        "manifestAssets": 2,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 1
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -529,7 +516,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -644,7 +630,7 @@
       "paths": {
         "article": "content/articles/the-beauty-of-es6s-object-destructuring-assignment/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/the-beauty-of-es6s-object-destructuring-assignment/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -652,18 +638,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 3,
-        "manifestAssets": 0,
+        "manifestAssets": 3,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 2
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -679,7 +665,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -797,7 +782,7 @@
       "paths": {
         "article": "content/articles/the-factory/index.md",
         "coverImage": "/blog/the-factory/images/a2-hero-conceptual.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/the-factory/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -805,18 +790,18 @@
       "counts": {
         "h2Sections": 8,
         "bodyImages": 7,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 7,
+        "captionedImageAssets": 7,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 6
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -829,10 +814,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "the-foreman",
@@ -843,7 +826,7 @@
       "paths": {
         "article": "content/articles/the-foreman/index.md",
         "coverImage": "/blog/the-foreman/images/a3-hero-foreman.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/the-foreman/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -851,18 +834,18 @@
       "counts": {
         "h2Sections": 6,
         "bodyImages": 6,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 6,
+        "captionedImageAssets": 6,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 5
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -875,10 +858,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "the-golden-hammer",
@@ -889,7 +870,7 @@
       "paths": {
         "article": "content/articles/the-golden-hammer/index.md",
         "coverImage": "/blog/the-golden-hammer/images/a1-hero-photorealistic.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/the-golden-hammer/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -897,18 +878,18 @@
       "counts": {
         "h2Sections": 6,
         "bodyImages": 5,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 5,
+        "captionedImageAssets": 5,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 4
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -921,10 +902,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "the-most-valuable-ai-skill-isnt-prompting",
@@ -987,7 +966,7 @@
       "paths": {
         "article": "content/articles/the-moving-target/index.md",
         "coverImage": "/blog/the-moving-target/images/a4-cyber-waves.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/the-moving-target/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -995,18 +974,18 @@
       "counts": {
         "h2Sections": 6,
         "bodyImages": 5,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 5,
+        "captionedImageAssets": 5,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 4
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -1019,10 +998,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "the-overnight-shift",
@@ -1033,7 +1010,7 @@
       "paths": {
         "article": "content/articles/the-overnight-shift/index.md",
         "coverImage": "/blog/the-overnight-shift/images/overnight-hero.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/the-overnight-shift/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -1041,18 +1018,18 @@
       "counts": {
         "h2Sections": 9,
         "bodyImages": 5,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 5,
+        "captionedImageAssets": 5,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 4
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -1065,10 +1042,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "what-i-learned-building-a-photoshop-in-the-browser",
@@ -1079,7 +1054,7 @@
       "paths": {
         "article": "content/articles/what-i-learned-building-a-photoshop-in-the-browser/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/what-i-learned-building-a-photoshop-in-the-browser/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -1087,18 +1062,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 0,
-        "manifestAssets": 0,
+        "manifestAssets": 6,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 5
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -1114,7 +1089,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -1128,7 +1102,7 @@
       "paths": {
         "article": "content/articles/why-character-choice-matters-in-agent-design/index.md",
         "coverImage": "/blog/why-character-choice-matters-in-agent-design/images/hero-control-room.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/why-character-choice-matters-in-agent-design/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -1136,18 +1110,18 @@
       "counts": {
         "h2Sections": 9,
         "bodyImages": 5,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 10,
+        "captionedImageAssets": 5,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 9
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -1160,10 +1134,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     },
     {
       "slug": "why-you-should-encapsulate-your-javascript-conditionals-in-a-function",
@@ -1174,7 +1146,7 @@
       "paths": {
         "article": "content/articles/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/index.md",
         "coverImage": null,
-        "imageManifest": null,
+        "imageManifest": "content/articles/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -1182,18 +1154,18 @@
       "counts": {
         "h2Sections": 0,
         "bodyImages": 2,
-        "manifestAssets": 0,
+        "manifestAssets": 2,
         "captionedImageAssets": 0,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 1
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": false,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -1209,7 +1181,6 @@
         "coverImage missing or file not found"
       ],
       "warnings": [
-        "missing image-manifest.json",
         "article has fewer than 3 H2 sections"
       ],
       "readyForPublicRelease": false
@@ -1223,7 +1194,7 @@
       "paths": {
         "article": "content/articles/your-ai-isnt-hallucinating-its-lying/index.md",
         "coverImage": "/blog/your-ai-isnt-hallucinating-its-lying/images/ai-lies-hero.png",
-        "imageManifest": null,
+        "imageManifest": "content/articles/your-ai-isnt-hallucinating-its-lying/image-manifest.json",
         "interiorPlan": null,
         "imageBrief": null,
         "linkedinArticleTransfer": null
@@ -1231,18 +1202,18 @@
       "counts": {
         "h2Sections": 7,
         "bodyImages": 6,
-        "manifestAssets": 0,
-        "captionedImageAssets": 0,
+        "manifestAssets": 6,
+        "captionedImageAssets": 5,
         "plannedInteriorImages": 0,
         "plannedInteriorVariants": 0,
-        "approvedInteriorImages": 0
+        "approvedInteriorImages": 5
       },
       "calendar": null,
       "gates": {
         "frontmatter": true,
         "canonical": true,
         "coverImage": true,
-        "imageManifest": false,
+        "imageManifest": true,
         "heroLinkedInReady": true,
         "imageCaptions": true,
         "interiorPlan": true,
@@ -1255,10 +1226,8 @@
         "articleBodyImages": true
       },
       "issues": [],
-      "warnings": [
-        "missing image-manifest.json"
-      ],
-      "readyForPublicRelease": false
+      "warnings": [],
+      "readyForPublicRelease": true
     }
   ],
   "websiteDrafts": [

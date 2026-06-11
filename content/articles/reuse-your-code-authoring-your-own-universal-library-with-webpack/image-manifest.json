@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "reuse-your-code-authoring-your-own-universal-library-with-webpack",
+  "articleTitle": "Reuse your code: Authoring your own Universal Library with Webpack",
+  "series": "Legacy Engineering Notes",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack/images/medium-01.png",
+      "sourcePath": "public/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack/images/medium-01.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "fef4700adfd583532978ee0b7155d3df997733be5f5161ed80cb5c91667fc069",
+      "caption": "medium 01",
+      "promptSummary": "medium 01",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 01"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack/images/medium-02.png",
+      "sourcePath": "public/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack/images/medium-02.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "872913cafde28d6a0b04ee21bf6b295e77a8a1735cc76885d6a02337b12dc1a6",
+      "caption": "medium 02",
+      "promptSummary": "medium 02",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "medium 02"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2023-02-03",
+    "blocker": null
+  }
+}

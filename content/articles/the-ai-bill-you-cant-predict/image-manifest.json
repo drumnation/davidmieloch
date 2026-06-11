@@ -1,6 +1,6 @@
 {
   "schemaVersion": "article-image-manifest-v1",
-  "generatedAt": "2026-06-07T02:11:31.890Z",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
   "publicPublishingPerformed": false,
   "articleSlug": "the-ai-bill-you-cant-predict",
   "articleTitle": "The AI Bill You Can't Predict",
@@ -24,7 +24,8 @@
       "caption": "A giant analog meter dominating an AI factory town: the bill as a moving formula nobody can see clearly.",
       "promptSummary": "1950s space-western industrial noir, monumental analog cost meter embedded in a frontier AI factory, amber brass gauges, distant planet, cinematic 16:9 editorial hero, no readable text.",
       "provider": "unknown-or-prior-generation",
-      "generationReceipt": null
+      "generationReceipt": null,
+      "altText": "Hero Linkedin"
     }
   ],
   "launchReadiness": {

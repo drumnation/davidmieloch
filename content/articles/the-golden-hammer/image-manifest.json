@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-golden-hammer",
+  "articleTitle": "The Golden Hammer",
+  "series": "Golden Hammer",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-golden-hammer/images/a1-hero-photorealistic.png",
+      "sourcePath": "public/blog/the-golden-hammer/images/a1-hero-photorealistic.png",
+      "width": 1792,
+      "height": 1024,
+      "aspectRatio": "16:9",
+      "checksumSha256": "9c433a6e00e897bc08dcb34bdec1aef6d5b99df6d72c137533f2539f8e990e5f",
+      "caption": "a1 hero photorealistic",
+      "promptSummary": "a1 hero photorealistic",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a1 hero photorealistic"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/the-golden-hammer/images/a1-original-minimalist.png",
+      "sourcePath": "public/blog/the-golden-hammer/images/a1-original-minimalist.png",
+      "width": 1792,
+      "height": 1024,
+      "aspectRatio": "16:9",
+      "checksumSha256": "d8128b146736ceae67d2e6af1ea1e7d5b410f3c8259aca7cbf66eab9313f03c9",
+      "caption": "a1 original minimalist",
+      "promptSummary": "a1 original minimalist",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a1 original minimalist"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/the-golden-hammer/images/a1-52solutions-photorealistic.png",
+      "sourcePath": "public/blog/the-golden-hammer/images/a1-52solutions-photorealistic.png",
+      "width": 1792,
+      "height": 1024,
+      "aspectRatio": "16:9",
+      "checksumSha256": "d19692b1ac2192fb34154b6ee0e9b6e9868c66451c73baa711bb6ec9c22e8545",
+      "caption": "a1 52solutions photorealistic",
+      "promptSummary": "a1 52solutions photorealistic",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a1 52solutions photorealistic"
+    },
+    {
+      "id": "inline-03",
+      "role": "article-interior",
+      "publicPath": "/blog/the-golden-hammer/images/a1-superanswer-conceptual.png",
+      "sourcePath": "public/blog/the-golden-hammer/images/a1-superanswer-conceptual.png",
+      "width": 1792,
+      "height": 1024,
+      "aspectRatio": "16:9",
+      "checksumSha256": "3aa82885d4e64c9c62c4f1ba1e2e3ddb1b78aa2a1d7f093872b46a09a590acf8",
+      "caption": "a1 superanswer conceptual",
+      "promptSummary": "a1 superanswer conceptual",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a1 superanswer conceptual"
+    },
+    {
+      "id": "inline-04",
+      "role": "article-interior",
+      "publicPath": "/blog/the-golden-hammer/images/a1-choir-photorealistic.png",
+      "sourcePath": "public/blog/the-golden-hammer/images/a1-choir-photorealistic.png",
+      "width": 1792,
+      "height": 1024,
+      "aspectRatio": "16:9",
+      "checksumSha256": "60cee22bce261d64db11112af47acc9549d7a98692cf7e8cf6f3e9f9c42dcc9a",
+      "caption": "a1 choir photorealistic",
+      "promptSummary": "a1 choir photorealistic",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a1 choir photorealistic"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-04-15",
+    "blocker": null
+  }
+}

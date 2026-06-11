@@ -1,8 +1,10 @@
 import { spawnSync } from 'child_process';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'fs';
+import { createRequire } from 'node:module';
 import { join } from 'path';
 import { tmpdir } from 'os';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import sharp from 'sharp';
 
 import {
   generatePlatformPackages,
@@ -27,6 +29,12 @@ import {
   buildContentLedger,
   contentLedgerMarkdown,
 } from '../../scripts/lib/content-ledger.mjs';
+import {
+  buildArticleImageManifest,
+} from '../../scripts/lib/article-image-manifest.ts';
+
+const require = createRequire(import.meta.url);
+const tsxLoaderPath = require.resolve('tsx');
 import {
   buildLaunchApprovalPacket,
 } from '../../scripts/lib/launch-approval.mjs';
@@ -459,7 +467,7 @@ function runDraftCommand(root: string, command: string, slug: string, capturePat
   const stubPath = writeFetchStub(root, capturePath);
   return spawnSync(
     process.execPath,
-    ['--import', stubPath, join(process.cwd(), 'scripts/content-pipeline.mjs'), command, slug, ...extraArgs],
+    ['--import', tsxLoaderPath, '--import', stubPath, join(process.cwd(), 'scripts/content-pipeline.mjs'), command, slug, ...extraArgs],
     {
       cwd: root,
       encoding: 'utf8',
@@ -588,10 +596,23 @@ function longBody() {
   )).join(' ');
 }
 
+async function writeImageFixture(filePath: string, width = 1408, height = 768) {
+  await sharp({
+    create: {
+      width,
+      height,
+      channels: 4,
+      background: { r: 24, g: 20, b: 18, alpha: 1 },
+    },
+  })
+    .png()
+    .toFile(filePath);
+}
+
 function runPipelineCommand(root: string, args: string[]) {
   return spawnSync(
     process.execPath,
-    [join(process.cwd(), 'scripts/content-pipeline.mjs'), ...args],
+    ['--import', tsxLoaderPath, join(process.cwd(), 'scripts/content-pipeline.mjs'), ...args],
     {
       cwd: root,
       encoding: 'utf8',
@@ -2802,6 +2823,126 @@ ${longBody()}
       slug: 'the-meter',
     });
     expect(readFileSync(reportPath, 'utf8')).toContain('# Content Ledger');
+  });
+
+  it('normalizes article image manifests from on-disk images and article embeds', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const slug = 'the-filter';
+    mkdirSync(join(articlesRoot, slug), { recursive: true });
+    mkdirSync(join(publicRoot, 'blog', slug, 'images'), { recursive: true });
+    await writeImageFixture(join(publicRoot, 'blog', slug, 'images', 'hero.png'));
+    await writeImageFixture(join(publicRoot, 'blog', slug, 'images', 'inline-one.png'));
+
+    writeFileSync(
+      join(articlesRoot, slug, 'index.md'),
+      `---
+title: "The Filter"
+description: "A draft with planned images."
+publishedAt: "2026-06-10"
+status: "draft"
+canonicalUrl: "https://davidmieloch.com/blog/${slug}"
+series: "Factory Primitives"
+---
+
+# The Filter
+
+![A black hole filter over a frontier software factory.](/blog/${slug}/images/hero.png)
+
+## One
+Body.
+
+![Workers stampeding toward the gate.](/blog/${slug}/images/inline-one.png)
+
+## Two
+Body.
+`,
+    );
+
+    const manifest = await buildArticleImageManifest({
+      articlesRoot,
+      publicRoot,
+      slug,
+      generatedAt: '2026-06-11T00:00:00.000Z',
+    });
+
+    expect(manifest.publicPublishingPerformed).toBe(false);
+    expect(manifest.manifest.articleSlug).toBe(slug);
+    expect(manifest.manifest.assets).toHaveLength(2);
+    expect(manifest.manifest.assets[0]).toMatchObject({
+      id: 'hero-linkedin',
+      role: 'hero-and-linkedin-preview',
+      publicPath: `/blog/${slug}/images/hero.png`,
+      caption: 'A black hole filter over a frontier software factory.',
+      promptSummary: 'A black hole filter over a frontier software factory.',
+      width: 1408,
+      height: 768,
+      aspectRatio: '16:9',
+    });
+    expect(manifest.manifest.assets[1]).toMatchObject({
+      id: 'inline-01',
+      role: 'article-interior',
+      publicPath: `/blog/${slug}/images/inline-one.png`,
+      caption: 'Workers stampeding toward the gate.',
+    });
+    const writtenManifest = JSON.parse(readFileSync(join(articlesRoot, slug, 'image-manifest.json'), 'utf8'));
+    expect(writtenManifest.articleSlug).toBe(slug);
+    expect(writtenManifest.assets).toHaveLength(2);
+    expect(writtenManifest.assets[0]).toMatchObject({
+      publicPath: `/blog/${slug}/images/hero.png`,
+    });
+  });
+
+  it('writes image manifests through the CLI for a single article slug', async () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    const slug = 'the-filter';
+    mkdirSync(join(articlesRoot, slug), { recursive: true });
+    mkdirSync(join(publicRoot, 'blog', slug, 'images'), { recursive: true });
+    await writeImageFixture(join(publicRoot, 'blog', slug, 'images', 'hero.png'));
+
+    writeFileSync(
+      join(articlesRoot, slug, 'index.md'),
+      `---
+title: "The Filter"
+description: "A draft with planned images."
+publishedAt: "2026-06-10"
+status: "draft"
+canonicalUrl: "https://davidmieloch.com/blog/${slug}"
+---
+
+# The Filter
+
+![A black hole filter over a frontier software factory.](/blog/${slug}/images/hero.png)
+`,
+    );
+
+    const result = runPipelineCommand(root, [
+      'article:image-manifest',
+      slug,
+      '--approval-status=staged-for-david-review',
+    ]);
+
+    expect(result.status, result.stderr).toBe(0);
+    const payload = JSON.parse(result.stdout);
+    expect(payload).toMatchObject({
+      publicPublishingPerformed: false,
+      results: [
+        {
+          slug,
+          assetCount: 1,
+        },
+      ],
+      failures: [],
+    });
+    expect(JSON.parse(readFileSync(join(articlesRoot, slug, 'image-manifest.json'), 'utf8'))).toMatchObject({
+      articleSlug: slug,
+      approval: {
+        status: 'staged-for-david-review',
+      },
+    });
   });
 });
 

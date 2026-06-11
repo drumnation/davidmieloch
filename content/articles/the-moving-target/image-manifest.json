@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "article-image-manifest-v1",
+  "generatedAt": "2026-06-11T14:03:41.667Z",
+  "publicPublishingPerformed": false,
+  "articleSlug": "the-moving-target",
+  "articleTitle": "The Moving Target",
+  "series": "Golden Hammer",
+  "visualSystem": "editorial article art",
+  "approval": {
+    "status": "staged-for-david-review",
+    "requiredFrom": "David",
+    "approvedAt": null
+  },
+  "assets": [
+    {
+      "id": "hero-linkedin",
+      "role": "hero-and-linkedin-preview",
+      "publicPath": "/blog/the-moving-target/images/a4-cyber-waves.png",
+      "sourcePath": "public/blog/the-moving-target/images/a4-cyber-waves.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "836cef18a309858954621e33cabfe76576466527491a61b7ae597917990104ac",
+      "caption": "a4 cyber waves",
+      "promptSummary": "a4 cyber waves",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a4 cyber waves"
+    },
+    {
+      "id": "inline-01",
+      "role": "article-interior",
+      "publicPath": "/blog/the-moving-target/images/a4-cyber-three-waves.png",
+      "sourcePath": "public/blog/the-moving-target/images/a4-cyber-three-waves.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "0dbbb542f9e8debb02fb0cbfaf8e59921de488796c92fb70ba3d1c819634fa23",
+      "caption": "a4 cyber three waves",
+      "promptSummary": "a4 cyber three waves",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a4 cyber three waves"
+    },
+    {
+      "id": "inline-02",
+      "role": "article-interior",
+      "publicPath": "/blog/the-moving-target/images/a4-scaffolding-v3.png",
+      "sourcePath": "public/blog/the-moving-target/images/a4-scaffolding-v3.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "511491df56d5b11acf706bcaa8967c7db6e568a5237a1854ba4de3da091c495d",
+      "caption": "a4 scaffolding v3",
+      "promptSummary": "a4 scaffolding v3",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a4 scaffolding v3"
+    },
+    {
+      "id": "inline-03",
+      "role": "article-interior",
+      "publicPath": "/blog/the-moving-target/images/a4-cyber-meta.png",
+      "sourcePath": "public/blog/the-moving-target/images/a4-cyber-meta.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "258e38e357e1bbccf6024a80fd5615b26688f9fe9411fe2f54e7da4500129115",
+      "caption": "a4 cyber meta",
+      "promptSummary": "a4 cyber meta",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a4 cyber meta"
+    },
+    {
+      "id": "inline-04",
+      "role": "article-interior",
+      "publicPath": "/blog/the-moving-target/images/a4-cyber-skill.png",
+      "sourcePath": "public/blog/the-moving-target/images/a4-cyber-skill.png",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": "1:1",
+      "checksumSha256": "41cdda6baf663cfe3cb45ae92239d679a0c7aa37b53116d1796ce73a8bb28ce1",
+      "caption": "a4 cyber skill",
+      "promptSummary": "a4 cyber skill",
+      "provider": "unknown-or-prior-generation",
+      "generationReceipt": null,
+      "altText": "a4 cyber skill"
+    }
+  ],
+  "launchReadiness": {
+    "status": "ready-for-editorial-approval",
+    "releaseTarget": "2026-04-21",
+    "blocker": null
+  }
+}
