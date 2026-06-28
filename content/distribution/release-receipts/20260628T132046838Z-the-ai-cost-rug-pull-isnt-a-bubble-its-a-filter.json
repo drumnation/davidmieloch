@@ -1,0 +1,438 @@
+{
+  "command": "site:release-ladder",
+  "status": "passed",
+  "mode": "execute",
+  "generatedAt": "2026-06-28T13:20:46.838Z",
+  "receiptPath": "/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/release-receipts/20260628T132046838Z-the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.json",
+  "target": {
+    "slugs": [
+      "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
+    ],
+    "remote": "forgejo",
+    "targetRef": "main",
+    "stagingUrl": "https://davidmieloch.brain-garden.io",
+    "productionUrl": "https://davidmieloch.com"
+  },
+  "git": {
+    "branch": "codex/site-release-ladder-automation-20260628",
+    "targetSha": "e45b3896cffd27aae664b857f57a6b1f2320aac5",
+    "promotedRef": "forgejo/main"
+  },
+  "deployments": {
+    "staging": {
+      "service": "davidmieloch-staging.service",
+      "repoDir": "/home/dave/platform-repos/davidmieloch-staging",
+      "backupPath": "/home/dave/platform-repos/backups/davidmieloch-staging-pre-main-e45b3896cffd-20260628T132046838Z",
+      "active": true,
+      "command": "ssh dave@100.71.79.54 bash -s",
+      "stdout": "worktree clean; no stash needed\nYour branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.\n  (use \"git pull\" to update your local branch)\nUpdating bd3b228..e45b389\nFast-forward\n scripts/lib/site-release-ladder.mjs     | 50 +++++++++++++++++++++++++++++++--\n src/content/site-release-ladder.test.ts | 12 ++++++++\n 2 files changed, 60 insertions(+), 2 deletions(-)\nLockfile is up to date, resolution step is skipped\nAlready up to date\n\n\n> david-portfolio@0.21.11 postinstall /home/dave/platform-repos/davidmieloch-staging\n> node scripts/patch-react-floater-types.mjs\n\n\n> david-portfolio@0.21.11 prepare /home/dave/platform-repos/davidmieloch-staging\n> husky\n\nDone in 1.2s using pnpm v10.30.3\n\n> david-portfolio@0.21.11 content:pipeline /home/dave/platform-repos/davidmieloch-staging\n> node --import tsx scripts/content-pipeline.mjs launch:assets the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\n\n{\n  \"generatedAt\": \"2026-06-28T13:22:29.700Z\",\n  \"publicPublishingPerformed\": false,\n  \"paidGenerationPerformed\": false,\n  \"command\": \"launch:assets\",\n  \"safeDefault\": \"verification-only-no-generation-no-deploy\",\n  \"targetMode\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n  \"summary\": {\n    \"targets\": 1,\n    \"passed\": 1,\n    \"failed\": 0,\n    \"skipped\": 0\n  },\n  \"articles\": [\n    {\n      \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n      \"status\": \"passed\",\n      \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n      \"published\": true,\n      \"publishedAt\": \"2026-06-10\",\n      \"canonicalUrl\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n      \"checks\": [\n        {\n          \"name\": \"canonical-article\",\n          \"status\": \"PASS\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-staging/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md\"\n        },\n        {\n          \"name\": \"published-status\",\n          \"status\": \"PASS\",\n          \"actualStatus\": \"published\"\n        },\n        {\n          \"name\": \"audio-script\",\n          \"status\": \"PASS\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-staging/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio.md\"\n        },\n        {\n          \"name\": \"audio-status-current\",\n          \"status\": \"PASS\",\n          \"audioStatus\": \"current\"\n        },\n        {\n          \"name\": \"audio-manifest-current\",\n          \"status\": \"PASS\",\n          \"manifestStatus\": \"current\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-staging/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio-manifest.json\"\n        },\n        {\n          \"name\": \"audio-file\",\n          \"status\": \"PASS\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-staging/public/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\",\n          \"bytes\": 7319084,\n          \"publicSrc\": \"/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\"\n        },\n        {\n          \"name\": \"audio-transcript-current\",\n          \"status\": \"current\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-staging/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio-transcript.json\",\n          \"staleReasons\": [],\n          \"comparison\": {\n            \"status\": \"PASS\",\n            \"scriptWordCount\": 2336,\n            \"transcriptWordCount\": 2329,\n            \"wordCountRatio\": 0.997,\n            \"orderedCoverage\": 0.991,\n            \"tailCoverage\": 0.993,\n            \"wordRatioPass\": true,\n            \"orderedCoveragePass\": true,\n            \"tailCoveragePass\": true,\n            \"thresholds\": {\n              \"minWordCountRatio\": 0.8,\n              \"maxWordCountRatio\": 1.25,\n              \"minOrderedCoverage\": 0.72,\n              \"minTailCoverage\": 0.68\n            }\n          }\n        },\n        {\n          \"name\": \"generated-audio-track\",\n          \"status\": \"PASS\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-staging/src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts\",\n          \"expectedId\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"expectedSrc\": \"/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\"\n        },\n        {\n          \"name\": \"cover-image\",\n          \"status\": \"PASS\",\n          \"coverImage\": \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-staging/public/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png\",\n          \"required\": true\n        }\n      ]\n    }\n  ],\n  \"failures\": [],\n  \"observation\": {\n    \"claim\": \"published canonical articles have required launch assets before promotion\",\n    \"status\": \"PASS\",\n    \"fallbackChain\": [\n      \"content/articles/<slug>/index.md\",\n      \"content/articles/<slug>/audio.md\",\n      \"content/articles/<slug>/audio-manifest.json\",\n      \"content/articles/<slug>/audio-transcript.json\",\n      \"public/audio/voice/blog/<slug>.mp3\",\n      \"generatedBlogVoiceTracks.ts\"\n    ]\n  }\n}\n\n> david-portfolio@0.21.11 vercel-check /home/dave/platform-repos/davidmieloch-staging\n> tsc --project tsconfig.json --noEmit && next build\n\n   ▲ Next.js 15.2.1\n\n   Creating an optimized production build ...\n ✓ Compiled successfully\n   Skipping linting\n   Checking validity of types ...\n   Collecting page data ...\n   Generating static pages (0/46) ...\n[DEBUG] voiceTracks.ts loaded, will provide these tracks: [\n  'bio',\n  'contact',\n  'code-examples',\n  'enterprise-ai-development-framework',\n  'experience',\n  'fullstack-react-best-practices-integration',\n  'academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it',\n  'alphabetize-your-code',\n  'building-with-brain-garden-real-world-lessons-in-practical-ai',\n  'developing-with-a-team-of-ai-s',\n  'every-company-is-sitting-on-sunken-treasure',\n  'factory-amplification-and-modular-primitives',\n  'how-to-make-your-ai-code-look-human',\n  'judgment-over-keystrokes',\n  'pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud',\n  'reality-needs-observers',\n  'reuse-your-code-authoring-your-own-universal-library-with-webpack',\n  'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter',\n  'the-beauty-of-es6s-object-destructuring-assignment',\n  'the-factory',\n  'the-foreman',\n  'the-golden-hammer',\n  'the-moving-target',\n  'the-overnight-shift',\n  'what-i-learned-building-a-photoshop-in-the-browser',\n  'why-character-choice-matters-in-agent-design',\n  'why-you-should-encapsulate-your-javascript-conditionals-in-a-function',\n  'your-ai-isnt-hallucinating-its-lying'\n]\nLoading fullstack-react-best-practices-integration page\n   Generating static pages (11/46) \r\n   Generating static pages (22/46) \r\n[DEBUG] voiceTracks.ts loaded, will provide these tracks: [\n  'bio',\n  'contact',\n  'code-examples',\n  'enterprise-ai-development-framework',\n  'experience',\n  'fullstack-react-best-practices-integration',\n  'academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it',\n  'alphabetize-your-code',\n  'building-with-brain-garden-real-world-lessons-in-practical-ai',\n  'developing-with-a-team-of-ai-s',\n  'every-company-is-sitting-on-sunken-treasure',\n  'factory-amplification-and-modular-primitives',\n  'how-to-make-your-ai-code-look-human',\n  'judgment-over-keystrokes',\n  'pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud',\n  'reality-needs-observers',\n  'reuse-your-code-authoring-your-own-universal-library-with-webpack',\n  'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter',\n  'the-beauty-of-es6s-object-destructuring-assignment',\n  'the-factory',\n  'the-foreman',\n  'the-golden-hammer',\n  'the-moving-target',\n  'the-overnight-shift',\n  'what-i-learned-building-a-photoshop-in-the-browser',\n  'why-character-choice-matters-in-agent-design',\n  'why-you-should-encapsulate-your-javascript-conditionals-in-a-function',\n  'your-ai-isnt-hallucinating-its-lying'\n]\nLoading thank-you-job page\nFetching GitHub repos for: drumnation\nMaking API request to: https://api.github.com/users/drumnation/repos?sort=updated&per_page=100\n   Generating static pages (34/46) \r\n ✓ Generating static pages (46/46)\n   Finalizing page optimization ...\n   Collecting build traces ...\n\nRoute (app)                                                     Size  First Load JS\n┌ ○ /                                                        15.2 kB         148 kB\n├ ○ /_not-found                                                989 B         104 kB\n├ ƒ /api/contact                                               178 B         103 kB\n├ ƒ /api/draft-lab                                             178 B         103 kB\n├ ƒ /api/draft-lab/generated-image                             178 B         103 kB\n├ ƒ /api/draft-lab/image-requests                              178 B         103 kB\n├ ƒ /api/draft-lab/image-requests/events                       178 B         103 kB\n├ ƒ /api/draft-lab/placement-state                             178 B         103 kB\n├ ƒ /api/interview-generator                                   178 B         103 kB\n├ ƒ /api/perfect-fit-analyzer                                  178 B         103 kB\n├ ○ /bio                                                     2.23 kB         105 kB\n├ ○ /blog                                                    2.06 kB         114 kB\n├ ● /blog/[slug]                                             1.42 kB         105 kB\n├   ├ /blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\n├   ├ /blog/factory-amplification-and-modular-primitives\n├   ├ /blog/reality-needs-observers\n├   └ [+19 more paths]\n├ ƒ /code-examples                                           6.82 kB        1.56 MB\n├ ○ /contact                                                 28.6 kB         203 kB\n├ ƒ /draft-lab                                                 952 B         112 kB\n├ ƒ /draft-lab/articles/[slug]                               6.71 kB         113 kB\n├ ○ /enterprise-ai-development-framework                     2.26 kB         105 kB\n├ ○ /experience                                              2.27 kB         105 kB\n├ ○ /feeds/singularity-labs.json                               178 B         103 kB\n├ ○ /fullstack-react-best-practices-integration              2.24 kB         105 kB\n├ ƒ /integrations/social/linkedin-page                         178 B         103 kB\n├ ○ /interview-generator                                      308 kB        1.88 MB\n├ ○ /rebrand-lab                                               694 B         107 kB\n├ ƒ /rss.xml                                                   178 B         103 kB\n├ ○ /sitemap.xml                                               178 B         103 kB\n└ ○ /thank-you-job                                            2.2 kB         105 kB\n+ First Load JS shared by all                                 103 kB\n  ├ chunks/2330-068b84cb1edad22d.js                          46.3 kB\n  ├ chunks/6b54455d-51d009a665b252a1.js                      53.3 kB\n  └ other shared chunks (total)                              3.57 kB\n\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\nactive",
+      "stderr": "From http://100.71.79.54:4040/singularity-labs/davidmieloch-site\n * branch            main       -> FETCH_HEAD\n   bd3b228..e45b389  main       -> origin/main\nAlready on 'main'\n ⚠ Using edge runtime on a page currently disables static generation for that page\nError fetching GitHub repositories: Error: Dynamic server usage: Route /code-examples couldn't be rendered statically because it used revalidate: 0 fetch https://api.github.com/users/drumnation/repos?sort=updated&per_page=100 /code-examples. See more info here: https://nextjs.org/docs/messages/dynamic-server-error\n    at h (.next/server/chunks/541.js:12:68215)\n    at <unknown> (.next/server/chunks/541.js:12:45379)\n    at <unknown> (.next/server/chunks/541.js:12:52218)\n    at Z.with (.next/server/chunks/541.js:13:27569)\n    at er.with (.next/server/chunks/541.js:13:27938)\n    at eE.startActiveSpan (.next/server/chunks/541.js:13:30082)\n    at eR.startActiveSpan (.next/server/chunks/541.js:13:30324)\n    at <unknown> (.next/server/chunks/541.js:12:51726)\n    at Z.with (.next/server/chunks/541.js:13:27569)\n    at er.with (.next/server/chunks/541.js:13:27938) {\n  description: \"Route /code-examples couldn't be rendered statically because it used revalidate: 0 fetch https://api.github.com/users/drumnation/repos?sort=updated&per_page=100 /code-examples. See more info here: https://nextjs.org/docs/messages/dynamic-server-error\",\n  digest: 'DYNAMIC_SERVER_USAGE'\n}"
+    },
+    "production": {
+      "service": "davidmieloch-production.service",
+      "repoDir": "/home/dave/platform-repos/davidmieloch-production",
+      "backupPath": "/home/dave/platform-repos/backups/davidmieloch-production-pre-main-e45b3896cffd-20260628T132046838Z",
+      "active": true,
+      "command": "ssh dave@100.71.79.54 bash -s",
+      "stdout": "worktree clean; no stash needed\nYour branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.\n  (use \"git pull\" to update your local branch)\nUpdating d29d2b8..e45b389\nFast-forward\n docs/ops/site-release-ladder.md         |  29 ++\n package.json                            |   1 +\n scripts/content-pipeline.mjs            |  24 +-\n scripts/lib/site-release-ladder.mjs     | 765 ++++++++++++++++++++++++++++++++\n src/content/site-release-ladder.test.ts | 168 +++++++\n 5 files changed, 985 insertions(+), 2 deletions(-)\n create mode 100644 scripts/lib/site-release-ladder.mjs\n create mode 100644 src/content/site-release-ladder.test.ts\nLockfile is up to date, resolution step is skipped\nAlready up to date\n\n\n> david-portfolio@0.21.11 postinstall /home/dave/platform-repos/davidmieloch-production\n> node scripts/patch-react-floater-types.mjs\n\n\n> david-portfolio@0.21.11 prepare /home/dave/platform-repos/davidmieloch-production\n> husky\n\nDone in 1.1s using pnpm v10.30.3\n\n> david-portfolio@0.21.11 content:pipeline /home/dave/platform-repos/davidmieloch-production\n> node --import tsx scripts/content-pipeline.mjs launch:assets the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\n\n{\n  \"generatedAt\": \"2026-06-28T13:24:07.573Z\",\n  \"publicPublishingPerformed\": false,\n  \"paidGenerationPerformed\": false,\n  \"command\": \"launch:assets\",\n  \"safeDefault\": \"verification-only-no-generation-no-deploy\",\n  \"targetMode\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n  \"summary\": {\n    \"targets\": 1,\n    \"passed\": 1,\n    \"failed\": 0,\n    \"skipped\": 0\n  },\n  \"articles\": [\n    {\n      \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n      \"status\": \"passed\",\n      \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n      \"published\": true,\n      \"publishedAt\": \"2026-06-10\",\n      \"canonicalUrl\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n      \"checks\": [\n        {\n          \"name\": \"canonical-article\",\n          \"status\": \"PASS\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-production/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md\"\n        },\n        {\n          \"name\": \"published-status\",\n          \"status\": \"PASS\",\n          \"actualStatus\": \"published\"\n        },\n        {\n          \"name\": \"audio-script\",\n          \"status\": \"PASS\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-production/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio.md\"\n        },\n        {\n          \"name\": \"audio-status-current\",\n          \"status\": \"PASS\",\n          \"audioStatus\": \"current\"\n        },\n        {\n          \"name\": \"audio-manifest-current\",\n          \"status\": \"PASS\",\n          \"manifestStatus\": \"current\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-production/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio-manifest.json\"\n        },\n        {\n          \"name\": \"audio-file\",\n          \"status\": \"PASS\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-production/public/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\",\n          \"bytes\": 7319084,\n          \"publicSrc\": \"/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\"\n        },\n        {\n          \"name\": \"audio-transcript-current\",\n          \"status\": \"current\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-production/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio-transcript.json\",\n          \"staleReasons\": [],\n          \"comparison\": {\n            \"status\": \"PASS\",\n            \"scriptWordCount\": 2336,\n            \"transcriptWordCount\": 2329,\n            \"wordCountRatio\": 0.997,\n            \"orderedCoverage\": 0.991,\n            \"tailCoverage\": 0.993,\n            \"wordRatioPass\": true,\n            \"orderedCoveragePass\": true,\n            \"tailCoveragePass\": true,\n            \"thresholds\": {\n              \"minWordCountRatio\": 0.8,\n              \"maxWordCountRatio\": 1.25,\n              \"minOrderedCoverage\": 0.72,\n              \"minTailCoverage\": 0.68\n            }\n          }\n        },\n        {\n          \"name\": \"generated-audio-track\",\n          \"status\": \"PASS\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-production/src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts\",\n          \"expectedId\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"expectedSrc\": \"/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\"\n        },\n        {\n          \"name\": \"cover-image\",\n          \"status\": \"PASS\",\n          \"coverImage\": \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png\",\n          \"path\": \"/home/dave/platform-repos/davidmieloch-production/public/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png\",\n          \"required\": true\n        }\n      ]\n    }\n  ],\n  \"failures\": [],\n  \"observation\": {\n    \"claim\": \"published canonical articles have required launch assets before promotion\",\n    \"status\": \"PASS\",\n    \"fallbackChain\": [\n      \"content/articles/<slug>/index.md\",\n      \"content/articles/<slug>/audio.md\",\n      \"content/articles/<slug>/audio-manifest.json\",\n      \"content/articles/<slug>/audio-transcript.json\",\n      \"public/audio/voice/blog/<slug>.mp3\",\n      \"generatedBlogVoiceTracks.ts\"\n    ]\n  }\n}\n\n> david-portfolio@0.21.11 vercel-check /home/dave/platform-repos/davidmieloch-production\n> tsc --project tsconfig.json --noEmit && next build\n\n   ▲ Next.js 15.2.1\n\n   Creating an optimized production build ...\n ✓ Compiled successfully\n   Skipping linting\n   Checking validity of types ...\n   Collecting page data ...\n   Generating static pages (0/46) ...\n[DEBUG] voiceTracks.ts loaded, will provide these tracks: [\n  'bio',\n  'contact',\n  'code-examples',\n  'enterprise-ai-development-framework',\n  'experience',\n  'fullstack-react-best-practices-integration',\n  'academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it',\n  'alphabetize-your-code',\n  'building-with-brain-garden-real-world-lessons-in-practical-ai',\n  'developing-with-a-team-of-ai-s',\n  'every-company-is-sitting-on-sunken-treasure',\n  'factory-amplification-and-modular-primitives',\n  'how-to-make-your-ai-code-look-human',\n  'judgment-over-keystrokes',\n  'pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud',\n  'reality-needs-observers',\n  'reuse-your-code-authoring-your-own-universal-library-with-webpack',\n  'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter',\n  'the-beauty-of-es6s-object-destructuring-assignment',\n  'the-factory',\n  'the-foreman',\n  'the-golden-hammer',\n  'the-moving-target',\n  'the-overnight-shift',\n  'what-i-learned-building-a-photoshop-in-the-browser',\n  'why-character-choice-matters-in-agent-design',\n  'why-you-should-encapsulate-your-javascript-conditionals-in-a-function',\n  'your-ai-isnt-hallucinating-its-lying'\n]\n   Generating static pages (11/46) \r\n   Generating static pages (22/46) \r\n[DEBUG] voiceTracks.ts loaded, will provide these tracks: [\n  'bio',\n  'contact',\n  'code-examples',\n  'enterprise-ai-development-framework',\n  'experience',\n  'fullstack-react-best-practices-integration',\n  'academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it',\n  'alphabetize-your-code',\n  'building-with-brain-garden-real-world-lessons-in-practical-ai',\n  'developing-with-a-team-of-ai-s',\n  'every-company-is-sitting-on-sunken-treasure',\n  'factory-amplification-and-modular-primitives',\n  'how-to-make-your-ai-code-look-human',\n  'judgment-over-keystrokes',\n  'pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud',\n  'reality-needs-observers',\n  'reuse-your-code-authoring-your-own-universal-library-with-webpack',\n  'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter',\n  'the-beauty-of-es6s-object-destructuring-assignment',\n  'the-factory',\n  'the-foreman',\n  'the-golden-hammer',\n  'the-moving-target',\n  'the-overnight-shift',\n  'what-i-learned-building-a-photoshop-in-the-browser',\n  'why-character-choice-matters-in-agent-design',\n  'why-you-should-encapsulate-your-javascript-conditionals-in-a-function',\n  'your-ai-isnt-hallucinating-its-lying'\n]\nLoading fullstack-react-best-practices-integration page\nLoading thank-you-job page\nFetching GitHub repos for: drumnation\nMaking API request to: https://api.github.com/users/drumnation/repos?sort=updated&per_page=100\n   Generating static pages (34/46) \r\n ✓ Generating static pages (46/46)\n   Finalizing page optimization ...\n   Collecting build traces ...\n\nRoute (app)                                                     Size  First Load JS\n┌ ○ /                                                        15.2 kB         148 kB\n├ ○ /_not-found                                                989 B         104 kB\n├ ƒ /api/contact                                               178 B         103 kB\n├ ƒ /api/draft-lab                                             178 B         103 kB\n├ ƒ /api/draft-lab/generated-image                             178 B         103 kB\n├ ƒ /api/draft-lab/image-requests                              178 B         103 kB\n├ ƒ /api/draft-lab/image-requests/events                       178 B         103 kB\n├ ƒ /api/draft-lab/placement-state                             178 B         103 kB\n├ ƒ /api/interview-generator                                   178 B         103 kB\n├ ƒ /api/perfect-fit-analyzer                                  178 B         103 kB\n├ ○ /bio                                                     2.23 kB         105 kB\n├ ○ /blog                                                    2.06 kB         114 kB\n├ ● /blog/[slug]                                             1.42 kB         105 kB\n├   ├ /blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\n├   ├ /blog/factory-amplification-and-modular-primitives\n├   ├ /blog/reality-needs-observers\n├   └ [+19 more paths]\n├ ƒ /code-examples                                           6.82 kB        1.56 MB\n├ ○ /contact                                                 28.6 kB         203 kB\n├ ƒ /draft-lab                                                 951 B         112 kB\n├ ƒ /draft-lab/articles/[slug]                               6.71 kB         113 kB\n├ ○ /enterprise-ai-development-framework                     2.26 kB         105 kB\n├ ○ /experience                                              2.27 kB         105 kB\n├ ○ /feeds/singularity-labs.json                               178 B         103 kB\n├ ○ /fullstack-react-best-practices-integration              2.24 kB         105 kB\n├ ƒ /integrations/social/linkedin-page                         178 B         103 kB\n├ ○ /interview-generator                                      308 kB        1.88 MB\n├ ○ /rebrand-lab                                               694 B         107 kB\n├ ƒ /rss.xml                                                   178 B         103 kB\n├ ○ /sitemap.xml                                               178 B         103 kB\n└ ○ /thank-you-job                                            2.2 kB         105 kB\n+ First Load JS shared by all                                 103 kB\n  ├ chunks/2330-068b84cb1edad22d.js                          46.3 kB\n  ├ chunks/6b54455d-51d009a665b252a1.js                      53.3 kB\n  └ other shared chunks (total)                              3.58 kB\n\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\nactive",
+      "stderr": "From http://127.0.0.1:4040/singularity-labs/davidmieloch-site\n * branch            main       -> FETCH_HEAD\n   d29d2b8..e45b389  main       -> origin/main\nAlready on 'main'\n ⚠ Using edge runtime on a page currently disables static generation for that page\nError fetching GitHub repositories: Error: Dynamic server usage: Route /code-examples couldn't be rendered statically because it used revalidate: 0 fetch https://api.github.com/users/drumnation/repos?sort=updated&per_page=100 /code-examples. See more info here: https://nextjs.org/docs/messages/dynamic-server-error\n    at h (.next/server/chunks/541.js:12:81431)\n    at <unknown> (.next/server/chunks/541.js:12:58595)\n    at <unknown> (.next/server/chunks/541.js:12:65434)\n    at Z.with (.next/server/chunks/541.js:12:42176)\n    at er.with (.next/server/chunks/541.js:12:42545)\n    at eE.startActiveSpan (.next/server/chunks/541.js:12:44689)\n    at eR.startActiveSpan (.next/server/chunks/541.js:12:44931)\n    at <unknown> (.next/server/chunks/541.js:12:64942)\n    at Z.with (.next/server/chunks/541.js:12:42176)\n    at er.with (.next/server/chunks/541.js:12:42545) {\n  description: \"Route /code-examples couldn't be rendered statically because it used revalidate: 0 fetch https://api.github.com/users/drumnation/repos?sort=updated&per_page=100 /code-examples. See more info here: https://nextjs.org/docs/messages/dynamic-server-error\",\n  digest: 'DYNAMIC_SERVER_USAGE'\n}"
+    }
+  },
+  "checks": {
+    "staging": {
+      "baseUrl": "https://davidmieloch.brain-garden.io",
+      "routes": [
+        {
+          "url": "https://davidmieloch.brain-garden.io/",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.brain-garden.io/blog",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.brain-garden.io/rss.xml",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.brain-garden.io/sitemap.xml",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.brain-garden.io/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.brain-garden.io/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
+          "status": 200,
+          "ok": true,
+          "error": null
+        }
+      ],
+      "rss": {
+        "url": "https://davidmieloch.brain-garden.io/rss.xml",
+        "ok": true,
+        "containsSlugs": [
+          "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
+        ],
+        "missingSlugs": [],
+        "error": null
+      },
+      "audio": [
+        {
+          "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+          "url": "https://davidmieloch.brain-garden.io/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
+          "ok": true,
+          "sha256": "241de81c52db50b9ba256fb0efe2b3ce57e0d1c37f9329d7c855fbaeb05a9164",
+          "durationSeconds": 914.856,
+          "durationDelta": 0,
+          "expected": {
+            "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+            "ok": true,
+            "path": "/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/public/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
+            "bytes": 7319084,
+            "sha256": "241de81c52db50b9ba256fb0efe2b3ce57e0d1c37f9329d7c855fbaeb05a9164",
+            "durationSeconds": 914.856
+          }
+        }
+      ],
+      "ok": true,
+      "retryPolicy": {
+        "attempts": 12,
+        "intervalMs": 5000
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "checkedAt": "2026-06-28T13:23:40.131Z",
+          "ok": false,
+          "failedRoutes": [
+            "https://davidmieloch.brain-garden.io/",
+            "https://davidmieloch.brain-garden.io/blog",
+            "https://davidmieloch.brain-garden.io/rss.xml",
+            "https://davidmieloch.brain-garden.io/sitemap.xml",
+            "https://davidmieloch.brain-garden.io/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+            "https://davidmieloch.brain-garden.io/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3"
+          ],
+          "missingRssSlugs": [
+            "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
+          ],
+          "failedAudio": []
+        },
+        {
+          "attempt": 2,
+          "checkedAt": "2026-06-28T13:23:45.649Z",
+          "ok": true,
+          "failedRoutes": [],
+          "missingRssSlugs": [],
+          "failedAudio": []
+        }
+      ]
+    },
+    "production": {
+      "baseUrl": "https://davidmieloch.com",
+      "routes": [
+        {
+          "url": "https://davidmieloch.com/",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.com/blog",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.com/rss.xml",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.com/sitemap.xml",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+          "status": 200,
+          "ok": true,
+          "error": null
+        },
+        {
+          "url": "https://davidmieloch.com/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
+          "status": 200,
+          "ok": true,
+          "error": null
+        }
+      ],
+      "rss": {
+        "url": "https://davidmieloch.com/rss.xml",
+        "ok": true,
+        "containsSlugs": [
+          "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
+        ],
+        "missingSlugs": [],
+        "error": null
+      },
+      "audio": [
+        {
+          "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+          "url": "https://davidmieloch.com/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
+          "ok": true,
+          "sha256": "241de81c52db50b9ba256fb0efe2b3ce57e0d1c37f9329d7c855fbaeb05a9164",
+          "durationSeconds": 914.856,
+          "durationDelta": 0,
+          "expected": {
+            "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+            "ok": true,
+            "path": "/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/public/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
+            "bytes": 7319084,
+            "sha256": "241de81c52db50b9ba256fb0efe2b3ce57e0d1c37f9329d7c855fbaeb05a9164",
+            "durationSeconds": 914.856
+          }
+        }
+      ],
+      "ok": true,
+      "retryPolicy": {
+        "attempts": 12,
+        "intervalMs": 5000
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "checkedAt": "2026-06-28T13:25:36.933Z",
+          "ok": true,
+          "failedRoutes": [],
+          "missingRssSlugs": [],
+          "failedAudio": []
+        }
+      ]
+    }
+  },
+  "releaseStatus": [
+    {
+      "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "stdout": "> david-portfolio@0.21.11 content:pipeline /Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628\n> node --import tsx scripts/content-pipeline.mjs site:release-status --live --slug=the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\n\n{\n  \"generatedAt\": \"2026-06-28T13:25:41.574Z\",\n  \"publicPublishingPerformed\": false,\n  \"command\": \"site:release-status\",\n  \"safeDefault\": \"report-only-no-deploy\",\n  \"liveChecksPerformed\": true,\n  \"surfaces\": {\n    \"localRepository\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628\",\n    \"staging\": \"https://davidmieloch.brain-garden.io\",\n    \"production\": \"https://davidmieloch.com\"\n  },\n  \"git\": {\n    \"branch\": \"codex/site-release-ladder-automation-20260628\",\n    \"dirty\": false,\n    \"statusLineCount\": 0,\n    \"statusLines\": [],\n    \"mainComparison\": {\n      \"available\": true,\n      \"aheadMain\": 0,\n      \"behindMain\": 0,\n      \"raw\": \"0\\t0\"\n    }\n  },\n  \"local\": {\n    \"articleCount\": 22,\n    \"latestPublishedArticle\": {\n      \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n      \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n      \"publishedAt\": \"2026-06-10\",\n      \"status\": \"published\",\n      \"canonicalUrl\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\"\n    },\n    \"unpromotedDraftPreviews\": [\n      {\n        \"slug\": \"battle-bots\",\n        \"title\": \"Battle Bots\",\n        \"status\": \"draft-v1\",\n        \"date\": \"2026-05-20\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/battle-bots.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"positive-corruption\",\n        \"title\": \"Positive Corruption\",\n        \"status\": \"seed\",\n        \"date\": \"2026-05-20\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/positive-corruption.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-compression\",\n        \"title\": \"The Compression\",\n        \"status\": \"draft-v1\",\n        \"date\": \"2026-05-10\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-compression.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"asi-should-be-the-avatar-not-god\",\n        \"title\": \"ASI Should Be the Avatar, Not God\",\n        \"status\": null,\n        \"date\": \"2026-04-30\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/asi-should-be-the-avatar-not-god.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"we-stopped-talking-about-ubi-right-when-we-need-to\",\n        \"title\": \"We Stopped Talking About UBI Right When We Need To\",\n        \"status\": \"draft\",\n        \"date\": \"2026-04-24\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/we-stopped-talking-about-ubi-right-when-we-need-to.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-shore\",\n        \"title\": \"The Shore\",\n        \"status\": \"draft-v2\",\n        \"date\": \"2026-04-21\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-shore.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"lifetimes-of-meaning\",\n        \"title\": \"Lifetimes of Meaning\",\n        \"status\": \"draft\",\n        \"date\": \"2026-04-14\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/lifetimes-of-meaning.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"context-is-not-a-token-budget\",\n        \"title\": \"Context Is Not a Token Budget\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/context-is-not-a-token-budget.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"corporate-ai-communications\",\n        \"title\": \"Corporate Ai Communications\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/corporate-ai-communications.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"mental-agility-and-the-map-that-knows-too-much\",\n        \"title\": \"Mental Agility and the Map That Knows Too Much\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/mental-agility-and-the-map-that-knows-too-much.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"or-what-happens-when-the-cost-of-the-dive-finally-drops\",\n        \"title\": \"*Or: What happens when the cost of the dive finally drops*\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/or-what-happens-when-the-cost-of-the-dive-finally-drops.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight\",\n        \"title\": \"*Or: What happens when you let an autonomous execution engine run for 72 hours straight*\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human\",\n        \"title\": \"The Art of Looking Incompetent: How to Make Your AI Code Look Human\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-code-my-fingers-can-afford\",\n        \"title\": \"The Code My Fingers Can Afford\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-code-my-fingers-can-afford.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-factory-ate-its-own-branch\",\n        \"title\": \"The Factory Ate Its Own Branch\",\n        \"status\": \"draft\",\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-factory-ate-its-own-branch.md\",\n        \"canonicalArticleExists\": false\n      }\n    ]\n  },\n  \"checks\": {\n    \"routes\": [\n      \"/\",\n      \"/blog\",\n      \"/rss.xml\",\n      \"/sitemap.xml\",\n      \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\"\n    ],\n    \"staging\": {\n      \"baseUrl\": \"https://davidmieloch.brain-garden.io\",\n      \"latestRssItem\": {\n        \"url\": \"https://davidmieloch.brain-garden.io/rss.xml\",\n        \"ok\": true,\n        \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n        \"link\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n        \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n        \"pubDate\": \"Wed, 10 Jun 2026 00:00:00 GMT\"\n      },\n      \"routeChecks\": [\n        {\n          \"route\": \"/\",\n          \"url\": \"https://davidmieloch.brain-garden.io/\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/blog\",\n          \"url\": \"https://davidmieloch.brain-garden.io/blog\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/rss.xml\",\n          \"url\": \"https://davidmieloch.brain-garden.io/rss.xml\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/sitemap.xml\",\n          \"url\": \"https://davidmieloch.brain-garden.io/sitemap.xml\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"url\": \"https://davidmieloch.brain-garden.io/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        }\n      ]\n    },\n    \"production\": {\n      \"baseUrl\": \"https://davidmieloch.com\",\n      \"latestRssItem\": {\n        \"url\": \"https://davidmieloch.com/rss.xml\",\n        \"ok\": true,\n        \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n        \"link\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n        \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n        \"pubDate\": \"Wed, 10 Jun 2026 00:00:00 GMT\"\n      },\n      \"routeChecks\": [\n        {\n          \"route\": \"/\",\n          \"url\": \"https://davidmieloch.com/\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/blog\",\n          \"url\": \"https://davidmieloch.com/blog\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/rss.xml\",\n          \"url\": \"https://davidmieloch.com/rss.xml\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/sitemap.xml\",\n          \"url\": \"https://davidmieloch.com/sitemap.xml\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"url\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        }\n      ]\n    }\n  },\n  \"promotion\": {\n    \"status\": \"needs-promotion\",\n    \"blockers\": [],\n    \"warnings\": [\n      \"15 draft preview(s) are not canonical articles.\"\n    ],\n    \"nextActions\": [\n      \"Promote approved drafts into content/articles/<slug>/index.md before scheduling them.\"\n    ]\n  },\n  \"observation\": {\n    \"claim\": \"site release state is reconciled across branch state, local canonical articles, staging, and production before completion is claimed\",\n    \"status\": \"DEGRADED\",\n    \"fallbackChain\": [\n      \"local git and content article readback\",\n      \"staging RSS and route checks\",\n      \"production RSS and route checks\"\n    ]\n  }\n}"
+    }
+  ],
+  "commandLog": [
+    {
+      "stepId": "git-readiness",
+      "command": "git branch --show-current",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "codex/site-release-ladder-automation-20260628",
+      "stderr": ""
+    },
+    {
+      "stepId": "git-readiness",
+      "command": "git rev-parse HEAD",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "e45b3896cffd27aae664b857f57a6b1f2320aac5",
+      "stderr": ""
+    },
+    {
+      "stepId": "git-readiness",
+      "command": "git status --porcelain",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "stepId": "asset-gates",
+      "command": "pnpm content:pipeline launch:assets the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "> david-portfolio@0.21.11 content:pipeline /Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628\n> node --import tsx scripts/content-pipeline.mjs launch:assets the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\n\n{\n  \"generatedAt\": \"2026-06-28T13:20:47.566Z\",\n  \"publicPublishingPerformed\": false,\n  \"paidGenerationPerformed\": false,\n  \"command\": \"launch:assets\",\n  \"safeDefault\": \"verification-only-no-generation-no-deploy\",\n  \"targetMode\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n  \"summary\": {\n    \"targets\": 1,\n    \"passed\": 1,\n    \"failed\": 0,\n    \"skipped\": 0\n  },\n  \"articles\": [\n    {\n      \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n      \"status\": \"passed\",\n      \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n      \"published\": true,\n      \"publishedAt\": \"2026-06-10\",\n      \"canonicalUrl\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n      \"checks\": [\n        {\n          \"name\": \"canonical-article\",\n          \"status\": \"PASS\",\n          \"path\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md\"\n        },\n        {\n          \"name\": \"published-status\",\n          \"status\": \"PASS\",\n          \"actualStatus\": \"published\"\n        },\n        {\n          \"name\": \"audio-script\",\n          \"status\": \"PASS\",\n          \"path\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio.md\"\n        },\n        {\n          \"name\": \"audio-status-current\",\n          \"status\": \"PASS\",\n          \"audioStatus\": \"current\"\n        },\n        {\n          \"name\": \"audio-manifest-current\",\n          \"status\": \"PASS\",\n          \"manifestStatus\": \"current\",\n          \"path\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio-manifest.json\"\n        },\n        {\n          \"name\": \"audio-file\",\n          \"status\": \"PASS\",\n          \"path\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/public/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\",\n          \"bytes\": 7319084,\n          \"publicSrc\": \"/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\"\n        },\n        {\n          \"name\": \"audio-transcript-current\",\n          \"status\": \"current\",\n          \"path\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio-transcript.json\",\n          \"staleReasons\": [],\n          \"comparison\": {\n            \"status\": \"PASS\",\n            \"scriptWordCount\": 2336,\n            \"transcriptWordCount\": 2329,\n            \"wordCountRatio\": 0.997,\n            \"orderedCoverage\": 0.991,\n            \"tailCoverage\": 0.993,\n            \"wordRatioPass\": true,\n            \"orderedCoveragePass\": true,\n            \"tailCoveragePass\": true,\n            \"thresholds\": {\n              \"minWordCountRatio\": 0.8,\n              \"maxWordCountRatio\": 1.25,\n              \"minOrderedCoverage\": 0.72,\n              \"minTailCoverage\": 0.68\n            }\n          }\n        },\n        {\n          \"name\": \"generated-audio-track\",\n          \"status\": \"PASS\",\n          \"path\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts\",\n          \"expectedId\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"expectedSrc\": \"/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3\"\n        },\n        {\n          \"name\": \"cover-image\",\n          \"status\": \"PASS\",\n          \"coverImage\": \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png\",\n          \"path\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/public/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/images/hero-linkedin.png\",\n          \"required\": true\n        }\n      ]\n    }\n  ],\n  \"failures\": [],\n  \"observation\": {\n    \"claim\": \"published canonical articles have required launch assets before promotion\",\n    \"status\": \"PASS\",\n    \"fallbackChain\": [\n      \"content/articles/<slug>/index.md\",\n      \"content/articles/<slug>/audio.md\",\n      \"content/articles/<slug>/audio-manifest.json\",\n      \"content/articles/<slug>/audio-transcript.json\",\n      \"public/audio/voice/blog/<slug>.mp3\",\n      \"generatedBlogVoiceTracks.ts\"\n    ]\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "stepId": "git-readiness",
+      "command": "git fetch forgejo main:refs/remotes/forgejo/main",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "stepId": "git-readiness",
+      "command": "git merge-base --is-ancestor forgejo/main HEAD",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "stepId": "promote-main",
+      "command": "git push forgejo HEAD:main",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "🔍 Running Vercel-compatible build check to catch type errors...\n📝 This simulates what happens on Vercel and catches errors early\n\n> david-portfolio@0.21.11 vercel-check /Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628\n> tsc --project tsconfig.json --noEmit && next build\n\n   ▲ Next.js 15.2.1\n\n   Creating an optimized production build ...\n ✓ Compiled successfully\n   Skipping linting\n   Checking validity of types ...\n   Collecting page data ...\n   Generating static pages (0/46) ...\n[DEBUG] voiceTracks.ts loaded, will provide these tracks: [\n  'bio',\n  'contact',\n  'code-examples',\n  'enterprise-ai-development-framework',\n  'experience',\n  'fullstack-react-best-practices-integration',\n  'academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it',\n  'alphabetize-your-code',\n  'building-with-brain-garden-real-world-lessons-in-practical-ai',\n  'developing-with-a-team-of-ai-s',\n  'every-company-is-sitting-on-sunken-treasure',\n  'factory-amplification-and-modular-primitives',\n  'how-to-make-your-ai-code-look-human',\n  'judgment-over-keystrokes',\n  'pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud',\n  'reality-needs-observers',\n  'reuse-your-code-authoring-your-own-universal-library-with-webpack',\n  'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter',\n  'the-beauty-of-es6s-object-destructuring-assignment',\n  'the-factory',\n  'the-foreman',\n  'the-golden-hammer',\n  'the-moving-target',\n  'the-overnight-shift',\n  'what-i-learned-building-a-photoshop-in-the-browser',\n  'why-character-choice-matters-in-agent-design',\n  'why-you-should-encapsulate-your-javascript-conditionals-in-a-function',\n  'your-ai-isnt-hallucinating-its-lying'\n]\n[DEBUG] voiceTracks.ts loaded, will provide these tracks: [\n  'bio',\n  'contact',\n  'code-examples',\n  'enterprise-ai-development-framework',\n  'experience',\n  'fullstack-react-best-practices-integration',\n  'academic-research-is-a-software-patch-and-i-finally-have-a-way-to-install-it',\n  'alphabetize-your-code',\n  'building-with-brain-garden-real-world-lessons-in-practical-ai',\n  'developing-with-a-team-of-ai-s',\n  'every-company-is-sitting-on-sunken-treasure',\n  'factory-amplification-and-modular-primitives',\n  'how-to-make-your-ai-code-look-human',\n  'judgment-over-keystrokes',\n  'pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud',\n  'reality-needs-observers',\n  'reuse-your-code-authoring-your-own-universal-library-with-webpack',\n  'the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter',\n  'the-beauty-of-es6s-object-destructuring-assignment',\n  'the-factory',\n  'the-foreman',\n  'the-golden-hammer',\n  'the-moving-target',\n  'the-overnight-shift',\n  'what-i-learned-building-a-photoshop-in-the-browser',\n  'why-character-choice-matters-in-agent-design',\n  'why-you-should-encapsulate-your-javascript-conditionals-in-a-function',\n  'your-ai-isnt-hallucinating-its-lying'\n]\nLoading fullstack-react-best-practices-integration page\n   Generating static pages (11/46) \r\n   Generating static pages (22/46) \r\nLoading thank-you-job page\n   Generating static pages (34/46) \r\nFetching GitHub repos for: drumnation\nMaking API request to: https://api.github.com/users/drumnation/repos?sort=updated&per_page=100\n ✓ Generating static pages (46/46)\n   Finalizing page optimization ...\n   Collecting build traces ...\n\nRoute (app)                                                     Size  First Load JS\n┌ ○ /                                                        15.2 kB         148 kB\n├ ○ /_not-found                                                992 B         104 kB\n├ ƒ /api/contact                                               178 B         103 kB\n├ ƒ /api/draft-lab                                             178 B         103 kB\n├ ƒ /api/draft-lab/generated-image                             178 B         103 kB\n├ ƒ /api/draft-lab/image-requests                              178 B         103 kB\n├ ƒ /api/draft-lab/image-requests/events                       178 B         103 kB\n├ ƒ /api/draft-lab/placement-state                             178 B         103 kB\n├ ƒ /api/interview-generator                                   178 B         103 kB\n├ ƒ /api/perfect-fit-analyzer                                  178 B         103 kB\n├ ○ /bio                                                     2.24 kB         105 kB\n├ ○ /blog                                                    2.07 kB         113 kB\n├ ● /blog/[slug]                                             1.42 kB         105 kB\n├   ├ /blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\n├   ├ /blog/factory-amplification-and-modular-primitives\n├   ├ /blog/reality-needs-observers\n├   └ [+19 more paths]\n├ ƒ /code-examples                                           6.79 kB        1.57 MB\n├ ○ /contact                                                 28.5 kB         203 kB\n├ ƒ /draft-lab                                                 957 B         112 kB\n├ ƒ /draft-lab/articles/[slug]                               6.72 kB         113 kB\n├ ○ /enterprise-ai-development-framework                     2.26 kB         105 kB\n├ ○ /experience                                              2.27 kB         105 kB\n├ ○ /feeds/singularity-labs.json                               178 B         103 kB\n├ ○ /fullstack-react-best-practices-integration              2.24 kB         105 kB\n├ ƒ /integrations/social/linkedin-page                         178 B         103 kB\n├ ○ /interview-generator                                      305 kB        1.89 MB\n├ ○ /rebrand-lab                                               695 B         107 kB\n├ ƒ /rss.xml                                                   178 B         103 kB\n├ ○ /sitemap.xml                                               178 B         103 kB\n└ ○ /thank-you-job                                            2.2 kB         105 kB\n+ First Load JS shared by all                                 103 kB\n  ├ chunks/2330-068b84cb1edad22d.js                          46.3 kB\n  ├ chunks/6b54455d-51d009a665b252a1.js                      53.3 kB\n  └ other shared chunks (total)                              3.54 kB\n\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\n✅ All checks passed! Your code is ready for Vercel deployment.",
+      "stderr": "⚠ Using edge runtime on a page currently disables static generation for that page\nError fetching GitHub repositories: Error: Dynamic server usage: Route /code-examples couldn't be rendered statically because it used revalidate: 0 fetch https://api.github.com/users/drumnation/repos?sort=updated&per_page=100 /code-examples. See more info here: https://nextjs.org/docs/messages/dynamic-server-error\n    at h (.next/server/chunks/541.js:12:81431)\n    at <unknown> (.next/server/chunks/541.js:12:58595)\n    at <unknown> (.next/server/chunks/541.js:12:65434)\n    at Z.with (.next/server/chunks/541.js:12:32058)\n    at er.with (.next/server/chunks/541.js:12:32427)\n    at eE.startActiveSpan (.next/server/chunks/541.js:12:34571)\n    at eR.startActiveSpan (.next/server/chunks/541.js:12:34813)\n    at <unknown> (.next/server/chunks/541.js:12:64942)\n    at Z.with (.next/server/chunks/541.js:12:32058)\n    at er.with (.next/server/chunks/541.js:12:32427) {\n  description: \"Route /code-examples couldn't be rendered statically because it used revalidate: 0 fetch https://api.github.com/users/drumnation/repos?sort=updated&per_page=100 /code-examples. See more info here: https://nextjs.org/docs/messages/dynamic-server-error\",\n  digest: 'DYNAMIC_SERVER_USAGE'\n}\nTo http://100.71.79.54:4040/singularity-labs/davidmieloch-site.git\n   bd3b228..e45b389  HEAD -> main"
+    },
+    {
+      "stepId": "promote-main",
+      "command": "git fetch forgejo main:refs/heads/main",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "",
+      "stderr": "From http://100.71.79.54:4040/singularity-labs/davidmieloch-site\n   bd3b228..e45b389  main       -> main"
+    },
+    {
+      "stepId": "release-status",
+      "command": "pnpm content:pipeline site:release-status --live --slug=the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "ok": true,
+      "status": 0,
+      "signal": null,
+      "stdout": "> david-portfolio@0.21.11 content:pipeline /Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628\n> node --import tsx scripts/content-pipeline.mjs site:release-status --live --slug=the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\n\n{\n  \"generatedAt\": \"2026-06-28T13:25:41.574Z\",\n  \"publicPublishingPerformed\": false,\n  \"command\": \"site:release-status\",\n  \"safeDefault\": \"report-only-no-deploy\",\n  \"liveChecksPerformed\": true,\n  \"surfaces\": {\n    \"localRepository\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628\",\n    \"staging\": \"https://davidmieloch.brain-garden.io\",\n    \"production\": \"https://davidmieloch.com\"\n  },\n  \"git\": {\n    \"branch\": \"codex/site-release-ladder-automation-20260628\",\n    \"dirty\": false,\n    \"statusLineCount\": 0,\n    \"statusLines\": [],\n    \"mainComparison\": {\n      \"available\": true,\n      \"aheadMain\": 0,\n      \"behindMain\": 0,\n      \"raw\": \"0\\t0\"\n    }\n  },\n  \"local\": {\n    \"articleCount\": 22,\n    \"latestPublishedArticle\": {\n      \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n      \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n      \"publishedAt\": \"2026-06-10\",\n      \"status\": \"published\",\n      \"canonicalUrl\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\"\n    },\n    \"unpromotedDraftPreviews\": [\n      {\n        \"slug\": \"battle-bots\",\n        \"title\": \"Battle Bots\",\n        \"status\": \"draft-v1\",\n        \"date\": \"2026-05-20\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/battle-bots.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"positive-corruption\",\n        \"title\": \"Positive Corruption\",\n        \"status\": \"seed\",\n        \"date\": \"2026-05-20\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/positive-corruption.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-compression\",\n        \"title\": \"The Compression\",\n        \"status\": \"draft-v1\",\n        \"date\": \"2026-05-10\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-compression.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"asi-should-be-the-avatar-not-god\",\n        \"title\": \"ASI Should Be the Avatar, Not God\",\n        \"status\": null,\n        \"date\": \"2026-04-30\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/asi-should-be-the-avatar-not-god.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"we-stopped-talking-about-ubi-right-when-we-need-to\",\n        \"title\": \"We Stopped Talking About UBI Right When We Need To\",\n        \"status\": \"draft\",\n        \"date\": \"2026-04-24\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/we-stopped-talking-about-ubi-right-when-we-need-to.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-shore\",\n        \"title\": \"The Shore\",\n        \"status\": \"draft-v2\",\n        \"date\": \"2026-04-21\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-shore.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"lifetimes-of-meaning\",\n        \"title\": \"Lifetimes of Meaning\",\n        \"status\": \"draft\",\n        \"date\": \"2026-04-14\",\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/lifetimes-of-meaning.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"context-is-not-a-token-budget\",\n        \"title\": \"Context Is Not a Token Budget\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/context-is-not-a-token-budget.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"corporate-ai-communications\",\n        \"title\": \"Corporate Ai Communications\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/corporate-ai-communications.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"mental-agility-and-the-map-that-knows-too-much\",\n        \"title\": \"Mental Agility and the Map That Knows Too Much\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/mental-agility-and-the-map-that-knows-too-much.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"or-what-happens-when-the-cost-of-the-dive-finally-drops\",\n        \"title\": \"*Or: What happens when the cost of the dive finally drops*\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/or-what-happens-when-the-cost-of-the-dive-finally-drops.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight\",\n        \"title\": \"*Or: What happens when you let an autonomous execution engine run for 72 hours straight*\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/or-what-happens-when-you-let-an-autonomous-execution-engine-run-for-72-hours-straight.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human\",\n        \"title\": \"The Art of Looking Incompetent: How to Make Your AI Code Look Human\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-art-of-looking-incompetent-how-to-make-your-ai-code-look-human.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-code-my-fingers-can-afford\",\n        \"title\": \"The Code My Fingers Can Afford\",\n        \"status\": null,\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-code-my-fingers-can-afford.md\",\n        \"canonicalArticleExists\": false\n      },\n      {\n        \"slug\": \"the-factory-ate-its-own-branch\",\n        \"title\": \"The Factory Ate Its Own Branch\",\n        \"status\": \"draft\",\n        \"date\": null,\n        \"sourcePath\": \"/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/draft-previews/the-factory-ate-its-own-branch.md\",\n        \"canonicalArticleExists\": false\n      }\n    ]\n  },\n  \"checks\": {\n    \"routes\": [\n      \"/\",\n      \"/blog\",\n      \"/rss.xml\",\n      \"/sitemap.xml\",\n      \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\"\n    ],\n    \"staging\": {\n      \"baseUrl\": \"https://davidmieloch.brain-garden.io\",\n      \"latestRssItem\": {\n        \"url\": \"https://davidmieloch.brain-garden.io/rss.xml\",\n        \"ok\": true,\n        \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n        \"link\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n        \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n        \"pubDate\": \"Wed, 10 Jun 2026 00:00:00 GMT\"\n      },\n      \"routeChecks\": [\n        {\n          \"route\": \"/\",\n          \"url\": \"https://davidmieloch.brain-garden.io/\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/blog\",\n          \"url\": \"https://davidmieloch.brain-garden.io/blog\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/rss.xml\",\n          \"url\": \"https://davidmieloch.brain-garden.io/rss.xml\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/sitemap.xml\",\n          \"url\": \"https://davidmieloch.brain-garden.io/sitemap.xml\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"url\": \"https://davidmieloch.brain-garden.io/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        }\n      ]\n    },\n    \"production\": {\n      \"baseUrl\": \"https://davidmieloch.com\",\n      \"latestRssItem\": {\n        \"url\": \"https://davidmieloch.com/rss.xml\",\n        \"ok\": true,\n        \"title\": \"The AI Cost Rug Pull Isn't a Bubble. It's a Filter.\",\n        \"link\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n        \"slug\": \"the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n        \"pubDate\": \"Wed, 10 Jun 2026 00:00:00 GMT\"\n      },\n      \"routeChecks\": [\n        {\n          \"route\": \"/\",\n          \"url\": \"https://davidmieloch.com/\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/blog\",\n          \"url\": \"https://davidmieloch.com/blog\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/rss.xml\",\n          \"url\": \"https://davidmieloch.com/rss.xml\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/sitemap.xml\",\n          \"url\": \"https://davidmieloch.com/sitemap.xml\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        },\n        {\n          \"route\": \"/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"url\": \"https://davidmieloch.com/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter\",\n          \"ok\": true,\n          \"statusCode\": 200,\n          \"error\": null\n        }\n      ]\n    }\n  },\n  \"promotion\": {\n    \"status\": \"needs-promotion\",\n    \"blockers\": [],\n    \"warnings\": [\n      \"15 draft preview(s) are not canonical articles.\"\n    ],\n    \"nextActions\": [\n      \"Promote approved drafts into content/articles/<slug>/index.md before scheduling them.\"\n    ]\n  },\n  \"observation\": {\n    \"claim\": \"site release state is reconciled across branch state, local canonical articles, staging, and production before completion is claimed\",\n    \"status\": \"DEGRADED\",\n    \"fallbackChain\": [\n      \"local git and content article readback\",\n      \"staging RSS and route checks\",\n      \"production RSS and route checks\"\n    ]\n  }\n}",
+      "stderr": ""
+    }
+  ],
+  "errors": [],
+  "plan": {
+    "command": "site:release-ladder",
+    "mode": "execute",
+    "mutationAllowed": true,
+    "generatedAt": "2026-06-28T13:20:46.838Z",
+    "target": {
+      "slugs": [
+        "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
+      ],
+      "targetRef": "main",
+      "remote": "forgejo",
+      "stagingUrl": "https://davidmieloch.brain-garden.io",
+      "productionUrl": "https://davidmieloch.com"
+    },
+    "commands": {
+      "localAssetGate": "pnpm content:pipeline launch:assets the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "releaseStatus": "pnpm content:pipeline site:release-status --live --slug=the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+      "promoteMain": "git push forgejo HEAD:main"
+    },
+    "steps": [
+      {
+        "id": "asset-gates",
+        "title": "Check content, audio, transcript, and launch asset gates",
+        "environment": "local",
+        "mutates": false,
+        "command": "pnpm content:pipeline launch:assets the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
+      },
+      {
+        "id": "git-readiness",
+        "title": "Verify clean branch and fast-forward eligibility against main",
+        "environment": "local",
+        "mutates": false,
+        "command": "git fetch forgejo main:refs/remotes/forgejo/main && git merge-base --is-ancestor forgejo/main HEAD"
+      },
+      {
+        "id": "promote-main",
+        "title": "Promote verified branch to main",
+        "environment": "git",
+        "mutates": true,
+        "command": "git push forgejo HEAD:main"
+      },
+      {
+        "id": "deploy-staging",
+        "title": "Backup, fast-forward, gate, build, and restart staging",
+        "environment": "dave@100.71.79.54",
+        "mutates": true,
+        "repoDir": "/home/dave/platform-repos/davidmieloch-staging",
+        "service": "davidmieloch-staging.service"
+      },
+      {
+        "id": "verify-staging",
+        "title": "Verify staging routes, RSS, and audio",
+        "environment": "https://davidmieloch.brain-garden.io",
+        "mutates": false,
+        "routes": [
+          "/",
+          "/blog",
+          "/rss.xml",
+          "/sitemap.xml",
+          "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+          "/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3"
+        ],
+        "retryPolicy": {
+          "attempts": 12,
+          "intervalMs": 5000
+        }
+      },
+      {
+        "id": "deploy-production",
+        "title": "Backup, fast-forward, gate, build, and restart production",
+        "environment": "dave@100.71.79.54",
+        "mutates": true,
+        "repoDir": "/home/dave/platform-repos/davidmieloch-production",
+        "service": "davidmieloch-production.service"
+      },
+      {
+        "id": "verify-production",
+        "title": "Verify production routes, RSS, and audio",
+        "environment": "https://davidmieloch.com",
+        "mutates": false,
+        "routes": [
+          "/",
+          "/blog",
+          "/rss.xml",
+          "/sitemap.xml",
+          "/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+          "/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3"
+        ],
+        "retryPolicy": {
+          "attempts": 12,
+          "intervalMs": 5000
+        }
+      },
+      {
+        "id": "release-status",
+        "title": "Reconcile branch, staging, and production release state",
+        "environment": "local",
+        "mutates": false,
+        "command": "pnpm content:pipeline site:release-status --live --slug=the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter"
+      },
+      {
+        "id": "write-receipt",
+        "title": "Write durable release receipt",
+        "environment": "local",
+        "mutates": true,
+        "path": "/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/release-receipts/20260628T132046838Z-the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.json"
+      }
+    ],
+    "receiptPath": "/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/distribution/release-receipts/20260628T132046838Z-the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.json",
+    "dryRunNote": null
+  },
+  "observation": {
+    "claim": "site release ladder checked content assets, promoted main, deployed staging and production, verified live routes/rss/audio, and wrote release receipt",
+    "status": "PASS",
+    "fallbackChain": [
+      "local launch:assets gate",
+      "git fast-forward promotion to main",
+      "staging deploy and live route/rss/audio checks",
+      "production deploy and live route/rss/audio checks",
+      "durable release receipt"
+    ]
+  }
+}
