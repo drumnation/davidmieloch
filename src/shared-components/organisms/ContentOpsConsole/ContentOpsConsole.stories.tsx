@@ -9,6 +9,9 @@ const meta = {
   component: ContentOpsConsole,
   parameters: {
     layout: "fullscreen",
+    nextjs: {
+      appDirectory: true,
+    },
   },
 } satisfies Meta<typeof ContentOpsConsole>;
 
