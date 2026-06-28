@@ -732,6 +732,7 @@ function liveSurfaceStatus({ baseUrl, insecure = false, routes = [] }) {
 function releasePromotionStatus({ git, local, staging, production, live }) {
   const blockers = [];
   const warnings = [];
+  const promotionWarnings = [];
   const nextActions = [];
 
   if (git.dirty) {
@@ -740,7 +741,9 @@ function releasePromotionStatus({ git, local, staging, production, live }) {
   }
 
   if (git.mainComparison.available && git.mainComparison.aheadMain > 0) {
-    warnings.push(`Current branch is ${git.mainComparison.aheadMain} commits ahead of main.`);
+    const warning = `Current branch is ${git.mainComparison.aheadMain} commits ahead of main.`;
+    warnings.push(warning);
+    promotionWarnings.push(warning);
     nextActions.push('Open or update the promotion PR, then merge to the production branch after review.');
   }
 
@@ -771,12 +774,16 @@ function releasePromotionStatus({ git, local, staging, production, live }) {
     }
 
     if (localLatest && stagingLatest && localLatest !== stagingLatest) {
-      warnings.push(`Local latest article (${localLatest}) differs from staging RSS latest (${stagingLatest}).`);
+      const warning = `Local latest article (${localLatest}) differs from staging RSS latest (${stagingLatest}).`;
+      warnings.push(warning);
+      promotionWarnings.push(warning);
       nextActions.push('Deploy or rebuild staging from the intended release branch.');
     }
 
     if (stagingLatest && productionLatest && stagingLatest !== productionLatest) {
-      warnings.push(`Staging RSS latest (${stagingLatest}) differs from production RSS latest (${productionLatest}).`);
+      const warning = `Staging RSS latest (${stagingLatest}) differs from production RSS latest (${productionLatest}).`;
+      warnings.push(warning);
+      promotionWarnings.push(warning);
       nextActions.push('Promote the verified staging release to production or document why it is held.');
     }
   }
@@ -784,7 +791,7 @@ function releasePromotionStatus({ git, local, staging, production, live }) {
   return {
     status: blockers.length > 0
       ? 'blocked'
-      : warnings.length > 0
+      : promotionWarnings.length > 0
         ? 'needs-promotion'
         : 'aligned',
     blockers,
