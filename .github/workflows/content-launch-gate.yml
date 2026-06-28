@@ -5,22 +5,30 @@ on:
     branches: [main]
     paths:
       - "content/articles/**"
+      - "content/distribution/social-calendar.json"
+      - "content/distribution/social-packages/**"
       - "public/blog/**"
       - "public/audio/voice/blog/**"
       - "src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts"
       - "scripts/content-pipeline.mjs"
       - "scripts/lib/audio-narration.mjs"
+      - "scripts/lib/content-release-workflow.mjs"
+      - "scripts/lib/social-automation.mjs"
       - "package.json"
       - "pnpm-lock.yaml"
   pull_request:
     branches: [main]
     paths:
       - "content/articles/**"
+      - "content/distribution/social-calendar.json"
+      - "content/distribution/social-packages/**"
       - "public/blog/**"
       - "public/audio/voice/blog/**"
       - "src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts"
       - "scripts/content-pipeline.mjs"
       - "scripts/lib/audio-narration.mjs"
+      - "scripts/lib/content-release-workflow.mjs"
+      - "scripts/lib/social-automation.mjs"
       - "package.json"
       - "pnpm-lock.yaml"
 
@@ -72,26 +80,27 @@ jobs:
           head="${HEAD_SHA:-HEAD}"
 
           if [[ -z "$base" || "$base" =~ ^0+$ ]]; then
-            base="$(git rev-parse "${head}^" 2>/dev/null || true)"
-          fi
-
-          if [[ -z "$base" ]]; then
             echo "all=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           changed_files="$(git diff --name-only "$base" "$head" -- \
             content/articles \
+            content/distribution/social-calendar.json \
+            content/distribution/social-packages \
             public/blog \
             public/audio/voice/blog \
             src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts \
             scripts/content-pipeline.mjs \
             scripts/lib/audio-narration.mjs \
+            scripts/lib/content-release-workflow.mjs \
+            scripts/lib/social-automation.mjs \
             package.json \
             pnpm-lock.yaml || true)"
 
           {
             awk -F/ '/^content\/articles\/[^/]+\// { print $3 }' <<< "$changed_files"
+            awk -F/ '/^content\/distribution\/social-packages\/[^/]+\// { print $4 }' <<< "$changed_files"
             awk -F/ '/^public\/blog\/[^/]+\// { print $3 }' <<< "$changed_files"
             awk -F/ '/^public\/audio\/voice\/blog\/[^/]+\.mp3$/ { sub(/\.mp3$/, "", $5); print $5 }' <<< "$changed_files"
           } | sort -u > /tmp/content-launch-slugs
@@ -100,7 +109,7 @@ jobs:
             echo "slugs=$(paste -sd, /tmp/content-launch-slugs)" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Verify launch assets
+      - name: Verify content launch state
         shell: bash
         env:
           CHECK_ALL: ${{ steps.changed.outputs.all }}
@@ -110,15 +119,17 @@ jobs:
 
           if [[ "$CHECK_ALL" == "true" ]]; then
             pnpm content:launch-gate
+            echo "No specific slug detected for release-workflow dry-run."
             exit 0
           fi
 
           if [[ -z "${CHANGED_SLUGS:-}" ]]; then
-            echo "No canonical article or audio launch assets changed."
+            echo "No canonical article launch slugs changed."
             exit 0
           fi
 
           IFS=',' read -r -a slugs <<< "$CHANGED_SLUGS"
           for slug in "${slugs[@]}"; do
             pnpm content:launch-gate "$slug"
+            pnpm content:release-workflow --slug="$slug"
           done
