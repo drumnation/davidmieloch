@@ -19,6 +19,8 @@
     "build-storybook": "storybook build",
     "killports": "kill-port 3000 3001 3002 3003 3004 3333 6006 6007 7000 4000 || true",
     "content:pipeline": "node --import tsx scripts/content-pipeline.mjs",
+    "content:launch-gate": "node --import tsx scripts/content-pipeline.mjs launch:assets",
+    "release:status": "node --import tsx scripts/content-pipeline.mjs site:release-status --live",
     "brand:logo": "node scripts/generate-brand-logo.mjs",
     "draft:image-review": "node scripts/write-draft-image-review.mjs",
     "draft:decision": "node scripts/set-draft-decision.mjs",

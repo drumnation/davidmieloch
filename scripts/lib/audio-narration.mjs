@@ -736,7 +736,7 @@ export function writeGeneratedBlogVoiceTracks({
 }) {
   const tracks = articleSlugs(articlesRoot)
     .map((slug) => statusForSlug({ articlesRoot, publicRoot, slug }))
-    .filter((item) => item.audioExists && item.status === 'current')
+    .filter((item) => item.audioExists)
     .map((item) => ({
       id: item.slug,
       title: item.title,

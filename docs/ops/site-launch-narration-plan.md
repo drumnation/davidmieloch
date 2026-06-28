@@ -1,54 +1,60 @@
 # Site Launch Narration Plan
 
-## Launch Position
+## Position
 
-The narration player stays. It is a differentiating part of the site, but it should not block publishing new writing.
+Drafts can move without narration. Published canonical articles should not be promoted without their generated narration assets.
 
-Launch articles in three states:
+That means a post can be researched, edited, and staged as draft material without audio. Once it becomes `content/articles/<slug>/index.md` with `status: "published"`, it must pass the launch gate before release promotion.
 
-- `voiced`: MP3 exists and the player can load it.
-- `queued`: article is published and waiting for narration production.
-- `text-only`: intentionally no narration, usually legacy or low-priority material.
+## Required Assets
 
-## Current Routing
+For each published article:
 
-Article narration should use the article slug as the voice track id.
+- Article: `content/articles/<slug>/index.md`
+- Spoken script: `content/articles/<slug>/audio.md`
+- Manifest: `content/articles/<slug>/audio-manifest.json`
+- MP3: `public/audio/voice/blog/<slug>.mp3`
+- Player registry: `src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts`
 
-Example:
-
-- Page: `/blog/the-factory`
-- Voice track id: `the-factory`
-- Expected MP3 path: `/audio/voice/the-factory.mp3`
-
-This keeps new narration work deterministic: add the MP3, register the track, verify the page.
+If the article declares `coverImage`, the image path must resolve under `public`.
 
 ## Production Workflow
 
-1. Publish the article and hero images first.
-2. Create a narration script that is pleasant to hear, not a literal markdown dump.
-3. Generate or manually export the voice clone audio.
-4. Store the MP3 in `public/audio/voice/{article-slug}.mp3`.
-5. Add the track to `voiceTracks.ts`.
-6. Run the audio routing smoke test and a browser check.
+1. Promote approved writing into `content/articles/<slug>/index.md`.
+2. Approve article text and imagery.
+3. Generate or refresh the spoken script:
 
-## Speechify / API Position
+```bash
+pnpm content:pipeline audio:prepare <slug>
+```
 
-Manual Speechify export is acceptable for the first launch wave because voice quality matters more than full automation. API generation becomes valuable when the backlog is stable and repeatable.
+4. Review the script for phrasing that sounds bad aloud.
+5. Approve the script:
 
-The API path should be added only after we define:
+```bash
+pnpm content:pipeline audio:approve <slug>
+```
 
-- input script format
-- voice/source label
-- synthetic narration disclosure
-- output MP3 naming convention
-- retry and cost logging
+6. Generate paid audio only after spend approval:
 
-## Launch Gate
+```bash
+pnpm content:pipeline audio:generate <slug> --spend-approved
+```
 
-The website is launchable without every article voiced if:
+7. Refresh generated player tracks:
 
-- every article has a cover image or derived cover fallback
-- every article route renders
-- the player hides missing narration cleanly
-- a backlog exists for queued article audio
-- the current voiced pages still work
+```bash
+pnpm content:pipeline audio:tracks
+```
+
+8. Run the launch gate:
+
+```bash
+pnpm content:launch-gate <slug>
+```
+
+## Gate Behavior
+
+`content:launch-gate` is verification only. It does not call Speechify, publish to social platforms, or deploy the site.
+
+CI runs the gate for changed article/audio assets. If a post is missing the script, manifest, MP3, or generated track entry, CI fails before merge/promotion.

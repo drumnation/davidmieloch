@@ -38,6 +38,13 @@ export const generatedBlogVoiceTracks: AudioTrack[] = [
     "description": "Audio version of Every Company Is Sitting on Sunken Treasure."
   },
   {
+    "id": "factory-amplification-and-modular-primitives",
+    "title": "Factory Amplification and Modular Primitives",
+    "artist": "Narration by David Mieloch",
+    "src": "/audio/voice/blog/factory-amplification-and-modular-primitives.mp3",
+    "description": "Audio version of Factory Amplification and Modular Primitives."
+  },
+  {
     "id": "how-to-make-your-ai-code-look-human",
     "title": "How to Make Your AI Code Look Human",
     "artist": "Narration by David Mieloch",
@@ -71,6 +78,13 @@ export const generatedBlogVoiceTracks: AudioTrack[] = [
     "artist": "Narration by David Mieloch",
     "src": "/audio/voice/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack.mp3",
     "description": "Audio version of Reuse your code: Authoring your own Universal Library with Webpack."
+  },
+  {
+    "id": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
+    "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
+    "artist": "Narration by David Mieloch",
+    "src": "/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
+    "description": "Audio version of The AI Cost Rug Pull Isn't a Bubble. It's a Filter.."
   },
   {
     "id": "the-beauty-of-es6s-object-destructuring-assignment",

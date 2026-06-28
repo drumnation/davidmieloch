@@ -1,0 +1,124 @@
+name: Content Launch Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/articles/**"
+      - "public/blog/**"
+      - "public/audio/voice/blog/**"
+      - "src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts"
+      - "scripts/content-pipeline.mjs"
+      - "scripts/lib/audio-narration.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "content/articles/**"
+      - "public/blog/**"
+      - "public/audio/voice/blog/**"
+      - "src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts"
+      - "scripts/content-pipeline.mjs"
+      - "scripts/lib/audio-narration.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+
+jobs:
+  content-launch-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_ENV"
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Detect changed content slugs
+        id: changed
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          base="${BASE_SHA:-}"
+          head="${HEAD_SHA:-HEAD}"
+
+          if [[ -z "$base" || "$base" =~ ^0+$ ]]; then
+            base="$(git rev-parse "${head}^" 2>/dev/null || true)"
+          fi
+
+          if [[ -z "$base" ]]; then
+            echo "all=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          changed_files="$(git diff --name-only "$base" "$head" -- \
+            content/articles \
+            public/blog \
+            public/audio/voice/blog \
+            src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts \
+            scripts/content-pipeline.mjs \
+            scripts/lib/audio-narration.mjs \
+            package.json \
+            pnpm-lock.yaml || true)"
+
+          {
+            awk -F/ '/^content\/articles\/[^/]+\// { print $3 }' <<< "$changed_files"
+            awk -F/ '/^public\/blog\/[^/]+\// { print $3 }' <<< "$changed_files"
+            awk -F/ '/^public\/audio\/voice\/blog\/[^/]+\.mp3$/ { sub(/\.mp3$/, "", $5); print $5 }' <<< "$changed_files"
+          } | sort -u > /tmp/content-launch-slugs
+
+          if [[ -s /tmp/content-launch-slugs ]]; then
+            echo "slugs=$(paste -sd, /tmp/content-launch-slugs)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify launch assets
+        shell: bash
+        env:
+          CHECK_ALL: ${{ steps.changed.outputs.all }}
+          CHANGED_SLUGS: ${{ steps.changed.outputs.slugs }}
+        run: |
+          set -euo pipefail
+
+          if [[ "$CHECK_ALL" == "true" ]]; then
+            pnpm content:launch-gate
+            exit 0
+          fi
+
+          if [[ -z "${CHANGED_SLUGS:-}" ]]; then
+            echo "No canonical article or audio launch assets changed."
+            exit 0
+          fi
+
+          IFS=',' read -r -a slugs <<< "$CHANGED_SLUGS"
+          for slug in "${slugs[@]}"; do
+            pnpm content:launch-gate "$slug"
+          done

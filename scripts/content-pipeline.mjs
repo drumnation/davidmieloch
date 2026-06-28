@@ -124,9 +124,12 @@ const socialN8nExportPath = path.join(contentRoot, 'distribution/n8n/social-disp
 const socialManifestRoot = path.join(contentRoot, 'distribution/social-manifests');
 const socialRefusalInboxPath = path.join(contentRoot, 'distribution/refusal-inbox.json');
 const audioBooksRoot = path.join(contentRoot, 'distribution/audio-books');
+const draftPreviewsRoot = path.join(contentRoot, 'distribution/draft-previews');
 const defaultQueueOutputPath = path.join(appRoot, 'docs/ops/content-distribution-next-actions.md');
 const defaultScheduleOutputPath = path.join(appRoot, 'docs/ops/content-distribution-schedule.md');
 const defaultContentLedgerOutputPath = path.join(appRoot, 'docs/ops/content-ledger.md');
+const DEFAULT_STAGING_URL = 'https://davidmieloch.brain-garden.io';
+const DEFAULT_PRODUCTION_URL = 'https://davidmieloch.com';
 const generatedBlogVoiceTracksPath = path.join(
   appRoot,
   'src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts',
@@ -511,6 +514,532 @@ function scheduleDryRun(slug) {
     publicPosting: 'not-performed-by-this-command',
     platforms,
   };
+}
+
+function commandText(command, args) {
+  const result = spawnSync(command, args, {
+    cwd: appRoot,
+    encoding: 'utf8',
+  });
+  return {
+    ok: result.status === 0,
+    status: result.status,
+    stdout: result.stdout.trim(),
+    stderr: result.stderr.trim(),
+  };
+}
+
+function gitText(args) {
+  return commandText('git', args);
+}
+
+function currentGitState() {
+  const branch = gitText(['branch', '--show-current']);
+  const status = gitText(['status', '--short']);
+  const aheadBehind = gitText(['rev-list', '--left-right', '--count', 'main...HEAD']);
+  const statusLines = status.stdout ? status.stdout.split('\n').filter(Boolean) : [];
+  const [behindMain, aheadMain] = aheadBehind.ok
+    ? aheadBehind.stdout.split(/\s+/).map((value) => Number(value) || 0)
+    : [null, null];
+
+  return {
+    branch: branch.stdout || 'unknown',
+    dirty: statusLines.length > 0,
+    statusLineCount: statusLines.length,
+    statusLines: statusLines.slice(0, 50),
+    mainComparison: {
+      available: aheadBehind.ok,
+      aheadMain,
+      behindMain,
+      raw: aheadBehind.stdout || aheadBehind.stderr || null,
+    },
+  };
+}
+
+function localPublishedArticles() {
+  if (!fs.existsSync(articlesRoot)) return [];
+  return fs
+    .readdirSync(articlesRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .filter((entry) => fs.existsSync(path.join(articlesRoot, entry.name, 'index.md')))
+    .map((entry) => {
+      const article = readArticle(entry.name);
+      return {
+        slug: entry.name,
+        title: article.meta.title ?? entry.name,
+        publishedAt: article.meta.publishedAt ?? null,
+        status: article.meta.status ?? null,
+        canonicalUrl: article.meta.canonicalUrl ?? `https://davidmieloch.com/blog/${entry.name}`,
+      };
+    })
+    .filter((article) => article.status === 'published')
+    .sort((left, right) => Date.parse(right.publishedAt ?? '') - Date.parse(left.publishedAt ?? ''));
+}
+
+function firstMarkdownHeading(body) {
+  return body.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? null;
+}
+
+function unpromotedDraftPreviews(limit = 25) {
+  if (!fs.existsSync(draftPreviewsRoot)) return [];
+  return fs
+    .readdirSync(draftPreviewsRoot, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+    .map((entry) => {
+      const slug = path.basename(entry.name, '.md');
+      const filePath = path.join(draftPreviewsRoot, entry.name);
+      const markdown = readMarkdown(filePath);
+      return {
+        slug,
+        title: markdown.meta.title ?? firstMarkdownHeading(markdown.body) ?? slug,
+        status: markdown.meta.status ?? null,
+        date: markdown.meta.date ?? null,
+        sourcePath: filePath,
+        canonicalArticleExists: fs.existsSync(path.join(articlesRoot, slug, 'index.md')),
+      };
+    })
+    .filter((preview) => !preview.canonicalArticleExists)
+    .sort((left, right) => String(right.date ?? '').localeCompare(String(left.date ?? '')))
+    .slice(0, limit);
+}
+
+function normalizeBaseUrl(value) {
+  return String(value || '').replace(/\/+$/, '');
+}
+
+function normalizeRoute(route) {
+  if (!route || route === '/') return '/';
+  return route.startsWith('/') ? route : `/${route}`;
+}
+
+function siteUrl(baseUrl, route) {
+  return `${normalizeBaseUrl(baseUrl)}${normalizeRoute(route)}`;
+}
+
+function curlText(url, { insecure = false, timeout = 20 } = {}) {
+  const args = [
+    '--location',
+    '--silent',
+    '--show-error',
+    '--max-time',
+    String(timeout),
+    ...(insecure ? ['--insecure'] : []),
+    url,
+  ];
+  return commandText('curl', args);
+}
+
+function curlStatus(url, { insecure = false, timeout = 20 } = {}) {
+  const args = [
+    '--location',
+    '--silent',
+    '--show-error',
+    '--max-time',
+    String(timeout),
+    ...(insecure ? ['--insecure'] : []),
+    '--output',
+    '/dev/null',
+    '--write-out',
+    '%{http_code}',
+    url,
+  ];
+  const result = commandText('curl', args);
+  const statusCode = Number(result.stdout);
+  return {
+    ok: result.ok && statusCode >= 200 && statusCode < 400,
+    statusCode: Number.isFinite(statusCode) ? statusCode : null,
+    error: result.ok ? null : result.stderr || result.stdout || 'curl failed',
+  };
+}
+
+function decodeXml(value) {
+  if (!value) return null;
+  return value
+    .replaceAll('&apos;', "'")
+    .replaceAll('&quot;', '"')
+    .replaceAll('&amp;', '&')
+    .replaceAll('&lt;', '<')
+    .replaceAll('&gt;', '>');
+}
+
+function rssTag(item, tag) {
+  const cdata = item.match(new RegExp(`<${tag}><!\\[CDATA\\[([\\s\\S]*?)\\]\\]></${tag}>`))?.[1];
+  const plain = item.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`))?.[1];
+  return decodeXml(cdata ?? plain ?? null);
+}
+
+function slugFromBlogLink(link) {
+  return link?.match(/\/blog\/([^/?#]+)/)?.[1] ?? null;
+}
+
+function latestRssItem(baseUrl, options = {}) {
+  const url = siteUrl(baseUrl, '/rss.xml');
+  const result = curlText(url, options);
+  if (!result.ok) {
+    return {
+      url,
+      ok: false,
+      error: result.stderr || result.stdout || 'Unable to fetch RSS.',
+    };
+  }
+
+  const item = result.stdout.match(/<item>[\s\S]*?<\/item>/)?.[0] ?? '';
+  const link = rssTag(item, 'link');
+  return {
+    url,
+    ok: Boolean(item),
+    title: rssTag(item, 'title'),
+    link,
+    slug: slugFromBlogLink(link),
+    pubDate: rssTag(item, 'pubDate'),
+  };
+}
+
+function releaseRoutes(options, latestArticle) {
+  const routes = ['/', '/blog', '/rss.xml', '/sitemap.xml'];
+  if (latestArticle?.slug) routes.push(`/blog/${latestArticle.slug}`);
+  if (options.slug) routes.push(`/blog/${options.slug}`);
+  if (options.route) {
+    for (const route of String(options.route).split(',')) {
+      const normalized = normalizeRoute(route.trim());
+      if (normalized) routes.push(normalized);
+    }
+  }
+  return [...new Set(routes)];
+}
+
+function liveSurfaceStatus({ baseUrl, insecure = false, routes = [] }) {
+  return {
+    baseUrl: normalizeBaseUrl(baseUrl),
+    latestRssItem: latestRssItem(baseUrl, { insecure }),
+    routeChecks: routes.map((route) => ({
+      route,
+      url: siteUrl(baseUrl, route),
+      ...curlStatus(siteUrl(baseUrl, route), { insecure }),
+    })),
+  };
+}
+
+function releasePromotionStatus({ git, local, staging, production, live }) {
+  const blockers = [];
+  const warnings = [];
+  const nextActions = [];
+
+  if (git.dirty) {
+    blockers.push('Local worktree has uncommitted changes.');
+    nextActions.push('Commit or explicitly shelve local release work before promotion.');
+  }
+
+  if (git.mainComparison.available && git.mainComparison.aheadMain > 0) {
+    warnings.push(`Current branch is ${git.mainComparison.aheadMain} commits ahead of main.`);
+    nextActions.push('Open or update the promotion PR, then merge to the production branch after review.');
+  }
+
+  if (local.unpromotedDraftPreviews.length > 0) {
+    warnings.push(`${local.unpromotedDraftPreviews.length} draft preview(s) are not canonical articles.`);
+    nextActions.push('Promote approved drafts into content/articles/<slug>/index.md before scheduling them.');
+  }
+
+  if (!live) {
+    nextActions.push('Run pnpm release:status for staging and production evidence.');
+  }
+
+  if (live) {
+    const stagingLatest = staging.latestRssItem?.slug;
+    const productionLatest = production.latestRssItem?.slug;
+    const localLatest = local.latestPublishedArticle?.slug;
+    const failedStagingRoutes = staging.routeChecks.filter((check) => !check.ok);
+    const failedProductionRoutes = production.routeChecks.filter((check) => !check.ok);
+
+    if (failedStagingRoutes.length > 0) {
+      blockers.push(`Staging has ${failedStagingRoutes.length} failed route check(s).`);
+      nextActions.push('Fix staging before treating any site/content work as reviewable.');
+    }
+
+    if (failedProductionRoutes.length > 0) {
+      blockers.push(`Production has ${failedProductionRoutes.length} failed route check(s).`);
+      nextActions.push('Do not claim production release until failed live routes return 2xx/3xx.');
+    }
+
+    if (localLatest && stagingLatest && localLatest !== stagingLatest) {
+      warnings.push(`Local latest article (${localLatest}) differs from staging RSS latest (${stagingLatest}).`);
+      nextActions.push('Deploy or rebuild staging from the intended release branch.');
+    }
+
+    if (stagingLatest && productionLatest && stagingLatest !== productionLatest) {
+      warnings.push(`Staging RSS latest (${stagingLatest}) differs from production RSS latest (${productionLatest}).`);
+      nextActions.push('Promote the verified staging release to production or document why it is held.');
+    }
+  }
+
+  return {
+    status: blockers.length > 0
+      ? 'blocked'
+      : warnings.length > 0
+        ? 'needs-promotion'
+        : 'aligned',
+    blockers,
+    warnings,
+    nextActions: [...new Set(nextActions)],
+  };
+}
+
+function siteReleaseStatusCommand() {
+  const options = parseCommandOptions(2);
+  const live = Boolean(options.live);
+  const stagingUrl = normalizeBaseUrl(options['staging-url'] ?? DEFAULT_STAGING_URL);
+  const productionUrl = normalizeBaseUrl(options['production-url'] ?? DEFAULT_PRODUCTION_URL);
+  const draftLimit = Number(options['draft-limit'] ?? 25);
+  const git = currentGitState();
+  const articles = localPublishedArticles();
+  const latestPublishedArticle = articles[0] ?? null;
+  const routes = releaseRoutes(options, latestPublishedArticle);
+  const local = {
+    articleCount: articles.length,
+    latestPublishedArticle,
+    unpromotedDraftPreviews: unpromotedDraftPreviews(draftLimit),
+  };
+  const staging = live
+    ? liveSurfaceStatus({ baseUrl: stagingUrl, insecure: true, routes })
+    : { baseUrl: stagingUrl, skipped: true };
+  const production = live
+    ? liveSurfaceStatus({ baseUrl: productionUrl, routes })
+    : { baseUrl: productionUrl, skipped: true };
+  const promotion = releasePromotionStatus({
+    git,
+    local,
+    staging,
+    production,
+    live,
+  });
+
+  return {
+    generatedAt: new Date().toISOString(),
+    publicPublishingPerformed: false,
+    command: 'site:release-status',
+    safeDefault: 'report-only-no-deploy',
+    liveChecksPerformed: live,
+    surfaces: {
+      localRepository: appRoot,
+      staging: stagingUrl,
+      production: productionUrl,
+    },
+    git,
+    local,
+    checks: {
+      routes,
+      staging,
+      production,
+    },
+    promotion,
+    observation: {
+      claim: 'site release state is reconciled across branch state, local canonical articles, staging, and production before completion is claimed',
+      status: promotion.status === 'blocked' ? 'FAIL' : promotion.status === 'aligned' ? 'PASS' : 'DEGRADED',
+      fallbackChain: [
+        'local git and content article readback',
+        'staging RSS and route checks',
+        'production RSS and route checks',
+      ],
+    },
+  };
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function resolvePublicAssetPath(publicSrc) {
+  if (!publicSrc || typeof publicSrc !== 'string') return null;
+  if (/^https?:\/\//.test(publicSrc)) return null;
+  return path.join(publicRoot, publicSrc.replace(/^\/+/, ''));
+}
+
+function generatedTrackExists(slug, publicSrc) {
+  if (!fs.existsSync(generatedBlogVoiceTracksPath)) return false;
+  const tracksSource = fs.readFileSync(generatedBlogVoiceTracksPath, 'utf8');
+  const idPattern = new RegExp(`["']id["']\\s*:\\s*["']${escapeRegExp(slug)}["']`);
+  const srcPattern = publicSrc
+    ? new RegExp(`["']src["']\\s*:\\s*["']${escapeRegExp(publicSrc)}["']`)
+    : null;
+  return idPattern.test(tracksSource) && (!srcPattern || srcPattern.test(tracksSource));
+}
+
+function launchAssetCheck(name, passed, details = {}) {
+  return {
+    name,
+    status: passed ? 'PASS' : 'FAIL',
+    ...details,
+  };
+}
+
+function launchAssetSkip(name, details = {}) {
+  return {
+    name,
+    status: 'SKIP',
+    ...details,
+  };
+}
+
+function launchAssetTargets(slug, options) {
+  const optionSlugs = options.slug
+    ? String(options.slug).split(',').map((value) => value.trim()).filter(Boolean)
+    : [];
+  const argumentSlugs = slug && slug !== 'all'
+    ? String(slug).split(',').map((value) => value.trim()).filter(Boolean)
+    : [];
+  const explicitSlugs = [...argumentSlugs, ...optionSlugs];
+
+  if (explicitSlugs.length > 0) return [...new Set(explicitSlugs)];
+
+  return localPublishedArticles().map((article) => article.slug);
+}
+
+function articleLaunchAssetStatus(slug, options = {}) {
+  const articlePath = path.join(articlesRoot, slug, 'index.md');
+  if (!fs.existsSync(articlePath)) {
+    return {
+      slug,
+      status: 'failed',
+      title: slug,
+      published: false,
+      checks: [
+        launchAssetCheck('canonical-article', false, {
+          expectedPath: articlePath,
+        }),
+      ],
+    };
+  }
+
+  const article = readArticle(slug);
+  const title = article.meta.title ?? slug;
+  const published = article.meta.status === 'published';
+  if (!published) {
+    return {
+      slug,
+      status: 'skipped',
+      title,
+      published: false,
+      checks: [
+        launchAssetSkip('published-status', {
+          actualStatus: article.meta.status ?? null,
+        }),
+      ],
+    };
+  }
+
+  const statusReport = audioStatus({ articlesRoot, publicRoot, slug });
+  const narration = statusReport.articles?.[0] ?? null;
+  const audioPath = narration?.outputPath ?? path.join(publicRoot, 'audio/voice/blog', `${slug}.mp3`);
+  const coverImage = article.meta.coverImage ?? null;
+  const coverPath = coverImage ? resolvePublicAssetPath(coverImage) : null;
+  const requiresCover = Boolean(options['require-cover']);
+  const checks = [
+    launchAssetCheck('canonical-article', true, {
+      path: articlePath,
+    }),
+    launchAssetCheck('published-status', published, {
+      actualStatus: article.meta.status,
+    }),
+    launchAssetCheck('audio-script', Boolean(narration?.scriptPath && fs.existsSync(narration.scriptPath)), {
+      path: narration?.scriptPath ?? path.join(articlesRoot, slug, 'audio.md'),
+    }),
+    launchAssetCheck('audio-status-current', narration?.status === 'current', {
+      audioStatus: narration?.status ?? null,
+    }),
+    launchAssetCheck('audio-manifest-current', narration?.manifestStatus === 'current', {
+      manifestStatus: narration?.manifestStatus ?? null,
+      path: narration?.manifestPath ?? path.join(articlesRoot, slug, 'audio-manifest.json'),
+    }),
+    launchAssetCheck('audio-file', Boolean(narration?.audioExists && narration.audioBytes > 0), {
+      path: audioPath,
+      bytes: narration?.audioBytes ?? 0,
+      publicSrc: narration?.publicSrc ?? null,
+    }),
+    launchAssetCheck('generated-audio-track', generatedTrackExists(slug, narration?.publicSrc), {
+      path: generatedBlogVoiceTracksPath,
+      expectedId: slug,
+      expectedSrc: narration?.publicSrc ?? null,
+    }),
+  ];
+
+  if (coverImage || requiresCover) {
+    checks.push(
+      launchAssetCheck('cover-image', Boolean(coverPath && fs.existsSync(coverPath)), {
+        coverImage,
+        path: coverPath,
+        required: true,
+      }),
+    );
+  } else {
+    checks.push(
+      launchAssetSkip('cover-image', {
+        required: false,
+        reason: 'No coverImage declared; launch gate only verifies declared cover assets by default.',
+      }),
+    );
+  }
+
+  const failedChecks = checks.filter((check) => check.status === 'FAIL');
+  return {
+    slug,
+    status: failedChecks.length > 0 ? 'failed' : 'passed',
+    title,
+    published: true,
+    publishedAt: article.meta.publishedAt ?? null,
+    canonicalUrl: article.meta.canonicalUrl ?? `https://davidmieloch.com/blog/${slug}`,
+    checks,
+  };
+}
+
+function launchAssetsCommand(slug) {
+  const options = parseCommandOptions(3);
+  const targets = launchAssetTargets(slug, options);
+  const articles = targets.map((targetSlug) => articleLaunchAssetStatus(targetSlug, options));
+  const failures = articles.flatMap((article) => (
+    article.checks
+      .filter((check) => check.status === 'FAIL')
+      .map((check) => ({
+        slug: article.slug,
+        title: article.title,
+        check: check.name,
+        ...check,
+      }))
+  ));
+  const payload = {
+    generatedAt: new Date().toISOString(),
+    publicPublishingPerformed: false,
+    paidGenerationPerformed: false,
+    command: 'launch:assets',
+    safeDefault: 'verification-only-no-generation-no-deploy',
+    targetMode: slug ?? (options.slug ? 'explicit-options' : 'all-published'),
+    summary: {
+      targets: targets.length,
+      passed: articles.filter((article) => article.status === 'passed').length,
+      failed: articles.filter((article) => article.status === 'failed').length,
+      skipped: articles.filter((article) => article.status === 'skipped').length,
+    },
+    articles,
+    failures,
+    observation: {
+      claim: 'published canonical articles have required launch assets before promotion',
+      status: failures.length > 0 ? 'FAIL' : 'PASS',
+      fallbackChain: [
+        'content/articles/<slug>/index.md',
+        'content/articles/<slug>/audio.md',
+        'content/articles/<slug>/audio-manifest.json',
+        'public/audio/voice/blog/<slug>.mp3',
+        'generatedBlogVoiceTracks.ts',
+      ],
+    },
+  };
+
+  if (failures.length > 0) {
+    const error = new Error(`launch asset gate failed for ${payload.summary.failed} article(s)`);
+    error.payload = payload;
+    throw error;
+  }
+
+  return payload;
 }
 
 function manualPackage(slug, platform) {
@@ -1968,6 +2497,8 @@ function usage() {
   pnpm content:pipeline queue:markdown [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
   pnpm content:pipeline queue:write [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10] [--output=<path>]
   pnpm content:pipeline validate
+  pnpm content:pipeline site:release-status [--live] [--slug=<article-slug>] [--route=/path] [--staging-url=<url>] [--production-url=<url>]
+  pnpm content:pipeline launch:assets [<article-slug>|all] [--slug=<article-slug,article-slug>] [--require-cover]
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline launch:due [--now=<iso-date>]
   pnpm content:pipeline launch:approval-packet [--write] [--output=<path>] [--launch-plan=<path>] [--site-calendar=<path>] [--social-calendar=<path>] [--teasers=<path>] [--approval-ledger=<path>]
@@ -2033,6 +2564,8 @@ Safety:
   - linkedin:article-transfer writes local browser-transfer packets only; it does not open LinkedIn or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
+  - site:release-status reads local git/content state and optional live URLs only; it does not deploy.
+  - launch:assets verifies existing release artifacts only; it does not generate audio, publish, or deploy.
   - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
   - social:postiz:push renders a dry-run Postiz draft plan from connected channels; --dry-run=false creates Postiz DRAFT records only and requires POSTIZ_API_KEY.
   - audio:prepare, audio:approve, audio:status, audio:quote, and audio:tracks do not call Speechify.
@@ -2098,6 +2631,12 @@ async function runCommand(command, slug) {
   }
   if (command === 'validate') {
     return validate();
+  }
+  if (command === 'site:release-status') {
+    return siteReleaseStatusCommand();
+  }
+  if (command === 'launch:assets') {
+    return launchAssetsCommand(slug);
   }
   if (command === 'observe:bootstrap') {
     return observeBootstrap();
@@ -2255,7 +2794,11 @@ async function main() {
     observeCommand(command ?? 'unknown', slug, 'FAIL', {
       error: error.message,
     });
-    console.error(error.message);
+    if (error.payload) {
+      console.error(JSON.stringify(error.payload, null, 2));
+    } else {
+      console.error(error.message);
+    }
     process.exit(1);
   }
 }

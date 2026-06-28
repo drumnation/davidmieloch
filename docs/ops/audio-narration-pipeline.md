@@ -120,6 +120,18 @@ src/shared-components/organisms/Footer/components/dual-audio/playlists/generated
 
 `voiceTracks.ts` imports that file and spreads the generated tracks into the existing static page narration list.
 
+## Launch Gate
+
+Published canonical articles must pass the release-asset gate before promotion:
+
+```bash
+pnpm content:launch-gate <slug>
+```
+
+The gate verifies the article, spoken script, manifest hashes, MP3, generated player track, and any declared `coverImage`. It does not call Speechify or deploy.
+
+CI runs this gate for changed article/audio assets so a post cannot be promoted with missing narration artifacts by accident.
+
 ## Safety
 
 - `audio:prepare`, `audio:approve`, `audio:status`, `audio:quote`, and `audio:tracks` do not call Speechify.
