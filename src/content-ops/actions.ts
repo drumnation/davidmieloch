@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { buildContentOpsSnapshot } from './server';
 import type { ContentOpsActionResult } from './types';
 
 function result(
@@ -132,5 +133,49 @@ export function dryRunContentOpsRelease({ slug }: { appRoot?: string; slug: stri
 export function prepareContentOpsPackages({ slug }: { appRoot?: string; slug: string }) {
   return result('packages-prepare', {
     nextCommand: `pnpm content:pipeline social:package ${slug} all`,
+  });
+}
+
+export function scheduleApprovedUnscheduledContent({
+  appRoot = process.cwd(),
+  startAt = new Date().toISOString(),
+  intervalDays = 7,
+  write = false,
+}: {
+  appRoot?: string;
+  startAt?: string;
+  intervalDays?: number;
+  write?: boolean;
+}) {
+  const snapshot = buildContentOpsSnapshot({ appRoot });
+  const approved = snapshot.approvedUnscheduled;
+
+  if (!write) {
+    return result('schedule-approved-unscheduled', {
+      changedFiles: [],
+      warnings: approved.map(
+        (item, index) => `${item.slug} would be scheduled at index ${index}`,
+      ),
+      nextCommand: 'pnpm content:pipeline ops:schedule-approved-unscheduled --write',
+    });
+  }
+
+  const changedFiles: string[] = [];
+
+  approved.forEach((item, index) => {
+    const date = new Date(startAt);
+    date.setUTCDate(date.getUTCDate() + index * intervalDays);
+    const scheduleResult = upsertContentOpsSchedule({
+      appRoot,
+      slug: item.slug,
+      title: item.title,
+      scheduledAt: date.toISOString(),
+    });
+    changedFiles.push(...scheduleResult.changedFiles);
+  });
+
+  return result('schedule-approved-unscheduled', {
+    changedFiles: [...new Set(changedFiles)],
+    nextCommand: 'pnpm content:pipeline ops:next',
   });
 }

@@ -70,6 +70,8 @@ import {
 import {
   runContentReleaseWorkflow,
 } from './lib/content-release-workflow.mjs';
+import contentOpsServer from '../src/content-ops/server.ts';
+import contentOpsActions from '../src/content-ops/actions.ts';
 import {
   approveArticleAudio,
   audioStatus,
@@ -102,6 +104,8 @@ import {
 import { importWebsiteArticle } from './lib/website-importer.mjs';
 
 const appRoot = process.cwd();
+const { buildContentOpsSnapshot } = contentOpsServer;
+const { scheduleApprovedUnscheduledContent } = contentOpsActions;
 const envPath = path.join(appRoot, '.env.local');
 const contentRoot = process.env.CONTENT_ROOT
   ? path.resolve(process.env.CONTENT_ROOT)
@@ -2587,6 +2591,9 @@ function usage() {
   pnpm content:pipeline queue:write [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10] [--output=<path>]
   pnpm content:pipeline validate
   pnpm content:pipeline content:release-workflow <slug|--slug=<slug>> [--platforms=linkedin] [--write|--execute] [--receipt=<path>] [--release-ladder-receipt=<path>]
+pnpm content:pipeline ops:next
+pnpm content:pipeline ops:approved-unscheduled
+pnpm content:pipeline ops:schedule-approved-unscheduled [--start=<iso-date>] [--interval-days=7] [--write]
   pnpm content:pipeline site:release-status [--live] [--slug=<article-slug>] [--route=/path] [--staging-url=<url>] [--production-url=<url>]
   pnpm content:pipeline site:release-ladder <slug|--slug=<slug[,slug]>> [--execute] [--receipt=<path>]
   pnpm content:pipeline launch:assets [<article-slug>|all] [--slug=<article-slug,article-slug>] [--require-cover]
@@ -2710,6 +2717,38 @@ function observeBootstrap() {
   };
 }
 
+function contentOpsNextCommand() {
+  const snapshot = buildContentOpsSnapshot({ appRoot });
+  return {
+    generatedAt: snapshot.generatedAt,
+    publicPublishingPerformed: false,
+    paidGenerationPerformed: false,
+    nextActions: snapshot.nextActions,
+    blockers: snapshot.blockers,
+    warnings: snapshot.warnings,
+  };
+}
+
+function contentOpsApprovedUnscheduledCommand() {
+  const snapshot = buildContentOpsSnapshot({ appRoot });
+  return {
+    generatedAt: snapshot.generatedAt,
+    publicPublishingPerformed: false,
+    paidGenerationPerformed: false,
+    approvedUnscheduled: snapshot.approvedUnscheduled,
+  };
+}
+
+function contentOpsScheduleApprovedUnscheduledCommand() {
+  const options = parseCommandOptions(3);
+  return scheduleApprovedUnscheduledContent({
+    appRoot,
+    write: Boolean(options.write),
+    startAt: options.start ?? new Date().toISOString(),
+    intervalDays: Number(options['interval-days'] ?? 7),
+  });
+}
+
 async function runCommand(command, slug) {
   if (command === 'status') {
     return status();
@@ -2734,6 +2773,15 @@ async function runCommand(command, slug) {
   }
   if (command === 'content:release-workflow') {
     return contentReleaseWorkflowCommand(slug);
+  }
+  if (command === 'ops:next') {
+    return contentOpsNextCommand();
+  }
+  if (command === 'ops:approved-unscheduled') {
+    return contentOpsApprovedUnscheduledCommand();
+  }
+  if (command === 'ops:schedule-approved-unscheduled') {
+    return contentOpsScheduleApprovedUnscheduledCommand();
   }
   if (command === 'site:release-ladder') {
     return siteReleaseLadderCommand(slug);
