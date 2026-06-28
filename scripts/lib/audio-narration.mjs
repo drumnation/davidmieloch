@@ -8,6 +8,9 @@ const SPEECHIFY_STREAM_ENDPOINT = 'https://api.speechify.ai/v1/audio/stream';
 const DEFAULT_MODEL = 'simba-english';
 const DEFAULT_LANGUAGE = 'en';
 const MAX_STREAM_CHARS = 20000;
+const GENERATION_CHUNK_CHARS = 3500;
+const MIN_AUDIO_DURATION_RATIO = 0.7;
+const MP3_BYTES_PER_SECOND = 8000;
 
 function sha256(value) {
   return crypto.createHash('sha256').update(value).digest('hex');
@@ -233,7 +236,7 @@ function scriptToSsml(scriptBody, emotion = 'direct') {
   return paragraphsToSsml(paragraphize(scriptBody), emotion);
 }
 
-function ssmlChunks(scriptBody, emotion = 'direct') {
+function ssmlChunks(scriptBody, emotion = 'direct', maxCharacters = MAX_STREAM_CHARS) {
   const paragraphs = paragraphize(scriptBody);
   const chunks = [];
   let current = [];
@@ -241,7 +244,7 @@ function ssmlChunks(scriptBody, emotion = 'direct') {
   for (const paragraph of paragraphs) {
     const candidate = [...current, paragraph];
     const candidateSsml = paragraphsToSsml(candidate, emotion);
-    if (candidateSsml.length <= MAX_STREAM_CHARS) {
+    if (candidateSsml.length <= maxCharacters) {
       current = candidate;
       continue;
     }
@@ -256,7 +259,7 @@ function ssmlChunks(scriptBody, emotion = 'direct') {
     let sentenceChunk = [];
     for (const sentence of sentences.map((item) => item.trim()).filter(Boolean)) {
       const sentenceCandidate = [...sentenceChunk, sentence];
-      if (paragraphsToSsml([sentenceCandidate.join(' ')], emotion).length <= MAX_STREAM_CHARS) {
+      if (paragraphsToSsml([sentenceCandidate.join(' ')], emotion).length <= maxCharacters) {
         sentenceChunk = sentenceCandidate;
         continue;
       }
@@ -293,6 +296,59 @@ function estimateAudio(scriptBody) {
     maxChunkCharacters: Math.max(...chunks.map((chunk) => chunk.length)),
     maxStreamCharacters: MAX_STREAM_CHARS,
   };
+}
+
+function stripSsml(value) {
+  return value
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function estimatedSpeechSeconds(value) {
+  const words = stripSsml(value).split(/\s+/).filter(Boolean).length;
+  return (words / 150) * 60;
+}
+
+function estimatedMp3Seconds(buffer) {
+  return buffer.length / MP3_BYTES_PER_SECOND;
+}
+
+function audioDurationSeconds(filePath) {
+  const ffprobe = spawnSync('ffprobe', [
+    '-v',
+    'error',
+    '-show_entries',
+    'format=duration',
+    '-of',
+    'default=noprint_wrappers=1:nokey=1',
+    filePath,
+  ], { encoding: 'utf8' });
+
+  if (ffprobe.status !== 0) return null;
+  const duration = Number.parseFloat(ffprobe.stdout.trim());
+  return Number.isFinite(duration) ? duration : null;
+}
+
+function validateAudioDuration({ actualSeconds, expectedSeconds, label }) {
+  if (!actualSeconds || !expectedSeconds || expectedSeconds < 20) return;
+  const ratio = actualSeconds / expectedSeconds;
+  if (ratio < MIN_AUDIO_DURATION_RATIO) {
+    throw new Error(`${label} duration too short: ${Math.round(actualSeconds)}s generated for estimated ${Math.round(expectedSeconds)}s script (${ratio.toFixed(2)} ratio).`);
+  }
+}
+
+function assertSpeechifyChunkComplete({ buffer, input, slug, index }) {
+  validateAudioDuration({
+    actualSeconds: estimatedMp3Seconds(buffer),
+    expectedSeconds: estimatedSpeechSeconds(input),
+    label: `Speechify audio for ${slug} chunk ${index + 1}`,
+  });
 }
 
 function baseManifest({
@@ -493,6 +549,7 @@ function concatMp3Chunks({ chunks, outputPath, tempRoot, slug }) {
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   const ffmpeg = spawnSync('ffmpeg', [
     '-hide_banner',
+    '-y',
     '-loglevel',
     'error',
     '-f',
@@ -532,6 +589,7 @@ function concatMp3Files({ inputPaths, outputPath, tempRoot, collectionId }) {
 
   const ffmpeg = spawnSync('ffmpeg', [
     '-hide_banner',
+    '-y',
     '-loglevel',
     'error',
     '-f',
@@ -597,19 +655,21 @@ export async function generateArticleAudio({
     };
   }
 
-  const chunks = ssmlChunks(script.body);
+  const chunks = ssmlChunks(script.body, 'direct', GENERATION_CHUNK_CHARS);
   const tooLong = chunks.find((chunk) => chunk.length > MAX_STREAM_CHARS);
   if (tooLong) {
     throw new Error(`Speechify stream chunk is ${tooLong.length} characters; max is ${MAX_STREAM_CHARS}. Shorten audio.md before generating.`);
   }
 
   const audioChunks = [];
-  for (const chunk of chunks) {
-    audioChunks.push(await speechifyStream({
+  for (const [index, chunk] of chunks.entries()) {
+    const audioChunk = await speechifyStream({
       input: chunk,
       voiceId: resolvedVoiceId,
       apiKey,
-    }));
+    });
+    assertSpeechifyChunkComplete({ buffer: audioChunk, input: chunk, slug, index });
+    audioChunks.push(audioChunk);
   }
   concatMp3Chunks({
     chunks: audioChunks,
@@ -618,6 +678,13 @@ export async function generateArticleAudio({
     slug,
   });
   const audioBuffer = fs.readFileSync(outputPath);
+  const actualDurationSeconds = audioDurationSeconds(outputPath) ?? estimatedMp3Seconds(audioBuffer);
+  const expectedDurationSeconds = estimatedSpeechSeconds(script.body);
+  validateAudioDuration({
+    actualSeconds: actualDurationSeconds,
+    expectedSeconds: expectedDurationSeconds,
+    label: `Generated audio for ${slug}`,
+  });
 
   const nextManifest = baseManifest({
     article,
@@ -634,6 +701,9 @@ export async function generateArticleAudio({
   nextManifest.approvedAt = manifest.approvedAt ?? null;
   nextManifest.chunkCount = chunks.length;
   nextManifest.chunkCharacters = chunks.map((chunk) => chunk.length);
+  nextManifest.audioDurationSeconds = Math.round(actualDurationSeconds * 100) / 100;
+  nextManifest.expectedDurationSeconds = Math.round(expectedDurationSeconds * 100) / 100;
+  nextManifest.audioDurationRatio = Math.round((actualDurationSeconds / expectedDurationSeconds) * 100) / 100;
   writeJson(audioManifestPath(articlesRoot, slug), nextManifest);
 
   return {
@@ -667,7 +737,15 @@ function statusForSlug({ articlesRoot, publicRoot, slug }) {
   const sourceHash = sha256(article.raw);
   const scriptHash = script ? sha256(script.body) : null;
   const audioExists = fs.existsSync(outputPath);
-  const audioHash = audioExists ? sha256(fs.readFileSync(outputPath)) : null;
+  const audioBuffer = audioExists ? fs.readFileSync(outputPath) : null;
+  const audioHash = audioBuffer ? sha256(audioBuffer) : null;
+  const expectedDurationSeconds = script ? estimatedSpeechSeconds(script.body) : null;
+  const actualDurationSeconds = audioBuffer
+    ? audioDurationSeconds(outputPath) ?? estimatedMp3Seconds(audioBuffer)
+    : null;
+  const audioDurationRatio = actualDurationSeconds && expectedDurationSeconds
+    ? actualDurationSeconds / expectedDurationSeconds
+    : null;
   let status = 'needs-audio-script';
 
   if (script && script.meta.sourceHash !== sourceHash) status = 'audio-script-stale';
@@ -676,6 +754,7 @@ function statusForSlug({ articlesRoot, publicRoot, slug }) {
   else if (script && manifest?.status === 'script-approved' && !audioExists) status = 'ready-for-paid-generation';
   else if (script && audioExists && manifest?.scriptHash !== scriptHash) status = 'audio-generation-stale';
   else if (script && audioExists && manifest?.audioHash !== audioHash) status = 'audio-file-changed';
+  else if (script && audioExists && audioDurationRatio && audioDurationRatio < MIN_AUDIO_DURATION_RATIO) status = 'audio-duration-short';
   else if (script && audioExists) status = 'current';
 
   return {
@@ -693,6 +772,9 @@ function statusForSlug({ articlesRoot, publicRoot, slug }) {
     publicSrc: audioExists ? `/audio/voice/blog/${slug}.mp3` : null,
     audioExists,
     audioBytes: audioExists ? fs.statSync(outputPath).size : null,
+    audioDurationSeconds: actualDurationSeconds ? Math.round(actualDurationSeconds * 100) / 100 : null,
+    expectedDurationSeconds: expectedDurationSeconds ? Math.round(expectedDurationSeconds * 100) / 100 : null,
+    audioDurationRatio: audioDurationRatio ? Math.round(audioDurationRatio * 100) / 100 : null,
     audioHash,
     quote: script ? estimateAudio(script.body) : null,
   };

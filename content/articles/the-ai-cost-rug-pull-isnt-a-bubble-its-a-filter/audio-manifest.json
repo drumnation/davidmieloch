@@ -3,20 +3,20 @@
   "slug": "the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter",
   "title": "The AI Cost Rug Pull Isn't a Bubble. It's a Filter.",
   "status": "current",
-  "sourceArticlePath": "/home/dave/platform-repos/davidmieloch-staging/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md",
+  "sourceArticlePath": "/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/index.md",
   "sourceHash": "8c77729ddd943df5f78aa4e97f1975eceeaac6416f6cef21dbe19fee013b4e43",
-  "scriptPath": "/home/dave/platform-repos/davidmieloch-staging/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio.md",
+  "scriptPath": "/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/content/articles/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter/audio.md",
   "scriptHash": "3f737d6668477eb6bdf9cab977cfa9b594341c582424eb16a8b3cf10e0191747",
-  "preparedAt": "2026-06-28T00:51:35.481Z",
+  "preparedAt": "2026-06-28T01:59:31.248Z",
   "voiceProvider": "speechify",
   "voiceId": "df8916b9-6a24-4d02-982a-39768698aea7",
   "model": "simba-english",
   "language": "en",
   "audioFormat": "mp3",
-  "outputPath": "/home/dave/platform-repos/davidmieloch-staging/public/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
+  "outputPath": "/Users/dmieloch/.config/superpowers/worktrees/david-monorepo/codex-content-launch-gate-20260628/public/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
   "publicSrc": "/audio/voice/blog/the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter.mp3",
-  "audioBytes": 4370540,
-  "audioHash": "f79d090f9fd3a87b72e9eb964adaca410f378ee6ca963840d23057b24fcd34cd",
+  "audioBytes": 7319084,
+  "audioHash": "241de81c52db50b9ba256fb0efe2b3ce57e0d1c37f9329d7c855fbaeb05a9164",
   "quote": {
     "plainCharacters": 14026,
     "ssmlCharacters": 16420,
@@ -43,10 +43,17 @@
       "ROM heartbeat"
     ]
   },
-  "generatedAt": "2026-06-28T00:51:35.481Z",
+  "generatedAt": "2026-06-28T01:59:31.248Z",
   "approvedAt": "2026-06-28T00:51:24.836Z",
-  "chunkCount": 1,
+  "chunkCount": 5,
   "chunkCharacters": [
-    16420
-  ]
+    3476,
+    3325,
+    3166,
+    3444,
+    3201
+  ],
+  "audioDurationSeconds": 914.86,
+  "expectedDurationSeconds": 922,
+  "audioDurationRatio": 0.99
 }
