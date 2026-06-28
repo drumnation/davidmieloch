@@ -68,6 +68,9 @@ import {
   runSiteReleaseLadder,
 } from './lib/site-release-ladder.mjs';
 import {
+  runContentReleaseWorkflow,
+} from './lib/content-release-workflow.mjs';
+import {
   approveArticleAudio,
   audioStatus,
   audioTranscriptStatus,
@@ -853,6 +856,17 @@ function siteReleaseStatusCommand() {
 async function siteReleaseLadderCommand(positionalSlug) {
   const options = parseCommandOptions(3);
   return runSiteReleaseLadder({
+    ...options,
+    slug: positionalSlug && !positionalSlug.startsWith('--')
+      ? positionalSlug
+      : options.slug,
+    appRoot,
+  });
+}
+
+async function contentReleaseWorkflowCommand(positionalSlug) {
+  const options = parseCommandOptions(3);
+  return runContentReleaseWorkflow({
     ...options,
     slug: positionalSlug && !positionalSlug.startsWith('--')
       ? positionalSlug
@@ -2565,6 +2579,7 @@ function usage() {
   pnpm content:pipeline queue:markdown [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10]
   pnpm content:pipeline queue:write [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10] [--output=<path>]
   pnpm content:pipeline validate
+  pnpm content:pipeline content:release-workflow <slug|--slug=<slug>> [--platforms=linkedin] [--write|--execute] [--receipt=<path>] [--release-ladder-receipt=<path>]
   pnpm content:pipeline site:release-status [--live] [--slug=<article-slug>] [--route=/path] [--staging-url=<url>] [--production-url=<url>]
   pnpm content:pipeline site:release-ladder <slug|--slug=<slug[,slug]>> [--execute] [--receipt=<path>]
   pnpm content:pipeline launch:assets [<article-slug>|all] [--slug=<article-slug,article-slug>] [--require-cover]
@@ -2636,6 +2651,7 @@ Safety:
   - linkedin:article-transfer writes local browser-transfer packets only; it does not open LinkedIn or publish.
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
+  - content:release-workflow is dry-run by default. --write regenerates local social packages/schedule only. --execute requires committed artifacts and hands off to site:release-ladder.
   - site:release-status reads local git/content state and optional live URLs only; it does not deploy.
   - site:release-ladder is dry-run by default. --execute runs launch gates, promotes main, deploys staging, verifies staging routes/RSS/audio, deploys production, verifies production routes/RSS/audio, and writes a release receipt.
   - launch:assets verifies existing release artifacts only; it does not generate audio, publish, or deploy.
@@ -2708,6 +2724,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'site:release-status') {
     return siteReleaseStatusCommand();
+  }
+  if (command === 'content:release-workflow') {
+    return contentReleaseWorkflowCommand(slug);
   }
   if (command === 'site:release-ladder') {
     return siteReleaseLadderCommand(slug);

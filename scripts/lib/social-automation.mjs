@@ -16,6 +16,18 @@ function sha256(value) {
   return crypto.createHash('sha256').update(value).digest('hex');
 }
 
+function repoRelativePath(filePath) {
+  const relativePath = path.relative(process.cwd(), filePath);
+  return relativePath.startsWith('..') || path.isAbsolute(relativePath)
+    ? filePath
+    : relativePath;
+}
+
+function resolvePackagePath(filePath) {
+  if (!filePath) return null;
+  return path.isAbsolute(filePath) ? filePath : path.resolve(process.cwd(), filePath);
+}
+
 function stableStringify(value) {
   if (Array.isArray(value)) {
     return `[${value.map((item) => stableStringify(item)).join(',')}]`;
@@ -261,7 +273,7 @@ export function buildSocialPackages({
       fs.writeFileSync(filePath, `${markdown}\n`);
       files.push({
         platform: target,
-        filePath,
+        filePath: repoRelativePath(filePath),
         checksum: sha256(markdown),
       });
     }
@@ -609,11 +621,13 @@ function socialPackagePath(entry) {
       'content/distribution/social-packages',
       entry.articleSlug,
       `${entry.platform}.md`,
-    )
+      )
     : null;
-  const candidates = [entry.packagePath, fallbackPath].filter(Boolean);
+  const candidates = [entry.packagePath, fallbackPath]
+    .filter(Boolean)
+    .map((candidate) => resolvePackagePath(candidate));
 
-  return candidates.find((candidate) => fs.existsSync(candidate)) ?? entry.packagePath ?? null;
+  return candidates.find((candidate) => fs.existsSync(candidate)) ?? resolvePackagePath(entry.packagePath);
 }
 
 export function buildPostizPushPlan({

@@ -9,7 +9,7 @@ account_kind: "existing-personal"
 known_state: "exists"
 postiz_channel_status: "connected"
 test_post_policy: "no-public-test-posts"
-generated_at: "2026-06-07T04:44:07.235Z"
+generated_at: "2026-06-28T14:08:13.048Z"
 public_publish_allowed: false
 credential_custody_verified: false
 ---
