@@ -58,6 +58,18 @@ describe('site release ladder', () => {
       'pnpm content:pipeline launch:assets the-ai-cost-rug-pull-isnt-a-bubble-its-a-filter',
     );
     expect(plan.commands.releaseStatus).toContain('site:release-status --live');
+    expect(plan.steps.find((step) => step.id === 'verify-staging')).toMatchObject({
+      retryPolicy: {
+        attempts: 12,
+        intervalMs: 5000,
+      },
+    });
+    expect(plan.steps.find((step) => step.id === 'verify-production')).toMatchObject({
+      retryPolicy: {
+        attempts: 12,
+        intervalMs: 5000,
+      },
+    });
   });
 
   it('requires explicit slug targeting before building a release ladder', () => {

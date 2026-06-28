@@ -14,6 +14,10 @@ const DEFAULT_PRODUCTION_DIR = '/home/dave/platform-repos/davidmieloch-productio
 const DEFAULT_STAGING_SERVICE = 'davidmieloch-staging.service';
 const DEFAULT_PRODUCTION_SERVICE = 'davidmieloch-production.service';
 const DEFAULT_BACKUP_ROOT = '/home/dave/platform-repos/backups';
+const DEFAULT_VERIFY_RETRY_POLICY = {
+  attempts: 12,
+  intervalMs: 5000,
+};
 
 export const RELEASE_LADDER_STEP_IDS = [
   'asset-gates',
@@ -175,6 +179,7 @@ export function buildSiteReleaseLadderPlan(config) {
       environment: config.staging.baseUrl,
       mutates: false,
       routes,
+      retryPolicy: DEFAULT_VERIFY_RETRY_POLICY,
     },
     {
       id: 'deploy-production',
@@ -190,6 +195,7 @@ export function buildSiteReleaseLadderPlan(config) {
       environment: config.production.baseUrl,
       mutates: false,
       routes,
+      retryPolicy: DEFAULT_VERIFY_RETRY_POLICY,
     },
     {
       id: 'release-status',
@@ -426,6 +432,46 @@ function verifyLiveSurface(environment, config) {
       routeChecks.every((check) => check.ok)
       && rss.ok
       && audio.every((check) => check.ok),
+  };
+}
+
+function waitForRetry(intervalMs) {
+  if (intervalMs <= 0) return;
+  spawnCommand('sleep', [String(intervalMs / 1000)]);
+}
+
+function verifyLiveSurfaceWithRetry(environment, config, retryPolicy = DEFAULT_VERIFY_RETRY_POLICY) {
+  const attempts = [];
+  let latestSurface = null;
+
+  for (let attempt = 1; attempt <= retryPolicy.attempts; attempt += 1) {
+    latestSurface = verifyLiveSurface(environment, config);
+    attempts.push({
+      attempt,
+      checkedAt: new Date().toISOString(),
+      ok: latestSurface.ok,
+      failedRoutes: latestSurface.routes.filter((route) => !route.ok).map((route) => route.url),
+      missingRssSlugs: latestSurface.rss.missingSlugs ?? [],
+      failedAudio: latestSurface.audio.filter((audio) => !audio.ok).map((audio) => audio.url),
+    });
+
+    if (latestSurface.ok) {
+      return {
+        ...latestSurface,
+        retryPolicy,
+        attempts,
+      };
+    }
+
+    if (attempt < retryPolicy.attempts) {
+      waitForRetry(retryPolicy.intervalMs);
+    }
+  }
+
+  return {
+    ...latestSurface,
+    retryPolicy,
+    attempts,
   };
 }
 
@@ -669,11 +715,11 @@ export async function runSiteReleaseLadder(options = {}) {
     }
 
     deployments.staging = runRemoteDeploy(config, config.staging, git.targetSha);
-    checks.staging = verifyLiveSurface(config.staging, config);
+    checks.staging = verifyLiveSurfaceWithRetry(config.staging, config);
     assertLiveSurface(checks.staging, 'staging');
 
     deployments.production = runRemoteDeploy(config, config.production, git.targetSha);
-    checks.production = verifyLiveSurface(config.production, config);
+    checks.production = verifyLiveSurfaceWithRetry(config.production, config);
     assertLiveSurface(checks.production, 'production');
 
     for (const slug of config.slugs) {
