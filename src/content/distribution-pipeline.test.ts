@@ -58,9 +58,11 @@ import {
 import {
   approveArticleAudio,
   audioStatus,
+  audioTranscriptStatus,
   generateArticleAudio,
   prepareArticleAudio,
   quoteArticleAudio,
+  verifyArticleAudioTranscript,
   writeGeneratedBlogVoiceTracks,
 } from '../../scripts/lib/audio-narration.mjs';
 import {
@@ -108,6 +110,23 @@ type AudioGenerateOptions = {
 };
 
 type AudioStatusOptions = {
+  articlesRoot: string;
+  publicRoot: string;
+  slug?: string;
+};
+
+type AudioTranscriptVerifyOptions = {
+  articlesRoot: string;
+  publicRoot: string;
+  slug: string;
+  transcript: string;
+  provider?: string;
+  model?: string;
+  generatedAt?: string;
+  failOnMismatch?: boolean;
+};
+
+type AudioTranscriptStatusOptions = {
   articlesRoot: string;
   publicRoot: string;
   slug?: string;
@@ -250,6 +269,12 @@ const quoteAudio = quoteArticleAudio as unknown as (
 const statusAudio = audioStatus as unknown as (
   options: AudioStatusOptions
 ) => ReturnType<typeof audioStatus>;
+const verifyTranscript = verifyArticleAudioTranscript as unknown as (
+  options: AudioTranscriptVerifyOptions
+) => ReturnType<typeof verifyArticleAudioTranscript>;
+const statusTranscript = audioTranscriptStatus as unknown as (
+  options: AudioTranscriptStatusOptions
+) => ReturnType<typeof audioTranscriptStatus>;
 const generateAudio = generateArticleAudio as unknown as (
   options: AudioGenerateOptions
 ) => ReturnType<typeof generateArticleAudio>;
@@ -413,6 +438,18 @@ Read more at https://example.com/nope.
 The PRD gives the agent a target. The CLI gives the human a fallback.
 `,
   );
+}
+
+function writeAudioFileFixture(root: string, slug = 'the-factory', body = 'fixture audio') {
+  const audioDirectory = join(root, 'public/audio/voice/blog');
+  mkdirSync(audioDirectory, { recursive: true });
+  writeFileSync(join(audioDirectory, `${slug}.mp3`), body);
+}
+
+function readAudioScriptBody(root: string, slug = 'the-factory') {
+  return readFileSync(join(root, 'content/articles', slug, 'audio.md'), 'utf8')
+    .replace(/^---\n[\s\S]*?\n---\n\n?/, '')
+    .trim();
 }
 
 function writeFetchStub(root: string, capturePath: string) {
@@ -3113,6 +3150,78 @@ describe('article audio narration pipeline', () => {
       spendApproved: false,
       voiceId: 'voice-id',
     })).rejects.toThrow('requires --spend-approved');
+  });
+
+  it('requires transcript proof before audio can be considered launch-current', () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    writeAudioArticleFixture(root);
+    prepareAudio({ articlesRoot, slug: 'the-factory' });
+    writeAudioFileFixture(root);
+
+    expect(statusTranscript({ articlesRoot, publicRoot, slug: 'the-factory' }).articles[0]).toMatchObject({
+      status: 'needs-transcript-verification',
+    });
+  });
+
+  it('rejects transcript proof when the audio transcript is missing the ending', () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    writeAudioArticleFixture(root);
+    prepareAudio({ articlesRoot, slug: 'the-factory' });
+    writeAudioFileFixture(root);
+    const scriptBody = readAudioScriptBody(root);
+    const cutOffTranscript = scriptBody.split(/\s+/).slice(0, 12).join(' ');
+
+    expect(() => verifyTranscript({
+      articlesRoot,
+      publicRoot,
+      slug: 'the-factory',
+      transcript: cutOffTranscript,
+      provider: 'test',
+      model: 'fixture',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    })).toThrow('Transcript verification failed');
+    expect(statusTranscript({ articlesRoot, publicRoot, slug: 'the-factory' }).articles[0]).toMatchObject({
+      status: 'audio-transcript-failed',
+    });
+  });
+
+  it('marks transcript proof current only while script and audio hashes still match', () => {
+    const root = tempRoot();
+    const articlesRoot = join(root, 'content/articles');
+    const publicRoot = join(root, 'public');
+    writeAudioArticleFixture(root);
+    prepareAudio({ articlesRoot, slug: 'the-factory' });
+    writeAudioFileFixture(root);
+    const scriptBody = readAudioScriptBody(root);
+
+    const verification = verifyTranscript({
+      articlesRoot,
+      publicRoot,
+      slug: 'the-factory',
+      transcript: scriptBody,
+      provider: 'test',
+      model: 'fixture',
+      generatedAt: '2026-06-05T00:00:00.000Z',
+    });
+
+    expect(verification.comparison).toMatchObject({
+      status: 'PASS',
+      tailCoveragePass: true,
+    });
+    expect(statusTranscript({ articlesRoot, publicRoot, slug: 'the-factory' }).articles[0]).toMatchObject({
+      status: 'current',
+    });
+
+    writeAudioFileFixture(root, 'the-factory', 'changed fixture audio');
+
+    expect(statusTranscript({ articlesRoot, publicRoot, slug: 'the-factory' }).articles[0]).toMatchObject({
+      status: 'audio-transcript-stale',
+      staleReasons: ['audio-hash-mismatch'],
+    });
   });
 
   it('writes a generated MP3 and native blog voice track after approved generation', async () => {

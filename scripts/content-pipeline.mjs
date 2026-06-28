@@ -67,11 +67,14 @@ import {
 import {
   approveArticleAudio,
   audioStatus,
+  audioTranscriptStatus,
   buildAudioBook,
   generateArticleAudio,
   normalizeAudioCollectionId,
   prepareArticleAudio,
   quoteArticleAudio,
+  transcribeArticleAudio,
+  verifyArticleAudioTranscript,
   writeGeneratedBlogVoiceTracks,
 } from './lib/audio-narration.mjs';
 import {
@@ -929,6 +932,8 @@ function articleLaunchAssetStatus(slug, options = {}) {
 
   const statusReport = audioStatus({ articlesRoot, publicRoot, slug });
   const narration = statusReport.articles?.[0] ?? null;
+  const transcriptReport = audioTranscriptStatus({ articlesRoot, publicRoot, slug });
+  const transcript = transcriptReport.articles?.[0] ?? null;
   const audioPath = narration?.outputPath ?? path.join(publicRoot, 'audio/voice/blog', `${slug}.mp3`);
   const coverImage = article.meta.coverImage ?? null;
   const coverPath = coverImage ? resolvePublicAssetPath(coverImage) : null;
@@ -954,6 +959,12 @@ function articleLaunchAssetStatus(slug, options = {}) {
       path: audioPath,
       bytes: narration?.audioBytes ?? 0,
       publicSrc: narration?.publicSrc ?? null,
+    }),
+    launchAssetCheck('audio-transcript-current', transcript?.status === 'current', {
+      path: transcript?.transcriptPath ?? path.join(articlesRoot, slug, 'audio-transcript.json'),
+      status: transcript?.status ?? null,
+      staleReasons: transcript?.staleReasons ?? [],
+      comparison: transcript?.comparison ?? null,
     }),
     launchAssetCheck('generated-audio-track', generatedTrackExists(slug, narration?.publicSrc), {
       path: generatedBlogVoiceTracksPath,
@@ -1027,6 +1038,7 @@ function launchAssetsCommand(slug) {
         'content/articles/<slug>/index.md',
         'content/articles/<slug>/audio.md',
         'content/articles/<slug>/audio-manifest.json',
+        'content/articles/<slug>/audio-transcript.json',
         'public/audio/voice/blog/<slug>.mp3',
         'generatedBlogVoiceTracks.ts',
       ],
@@ -2260,6 +2272,14 @@ function audioStatusCommand(slug) {
   });
 }
 
+function audioTranscriptStatusCommand(slug) {
+  return audioTranscriptStatus({
+    articlesRoot,
+    publicRoot,
+    slug: slug ?? 'all',
+  });
+}
+
 function audioQuoteCommand(slug) {
   if (!slug) throw new Error('audio:quote requires <slug>.');
   return quoteArticleAudio({
@@ -2278,6 +2298,39 @@ function audioTracksCommand() {
       outputPath: generatedBlogVoiceTracksPath,
     }),
   };
+}
+
+async function audioTranscribeVerifyCommand(slug) {
+  if (!slug) throw new Error('audio:transcribe-verify requires <slug>.');
+  const options = parseCommandOptions(3);
+  const transcriptFile = options['transcript-file'] ?? options['transcript-json'];
+  if (transcriptFile) {
+    const transcriptPath = path.resolve(appRoot, transcriptFile);
+    const rawTranscript = fs.readFileSync(transcriptPath, 'utf8');
+    const transcript = transcriptPath.endsWith('.json')
+      ? JSON.parse(rawTranscript).text
+      : rawTranscript;
+    if (!transcript) {
+      throw new Error(`Transcript file did not include text: ${transcriptPath}`);
+    }
+    return verifyArticleAudioTranscript({
+      articlesRoot,
+      publicRoot,
+      slug,
+      transcript,
+      provider: options.provider ?? 'external-transcript',
+      model: options.model ?? 'unknown',
+    });
+  }
+
+  return transcribeArticleAudio({
+    articlesRoot,
+    publicRoot,
+    slug,
+    spendApproved: Boolean(options['spend-approved']),
+    force: Boolean(options.force),
+    model: options.model,
+  });
 }
 
 function audioBookCommand(collectionId = 'all') {
@@ -2541,8 +2594,11 @@ function usage() {
   pnpm content:pipeline audio:prepare <slug> [--force]
   pnpm content:pipeline audio:approve <slug>
   pnpm content:pipeline audio:status [slug|all]
+  pnpm content:pipeline audio:transcript-status [slug|all]
   pnpm content:pipeline audio:quote <slug>
   pnpm content:pipeline audio:generate <slug> --spend-approved [--voice-id=<id>] [--force]
+  pnpm content:pipeline audio:transcribe-verify <slug> --spend-approved [--model=<model>] [--force]
+  pnpm content:pipeline audio:transcribe-verify <slug> --transcript-file=<path.json|path.txt> [--provider=<name>] [--model=<name>]
   pnpm content:pipeline audio:tracks
   pnpm content:pipeline audio:book [all|series-slug] [--series=<name>] [--title=<name>] [--write]
 
@@ -2568,8 +2624,9 @@ Safety:
   - launch:assets verifies existing release artifacts only; it does not generate audio, publish, or deploy.
   - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
   - social:postiz:push renders a dry-run Postiz draft plan from connected channels; --dry-run=false creates Postiz DRAFT records only and requires POSTIZ_API_KEY.
-  - audio:prepare, audio:approve, audio:status, audio:quote, and audio:tracks do not call Speechify.
+  - audio:prepare, audio:approve, audio:status, audio:transcript-status, audio:quote, and audio:tracks do not call paid APIs.
   - audio:generate calls Speechify only with --spend-approved and requires an approved audio script.
+  - audio:transcribe-verify calls OpenAI transcription only with --spend-approved, or verifies an existing transcript file without a paid API call.
   - audio:book does not call Speechify; --write concatenates already-current article MP3 files.
   - Medium, LinkedIn, HackerNoon, DZone, and Substack remain browser/editorial workflows.
   - No command in this script publishes public content.
@@ -2731,11 +2788,17 @@ async function runCommand(command, slug) {
   if (command === 'audio:status') {
     return audioStatusCommand(slug);
   }
+  if (command === 'audio:transcript-status') {
+    return audioTranscriptStatusCommand(slug);
+  }
   if (command === 'audio:quote') {
     return audioQuoteCommand(slug);
   }
   if (command === 'audio:generate') {
     return audioGenerateCommand(slug);
+  }
+  if (command === 'audio:transcribe-verify') {
+    return audioTranscribeVerifyCommand(slug);
   }
   if (command === 'audio:tracks') {
     return audioTracksCommand();

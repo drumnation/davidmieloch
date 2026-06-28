@@ -13,6 +13,7 @@ For each published article:
 - Article: `content/articles/<slug>/index.md`
 - Spoken script: `content/articles/<slug>/audio.md`
 - Manifest: `content/articles/<slug>/audio-manifest.json`
+- Transcript proof: `content/articles/<slug>/audio-transcript.json`
 - MP3: `public/audio/voice/blog/<slug>.mp3`
 - Player registry: `src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts`
 
@@ -41,13 +42,19 @@ pnpm content:pipeline audio:approve <slug>
 pnpm content:pipeline audio:generate <slug> --spend-approved
 ```
 
-7. Refresh generated player tracks:
+7. Transcribe and verify the generated MP3 against `audio.md`:
+
+```bash
+pnpm content:pipeline audio:transcribe-verify <slug> --spend-approved
+```
+
+8. Refresh generated player tracks:
 
 ```bash
 pnpm content:pipeline audio:tracks
 ```
 
-8. Run the launch gate:
+9. Run the launch gate:
 
 ```bash
 pnpm content:launch-gate <slug>
@@ -55,6 +62,6 @@ pnpm content:launch-gate <slug>
 
 ## Gate Behavior
 
-`content:launch-gate` is verification only. It does not call Speechify, publish to social platforms, or deploy the site.
+`content:launch-gate` is verification only. It does not call Speechify, call OpenAI transcription, publish to social platforms, or deploy the site.
 
-CI runs the gate for changed article/audio assets. If a post is missing the script, manifest, MP3, or generated track entry, CI fails before merge/promotion.
+CI runs the gate for changed article/audio assets. If a post is missing the script, manifest, MP3, transcript proof, or generated track entry, CI fails before merge/promotion.

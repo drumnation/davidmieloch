@@ -16,6 +16,7 @@ Audio artifacts:
 
 - `content/articles/<slug>/audio.md`
 - `content/articles/<slug>/audio-manifest.json`
+- `content/articles/<slug>/audio-transcript.json`
 - `public/audio/voice/blog/<slug>.mp3`
 - `src/shared-components/organisms/Footer/components/dual-audio/playlists/generatedBlogVoiceTracks.ts`
 
@@ -50,13 +51,32 @@ SPEECHIFY_VOICE_ID="$SPEECHIFY_VOICE_ID" \
 pnpm content:pipeline audio:generate <slug> --spend-approved
 ```
 
-5. Commit the MP3 and manifest:
+5. Transcribe and verify the generated MP3 against the spoken script:
+
+```bash
+OPENAI_API_KEY="$(op read '<1password item field>')" \
+pnpm content:pipeline audio:transcribe-verify <slug> --spend-approved
+```
+
+This writes `audio-transcript.json` with the transcription text, script/audio hashes, word-count ratio, ordered coverage, and ending coverage. A transcript that cuts off before the article ends fails the command.
+
+If OpenAI quota is blocked or you want GPU transcription, run Whisper on Singularity One/Dawn against the exact branch MP3, copy back the JSON, then verify it locally:
+
+```bash
+pnpm content:pipeline audio:transcribe-verify <slug> \
+  --transcript-file=/tmp/<slug>.json \
+  --provider=singularity-one-whisper \
+  --model=turbo
+```
+
+6. Check audio and transcript status:
 
 ```bash
 pnpm content:pipeline audio:status <slug>
+pnpm content:pipeline audio:transcript-status <slug>
 ```
 
-6. Refresh generated player tracks:
+7. Refresh generated player tracks:
 
 ```bash
 pnpm content:pipeline audio:tracks
@@ -75,10 +95,12 @@ The release order is:
 5. Review the spoken version for awkward TTS phrasing.
 6. Approve the script.
 7. Generate the paid MP3 once.
+8. Transcribe and verify the MP3 against `audio.md`.
 
 This keeps Speechify spend at the end of the pipeline. If the article changes
 after generation, `audio:status` marks the audio stale by comparing the
-article hash, script hash, and MP3 hash.
+article hash, script hash, and MP3 hash. If the MP3 or script changes after
+transcription, `audio:transcript-status` marks the transcript proof stale.
 
 ## Audiobook Pipeline
 
@@ -128,16 +150,19 @@ Published canonical articles must pass the release-asset gate before promotion:
 pnpm content:launch-gate <slug>
 ```
 
-The gate verifies the article, spoken script, manifest hashes, MP3, generated player track, and any declared `coverImage`. It does not call Speechify or deploy.
+The gate verifies the article, spoken script, manifest hashes, MP3, transcript proof, generated player track, and any declared `coverImage`. It does not call Speechify, call OpenAI transcription, or deploy.
 
 CI runs this gate for changed article/audio assets so a post cannot be promoted with missing narration artifacts by accident.
 
 ## Safety
 
-- `audio:prepare`, `audio:approve`, `audio:status`, `audio:quote`, and `audio:tracks` do not call Speechify.
+- `audio:prepare`, `audio:approve`, `audio:status`, `audio:transcript-status`, `audio:quote`, and `audio:tracks` do not call paid APIs.
 - `audio:generate` refuses unless `--spend-approved` is present.
 - `audio:generate` refuses unless `audio:approve` has marked the script approved.
+- `audio:transcribe-verify` refuses paid API transcription unless `--spend-approved` is present and `OPENAI_API_KEY` is available.
+- `audio:transcribe-verify --transcript-file=<path>` verifies an existing transcript generated elsewhere without calling a paid API.
 - `audio:book` does not call Speechify; it concatenates already-approved MP3 files.
 - If `index.md` changes, `audio:status` marks the script stale.
 - If `audio.md` changes after MP3 generation, `audio:status` marks the MP3 stale.
+- If the MP3 or `audio.md` changes after transcription, `audio:transcript-status` marks the transcript proof stale.
 - API keys and voice IDs should come from environment variables or 1Password, not committed files.

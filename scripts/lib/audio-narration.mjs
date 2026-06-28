@@ -4,12 +4,19 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const AUDIO_SCHEMA_VERSION = 'article-audio-v1';
+const AUDIO_TRANSCRIPT_SCHEMA_VERSION = 'article-audio-transcript-v1';
 const SPEECHIFY_STREAM_ENDPOINT = 'https://api.speechify.ai/v1/audio/stream';
+const OPENAI_TRANSCRIPTION_ENDPOINT = 'https://api.openai.com/v1/audio/transcriptions';
 const DEFAULT_MODEL = 'simba-english';
+const DEFAULT_TRANSCRIPTION_MODEL = 'gpt-4o-transcribe';
 const DEFAULT_LANGUAGE = 'en';
 const MAX_STREAM_CHARS = 20000;
 const GENERATION_CHUNK_CHARS = 3500;
 const MIN_AUDIO_DURATION_RATIO = 0.7;
+const MIN_TRANSCRIPT_WORD_RATIO = 0.8;
+const MAX_TRANSCRIPT_WORD_RATIO = 1.25;
+const MIN_TRANSCRIPT_ORDERED_COVERAGE = 0.72;
+const MIN_TRANSCRIPT_TAIL_COVERAGE = 0.68;
 const MP3_BYTES_PER_SECOND = 8000;
 
 function sha256(value) {
@@ -87,6 +94,10 @@ function audioManifestPath(articlesRoot, slug) {
   return path.join(articlesRoot, slug, 'audio-manifest.json');
 }
 
+function audioTranscriptPath(articlesRoot, slug) {
+  return path.join(articlesRoot, slug, 'audio-transcript.json');
+}
+
 function audioOutputPath(publicRoot, slug) {
   return path.join(publicRoot, 'audio', 'voice', 'blog', `${slug}.mp3`);
 }
@@ -117,6 +128,12 @@ function readAudioScript(articlesRoot, slug) {
 
 function readManifest(articlesRoot, slug) {
   const filePath = audioManifestPath(articlesRoot, slug);
+  if (!fs.existsSync(filePath)) return null;
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+function readTranscriptVerification(articlesRoot, slug) {
+  const filePath = audioTranscriptPath(articlesRoot, slug);
   if (!fs.existsSync(filePath)) return null;
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
@@ -317,6 +334,81 @@ function estimatedSpeechSeconds(value) {
 
 function estimatedMp3Seconds(buffer) {
   return buffer.length / MP3_BYTES_PER_SECOND;
+}
+
+function roundMetric(value) {
+  return Number.isFinite(value) ? Math.round(value * 1000) / 1000 : 0;
+}
+
+function comparisonWords(value) {
+  return String(value)
+    .replace(/\b((?:[a-z]\.){2,})/gi, (match) => match.replace(/\./g, ''))
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9']+/g, ' ')
+    .split(/\s+/)
+    .map((word) => word.replace(/^'+|'+$/g, ''))
+    .filter(Boolean);
+}
+
+function orderedCoverage(sourceWords, transcriptWords) {
+  if (sourceWords.length === 0) return 1;
+  if (transcriptWords.length === 0) return 0;
+
+  let previous = new Uint32Array(transcriptWords.length + 1);
+  let current = new Uint32Array(transcriptWords.length + 1);
+
+  for (const sourceWord of sourceWords) {
+    for (let index = 0; index < transcriptWords.length; index += 1) {
+      current[index + 1] = sourceWord === transcriptWords[index]
+        ? previous[index] + 1
+        : Math.max(previous[index + 1], current[index]);
+    }
+    [previous, current] = [current, previous];
+    current.fill(0);
+  }
+
+  return previous[transcriptWords.length] / sourceWords.length;
+}
+
+function compareTranscriptToScript(scriptBody, transcript) {
+  const scriptWords = comparisonWords(scriptBody);
+  const transcriptWords = comparisonWords(transcript);
+  const wordCountRatio = scriptWords.length > 0
+    ? transcriptWords.length / scriptWords.length
+    : 0;
+  const ordered = orderedCoverage(scriptWords, transcriptWords);
+  const tailSize = Math.min(
+    scriptWords.length,
+    Math.max(20, Math.ceil(scriptWords.length * 0.12)),
+  );
+  const tailWords = tailSize > 0 ? scriptWords.slice(-tailSize) : [];
+  const tailCoverage = orderedCoverage(tailWords, transcriptWords);
+  const wordRatioPass = wordCountRatio >= MIN_TRANSCRIPT_WORD_RATIO
+    && wordCountRatio <= MAX_TRANSCRIPT_WORD_RATIO;
+  const orderedCoveragePass = ordered >= MIN_TRANSCRIPT_ORDERED_COVERAGE;
+  const tailCoveragePass = tailCoverage >= MIN_TRANSCRIPT_TAIL_COVERAGE;
+  const status = wordRatioPass && orderedCoveragePass && tailCoveragePass
+    ? 'PASS'
+    : 'FAIL';
+
+  return {
+    status,
+    scriptWordCount: scriptWords.length,
+    transcriptWordCount: transcriptWords.length,
+    wordCountRatio: roundMetric(wordCountRatio),
+    orderedCoverage: roundMetric(ordered),
+    tailCoverage: roundMetric(tailCoverage),
+    wordRatioPass,
+    orderedCoveragePass,
+    tailCoveragePass,
+    thresholds: {
+      minWordCountRatio: MIN_TRANSCRIPT_WORD_RATIO,
+      maxWordCountRatio: MAX_TRANSCRIPT_WORD_RATIO,
+      minOrderedCoverage: MIN_TRANSCRIPT_ORDERED_COVERAGE,
+      minTailCoverage: MIN_TRANSCRIPT_TAIL_COVERAGE,
+    },
+  };
 }
 
 function audioDurationSeconds(filePath) {
@@ -727,6 +819,207 @@ export function quoteArticleAudio({ articlesRoot, slug }) {
     quote: estimateAudio(script.body),
     status: script.meta.status ?? 'unknown',
   };
+}
+
+export function verifyArticleAudioTranscript({
+  articlesRoot,
+  publicRoot,
+  slug,
+  transcript,
+  provider = 'manual',
+  model = 'unknown',
+  generatedAt = new Date().toISOString(),
+  failOnMismatch = true,
+} = {}) {
+  const article = readArticle(articlesRoot, slug);
+  const script = readAudioScript(articlesRoot, slug);
+  if (!script) throw new Error(`Missing audio script for "${slug}". Run audio:prepare first.`);
+
+  const outputPath = audioOutputPath(publicRoot, slug);
+  if (!fs.existsSync(outputPath)) {
+    throw new Error(`Missing generated MP3 for "${slug}": ${outputPath}`);
+  }
+
+  const audioBuffer = fs.readFileSync(outputPath);
+  const audioSeconds = audioDurationSeconds(outputPath) ?? estimatedMp3Seconds(audioBuffer);
+  const expectedSeconds = estimatedSpeechSeconds(script.body);
+  const comparison = compareTranscriptToScript(script.body, transcript);
+  const payload = {
+    schemaVersion: AUDIO_TRANSCRIPT_SCHEMA_VERSION,
+    slug,
+    title: article.meta.title,
+    status: comparison.status === 'PASS' ? 'current' : 'failed',
+    generatedAt,
+    provider,
+    model,
+    sourceArticlePath: article.path,
+    sourceHash: sha256(article.raw),
+    scriptPath: script.path,
+    scriptHash: sha256(script.body),
+    audioPath: outputPath,
+    audioBytes: audioBuffer.length,
+    audioHash: sha256(audioBuffer),
+    audioDurationSeconds: Math.round(audioSeconds * 100) / 100,
+    expectedDurationSeconds: Math.round(expectedSeconds * 100) / 100,
+    transcriptHash: sha256(transcript),
+    transcript,
+    comparison,
+  };
+
+  writeJson(audioTranscriptPath(articlesRoot, slug), payload);
+
+  if (comparison.status !== 'PASS' && failOnMismatch) {
+    const error = new Error(`Transcript verification failed for "${slug}".`);
+    error.payload = payload;
+    throw error;
+  }
+
+  return payload;
+}
+
+function transcriptStatusForSlug({ articlesRoot, publicRoot, slug }) {
+  const article = readArticle(articlesRoot, slug);
+  const script = readAudioScript(articlesRoot, slug);
+  const outputPath = audioOutputPath(publicRoot, slug);
+  const transcriptPath = audioTranscriptPath(articlesRoot, slug);
+  const transcriptVerification = readTranscriptVerification(articlesRoot, slug);
+  const audioExists = fs.existsSync(outputPath);
+  const audioBuffer = audioExists ? fs.readFileSync(outputPath) : null;
+  const audioHash = audioBuffer ? sha256(audioBuffer) : null;
+  const scriptHash = script ? sha256(script.body) : null;
+  const staleReasons = [];
+
+  if (transcriptVerification && scriptHash && transcriptVerification.scriptHash !== scriptHash) {
+    staleReasons.push('script-hash-mismatch');
+  }
+  if (transcriptVerification && audioHash && transcriptVerification.audioHash !== audioHash) {
+    staleReasons.push('audio-hash-mismatch');
+  }
+
+  let status = 'needs-audio-script';
+  if (script && !audioExists) status = 'needs-audio-file';
+  else if (script && audioExists && !transcriptVerification) status = 'needs-transcript-verification';
+  else if (script && audioExists && staleReasons.length > 0) status = 'audio-transcript-stale';
+  else if (script && audioExists && transcriptVerification?.comparison?.status !== 'PASS') status = 'audio-transcript-failed';
+  else if (script && audioExists) status = 'current';
+
+  return {
+    slug,
+    title: article.meta.title,
+    status,
+    transcriptPath,
+    transcriptExists: Boolean(transcriptVerification),
+    provider: transcriptVerification?.provider ?? null,
+    model: transcriptVerification?.model ?? null,
+    scriptHash,
+    transcriptScriptHash: transcriptVerification?.scriptHash ?? null,
+    audioHash,
+    transcriptAudioHash: transcriptVerification?.audioHash ?? null,
+    staleReasons,
+    comparison: transcriptVerification?.comparison ?? null,
+  };
+}
+
+export function audioTranscriptStatus({ articlesRoot, publicRoot, slug }) {
+  const slugs = slug === 'all' || !slug ? articleSlugs(articlesRoot) : [slug];
+  const articles = slugs.map((articleSlug) => transcriptStatusForSlug({
+    articlesRoot,
+    publicRoot,
+    slug: articleSlug,
+  }));
+  const summary = articles.reduce((acc, item) => {
+    acc[item.status] ??= 0;
+    acc[item.status] += 1;
+    return acc;
+  }, {});
+
+  return {
+    generatedAt: new Date().toISOString(),
+    publicPublishingPerformed: false,
+    paidGenerationPerformed: false,
+    summary,
+    articles,
+    observation: {
+      claim: 'article narration transcript proof matches current audio script and MP3 checksums',
+      status: Object.keys(summary).length === 1 && summary.current ? 'PASS' : 'DEGRADED',
+      fallbackChain: [
+        'audio-transcript.json source and audio hashes',
+        'transcript coverage comparison',
+        'public/audio/voice/blog MP3 checksum',
+        'ROM heartbeat',
+      ],
+    },
+  };
+}
+
+export async function transcribeArticleAudio({
+  articlesRoot,
+  publicRoot,
+  slug,
+  spendApproved = false,
+  force = false,
+  model = DEFAULT_TRANSCRIPTION_MODEL,
+  generatedAt = new Date().toISOString(),
+} = {}) {
+  if (!spendApproved) {
+    throw new Error('audio:transcribe-verify requires --spend-approved because transcription costs money.');
+  }
+
+  const existingStatus = transcriptStatusForSlug({ articlesRoot, publicRoot, slug });
+  if (existingStatus.status === 'current' && !force) {
+    return {
+      slug,
+      action: 'skipped-current-transcript-verification',
+      transcriptPath: existingStatus.transcriptPath,
+      status: existingStatus,
+    };
+  }
+
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error('Missing OPENAI_API_KEY.');
+  }
+
+  const outputPath = audioOutputPath(publicRoot, slug);
+  if (!fs.existsSync(outputPath)) {
+    throw new Error(`Missing generated MP3 for "${slug}": ${outputPath}`);
+  }
+
+  const form = new FormData();
+  const audioBuffer = fs.readFileSync(outputPath);
+  form.append('model', model);
+  form.append('response_format', 'json');
+  form.append('file', new Blob([audioBuffer], { type: 'audio/mpeg' }), `${slug}.mp3`);
+
+  const response = await fetch(OPENAI_TRANSCRIPTION_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+    },
+    body: form,
+  });
+
+  const contentType = response.headers.get('content-type') ?? '';
+  if (!response.ok) {
+    const errorBody = contentType.includes('application/json')
+      ? JSON.stringify(await response.json())
+      : await response.text();
+    throw new Error(`OpenAI transcription API ${response.status}: ${errorBody}`);
+  }
+
+  const result = await response.json();
+  if (!result.text) {
+    throw new Error('OpenAI transcription response did not include text.');
+  }
+
+  return verifyArticleAudioTranscript({
+    articlesRoot,
+    publicRoot,
+    slug,
+    transcript: result.text,
+    provider: 'openai',
+    model,
+    generatedAt,
+  });
 }
 
 function statusForSlug({ articlesRoot, publicRoot, slug }) {

@@ -40,6 +40,7 @@ Published canonical articles must have generated launch assets before promotion:
 
 - `content/articles/<slug>/audio.md`
 - `content/articles/<slug>/audio-manifest.json` with current hashes
+- `content/articles/<slug>/audio-transcript.json` with current script/audio hashes and passing coverage
 - `public/audio/voice/blog/<slug>.mp3`
 - `generatedBlogVoiceTracks.ts` entry for the article slug and MP3
 - Declared `coverImage` assets must resolve under `public`
@@ -56,7 +57,7 @@ Run without a slug to verify every local published article:
 pnpm content:launch-gate
 ```
 
-The gate does not generate paid audio or deploy. It only blocks promotion when required artifacts are missing or stale.
+The gate does not generate paid audio, run paid transcription, or deploy. It only blocks promotion when required artifacts are missing or stale.
 
 ## Promotion Gates
 
@@ -145,7 +146,7 @@ branch ahead main -> staging status -> production status -> next promotion actio
 ## Safe Defaults
 
 - `release:status` never deploys or publishes.
-- `content:launch-gate` never generates paid audio, publishes, or deploys.
+- `content:launch-gate` never generates paid audio, runs paid transcription, publishes, or deploys.
 - Public social posting remains governed by the content distribution approval seam.
 - DNS or host cutover remains governed by `docs/ops/site-cutover.md`.
 - If staging and production disagree, report disagreement instead of collapsing it into generic success.
