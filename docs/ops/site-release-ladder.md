@@ -18,6 +18,34 @@ If a step has no evidence, the step did not happen.
 
 Use the in-app browser on staging for visual/content review. Use production only for final live verification after promotion.
 
+## One-Command Release Ladder
+
+Use the release ladder instead of manually hopping between branch, staging, and production:
+
+```bash
+pnpm site:release-ladder --slug=<article-slug>
+```
+
+Default mode is a dry run. It prints the promotion path and does not push, deploy, restart services, or write a receipt. To perform the release:
+
+```bash
+pnpm site:release-ladder --slug=<article-slug> --execute
+```
+
+Execution refuses a dirty local worktree, runs `launch:assets`, fast-forwards `main`, backs up and deploys staging, verifies staging routes/RSS/audio, backs up and deploys production, verifies production routes/RSS/audio, runs live release status, and writes a JSON receipt under:
+
+```text
+content/distribution/release-receipts/
+```
+
+Use comma-separated slugs for a bundled article release:
+
+```bash
+pnpm site:release-ladder --slug=slug-one,slug-two --execute
+```
+
+If the command fails, it still writes a failed receipt with the step evidence gathered before the failure.
+
 ## Canonical Content Rule
 
 Draft previews are not posts. A post is not launched on the website until it exists as:
@@ -146,6 +174,7 @@ branch ahead main -> staging status -> production status -> next promotion actio
 ## Safe Defaults
 
 - `release:status` never deploys or publishes.
+- `site:release-ladder` is dry-run by default and requires `--execute` for push/deploy/restart.
 - `content:launch-gate` never generates paid audio, runs paid transcription, publishes, or deploys.
 - Public social posting remains governed by the content distribution approval seam.
 - DNS or host cutover remains governed by `docs/ops/site-cutover.md`.

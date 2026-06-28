@@ -21,6 +21,7 @@
     "content:pipeline": "node --import tsx scripts/content-pipeline.mjs",
     "content:launch-gate": "node --import tsx scripts/content-pipeline.mjs launch:assets",
     "release:status": "node --import tsx scripts/content-pipeline.mjs site:release-status --live",
+    "site:release-ladder": "node --import tsx scripts/content-pipeline.mjs site:release-ladder",
     "brand:logo": "node scripts/generate-brand-logo.mjs",
     "draft:image-review": "node scripts/write-draft-image-review.mjs",
     "draft:decision": "node scripts/set-draft-decision.mjs",

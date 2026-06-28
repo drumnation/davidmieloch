@@ -65,6 +65,9 @@ import {
   writeObservation,
 } from './lib/observability.mjs';
 import {
+  runSiteReleaseLadder,
+} from './lib/site-release-ladder.mjs';
+import {
   approveArticleAudio,
   audioStatus,
   audioTranscriptStatus,
@@ -847,6 +850,17 @@ function siteReleaseStatusCommand() {
   };
 }
 
+async function siteReleaseLadderCommand(positionalSlug) {
+  const options = parseCommandOptions(3);
+  return runSiteReleaseLadder({
+    ...options,
+    slug: positionalSlug && !positionalSlug.startsWith('--')
+      ? positionalSlug
+      : options.slug,
+    appRoot,
+  });
+}
+
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -887,7 +901,7 @@ function launchAssetTargets(slug, options) {
   const optionSlugs = options.slug
     ? String(options.slug).split(',').map((value) => value.trim()).filter(Boolean)
     : [];
-  const argumentSlugs = slug && slug !== 'all'
+  const argumentSlugs = slug && slug !== 'all' && !String(slug).startsWith('--')
     ? String(slug).split(',').map((value) => value.trim()).filter(Boolean)
     : [];
   const explicitSlugs = [...argumentSlugs, ...optionSlugs];
@@ -1004,6 +1018,7 @@ function articleLaunchAssetStatus(slug, options = {}) {
 
 function launchAssetsCommand(slug) {
   const options = parseCommandOptions(3);
+  const effectiveSlug = slug && !String(slug).startsWith('--') ? slug : null;
   const targets = launchAssetTargets(slug, options);
   const articles = targets.map((targetSlug) => articleLaunchAssetStatus(targetSlug, options));
   const failures = articles.flatMap((article) => (
@@ -1022,7 +1037,7 @@ function launchAssetsCommand(slug) {
     paidGenerationPerformed: false,
     command: 'launch:assets',
     safeDefault: 'verification-only-no-generation-no-deploy',
-    targetMode: slug ?? (options.slug ? 'explicit-options' : 'all-published'),
+    targetMode: effectiveSlug ?? (options.slug ? 'explicit-options' : 'all-published'),
     summary: {
       targets: targets.length,
       passed: articles.filter((article) => article.status === 'passed').length,
@@ -2551,6 +2566,7 @@ function usage() {
   pnpm content:pipeline queue:write [--skip-network] [--platform=<id>|--platforms=<id,id>] [--lane=<lane>] [--action=<action>] [--blocked=true|false] [--limit=10] [--output=<path>]
   pnpm content:pipeline validate
   pnpm content:pipeline site:release-status [--live] [--slug=<article-slug>] [--route=/path] [--staging-url=<url>] [--production-url=<url>]
+  pnpm content:pipeline site:release-ladder <slug|--slug=<slug[,slug]>> [--execute] [--receipt=<path>]
   pnpm content:pipeline launch:assets [<article-slug>|all] [--slug=<article-slug,article-slug>] [--require-cover]
   pnpm content:pipeline observe:bootstrap
   pnpm content:pipeline launch:due [--now=<iso-date>]
@@ -2621,6 +2637,7 @@ Safety:
   - metrics commands write local observation data only.
   - content:ledger writes inventory/report artifacts only.
   - site:release-status reads local git/content state and optional live URLs only; it does not deploy.
+  - site:release-ladder is dry-run by default. --execute runs launch gates, promotes main, deploys staging, verifies staging routes/RSS/audio, deploys production, verifies production routes/RSS/audio, and writes a release receipt.
   - launch:assets verifies existing release artifacts only; it does not generate audio, publish, or deploy.
   - social commands write local packages, manifests, schedules, n8n packets, and refusal records only.
   - social:postiz:push renders a dry-run Postiz draft plan from connected channels; --dry-run=false creates Postiz DRAFT records only and requires POSTIZ_API_KEY.
@@ -2691,6 +2708,9 @@ async function runCommand(command, slug) {
   }
   if (command === 'site:release-status') {
     return siteReleaseStatusCommand();
+  }
+  if (command === 'site:release-ladder') {
+    return siteReleaseLadderCommand(slug);
   }
   if (command === 'launch:assets') {
     return launchAssetsCommand(slug);
