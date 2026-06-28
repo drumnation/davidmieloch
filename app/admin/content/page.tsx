@@ -1,14 +1,14 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-import { buildContentOpsSnapshot } from '../../../src/content-ops/server';
-import { ContentOpsConsole } from '../../../src/shared-components/organisms/ContentOpsConsole';
+import { buildContentOpsSnapshot } from "../../../src/content-ops/server";
+import { ContentOpsConsole } from "../../../src/shared-components/organisms/ContentOpsConsole";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: 'Content Ops Console',
-  description: 'Internal control room for davidmieloch.com content operations.',
+  title: "Content Ops Console",
+  description: "Internal control room for davidmieloch.com content operations.",
   robots: {
     index: false,
     follow: false,
@@ -16,11 +16,16 @@ export const metadata: Metadata = {
 };
 
 export default function ContentOpsAdminPage() {
-  if (process.env.CONTENT_OPS_ENABLED !== '1') {
+  if (process.env.CONTENT_OPS_ENABLED !== "1") {
     notFound();
   }
 
   const snapshot = buildContentOpsSnapshot();
 
-  return <ContentOpsConsole snapshot={snapshot} />;
+  return (
+    <ContentOpsConsole
+      snapshot={snapshot}
+      writeEnabled={process.env.CONTENT_OPS_WRITE_ENABLED === "1"}
+    />
+  );
 }

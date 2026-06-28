@@ -1,10 +1,18 @@
-import type { ContentOpsSnapshot } from '../../../content-ops/types';
+import type { ContentOpsSnapshot } from "../../../content-ops/types";
+import { ContentOpsConsoleActions } from "./ContentOpsConsoleActions";
 
-import styles from './ContentOpsConsole.module.css';
+import styles from "./ContentOpsConsole.module.css";
 
 type ContentOpsConsoleProps = {
   snapshot: ContentOpsSnapshot;
-  mode?: 'full' | 'overview' | 'scheduling' | 'readiness' | 'agent' | 'receipts';
+  writeEnabled?: boolean;
+  mode?:
+    | "full"
+    | "overview"
+    | "scheduling"
+    | "readiness"
+    | "agent"
+    | "receipts";
 };
 
 function StatCard({ label, value }: { label: string; value: string | number }) {
@@ -22,13 +30,14 @@ function EmptyState({ children }: { children: string }) {
 
 export function ContentOpsConsole({
   snapshot,
-  mode = 'full',
+  writeEnabled = false,
+  mode = "full",
 }: ContentOpsConsoleProps) {
-  const showOverview = mode === 'full' || mode === 'overview';
-  const showScheduling = mode === 'full' || mode === 'scheduling';
-  const showReadiness = mode === 'full' || mode === 'readiness';
-  const showAgent = mode === 'full' || mode === 'agent';
-  const showReceipts = mode === 'full' || mode === 'receipts';
+  const showOverview = mode === "full" || mode === "overview";
+  const showScheduling = mode === "full" || mode === "scheduling";
+  const showReadiness = mode === "full" || mode === "readiness";
+  const showAgent = mode === "full" || mode === "agent";
+  const showReceipts = mode === "full" || mode === "receipts";
 
   return (
     <main className={styles.shell}>
@@ -50,12 +59,21 @@ export function ContentOpsConsole({
       </section>
 
       {showOverview ? (
-        <section className={styles.panel} aria-labelledby="content-ops-overview">
+        <section
+          className={styles.panel}
+          aria-labelledby="content-ops-overview"
+        >
           <h2 id="content-ops-overview">Overview</h2>
           <div className={styles.statsGrid}>
-            <StatCard label="Published" value={snapshot.counts.publishedArticles} />
+            <StatCard
+              label="Published"
+              value={snapshot.counts.publishedArticles}
+            />
             <StatCard label="Drafts" value={snapshot.counts.websiteDrafts} />
-            <StatCard label="Needs schedule" value={snapshot.counts.needsScheduling} />
+            <StatCard
+              label="Needs schedule"
+              value={snapshot.counts.needsScheduling}
+            />
             <StatCard label="Blockers" value={snapshot.counts.blockers} />
           </div>
           {snapshot.latestLiveArticle ? (
@@ -104,6 +122,13 @@ export function ContentOpsConsole({
         </section>
       ) : null}
 
+      {showScheduling ? (
+        <ContentOpsConsoleActions
+          candidates={snapshot.approvedUnscheduled}
+          writeEnabled={writeEnabled}
+        />
+      ) : null}
+
       {showReadiness ? (
         <section
           className={styles.panel}
@@ -136,7 +161,7 @@ export function ContentOpsConsole({
               {snapshot.nextActions.map((action) => (
                 <article className={styles.statusCard} key={action.id}>
                   <span className={styles.status}>
-                    {action.safe ? 'safe' : 'blocked'}
+                    {action.safe ? "safe" : "blocked"}
                   </span>
                   <h3>{action.label}</h3>
                   <p>{action.reason}</p>
@@ -145,20 +170,25 @@ export function ContentOpsConsole({
               ))}
             </div>
           ) : (
-            <EmptyState>No safe agent action is currently recommended.</EmptyState>
+            <EmptyState>
+              No safe agent action is currently recommended.
+            </EmptyState>
           )}
         </section>
       ) : null}
 
       {showReceipts ? (
-        <section className={styles.panel} aria-labelledby="content-ops-receipts">
+        <section
+          className={styles.panel}
+          aria-labelledby="content-ops-receipts"
+        >
           <h2 id="content-ops-receipts">Receipts</h2>
           {snapshot.receipts.length > 0 ? (
             <div className={styles.cardGrid}>
               {snapshot.receipts.map((receipt) => (
                 <article className={styles.statusCard} key={receipt.path}>
                   <span className={styles.status}>{receipt.status}</span>
-                  <h3>{receipt.command ?? 'receipt'}</h3>
+                  <h3>{receipt.command ?? "receipt"}</h3>
                   <p>{receipt.path}</p>
                 </article>
               ))}

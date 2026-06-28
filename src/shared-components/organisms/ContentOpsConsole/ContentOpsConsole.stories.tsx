@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { contentOpsFixture } from '../../../content-ops/fixtures';
+import { contentOpsFixture } from "../../../content-ops/fixtures";
 
-import { ContentOpsConsole } from './ContentOpsConsole';
+import { ContentOpsConsole } from "./ContentOpsConsole";
 
 const meta = {
-  title: 'Content Ops Console/07 Full Journey',
+  title: "Content Ops Console/07 Full Journey",
   component: ContentOpsConsole,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 } satisfies Meta<typeof ContentOpsConsole>;
 
@@ -18,54 +18,57 @@ type Story = StoryObj<typeof meta>;
 export const FullJourney: Story = {
   args: {
     snapshot: contentOpsFixture,
-    mode: 'full',
+    mode: "full",
+    writeEnabled: false,
   },
 };
 
 export const Overview: Story = {
-  name: '01 Overview',
+  name: "01 Overview",
   args: {
     snapshot: contentOpsFixture,
-    mode: 'overview',
+    mode: "overview",
   },
 };
 
 export const NeedsScheduling: Story = {
-  name: '02 Needs Scheduling',
+  name: "02 Needs Scheduling",
   args: {
     snapshot: contentOpsFixture,
-    mode: 'scheduling',
+    mode: "scheduling",
+    writeEnabled: false,
   },
 };
 
 export const ScheduleBoard: Story = {
-  name: '03 Schedule Board',
+  name: "03 Schedule Board",
   args: {
     snapshot: contentOpsFixture,
-    mode: 'scheduling',
+    mode: "scheduling",
+    writeEnabled: true,
   },
 };
 
 export const ReadinessAndBlockers: Story = {
-  name: '04 Readiness And Blockers',
+  name: "04 Readiness And Blockers",
   args: {
     snapshot: contentOpsFixture,
-    mode: 'readiness',
+    mode: "readiness",
   },
 };
 
 export const AgentActions: Story = {
-  name: '05 Agent Actions',
+  name: "05 Agent Actions",
   args: {
     snapshot: contentOpsFixture,
-    mode: 'agent',
+    mode: "agent",
   },
 };
 
 export const Receipts: Story = {
-  name: '06 Receipts',
+  name: "06 Receipts",
   args: {
     snapshot: contentOpsFixture,
-    mode: 'receipts',
+    mode: "receipts",
   },
 };

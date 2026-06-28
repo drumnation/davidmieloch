@@ -2,7 +2,11 @@
   min-height: 100vh;
   padding: 96px 24px;
   background:
-    radial-gradient(circle at 20% 0%, rgba(255, 189, 104, 0.16), transparent 32rem),
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(255, 189, 104, 0.16),
+      transparent 32rem
+    ),
     linear-gradient(135deg, #0e1116 0%, #15191f 48%, #0d1014 100%);
   color: #f8efe0;
 }
@@ -123,10 +127,125 @@
   color: #ffbd68;
 }
 
+.actionHeader {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.actionHeader h2 {
+  margin-bottom: 0;
+}
+
+.writeOn,
+.writeOff {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.writeOn {
+  color: #102014;
+  background: #9cf1b0;
+}
+
+.writeOff {
+  color: #20160f;
+  background: #ffbd68;
+}
+
+.actionIntro,
+.actionNote {
+  max-width: 860px;
+  color: #d9cdbc;
+  line-height: 1.55;
+}
+
+.actionForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.actionForm label {
+  display: grid;
+  gap: 8px;
+  color: #f8efe0;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.actionForm input,
+.actionForm select {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid rgba(248, 239, 224, 0.2);
+  border-radius: 10px;
+  background: rgba(10, 12, 15, 0.82);
+  color: #f8efe0;
+  font: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.actionButtons {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  gap: 10px;
+}
+
+.actionButtons button {
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #f8efe0;
+  color: #11151a;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.actionButtons button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.actionError {
+  padding: 12px;
+  border: 1px solid rgba(255, 112, 112, 0.4);
+  border-radius: 10px;
+  color: #ffd1d1;
+  background: rgba(120, 20, 20, 0.2);
+}
+
+.actionResult {
+  overflow-x: auto;
+  padding: 14px;
+  border: 1px solid rgba(156, 241, 176, 0.28);
+  border-radius: 12px;
+  background: rgba(10, 12, 15, 0.82);
+  color: #9cf1b0;
+}
+
 @media (max-width: 860px) {
   .hero,
   .statsGrid,
-  .cardGrid {
+  .cardGrid,
+  .actionForm {
     grid-template-columns: 1fr;
+  }
+
+  .actionHeader {
+    display: grid;
   }
 }
