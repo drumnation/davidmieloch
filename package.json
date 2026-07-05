@@ -9,7 +9,7 @@
     "dev:turbo": "next dev -p 4000 --turbo",
     "dev:fast": "NODE_OPTIONS='--max-old-space-size=4096' next dev -p 4000",
     "dev:stories": "concurrently \"pnpm storybook\" \"pnpm test:storybook:watch\"",
-    "build": "next build",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --project tsconfig.json --noEmit",
