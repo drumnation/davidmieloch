@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/reuse-your-code-authoring-your-own-universal-library-with-webpack-89d43e6ea9df"
 canonicalUrl: "https://davidmieloch.com/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack"
+coverImage: "/blog/reuse-your-code-authoring-your-own-universal-library-with-webpack/images/medium-01.png"
 series: "Legacy Engineering Notes"
 tags: ["webpack", "javascript"]
 ---

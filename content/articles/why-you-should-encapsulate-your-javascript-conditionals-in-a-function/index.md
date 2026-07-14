@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/why-you-should-encapsulate-your-javascript-conditionals-in-a-function-4a492853c397"
 canonicalUrl: "https://davidmieloch.com/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function"
+coverImage: "/blog/why-you-should-encapsulate-your-javascript-conditionals-in-a-function/images/medium-01.png"
 series: "Legacy Engineering Notes"
 tags: ["organization", "code", "javascript"]
 ---

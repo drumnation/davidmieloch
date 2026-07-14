@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/what-i-learned-building-a-photoshop-in-the-browser-da72c963b185"
 canonicalUrl: "https://davidmieloch.com/blog/what-i-learned-building-a-photoshop-in-the-browser"
+coverImage: "/blog/what-i-learned-building-a-photoshop-in-the-browser/images/medium-01.jpg"
 series: "Legacy Engineering Notes"
 tags: ["reactjs", "engineering-leadership", "frontend-development", "design-systems", "architecture"]
 ---

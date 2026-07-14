@@ -1,6 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
-
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
@@ -11,42 +8,30 @@ export async function GET(request: Request) {
   const url = new URL(request.url);
   const publicPath = url.searchParams.get("path") ?? "";
 
-  if (!publicPath.startsWith("/blog/") || publicPath.includes("..")) {
+  if (!isValidPublicImagePath(publicPath)) {
     return NextResponse.json(
       { ok: false, error: "invalid image path" },
       { status: 400 },
     );
   }
 
-  const imagePath = path.join(process.cwd(), "public", publicPath);
+  const imageUrl = new URL(publicPath, url.origin);
+  imageUrl.searchParams.set("draft-lab-cache-bust", Date.now().toString());
 
-  if (!imagePath.startsWith(path.join(process.cwd(), "public", "blog"))) {
-    return NextResponse.json(
-      { ok: false, error: "invalid image path" },
-      { status: 400 },
-    );
-  }
-
-  if (!fs.existsSync(imagePath)) {
-    return NextResponse.json(
-      { ok: false, error: "image not found" },
-      { status: 404 },
-    );
-  }
-
-  const image = fs.readFileSync(imagePath);
-
-  return new NextResponse(image, {
+  return NextResponse.redirect(imageUrl, {
+    status: 307,
     headers: {
-      "Content-Type": contentTypeForPath(imagePath),
       "Cache-Control": "no-store",
     },
   });
 }
 
-function contentTypeForPath(imagePath: string) {
-  const extension = path.extname(imagePath).toLowerCase();
-  if (extension === ".jpg" || extension === ".jpeg") return "image/jpeg";
-  if (extension === ".webp") return "image/webp";
-  return "image/png";
+function isValidPublicImagePath(publicPath: string) {
+  return (
+    publicPath.startsWith("/blog/") &&
+    !publicPath.includes("..") &&
+    !publicPath.includes("\\") &&
+    !publicPath.includes("?") &&
+    !publicPath.includes("#")
+  );
 }

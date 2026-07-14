@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/building-with-brain-garden-real-world-lessons-in-practical-ai-07cb45169341"
 canonicalUrl: "https://davidmieloch.com/blog/building-with-brain-garden-real-world-lessons-in-practical-ai"
+coverImage: "/blog/building-with-brain-garden-real-world-lessons-in-practical-ai/images/medium-01.png"
 series: "Legacy Engineering Notes"
 tags: ["developer-productivity", "ai-tools", "artificial-intelligence", "software-development"]
 ---

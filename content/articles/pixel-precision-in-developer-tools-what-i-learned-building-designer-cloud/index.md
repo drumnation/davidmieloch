@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud-1cdad85bb36d"
 canonicalUrl: "https://davidmieloch.com/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud"
+coverImage: "/blog/pixel-precision-in-developer-tools-what-i-learned-building-designer-cloud/images/medium-01.jpg"
 series: "Legacy Engineering Notes"
 tags: ["react", "frontend-development", "tools-for-design", "frontend"]
 ---

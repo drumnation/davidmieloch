@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/the-beauty-of-es6s-object-destructuring-assignment-3d547fcf5d8b"
 canonicalUrl: "https://davidmieloch.com/blog/the-beauty-of-es6s-object-destructuring-assignment"
+coverImage: "/blog/the-beauty-of-es6s-object-destructuring-assignment/images/medium-01.png"
 series: "Legacy Engineering Notes"
 tags: ["javascript", "es6"]
 ---

@@ -4,10 +4,8 @@ import { afterEach, describe, expect, it } from "vitest";
 
 const contentRoot = join(process.cwd(), "..", "content-test-fixture");
 const articlesRoot = join(contentRoot, "articles");
-const publicRoot = join(contentRoot, "public");
 
 process.env.CONTENT_ARTICLES_ROOT = articlesRoot;
-process.env.CONTENT_PUBLIC_ROOT = publicRoot;
 
 afterEach(() => {
   rmSync(contentRoot, { recursive: true, force: true });
@@ -91,7 +89,7 @@ coverImage: "/blog/newer-published/cover.png"
     ).toEqual(["newer-published"]);
   });
 
-  it("derives a cover image from the public article image folder", async () => {
+  it("reads an explicit cover image from article frontmatter", async () => {
     const { getPublishedArticle } = await import("./articles");
 
     writeArticle(
@@ -102,15 +100,11 @@ description: "Article with image assets"
 publishedAt: "2026-03-01"
 status: "published"
 canonicalUrl: "https://davidmieloch.com/blog/derived-cover"
+coverImage: "/blog/derived-cover/images/hero-panel.png"
 tags: ["assets"]
 `,
       "Article body",
     );
-
-    const imageDirectory = join(publicRoot, "blog", "derived-cover", "images");
-    mkdirSync(imageDirectory, { recursive: true });
-    writeFileSync(join(imageDirectory, "medium-01.png"), "");
-    writeFileSync(join(imageDirectory, "hero-panel.png"), "");
 
     expect(getPublishedArticle("derived-cover")?.coverImage).toBe(
       "/blog/derived-cover/images/hero-panel.png",

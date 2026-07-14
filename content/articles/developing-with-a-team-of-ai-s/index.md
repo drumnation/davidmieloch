@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/developing-with-a-team-of-ais-b1b2019ea44c"
 canonicalUrl: "https://davidmieloch.com/blog/developing-with-a-team-of-ai-s"
+coverImage: "/blog/developing-with-a-team-of-ai-s/images/medium-01.png"
 series: "Legacy Engineering Notes"
 tags: ["chatgpt", "ai", "claude-3", "prompt-engineering"]
 ---

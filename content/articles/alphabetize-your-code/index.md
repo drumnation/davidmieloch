@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/alphabetize-your-code-3f5df98b83ef"
 canonicalUrl: "https://davidmieloch.com/blog/alphabetize-your-code"
+coverImage: "/blog/alphabetize-your-code/images/medium-01.png"
 series: "Legacy Engineering Notes"
 tags: ["javascript", "organization"]
 ---

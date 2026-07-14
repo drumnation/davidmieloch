@@ -37,10 +37,6 @@ const SITE_URL = "https://davidmieloch.com";
 const ARTICLES_DIRECTORY =
   process.env.CONTENT_ARTICLES_ROOT ??
   join(process.cwd(), "content", "articles");
-const PUBLIC_DIRECTORY =
-  process.env.CONTENT_PUBLIC_ROOT ?? join(process.cwd(), "public");
-const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp"]);
-const COVER_NAME_PRIORITY = ["hero", "cover", "wall", "factory", "medium-01"];
 const ERA_BY_YEAR: Record<number, Omit<ContentEra, "year">> = {
   2026: {
     label: "Factory era",
@@ -178,39 +174,6 @@ function optionalString(
   return typeof value === "string" && value.length > 0 ? value : undefined;
 }
 
-function getExtension(filename: string): string {
-  const dotIndex = filename.lastIndexOf(".");
-
-  return dotIndex === -1 ? "" : filename.slice(dotIndex).toLowerCase();
-}
-
-function scoreImageName(filename: string): number {
-  const normalized = filename.toLowerCase();
-  const priorityIndex = COVER_NAME_PRIORITY.findIndex((name) =>
-    normalized.includes(name),
-  );
-
-  return priorityIndex === -1 ? COVER_NAME_PRIORITY.length : priorityIndex;
-}
-
-function findDerivedCoverImage(slug: string): string | undefined {
-  const imageDirectory = join(PUBLIC_DIRECTORY, "blog", slug, "images");
-
-  if (!existsSync(imageDirectory)) {
-    return undefined;
-  }
-
-  const image = readdirSync(imageDirectory)
-    .filter((filename) => IMAGE_EXTENSIONS.has(getExtension(filename)))
-    .sort((left, right) => {
-      const scoreDelta = scoreImageName(left) - scoreImageName(right);
-
-      return scoreDelta === 0 ? left.localeCompare(right) : scoreDelta;
-    })[0];
-
-  return image ? `/blog/${slug}/images/${image}` : undefined;
-}
-
 export function getContentEra(publishedAt: string): ContentEra {
   const year = new Date(publishedAt).getUTCFullYear();
   const era = ERA_BY_YEAR[year] ?? {
@@ -266,8 +229,7 @@ function readArticle(rootDirectory: string, slug: string): Article {
     commercialSummary: optionalString(frontmatter, "commercialSummary"),
     commercialConcept: optionalString(frontmatter, "commercialConcept"),
     singularityLabsCta: optionalString(frontmatter, "singularityLabsCta"),
-    coverImage:
-      optionalString(frontmatter, "coverImage") ?? findDerivedCoverImage(slug),
+    coverImage: optionalString(frontmatter, "coverImage"),
     body,
   };
 }

@@ -6,6 +6,7 @@ status: "published"
 sourcePlatform: "medium"
 sourceUrl: "https://medium.com/@davidmieloch/judgment-over-keystrokes-562f3500e845"
 canonicalUrl: "https://davidmieloch.com/blog/judgment-over-keystrokes"
+coverImage: "/blog/judgment-over-keystrokes/images/medium-01.jpg"
 series: "Legacy Engineering Notes"
 tags: ["interview", "leadership", "ai"]
 ---
