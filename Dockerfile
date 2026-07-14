@@ -36,7 +36,10 @@ ENV NODE_ENV=production \
 
 WORKDIR /app
 
-RUN groupadd --system --gid 1001 nextjs \
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd --system --gid 1001 nextjs \
     && useradd --system --uid 1001 --gid nextjs nextjs
 
 COPY --from=builder --chown=nextjs:nextjs /app/public ./public
