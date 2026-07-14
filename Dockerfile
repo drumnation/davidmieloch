@@ -14,6 +14,7 @@ FROM base AS dependencies
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml .npmrc ./
+COPY scripts/patch-react-floater-types.mjs ./scripts/patch-react-floater-types.mjs
 
 RUN pnpm install --frozen-lockfile
 
