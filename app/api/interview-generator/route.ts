@@ -4,9 +4,11 @@ import { masterPrompt } from './prompts/masterPrompt';
 
 export const runtime = 'edge';
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+function getOpenAIClient() {
+    const apiKey = process.env.OPENAI_API_KEY;
+
+    return apiKey ? new OpenAI({ apiKey }) : null;
+}
 
 // Add type interface at the top of the file
 interface InterviewInputs {
@@ -65,6 +67,17 @@ export async function POST(request: Request) {
                 }),
                 {
                     status: 400,
+                    headers: { 'Content-Type': 'application/json' }
+                }
+            );
+        }
+
+        const openai = getOpenAIClient();
+        if (!openai) {
+            return new Response(
+                JSON.stringify({ error: 'Interview generator is unavailable' }),
+                {
+                    status: 503,
                     headers: { 'Content-Type': 'application/json' }
                 }
             );
