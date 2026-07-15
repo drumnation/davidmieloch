@@ -7,8 +7,7 @@ ENV NEXT_TELEMETRY_DISABLED=1 \
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends chromium dumb-init \
     && rm -rf /var/lib/apt/lists/* \
-    && corepack enable \
-    && corepack prepare pnpm@9.15.9 --activate
+    && npm install --global pnpm@9.15.9
 
 WORKDIR /app
 
