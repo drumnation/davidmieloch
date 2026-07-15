@@ -16,7 +16,7 @@ RUN pnpm install --frozen-lockfile
 
 COPY . ./
 RUN pnpm run build \
-    && pnpm prune --prod \
+    && pnpm prune --prod --ignore-scripts \
     && groupadd --system --gid 10001 app \
     && useradd --system --uid 10001 --gid app --home-dir /app app \
     && chown --recursive app:app /app
