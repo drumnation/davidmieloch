@@ -1,0 +1,10 @@
+.git
+.next
+.brain
+node_modules
+coverage
+storybook-static
+.env*
+*.pem
+npm-debug.log*
+pnpm-debug.log*
