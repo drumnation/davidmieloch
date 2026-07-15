@@ -1,7 +1,6 @@
 FROM node:22.11.0-bookworm-slim
 
-ENV NODE_ENV=production \
-    NEXT_TELEMETRY_DISABLED=1 \
+ENV NEXT_TELEMETRY_DISABLED=1 \
     PUPPETEER_SKIP_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
@@ -22,6 +21,8 @@ RUN pnpm run build \
     && groupadd --system --gid 10001 app \
     && useradd --system --uid 10001 --gid app --home-dir /app app \
     && chown --recursive app:app /app
+
+ENV NODE_ENV=production
 
 USER app
 
