@@ -9,7 +9,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && npm install --global pnpm@9.15.9 \
     && groupadd --system --gid 10001 app \
-    && useradd --system --uid 10001 --gid app --home-dir /app app
+    && useradd --system --uid 10001 --gid app --home-dir /app app \
+    && install --directory --owner=app --group=app /app
 
 WORKDIR /app
 
