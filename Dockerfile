@@ -7,23 +7,23 @@ ENV NEXT_TELEMETRY_DISABLED=1 \
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends chromium dumb-init \
     && rm -rf /var/lib/apt/lists/* \
-    && npm install --global pnpm@9.15.9
+    && npm install --global pnpm@9.15.9 \
+    && groupadd --system --gid 10001 app \
+    && useradd --system --uid 10001 --gid app --home-dir /app app
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
-
-COPY . ./
-RUN pnpm run build \
-    && pnpm prune --prod --ignore-scripts \
-    && groupadd --system --gid 10001 app \
-    && useradd --system --uid 10001 --gid app --home-dir /app app \
-    && chown --recursive app:app /app
-
-ENV NODE_ENV=production
+COPY --chown=app:app package.json pnpm-lock.yaml ./
 
 USER app
+
+RUN pnpm install --frozen-lockfile
+
+COPY --chown=app:app . ./
+RUN pnpm run build \
+    && pnpm prune --prod --ignore-scripts
+
+ENV NODE_ENV=production
 
 EXPOSE 3000
 
