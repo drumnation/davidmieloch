@@ -5,7 +5,7 @@ ENV NEXT_TELEMETRY_DISABLED=1 \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 RUN apt-get update \
-    && apt-get install --yes --no-install-recommends chromium dumb-init \
+    && apt-get install --yes --no-install-recommends chromium curl dumb-init \
     && rm -rf /var/lib/apt/lists/* \
     && npm install --global pnpm@9.15.9 \
     && groupadd --system --gid 10001 app \
